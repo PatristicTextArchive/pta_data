@@ -1,9 +1,8 @@
-# Patristic Text Archive: A Digital Archive of Late Antique Christian Texts
+# Patristic Text Archive: An open access digital archive of antique Christian texts
 
-This repository contains all text files in the Patristic Text Archive. Please consult http://patristictextarchive.github.io/ for more information.
+This is the data repository for all texts in the [Patristic Text Archive](https://pta.bbaw.de).
 
-
-All texts and metadata are distributed according to [Capitains](https://capitains.org) guidelines.
+All texts and metadata are distributed according to [Capitains](https://capitains.org) guidelines and encoded according to the [Patristic Text Archive Schema](https://github.com/PatristicTextArchive/Schema).
 
 LICENSE: The individual files are licensed by different Creative Commons Licenses. The respective license is mentioned in the header of each file.
 
