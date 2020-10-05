@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title xml:lang="la">Epistula ad Afros</title>
+                <author><persName key="pta0022">Athanasius Alexandrinus</persName></author>
+                <funder>Deutsche Forschungsgemeinschaft</funder>
+                <respStmt>
+                    <persName xml:id="AvS">Annette von Stockhausen</persName>
+                    <resp>Conversion to CTS-compliant PTA TEI. Markup of places and persons.</resp>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Arbeitsstelle Athanasius Werke, FAU Erlangen-Nürnberg</authority>
+                <distributor>Patristic Text Archive</distributor>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+                </availability>
+                <date>2018</date>
+                <idno type="PTA">pta0022.pta013</idno>
+                <idno type="CPG">2132</idno>
+                <idno type="Aldama"/>
+                <idno type="Pinakes-Oeuvre">4970</idno>
+            </publicationStmt>
+            <sourceDesc>
+                <bibl xml:id="AW_II_8">
+                    <note>Critical edition (without critical apparatus; based on http://www.athanasius.theologie.uni-erlangen.de/apolconst.html)</note>
+                    <title>Athanasius Werke. Band 2: Die »Apologien«. Lieferung 8: Apologia ad Constantium / Epistula ad Ioannem et Antiochum / Epistula ad Palladium / Epistula ad Dracontium / Epistula ad Afros / Tomus ad Antiochenos / Epistula ad Jovianum / Epistula Joviani ad Athanasium / Petitiones Arianorum</title>
+                    <editor>
+                        <forename>Hanns Christof</forename>
+                        <surname>Brennecke</surname>
+                    </editor>
+                    <editor>
+                        <forename>Uta</forename>
+                        <surname>Heil</surname>
+                    </editor>
+                    <editor>
+                        <forename>Annette</forename>
+                        <surname>von Stockhausen</surname>
+                    </editor>
+                    <publisher>Walter de Gruyter</publisher>
+                    <pubPlace>Berlin/New York</pubPlace>
+                    <biblScope unit="page" from="322" to="339">322–339</biblScope>
+                    <date when="2006">2006</date>
+                </bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <refsDecl n="CTS">
+                <cRefPattern n="section" matchPattern="(.+).(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+                <cRefPattern n="chapter" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+            </refsDecl>
+            <refsDecl xml:id="biblical">
+                <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+                    <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+                    <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+                </cRefPattern>
+                <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+                    <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+                </cRefPattern>
+                <cRefPattern matchPattern="(.+):(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+                    <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+                </cRefPattern>
+            </refsDecl>
+            <editorialDecl>
+                <interpretation>
+                    <p xml:id="biblical-quotations">
+                        Bibelzitate sind ausgezeichnet und nach den oben angeführten Grundsätzen nachgewiesen.
+                    </p>
+                    <p xml:id="places">
+                        Orte sind ausgezeichnet und mit den IDs des
+                        <ref target="https://pleiades.stoa.org/">Pleiades Gazetteers</ref>
+                        referenziert.
+                    </p>
+                    <p xml:id="persons">
+                        Personen sind ausgezeichnet. Biblische Personen sind mit den IDs der
+                        <ref target="https://github.com/tyndale/STEPBible-Data">TIPNR - Tyndale Individualised Proper Names with all References</ref>-Liste, alle übrigen Personen mit den IDs der
+                        <ref target="https://lobid.org/gnd">GND</ref>
+                        referenziert.
+                    </p>
+                </interpretation>
+                <normalization>
+                    <p>
+                        Angaben zur Handhabung von Großschreibung, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum,
+                           Trema, Enklitika, Apostroph/Elisionen, Zahlzeichen, Worttrennung, nomina sacra.
+                    </p>
+                </normalization>
+                <punctuation>
+                    <p>
+                        Angaben zur Normalisierung der Interpunktion: Setzung von Punkt,
+                         	         Komma, Semikolon, Fragezeichen, Gedankenstrichen und Klammern
+                    </p>
+                </punctuation>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy xml:id="comphistsem">
+                    <bibl>
+                        Text Type Classification by
+                        <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+                    </bibl>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc>
+            <creation>
+                <date notBefore="0030" notAfter="0800"/>
+                <placeName ref="https://pleiades.stoa.org/places/XXXXX">
+                    placeName missing
+                </placeName>
+            </creation>
+            <textClass>
+                <keywords scheme="#comphistsem">
+                    <term>
+                        Genre missing
+                    </term>
+                </keywords>
+            </textClass>
+        </profileDesc>
+        <revisionDesc status="critical-edition-no-app">
+            <change when="2019-12-17" who="#AvS">
+                Updated file to comply with version 1.2 of
+                <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+            </change>
+            <change when="2018-11-02" who="#AvS">Converted to PTA/CapiTainS</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="praefatio" xml:lang="deu">
+                <p>Das Schreiben (kein Synodalschreiben; der Titel in den Hss. BKPO basiert auf einem Mißver­ständ­nis von 10,2) richtet sich nach der Angabe im Titel an die Bischöfe der Diözese Africa. Anlaß waren nach 1,3 offensichtlich homöische Aktivitäten in dieser Diözese, vor denen Athanasius mit dem Schreiben warnen will. Er betont aus diesem Grund nachdrücklich die Suffizienz der Beschlüsse der Synode von Nizäa, v.a. ihrer Kernbegriffe ἐκ τῆς οὐσίας und ὁμοούσιος, und akzentuiert diese deut­lich gegenüber der homöischen Terminologie in polemischer Auseinandersetzung mit den Synoden von Rimini, Nike und Konstantinopel (359/60). Terminus post quem für die Abfassung ist der Be­ginn des Episkopats des Damasus von Rom im Oktober 366, der terminus post quem non der Tod des Athanasius am 2. Mai 373. Voraus gehen ein Schreiben einer ägyptischen Synode nach Rom, das auf eine römische Synode unter Damasus reagiert (10,3), sowie ein Schreiben evtl. dieser römischen Synode (1,1) nach Alexandrien. Über frühe synodale Aktivitäten und eine Kontaktaufnahme des Da­masus mit Alexandrien, der seine Position in Rom sicherlich dadurch sichern wollte, sind wir auch sonst unter­richtet (vgl. nur Syn.vet. 67f.; mit der damasinischen Epistula Confidimus quidem besteht allerdings nur ein inhaltlicher, keinesfalls ein literarischer Zusammenhang), so daß die im Brief ge­nann­ten, sonst aber nicht bezeugten Synoden an den Beginn des damasinischen Episkopats gesetzt werden können. In der Mitte der 60er Jahre ist außerdem wie in der ep.Afr. eine verstärkte synodale und literarische Auseinandersetzung mit den Beschlüssen der Synoden von Rimini/Nike/Konstanti­no­pel und deren exponierten Vertretern (Valens, Ursacius, Auxentius) zu beobachten (vgl. u.a. Hil., c. Aux.; Socr., h.e. IV 4; 12). Daher ist eine Abfassung im Jahr 366/67 wahrscheinlich. Zweifel an der Echt­heit des Schreibens sind unbegründet.</p>
+                <p>Vgl. auch Stockhausen, Annette von. Athanasius von Alexandrien. Epistula ad Afros. Einleitung, Kommentar und Übersetzung. Patristische Texte und Studien 56. Berlin/New York: Walter de Gruyter, 2002.</p>
+            </div>
+            <div type="edition" xml:lang="grc" n="urn:cts:pta:pta0022.pta014.pta-grc1">
+                <head>
+                    <title>Τοῦ αὐτοῦ
+                        <persName>Ἀθανασίου</persName>
+                        ἐπισκόπου
+                        <placeName>Ἀλεξανδρείας</placeName>
+                        πρὸς τοὺς ἐν τῇ
+                        <placeName>Ἀφρικῇ</placeName>
+                        ἐπισκόπους</title>
+                </head>
+                <div type="textpart" subtype="chapter" n="1">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Ἱκανὰ μὲν τὰ γραφέντα παρά τε τοῦ ἀγαπητοῦ καὶ συλλειτουργοῦ ἡμῶν
+                            <persName>Δαμά­σου</persName>
+                            τοῦ ἐπισκόπου τῆς μεγάλης
+                            <placeName>Ῥώμης</placeName>
+                            καὶ τῶν σὺν αὐτῷ τοσούτων συνελθόν­των ἐπισκόπων, οὐδὲν δὲ ἧττον καὶ τὰ τῶν ἄλλων γενομένων συνόδων ἔν τε τῇ
+                            <placeName>Γαλλίᾳ</placeName>
+                            καὶ τῇ
+                            <placeName>Ἰταλίᾳ</placeName>
+                            περὶ
+                            <seg type="allusion">τῆς ὑγιαινούσης πίστεως<ref decls="#biblical" cRef="NA:Tt:1:13"/>
+                            </seg>, ἣν ὁ μὲν κύριος ἐχαρίσατο, οἱ δὲ ἀπόστολοι ἐκήρυξαν καὶ οἱ πατέρες παραδεδώκασιν οἱ ἐν τῇ
+                            <placeName>Νικαίᾳ</placeName>
+                            συνελ­θόντες ἀπὸ πάσης τῆς καθ’ ἡμᾶς οἰκουμένης. τοσαύτη γὰρ γέγονε τότε σπουδὴ διὰ τὴν ἀρειανὴν αἵρεσιν, ἵνα οἱ μὲν πεπτωκότες εἰς αὐτὴν ἀνασπα­σθῶσιν, οἱ δὲ ἐφευρόντες ἔκδηλοι γένωνται.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>ταύτῃ γοῦν καὶ πάλαι πᾶσα ἡ οἰκουμένη συμ­πεφώνηκε καὶ νῦν δὲ πολλῶν συνόδων γενομένων ὑπομνησθέντες πάντες οἵ τε κατὰ τὴν
+                            <placeName>Δαλματίαν</placeName>
+                            καὶ
+                            <placeName>Δαρδανίαν</placeName>
+                            καὶ
+                            <placeName>Μακεδονίαν</placeName>
+                            <placeName>Ἠπείρους</placeName>
+                            τε καὶ τὴν
+                            <placeName>Ἑλλάδα</placeName>
+                            καὶ
+                            <placeName>Κρήτην</placeName>
+                            καὶ
+                            <placeName>τὰς ἄλλας νήσους</placeName>
+                            <placeName>Σικελίαν</placeName>
+                            τε καὶ
+                            <placeName>Κύπρον</placeName>
+                            καὶ
+                            <placeName>Παμφυ­λίαν</placeName>
+                            <placeName>Λυκίαν</placeName>
+                            τε καὶ
+                            <placeName>Ἰσαυρίαν</placeName>
+                            καὶ πᾶσαν τὴν
+                            <placeName>Αἴγυπτον</placeName>
+                            καὶ τὰς
+                            <placeName>Λιβύας</placeName>
+                            καὶ πλεῖ­στοι τῶν ἐν τῇ
+                            <placeName>Ἀραβίᾳ</placeName>
+                            ταύτην ἐπέγνωσαν καὶ ἐθαύμασάν τε τοὺς ὑπογράψαν­τας, ὅτι εἰ καί τι περιελέλειπτο παρ’ αὐτοῖς ἐκ τῆς
+                            <quote>ῥίζης<seg type="insertion">
+                                    <add>τῆς</add>
+                                    τῶν ἀρειανῶν</seg>
+                                ἄνω φύουσα πι­κρία<ref decls="#biblical" cRef="LXX:Dt:29:17"/>
+                            </quote>,
+                            <persName>Αὐξέντιόν</persName>
+                            φαμεν καὶ
+                            <persName>Οὐρσάκιον</persName>
+                            καὶ
+                            <persName>Οὐάλεντα</persName>
+                            καὶ τοὺς τὰ αὐτὰ φρονοῦν­τας αὐτοῖς, οὗτοι διὰ τῶν γραμμάτων τούτων ἐξεκόπησαν καὶ ἀπηλεί­φθησαν.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>ἱκανὰ μὲν οὖν τὰ ἐν τῇ
+                            <placeName>Νικαίᾳ</placeName>
+                            ὁμολογηθέντα καὶ αὐτάρκη, καθὰ προείπομεν, πρός τε ἀνατροπὴν πάσης ἀσεβοῦς αἱρέσεως καὶ πρὸς ἀσφά­λειαν καὶ ὠφέλειαν τῆς ἐκκλησιαστικῆς διδασκαλίας. ἐπειδὴ δὲ ἠκούσαμεν, ὅτι τινὲς βουλόμενοι μάχεσθαι πρὸς αὐτὴν ὀνομάζειν ἐπιχειροῦσι σύνοδόν τινα ὡς ἐν
+                            <placeName>Ἀρι­μήνῳ</placeName>
+                            γενομένην καὶ φιλονεικοῦσι ταύτην μᾶλλον ἢ ἐκείνην κρατεῖν, ἀναγκαῖον ἡγησάμεθα γράψαι καὶ ὑπομνῆσαι ὑμᾶς, ἵνα μὴ ἀνέχησθε τῶν τοιούτων· τοῦτο γὰρ οὐδὲν ἕτερόν ἐστιν ἢ πάλιν τῆς ἀρειανῆς αἱρέσεως παραφυάς.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>οἱ γὰρ τὴν κατ’ αὐτῆς σύνοδον γενο­μένην παραιτούμενοι ­– ἔστι δὲ ἡ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            γενομένη – τί ἕτερον βούλονται ἢ τὰ
+                            <persName>Ἀρείου</persName>
+                            κρατεῖν; τίνος οὖν ἄξιοι οἱ τοιοῦτοι ἢ Ἀρειανοὶ μὲν καλεῖσθαι, τῆς δὲ αὐ­τῆς ἐπιτιμίας ἐκείνοις μετασχεῖν; οἳ
+                            <seg type="allusion">μήτε τὸν θεὸν ἐφοβήθησαν<ref decls="#biblical" cRef="LXX:Dt:6:13"/>
+                            </seg>
+                            λέγοντα·
+                            <quote>μὴ μέται­ρε ὅρια αἰώνια, ἃ ἔθεντο οἱ πατέρες σου<ref decls="#biblical" cRef="LXX:Prov:22:28"/>
+                            </quote>
+                            καί
+                            <quote>ὁ κακολογῶν πατέρα ἢ μητέρα θανάτῳ τελευτάτω<ref decls="#biblical" cRef="LXX:Ex:21:16"/>
+                            </quote>
+                            μήτε τοὺς πατέρας ᾐδέσθησαν παραγγεί­λαντας ἀνάθεμα εἶναι τοὺς τὰ ἐναντία φρονοῦντας τῆς ὁμολογίας αὐτῶν.
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="2">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Διὰ τοῦτο γὰρ καὶ οἰκουμενικὴ γέγονεν ἡ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            σύνοδος τριακοσίων δέκα καὶ ὀκτὼ συνελθόντων ἐπισκόπων περὶ τῆς πίστεως διὰ τὴν ἀρειανὴν ἀσέβειαν, ἵνα μηκέτι κατὰ μέρος προφάσει πίστεως γίνωνται, ἀλλὰ κἂν γένωνται μὴ κρα­τῶσι.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>τί γὰρ ἐκείνῃ λείπει, ἵνα καινότερα ζητήσῃ τις; πλήρης ἐστὶν εὐσεβείας, ἀγαπητοί· αὕτη πᾶσαν τὴν οἰκουμένην πεπλήρωκε. ταύτην ἔγνωσαν καὶ
+                            <placeName>Ἰνδοὶ</placeName>
+                            καὶ ὅσοι παρὰ τοῖς ἄλλοις βαρβάροις εἰσὶ Χριστιανοί. οὐκοῦν
+                            <seg type="allusion">μάταιος<ref decls="#biblical" cRef="LXX:Ps:93:11"/>
+                            </seg>
+                            ὁ κάματος τοῖς κατ’ αὐτῆς πολλάκις ἐπιχειρήσασιν.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>ἤδη γὰρ οἱ τοιοῦτοι δέκα καὶ πλέον που συνόδους πεποιήκασι καθ’ ἑκάστην μεταβαλλόμενοι καὶ τὰ μὲν ἀπὸ τῶν πρωτῶν ἀφαιροῦντες, τὰ δὲ ταῖς μετὰ ταῦτα ἐναλλάσσοντες καὶ προστιθέντες. καὶ ὤνησαν οὐδὲν μέχρι νῦν γράφοντες ἐξαλείφοντες βιαζόμενοι οὐκ εἰδότες, ὅτι
+                            <quote>πᾶσα μὲν φυτεία ἣν οὐκ ἐφύτευσεν ὁ πατὴρ ὁ οὐράνιος ἐκριζωθήσεται<ref decls="#biblical" cRef="NA:Mt:15:13"/>
+                            </quote>,
+                            <quote>τὸ δὲ ῥῆμα τοῦ κυρίου<ref decls="#biblical" cRef="LXX:Is:40:8"/>
+                            </quote>
+                            τὸ διὰ τῆς οἰκουμενικῆς συνόδου ἐν τῇ
+                            <placeName>Νικαίᾳ</placeName>
+                            γενόμενον
+                            <quote>μένει εἰς τὸν αἰῶνα<ref decls="#biblical" cRef="LXX:Is:40:8"/>
+                            </quote>.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>ἄν τε γὰρ ἀριθμὸν ἀριθμῷ τις συμβάλοι, πλείους οἱ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            τῶν κατὰ μέρος εἰσίν, ὅσον καὶ τὸ ὅλον πλεῖόν ἐστι τοῦ μέρους. ἄν τε τὸ αἴτιον τῆς ἐν Νικαίᾳ καὶ τῶν μετὰ ταύτην τοσούτων γενομένων συνόδων παρὰ τούτων διαγνῶναί τις ἐθέλοι, εὕροι ἂν τὴν μὲν ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            ἔχουσαν τὸ αἴτιον εὔλογον, τὰς δὲ ἄλλας διὰ μῖσος καὶ φιλονεικίαν ἐκ βίας συγκροτηθείσας.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="5">
+                        <p>ἡ μὲν γὰρ διὰ τὴν ἀρειανὴν αἵρεσιν καὶ διὰ τὸ πάσχα συνήχθη, ἐπειδὴ οἱ κατὰ
+                            <placeName>Συρίαν</placeName>
+                            καὶ
+                            <placeName>Κιλικίαν</placeName>
+                            καὶ
+                            <placeName>Μεσοποταμίαν</placeName>
+                            διεφώνουν πρὸς ἡμᾶς καὶ τῷ καιρῷ, ἐν ᾧ ποιοῦσιν οἱ Ἰουδαῖοι, ἐποίουν καὶ αὐτοί. ἀλλὰ χάρις τῷ κυρίῳ, ὥσπερ περὶ τῆς πίστεως οὕτω καὶ περὶ τῆς ἁγίας ἑορτῆς γέγονε συμφωνία. καὶ τοῦτο ἦν τὸ αἴτιον τῆς ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            συν­όδου· αἱ δὲ μετὰ ταύτην ὑπὲρ
+                            <persName>Ἀρείου</persName>
+                            μέν, κατὰ δὲ τῆς οἰκουμενικῆς συνόδου ἐπενοήθησαν.
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="3">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Τούτων δὲ οὕτω δεικνυμένων τίς ἀποδέξεται τοὺς τὴν
+                            <placeName>Ἀρίμηνον</placeName>
+                            ἢ ἄλλην σύν­οδον παρὰ τὴν ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            ὀνομάζοντας; ἢ τίς οὐκ ἂν μισήσειε τοὺς ἀθετοῦντας μὲν τὰ τῶν πατέρων, τὰ δὲ νεώτερα ἐν τῇ Ἀριμήνῳ κατὰ φιλονεικίαν καὶ βίαν συντε­θέντα προκρίναντας; τίς δὲ τούτοις συνελθεῖν ἐθελήσει τοῖς ἀνθρώποις μηδὲ τὰ ἑαυτῶν ἀποδεχομένοις; οἱ γὰρ ἐν ταῖς ἑαυτῶν δέκα που καὶ πλέον, καθὰ προ­είπο­μεν, συνόδοις ἄλλοτε ἄλλα γράφοντες δῆλοί εἰσιν ἑκάστης αὐτοὶ κατήγο­ροι γινό­μενοι.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>πάσχουσι δέ τι τοιοῦτον, οἷον καὶ οἱ τότε τῶν Ἰουδαίων προδό­ται πε­πόνθασιν· ὡς γὰρ ἐκεῖνοι
+                            <cit>
+                                <quote>καταλείψαντες τὴν μόνην πηγὴν τοῦ ζῶντος ὕδατος ὤρυξαν ἑαυτοῖς λάκκους συντετριμμένους, οἳ οὐ δυνήσονται ὕδωρ συν­έχειν</quote>
+                                <ref decls="#biblical" cRef="LXX:Jer:2:13">
+                                    – γέ­γραπται δὲ τοῦτο παρὰ τῷ προφήτῃ
+                                    <persName>Ἱερεμίᾳ</persName>
+                                    –,</ref>
+                            </cit>
+                            οὕτως οὗτοι μαχόμενοι πρὸς τὴν οἰκουμενικὴν σύνοδον
+                            <quote>ὤρυξαν<ref decls="#biblical" cRef="LXX:Jer:2:13"/>
+                            </quote>
+                            ἑαυτοῖς συνόδους πολλάς· καὶ πᾶσαι κεναὶ παρ’ αὐτοῖς ὡς
+                            <quote>δράγμα μὴ ἔχων ἰσχὺν<ref decls="#biblical" cRef="LXX:Hos:8:7"/>
+                            </quote>
+                            ἐφάνησαν.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>μὴ τοίνυν ἀνεχώ­μεθα τῶν τὴν
+                            <placeName>Ἀρίμηνον</placeName>
+                            ἢ ἄλλην ὀνομαζόντων σύνοδον παρὰ τὴν ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            γενομένην. καὶ γὰρ καὶ αὐτοὶ οἱ τὴν
+                            <placeName>Ἀρίμηνον</placeName>
+                            ὀνομάζοντες ἐοίκασι μὴ εἰδέναι τὰ ἐν αὐτῇ πραχθέντα· ἢ γὰρ ἂν ἐσιώπησαν. οἴδατε γάρ, ἀγαπητοί, μαθόντες καὶ ὑμεῖς παρὰ τῶν ἐλθόν­των ἐξ ὑμῶν εἰς τὴν
+                            <placeName>Ἀρίμηνον</placeName>, ὡς
+                            <persName>Οὐρσάκιος</persName>
+                            καὶ
+                            <persName>Οὐάλης</persName>,
+                            <persName>Εὐδό­ξιός</persName>
+                            τε καὶ
+                            <persName>Αὐξέν­τιος</persName>
+                            – ἐκεῖ δὲ ἦν σὺν αὐτοῖς καὶ
+                            <persName>Δημόφιλος</persName>
+                            – καθῃρέθησαν θελή­σαντες ἕτερα πα­ρὰ τὰ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            γράφειν, ὅτε καὶ ἀπαιτηθέντες ἀναθεματίσαι τὴν ἀρειανὴν αἵρεσιν παρῃτήσαντο καὶ μᾶλλον αὐτῆς ἤθελον εἶναι προστάται.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>οἱ δέ γε ἐπίσκοποι οἱ ἀληθῶς γνήσιοι δοῦλοι τοῦ κυρίου καὶ ὀρθῶς πιστεύοντες – ἦσαν δὲ ἐγγὺς διακό­σιοι – ἔγραψαν ἀρκεῖσθαι τῇ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            μόνῃ καὶ μηδὲν πλέον ἢ ἔλαττον παρ’ ἐκείνην ζητεῖν ἢ φρονεῖν. ταῦτα καὶ
+                            <persName>Κωνσταντίῳ</persName>
+                            δεδηλώκασι τῷ καὶ τὴν σύνοδον κελεύσαντι γενέσθαι. ἀλλ’ οἱ ἐν τῇ
+                            <placeName>Ἀριμήνῳ</placeName>
+                            καθαιρεθέντες ἀπελ­θόν­τες πρὸς
+                            <persName>Κων­στάντιον</persName>
+                            πεποιήκασιν ὑβρισθῆναι μὲν αὐτούς, ἀπειλὰς δὲ γενέ­σθαι μὴ ἀνακάμψειν εἰς τὰς ἰδίας παροικίας τοὺς κατ’ αὐτῶν ἀποφηναμένους βίαν τε παθεῖν ἐν τῇ
+                            <placeName>Θρᾴκῃ</placeName>
+                            ἐν αὐτῷ τῷ χειμῶνι, ὥστε τῶν παρ’ αὐτῶν καινοτομουμέ­νων ἀνέχεσθαι.
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="4">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Εἴπερ οὖν τινες τὴν
+                            <placeName>Ἀρίμηνον</placeName>
+                            ὀνομάζουσι, δεικνύτωσαν πρῶτον τὴν καθαίρε­σιν τῶν προειρημένων καὶ ἅπερ ἔγραψαν οἱ ἐπίσκοποι λέγοντες μηδὲν πλέον ζη­τεῖν τῶν ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            παρὰ τῶν πατέρων ὁμολογηιθέντων μηδὲ ὀνομάζειν ἄλλην σύνοδον παρ’ ἐκείνην. ἀλλὰ ταῦτα μὲν κρύπτουσι, τὰ δὲ ἐν τῇ
+                            <placeName>Θρᾴκῃ</placeName>
+                            κατὰ βίαν πραχθέν­τα προβάλλονται· ἐξ ὧν δείκνυνται τῆς μὲν ἀρειανῆς αἱρέσεως ὄντες, ἀλ­λότριοι δὲ τῆς ὑγιαινούσης πίστεως.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>καὶ αὐτὴν δὲ τὴν μεγάλην σύνοδον καὶ τὰς παρ’ ἐκείνων ἄν τις ἐξετάζειν ἐκ παραλλήλου θέλοι, εὕροι ἂν τῶν μὲν τὴν θεοσέβειαν, τῶν δὲ τὴν ἀλογίαν. οἱ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            συνελθόντες οὐ καθαιρεθέν­τες συνῆλ­θον, ἀλλὰ καὶ ὡμολόγησαν
+                            <add>ἐκ</add>
+                            τῆς οὐσίας τοῦ πατρὸς εἶναι τὸν υἱόν· οὗτοι δὲ καὶ ἅπαξ καὶ δεύτερον καθαιρεθέντες καὶ τρίτον ἐν αὐτῇ τῇ
+                            <placeName>Ἀριμήνῳ</placeName>
+                            γράφειν ἐτόλμησαν, μὴ χρῆναι λέγειν οὐσίαν ἢ ὑπόστασιν ἔχειν τὸν θεόν.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>ἐκ δὴ τούτων σκοπεῖν ἔξεστιν, ἀδελφοί, ὡς οἱ μὲν ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            τῶν γραφῶν πνέουσι λέγον­τος αὐ­τοῦ τοῦ θεοῦ ἐν μὲν τῇ ἐξόδῳ·
+                            <quote>ἐγώ εἰμι ὁ ὤν<ref decls="#biblical" cRef="LXX:Ex:3:14"/>
+                            </quote>, διὰ δὲ τοῦ
+                            <persName>Ἱερεμίου</persName>·
+                            <quote>τίς ἔστη ἐν ὑποστήματι αὐτοῦ καὶ εἶδε τὸν λόγον αὐτοῦ;<ref decls="#biblical" cRef="LXX:Jer:23:18"/>
+                            </quote>
+                            καὶ μετ’ ὀλίγον·
+                            <quote>καὶ ἔστησαν ἐν τῇ ὑποστάσει μου καὶ ἤκουσαν τῶν λόγων μου<ref decls="#biblical" cRef="LXX:Jer:23:22"/>
+                            </quote>. ἡ δὲ ὑπόστασις οὐσία ἐστὶ καὶ οὐδὲν ἄλλο σημαινόμενον ἔχει ἢ αὐτὸ τὸ ὄν, ὅπερ
+                            <persName>Ἱερεμίας</persName>
+                            ὕπαρξιν ὀνομάζει λέγων· καὶ
+                            <quote>οὐκ ἤκουσαν φωνὴν ὑπάρξεως<ref decls="#biblical" cRef="LXX:Jer:9:9"/>
+                            </quote>. ἡ γὰρ ὑπόστασις καὶ ἡ οὐσία ὕπ­αρξίς ἐστιν· ἔστι γὰρ καὶ ὑπάρχει. τοῦτο νοῶν καὶ
+                            <cit>
+                                <ref decls="#biblical" cRef="NA:Heb:1:3">ὁ
+                                    <persName>Παῦλος</persName>
+                                    ἔγραψεν Ἑβραίοις·
+                                </ref>
+                                <quote>ὃς ὢν ἀπαύγασμα τῆς δόξης καὶ χαρακτὴρ τῆς ὑποστάσεως αὐτοῦ.</quote>
+                            </cit>
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>οὗτοι δὲ
+                            <seg type="allusion">οἱ δοκοῦντες εἰδέναι τὰς γραφὰς καὶ ὀνομάζοντες ἑαυτοὺς εἶναι σοφοὺς<ref decls="#biblical" cRef="NA:1Cor:3:18"/>
+                            </seg>
+                            μὴ θέλοντες ὑπόστασιν λέγειν ἐπὶ θεοῦ – τοῦτο γὰρ ἔγραψαν ἐν τῇ
+                            <placeName>Ἀριμήνῳ</placeName>
+                            καὶ ἐν ἄλλαις ἑαυτῶν συνόδοις ­– πῶς οὐ δικαίως καθῃρέθησαν λέγοντες καὶ αὐτοὶ ὡς
+                            <quote>ἄφρων ἐν καρδίᾳ· οὐκ ἔστι θεός<ref decls="#biblical" cRef="LXX:Ps:13:1"/>
+                            </quote>;
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="5">
+                        <p>πάλιν τε οἱ πατέρες ἐδίδαξαν ἐν τῇ
+                            <placeName>Νικαίᾳ</placeName>
+                            μὴ εἶναι κτίσμα ἢ ποίημα τὸν τοῦ θεοῦ λόγον ἀναγνόντες·
+                            <quote>πάντα δι’ αὐτοῦ ἐγέ­νετο<ref decls="#biblical" cRef="NA:Jn:1:3"/>
+                            </quote>
+                            καὶ
+                            <quote>ἐν αὐτῷ τὰ πάντα ἐκτίσθη<ref decls="#biblical" cRef="NA:Col:1:16"/>
+                            </quote>
+                            καὶ
+                            <quote>συνέστηκεν<ref decls="#biblical" cRef="NA:Col:1:17"/>
+                            </quote>. οὗτοι δὲ οἱ μᾶλλον Ἀρειανοὶ ἢ Χριστιανοὶ ὄντες ἐν ταῖς ἄλλαις ἑαυτῶν συνόδοις κτίσμα τετολμήκασιν εἰπεῖν αὐτὸν καὶ ἕνα τῶν ποιημάτων, ὧν αὐτός ἐστιν ὁ λόγος δημιουργὸς καὶ ποιητής. εἰ γὰρ δι’ αὐτοῦ τὰ πάντα γέγονε, κτίσμα δέ ἐστι καὶ αὐτός, εἴη ἂν καὶ ἑαυτὸν κτίζων. καὶ πῶς δύναται τὸ κτιζόμενον κτίζειν ἢ πῶς ὁ κτίζων κτίζεται;
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="5">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Αλλ’ οὐδὲ οὕτως αἰσχύνονται τοιαῦτα λέγοντες, ἐφ’ οἷς μισητοὶ καὶ παρὰ πᾶσίν εἰσιν ὀνομάζοντες μὲν ἁπλῶς
+                            <placeName>Ἀρίμηνον</placeName>, δεικνύμενοι δὲ καὶ ἐν αὐτῇ καθαιρε­θέντες.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>καὶ αὐτὸ δὲ τὸ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            γεγραμμένον ὁμοούσιον εἶναι τὸν υἱὸν τῷ πατρί, οὗ χάριν προσποιοῦνται μάχεσθαι πρὸς τὴν σύνοδον καὶ περιβομβοῦσιν ὡς κώνωπες πανταχοῦ περὶ τῆς λέξεως ἢ ὡς ἀγνοοῦντες προσκόπτουσιν εἰς αὐ­τὸ ὡς
+                            <seg type="allusion">οἱ προσκόπτοντες εἰς τὸν τεθέντα λίθον ἐν
+                                <placeName>Σιὼν</placeName>
+                                προσκόμματος<ref decls="#biblical" cRef="NA:Rom:9:32"/>
+                            </seg>
+                            ἢ γινώ­σκουσι μέν, διὰ τοῦτο δὲ μάχονται καὶ συνεχῶς γογγύζουσιν, ὅτι κατὰ τῆς αἱρέσε­ώς ἐστιν αὐτῶν ἀληθῶς αὕτη καὶ ἀκριβῶς ἀπόφασις.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>οὐ γὰρ αἱ λέξεις αὐτοὺς λυποῦσιν, ἀλλ’ ἡ ἐν αὐταῖς γενομένη κατάκρισις αὐτῶν. καὶ τούτων δὲ πάλιν αἴτιοι γεγόνασιν αὐτοί· καὶ εἰ τοῦτο κρύπτειν αὐτοὶ θέλουσι καίτοι γινώσκοντες, ἀλλ’ ἡμᾶς ἀκόλουθον εἰπεῖν, ἵνα καὶ ἐκ τούτων ἡ μετὰ ἀληθείας ἀκρίβεια τῆς μεγάλης συνόδου δειχθῇ.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>τῶν γὰρ συνελθόντων ἐπισκόπων βουλομένων τὰς μὲν παρὰ τῶν Ἀρειανῶν ἐφευρεθείσας τῆς ἀσεβείας λέξεις ἀνελεῖν, τὸ ἐξ οὐκ ὄντων καὶ τὸ λέγειν κτίσμα καὶ ποίημα τὸν υἱόν καὶ ἦν ποτε ὅτε οὐκ ἦν καὶ ὅτι τρεπτῆς ἐστι φύσεως, τὰς δὲ τῶν γραφῶν ὁμολογουμένας γράψαι, ὅτι τε ἐκ τοῦ θεοῦ ὁ υἱὸς φύσει μονογενής ἐστιν, λόγος,
+                            <seg type="allusion">δύναμις, σοφία<ref decls="#biblical" cRef="NA:1Cor:1:24"/>
+                            </seg>
+                            μόνη τοῦ πατρός,
+                            <cit>
+                                <quote>θεὸς ἀληθινὸς</quote>
+                                <ref decls="#biblical" cRef="NA:1Jn:5:20">
+                                    ὡς εἶπεν ὁ
+                                    <persName>Ἰωάννης</persName>
+                                </ref>
+                            </cit>
+                            καὶ
+                            <cit>
+                                <ref decls="#biblical" cRef="NA:Heb:1:3">ὡς ἔγραψεν ὁ
+                                    <persName>Παῦλος</persName>
+                                </ref>
+                                <quote>ἀπαύγασμα τῆς δόξης καὶ χαρακτὴρ τῆς τοῦ πατρὸς ὑποστάσεως</quote>
+                            </cit>, οἱ περὶ
+                            <persName>Εὐσέβιον</persName>
+                            ὑπὸ τῆς ἰδίας κακοδοξίας ἑλκόμενοι διελάλουν ἀλλήλοις· συνθώμεθα. καὶ γὰρ καὶ ἡμεῖς ἐκ τοῦ θεοῦ ἐσμεν·
+                            <quote>εἷς γὰρ θεός, ἐξ οὗ τὰ πάντα<ref decls="#biblical" cRef="NA:1Cor:8:6"/>
+                            </quote>
+                            καὶ
+                            <quote>τὰ ἀρχαῖα παρῆλθεν, ἰδοὺ γέγονε καινά. τὰ δὲ πάντα ἐκ τοῦ θεοῦ<ref decls="#biblical" cRef="NA:2Cor:5:17-18"/>
+                            </quote>. ἐλογίζοντο δὲ καὶ
+                            <cit>
+                                <ref cRef="Herm., mand. 1,1">τὸ ἐν τῷ Ποιμένι γραφέν·
+                                </ref>
+                                <quote>πρῶτον πάντων πίστευσον, ὅτι εἷς ἐστιν ὁ θεὸς ὁ τὰ πάντα κτίσας καὶ καταρτίσας καὶ ποιήσας ἐκ τοῦ μὴ ὄντος εἰς τὸ εἶναι.</quote>
+                            </cit>
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="5">
+                        <p>ἀλλ’ οἱ ἐπίσκοποι θεω­ρήσαντες τὴν πανουργίαν ἐκείνων καὶ τὴν τῆς ἀσεβείας κακοτεχνίαν λευκότερον εἰρήκασι τὸ ἐκ τοῦ θεοῦ καὶ ἔγραψαν ἐκ τῆς οὐσίας τοῦ θεοῦ εἶναι τὸν υἱόν, ἵνα τὰ μὲν κτίσματα διὰ τὸ μὴ ἀφ’ ἑαυτῶν χωρὶς αἰτίου εἶναι ἀλλὰ ἀρχὴν ἔχειν τοῦ γενέσθαι λέγηται ἐκ τοῦ θεοῦ, ὁ δὲ υἱὸς μόνος ἴδιος τῆς τοῦ πατρὸς οὐσίας· τοῦτο γὰρ ἴδιον μονογενοῦς καὶ ἀληθινοῦ λόγου πρὸς πατέρα.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="6">
+                        <p>καὶ περὶ μὲν τοῦ γε­γράφθαι ἐκ τῆς οὐσίας ἡ πρόφασις αὕτη, πάλιν δὲ τῶν ἐπισκόπων ἐρωτώντων τοὺς δοκοῦντας λογίους, εἴπερ λέγοιεν τὸν υἱὸν οὐ κτίσμα ἀλλὰ δύναμιν, σοφίαν μόνην τοῦ πατρὸς καὶ εἰκόνα ἀίδιον ἀπαράλλακτον κατὰ πάντα τοῦ πατρὸς καὶ θεὸν ἀληθινόν, κατελήφθησαν
+                            <cit>
+                                <ref cRef="Ast.Soph., fr. 46 Vinzent (= 16 Bardy)">οἱ περὶ
+                                    <persName>Εὐσέβιον</persName>
+                                    διανεύοντες ἀλλήλοις ὅτι·
+                                </ref>
+                                <quote>καὶ ταῦ­τα φθάνει καὶ εἰς ἡμᾶς· καὶ γὰρ καὶ ἡμεῖς καὶ
+                                    <quote>εἰκὼν καὶ δόξα θεοῦ<ref decls="#biblical" cRef="NA:1Cor:11:7"/>
+                                    </quote>
+                                    λεγόμεθα καὶ περὶ ἡμῶν εἴρηται·
+                                    <quote>ἀεὶ γὰρ ἡμεῖς οἱ ζῶντες<ref decls="#biblical" cRef="NA:2Cor:4:11"/>
+                                    </quote>
+                                    καὶ δυνάμεις πολλαί εἰσι·
+                                    <quote>καὶ ἐξῆλθε μὲν πᾶσα ἡ δύναμις κυρίου ἐκ γῆς
+                                        <placeName>Αἰγύπτου</placeName>
+                                        <ref decls="#biblical" cRef="LXX:Ex:12:41"/>
+                                    </quote>.
+                                    <quote>ἡ δὲ κάμπη καὶ ἡ ἀ­κρὶς<seg type="insertion">
+                                            λέγεται</seg>
+                                        δύναμις μεγάλη<ref decls="#biblical" cRef="LXX:Joel:2:25"/>
+                                    </quote>· καὶ
+                                    <quote>κύριος τῶν δυνάμεων μεθ’ ἡμῶν, ἀντιλή­πτωρ ἡμῶν ὁ θεὸς Ἰακώβ.<ref decls="#biblical" cRef="LXX:PS:45:8"/>
+                                    </quote>
+                                    ἀλλὰ γὰρ καὶ τὸ ἰδίους ἡμᾶς εἶναι τοῦ θεοῦ ἔχομεν οὐχ ἁπλῶς, ἀλλ’ ὅτι καὶ
+                                    <seg type="allusion">ἀδελφοὺς<ref decls="#biblical" cRef="NA:Mt:28:10"/>
+                                    </seg>
+                                    ἡμᾶς ἐκάλεσεν. εἰ δὲ καὶ
+                                    <seg type="allusion">θεὸν ἀληθινὸν<ref decls="#biblical" cRef="NA:1Jn:5:20"/>
+                                    </seg>
+                                    λέγου­σι τὸν υἱόν, οὐ λυπεῖ ἡμᾶς· γενόμενος γὰρ ἀληθινός ἐστιν.</quote>
+                            </cit>
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="6">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Αὕτη τῶν Ἀρειανῶν ἡ ἐφθαρμένη διάνοια. ἀλλὰ καὶ ἐνταῦθα οἱ ἐπίσκοποι θεω­ρήσαντες ἐκείνων τὸ δόλιον συνήγαγον ἐκ τῶν γραφῶν
+                            <seg type="allusion">τὸ ἀπαύγασμα<ref decls="#biblical" cRef="NA:Hebr:1:3"/>
+                            </seg>
+                            <seg type="allusion">τήν τε πηγὴν<ref decls="#biblical" cRef="LXX:Ps:35:10"/>
+                            </seg>
+                            καὶ
+                            <seg type="allusion">τὸν ποταμὸν<ref decls="#biblical" cRef="LXX:Ps:64:10"/>
+                            </seg>
+                            καὶ
+                            <seg type="allusion">τὸν χαρακτῆρα πρὸς τὴν ὑπόστασιν<ref decls="#biblical" cRef="NA:Hebr:1:3"/>
+                            </seg>
+                            καὶ τὸ
+                            <quote>ἐν τῷ φωτί σου ὀψόμεθα φῶς<ref decls="#biblical" cRef="LXX:Ps:35:10"/>
+                            </quote>
+                            καὶ τὸ
+                            <quote>ἐγὼ καὶ ὁ πατὴρ ἕν ἐσμεν<ref decls="#biblical" cRef="NA:Jn:10:30"/>
+                            </quote>
+                            καὶ λευκότερον λοιπὸν καὶ συντόμως ἔγραψαν ὁμοούσιον τῷ πατρὶ τὸν υἱόν· τὰ γὰρ προειρημένα πάντα ταύτην ἔχει τὴν σημασίαν.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>καὶ ὁ γογγυσμὸς δὲ αὐτῶν, ὅτι ἄγραφοί εἰσιν αἱ λέξεις, ἐλέγχεται παρ’ αὐτῶν μάταιος· ἐξ ἀγράφων ἀσεβήσαντες – ἄγρα­φα δὲ τὸ ἐξ οὐκ ὄντων καὶ τὸ ἦν ποτε ὅτε οὐκ ἦν – αἰτιῶνται, ὅτι ἐξ ἀγρά­φων μετ’ εὐσεβείας νοουμένων λέξεων κατεκρίθησαν.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>αὐτοὶ μὲν ὡς ἐκ κοπρίας ὄντες ἐλάλησαν ἀληθῶς ἀπὸ γῆς, οἱ δὲ ἐπίσκοποι οὐχ ἑαυτοῖς εὑρόντες τὰς λέ­ξεις ἀλλ’ ἐκ πατέρων ἔχοντες τὴν μαρτυρίαν οὕτως ἔγραψαν. ἐπίσκοποι γὰρ ἀρ­χαῖοι πρὸ αὐτῶν ἐγγύς που ἑκατὸν τριάκοντα τῆς μεγάλης
+                            <placeName>Ῥώμης</placeName>
+                            καὶ τῆς ἡμετέ­ρας πό­λεως γράφοντες ᾐτιάσαντο τοὺς ποίημα λέγοντας τὸν υἱὸν καὶ μὴ ὁμοού­σιον τῷ πατρί.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>καὶ τοῦτο ἐγίνωσκεν
+                            <persName>Εὐσέβιος ὁ γενόμενος ἐπίσκοπος τῆς Και­σαρείας</persName>
+                            πρότερον μὲν συντρέχων τῇ ἀρειανῇ αἱρέσει, ὕστερον δὲ ὑπογράψας ἐν αὐτῇ τῇ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            συνόδῳ ἔγραψε τοῖς ἰδίοις διαβεβαιούμενος, ὅτι
+                            <quote>καὶ τῶν παλαι­ῶν τινας λογίους καὶ ἐπιφανεῖς ἐπισκόπους καὶ συγγραφέας ἔγνωμεν ἐπὶ τῆς τοῦ πατρὸς καὶ υἱοῦ θεότητος τῷ τοῦ ὁμοουσίου χρησαμένους ὀνόματι.<ref cRef="Eus., ep.Caes. 13 (III 46,4-6 Opitz = Urk. 22,13)"/>
+                            </quote>
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="7">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Τί οὖν ἔτι τὴν
+                            <placeName>Ἀρίμηνον</placeName>
+                            ὀνομάζουσιν, ἐν ᾗ καθῃρέθησαν; τί παραιτοῦνται τὴν ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            σύνοδον, ἐν ᾗ καὶ οἱ πατέρες αὐτῶν ὑπέγραψαν καὶ ὡμολόγησαν ἐκ τῆς οὐσίας καὶ ὁμοούσιον εἶναι τὸν υἱὸν τῷ πατρί; τί περιτρέχουσιν; οὐ γὰρ πρὸς μόνους τοὺς ἐν Νικαίᾳ ἐπισκόπους συνελθόντας, ἀλλὰ γὰρ καὶ πρὸς τοὺς πρὸ αὐτῶν μεγάλους ἐπισκόπους καὶ πρὸς τοὺς ἰδίους λοιπὸν μάχονται. τίνων οὖν εἰσι κληρονόμοι καὶ διάδοχοι; πῶς δύνανται λέγειν παιτέρας τούτους, ὧν οὐκ ἀποδέ­χονται τὴν ὁμολογίαν τὴν καλῶς καὶ ἀποστολικῶς γραφεῖσαν;
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>ἐπεὶ εἰ νομίζου­σιν ἀντιλέγειν δύνασθαι, εἰπάτωσαν, μᾶλλον δὲ ἀποκρινάσθωσαν, ἵνα καὶ ἑαυτοῖς περιπίπτοντες ἐλεγχθῶσιν, εἰ πιστεύουσι λέγοντι τῷ υἱῷ·
+                            <quote>ἐγὼ καὶ ὁ πατὴρ ἕν ἐσμεν<ref decls="#biblical" cRef="NA:Jn:10:30"/>
+                            </quote>
+                            καὶ
+                            <quote>ὁ ἑωρακὼς ἐμὲ ἑώρακε τὸν πατέρα<ref decls="#biblical" cRef="NA:Jn:14:9"/>
+                            </quote>; ναί, εἴποιεν ἄν, ἐπειδὴ γέ­γραπται, πιστεύομεν. ἀλλὰ καὶ πῶς ἕν εἰσι καὶ πῶς
+                            <quote>ὁ ἑωρακὼς τὸν υἱὸν ἑώρα­κε τὸν πατέρα<ref decls="#biblical" cRef="NA:Jn:14:9"/>
+                            </quote>, ἐὰν ἐρωτηθῶσιν εἰπεῖν, πάντως που φήσουσι·
+                            <said>δι’ ὁμοιότητα</said>, εἰ μὴ τέλεον συμπεπτώκασι τοῖς ἀδελφὰ φρονοῦσιν αὐτοῖς καὶ λεγομένοις Ἀνομοίοις.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>ἀλλ’ ἐὰν πάλιν ἐρωτηθῶσι πῶς ὅμοιος, ἀποθρασυνόμενοι φήσουσιν· ἀρετῇ τελείᾳ καὶ συμφωνίᾳ τῷ τὸ αὐτὸ θέλειν τῷ πατρὶ καὶ μὴ θέλειν ὅπερ ὁ πατὴρ οὐ θέλει. ἀλλὰ μαθέτωσαν, ὅτι ὁ ἐξ ἀρετῆς καὶ τοῦ θέλειν ὁμοιούμενος τῷ θεῷ ἔχει μὲν καὶ τοῦ τρέπεσθαι τὴν προαίρεσιν. οὐκ ἔστι δὲ οὕτως ὁ λόγος, εἰ μὴ ἄρα ἐκ μέρους καὶ καθ’ ἡμᾶς ὅμοιος, ὅτι μὴ καὶ κατ’ οὐσίαν ὅμοιός ἐστι. ταῦτα δὲ ἴδια ἡμῶν τῶν γενητῶν καὶ κτιστὴν ἐχόντων τὴν φύσιν.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>καὶ γὰρ καὶ ἡμεῖς καίτοι μὴ δυνάμενοι ὅμοιοι κατ’ οὐσίαν τοῦ θεοῦ γενέσθαι, ὅμως ἐξ ἀρετῆς βελτιούμενοι μιμούμεθα τὸν θεὸν χαρισαμένου καὶ τοῦτο τοῦ κυρίου καὶ λέγοντος·
+                            <quote>γίνεσθε οἰκτίρμονες, ὡς ὁ πατὴρ ὑμῶν οἰκτίρμων ἐστί<ref decls="#biblical" cRef="NA:Lk:6:36"/>
+                            </quote>· καὶ
+                            <quote>γίνεσθε τέλειοι, ὡς ὁ πατὴρ ὑμῶν ὁ οὐράνιος τέλειός ἐστι<ref decls="#biblical" cRef="NA:Mt:5:48"/>
+                            </quote>. τρεπτὰ δὲ τὰ γενητὰ οὐκ ἄν τις ἀρνήσαιτο ἀγγέλ­ων μὲν παραβάν­των, τοῦ δὲ
+                            <persName>Ἀδὰμ</persName>
+                            παρακούσαντος καὶ πάντων δεομένων τῆς τοῦ λόγου χάρι­τος.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="5">
+                        <p>τρεπτὸν δὲ ἀτρέπτου οὐκ ἂν εἴη ὅμοιον, ὥσπερ οὐδὲ τὸ κτισθὲν τοῦ κτίσαντος. διὰ τοῦτο περὶ μὲν ἡμῶν σκοπῶν ὁ ἅγιος ἔλεγεν·
+                            <quote>ὁ θεός, τίς ὁμοιω­θήσεταί σοι;<ref decls="#biblical" cRef="LXX:Ps:82:2"/>
+                            </quote>
+                            καὶ τίς
+                            <quote>ὅμοιός σοι ἐν θεοῖς, κύριε;<ref decls="#biblical" cRef="LXX:Ps:85:8"/>
+                            </quote>
+                            – θεοὺς λέγων τοὺς κτισθέντας μέν, μετόχους δὲ γενομένους τοῦ λόγου, ὡς αὐτὸς εἶπεν·
+                            <quote>εἰ ἐκείνους θεοὺς εἶπε, πρὸς οὓς ὁ λόγος τοῦ θεοῦ ἐγένετο.<ref decls="#biblical" cRef="NA:Jn:10:35"/>
+                            </quote>
+                            – τὰ δὲ μετέχοντα οὐκ ἂν εἴη τὰ αὐτὰ οὐδὲ ὅμοια τοῦ μετεχομένου. περὶ ἑαυτοῦ γοῦν ἔλεγεν·
+                            <quote>ἐγὼ καὶ ὁ πατὴρ ἕν ἐσμεν<ref decls="#biblical" cRef="NA:Jn:10:30"/>
+                            </quote>
+                            ὡς τῶν γενη­τῶν μὴ ὄντων οὕτως.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="6">
+                        <p>ἐπεὶ ἀποκρινάσθωσαν οἱ τὴν
+                            <placeName>Ἀρί­μηνον</placeName>
+                            προτεί­νοντες, εἰ κτιστὴ οὐσία δύναται εἰπεῖν·
+                            <seg type="allusion">ἃ βλέπω τὸν πατέρα ποιοῦν­τα, ταῦτα κἀγὼ ποιῶ.<ref decls="#biblical" cRef="NA:Jn:5:19"/>
+                            </seg>
+                            ποιούμενα γάρ ἐστι τὰ γενητὰ καὶ οὐ ποιοῦντα· εἰ δὲ μή γε, καὶ ἑαυτὰ ἐποίησαν. ἀμέλει εἰ, ὡς λέγουσι, κτίσμα ἐστὶν ὁ υἱὸς καὶ ποιεῖ αὐτὸν ὁ πατήρ, πάντως ἂν ἐποίησε καὶ ἑαυτὸν ὁ υἱὸς δυνάμενος ποιεῖν ἃ ποιεῖ ὁ πατ­ήρ, ὡς εἶπεν αὐτός. ἀλλ’ ἄτοπον καὶ λίαν ἀσύστατόν ἐστι τὸ τοιοῦτον· ποιεῖν γὰρ ἑαυτὸν οὐδεὶς δύναται.
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="8">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Πάλιν δὲ εἰπάτωσαν, εἰ δύναται τὰ γενητὰ εἰπεῖν·
+                            <quote>πάντα, ὅσα ἔχει ὁ πατήρ, ἐμά ἐστιν<ref decls="#biblical" cRef="NA:Jn:16:15"/>
+                            </quote>; ἔχει δὲ τὸ κτίζειν, τὸ δημιουργεῖν, τὸ ἀίδιον, τὸ εἶναι παντοκράτωρ, τὸ ἄτρεπτον. τὰ δὲ γενητὰ οὐ δύναται ἔχειν τὸ δημιουργεῖν, κτιστὰ γάρ ἐστιν, οὐδὲ τὸ ἀίδιον, ἀρχὴν γὰρ ἔχει τοῦ εἶναι, οὐδὲ τὸ παντοκράτωρ καὶ ἄτρεπτον, κρατούμενα γὰρ καὶ τρεπτῆς φύσεώς ἐστιν ὥσπερ αἱ γραφαὶ λέγουσιν.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>
+                            οὐκοῦν εἰ ταῦτα τοῦ υἱοῦ ἐστιν, οὐκ ἐξ ἀρετῆς, ὡς εἶπον, ἀλλὰ τῆς οὐσίας αὐτοῦ ἐστι· δηλονότι, ὡς εἶπεν ἡ σύνοδος, οὐκ ἐξ ἄλλης οὐσίας ἐστὶν ἀλλὰ τῆς τοῦ πατρός, ἧς ἐστι καὶ ταῦτα ἴδια. τὸ δὲ τῆς τοῦ πατρὸς οὐσίας ἴδιον καὶ ἐξ αὐτῆς γέννημα, τί ἂν εἴη ἢ πῶς ἄν τις ὀνομάσειεν αὐτὸ ἢ ὁμοούσιον; ἃ γὰρ βλέπει τις ἐν τῷ πα­τρί, ταῦτα βλέπει καὶ ἐν τῷ υἱῷ· υἱῷ δὲ οὐκ ἐκ μετουσίας, ἀλλὰ κατ’ οὐσίαν. καὶ τοῦτό ἐστιν·
+                            <quote>ἐγὼ καὶ ὁ πατὴρ ἕν ἐσμεν<ref decls="#biblical" cRef="NA:Jn:10:30"/>
+                            </quote>
+                            καὶ
+                            <quote>ὁ ἐμὲ ἑωρακὼς ἑώρακε τὸν πατέ­ρα<ref decls="#biblical" cRef="NA:Jn:14:9"/>
+                            </quote>.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>ἄλλως τε καὶ ἐκ τούτου πάλιν καλὸν δεικνύναι τὴν ἀφροσύνην αὐ­τῶν. εἰ ἐξ ἀρετῆς, ᾗ ἕπεται τὸ θέλειν καὶ τὸ μὴ θέλειν καὶ τρόπων βελτίωσις, ὅμοι­ος καθ’ ὑμᾶς ὁ υἱός ἐστι τῷ πατρί – ταῦτα δὲ ποιότητος ἴδια –, δηλονότι σύνθε­τον τὸν θεὸν ἐκ ποιότητος καὶ οὐσίας λέγετε. καὶ τίς ὑμῶν ἀνέξεται ταῦτα λεγόν­των; οὐ γὰρ σύνθετος ὁ θεὸς ὁ
+                            <quote>τὰ πάντα εἰς τὸ εἶναι<ref decls="#biblical" cRef="LXX:Wis:1:14"/>
+                            </quote>
+                            συντεθεικὼς οὐδὲ τοιοῦ­τος οἷά ἐστι τὰ παρ’ αὐτοῦ διὰ τοῦ λόγου γενόμενα. μὴ γένοιτο· ἁπλῆ γάρ ἐστιν οὐσία, ἐν ᾗ οὐκ ἔνι ποιότης οὐδέ, ὡς εἶπεν ὁ
+                            <persName>Ἰάκωβος</persName>,
+                            <quote>παραλλαγή τις ἢ τροπῆς ἀπο­σκίασμα<ref decls="#biblical" cRef="NA:Jak:1:17"/>
+                            </quote>.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>οὐκοῦν εἰ δείκνυται οὐκ ἐξ ἀρετῆς – οὐ γὰρ ποιότης ἐν τῷ θεῷ οὔτε ἐν τῷ υἱῷ –, δηλονότι τῆς οὐσίας ἴδιος ἂν εἴη. καὶ τοῦτο πάντως ὁμολογή­σετε, εἰ μὴ τέλεον τὸ νοεῖν ἀπώλετο ἐν ὑμῖν. τὸ δὲ ἴδιον καὶ ταὐτὸν τῇ τοῦ θεοῦ οὐσίᾳ καὶ ἐξ αὐτῆς γέννημα φύσει τυγχάνον τί ἂν εἴη ἢ πάλιν καὶ κατὰ τοῦτο ὁμοούσιον τῷ γεννήσαντι; τοῦτο γὰρ υἱοῦ πρὸς πατέρα γνώρισμα. καὶ ὁ μὴ τοῦτο λέγων, οὐ φρονεῖ φύσει καὶ ἀληθῶς υἱὸν εἶναι τὸν λόγον.
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="9">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Οὕτω νοήσαντες οἱ πατέρες ἔγραψαν ὁμοούσιον εἶναι τὸν υἱὸν τῷ πατρὶ καὶ ἀνεθεμάτισαν τοὺς λέγοντας ἐξ ἑτέρας ὑποστάσεως εἶναι τὸν υἱὸν οὐχ ἑαυτοῖς πλασάμενοι λέξεις, ἀλλὰ καὶ αὐτοὶ ἀπὸ τῶν πρὸ αὐτῶν πατέρων μαθόντες, καθ­άπερ εἴπομεν. τούτων δὲ οὕτω δεικνυμένων περιττὴ αὐτῶν
+                            <orgName type="synod">ἡ Ἀρίμηνος</orgName>, περιττὴ καὶ ἡ ἄλλη παρ’ αὐτῶν ὀνομαζομένη περὶ πίστεως σύνοδος. ἀρκεῖ γὰρ ἡ ἐν
+                            <placeName>Νι­καίᾳ</placeName>
+                            σύμφωνος οὖσα καὶ τοῖς ἀρχαίοις ἐπισκόποις, ἐν ᾗ καὶ οἱ πατέρες αὐτῶν ὑπέγραψαν, οὓς αἰδεῖσθαι τούτους ἔπρεπεν, ἵνα μὴ πάντα μᾶλλον ἢ Χριστιανοὶ νομισθῶσιν.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>εἰ δὲ καὶ μετὰ τοσαῦτα μετὰ τὴν μαρτυρίαν τῶν ἀρχαίων ἐπισκό­πων καὶ μετὰ τὴν ὑπογραφὴν τῶν ἰδίων πατέρων προσποιοῦνται ὡς ἀγνοοῦντες τὴν λέξιν φοβεῖσθαι τοῦ ὁμοουσίου, εἰπάτωσαν καὶ φρονείτωσαν ἁπλούστερον μὲν τὸν υἱὸν φύσει καὶ ἀληθῶς υἱόν, ἀναθεματισάτωσαν δέ, ὡς παρήγγειλεν ἡ σύν­οδος, τοὺς λέγοντας κτίσμα ἢ ποίημα ἢ ἐξ οὐκ ὄντων ἢ ἦν ποτε ὅτε οὐκ ἦν ὁ υἱὸς τοῦ θεοῦ, καὶ ὅτι ἄτρεπτος καὶ ἀναλλοίωτός ἐστι καὶ οὐκ ἐξ ἑτέρας ὑποστάσεως, καὶ οὕτω φευγέτωσαν ἀπὸ τῆς ἀρειανῆς αἱρέσεως. καὶ θαρροῦμεν, ὅτι γνησίως ταῦτα ἀναθεματίζοντες ὁμολογοῦσιν εὐθὺς ἐκ τῆς οὐσίας καὶ ὁμοούσιον εἶναι τὸν υἱὸν τῷ πατρί.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>διὰ τοῦτο γὰρ καὶ οἱ πατέρες εἰρηκότες ὁμοούσιον εἶναι τὸν υἱὸν ἐπήγαγον εὐθύς· τοὺς δὲ λέγοντας κτίσμα ἢ ποίημα ἢ ἐξ οὐκ ὄντων ἢ ἦν ποτε ὅτε οὐκ ἦν ἀναθεματίζει ἡ καθολικὴ ἐκκλησία, ἵνα διὰ τούτων γνωρίσωσιν, ὅτι ταῦτα σημαίνει τὸ ὁμοούσιον καὶ ἡ τοῦ ὁμοουσίου δύναμις γινώσκεται ἐκ τοῦ μὴ εἶναι κτίσμα ἢ ποίημα τὸν υἱὸν καὶ ὅτι ὁ λέγων ὁμοούσιον οὐ φρονεῖ κτίσμα εἶναι τὸν λόγον καὶ ὁ ἀναθεματίζων τὰ προειρημένα ὁμοούσιον ἅμα φρονεῖ εἶναι τὸν υἱὸν τῷ πατρὶ καὶ ὁ ὁμοούσιον λέγων γνήσιον καὶ ἀληθινὸν λέγει τὸν υἱὸν τοῦ θεοῦ καὶ ὁ γνήσιον λέγων νοεῖ τὸ
+                            <quote>ἐγὼ καὶ ὁ πατὴρ ἕν ἐσμεν<ref decls="#biblical" cRef="NA:Jn:10:30"/>
+                            </quote>
+                            καὶ
+                            <quote>ὁ ἑωρα­κὼς ἐμὲ ἑώρακε τὸν πατέρα<ref decls="#biblical" cRef="NA:Jn:14:9"/>
+                            </quote>.
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="10">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Ἔπρεπε μὲν οὖν διὰ πλειόνων τὰ τοιαῦτα γράφειν, ἐπειδὴ δὲ πρὸς εἰδότας ὑμᾶς γράφομεν, διὰ τοῦτο συντόμως ὑπηγορεύσαμεν εὐχόμενοι παρὰ πᾶσι σώ­ζεσθαι
+                            <quote>τὸν σύνδεσμον τῆς εἰρήνης<ref decls="#biblical" cRef="NA:Eph:4:3"/>
+                            </quote>
+                            καὶ πάντας τοὺς τῆς καθολικῆς ἐκκλησίας
+                            <quote>τὸ αὐτὸ λέγειν<ref decls="#biblical" cRef="NA:1Cor:1:10"/>
+                            </quote>,
+                            <quote>τὸ αὐτὸ φρονεῖν<ref decls="#biblical" cRef="NA:Rom:15:5"/>
+                            </quote>.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>καὶ οὐχ ὡς διδάσκοντες ἀλλ’ ὡς ὑπομι­μνή­σκοντές ἐσμεν. ἐσμὲν δὲ οὐχ ἡμεῖς οἱ γράφοντες μόνοι, ἀλλὰ καὶ πάντες οἱ ἐν τῇ
+                            <placeName>Αἰγύπτῳ</placeName>
+                            καὶ ταῖς
+                            <placeName>Λιβύαις</placeName>
+                            ἐνενήκοντά που ἐπίσκοποι. πάντων γὰρ ἕν ἐστι τοῦτο φρόνημα καὶ ὑπὲρ ἀλλήλων ἀεὶ ὑπογράφομεν, ἐὰν συμβῇ τινα μὴ παρεῖναι.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="3">
+                        <p>οὕτως οὖν διακείμενοι, ἐπειδὴ συνέβη συνελθεῖν ἡμᾶς, ἐγράψαμεν καὶ τῷ ἀγαπη­τῷ ἡμῶν
+                            <persName>Δαμάσῳ</persName>
+                            τῷ ἐπισκόπῳ τῆς μεγάλης
+                            <placeName>Ῥώμης</placeName>
+                            περὶ
+                            <persName>Αὐξεντίου</persName>
+                            τοῦ ἐπελθόν­τος τῇ ἐν
+                            <placeName>Μεδιολάνῳ</placeName>
+                            ἐκκλησίᾳ διηγούμενοι τὰ κατ’ αὐτόν, ὅτι τε οὐ μόνον τῆς ἀρειανῆς αἱρέσεώς ἐστι κοινωνός, ἀλλὰ καὶ ὑπεύθυνός ἐστι πολλοῖς κακοῖς πράξας ταῦτα μετὰ
+                            <persName>Γρηγορίου</persName>
+                            τοῦ κοινωνοῦ τῆς ἀσεβείας αὐτοῦ, καὶ θαυ­μάζοντες, πῶς μέχρι νῦν οὐ καθῃρέθη καὶ ἐκβέβληται τῆς ἐκκλησίας, καὶ χάριν ὡμολογήσαμεν τῇ θεοσεβείᾳ αὐτοῦ τε καὶ τῶν συνελθόντων ἐν τῇ μεγάλῃ
+                            <placeName>Ῥώμῃ</placeName>, ὅτι καὶ τοὺς περὶ
+                            <persName>Οὐρσάκιον</persName>
+                            καὶ
+                            <persName>Οὐάλεντα</persName>
+                            καὶ τοὺς τὰ αὐτὰ αὐτοῖς φρονοῦντας ἐκβάλλοντες ἔσω­σαν τὴν ὁμοψυχίαν τῆς καθολικῆς ἐκκλησίας· ἣν καὶ παρ’ ὑμῖν εὐχόμενοι σώ­ζεσθαι παρακαλοῦμεν μὴ ἀνέχεσθαι, καθὰ προείπομεν, τῶν προβαλ­λομένων ὄχλον συνόδων προφάσει πίστεως, τὴν ἐν
+                            <placeName>Ἀριμήνῳ</placeName>, τὴν ἐν
+                            <placeName>Σιρμίῳ</placeName>, τὴν ἐν τῇ
+                            <placeName>Ἰσαυρίᾳ</placeName>, τὴν ἐν τῇ
+                            <placeName>Θρᾴκῃ</placeName>, τὰς ἐν
+                            <placeName>Κωνσταντινουπόλει</placeName>, τὰς ἐν
+                            <placeName>Ἀντιοχείᾳ</placeName>
+                            πολλὰς καὶ ἀτά­κτους.</p>
+                    </div>
+                    <div type="textpart" subtype="section" n="4">
+                        <p>ἀλλὰ μόνον κρατείτω παρ’ ὑμῖν ἡ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            παρὰ τῶν πατέρων ὁμολο­γηθεῖσα πίστις, ἐν ᾗ καὶ πάντες καὶ τῶν νῦν μαχομένων πρὸς αὐτὴν παρ­ῆσαν πατέρες, καθὰ προείπομεν, καὶ ὑπέγραψαν, ἵνα καὶ περὶ ἡμῶν
+                            <cit>
+                                <ref decls="#biblical" cRef="NA:1Cor:11:2">ὁ ἀπόστολος εἴπῃ·
+                                </ref>
+                                <quote>ἐπαινῶ δὲ ὑμᾶς, ὅτι πάντα μου μέμνησθε, καὶ καθὼς παρ­έδωκα ὑμῖν τὰς παρα­δόσεις οὕτω κατέχετε.</quote>
+                            </cit>
+                        </p>
+                    </div>
+                </div>
+                <div type="textpart" subtype="chapter" n="11">
+                    <div type="textpart" subtype="section" n="1">
+                        <p>Αὕτη γὰρ ἡ ἐν
+                            <placeName>Νικαίᾳ</placeName>
+                            σύνοδος ἀληθῶς στηλογραφία κατὰ πάσης αἱρέσεώς ἐστιν. αὕτη καὶ
+                            <seg type="allusion">τοὺς βλασφημοῦντας εἰς τὸ πνεῦμα τὸ ἅγιον<ref decls="#biblical" cRef="NA:Mk:3:29"/>
+                            </seg>
+                            καὶ λέγοντας αὐτὸ κτίσμα ἀνατρέπει. εἰρηκότες γὰρ οἱ πατέρες περὶ τῆς εἰς τὸν υἱὸν πίστεως ἐπήγα­γον εὐθύς· πιστεύομεν καὶ εἰς τὸ πνεῦμα τὸ ἅγιον, ἵνα τελείαν καὶ πλήρη τὴν εἰς τὴν ἁγίαν τριάδα πίστιν ὁμολογήσαντες τὸν χαρακτῆρα τῆς ἐν Χριστῷ πίστεως καὶ τὴν διδασκαλίαν τῆς καθολικῆς ἐκκλησίας ἐν τούτῳ γνωρίσωσι.
+                        </p>
+                    </div>
+                    <div type="textpart" subtype="section" n="2">
+                        <p>δῆλον γὰρ καὶ παρ’ ὑμῖν καὶ παρὰ πᾶσι καθέστηκε καὶ οὐδεὶς ἂν Χριστιανῶν ἀμφίβολον εἰς τοῦτο σχοίη τὴν διάνοιαν, ὡς οὐκ ἔστιν ἡμῶν ἡ πίστις εἰς τὴν κτίσιν, ἀλλ’ εἰς ἕνα θεὸν πατέρα παντοκράτορα, πάντων ὁρατῶν τε καὶ ἀοράτων ποιητὴν
+                            <add>καὶ</add>
+                            εἰς ἕνα κύριον Ἰησοῦν Χριστόν, τὸν υἱὸν αὐτοῦ τὸν μονογενῆ
+                            <add>καὶ</add>
+                            εἰς ἓν πνεῦμα ἅγιον· ἕνα θεὸν τὸν ἐν τῇ ἁγίᾳ καὶ τελείᾳ τριάδι γινωσκόμενον, εἰς ἣν καὶ βαπτι­ζόμενοι καὶ ἐν ταύτῃ συναπτόμενοι τῇ θεότητι πιστεύομεν καὶ κληρονομῆσαι βασι­λείαν οὐρανῶν ἐν Χριστῷ Ἰησοῦ τῷ κυρίῳ ἡμῶν, δι’ οὗ τῷ πατρὶ ἡ δόξα καὶ τὸ κράτος εἰς τοὺς αἰῶνας τῶν αἰώνων. ἀμήν.</p>
+                        <p>ἐρρῶσθαι ὑμᾶς καὶ μνημονεύειν ἡμῶν ἐν κυρίῳ εὔχομαι, ἀγαπητοὶ καὶ ποθεινό­τατοι.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </text>
+</TEI>
