@@ -1,6 +1,6 @@
 # Patristic Text Archive: An open access digital archive of antique Christian texts
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4066797.svg)](https://doi.org/10.5281/zenodo.4066797)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4066796.svg)](https://doi.org/10.5281/zenodo.4066796)
 
 This is the data repository for all texts in the [Patristic Text Archive](https://pta.bbaw.de).
 
