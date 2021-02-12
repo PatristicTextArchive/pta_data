@@ -3,17 +3,16 @@ python:
 - '3.7'
 install:
 - pip3 install HookTest
-script:  hooktest --console --scheme auto --guidelines 2.epidoc --workers 3 --verbose 7 --manifest --countword ./ > console.txt
+script:  hooktest --console --scheme auto --guidelines 2.epidoc --workers 3 --verbose 7 --manifest --countword ./
 before_deploy:
 - hooktest-build --travis ./
 - results=$(cat manifest.txt)
-- statistics=$(tail -30 console.txt)
 - DATE=`date +%Y-%m-%d`
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 - export GIT_TAG=$major_version.$minor_version.$TRAVIS_BUILD_NUMBER
 - git add -A
-- git tag $GIT_TAG -a -m "$DATE" -m "$statistics" -m "PASSING FILES" -m "$results"
+- git tag $GIT_TAG -a -m "$DATE" -m "PASSING FILES" -m "$results"
 - git push -q https://$GITPERM@github.com/PatristicTextArchive/pta_data --tags
 - ls -R
 
