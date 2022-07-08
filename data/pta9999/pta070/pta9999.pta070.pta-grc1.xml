@@ -101,8 +101,7 @@
                </bibl>
                <bibl xml:id="Treg" type="book">
                   <editor>Samuel Prideaux Tregelles</editor>
-                  <title>The Greek New Testament, Edited from Ancient Authorities, with their
-                     Various Readings in Full, and the Latin Version of Jerome</title>
+                  <title>The Greek New Testament, Edited from Ancient Authorities, with their Various Readings in Full, and the Latin Version of Jerome</title>
                   <pubPlace>London</pubPlace>
                   <publisher>Bagster</publisher>
                   <publisher>Stewart</publisher>
@@ -110,8 +109,7 @@
                </bibl>
                <bibl xml:id="Tregmarg" type="book">
                   <editor>Samuel Prideaux Tregelles</editor>
-                  <title>The Greek New Testament, Edited from Ancient Authorities, with their
-                     Various Readings in Full, and the Latin Version of Jerome</title>
+                  <title>The Greek New Testament, Edited from Ancient Authorities, with their Various Readings in Full, and the Latin Version of Jerome</title>
                   <pubPlace>London</pubPlace>
                   <publisher>Bagster</publisher>
                   <publisher>Stewart</publisher>
@@ -158,37 +156,45 @@
       </fileDesc>
       <encodingDesc>
          <refsDecl n="CTS">
-            <cRefPattern n="verse" matchPattern="(.+).(.+)"
-               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
-            <cRefPattern n="chapter" matchPattern="(.+)"
-               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"
-            />
+            <cRefPattern n="verse"
+                         matchPattern="(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern n="chapter"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
          </refsDecl>
       </encodingDesc>
-      <revisionDesc status="critical-edition">
+      <revisionDesc status="metacritical-edition-with-app">
+         <change when="2022-06-29" who="#AvS">Added missing final verses in chapter; moved wit attrib from 1st rdg to lem, del 1st rdg; corr resp. #WHspur; add type=omission where applicable</change>
          <change when="2021-11-24" who="#AvS">Converted to PTA/CapiTainS</change>
-         <change when="2021" who="#JJM">Corrected and converted to TEI XML </change>
+         <change when="2021" who="#JJM">Corrected and converted to TEI XML, cf. https://github.com/jjmccollum/sblgnt-tei/blob/main/SBL_Errata.txt</change>
       </revisionDesc>
    </teiHeader>
    <text>
       <body>
-         <div type="edition" xml:lang="grc" n="urn:cts:pta:pta9999.pta070.pta-grc1">
-            <head><title>
+         <div type="praefatio" xml:lang="eng">
+            <p>Cf. the <ref target="https://sblgnt.com/about/introduction/">Introduction to the SBL Greek New Testament by Michael Holmes</ref>.</p>
+         </div>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta9999.pta070.pta-grc1">
+            <head>
+               <title>
                   <w>ΠΡΟΣ</w>
                   <w>ΚΟΡΙΝΘΙΟΥΣ</w>
                   <w>Β</w>
-               </title></head>
+               </title>
+            </head>
             <div type="textpart" subtype="chapter" n="1">
                <div type="textpart" subtype="verse" n="1">
                   <ab>
                      <w>Παῦλος</w>
                      <w>ἀπόστολος</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>Χριστοῦ</w>
                            <w>Ἰησοῦ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">Χριστοῦ Ἰησοῦ</rdg>
                         <rdg source="#RP">Ἰησοῦ Χριστοῦ</rdg>
                      </app>
                      <w>διὰ</w>
@@ -235,7 +241,6 @@
                      <w>Ἰησοῦ</w>
                      <w>Χριστοῦ</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="3">
@@ -332,7 +337,7 @@
                      <w>σωτηρίας</w>
                      <pc>·</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>εἴτε</w>
                            <w>παρακαλούμεθα</w>
                            <pc>,</pc>
@@ -341,7 +346,6 @@
                            <w>ὑμῶν</w>
                            <w>παρακλήσεως</w>
                         </lem>
-                        <rdg source="#WH #NIV">εἴτε παρακαλούμεθα, ὑπὲρ τῆς ὑμῶν παρακλήσεως</rdg>
                         <rdg source="#Treg #RP" cause="omission"/>
                      </app>
                      <w>τῆς</w>
@@ -367,21 +371,18 @@
                      <w>βεβαία</w>
                      <w>ὑπὲρ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>ὑμῶν</w>
                         </lem>
-                        <rdg source="#WH #NIV">ὑμῶν</rdg>
-                        <rdg source="#Treg #RP">+ εἴτε παρακαλούμεθα, ὑπὲρ τῆς ὑμῶν παρακλήσεως καὶ
-                           σωτηρίας</rdg>
+                        <rdg source="#Treg #RP">+ εἴτε παρακαλούμεθα, ὑπὲρ τῆς ὑμῶν παρακλήσεως καὶ σωτηρίας</rdg>
                      </app>
                      <pc>·</pc>
                      <w>εἰδότες</w>
                      <w>ὅτι</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὡς</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὡς</rdg>
                         <rdg source="#RP">ὥσπερ</rdg>
                      </app>
                      <w>κοινωνοί</w>
@@ -394,7 +395,6 @@
                      <w>τῆς</w>
                      <w>παρακλήσεως</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="8">
@@ -408,10 +408,9 @@
                      <w>ἀδελφοί</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV #RP">
                            <w>ὑπὲρ</w>
                         </lem>
-                        <rdg source="#WH #NIV #RP">ὑπὲρ</rdg>
                         <rdg source="#Treg">περὶ</rdg>
                      </app>
                      <w>τῆς</w>
@@ -419,10 +418,9 @@
                      <w>ἡμῶν</w>
                      <w>τῆς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>γενομένης</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">γενομένης</rdg>
                         <rdg source="#RP">+ ἡμῖν</rdg>
                      </app>
                      <w>ἐν</w>
@@ -430,15 +428,14 @@
                      <w>Ἀσίᾳ</w>
                      <pc>,</pc>
                      <w>ὅτι</w>
-                     <w>καθ᾽</w>
+                     <w>καθ’</w>
                      <w>ὑπερβολὴν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὑπὲρ</w>
                            <w>δύναμιν</w>
                            <w>ἐβαρήθημεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὑπὲρ δύναμιν ἐβαρήθημεν</rdg>
                         <rdg source="#RP">ἐβαρήθημεν ὑπὲρ δύναμιν</rdg>
                      </app>
                      <pc>,</pc>
@@ -467,9 +464,9 @@
                      <w>μὴ</w>
                      <w>πεποιθότες</w>
                      <w>ὦμεν</w>
-                     <w>ἐφ᾽</w>
+                     <w>ἐφ’</w>
                      <w>ἑαυτοῖς</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἐπὶ</w>
                      <w>τῷ</w>
                      <w>θεῷ</w>
@@ -490,10 +487,9 @@
                      <w>ἡμᾶς</w>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ῥύσεται</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ῥύσεται</rdg>
                         <rdg source="#RP">ῥύεται</rdg>
                      </app>
                      <pc>,</pc>
@@ -530,14 +526,12 @@
                      <w>εὐχαριστηθῇ</w>
                      <w>ὑπὲρ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἡμῶν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἡμῶν</rdg>
                         <rdg source="#RP">ὑμῶν</rdg>
                      </app>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="12">
@@ -558,34 +552,31 @@
                      <w>ὅτι</w>
                      <w>ἐν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἁγιότητι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἁγιότητι</rdg>
                         <rdg source="#NA #RP">ἁπλότητι</rdg>
                      </app>
                      <w>καὶ</w>
                      <w>εἰλικρινείᾳ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τοῦ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τοῦ</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <w>θεοῦ</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>οὐκ</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">οὐκ</rdg>
                         <rdg source="#WH #NA">καὶ οὐκ</rdg>
                      </app>
                      <w>ἐν</w>
                      <w>σοφίᾳ</w>
                      <w>σαρκικῇ</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἐν</w>
                      <w>χάριτι</w>
                      <w>θεοῦ</w>
@@ -609,7 +600,7 @@
                      <w>ἄλλα</w>
                      <w>γράφομεν</w>
                      <w>ὑμῖν</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἢ</w>
                      <w>ἃ</w>
                      <w>ἀναγινώσκετε</w>
@@ -620,10 +611,9 @@
                      <w>ἐλπίζω</w>
                      <w>δὲ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὅτι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὅτι</rdg>
                         <rdg source="#RP">+ καὶ</rdg>
                      </app>
                      <w>ἕως</w>
@@ -655,15 +645,13 @@
                      <w>τοῦ</w>
                      <w>κυρίου</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NA">
                            <w>ἡμῶν</w>
                         </lem>
-                        <rdg source="#WH #NA">ἡμῶν</rdg>
                         <rdg source="#Treg #NIV #RP" cause="omission"/>
                      </app>
                      <w>Ἰησοῦ</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="15">
@@ -674,30 +662,27 @@
                      <w>πεποιθήσει</w>
                      <w>ἐβουλόμην</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>πρότερον</w>
                            <w>πρὸς</w>
                            <w>ὑμᾶς</w>
                            <w>ἐλθεῖν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">πρότερον πρὸς ὑμᾶς ἐλθεῖν</rdg>
                         <rdg source="#RP">ἐλθεῖν πρὸς ὑμᾶς τὸ πρότερον</rdg>
                      </app>
                      <pc>,</pc>
                      <w>ἵνα</w>
                      <w>δευτέραν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>χάριν</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">χάριν</rdg>
                         <rdg source="#WH">χαρὰν</rdg>
                      </app>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>σχῆτε</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">σχῆτε</rdg>
                         <rdg source="#RP">ἔχῆτε</rdg>
                      </app>
                      <pc>,</pc>
@@ -706,7 +691,7 @@
                <div type="textpart" subtype="verse" n="16">
                   <ab>
                      <w>καὶ</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ὑμῶν</w>
                      <w>διελθεῖν</w>
                      <w>εἰς</w>
@@ -720,7 +705,7 @@
                      <w>πρὸς</w>
                      <w>ὑμᾶς</w>
                      <w>καὶ</w>
-                     <w>ὑφ᾽</w>
+                     <w>ὑφ’</w>
                      <w>ὑμῶν</w>
                      <w>προπεμφθῆναι</w>
                      <w>εἰς</w>
@@ -734,10 +719,9 @@
                      <w>τοῦτο</w>
                      <w>οὖν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>βουλόμενος</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">βουλόμενος</rdg>
                         <rdg source="#RP">βουλευόμενος</rdg>
                      </app>
                      <w>μήτι</w>
@@ -755,7 +739,7 @@
                      <pc>,</pc>
                      <w>ἵνα</w>
                      <w>ᾖ</w>
-                     <w>παρ᾽</w>
+                     <w>παρ’</w>
                      <w>ἐμοὶ</w>
                      <w>τὸ</w>
                      <w>Ναὶ</w>
@@ -782,10 +766,9 @@
                      <w>ὑμᾶς</w>
                      <w>οὐκ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἔστιν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἔστιν</rdg>
                         <rdg source="#RP">ἐγένετο</rdg>
                      </app>
                      <w>Ναὶ</w>
@@ -798,31 +781,29 @@
                   <ab>
                      <w>ὁ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τοῦ</w>
                            <w>θεοῦ</w>
                            <w>γὰρ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τοῦ θεοῦ γὰρ</rdg>
                         <rdg source="#RP">γὰρ τοῦ θεοῦ</rdg>
                      </app>
                      <w>υἱὸς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>Ἰησοῦς</w>
                            <w>Χριστὸς</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">Ἰησοῦς Χριστὸς</rdg>
                         <rdg source="#WH">Χριστὸς Ἰησοῦς</rdg>
                      </app>
                      <w>ὁ</w>
                      <w>ἐν</w>
                      <w>ὑμῖν</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ἡμῶν</w>
                      <w>κηρυχθείς</w>
                      <pc>,</pc>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ἐμοῦ</w>
                      <w>καὶ</w>
                      <w>Σιλουανοῦ</w>
@@ -856,19 +837,17 @@
                      <w>Ναί</w>
                      <pc>·</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>διὸ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">διὸ</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
-                           <w>δι᾽</w>
+                        <lem source="#WH #Treg #NIV">
+                           <w>δι’</w>
                            <w>αὐτοῦ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">δι᾽ αὐτοῦ</rdg>
                         <rdg source="#RP">ἐν αὐτῷ</rdg>
                      </app>
                      <w>τὸ</w>
@@ -877,7 +856,7 @@
                      <w>θεῷ</w>
                      <w>πρὸς</w>
                      <w>δόξαν</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ἡμῶν</w>
                      <pc>.</pc>
                   </ab>
@@ -916,7 +895,6 @@
                      <w>καρδίαις</w>
                      <w>ἡμῶν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="23">
@@ -942,16 +920,38 @@
                      <pc>.</pc>
                   </ab>
                </div>
+               <div type="textpart" subtype="verse" n="24">
+                  <ab>
+                     <w>οὐχ</w>
+                     <w>ὅτι</w>
+                     <w>κυριεύομεν</w>
+                     <w>ὑμῶν</w>
+                     <w>τῆς</w>
+                     <w>πίστεως</w>
+                     <pc>,</pc>
+                     <w>ἀλλὰ</w>
+                     <w>συνεργοί</w>
+                     <w>ἐσμεν</w>
+                     <w>τῆς</w>
+                     <w>χαρᾶς</w>
+                     <w>ὑμῶν</w>
+                     <pc>,</pc>
+                     <w>τῇ</w>
+                     <w>γὰρ</w>
+                     <w>πίστει</w>
+                     <w>ἑστήκατε</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
             </div>
             <div type="textpart" subtype="chapter" n="2">
                <div type="textpart" subtype="verse" n="1">
                   <ab>
                      <w>ἔκρινα</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>γὰρ</w>
                         </lem>
-                        <rdg source="#WH #NIV">γὰρ</rdg>
                         <rdg source="#Treg #RP">δὲ</rdg>
                      </app>
                      <w>ἐμαυτῷ</w>
@@ -978,10 +978,9 @@
                      <pc>,</pc>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τίς</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τίς</rdg>
                         <rdg source="#RP">+ ἐστιν</rdg>
                      </app>
                      <w>ὁ</w>
@@ -1000,10 +999,9 @@
                   <ab>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἔγραψα</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἔγραψα</rdg>
                         <rdg source="#RP">+ ὑμῖν</rdg>
                      </app>
                      <w>τοῦτο</w>
@@ -1013,13 +1011,12 @@
                      <w>ἐλθὼν</w>
                      <w>λύπην</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>σχῶ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">σχῶ</rdg>
                         <rdg source="#RP">ἔχω</rdg>
                      </app>
-                     <w>ἀφ᾽</w>
+                     <w>ἀφ’</w>
                      <w>ὧν</w>
                      <w>ἔδει</w>
                      <w>με</w>
@@ -1069,7 +1066,6 @@
                      <w>εἰς</w>
                      <w>ὑμᾶς</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="5">
@@ -1114,10 +1110,9 @@
                      <w>ὥστε</w>
                      <w>τοὐναντίον</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>μᾶλλον</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">μᾶλλον</rdg>
                         <rdg source="#WH" cause="omission"/>
                      </app>
                      <w>ὑμᾶς</w>
@@ -1182,19 +1177,18 @@
                      <w>γὰρ</w>
                      <w>ἐγὼ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὃ</w>
                            <w>κεχάρισμαι</w>
                            <pc>,</pc>
                            <w>εἴ</w>
                            <w>τι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὃ κεχάρισμαι, εἴ τι</rdg>
                         <rdg source="#RP">εἴ τι κεχάρισμαι ᾧ</rdg>
                      </app>
                      <w>κεχάρισμαι</w>
                      <pc>,</pc>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ὑμᾶς</w>
                      <w>ἐν</w>
                      <w>προσώπῳ</w>
@@ -1218,7 +1212,6 @@
                      <w>νοήματα</w>
                      <w>ἀγνοοῦμεν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="12">
@@ -1266,7 +1259,6 @@
                      <w>εἰς</w>
                      <w>Μακεδονίαν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="14">
@@ -1289,7 +1281,7 @@
                      <w>γνώσεως</w>
                      <w>αὐτοῦ</w>
                      <w>φανεροῦντι</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ἡμῶν</w>
                      <w>ἐν</w>
                      <w>παντὶ</w>
@@ -1321,10 +1313,9 @@
                      <w>μὲν</w>
                      <w>ὀσμὴ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐκ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐκ</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <w>θανάτου</w>
@@ -1335,10 +1326,9 @@
                      <w>δὲ</w>
                      <w>ὀσμὴ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐκ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐκ</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <w>ζωῆς</w>
@@ -1353,6 +1343,47 @@
                      <pc>;</pc>
                   </ab>
                </div>
+               <div type="textpart" subtype="verse" n="17">
+                  <ab>
+                     <w>οὐ</w>
+                     <w>γάρ</w>
+                     <w>ἐσμεν</w>
+                     <w>ὡς</w>
+                     <w>οἱ</w>
+                     <app type="textcritical">
+                        <lem source="#WH #Treg #NIV">
+                           <w>πολλοὶ</w>
+                        </lem>
+                        <rdg source="#RP">λοιποί</rdg>
+                     </app>
+                     <w>καπηλεύοντες</w>
+                     <w>τὸν</w>
+                     <w>λόγον</w>
+                     <w>τοῦ</w>
+                     <w>θεοῦ</w>
+                     <pc>,</pc>
+                     <w>ἀλλ’</w>
+                     <w>ὡς</w>
+                     <w>ἐξ</w>
+                     <w>εἰλικρινείας</w>
+                     <pc>,</pc>
+                     <w>ἀλλ’</w>
+                     <w>ὡς</w>
+                     <w>ἐκ</w>
+                     <w>θεοῦ</w>
+                     <app type="textcritical">
+                        <lem source="#WH #Treg #NIV">
+                           <w>κατέναντι</w>
+                        </lem>
+                        <rdg source="#RP">κατενώπιον τοῦ</rdg>
+                     </app>
+                     <w>θεοῦ</w>
+                     <w>ἐν</w>
+                     <w>Χριστῷ</w>
+                     <w>λαλοῦμεν</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
             </div>
             <div type="textpart" subtype="chapter" n="3">
                <div type="textpart" subtype="verse" n="1">
@@ -1361,18 +1392,16 @@
                      <w>πάλιν</w>
                      <w>ἑαυτοὺς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV #RP">
                            <w>συνιστάνειν</w>
                         </lem>
-                        <rdg source="#WH #NIV #RP">συνιστάνειν</rdg>
                         <rdg source="#Treg">συνιστᾶν</rdg>
                      </app>
                      <pc>.</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἢ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἢ</rdg>
                         <rdg source="#RP">Εἰ</rdg>
                      </app>
                      <w>μὴ</w>
@@ -1386,10 +1415,9 @@
                      <w>ἢ</w>
                      <w>ἐξ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὑμῶν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὑμῶν</rdg>
                         <rdg source="#RP">+ συστατικῶν</rdg>
                      </app>
                      <pc>.</pc>
@@ -1426,7 +1454,7 @@
                      <w>ἐπιστολὴ</w>
                      <w>Χριστοῦ</w>
                      <w>διακονηθεῖσα</w>
-                     <w>ὑφ᾽</w>
+                     <w>ὑφ’</w>
                      <w>ἡμῶν</w>
                      <pc>,</pc>
                      <w>ἐγγεγραμμένη</w>
@@ -1441,13 +1469,12 @@
                      <w>ἐν</w>
                      <w>πλαξὶν</w>
                      <w>λιθίναις</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἐν</w>
                      <w>πλαξὶν</w>
                      <w>καρδίαις</w>
                      <w>σαρκίναις</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="4">
@@ -1470,28 +1497,26 @@
                      <w>οὐχ</w>
                      <w>ὅτι</w>
                      <app type="textcritical">
-                        <lem>
-                           <w>ἀφ᾽</w>
+                        <lem source="#WH #Treg #NIV">
+                           <w>ἀφ’</w>
                            <w>ἑαυτῶν</w>
                            <w>ἱκανοί</w>
                            <w>ἐσμεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἀφ᾽ ἑαυτῶν ἱκανοί ἐσμεν</rdg>
-                        <rdg source="#RP">ἱκανοί ἐσμεν ἀφ᾽ ἑαυτῶν</rdg>
+                        <rdg source="#RP">ἱκανοί ἐσμεν ἀφ’ ἑαυτῶν</rdg>
                      </app>
                      <w>λογίσασθαί</w>
                      <w>τι</w>
                      <w>ὡς</w>
                      <w>ἐξ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>αὑτῶν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">αὑτῶν</rdg>
                         <rdg source="#RP">ἑαυτῶν</rdg>
                      </app>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἡ</w>
                      <w>ἱκανότης</w>
                      <w>ἡμῶν</w>
@@ -1526,7 +1551,6 @@
                      <w>πνεῦμα</w>
                      <w>ζῳοποιεῖ</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="7">
@@ -1539,17 +1563,15 @@
                      <w>θανάτου</w>
                      <w>ἐν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV #RP">
                            <w>γράμμασιν</w>
                         </lem>
-                        <rdg source="#WH #NIV #RP">γράμμασιν</rdg>
                         <rdg source="#Treg">γράμματι</rdg>
                      </app>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐντετυπωμένη</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐντετυπωμένη</rdg>
                         <rdg source="#RP">+ ἐν</rdg>
                      </app>
                      <w>λίθοις</w>
@@ -1599,11 +1621,10 @@
                      <w>εἰ</w>
                      <w>γὰρ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV">
                            <w>τῇ</w>
                            <w>διακονίᾳ</w>
                         </lem>
-                        <rdg source="#Treg #NIV">τῇ διακονίᾳ</rdg>
                         <rdg source="#WH #RP">ἡ διακονία</rdg>
                      </app>
                      <w>τῆς</w>
@@ -1617,10 +1638,9 @@
                      <w>διακονία</w>
                      <w>τῆς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>δικαιοσύνης</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">δικαιοσύνης</rdg>
                         <rdg source="#RP">+ ἐν</rdg>
                      </app>
                      <w>δόξῃ</w>
@@ -1640,10 +1660,9 @@
                      <w>τῷ</w>
                      <w>μέρει</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>εἵνεκεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">εἵνεκεν</rdg>
                         <rdg source="#RP">ἕνεκεν</rdg>
                      </app>
                      <w>τῆς</w>
@@ -1668,7 +1687,6 @@
                      <w>ἐν</w>
                      <w>δόξῃ</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="12">
@@ -1695,10 +1713,9 @@
                      <w>τὸ</w>
                      <w>πρόσωπον</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>αὐτοῦ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">αὐτοῦ</rdg>
                         <rdg source="#RP">ἑαυτοῦ</rdg>
                      </app>
                      <pc>,</pc>
@@ -1730,10 +1747,9 @@
                      <w>τῆς</w>
                      <w>σήμερον</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἡμέρας</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἡμέρας</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <w>τὸ</w>
@@ -1750,10 +1766,9 @@
                      <w>ἀνακαλυπτόμενον</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὅτι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὅτι</rdg>
                         <rdg source="#RP">ὅ τι</rdg>
                      </app>
                      <w>ἐν</w>
@@ -1764,16 +1779,15 @@
                </div>
                <div type="textpart" subtype="verse" n="15">
                   <ab>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἕως</w>
                      <w>σήμερον</w>
                      <w>ἡνίκα</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἂν</w>
                            <w>ἀναγινώσκηται</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἂν ἀναγινώσκηται</rdg>
                         <rdg source="#RP">ἀναγινώσκεται</rdg>
                      </app>
                      <w>Μωϋσῆς</w>
@@ -1790,12 +1804,11 @@
                   <ab>
                      <w>ἡνίκα</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>δὲ</w>
                            <w>ἐὰν</w>
                         </lem>
-                        <rdg source="#WH #NIV">δὲ ἐὰν</rdg>
-                        <rdg source="#Treg #RP" resp="#JJM">δ[ὲ] ἂν</rdg>
+                        <rdg source="#Treg #RP">δ[ὲ] ἂν</rdg>
                      </app>
                      <w>ἐπιστρέψῃ</w>
                      <w>πρὸς</w>
@@ -1821,14 +1834,40 @@
                      <w>τὸ</w>
                      <w>πνεῦμα</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>κυρίου</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">κυρίου</rdg>
                         <rdg source="#RP">+ ἐκεῖ</rdg>
                      </app>
                      <pc>,</pc>
                      <w>ἐλευθερία</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
+               <div type="textpart" subtype="verse" n="18">
+                  <ab>
+                     <w>ἡμεῖς</w>
+                     <w>δὲ</w>
+                     <w>πάντες</w>
+                     <w>ἀνακεκαλυμμένῳ</w>
+                     <w>προσώπῳ</w>
+                     <w>τὴν</w>
+                     <w>δόξαν</w>
+                     <w>κυρίου</w>
+                     <w>κατοπτριζόμενοι</w>
+                     <w>τὴν</w>
+                     <w>αὐτὴν</w>
+                     <w>εἰκόνα</w>
+                     <w>μεταμορφούμεθα</w>
+                     <w>ἀπὸ</w>
+                     <w>δόξης</w>
+                     <w>εἰς</w>
+                     <w>δόξαν</w>
+                     <pc>,</pc>
+                     <w>καθάπερ</w>
+                     <w>ἀπὸ</w>
+                     <w>κυρίου</w>
+                     <w>πνεύματος</w>
                      <pc>.</pc>
                   </ab>
                </div>
@@ -1848,10 +1887,9 @@
                      <pc>,</pc>
                      <w>οὐκ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐγκακοῦμεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐγκακοῦμεν</rdg>
                         <rdg source="#RP">ἐκκακοῦμεν</rdg>
                      </app>
                      <pc>,</pc>
@@ -1883,10 +1921,9 @@
                      <w>τῆς</w>
                      <w>ἀληθείας</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>συνιστάνοντες</w>
                         </lem>
-                        <rdg source="#WH #NIV">συνιστάνοντες</rdg>
                         <rdg source="#Treg">συνιστάντες</rdg>
                         <rdg source="#RP">συνιστῶντες</rdg>
                      </app>
@@ -1938,10 +1975,9 @@
                      <w>τὸ</w>
                      <w>μὴ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>αὐγάσαι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">αὐγάσαι</rdg>
                         <rdg source="#RP">+ αὐτοῖς</rdg>
                      </app>
                      <w>τὸν</w>
@@ -1969,11 +2005,10 @@
                      <w>κηρύσσομεν</w>
                      <w>ἀλλὰ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #RP">
                            <w>Χριστὸν</w>
                            <w>Ἰησοῦν</w>
                         </lem>
-                        <rdg source="#WH #Treg #RP">Χριστὸν Ἰησοῦν</rdg>
                         <rdg source="#NIV">Ἰησοῦν Χριστὸν</rdg>
                      </app>
                      <w>κύριον</w>
@@ -1999,10 +2034,9 @@
                      <w>σκότους</w>
                      <w>φῶς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>λάμψει</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">λάμψει</rdg>
                         <rdg source="#RP">λάμψαι</rdg>
                      </app>
                      <pc>,</pc>
@@ -2023,14 +2057,12 @@
                      <w>ἐν</w>
                      <w>προσώπῳ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>Χριστοῦ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">Χριστοῦ</rdg>
                         <rdg source="#NA #RP">Ἰησοῦ Χριστοῦ</rdg>
                      </app>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="7">
@@ -2064,12 +2096,12 @@
                      <w>ἐν</w>
                      <w>παντὶ</w>
                      <w>θλιβόμενοι</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>οὐ</w>
                      <w>στενοχωρούμενοι</w>
                      <pc>,</pc>
                      <w>ἀπορούμενοι</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>οὐκ</w>
                      <w>ἐξαπορούμενοι</w>
                      <pc>,</pc>
@@ -2078,12 +2110,12 @@
                <div type="textpart" subtype="verse" n="9">
                   <ab>
                      <w>διωκόμενοι</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>οὐκ</w>
                      <w>ἐγκαταλειπόμενοι</w>
                      <pc>,</pc>
                      <w>καταβαλλόμενοι</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>οὐκ</w>
                      <w>ἀπολλύμενοι</w>
                      <pc>,</pc>
@@ -2095,10 +2127,9 @@
                      <w>τὴν</w>
                      <w>νέκρωσιν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τοῦ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τοῦ</rdg>
                         <rdg source="#RP">+ κυρίου</rdg>
                      </app>
                      <w>Ἰησοῦ</w>
@@ -2153,10 +2184,9 @@
                   <ab>
                      <w>ὥστε</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὁ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὁ</rdg>
                         <rdg source="#RP">+ μὲν</rdg>
                      </app>
                      <w>θάνατος</w>
@@ -2170,7 +2200,6 @@
                      <w>ἐν</w>
                      <w>ὑμῖν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="13">
@@ -2209,20 +2238,18 @@
                      <w>ὁ</w>
                      <w>ἐγείρας</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Holmes #WHmarg">
                            <w>τὸν</w>
                         </lem>
-                        <rdg source="#Holmes #WHmarg">τὸν</rdg>
                         <rdg source="#WH #Treg #NIV #RP">+ κύριον</rdg>
                      </app>
                      <w>Ἰησοῦν</w>
                      <w>καὶ</w>
                      <w>ἡμᾶς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>σὺν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">σὺν</rdg>
                         <rdg source="#RP">διὰ</rdg>
                      </app>
                      <w>Ἰησοῦ</w>
@@ -2239,7 +2266,7 @@
                      <w>τὰ</w>
                      <w>γὰρ</w>
                      <w>πάντα</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ὑμᾶς</w>
                      <pc>,</pc>
                      <w>ἵνα</w>
@@ -2258,7 +2285,6 @@
                      <w>τοῦ</w>
                      <w>θεοῦ</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="16">
@@ -2266,14 +2292,13 @@
                      <w>Διὸ</w>
                      <w>οὐκ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐγκακοῦμεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐγκακοῦμεν</rdg>
                         <rdg source="#RP">ἐκκακοῦμεν</rdg>
                      </app>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>εἰ</w>
                      <w>καὶ</w>
                      <w>ὁ</w>
@@ -2282,14 +2307,13 @@
                      <w>ἄνθρωπος</w>
                      <w>διαφθείρεται</w>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ὁ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἔσω</w>
                            <w>ἡμῶν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἔσω ἡμῶν</rdg>
                         <rdg source="#RP">ἔσωθεν</rdg>
                      </app>
                      <w>ἀνακαινοῦται</w>
@@ -2308,13 +2332,12 @@
                      <w>τῆς</w>
                      <w>θλίψεως</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>ἡμῶν</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">ἡμῶν</rdg>
                         <rdg source="#WH" cause="omission"/>
                      </app>
-                     <w>καθ᾽</w>
+                     <w>καθ’</w>
                      <w>ὑπερβολὴν</w>
                      <w>εἰς</w>
                      <w>ὑπερβολὴν</w>
@@ -2324,6 +2347,31 @@
                      <w>κατεργάζεται</w>
                      <w>ἡμῖν</w>
                      <pc>,</pc>
+                  </ab>
+               </div>
+               <div type="textpart" subtype="verse" n="18">
+                  <ab>
+                     <w>μὴ</w>
+                     <w>σκοπούντων</w>
+                     <w>ἡμῶν</w>
+                     <w>τὰ</w>
+                     <w>βλεπόμενα</w>
+                     <w>ἀλλὰ</w>
+                     <w>τὰ</w>
+                     <w>μὴ</w>
+                     <w>βλεπόμενα</w>
+                     <pc>,</pc>
+                     <w>τὰ</w>
+                     <w>γὰρ</w>
+                     <w>βλεπόμενα</w>
+                     <w>πρόσκαιρα</w>
+                     <pc>,</pc>
+                     <w>τὰ</w>
+                     <w>δὲ</w>
+                     <w>μὴ</w>
+                     <w>βλεπόμενα</w>
+                     <w>αἰώνια</w>
+                     <pc>.</pc>
                   </ab>
                </div>
             </div>
@@ -2377,19 +2425,17 @@
                <div type="textpart" subtype="verse" n="3">
                   <ab>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV #RP">
                            <w>εἴ</w>
                            <w>γε</w>
                         </lem>
-                        <rdg source="#WH #NIV #RP">εἴ γε</rdg>
                         <rdg source="#Treg">εἴ περ</rdg>
                      </app>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV #RP">
                            <w>ἐνδυσάμενοι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV #RP">ἐνδυσάμενοι</rdg>
                         <rdg source="#NA">ἐκδυσάμενοι</rdg>
                      </app>
                      <w>οὐ</w>
@@ -2409,12 +2455,12 @@
                      <w>σκήνει</w>
                      <w>στενάζομεν</w>
                      <w>βαρούμενοι</w>
-                     <w>ἐφ᾽</w>
+                     <w>ἐφ’</w>
                      <w>ᾧ</w>
                      <w>οὐ</w>
                      <w>θέλομεν</w>
                      <w>ἐκδύσασθαι</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἐπενδύσασθαι</w>
                      <pc>,</pc>
                      <w>ἵνα</w>
@@ -2439,10 +2485,9 @@
                      <w>θεός</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὁ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὁ</rdg>
                         <rdg source="#RP">+ καὶ</rdg>
                      </app>
                      <w>δοὺς</w>
@@ -2452,7 +2497,6 @@
                      <w>τοῦ</w>
                      <w>πνεύματος</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="6">
@@ -2552,14 +2596,12 @@
                      <w>ἀγαθὸν</w>
                      <w>εἴτε</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>φαῦλον</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">φαῦλον</rdg>
                         <rdg source="#RP">κακόν</rdg>
                      </app>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="11">
@@ -2591,10 +2633,9 @@
                <div type="textpart" subtype="verse" n="12">
                   <ab>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>οὐ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">οὐ</rdg>
                         <rdg source="#RP">+ γὰρ</rdg>
                      </app>
                      <w>πάλιν</w>
@@ -2619,11 +2660,10 @@
                      <w>καυχωμένους</w>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>μὴ</w>
                            <w>ἐν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">μὴ ἐν</rdg>
                         <rdg source="#RP">οὐ</rdg>
                      </app>
                      <w>καρδίᾳ</w>
@@ -2658,10 +2698,9 @@
                      <w>κρίναντας</w>
                      <w>τοῦτο</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὅτι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὅτι</rdg>
                         <rdg source="#RP">+ εἰ</rdg>
                      </app>
                      <w>εἷς</w>
@@ -2696,7 +2735,6 @@
                      <w>καὶ</w>
                      <w>ἐγερθέντι</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="16">
@@ -2712,10 +2750,9 @@
                      <w>σάρκα</w>
                      <pc>·</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>εἰ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">εἰ</rdg>
                         <rdg source="#RP">+ δὲ</rdg>
                      </app>
                      <w>καὶ</w>
@@ -2749,10 +2786,9 @@
                      <w>ἰδοὺ</w>
                      <w>γέγονεν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>καινά</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">καινά</rdg>
                         <rdg source="#RP">+ τὰ πάντα</rdg>
                      </app>
                      <pc>·</pc>
@@ -2771,10 +2807,9 @@
                      <w>ἡμᾶς</w>
                      <w>ἑαυτῷ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>διὰ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">διὰ</rdg>
                         <rdg source="#RP">+ Ἰησοῦ</rdg>
                      </app>
                      <w>Χριστοῦ</w>
@@ -2828,7 +2863,7 @@
                      <w>τοῦ</w>
                      <w>θεοῦ</w>
                      <w>παρακαλοῦντος</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ἡμῶν</w>
                      <pc>·</pc>
                      <w>δεόμεθα</w>
@@ -2838,6 +2873,32 @@
                      <w>καταλλάγητε</w>
                      <w>τῷ</w>
                      <w>θεῷ</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
+               <div type="textpart" subtype="verse" n="21">
+                  <ab>
+                     <app type="textcritical">
+                        <lem source="#WH #Treg #NIV">
+                           <w>τὸν</w>
+                        </lem>
+                        <rdg source="#RP">+ γὰρ</rdg>
+                     </app>
+                     <w>μὴ</w>
+                     <w>γνόντα</w>
+                     <w>ἁμαρτίαν</w>
+                     <w>ὑπὲρ</w>
+                     <w>ἡμῶν</w>
+                     <w>ἁμαρτίαν</w>
+                     <w>ἐποίησεν</w>
+                     <pc>,</pc>
+                     <w>ἵνα</w>
+                     <w>ἡμεῖς</w>
+                     <w>γενώμεθα</w>
+                     <w>δικαιοσύνη</w>
+                     <w>θεοῦ</w>
+                     <w>ἐν</w>
+                     <w>αὐτῷ</w>
                      <pc>.</pc>
                   </ab>
                </div>
@@ -2907,14 +2968,13 @@
                </div>
                <div type="textpart" subtype="verse" n="4">
                   <ab>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἐν</w>
                      <w>παντὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH">
                            <w>συνιστάνοντες</w>
                         </lem>
-                        <rdg source="#WH">συνιστάνοντες</rdg>
                         <rdg source="#Treg #NIV">συνιστάντες</rdg>
                         <rdg source="#RP">συνιστῶντες</rdg>
                      </app>
@@ -3067,7 +3127,6 @@
                      <w>πάντα</w>
                      <w>κατέχοντες</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="11">
@@ -3119,7 +3178,6 @@
                      <w>καὶ</w>
                      <w>ὑμεῖς</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="14">
@@ -3137,11 +3195,10 @@
                      <w>ἀνομίᾳ</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἢ</w>
                            <w>τίς</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἢ τίς</rdg>
                         <rdg source="#RP">Τίς δὲ</rdg>
                      </app>
                      <w>κοινωνία</w>
@@ -3157,10 +3214,9 @@
                      <w>δὲ</w>
                      <w>συμφώνησις</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>Χριστοῦ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">Χριστοῦ</rdg>
                         <rdg source="#RP">Χριστῷ</rdg>
                      </app>
                      <w>πρὸς</w>
@@ -3186,14 +3242,13 @@
                      <w>εἰδώλων</w>
                      <pc>;</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἡμεῖς</w>
                            <w>γὰρ</w>
                            <w>ναὸς</w>
                            <w>θεοῦ</w>
                            <w>ἐσμεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἡμεῖς γὰρ ναὸς θεοῦ ἐσμεν</rdg>
                         <rdg source="#RP">Ὑμεῖς γὰρ ναὸς θεοῦ ἐστε</rdg>
                      </app>
                      <w>ζῶντος</w>
@@ -3218,10 +3273,9 @@
                      <w>αὐτοὶ</w>
                      <w>ἔσονταί</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>μου</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">μου</rdg>
                         <rdg source="#RP">μοι</rdg>
                      </app>
                      <w>λαός</w>
@@ -3253,6 +3307,29 @@
                      <pc>·</pc>
                   </ab>
                </div>
+               <div type="textpart" subtype="verse" n="18">
+                  <ab>
+                     <w>καὶ</w>
+                     <w>ἔσομαι</w>
+                     <w>ὑμῖν</w>
+                     <w>εἰς</w>
+                     <w>πατέρα</w>
+                     <pc>,</pc>
+                     <w>καὶ</w>
+                     <w>ὑμεῖς</w>
+                     <w>ἔσεσθέ</w>
+                     <w>μοι</w>
+                     <w>εἰς</w>
+                     <w>υἱοὺς</w>
+                     <w>καὶ</w>
+                     <w>θυγατέρας</w>
+                     <pc>,</pc>
+                     <w>λέγει</w>
+                     <w>κύριος</w>
+                     <w>παντοκράτωρ</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
             </div>
             <div type="textpart" subtype="chapter" n="7">
                <div type="textpart" subtype="verse" n="1">
@@ -3280,7 +3357,6 @@
                      <w>φόβῳ</w>
                      <w>θεοῦ</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="2">
@@ -3302,12 +3378,11 @@
                <div type="textpart" subtype="verse" n="3">
                   <ab>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>πρὸς</w>
                            <w>κατάκρισιν</w>
                            <w>οὐ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">πρὸς κατάκρισιν οὐ</rdg>
                         <rdg source="#RP">Οὐ πρὸς κατάκρισιν</rdg>
                      </app>
                      <w>λέγω</w>
@@ -3355,7 +3430,6 @@
                      <w>θλίψει</w>
                      <w>ἡμῶν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="5">
@@ -3368,10 +3442,9 @@
                      <w>Μακεδονίαν</w>
                      <w>οὐδεμίαν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV #RP">
                            <w>ἔσχηκεν</w>
                         </lem>
-                        <rdg source="#WH #NIV #RP">ἔσχηκεν</rdg>
                         <rdg source="#Treg">ἔσχεν</rdg>
                      </app>
                      <w>ἄνεσιν</w>
@@ -3379,7 +3452,7 @@
                      <w>σὰρξ</w>
                      <w>ἡμῶν</w>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἐν</w>
                      <w>παντὶ</w>
                      <w>θλιβόμενοι</w>
@@ -3394,7 +3467,7 @@
                </div>
                <div type="textpart" subtype="verse" n="6">
                   <ab>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ὁ</w>
                      <w>παρακαλῶν</w>
                      <w>τοὺς</w>
@@ -3427,7 +3500,7 @@
                      <w>παρακλήσει</w>
                      <w>ᾗ</w>
                      <w>παρεκλήθη</w>
-                     <w>ἐφ᾽</w>
+                     <w>ἐφ’</w>
                      <w>ὑμῖν</w>
                      <pc>,</pc>
                      <w>ἀναγγέλλων</w>
@@ -3472,10 +3545,9 @@
                      <w>μετεμελόμην</w>
                      <pc>(</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg">
                            <w>βλέπω</w>
                         </lem>
-                        <rdg source="#WH #Treg">βλέπω</rdg>
                         <rdg source="#WH">βλέπων apP</rdg>
                         <rdg source="#NIV #RP">βλέπω γὰρ</rdg>
                      </app>
@@ -3502,7 +3574,7 @@
                      <w>ὅτι</w>
                      <w>ἐλυπήθητε</w>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ὅτι</w>
                      <w>ἐλυπήθητε</w>
                      <w>εἰς</w>
@@ -3534,10 +3606,9 @@
                      <w>σωτηρίαν</w>
                      <w>ἀμεταμέλητον</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐργάζεται</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐργάζεται</rdg>
                         <rdg source="#RP">κατεργάζεται</rdg>
                      </app>
                      <pc>·</pc>
@@ -3561,10 +3632,9 @@
                      <w>κατὰ</w>
                      <w>θεὸν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>λυπηθῆναι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">λυπηθῆναι</rdg>
                         <rdg source="#RP">+ ὑμᾶς</rdg>
                      </app>
                      <w>πόσην</w>
@@ -3596,10 +3666,9 @@
                      <w>ἑαυτοὺς</w>
                      <w>ἁγνοὺς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>εἶναι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">εἶναι</rdg>
                         <rdg source="#RP">+ ἐν</rdg>
                      </app>
                      <w>τῷ</w>
@@ -3617,38 +3686,34 @@
                      <pc>,</pc>
                      <w>οὐχ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἕνεκεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἕνεκεν</rdg>
                         <rdg source="#RP">εἵνεκεν</rdg>
                      </app>
                      <w>τοῦ</w>
                      <w>ἀδικήσαντος</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>οὐδὲ</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">οὐδὲ</rdg>
-                        <rdg source="#WH">ἀλλ᾽ οὐδὲ</rdg>
+                        <rdg source="#WH">ἀλλ’ οὐδὲ</rdg>
                      </app>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἕνεκεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἕνεκεν</rdg>
                         <rdg source="#RP">εἵνεκεν</rdg>
                      </app>
                      <w>τοῦ</w>
                      <w>ἀδικηθέντος</w>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἕνεκεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">1ἕνεκεν</rdg>
                         <rdg source="#RP">εἵνεκεν</rdg>
                      </app>
                      <w>τοῦ</w>
@@ -3673,16 +3738,14 @@
                      <w>τοῦτο</w>
                      <w>παρακεκλήμεθα</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                      <w>Ἐπὶ</w>
                      <w>δὲ</w>
                      <w>τῇ</w>
                      <w>παρακλήσει</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἡμῶν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἡμῶν</rdg>
                         <rdg source="#RP">ὑμῶν</rdg>
                      </app>
                      <w>περισσοτέρως</w>
@@ -3717,7 +3780,7 @@
                      <w>οὐ</w>
                      <w>κατῃσχύνθην</w>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ὡς</w>
                      <w>πάντα</w>
                      <w>ἐν</w>
@@ -3731,10 +3794,9 @@
                      <w>καύχησις</w>
                      <w>ἡμῶν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>ἡ</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">ἡ</rdg>
                         <rdg source="#WH" cause="omission"/>
                      </app>
                      <w>ἐπὶ</w>
@@ -3767,6 +3829,18 @@
                      <w>τρόμου</w>
                      <w>ἐδέξασθε</w>
                      <w>αὐτόν</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <ab>
+                     <w>χαίρω</w>
+                     <w>ὅτι</w>
+                     <w>ἐν</w>
+                     <w>παντὶ</w>
+                     <w>θαρρῶ</w>
+                     <w>ἐν</w>
+                     <w>ὑμῖν</w>
                      <pc>.</pc>
                   </ab>
                </div>
@@ -3815,11 +3889,10 @@
                      <w>ἐπερίσσευσεν</w>
                      <w>εἰς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τὸ</w>
                            <w>πλοῦτος</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τὸ πλοῦτος</rdg>
                         <rdg source="#RP">τὸν πλοῦτον</rdg>
                      </app>
                      <w>τῆς</w>
@@ -3838,10 +3911,9 @@
                      <pc>,</pc>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>παρὰ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">παρὰ</rdg>
                         <rdg source="#RP">ὑπὲρ</rdg>
                      </app>
                      <w>δύναμιν</w>
@@ -3877,7 +3949,7 @@
                      <w>οὐ</w>
                      <w>καθὼς</w>
                      <w>ἠλπίσαμεν</w>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἑαυτοὺς</w>
                      <w>ἔδωκαν</w>
                      <w>πρῶτον</w>
@@ -3915,7 +3987,7 @@
                </div>
                <div type="textpart" subtype="verse" n="7">
                   <ab>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ὥσπερ</w>
                      <w>ἐν</w>
                      <w>παντὶ</w>
@@ -3933,12 +4005,11 @@
                      <w>τῇ</w>
                      <w>ἐξ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NA">
                            <w>ἡμῶν</w>
                            <w>ἐν</w>
                            <w>ὑμῖν</w>
                         </lem>
-                        <rdg source="#WH #NA">ἡμῶν ἐν ὑμῖν</rdg>
                         <rdg source="#Treg #NIV #RP">ὑμῶν ἐν ἡμῖν</rdg>
                      </app>
                      <w>ἀγάπῃ</w>
@@ -3951,13 +4022,12 @@
                      <w>χάριτι</w>
                      <w>περισσεύητε</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="8">
                   <ab>
                      <w>Οὐ</w>
-                     <w>κατ᾽</w>
+                     <w>κατ’</w>
                      <w>ἐπιταγὴν</w>
                      <w>λέγω</w>
                      <w>ἀλλὰ</w>
@@ -3988,7 +4058,7 @@
                      <w>Χριστοῦ</w>
                      <pc>,</pc>
                      <w>ὅτι</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ὑμᾶς</w>
                      <w>ἐπτώχευσεν</w>
                      <w>πλούσιος</w>
@@ -4067,10 +4137,9 @@
                      <w>καθὸ</w>
                      <w>ἐὰν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἔχῃ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἔχῃ</rdg>
                         <rdg source="#RP">+ τις</rdg>
                      </app>
                      <w>εὐπρόσδεκτος</w>
@@ -4091,15 +4160,14 @@
                      <w>ἄνεσις</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὑμῖν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὑμῖν</rdg>
                         <rdg source="#RP">+ δὲ</rdg>
                      </app>
                      <w>θλῖψις</w>
                      <pc>·</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἐξ</w>
                      <w>ἰσότητος</w>
                   </ab>
@@ -4153,7 +4221,6 @@
                      <w>οὐκ</w>
                      <w>ἠλαττόνησεν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="16">
@@ -4164,10 +4231,9 @@
                      <w>θεῷ</w>
                      <w>τῷ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #RP">
                            <w>διδόντι</w>
                         </lem>
-                        <rdg source="#WH #Treg #RP">διδόντι</rdg>
                         <rdg source="#NIV">δόντι</rdg>
                      </app>
                      <w>τὴν</w>
@@ -4204,7 +4270,7 @@
                   <ab>
                      <w>συνεπέμψαμεν</w>
                      <w>δὲ</w>
-                     <w>μετ᾽</w>
+                     <w>μετ’</w>
                      <w>αὐτοῦ</w>
                      <w>τὸν</w>
                      <w>ἀδελφὸν</w>
@@ -4235,10 +4301,9 @@
                      <w>συνέκδημος</w>
                      <w>ἡμῶν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#NIV #RP">
                            <w>σὺν</w>
                         </lem>
-                        <rdg source="#NIV #RP">σὺν</rdg>
                         <rdg source="#WH #Treg">ἐν</rdg>
                      </app>
                      <w>τῇ</w>
@@ -4246,15 +4311,14 @@
                      <w>ταύτῃ</w>
                      <w>τῇ</w>
                      <w>διακονουμένῃ</w>
-                     <w>ὑφ᾽</w>
+                     <w>ὑφ’</w>
                      <w>ἡμῶν</w>
                      <w>πρὸς</w>
                      <w>τὴν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#NIV #RP">
                            <w>αὐτοῦ</w>
                         </lem>
-                        <rdg source="#NIV #RP">αὐτοῦ</rdg>
                         <rdg source="#WH #Treg" cause="omission"/>
                      </app>
                      <w>τοῦ</w>
@@ -4280,7 +4344,7 @@
                      <w>ταύτῃ</w>
                      <w>τῇ</w>
                      <w>διακονουμένῃ</w>
-                     <w>ὑφ᾽</w>
+                     <w>ὑφ’</w>
                      <w>ἡμῶν</w>
                      <pc>,</pc>
                   </ab>
@@ -4288,11 +4352,10 @@
                <div type="textpart" subtype="verse" n="21">
                   <ab>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>προνοοῦμεν</w>
                            <w>γὰρ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">προνοοῦμεν γὰρ</rdg>
                         <rdg source="#RP">προνοούμενοι</rdg>
                      </app>
                      <w>καλὰ</w>
@@ -4360,6 +4423,34 @@
                      <pc>.</pc>
                   </ab>
                </div>
+               <div type="textpart" subtype="verse" n="24">
+                  <ab>
+                     <w>τὴν</w>
+                     <w>οὖν</w>
+                     <w>ἔνδειξιν</w>
+                     <w>τῆς</w>
+                     <w>ἀγάπης</w>
+                     <w>ὑμῶν</w>
+                     <w>καὶ</w>
+                     <w>ἡμῶν</w>
+                     <w>καυχήσεως</w>
+                     <w>ὑπὲρ</w>
+                     <w>ὑμῶν</w>
+                     <w>εἰς</w>
+                     <w>αὐτοὺς</w>
+                     <app type="textcritical">
+                        <lem source="#Treg #NIV">
+                           <w>ἐνδεικνύμενοι</w>
+                        </lem>
+                        <rdg source="#WH #RP">ἐνδείξασθε</rdg>
+                     </app>
+                     <w>εἰς</w>
+                     <w>πρόσωπον</w>
+                     <w>τῶν</w>
+                     <w>ἐκκλησιῶν</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
             </div>
             <div type="textpart" subtype="chapter" n="9">
                <div type="textpart" subtype="verse" n="1">
@@ -4402,10 +4493,9 @@
                      <pc>,</pc>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τὸ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τὸ</rdg>
                         <rdg source="#RP">ὁ ἐξ</rdg>
                      </app>
                      <w>ὑμῶν</w>
@@ -4464,10 +4554,9 @@
                      <w>ἵνα</w>
                      <w>μὴ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #RP">
                            <w>λέγωμεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #RP">λέγωμεν</rdg>
                         <rdg source="#NIV">λέγω</rdg>
                      </app>
                      <w>ὑμεῖς</w>
@@ -4476,10 +4565,9 @@
                      <w>τῇ</w>
                      <w>ὑποστάσει</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ταύτῃ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ταύτῃ</rdg>
                         <rdg source="#RP">+ τῆς καυχήσεως</rdg>
                      </app>
                      <pc>.</pc>
@@ -4496,10 +4584,9 @@
                      <w>ἵνα</w>
                      <w>προέλθωσιν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV #RP">
                            <w>εἰς</w>
                         </lem>
-                        <rdg source="#WH #NIV #RP">εἰς</rdg>
                         <rdg source="#Treg">πρὸς</rdg>
                      </app>
                      <w>ὑμᾶς</w>
@@ -4507,10 +4594,9 @@
                      <w>προκαταρτίσωσι</w>
                      <w>τὴν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>προεπηγγελμένην</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">προεπηγγελμένην</rdg>
                         <rdg source="#RP">προκατηγγελμένην</rdg>
                      </app>
                      <w>εὐλογίαν</w>
@@ -4527,7 +4613,6 @@
                      <w>ὡς</w>
                      <w>πλεονεξίαν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="6">
@@ -4545,9 +4630,9 @@
                      <w>καὶ</w>
                      <w>ὁ</w>
                      <w>σπείρων</w>
-                     <w>ἐπ᾽</w>
+                     <w>ἐπ’</w>
                      <w>εὐλογίαις</w>
-                     <w>ἐπ᾽</w>
+                     <w>ἐπ’</w>
                      <w>εὐλογίαις</w>
                      <w>καὶ</w>
                      <w>θερίσει</w>
@@ -4559,10 +4644,9 @@
                      <w>ἕκαστος</w>
                      <w>καθὼς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>προῄρηται</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">προῄρηται</rdg>
                         <rdg source="#RP">προαιρεῖται</rdg>
                      </app>
                      <w>τῇ</w>
@@ -4587,10 +4671,9 @@
                <div type="textpart" subtype="verse" n="8">
                   <ab>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>δυνατεῖ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">δυνατεῖ</rdg>
                         <rdg source="#RP">Δυνατὸς</rdg>
                      </app>
                      <w>δὲ</w>
@@ -4645,10 +4728,9 @@
                      <w>δὲ</w>
                      <w>ἐπιχορηγῶν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV">
                            <w>σπόρον</w>
                         </lem>
-                        <rdg source="#Treg #NIV">σπόρον</rdg>
                         <rdg source="#WH #RP">σπέρμα</rdg>
                      </app>
                      <w>τῷ</w>
@@ -4658,18 +4740,16 @@
                      <w>εἰς</w>
                      <w>βρῶσιν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>χορηγήσει</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">χορηγήσει</rdg>
                         <rdg source="#RP">χορηγήσαι</rdg>
                      </app>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>πληθυνεῖ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">πληθυνεῖ</rdg>
                         <rdg source="#RP">πληθύναι</rdg>
                      </app>
                      <w>τὸν</w>
@@ -4677,10 +4757,9 @@
                      <w>ὑμῶν</w>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>αὐξήσει</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">αὐξήσει</rdg>
                         <rdg source="#RP">αὐξήσαι</rdg>
                      </app>
                      <w>τὰ</w>
@@ -4703,7 +4782,7 @@
                      <pc>,</pc>
                      <w>ἥτις</w>
                      <w>κατεργάζεται</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ἡμῶν</w>
                      <w>εὐχαριστίαν</w>
                      <w>τῷ</w>
@@ -4788,8 +4867,26 @@
                      <w>χάριν</w>
                      <w>τοῦ</w>
                      <w>θεοῦ</w>
-                     <w>ἐφ᾽</w>
+                     <w>ἐφ’</w>
                      <w>ὑμῖν</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <ab>
+                     <app type="textcritical">
+                        <lem source="#WH #Treg #NIV">
+                           <w>χάρις</w>
+                        </lem>
+                        <rdg source="#RP">+ δὲ</rdg>
+                     </app>
+                     <w>τῷ</w>
+                     <w>θεῷ</w>
+                     <w>ἐπὶ</w>
+                     <w>τῇ</w>
+                     <w>ἀνεκδιηγήτῳ</w>
+                     <w>αὐτοῦ</w>
+                     <w>δωρεᾷ</w>
                      <pc>.</pc>
                   </ab>
                </div>
@@ -4927,7 +5024,6 @@
                      <w>ἡ</w>
                      <w>ὑπακοή</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="7">
@@ -4948,11 +5044,10 @@
                      <w>λογιζέσθω</w>
                      <w>πάλιν</w>
                      <app type="textcritical">
-                        <lem>
-                           <w>ἐφ᾽</w>
+                        <lem source="#WH #Treg #NIV">
+                           <w>ἐφ’</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐφ᾽</rdg>
-                        <rdg source="#RP">ἀφ᾽</rdg>
+                        <rdg source="#RP">ἀφ’</rdg>
                      </app>
                      <w>ἑαυτοῦ</w>
                      <w>ὅτι</w>
@@ -4962,10 +5057,9 @@
                      <w>οὕτως</w>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἡμεῖς</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἡμεῖς</rdg>
                         <rdg source="#RP">+ Χριστοῦ</rdg>
                      </app>
                      <pc>.</pc>
@@ -4975,17 +5069,15 @@
                   <ab>
                      <w>ἐάν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV #RP">
                            <w>τε</w>
                         </lem>
-                        <rdg source="#WH #NIV #RP">τε</rdg>
                         <rdg source="#Treg" cause="omission"/>
                      </app>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>γὰρ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">γὰρ</rdg>
                         <rdg source="#RP">+ καὶ</rdg>
                      </app>
                      <w>περισσότερόν</w>
@@ -5000,10 +5092,9 @@
                      <w>ἔδωκεν</w>
                      <w>ὁ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>κύριος</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">κύριος</rdg>
                         <rdg source="#RP">+ ἡμῖν</rdg>
                      </app>
                      <w>εἰς</w>
@@ -5039,11 +5130,10 @@
                      <w>ὅτι</w>
                      <w>Αἱ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐπιστολαὶ</w>
                            <w>μέν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐπιστολαὶ μέν</rdg>
                         <rdg source="#RP">μέν ἐπιστολαὶ</rdg>
                      </app>
                      <pc>,</pc>
@@ -5078,7 +5168,7 @@
                      <w>ἐσμεν</w>
                      <w>τῷ</w>
                      <w>λόγῳ</w>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>ἐπιστολῶν</w>
                      <w>ἀπόντες</w>
                      <pc>,</pc>
@@ -5088,7 +5178,6 @@
                      <w>τῷ</w>
                      <w>ἔργῳ</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="12">
@@ -5125,10 +5214,9 @@
                      <w>ἡμεῖς</w>
                      <w>δὲ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>οὐκ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">οὐκ</rdg>
                         <rdg source="#RP">οὐχὶ</rdg>
                      </app>
                      <w>εἰς</w>
@@ -5241,6 +5329,31 @@
                      <pc>·</pc>
                   </ab>
                </div>
+               <div type="textpart" subtype="verse" n="18">
+                  <ab>
+                     <w>οὐ</w>
+                     <w>γὰρ</w>
+                     <w>ὁ</w>
+                     <w>ἑαυτὸν</w>
+                     <app type="textcritical">
+                        <lem source="#WH #Treg #NIV">
+                           <w>συνιστάνων</w>
+                        </lem>
+                        <rdg source="#RP">συνιστῶν</rdg>
+                     </app>
+                     <pc>,</pc>
+                     <w>ἐκεῖνός</w>
+                     <w>ἐστιν</w>
+                     <w>δόκιμος</w>
+                     <pc>,</pc>
+                     <w>ἀλλὰ</w>
+                     <w>ὃν</w>
+                     <w>ὁ</w>
+                     <w>κύριος</w>
+                     <w>συνίστησιν</w>
+                     <pc>.</pc>
+                  </ab>
+               </div>
             </div>
             <div type="textpart" subtype="chapter" n="11">
                <div type="textpart" subtype="verse" n="1">
@@ -5250,17 +5363,15 @@
                      <w>μου</w>
                      <w>μικρόν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τι</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἀφροσύνης</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἀφροσύνης</rdg>
                         <rdg source="#RP">τῇ ἀφροσύνῃ</rdg>
                      </app>
                      <pc>·</pc>
@@ -5303,11 +5414,10 @@
                      <w>ὁ</w>
                      <w>ὄφις</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐξηπάτησεν</w>
                            <w>Εὕαν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐξηπάτησεν Εὕαν</rdg>
                         <rdg source="#RP">Εὕαν ἐξηπάτησεν</rdg>
                      </app>
                      <w>ἐν</w>
@@ -5316,10 +5426,9 @@
                      <w>αὐτοῦ</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>φθαρῇ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">φθαρῇ</rdg>
                         <rdg source="#RP">οὕτως φθαρῇ</rdg>
                      </app>
                      <w>τὰ</w>
@@ -5329,12 +5438,11 @@
                      <w>τῆς</w>
                      <w>ἁπλότητος</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>καὶ</w>
                            <w>τῆς</w>
                            <w>ἁγνότητος</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">καὶ τῆς ἁγνότητος</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <w>τῆς</w>
@@ -5375,10 +5483,9 @@
                      <pc>,</pc>
                      <w>καλῶς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>ἀνέχεσθε</w>
                         </lem>
-                        <rdg source="#WH #NIV">ἀνέχεσθε</rdg>
                         <rdg source="#RP">ἠνείχεσθε</rdg>
                         <rdg source="#Treg">ἀνείχεσθε</rdg>
                      </app>
@@ -5406,19 +5513,18 @@
                      <w>τῷ</w>
                      <w>λόγῳ</w>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>οὐ</w>
                      <w>τῇ</w>
                      <w>γνώσει</w>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἐν</w>
                      <w>παντὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>φανερώσαντες</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">φανερώσαντες</rdg>
                         <rdg source="#RP">φανερωθέντες</rdg>
                      </app>
                      <w>ἐν</w>
@@ -5426,7 +5532,6 @@
                      <w>εἰς</w>
                      <w>ὑμᾶς</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="7">
@@ -5493,11 +5598,10 @@
                      <w>παντὶ</w>
                      <w>ἀβαρῆ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐμαυτὸν</w>
                            <w>ὑμῖν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐμαυτὸν ὑμῖν</rdg>
                         <rdg source="#RP">ὑμῖν ἐμαυτὸν</rdg>
                      </app>
                      <w>ἐτήρησα</w>
@@ -5543,7 +5647,6 @@
                      <w>θεὸς</w>
                      <w>οἶδεν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="12">
@@ -5595,10 +5698,9 @@
                      <w>καὶ</w>
                      <w>οὐ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>θαῦμα</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">θαῦμα</rdg>
                         <rdg source="#RP">θαυμαστόν</rdg>
                      </app>
                      <pc>,</pc>
@@ -5637,7 +5739,6 @@
                      <w>ἔργα</w>
                      <w>αὐτῶν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="16">
@@ -5677,16 +5778,15 @@
                      <w>λαλῶ</w>
                      <w>οὐ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>κατὰ</w>
                            <w>κύριον</w>
                            <w>λαλῶ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">κατὰ κύριον λαλῶ</rdg>
                         <rdg source="#RP">λαλῶ κατὰ κύριον</rdg>
                      </app>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ὡς</w>
                      <w>ἐν</w>
                      <w>ἀφροσύνῃ</w>
@@ -5706,10 +5806,9 @@
                      <w>πολλοὶ</w>
                      <w>καυχῶνται</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV">
                            <w>κατὰ</w>
                         </lem>
-                        <rdg source="#Treg #NIV">κατὰ</rdg>
                         <rdg source="#WH #RP">+ τὴν</rdg>
                      </app>
                      <w>σάρκα</w>
@@ -5755,12 +5854,11 @@
                      <w>εἴ</w>
                      <w>τις</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>εἰς</w>
                            <w>πρόσωπον</w>
                            <w>ὑμᾶς</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">εἰς πρόσωπον ὑμᾶς</rdg>
                         <rdg source="#RP">ὑμᾶς εἰς πρόσωπον</rdg>
                      </app>
                      <w>δέρει</w>
@@ -5777,16 +5875,15 @@
                      <w>ὅτι</w>
                      <w>ἡμεῖς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἠσθενήκαμεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἠσθενήκαμεν</rdg>
                         <rdg source="#RP">ἠσθενήσαμεν</rdg>
                      </app>
                      <pc>·</pc>
                      <w>ἐν</w>
                      <w>ᾧ</w>
-                     <w>δ᾽</w>
+                     <w>δ’</w>
                      <w>ἄν</w>
                      <w>τις</w>
                      <w>τολμᾷ</w>
@@ -5838,7 +5935,7 @@
                      <pc>,</pc>
                      <w>ἐν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>φυλακαῖς</w>
                            <w>περισσοτέρως</w>
                            <pc>,</pc>
@@ -5846,8 +5943,6 @@
                            <w>πληγαῖς</w>
                            <w>ὑπερβαλλόντως</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">φυλακαῖς περισσοτέρως, ἐν πληγαῖς
-                           ὑπερβαλλόντως</rdg>
                         <rdg source="#RP">πληγαῖς ὑπερβαλλόντως, ἐν φυλακαῖς περισσοτέρως</rdg>
                      </app>
                      <pc>,</pc>
@@ -5928,10 +6023,9 @@
                <div type="textpart" subtype="verse" n="27">
                   <ab>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>κόπῳ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">κόπῳ</rdg>
                         <rdg source="#RP">ἐν κόπῳ</rdg>
                      </app>
                      <w>καὶ</w>
@@ -5964,21 +6058,19 @@
                      <w>παρεκτὸς</w>
                      <w>ἡ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἐπίστασίς</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἐπίστασίς</rdg>
                         <rdg source="#RP">ἐπισύστασίς</rdg>
                      </app>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>μοι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">μοι</rdg>
                         <rdg source="#RP">μου</rdg>
                      </app>
                      <w>ἡ</w>
-                     <w>καθ᾽</w>
+                     <w>καθ’</w>
                      <w>ἡμέραν</w>
                      <pc>,</pc>
                      <w>ἡ</w>
@@ -6005,7 +6097,6 @@
                      <w>ἐγὼ</w>
                      <w>πυροῦμαι</w>
                      <pc>;</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="30">
@@ -6031,10 +6122,9 @@
                      <w>τοῦ</w>
                      <w>κυρίου</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>Ἰησοῦ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">Ἰησοῦ</rdg>
                         <rdg source="#RP">+ Χριστοῦ</rdg>
                      </app>
                      <w>οἶδεν</w>
@@ -6064,22 +6154,39 @@
                      <w>ἐφρούρει</w>
                      <w>τὴν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>πόλιν</w>
                            <w>Δαμασκηνῶν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">πόλιν Δαμασκηνῶν</rdg>
                         <rdg source="#RP">Δαμασκηνῶν πόλιν</rdg>
                      </app>
                      <w>πιάσαι</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>με</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">με</rdg>
                         <rdg source="#RP">+ θέλων</rdg>
                      </app>
                      <pc>,</pc>
+                  </ab>
+               </div>
+               <div type="textpart" subtype="verse" n="33">
+                  <ab>
+                     <w>καὶ</w>
+                     <w>διὰ</w>
+                     <w>θυρίδος</w>
+                     <w>ἐν</w>
+                     <w>σαργάνῃ</w>
+                     <w>ἐχαλάσθην</w>
+                     <w>διὰ</w>
+                     <w>τοῦ</w>
+                     <w>τείχους</w>
+                     <w>καὶ</w>
+                     <w>ἐξέφυγον</w>
+                     <w>τὰς</w>
+                     <w>χεῖρας</w>
+                     <w>αὐτοῦ</w>
+                     <pc>.</pc>
                   </ab>
                </div>
             </div>
@@ -6088,29 +6195,26 @@
                   <ab>
                      <w>Καυχᾶσθαι</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>δεῖ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">δεῖ</rdg>
                         <rdg source="#RP">δὴ</rdg>
                      </app>
                      <pc>·</pc>
                      <w>οὐ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>συμφέρον</w>
                            <w>μέν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">συμφέρον μέν</rdg>
                         <rdg source="#RP">συμφέρει μοι</rdg>
                      </app>
                      <pc>,</pc>
                      <w>ἐλεύσομαι</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>δὲ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">δὲ</rdg>
                         <rdg source="#RP">γὰρ</rdg>
                      </app>
                      <w>εἰς</w>
@@ -6170,10 +6274,9 @@
                      <w>σώματι</w>
                      <w>εἴτε</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>χωρὶς</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">χωρὶς</rdg>
                         <rdg source="#RP">ἐκτὸς</rdg>
                      </app>
                      <w>τοῦ</w>
@@ -6223,10 +6326,9 @@
                      <w>ἐν</w>
                      <w>ταῖς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἀσθενείαις</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἀσθενείαις</rdg>
                         <rdg source="#RP">+ μου</rdg>
                      </app>
                      <pc>.</pc>
@@ -6262,10 +6364,9 @@
                      <w>ἢ</w>
                      <w>ἀκούει</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#NIV #RP">
                            <w>τι</w>
                         </lem>
-                        <rdg source="#NIV #RP">τι</rdg>
                         <rdg source="#WH #Treg" cause="omission"/>
                      </app>
                      <w>ἐξ</w>
@@ -6282,10 +6383,9 @@
                      <w>ἀποκαλύψεων</w>
                      <pc>.</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>διὸ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">διὸ</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <w>ἵνα</w>
@@ -6300,10 +6400,9 @@
                      <pc>,</pc>
                      <w>ἄγγελος</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>Σατανᾶ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">Σατανᾶ</rdg>
                         <rdg source="#RP">Σατᾶν</rdg>
                      </app>
                      <pc>,</pc>
@@ -6312,12 +6411,11 @@
                      <w>κολαφίζῃ</w>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV #RP">
                            <w>ἵνα</w>
                            <w>μὴ</w>
                            <w>ὑπεραίρωμαι</w>
                         </lem>
-                        <rdg source="#WH #NIV #RP">ἵνα μὴ ὑπεραίρωμαι</rdg>
                         <rdg source="#Treg" cause="omission"/>
                      </app>
                      <pc>.</pc>
@@ -6333,7 +6431,7 @@
                      <w>παρεκάλεσα</w>
                      <w>ἵνα</w>
                      <w>ἀποστῇ</w>
-                     <w>ἀπ᾽</w>
+                     <w>ἀπ’</w>
                      <w>ἐμοῦ</w>
                      <pc>·</pc>
                   </ab>
@@ -6353,19 +6451,17 @@
                      <w>ἡ</w>
                      <w>γὰρ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>δύναμις</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">δύναμις</rdg>
                         <rdg source="#RP">+ μου</rdg>
                      </app>
                      <w>ἐν</w>
                      <w>ἀσθενείᾳ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τελεῖται</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τελεῖται</rdg>
                         <rdg source="#RP">τελειοῦται</rdg>
                      </app>
                      <pc>.</pc>
@@ -6377,16 +6473,15 @@
                      <w>ταῖς</w>
                      <w>ἀσθενείαις</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>μου</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">μου</rdg>
                         <rdg source="#WH" cause="omission"/>
                      </app>
                      <pc>,</pc>
                      <w>ἵνα</w>
                      <w>ἐπισκηνώσῃ</w>
-                     <w>ἐπ᾽</w>
+                     <w>ἐπ’</w>
                      <w>ἐμὲ</w>
                      <w>ἡ</w>
                      <w>δύναμις</w>
@@ -6411,10 +6506,9 @@
                      <w>ἐν</w>
                      <w>διωγμοῖς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>καὶ</w>
                         </lem>
-                        <rdg source="#WH #NIV">καὶ</rdg>
                         <rdg source="#Treg #RP">ἐν</rdg>
                      </app>
                      <w>στενοχωρίαις</w>
@@ -6430,17 +6524,15 @@
                      <w>δυνατός</w>
                      <w>εἰμι</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="11">
                   <ab>
                      <w>Γέγονα</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἄφρων</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἄφρων</rdg>
                         <rdg source="#RP">+ καυχώμενος</rdg>
                      </app>
                      <pc>·</pc>
@@ -6451,7 +6543,7 @@
                      <w>ἐγὼ</w>
                      <w>γὰρ</w>
                      <w>ὤφειλον</w>
-                     <w>ὑφ᾽</w>
+                     <w>ὑφ’</w>
                      <w>ὑμῶν</w>
                      <w>συνίστασθαι</w>
                      <pc>.</pc>
@@ -6482,19 +6574,17 @@
                      <w>ἐν</w>
                      <w>πάσῃ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὑπομονῇ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὑπομονῇ</rdg>
                         <rdg source="#RP">+ ἐν</rdg>
                      </app>
                      <pc>,</pc>
                      <w>σημείοις</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>τε</w>
                         </lem>
-                        <rdg source="#WH #NIV">τε</rdg>
                         <rdg source="#Treg #RP" cause="omission"/>
                      </app>
                      <w>καὶ</w>
@@ -6511,10 +6601,9 @@
                      <w>ἐστιν</w>
                      <w>ὃ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ἡσσώθητε</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ἡσσώθητε</rdg>
                         <rdg source="#RP">ἡττήθητε</rdg>
                      </app>
                      <w>ὑπὲρ</w>
@@ -6537,7 +6626,6 @@
                      <w>ἀδικίαν</w>
                      <w>ταύτην</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="14">
@@ -6545,10 +6633,9 @@
                      <w>Ἰδοὺ</w>
                      <w>τρίτον</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τοῦτο</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τοῦτο</rdg>
                         <rdg source="#RP" cause="omission"/>
                      </app>
                      <w>ἑτοίμως</w>
@@ -6560,10 +6647,9 @@
                      <w>καὶ</w>
                      <w>οὐ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>καταναρκήσω</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">καταναρκήσω</rdg>
                         <rdg source="#RP">+ ὑμῶν</rdg>
                      </app>
                      <pc>·</pc>
@@ -6606,19 +6692,17 @@
                      <w>ὑμῶν</w>
                      <pc>.</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>εἰ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">εἰ</rdg>
                         <rdg source="#RP">+ καὶ</rdg>
                      </app>
                      <w>περισσοτέρως</w>
                      <w>ὑμᾶς</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#Treg #NIV #RP">
                            <w>ἀγαπῶν</w>
                         </lem>
-                        <rdg source="#Treg #NIV #RP">ἀγαπῶν</rdg>
                         <rdg source="#WH">ἀγαπῶ</rdg>
                      </app>
                      <pc>,</pc>
@@ -6655,7 +6739,7 @@
                      <w>πρὸς</w>
                      <w>ὑμᾶς</w>
                      <pc>,</pc>
-                     <w>δι᾽</w>
+                     <w>δι’</w>
                      <w>αὐτοῦ</w>
                      <w>ἐπλεονέκτησα</w>
                      <w>ὑμᾶς</w>
@@ -6687,16 +6771,14 @@
                      <w>αὐτοῖς</w>
                      <w>ἴχνεσιν</w>
                      <pc>;</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="19">
                   <ab>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>Πάλαι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">Πάλαι</rdg>
                         <rdg source="#RP">Πάλιν</rdg>
                      </app>
                      <w>δοκεῖτε</w>
@@ -6705,10 +6787,9 @@
                      <w>ἀπολογούμεθα</w>
                      <pc>;</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>κατέναντι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">κατέναντι</rdg>
                         <rdg source="#RP">Κατενώπιον τοῦ</rdg>
                      </app>
                      <w>θεοῦ</w>
@@ -6752,18 +6833,16 @@
                      <w>μή</w>
                      <w>πως</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NIV">
                            <w>ἔρις</w>
                         </lem>
-                        <rdg source="#WH #NIV">ἔρις</rdg>
                         <rdg source="#Treg #RP">ἔρεις</rdg>
                      </app>
                      <pc>,</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ζῆλος</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ζῆλος</rdg>
                         <rdg source="#RP">ζῆλοι</rdg>
                      </app>
                      <pc>,</pc>
@@ -6779,6 +6858,55 @@
                      <pc>,</pc>
                      <w>ἀκαταστασίαι</w>
                      <pc>·</pc>
+                  </ab>
+               </div>
+               <div type="textpart" subtype="verse" n="21">
+                  <ab>
+                     <w>μὴ</w>
+                     <w>πάλιν</w>
+                     <app type="textcritical">
+                        <lem source="#WH #Treg #NIV">
+                           <w>ἐλθόντος</w>
+                           <w>μου</w>
+                        </lem>
+                        <rdg source="#RP">ἐλθόντα με</rdg>
+                     </app>
+                     <app type="textcritical">
+                        <lem source="#WH #NIV">
+                           <w>ταπεινώσῃ</w>
+                        </lem>
+                        <rdg source="#Treg #RP">ταπεινώσει</rdg>
+                     </app>
+                     <app type="textcritical">
+                        <lem source="#WH #Treg #NIV">
+                           <w>με</w>
+                        </lem>
+                        <rdg source="#RP" cause="omission"/>
+                     </app>
+                     <w>ὁ</w>
+                     <w>θεός</w>
+                     <w>μου</w>
+                     <w>πρὸς</w>
+                     <w>ὑμᾶς</w>
+                     <pc>,</pc>
+                     <w>καὶ</w>
+                     <w>πενθήσω</w>
+                     <w>πολλοὺς</w>
+                     <w>τῶν</w>
+                     <w>προημαρτηκότων</w>
+                     <w>καὶ</w>
+                     <w>μὴ</w>
+                     <w>μετανοησάντων</w>
+                     <w>ἐπὶ</w>
+                     <w>τῇ</w>
+                     <w>ἀκαθαρσίᾳ</w>
+                     <w>καὶ</w>
+                     <w>πορνείᾳ</w>
+                     <w>καὶ</w>
+                     <w>ἀσελγείᾳ</w>
+                     <w>ᾗ</w>
+                     <w>ἔπραξαν</w>
+                     <pc>.</pc>
                   </ab>
                </div>
             </div>
@@ -6815,10 +6943,9 @@
                      <w>καὶ</w>
                      <w>ἀπὼν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>νῦν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">νῦν</rdg>
                         <rdg source="#RP">+ γράφω</rdg>
                      </app>
                      <pc>,</pc>
@@ -6867,10 +6994,9 @@
                   <ab>
                      <w>καὶ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>γὰρ</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">γὰρ</rdg>
                         <rdg source="#RP">+ εἰ</rdg>
                      </app>
                      <w>ἐσταυρώθη</w>
@@ -6892,10 +7018,9 @@
                      <pc>,</pc>
                      <w>ἀλλὰ</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ζήσομεν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ζήσομεν</rdg>
                         <rdg source="#RP">ζησόμεθα</rdg>
                      </app>
                      <w>σὺν</w>
@@ -6906,7 +7031,6 @@
                      <w>εἰς</w>
                      <w>ὑμᾶς</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="5">
@@ -6928,19 +7052,17 @@
                      <w>ἑαυτοὺς</w>
                      <w>ὅτι</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #NA #RP">
                            <w>Ἰησοῦς</w>
                            <w>Χριστὸς</w>
                         </lem>
-                        <rdg source="#WH #NA #RP">Ἰησοῦς Χριστὸς</rdg>
                         <rdg source="#Treg #NIV">Χριστὸς Ἰησοῦς</rdg>
                      </app>
                      <w>ἐν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὑμῖν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὑμῖν</rdg>
                         <rdg source="#RP">+ ἐστίν</rdg>
                      </app>
                      <pc>.</pc>
@@ -6968,10 +7090,9 @@
                <div type="textpart" subtype="verse" n="7">
                   <ab>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>εὐχόμεθα</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">εὐχόμεθα</rdg>
                         <rdg source="#RP">Εὐχόμαι</rdg>
                      </app>
                      <w>δὲ</w>
@@ -6990,7 +7111,7 @@
                      <w>δόκιμοι</w>
                      <w>φανῶμεν</w>
                      <pc>,</pc>
-                     <w>ἀλλ᾽</w>
+                     <w>ἀλλ’</w>
                      <w>ἵνα</w>
                      <w>ὑμεῖς</w>
                      <w>τὸ</w>
@@ -7036,10 +7157,9 @@
                      <w>ἦτε</w>
                      <pc>·</pc>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>τοῦτο</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">τοῦτο</rdg>
                         <rdg source="#RP">+ δὲ</rdg>
                      </app>
                      <w>καὶ</w>
@@ -7069,13 +7189,12 @@
                      <w>ἐξουσίαν</w>
                      <w>ἣν</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὁ</w>
                            <w>κύριος</w>
                            <w>ἔδωκέν</w>
                            <w>μοι</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὁ κύριος ἔδωκέν μοι</rdg>
                         <rdg source="#RP">ἔδωκέν μοι ὁ κύριος</rdg>
                      </app>
                      <pc>,</pc>
@@ -7086,7 +7205,6 @@
                      <w>εἰς</w>
                      <w>καθαίρεσιν</w>
                      <pc>.</pc>
-                     <lb rend="indent"/>
                   </ab>
                </div>
                <div type="textpart" subtype="verse" n="11">
@@ -7115,7 +7233,7 @@
                      <w>καὶ</w>
                      <w>εἰρήνης</w>
                      <w>ἔσται</w>
-                     <w>μεθ᾽</w>
+                     <w>μεθ’</w>
                      <w>ὑμῶν</w>
                      <pc>.</pc>
                   </ab>
@@ -7158,10 +7276,9 @@
                      <w>μετὰ</w>
                      <w>πάντων</w>
                      <app type="textcritical">
-                        <lem>
+                        <lem source="#WH #Treg #NIV">
                            <w>ὑμῶν</w>
                         </lem>
-                        <rdg source="#WH #Treg #NIV">ὑμῶν</rdg>
                         <rdg source="#RP">+ Ἀμήν</rdg>
                      </app>
                      <pc>.</pc>
