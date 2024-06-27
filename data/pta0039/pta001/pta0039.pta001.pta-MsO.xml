@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:telota="http://www.telota.de"
+     telota:doctype="transcription">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">Homilia de dominica die (Ms O)</title>
+            <author>
+               <persName key="pta0039">Anonymus (Ps.-Johannes Chrysostomus)</persName>
+            </author>
+            <respStmt>
+               <resp>transkribiert von</resp>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+            </respStmt>
+         </titleStmt>
+         <editionStmt>
+            <p>New transcription.</p>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Patristic Text Archive</publisher>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">Available under a
+                        Creative Commons Attribution 4.0 International License</licence>
+            </availability>
+            <date>2022</date>
+            <idno type="PTA">pta0039.pta001</idno>
+            <idno type="CPG">4848</idno>
+            <idno type="BHG">881u</idno>
+            <idno type="Pinakes-Oeuvre">2438</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier xml:id="O">
+                  <settlement>Oxford</settlement>
+                  <repository>Bodleian Library</repository>
+                  <idno>Holkham gr. 22</idno>
+                  <altIdentifier type="diktyon">
+                     <idno>48090</idno>
+                  </altIdentifier>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations"
+                  ana="not-annotated not-identified">
+            Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references"
+                  ana="not-annotated not-identified">
+            Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons"
+                  ana="not-annotated not-identified">
+            Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups"
+                  ana="not-annotated not-identified">
+            Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places"
+                  ana="not-annotated not-identified">
+            Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0030" notAfter="1500"/>
+            <placeName></placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change who="#AvS" when="2019-09-14">Transkript der Handschrift.</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta0039.pta001.pta-MsO">
+            <pb n="466r"/>
+            <head>
+               <title>
+                  <gap reason="illegible" unit="line" quantity="4"/>
+                  <!-- Qualität des Mikrofilms -->
+               </title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p>
+                  <hi rend="initial">Ἀ</hi>κούσατε ἀδελφοὶ· καὶ πάντες
+                            χριστια<lb break="no"/>νοὶ. καὶ
+                        φιλόχριστοι· τί λέγει ὁ προφή<lb break="no"/>της περι τής ἁγίας κυριακῆς· σχολάσαται
+                        <lb/>καὶ γνῶται· ὅτι ἐγώ οἱμοὶ ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice>· καὶ πάλιν
+                        <lb/>λέγει· αὔτη ἡ ἡμέρα ἵν ἐποίησεν ὁ <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice>·
+                        <lb/>ἀγαλλιασώμεθα καὶ εὐφρανθώμεν ἐν<gap reason="illegible" unit="character" quantity="3"/>
+                  <lb/>ἠκούσαται τὸ ἅγιον εὐαγγέλιον, ὅτι τὴν
+                        <lb/>ἁγίαν κηριακῆν, εὐαγγελίσατο ὁ ἀρχά<lb break="no"/>γγελος γαβριὴλ τὴν
+                        κεχαριτωμένην τὴν σύ<lb break="no"/>λληψιν·
+                        καὶ τὴν ἁγίαν κυριακὴν ὤφθη τῶ
+                        <lb/>μωυσῆ ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἐν τῆ βάτο· καὶ τὴν ἁγίαν κυριακὴν
+                        ἐδέξατο ὁ <choice>
+                     <expan>χριστὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χς</hi>
+                     </abbr>
+                  </choice> τὸ βάπτισμον, ἐκ χειρὸς ἰωάννου
+                        <lb/>τοῦ βαπτιστοῦ· καὶ τὴν ἁγίαν κυριακὴν.
+                        ἐποίησεν
+                        <pb n="466v"/>
+                         ὁ <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice> τὴν ἀνάστασιν· καὶ πρὶν καταβηναι
+                        τὸν <lb break="no"/>
+                  <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice> ἐπὶ τῆς γῆς, ἡ ἁγία κυριακῆ πρώτι
+                            ἡμέ<lb break="no"/>ρα ἐλέγετο· καὶ ὁ
+                        μωυσῆς ἐπαρέδωκεν τοὺς εὐ<lb break="no"/>ρέους
+                        τῶ σαββάτω, καὶ φυλάττουσιν αὐτῶ
+                        <lb/>ἀφ οὗ ἐκατέυει ὁ <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice> ἐπὶ τῆς γῆς, ἐπλήρωσεν
+                        <lb/>τὸν παλαιὸν νόμον, καὶ παρέδωκεν ἡμᾶς
+                        <lb/>τὴν νέαν διαθήκην, ἴνα φυλάττωμεν αὐτὴν
+                        <lb/>ὥσπερ οὖν ἐστὶν ὁ <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice> εἰς τὸν κόσμον ὅλλον,
+                        <lb/>οὕτος ἐστὶν καὶ ἡ ἁγία κυριακῆ, εἰς τὴν
+                            ἡ<lb break="no"/>μέραν τῆς εὐδομάδος. καὶ
+                        εἴτις τιμὰ
+                        <lb/>τὸν <choice>
+                     <expan>κύριον</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κν</hi>
+                     </abbr>
+                  </choice>, τιμὰ καὶ τὴν ἁγίαν κυριακῆ ὁ <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice> ἐστὶν·
+                        <lb/>καὶ ὁ <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice> ἐστὶν ἡ ἁγία κυριακῆ· καὶ ὁ τιμῶν
+                        τὴν
+                        <lb/>ἁγίαν κυριακὴν τοῦ παραδείσου γίνεται
+                            εἰ<lb break="no"/>
+                  <gap reason="illegible" unit="character" quantity="2"/>στῆς· ὁ
+                        τιμῶν τὴν ἁγίαν κυριακὴν, τῶν
+                        <lb/>ἀγγέλων συν<unclear>όμιλος</unclear>
+                        γίνεται· ὁ τιμῶν τὴν ἁγίαν
+                        <lb/>κυριακὴν <gap reason="illegible" unit="character" quantity="5"/>στόλων
+                        συμφοιτιτῆς γί<lb break="no"/>
+                  <unclear>νεται</unclear>
+                  <unclear>ὁ τιμῶν</unclear> τὴν ἁγίαν κυριακὴν,
+                        μετὰ
+                        <lb/>
+                  <unclear>τῶν μαρ</unclear>τύρων ἀγάλετε·
+                        ὁ τιμῶν τὴν ἁγίαν
+                        <lb/>κυριακὴν <unclear>εἱς τὴν</unclear> τῶν
+                        πραέων εἰσελεύσεται·
+                        <lb/>ὁ τιμῶν τὴν ἁγίαν κυριακὴν, μετὰ τοὺς
+                            μάρτυ<lb break="no"/>ρας συνομηλεῖ· ὁ
+                        τιμῶν τὴν ἁγίαν κυριακὴν,
+                        <pb n="467r"/>
+                         εὐλογημένος ἐστὶν ἀπὸ τοῦ <choice>
+                     <expan>πατρος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρς</hi>
+                     </abbr>
+                  </choice>
+                  <add place="above">καὶ τοῦ υἱοῦ</add> καὶ τοῦ
+                        ἁγίου <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice>·
+                        <lb/>ὁ τιμῶν τὴν ἁγίαν κυριακὴν, κακῶν οὐ πρὸς
+                        <lb/>ἐγγίσει τῶ οἴκω ἐκείνω· ὁ τιμῶν τὴν ἁγίαν
+                            κυρι<lb break="no"/>ακὴν, φύλος <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> καθήσταται· ὁ τιμῶν τὴν
+                        <lb/>ἁγίαν κυριακὴν, ὁ <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice> τιμὰ αὐτὸν· καὶ πάντα
+                        <lb/>τὰ ἔργα αὐτοῦ· καὶ δίδει αὐτοῦ ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice>, πλησμο<lb break="no"/>νῆς, σίτου
+                        καὶ οἶνου καὶ ἐλαίου· καὶ εὐλογη<lb break="no"/>μένος ἐστὶν ὁ οἶκος ἐκεἴνος· ὁ τιμῶν τὴν
+                        ἁγίαν
+                        <lb/>κυριακὴν, καὶ ἡ εἴσοδος καὶ ἡ ἔξωδος
+                        αὐτοῦ,
+                        <lb/>καὶ πάντα τοῦ οἶκου αὐτοῦ, εὑλογημένα
+                        <lb/>ἐστὶν παρα τῶ <choice>
+                     <expan>θεῶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θῶ</hi>
+                     </abbr>
+                  </choice>· καὶ εἴ τι συνάντιμα εὕρει
+                        <lb/>τῶν <choice>
+                     <expan>ἄνθρωπον</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἄνον</hi>
+                     </abbr>
+                  </choice> ἐκείνον· ὁ τιμῶν τὴν ἁγίαν κυρι<lb break="no"/>ακὴν, πάλιν ἐγρίγορα δε
+                        ὀρθοῦται διὰ τῶν
+                        <lb/>πρεσβειῶν τῆς ἁγίας κηριακῆς· ὁ τιμῶν
+                        <lb/>τὴν ἁγίαν κυριακὴν, οὐ τιμὰ αὐτὴν·
+                        <lb/>ἀλλα τιμὰ ἐκείνον τὸν
+                            <unclear>ποι</unclear>ήσαντα αὐτὴν·
+                        <lb/>ὁ τιμῶν τὴν ἁγίαν κυριακὴν, πάντοτε
+                            χαί<lb break="no"/>ρεται· πάντοτε
+                        ἀγαπητικὸς ὑπάρχει· ὁ
+                        <lb/>τιμῶν τὴν ἁγίαν κυριακὴν· μέγαν φίλον
+                        ἔχει·
+                        <lb/>μέγαν προστάτην ἔχει· μέγα ἀντιλήπτωραν
+                        <lb/>ἔχει· ὁ τημῶν τὴν ἁγίαν κυριακὴν, μεγάλην
+                            εὐερ<lb break="no"/>γεσίαν ἔχει
+                        <pb n="467v"/>
+                         παρὰ τῶ <choice>
+                     <expan>θεῶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θω</hi>
+                     </abbr>
+                  </choice>· καὶ μεγάλα δoρήματα· καὶ με<lb break="no"/>γάλας δόξας ἔχει παρὰ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>. ὁ τιμῶν τὴν
+                        <lb/>ἁγίαν κυριακὴν, συνόμιλος αὐτῆς γίνεται·
+                        <lb/>καὶ μετὰ ταύτην σου κληρονόμοε γίνεται·
+                        <lb/>εἰς τὴν βασιλείαν τῶν <choice>
+                     <expan>οὐρανῶν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνῶν</hi>
+                     </abbr>
+                  </choice>· καὶ τί εἴπω
+                        <lb/>περὶ τῆς ἁγίας κυριακῆς. οὐκ ἔστιν ἄλλη
+                            λα<lb break="no"/>μπροτέρα τῆς ἁγίας
+                        κυριακῆς· ἀκού<lb break="no"/>σατε καὶ
+                        μάθεται, τὸ τί ὄφελος ἔχει ὁ τιμῶν
+                        <lb/>τὴν ἁγίαν κυριακὴν. ὁτι ὑψυλοτέρος
+                        <lb/>καἰ μεγαλότερος ὑπάρχει τῶν <choice>
+                     <expan>οὐρανῶν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνῶν</hi>
+                     </abbr>
+                  </choice>·
+                        <lb/>ἀκούσαται πάλιν ἀδελφοὶ καὶ φιλόχριστοι·
+                        <lb/>τὸ, τί ὄφελος ἔχει ὁ μὴ τιμῶν τὴν ἁγίαν
+                            κυ<lb break="no"/>ριακὴν· ὁ μὴ τιμῶν τὴν
+                        ἁγίαν κυριακὴν,
+                        <lb/>ἐχθρὸς καθήσταται τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>· ὁ μὴ τιμῶν τὴν
+                        <lb/>ἁγίαν κυριακὴν, οὐκ ἔχει μέρος εἰς τὸν
+                            πα<lb break="no"/>ράδεισον· ὁ μὴ τιμῶν τὴν
+                        ἁγίαν κυρι<lb break="no"/>ακὴν, οὐ δύναται
+                        ἔχην φίλον ἅγιον· ὁ
+                        <lb/>μὴ τιμῶν τὴν ἁγίαν κυριακὴν, μὴ σιτὸς
+                        <lb/>ἐστὶν παρὰ τῶ <choice>
+                     <expan>θεῶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θῶ</hi>
+                     </abbr>
+                  </choice>, καὶ <choice>
+                     <expan>ἀνθρώποις</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἀνοις</hi>
+                     </abbr>
+                  </choice>· ὁ μὴ τιμῶν
+                        <lb/>τὴν ἁγίαν κυριακὴν, τὸν διάβολον ἔχει
+                        <lb/>φίλον, καὶ τὸν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice> ἀντίδικον· ὁ μὴ τιμῶν
+                        <pb n="468r"/>
+                         τὴν ἁγίαν κυριακήν; τοὺς δαίμονας
+                        <lb/>ἔχει φίλους· ὁ μὴ τιμῶν τὴν ἁγίαν κυ<lb break="no"/>ριακήν, οὐκ ἔχει μέρος εἰς τὴν
+                        ἐκκλησίαν·
+                        <lb/>ὁ μὴ τιμῶν τὴν ἁγίαν κυριακήν, ἐπικα<lb break="no"/>τάρατος ἐστὶν, καὶ ὁ οἶκος
+                        αὐτοῦ, καὶ πάντα
+                        <lb/>τὰ ἔργα αὐτοῦ· ὁ μὴ τιμῶν τὴν ἁγίαν
+                            κυρι<lb break="no"/>ακὴν· πολλῶν ἐμπόδιος
+                        γίνεται· ὁ μὴ
+                        <lb/>τιμῶν τὴν ἁγίαν κυριακὴν· οὐκ ἔχει ὄφε<lb break="no"/>λος εἰς τὴν ψυχὴν αὐτοῦ· καὶ
+                        εἴ τις ἀκού<lb break="no"/>ση τὸ σήμανδρον τῶ
+                        σαββάτω, καὶ τὴν
+                        <lb/>ἁγίαν κυριακὴν καὶ οὐκ ἠσέρχεται εἰς τὴν
+                        <lb/>ἐκκλήσίαν χωρὶς νὰ ἔχει μεγάλην ἀσθέ<lb break="no"/>νιαν, ὅσον ἔργον ἐργάζεται,
+                            ἐπικα<lb break="no"/>τάρατον ἐστὶν· καὶ
+                        ἐκεῖνος καὶ τὸ ἔργον
+                        <lb/>αὐτοῦ· ὅτι οὐκ ἔχει ὁ <choice>
+                     <expan>ἄνθρωπος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἄνος</hi>
+                     </abbr>
+                  </choice> ἐξουσίαν
+                        <lb/>τὴν ἁγίαν κυριακὴν, κἃν τοῦ περιπωτί<lb break="no"/>σαι· καθὸς λέγει ὁ ἀπόστολος,
+                        πρὸς γα<lb break="no"/>λάτας γράφονταις. ὅτι
+                        τὴν ἁγίαν κυ<lb break="no"/>ριακὴν, μὴδ'εἶς
+                        ἐργάζεται· μὴδ'εἶς
+                        <lb/>περιπατὴν· μὴδ'εἶς δικάζεται· μὴδ'εἶς
+                        <lb/>μάχεται. μὴδ'εἶς μνησικακῆ τὸν ἄλλον·
+                        <pb n="468v"/>
+                         ἀλλὰ μετα καθαροῦ συνηδότος, εἰσέρ<lb break="no"/>χεσθαι εἰς τὴν ἐκκλησίαν ἴνα
+                        λάβεις μη<lb break="no"/>σθὸν ἐκ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>. καὶ ζωὴν τὴν αἰῶνιον κληρονομί<lb break="no"/>σεις· ὁ μὴ τιμῶν τὴν ἁγίαν
+                        κυριακὴν, οὐκ ἔ<lb break="no"/>χει μέρος με
+                        τοὺς ἁγίους ἀποστόλους· ὁ μὴ
+                        <lb/>τιμῶν τὴν ἁγίαν κυριακὴν, οὐκ ἔχει μέρος
+                        <lb/>μὲ τοὺς ὁσίους· ὁ μὴ τιμῶν τὴν ἁγίαν
+                        κυριακὴν,
+                        <lb/>συναλάγματα ἔχει με τοὺς δαίμονας· ὁ
+                        <lb/>μὴ τιμῶν τὴν ἁγίαν κυριακὴν, πάντοτε
+                        <lb/>μάχας ἔχει καὶ μνησικακήας· ὁ μὴ τιμῶν
+                        <lb/>τὴν ἁγίαν κυριακὴν, κλέπτει καὶ πορνεύ<lb break="no"/>ει· ὁ μὴ τιμῶν τὴν ἁγίαν
+                        κυριακὴν, οὐ<lb break="no"/>κ ἔρχεται εἰς τὴν
+                        ἐκκλησίαν· ὁ μὴ τιμῶν
+                        <lb/>τὴν ἁγίαν κυριακὴν, τιούτοι εἰσὶν
+                        <lb/>οἱ φοίλοι αὐτοῦ ὥσπερ καὶ τοὺς ἐχθροὺς
+                        <lb/>αὐτοῦ· ὁ μὴ τιμῶν τὴν ἁγίαν κυριακὴν,
+                        <lb/>φίλους ἔχει τοὺς ἐχθροὺς τοῦ δεσποτικοῦ
+                        <lb/>
+                  <choice>
+                     <expan>σταυροῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">στρου</hi>
+                     </abbr>
+                  </choice>· ὁ μὴ τιμῶν τὴν ἁγίαν κυριακὴν,
+                        <lb/>τοὺς βαρβάρους ἔχει φίλους; ἐκείνοι
+                        <lb/>ποτὲ τοιοὕτοι ἡμέραν οὐκ ἔχουσι· ὁ μὴ
+                            τι<lb break="no"/>μῶν τὴν ἁγίαν κυριακὴν,
+                        φίλους τοῦ ἔ<pb n="469r" break="no"/>θνου
+                        ὑπάρχη· ὅτι ἐκείνοι οὐκ ἐνο<lb break="no"/>μάζουσι τὸ ὄνομα τῆς ἁγίας κυριακῆς.
+                        <lb/>ὁ μὴ τιμῶν τὴν ἁγίαν κυριακὴν, μετὰ
+                        <lb/>τοὺς ἑβραίους ἔχει τὴν μερίδα αὐτοῦ.
+                        <lb/>καὶ κατὰ παύσω τοὺς λόγους ὅτι πολλὰ
+                        <lb/>ἐφθάρτοσα τὰς ἀκοας ἡμῶν· εἴ τις
+                        <lb/>ἔρχεται τὴν ἁγίαν κυριακὴν, εἰς τὴν ἐκ<lb break="no"/>κλησίαν· καὶ ἔχει ἔχθραν μετά
+                        τινος καὶ
+                        <lb/>λαμβάνη ἀντίδωρον· ὥσπερ να
+                        <lb/>βάλλει πὺρ, εἰς ἄλλον ἀνθεορὶν
+                        <lb/>οὗτος καὶ τὸ ἅγιον ἀντίδωρον ἐκείνον<add place="above">οὐ</add>·
+                        <lb/>εἴος ἔχει ἔχθραν καὶ λαμβάνει τὸ δῶ<lb break="no"/>ρον. εἴτης ἔχει μίσος μετα
+                        τινὸς <choice>
+                     <expan>ἀνθρώπου</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἀνου</hi>
+                     </abbr>
+                  </choice>;
+                        <lb/>ἢ μετὸν ἵδιον σύντεκνον· ἢ μετὰ τὸν
+                        <lb/>πλησίου αὐτοῦ· ἢ μετὰ ἄλλου τινὸς. καὶ
+                        <lb/>εἳς ἐξ αυτῶν λάβει δωρεὰν, πῦρ ἔβαλεν
+                        <lb/>εἰς τὰ ἐντὸς αὐτοῦ· καὶ ἐνεπύρισεν τὴν
+                        ψυχὴν
+                        <lb/>αὐτοῦ, καὶ οὐκ ἔγνω ὅτι ἔκαυσεν τὰ ἐντὸς
+                        <lb/>αὐτοῦ· καὶ οἴα γυν<subst>
+                     <del rend="overwrite">ὴ</del>
+                     <add place="inline">ῆ</add>
+                  </subst> οὐκ εισέρχεται εἰς τὴν
+                        <lb/>ἐκκλησίαν τὴν ἁγίαν κυριἀκὴν· ἐκείνη
+                        <lb/>με τὸν βλζεβουῆλ ἔχη τὰς αναπαυση
+                        <pb n="469v"/>
+                        αὐτῆς· εἴτις οὐκ εισέρχεται εἰς τ<add place="above">ὴν</add> ἐκκ<lb break="no"/>λησίαν, κἂν ἄνδρας κἂν γυναίκα, ὁ
+                        <lb/>διάβολος μετὰ ἐκείνους χαίρεται καὶ
+                        <lb/>ἀγάλεται· εἴτις οὐκ ἠσέρχεται εἰς τὴν
+                            ἐκκ<lb break="no"/>λησίαν τῶ
+                            <expan>σαββάτω</expan> καὶ τῆ κυριακῆ,
+                        μοναχοὶ
+                        <lb/>μοναστρίαι, καὶ πρεσβύτερι· καὶ πρεσ<lb break="no"/>βυτερίσαις, δι<add place="above">α</add>κόνισαις· καὶ
+                            γέρον<lb break="no"/>τες, καὶ νεἀνίσκοι·
+                        καθὼς λέγει ὁ προ<lb break="no"/>φήτης·
+                        νεανίσκη καὶ παρθένοι· εἴτις
+                        <lb/>οὐκ ησέρχεται εἰς τὴν ἐκκλησίαν μετὰ
+                        <lb/>καθαρώτιτος, μετ' ἐκείνους ἔχει ὁ ἀν<lb break="no"/>τικείμενος τὰ χορεύματα αὐτοῦ·
+                        εἴ
+                        <lb/>τις ἐστὶν εἰς τὴν ἐκκλησίαν καὶ ὁμιλῆ· εἶ
+                        <lb/>φλυαρῆ εἶ ἀργολογῆ. καὶ οὐδὲν ἵσταται
+                        <lb/>καὶ πρὸς εὔχεται καὶ ἔχει τὸν νοῦν αὐτοῦ
+                        <lb/>εἰς τὸν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>, οὐκ ἔστιν ἄξιος, ἵνα ἴσταται εἰς
+                        <lb/>τὸν ναὸν τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>, ἀλλ' ἥνα ἐξέρχεται ἔξω
+                        <lb/>τῆς ἐκκλησίας· καὶ ποιῆ μετανοίας
+                        <lb/>ἑκἀτὸν. ἰδὲ καὶ οὐ ποιήσει καθὼς
+                        <lb/>γέγραπται· ἵνα ἀφωρίσουν αὐτὸν
+                        <lb/>ἀπὸ τῆς ἐκκλησίας ἡμέρας τεσαράκοντα.
+                        <pb n="470r"/>
+                        ἰδὲ καὶ ποιήσει μετὰνοίας;
+                        <lb/>ἵνα συγχωρίται· καὶ διὰ τί λέγεται
+                        <lb/>ἐκκλησία· διὰ τὶ κλὴ τὰς ἁμαρτίας
+                        <lb/>τῶν <choice>
+                     <expan>ἀνθρώπων</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἀνων</hi>
+                     </abbr>
+                  </choice>· ἠκούσατε ὅτι ἤλθον δύο <choice>
+                     <expan>ἄνθρωποι</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἄνοι</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>τὴν ἁγίαν κυριακῆν εἰς τὴν ἐκκλησίαν ἵ<lb break="no"/>να προσεὔξονται·  ἦχεν δὲ ὁ
+                        εὶς καθαρὰν
+                        <lb/>τὴν καρδίαν αὐτοῦ· ὀ ἄλλος δὲ ἤχεν μα<lb break="no"/>χην· ἀνεύει δὲ τοῦ ἐνὸς ἡ
+                        προσευχὴ εἰς τὰ
+                        <lb/>ὤτα <choice>
+                     <expan>κυρίου</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κυ</hi>
+                     </abbr>
+                  </choice>· ἤγουν ὁποῦ ἤχεν τὴν καθα<lb break="no"/>ρὰν καρδίαν καὶ τὴν συνήδισιν·
+                        καὶ ὁ ἄλλος
+                        <lb/>ὁπου ἤχεν τὴν ἔχθραν· ἀνεύει δὲ καὶ
+                        <lb/>αὐτοῦ ἡ ἐσχρὰ πρὸσευχὴν εἰς τὸν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>·
+                        <lb/>καὶ ἀπέστηλεν ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἄγγελον ἀπότομον
+                        <lb/>καὶ ἀνελεήμονα· καὶ ἐπάταξεν τὸν
+                        <lb/>
+                  <choice>
+                     <expan>ἄνθρωπον</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἄνον</hi>
+                     </abbr>
+                  </choice> ἐκεῖνον· καὶ τὸν οἶκον αὐτοῦ· καὶ
+                        <lb/>πάντα ὅσα ἤχεν· καὶ λέγει ὁ ἄγγος
+                        <lb/>πρὸς αὐτὸν· καὶ διὰ τὶ ὡς οὐκ ήχες
+                        <lb/>καθαρὰν τὴν καρδίαν σου καὶ τὴν ψυχὴν.
+                        <lb/>διὰ τὶ εἰσεῖλθες εἰς τὴν ἐκκλησίαν· ὕ<lb break="no"/>παγε καὶ ὡς ἔπρατες οὗτος καὶ
+                        ἀπολαύσξς·
+                        <lb/>οὐκ εἴδας ἐλεἢνε <choice>
+                     <expan>ἄνθρωπε</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἄνε</hi>
+                     </abbr>
+                  </choice> ὅτι ὁ ἔχων κακίαν
+                        <pb n="470v"/>
+                        με τὸν πλησίον αὐτοῦ, ἐχθρὸς ἐστὶν τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>·
+                        <lb/>καὶ τῆς ἐκκλησίας· καὶ εἴ τις ἔχει μῖσος
+                        <lb/>ἢ ἔχθραν καὶ ἔρχεται εἰς τὴν ἐκκλησίαν·
+                        <lb/>μὴ εἰπῆ ὅτι ἔχει ὄφελος. ἀλλὰ μᾶλλον
+                        <lb/>καὶ ἁμαρτίαν μεγάλην ἔχει· τί ὄφελος
+                        <lb/>ἔχει ὁ <choice>
+                     <expan>ἄνθρωπος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἄνος</hi>
+                     </abbr>
+                  </choice> ἔαν βᾶλλει πῦρ εἰς τὴν κόλπον
+                        <lb/>αὐτοῦ· οὐχὶ ἐκκαύσι τὰ ἱμάτια αὐτοῦ.
+                        <lb/>τίοὖτον ὄφελος ἔχει, εἶτις δὲ ἔρχεται εἰς
+                        τὴν
+                        <lb/>ἐκκλησίαν καὶ ἔχει μίσος· εἴ τις δὲ ἔρ<lb break="no"/>χεται εἰς τὴν ἐκκλησίαν μετὰ
+                        καθαρὰς
+                        <lb/>καρδίας, καὶ ἔχει τὴν ἀγάπην· τὸ κεφάλεον
+                        <lb/>τῶν ἀρετῶν, καὶ τὸν θυσαιρὸν τὸν κε<lb break="no"/>κριμένον ἔχει εἰς τὴν ψυχὴν
+                        αὐτοῦ· κα<lb break="no"/>θῶς λέγει ὁ ἀπόστολος
+                        παύλος· ἀδελ<lb break="no"/>φοὶ τὴν εἰρήνην
+                        διόκεται μετὰ πὰντων·
+                        <lb/>καὶ ὁ προφήτης λέγει· τοῦ ἑξολοθρεύσε <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>πάντα τοὺς ἐργαζομένους τὴν ἀνομίαν.
+                        <lb/>ὅτι αὐτῶ πρέπει·  πᾶσα δόξα τιμὴ καὶ
+                            προσ<lb break="no"/>κύνησις τῶ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρὶ</hi>
+                     </abbr>
+                  </choice> καὶ τῶ υἱῶ καὶ τῶ ἁγίω
+                        <lb/>
+                  <choice>
+                     <expan>πνεύματι</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνι</hi>
+                     </abbr>
+                  </choice>· νυν καὶ ἀεὶ καὶ εἰς τοὺς αἰῶνας
+                        <lb/>τῶν αιῶνων ἀμήν :</p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
