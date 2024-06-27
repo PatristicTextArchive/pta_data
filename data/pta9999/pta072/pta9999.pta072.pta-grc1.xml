@@ -19,10 +19,7 @@
             <publisher>Logos Bible Software and the Society of Biblical Literature</publisher>
             <distributor>Patristic Text Archive</distributor>
             <availability>
-               <p>Copyright 2010 Logos Bible Software and the Society of Biblical Literature</p>
-               <licence target="https://sblgnt.com/license/">
-                  <p>See SBLGNT.com for license details.</p>
-               </licence>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">Copyright © 2010 by the Society of Biblical Literature and Logos Bible Software under the Creative Commons Attribution 4.0 International License (CC BY 4.0)</licence>
             </availability>
             <date>2010</date>
             <idno type="PTA">pta9999.pta072</idno>
@@ -163,8 +160,145 @@
                          matchPattern="(.+)"
                          replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
          </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>For references to the Septuagint LXX is used as abbreviation, for references to the New Testament NA is used as abbreviation for the version, for references to the Vulgata Vg is used as abbrevation, for references to the Peshitta PES is used as abbrevation, for references to the Hexapla Hexapla is used as abbreviation.</p>
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+        This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+    </p>
+               <p xml:id="biblical-quotations" ana="not-annotated not-identified">
+        Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+    </p>
+               <p xml:id="other-references" ana="not-annotated not-identified">
+        Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+    </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+        Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+    </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+        Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+    </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+        Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+    </p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+        Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+        Patristic Text Archive Status of edition
+    </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+        Critical edition in which the text-critical variants have been encoded.
+        </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+        Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+        </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+            Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+        </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+            Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+        </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+        Patristic Text Archive Status of annotation
+    </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+        All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+        Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+        No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+        All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+        </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+        Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+        </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+        No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+        </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
       </encodingDesc>
-      <revisionDesc status="metacritical-edition-with-app">
+      <profileDesc>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Biblical</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>metacritical-edition-with-app</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
          <change when="2022-06-29" who="#AvS">Added missing final verses in chapter; moved wit attrib from 1st rdg to lem, del 1st rdg; corr resp. #WHspur; add type=omission where applicable</change>
          <change when="2021-11-24" who="#AvS">Converted to PTA/CapiTainS</change>
          <change when="2021" who="#JJM">Corrected and converted to TEI XML, cf. https://github.com/jjmccollum/sblgnt-tei/blob/main/SBL_Errata.txt</change>
@@ -189,7 +323,7 @@
                   <ab>
                      <w>Παῦλος</w>
                      <w>ἀπόστολος</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>Χριστοῦ</w>
                            <w>Ἰησοῦ</w>
@@ -203,14 +337,14 @@
                      <w>ἁγίοις</w>
                      <w>τοῖς</w>
                      <w>οὖσιν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV #RP">
                            <pc>[</pc>
                            <w>ἐν</w>
                            <w>Ἐφέσῳ</w>
                            <pc>]</pc>
                         </lem>
-                        <rdg source="#WHapp" cause="omission"/>
+                        <rdg source="#WHapp" type="omission"/>
                      </app>
                      <w>καὶ</w>
                      <w>πιστοῖς</w>
@@ -317,7 +451,7 @@
                      <w>τῆς</w>
                      <w>χάριτος</w>
                      <w>αὐτοῦ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἧς</w>
                         </lem>
@@ -349,7 +483,7 @@
                      <w>παραπτωμάτων</w>
                      <pc>,</pc>
                      <w>κατὰ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τὸ</w>
                            <w>πλοῦτος</w>
@@ -499,7 +633,7 @@
                </div>
                <div type="textpart" subtype="verse" n="14">
                   <ab>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #NIV">
                            <w>ὅ</w>
                         </lem>
@@ -541,12 +675,12 @@
                      <w>Ἰησοῦ</w>
                      <w>καὶ</w>
                      <w>τὴν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Treg #NIV #RP">
                            <w>ἀγάπην</w>
                            <w>τὴν</w>
                         </lem>
-                        <rdg source="#WH" cause="omission"/>
+                        <rdg source="#WH" type="omission"/>
                      </app>
                      <w>εἰς</w>
                      <w>πάντας</w>
@@ -562,7 +696,7 @@
                      <w>εὐχαριστῶν</w>
                      <w>ὑπὲρ</w>
                      <w>ὑμῶν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>μνείαν</w>
                         </lem>
@@ -624,7 +758,7 @@
                      <w>κλήσεως</w>
                      <w>αὐτοῦ</w>
                      <pc>,</pc>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τίς</w>
                         </lem>
@@ -670,7 +804,7 @@
                <div type="textpart" subtype="verse" n="20">
                   <ab>
                      <w>ἣν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH">
                            <w>ἐνήργηκεν</w>
                         </lem>
@@ -681,7 +815,7 @@
                      <w>Χριστῷ</w>
                      <w>ἐγείρας</w>
                      <w>αὐτὸν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐκ</w>
                         </lem>
@@ -690,7 +824,7 @@
                      <w>νεκρῶν</w>
                      <pc>,</pc>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>καθίσας</w>
                         </lem>
@@ -786,11 +920,11 @@
                      <w>καὶ</w>
                      <w>ταῖς</w>
                      <w>ἁμαρτίαις</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ὑμῶν</w>
                         </lem>
-                        <rdg source="#RP" cause="omission"/>
+                        <rdg source="#RP" type="omission"/>
                      </app>
                      <pc>,</pc>
                   </ab>
@@ -855,7 +989,7 @@
                      <w>διανοιῶν</w>
                      <pc>,</pc>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἤμεθα</w>
                         </lem>
@@ -934,7 +1068,7 @@
                      <w>αἰῶσιν</w>
                      <w>τοῖς</w>
                      <w>ἐπερχομένοις</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τὸ</w>
                            <w>ὑπερβάλλον</w>
@@ -962,7 +1096,7 @@
                      <w>χάριτί</w>
                      <w>ἐστε</w>
                      <w>σεσῳσμένοι</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>διὰ</w>
                         </lem>
@@ -1025,7 +1159,7 @@
                      <w>Διὸ</w>
                      <w>μνημονεύετε</w>
                      <w>ὅτι</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ποτὲ</w>
                            <w>ὑμεῖς</w>
@@ -1053,7 +1187,7 @@
                <div type="textpart" subtype="verse" n="12">
                   <ab>
                      <w>ὅτι</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἦτε</w>
                         </lem>
@@ -1100,7 +1234,7 @@
                      <w>ποτε</w>
                      <w>ὄντες</w>
                      <w>μακρὰν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐγενήθητε</w>
                            <w>ἐγγὺς</w>
@@ -1160,7 +1294,7 @@
                      <w>δύο</w>
                      <w>κτίσῃ</w>
                      <w>ἐν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH">
                            <w>αὑτῷ</w>
                         </lem>
@@ -1208,11 +1342,11 @@
                      <w>τοῖς</w>
                      <w>μακρὰν</w>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>εἰρήνην</w>
                         </lem>
-                        <rdg source="#RP" cause="omission"/>
+                        <rdg source="#RP" type="omission"/>
                      </app>
                      <w>τοῖς</w>
                      <w>ἐγγύς</w>
@@ -1249,11 +1383,11 @@
                      <w>πάροικοι</w>
                      <pc>,</pc>
                      <w>ἀλλὰ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐστὲ</w>
                         </lem>
-                        <rdg source="#RP" cause="omission"/>
+                        <rdg source="#RP" type="omission"/>
                      </app>
                      <w>συμπολῖται</w>
                      <w>τῶν</w>
@@ -1279,7 +1413,7 @@
                      <w>ὄντος</w>
                      <w>ἀκρογωνιαίου</w>
                      <w>αὐτοῦ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>Χριστοῦ</w>
                            <w>Ἰησοῦ</w>
@@ -1293,7 +1427,7 @@
                   <ab>
                      <w>ἐν</w>
                      <w>ᾧ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NA #RP">
                            <w>πᾶσα</w>
                         </lem>
@@ -1367,14 +1501,14 @@
                </div>
                <div type="textpart" subtype="verse" n="3">
                   <ab>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Holmes #WHmarg">
                            <w>κατὰ</w>
                         </lem>
                         <rdg source="#WH #Treg #NIV #RP">ὅτι κατὰ</rdg>
                      </app>
                      <w>ἀποκάλυψιν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐγνωρίσθη</w>
                         </lem>
@@ -1446,7 +1580,7 @@
                      <w>συμμέτοχα</w>
                      <w>τῆς</w>
                      <w>ἐπαγγελίας</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐν</w>
                            <w>Χριστῷ</w>
@@ -1463,7 +1597,7 @@
                <div type="textpart" subtype="verse" n="7">
                   <ab>
                      <w>οὗ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐγενήθην</w>
                         </lem>
@@ -1477,7 +1611,7 @@
                      <w>χάριτος</w>
                      <w>τοῦ</w>
                      <w>θεοῦ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τῆς</w>
                            <w>δοθείσης</w>
@@ -1506,7 +1640,7 @@
                      <w>χάρις</w>
                      <w>αὕτη</w>
                      <pc>—</pc>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τοῖς</w>
                         </lem>
@@ -1514,7 +1648,7 @@
                      </app>
                      <w>ἔθνεσιν</w>
                      <w>εὐαγγελίσασθαι</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τὸ</w>
                            <w>ἀνεξιχνίαστον</w>
@@ -1531,11 +1665,11 @@
                   <ab>
                      <w>καὶ</w>
                      <w>φωτίσαι</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Treg #NIV #RP">
                            <w>πάντας</w>
                         </lem>
-                        <rdg source="#WH" cause="omission"/>
+                        <rdg source="#WH" type="omission"/>
                      </app>
                      <w>τίς</w>
                      <w>ἡ</w>
@@ -1553,7 +1687,7 @@
                      <w>τῷ</w>
                      <w>τὰ</w>
                      <w>πάντα</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>κτίσαντι</w>
                         </lem>
@@ -1595,11 +1729,11 @@
                      <w>ἣν</w>
                      <w>ἐποίησεν</w>
                      <w>ἐν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τῷ</w>
                         </lem>
-                        <rdg source="#RP" cause="omission"/>
+                        <rdg source="#RP" type="omission"/>
                      </app>
                      <w>Χριστῷ</w>
                      <w>Ἰησοῦ</w>
@@ -1616,7 +1750,7 @@
                      <w>ἔχομεν</w>
                      <w>τὴν</w>
                      <w>παρρησίαν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>καὶ</w>
                         </lem>
@@ -1637,7 +1771,7 @@
                      <w>διὸ</w>
                      <w>αἰτοῦμαι</w>
                      <w>μὴ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐγκακεῖν</w>
                         </lem>
@@ -1667,7 +1801,7 @@
                      <w>μου</w>
                      <w>πρὸς</w>
                      <w>τὸν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>πατέρα</w>
                         </lem>
@@ -1694,7 +1828,7 @@
                <div type="textpart" subtype="verse" n="16">
                   <ab>
                      <w>ἵνα</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>δῷ</w>
                         </lem>
@@ -1702,7 +1836,7 @@
                      </app>
                      <w>ὑμῖν</w>
                      <w>κατὰ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τὸ</w>
                            <w>πλοῦτος</w>
@@ -1761,7 +1895,7 @@
                      <w>καὶ</w>
                      <w>μῆκος</w>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ὕψος</w>
                            <w>καὶ</w>
@@ -1826,11 +1960,11 @@
                      <w>ἐν</w>
                      <w>τῇ</w>
                      <w>ἐκκλησίᾳ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>καὶ</w>
                         </lem>
-                        <rdg source="#RP" cause="omission"/>
+                        <rdg source="#RP" type="omission"/>
                      </app>
                      <w>ἐν</w>
                      <w>Χριστῷ</w>
@@ -1952,7 +2086,7 @@
                      <w>πάντων</w>
                      <w>καὶ</w>
                      <w>ἐν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>πᾶσιν</w>
                         </lem>
@@ -1968,11 +2102,11 @@
                      <w>ἑκάστῳ</w>
                      <w>ἡμῶν</w>
                      <w>ἐδόθη</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #NIV #RP">
                            <w>ἡ</w>
                         </lem>
-                        <rdg source="#Treg" cause="omission"/>
+                        <rdg source="#Treg" type="omission"/>
                      </app>
                      <w>χάρις</w>
                      <w>κατὰ</w>
@@ -1996,7 +2130,7 @@
                      <w>ᾐχμαλώτευσεν</w>
                      <w>αἰχμαλωσίαν</w>
                      <pc>,</pc>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#NIV">
                            <w>ἔδωκεν</w>
                         </lem>
@@ -2019,7 +2153,7 @@
                      <w>μὴ</w>
                      <w>ὅτι</w>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>κατέβη</w>
                         </lem>
@@ -2179,7 +2313,7 @@
                      <w>ἡ</w>
                      <w>κεφαλή</w>
                      <pc>,</pc>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>Χριστός</w>
                         </lem>
@@ -2238,7 +2372,7 @@
                      <w>περιπατεῖν</w>
                      <w>καθὼς</w>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τὰ</w>
                         </lem>
@@ -2256,7 +2390,7 @@
                </div>
                <div type="textpart" subtype="verse" n="18">
                   <ab>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐσκοτωμένοι</w>
                         </lem>
@@ -2423,7 +2557,7 @@
                      <w>ἥλιος</w>
                      <w>μὴ</w>
                      <w>ἐπιδυέτω</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg">
                            <w>ἐπὶ</w>
                         </lem>
@@ -2455,7 +2589,7 @@
                      <w>δὲ</w>
                      <w>κοπιάτω</w>
                      <w>ἐργαζόμενος</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Treg #NIV">
                            <w>ταῖς</w>
                            <w>ἰδίαις</w>
@@ -2549,7 +2683,7 @@
                </div>
                <div type="textpart" subtype="verse" n="32">
                   <ab>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Holmes #WHmarg">
                            <w>γίνεσθε</w>
                         </lem>
@@ -2570,7 +2704,7 @@
                      <w>ἐν</w>
                      <w>Χριστῷ</w>
                      <w>ἐχαρίσατο</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ὑμῖν</w>
                         </lem>
@@ -2607,7 +2741,7 @@
                      <w>ὁ</w>
                      <w>Χριστὸς</w>
                      <w>ἠγάπησεν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#NIV #RP">
                            <w>ἡμᾶς</w>
                         </lem>
@@ -2617,7 +2751,7 @@
                      <w>παρέδωκεν</w>
                      <w>ἑαυτὸν</w>
                      <w>ὑπὲρ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Treg #NIV #RP">
                            <w>ἡμῶν</w>
                         </lem>
@@ -2639,7 +2773,7 @@
                      <w>Πορνεία</w>
                      <w>δὲ</w>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἀκαθαρσία</w>
                            <w>πᾶσα</w>
@@ -2668,7 +2802,7 @@
                      <w>ἢ</w>
                      <w>εὐτραπελία</w>
                      <pc>,</pc>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἃ</w>
                            <w>οὐκ</w>
@@ -2687,7 +2821,7 @@
                   <ab>
                      <w>τοῦτο</w>
                      <w>γὰρ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἴστε</w>
                         </lem>
@@ -2702,7 +2836,7 @@
                      <w>ἢ</w>
                      <w>πλεονέκτης</w>
                      <pc>,</pc>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ὅ</w>
                         </lem>
@@ -2784,7 +2918,7 @@
                      <w>γὰρ</w>
                      <w>καρπὸς</w>
                      <w>τοῦ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>φωτὸς</w>
                         </lem>
@@ -2893,7 +3027,7 @@
                   <ab>
                      <w>Βλέπετε</w>
                      <w>οὖν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #NIV">
                            <w>ἀκριβῶς</w>
                            <w>πῶς</w>
@@ -2934,7 +3068,7 @@
                      <w>ἄφρονες</w>
                      <pc>,</pc>
                      <w>ἀλλὰ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>συνίετε</w>
                         </lem>
@@ -2970,7 +3104,7 @@
                <div type="textpart" subtype="verse" n="19">
                   <ab>
                      <w>λαλοῦντες</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #RP">
                            <w>ἑαυτοῖς</w>
                         </lem>
@@ -2985,7 +3119,7 @@
                      <pc>,</pc>
                      <w>ᾄδοντες</w>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #NIV">
                            <w>ψάλλοντες</w>
                         </lem>
@@ -3035,7 +3169,7 @@
                      <w>γυναῖκες</w>
                      <w>τοῖς</w>
                      <w>ἰδίοις</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #NIV">
                            <w>ἀνδράσιν</w>
                         </lem>
@@ -3064,7 +3198,7 @@
                      <w>τῆς</w>
                      <w>ἐκκλησίας</w>
                      <pc>,</pc>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>αὐτὸς</w>
                         </lem>
@@ -3079,7 +3213,7 @@
                <div type="textpart" subtype="verse" n="24">
                   <ab>
                      <w>ἀλλὰ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ὡς</w>
                         </lem>
@@ -3095,7 +3229,7 @@
                      <w>καὶ</w>
                      <w>αἱ</w>
                      <w>γυναῖκες</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>τοῖς</w>
                         </lem>
@@ -3114,7 +3248,7 @@
                      <pc>,</pc>
                      <w>ἀγαπᾶτε</w>
                      <w>τὰς</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>γυναῖκας</w>
                         </lem>
@@ -3155,7 +3289,7 @@
                   <ab>
                      <w>ἵνα</w>
                      <w>παραστήσῃ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>αὐτὸς</w>
                         </lem>
@@ -3189,11 +3323,11 @@
                   <ab>
                      <w>οὕτως</w>
                      <w>ὀφείλουσιν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>καὶ</w>
                         </lem>
-                        <rdg source="#RP" cause="omission"/>
+                        <rdg source="#RP" type="omission"/>
                      </app>
                      <w>οἱ</w>
                      <w>ἄνδρες</w>
@@ -3235,7 +3369,7 @@
                      <w>καθὼς</w>
                      <w>καὶ</w>
                      <w>ὁ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>Χριστὸς</w>
                         </lem>
@@ -3253,7 +3387,7 @@
                      <w>ἐσμὲν</w>
                      <w>τοῦ</w>
                      <w>σώματος</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>αὐτοῦ</w>
                         </lem>
@@ -3268,29 +3402,29 @@
                      <w>τούτου</w>
                      <w>καταλείψει</w>
                      <w>ἄνθρωπος</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #NIV #RP">
                            <w>τὸν</w>
                         </lem>
-                        <rdg source="#Treg" cause="omission"/>
+                        <rdg source="#Treg" type="omission"/>
                      </app>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>πατέρα</w>
                         </lem>
                         <rdg source="#RP">+ αὐτοῦ</rdg>
                      </app>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #NIV #RP">
                            <w>τὴν</w>
                         </lem>
-                        <rdg source="#Treg" cause="omission"/>
+                        <rdg source="#Treg" type="omission"/>
                      </app>
                      <w>μητέρα</w>
                      <w>καὶ</w>
                      <w>προσκολληθήσεται</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Treg">
                            <w>τῇ</w>
                            <w>γυναικὶ</w>
@@ -3441,7 +3575,7 @@
                      <pc>,</pc>
                      <w>ὑπακούετε</w>
                      <w>τοῖς</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>κατὰ</w>
                            <w>σάρκα</w>
@@ -3473,7 +3607,7 @@
                      <w>ἀνθρωπάρεσκοι</w>
                      <w>ἀλλ’</w>
                      <w>ὡς</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>δοῦλοι</w>
                         </lem>
@@ -3509,7 +3643,7 @@
                   <ab>
                      <w>εἰδότες</w>
                      <w>ὅτι</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Treg">
                            <w>ἕκαστος</w>
                            <pc>,</pc>
@@ -3523,13 +3657,13 @@
                      <w>ἀγαθόν</w>
                      <pc>,</pc>
                      <w>τοῦτο</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>κομίσεται</w>
                         </lem>
                         <rdg source="#RP">κομιεῖται</rdg>
                      </app>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>παρὰ</w>
                         </lem>
@@ -3563,7 +3697,7 @@
                      <w>εἰδότες</w>
                      <w>ὅτι</w>
                      <w>καὶ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>αὐτῶν</w>
                            <w>καὶ</w>
@@ -3588,7 +3722,7 @@
                </div>
                <div type="textpart" subtype="verse" n="10">
                   <ab>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>Τοῦ</w>
                            <w>λοιποῦ</w>
@@ -3654,7 +3788,7 @@
                      <w>τοὺς</w>
                      <w>κοσμοκράτορας</w>
                      <w>τοῦ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>σκότους</w>
                         </lem>
@@ -3735,7 +3869,7 @@
                </div>
                <div type="textpart" subtype="verse" n="16">
                   <ab>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἐν</w>
                         </lem>
@@ -3755,7 +3889,7 @@
                      <w>τὰ</w>
                      <w>βέλη</w>
                      <w>τοῦ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#Holmes #WHmarg #Tregmarg">
                            <w>πονηροῦ</w>
                         </lem>
@@ -3773,7 +3907,7 @@
                      <w>περικεφαλαίαν</w>
                      <w>τοῦ</w>
                      <w>σωτηρίου</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>δέξασθε</w>
                         </lem>
@@ -3810,7 +3944,7 @@
                      <pc>,</pc>
                      <w>καὶ</w>
                      <w>εἰς</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>αὐτὸ</w>
                         </lem>
@@ -3877,7 +4011,7 @@
                   <ab>
                      <w>Ἵνα</w>
                      <w>δὲ</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #NIV #RP">
                            <w>εἰδῆτε</w>
                            <w>καὶ</w>
@@ -3893,7 +4027,7 @@
                      <w>πράσσω</w>
                      <pc>,</pc>
                      <w>πάντα</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>γνωρίσει</w>
                            <w>ὑμῖν</w>
@@ -3967,7 +4101,7 @@
                      <w>Ἰησοῦν</w>
                      <w>Χριστὸν</w>
                      <w>ἐν</w>
-                     <app type="textcritical">
+                     <app type="variants">
                         <lem source="#WH #Treg #NIV">
                            <w>ἀφθαρσίᾳ</w>
                         </lem>

@@ -1,736 +1,883 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title>Michaeas</title>
-                <author>Septuaginta</author>
-                <respStmt>
-                    <persName xml:id="AvS">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Michaeas</title>
+            <author>Septuaginta</author>
+            <respStmt>
+               <persName xml:id="AvS">
                         Annette von Stockhausen
                     </persName>
-                    <resp>
+               <resp>
                         Conversion to CTS-compliant PTA TEI
                     </resp>
-                </respStmt>
-            </titleStmt>
-            <publicationStmt>
-                <authority>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>
                     Berlin-Brandenburgische Akademie der Wissenschaften
                 </authority>
-                <distributor>
+            <distributor>
                     Patristic Text Archive
                 </distributor>
-                <availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">
                         Available under a Creative Commons Attribution ShareAlike 4.0 International License
                     </licence>
-                </availability>
-                <date>
+            </availability>
+            <date>
                     2021
                 </date>
-                <idno type="PTA">
+            <idno type="PTA">
                     pta9999.pta042
                 </idno>
-                <idno type="TLG">tlg0527.tlg038</idno>
-            </publicationStmt>
-            <sourceDesc>
-                <biblStruct type="book" xml:id="Rahlfs">
-                    <monogr>
-                        <title level="m">Septuaginta : id est, Vetus Testamentum graece iuxta LXX interpretes</title>
-                        <title type="short">Septuaginta</title>
-                        <editor>
-                            <forename>Alfred</forename>
-                            <surname>Rahlfs</surname>
-                        </editor>
-                        <imprint>
-                            <pubPlace>Stuttgart</pubPlace>
-                            <publisher>Württembergische Bibelanstalt</publisher>
-                            <date>1935</date>
-                        </imprint>
-                        <biblScope unit="volume">II</biblScope>
-                        <biblScope unit="page" from="512" to="519">512–519</biblScope>
-                    </monogr>
-                </biblStruct>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="verse" matchPattern="(.+).(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
-                <cRefPattern n="chapter" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
-            </refsDecl>
-        </encodingDesc>
-<revisionDesc status="critical-edition-no-app">
-    <change when="2021-05-16" who="#AvS">Converted to PTA/CapiTainS</change>
-</revisionDesc>
-    </teiHeader>
-    <text>
-        <body>
-            <div type="edition" xml:lang="grc" n="urn:cts:pta:pta9999.pta042.pta-grc1">
-                <head><title>ΜΙΧΑΙΑΣ</title></head>
-                <div type="textpart" subtype="chapter" n="1">
-                    <div type="textpart" subtype="verse" n="1">
-                        <p>Καὶ ἐγένετο λόγος κυρίου πρὸς Μιχαιαν τὸν τοῦ Μωρασθι ἐν 
+            <idno type="TLG">tlg0527.tlg038</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <biblStruct type="book" xml:id="Rahlfs">
+                  <monogr>
+                     <title level="m">Septuaginta : id est, Vetus Testamentum graece iuxta LXX interpretes</title>
+                     <title type="short">Septuaginta</title>
+                     <editor>
+                        <forename>Alfred</forename>
+                        <surname>Rahlfs</surname>
+                     </editor>
+                     <imprint>
+                        <pubPlace>Stuttgart</pubPlace>
+                        <publisher>Württembergische Bibelanstalt</publisher>
+                        <date>1935</date>
+                     </imprint>
+                     <biblScope unit="volume">II</biblScope>
+                     <biblScope unit="page" from="512" to="519">512–519</biblScope>
+                  </monogr>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="verse"
+                         matchPattern="(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern n="chapter"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>For references to the Septuagint LXX is used as abbreviation, for references to the New Testament NA is used as abbreviation for the version, for references to the Vulgata Vg is used as abbrevation, for references to the Peshitta PES is used as abbrevation, for references to the Hexapla Hexapla is used as abbreviation.</p>
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+        This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+    </p>
+               <p xml:id="biblical-quotations" ana="not-annotated not-identified">
+        Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+    </p>
+               <p xml:id="other-references" ana="not-annotated not-identified">
+        Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+    </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+        Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+    </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+        Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+    </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+        Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+    </p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+        Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+        Patristic Text Archive Status of edition
+    </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+        Critical edition in which the text-critical variants have been encoded.
+        </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+        Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+        </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+            Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+        </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+            Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+        </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+        Patristic Text Archive Status of annotation
+    </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+        All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+        Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+        No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+        All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+        </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+        Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+        </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+        No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+        </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Biblical</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>critical-edition-no-app</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2021-05-16" who="#AvS">Converted to PTA/CapiTainS</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta9999.pta042.pta-grc1">
+            <head>
+               <title>ΜΙΧΑΙΑΣ</title>
+            </head>
+            <div type="textpart" subtype="chapter" n="1">
+               <div type="textpart" subtype="verse" n="1">
+                  <p>Καὶ ἐγένετο λόγος κυρίου πρὸς Μιχαιαν τὸν τοῦ Μωρασθι ἐν 
                             ἡμέραις Ιωαθαμ καὶ Αχαζ καὶ Εζεκιου βασιλέων Ιουδα, ὑπὲρ ὧν 
                             εἶδεν περὶ Σαμαρείας καὶ περὶ Ιερουσαλημ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="2">
-                        <p>Ἀκούσατε, λαοί, λόγους, καὶ προσεχέτω ἡ γῆ καὶ πάντες οἱ ἐν 
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p>Ἀκούσατε, λαοί, λόγους, καὶ προσεχέτω ἡ γῆ καὶ πάντες οἱ ἐν 
                             αὐτῇ, καὶ ἔσται κύριος ἐν ὑμῖν εἰς μαρτύριον, κύριος ἐξ οἴκου ἁγίου 
                             αὐτοῦ·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="3">
-                        <p>διότι ἰδοὺ κύριος ἐκπορεύεται ἐκ τοῦ τόπου αὐτοῦ καὶ 
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p>διότι ἰδοὺ κύριος ἐκπορεύεται ἐκ τοῦ τόπου αὐτοῦ καὶ 
                             καταβήσεται καὶ ἐπιβήσεται ἐπὶ τὰ ὕψη τῆς γῆς,
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="4">
-                        <p>καὶ σαλευθήσεται 
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p>καὶ σαλευθήσεται 
                             τὰ ὄρη ὑποκάτωθεν αὐτοῦ, καὶ αἱ κοιλάδες τακήσονται ὡς κηρὸς 
                             ἀπὸ προσώπου πυρὸς καὶ ὡς ὕδωρ καταφερόμενον ἐν καταβάσει.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="5">
-                        <p>διὰ ἀσέβειαν Ιακωβ πάντα ταῦτα καὶ διὰ ἁμαρτίαν οἴκου Ισραηλ. 
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p>διὰ ἀσέβειαν Ιακωβ πάντα ταῦτα καὶ διὰ ἁμαρτίαν οἴκου Ισραηλ. 
                             τίς ἡ ἀσέβεια τοῦ Ιακωβ; οὐ Σαμάρεια; καὶ τίς ἡ ἁμαρτία οἴκου 
                             Ιουδα; οὐχὶ Ιερουσαλημ;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="6">
-                        <p>καὶ θήσομαι Σαμάρειαν εἰς ὀπωροφυλάκιον
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p>καὶ θήσομαι Σαμάρειαν εἰς ὀπωροφυλάκιον
                              ἀγροῦ καὶ εἰς φυτείαν ἀμπελῶνος καὶ κατασπάσω εἰς χάος 
                             τοὺς λίθους αὐτῆς καὶ τὰ θεμέλια αὐτῆς ἀποκαλύψω·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="7">
-                        <p>καὶ πάντα 
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p>καὶ πάντα 
                             τὰ γλυπτὰ αὐτῆς κατακόψουσιν καὶ πάντα τὰ μισθώματα αὐτῆς 
                             ἐμπρήσουσιν ἐν πυρί, καὶ πάντα τὰ εἴδωλα αὐτῆς θήσομαι εἰς ἀφανισμόν·
                              διότι ἐκ μισθωμάτων πορνείας συνήγαγεν καὶ ἐκ μισθωμάτων
                              πορνείας συνέστρεψεν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="8">
-                        <p>Ἕνεκεν τούτου κόψεται καὶ θρηνήσει, πορεύσεται ἀνυπόδετος 
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p>Ἕνεκεν τούτου κόψεται καὶ θρηνήσει, πορεύσεται ἀνυπόδετος 
                             καὶ γυμνή, ποιήσεται κοπετὸν ὡς δρακόντων καὶ πένθος ὡς θυγατέρων
                              σειρήνων·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="9">
-                        <p>ὅτι κατεκράτησεν ἡ πληγὴ αὐτῆς, διότι ἦλθεν 
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p>ὅτι κατεκράτησεν ἡ πληγὴ αὐτῆς, διότι ἦλθεν 
                             ἕως Ιουδα καὶ ἥψατο ἕως πύλης λαοῦ μου, ἕως Ιερουσαλημ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="10">
-                        <p>οἱ 
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p>οἱ 
                             ἐν Γεθ, μὴ μεγαλύνεσθε· οἱ ἐν Ακιμ, μὴ ἀνοικοδομεῖτε ἐξ οἴκου 
                             κατὰ γέλωτα, γῆν καταπάσασθε κατὰ γέλωτα ὑμῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="11">
-                        <p>κατοικοῦσα 
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p>κατοικοῦσα 
                             καλῶς τὰς πόλεις αὐτῆς οὐκ ἐξῆλθεν κατοικοῦσα Σεννααν κόψασθαι
                              οἶκον ἐχόμενον αὐτῆς, λήμψεται ἐξ ὑμῶν πληγὴν ὀδύνης.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="12">
-                        <p>τίς 
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p>τίς 
                             ἤρξατο εἰς ἀγαθὰ κατοικούσῃ ὀδύνας; ὅτι κατέβη κακὰ παρὰ κυρίου 
                             ἐπὶ πύλας Ιερουσαλημ, 
                             ψόφος ἁρμάτων καὶ ἱππευόντων.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="13">
-                        <p>κατοικοῦσα
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p>κατοικοῦσα
                              Λαχις, ἀρχηγὸς ἁμαρτίας αὐτή ἐστιν τῇ θυγατρὶ Σιων, ὅτι 
                             ἐν σοὶ εὑρέθησαν ἀσέβειαι τοῦ Ισραηλ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="14">
-                        <p>διὰ τοῦτο δώσεις ἐξαποστελλομένους
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p>διὰ τοῦτο δώσεις ἐξαποστελλομένους
                              ἕως κληρονομίας Γεθ οἴκους ματαίους· εἰς κενὰ
                             ἐγένετο τοῖς βασιλεῦσιν τοῦ Ισραηλ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="15">
-                        <p>ἕως τοὺς κληρονόμους ἀγάγω 
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p>ἕως τοὺς κληρονόμους ἀγάγω 
                             σοι, κατοικοῦσα Λαχις κληρονομία, ἕως Οδολλαμ ἥξει ἡ δόξα τῆς 
                             θυγατρὸς Ισραηλ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="16">
-                        <p>ξύρησαι καὶ κεῖραι ἐπὶ τὰ τέκνα τὰ τρυφερά 
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <p>ξύρησαι καὶ κεῖραι ἐπὶ τὰ τέκνα τὰ τρυφερά 
                             σου, ἐμπλάτυνον τὴν χηρείαν σου ὡς ἀετός, ὅτι ᾐχμαλωτεύθησαν 
                             ἀπὸ σοῦ.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="2">
-                    <div type="textpart" subtype="verse" n="1">
-                        <p>Ἐγένοντο λογιζόμενοι κόπους καὶ ἐργαζόμενοι κακὰ ἐν ταῖς 
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="2">
+               <div type="textpart" subtype="verse" n="1">
+                  <p>Ἐγένοντο λογιζόμενοι κόπους καὶ ἐργαζόμενοι κακὰ ἐν ταῖς 
                             κοίταις αὐτῶν καὶ ἅμα τῇ ἡμέρᾳ συνετέλουν αὐτά, διότι οὐκ ἦραν 
                             πρὸς τὸν θεὸν τὰς χεῖρας αὐτῶν·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="2">
-                        <p>καὶ ἐπεθύμουν ἀγροὺς καὶ διήρπαζον
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p>καὶ ἐπεθύμουν ἀγροὺς καὶ διήρπαζον
                              ὀρφανοὺς καὶ οἴκους κατεδυνάστευον καὶ διήρπαζον ἄνδρα 
                             καὶ τὸν οἶκον αὐτοῦ, ἄνδρα καὶ τὴν κληρονομίαν αὐτοῦ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="3">
-                        <p>διὰ τοῦτο 
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p>διὰ τοῦτο 
                             τάδε λέγει κύριος Ἰδοὺ ἐγὼ λογίζομαι ἐπὶ τὴν φυλὴν ταύτην κακά, 
                             ἐξ ὧν οὐ μὴ ἄρητε τοὺς τραχήλους ὑμῶν καὶ οὐ μὴ πορευθῆτε 
                             ὀρθοὶ ἐξαίφνης, ὅτι καιρὸς πονηρός ἐστιν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="4">
-                        <p>ἐν τῇ ἡμέρᾳ ἐκείνῃ 
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p>ἐν τῇ ἡμέρᾳ ἐκείνῃ 
                             λημφθήσεται ἐφ’ ὑμᾶς παραβολή, καὶ θρηνηθήσεται θρῆνος ἐν μέλει 
                             λέγων Ταλαιπωρίᾳ ἐταλαιπωρήσαμεν· μερὶς λαοῦ μου κατεμετρήθη 
                             ἐν σχοινίῳ, καὶ οὐκ ἦν ὁ κωλύσων αὐτὸν τοῦ ἀποστρέψαι· οἱ 
                             ἀγροὶ ἡμῶν διεμερίσθησαν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="5">
-                        <p>διὰ τοῦτο οὐκ ἔσται σοι βάλλων σχοινίον
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p>διὰ τοῦτο οὐκ ἔσται σοι βάλλων σχοινίον
                              ἐν κλήρῳ ἐν ἐκκλησίᾳ κυρίου.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="6">
-                        <p>μὴ κλαίετε δάκρυσιν, μηδὲ 
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p>μὴ κλαίετε δάκρυσιν, μηδὲ 
                             δακρυέτωσαν ἐπὶ τούτοις· οὐ γὰρ ἀπώσεται ὀνείδη.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="7">
-                        <p>ὁ λέγων 
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p>ὁ λέγων 
                             Οἶκος Ιακωβ παρώργισεν πνεῦμα κυρίου· εἰ ταῦτα τὰ ἐπιτηδεύματα 
                             αὐτοῦ ἐστιν; οὐχ οἱ λόγοι αὐτοῦ εἰσιν καλοὶ μετ’ αὐτοῦ καὶ ὀρθοὶ 
                             πεπόρευνται;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="8">
-                        <p>καὶ ἔμπροσθεν ὁ λαός μου εἰς ἔχθραν ἀντέστη· 
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p>καὶ ἔμπροσθεν ὁ λαός μου εἰς ἔχθραν ἀντέστη· 
                             κατέναντι τῆς εἰρήνης αὐτοῦ τὴν δορὰν αὐτοῦ ἐξέδειραν τοῦ ἀφελέσθαι
                              ἐλπίδα συντριμμὸν πολέμου.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="9">
-                        <p>διὰ τοῦτο ἡγούμενοι λαοῦ μου 
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p>διὰ τοῦτο ἡγούμενοι λαοῦ μου 
                             ἀπορριφήσονται ἐκ τῶν οἰκιῶν τρυφῆς αὐτῶν, διὰ τὰ πονηρὰ ἐπιτηδεύματα
                              αὐτῶν ἐξώσθησαν· ἐγγίσατε ὄρεσιν αἰωνίοις.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="10">
-                        <p>ἀνάστηθι 
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p>ἀνάστηθι 
                             καὶ πορεύου, ὅτι οὐκ ἔστιν σοι αὕτη ἡ ἀνάπαυσις ἕνεκεν ἀκαθαρσίας.
                              διεφθάρητε φθορᾷ, 
                             κατεδιώχθητε οὐδενὸς διώκοντος·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="11">
-                        <p>πνεῦμα 
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p>πνεῦμα 
                             ἔστησεν ψεῦδος, ἐστάλαξέν σοι εἰς οἶνον καὶ μέθυσμα. καὶ ἔσται 
                             ἐκ τῆς σταγόνος τοῦ λαοῦ τούτου
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="12">
-                        <p>συναγόμενος συναχθήσεται 
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p>συναγόμενος συναχθήσεται 
                             Ιακωβ σὺν πᾶσιν· ἐκδεχόμενος ἐκδέξομαι τοὺς καταλοίπους τοῦ 
                             Ισραηλ, ἐπὶ τὸ αὐτὸ θήσομαι τὴν ἀποστροφὴν αὐτῶν· ὡς πρόβατα 
                             ἐν θλίψει, ὡς ποίμνιον ἐν μέσῳ κοίτης αὐτῶν ἐξαλοῦνται ἐξ ἀνθρώπων.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="13">
-                        <p>διὰ τῆς διακοπῆς πρὸ προσώπου αὐτῶν διέκοψαν καὶ 
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p>διὰ τῆς διακοπῆς πρὸ προσώπου αὐτῶν διέκοψαν καὶ 
                             διῆλθον πύλην καὶ ἐξῆλθον δι’ αὐτῆς, καὶ ἐξῆλθεν ὁ βασιλεὺς αὐτῶν 
                             πρὸ προσώπου αὐτῶν, ὁ δὲ κύριος ἡγήσεται αὐτῶν.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="3">
-                    <div type="textpart" subtype="verse" n="1">
-                        <p>Καὶ ἐρεῖ Ἀκούσατε δὴ ταῦτα, αἱ ἀρχαὶ οἴκου Ιακωβ καὶ οἱ κατάλοιποι
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="3">
+               <div type="textpart" subtype="verse" n="1">
+                  <p>Καὶ ἐρεῖ Ἀκούσατε δὴ ταῦτα, αἱ ἀρχαὶ οἴκου Ιακωβ καὶ οἱ κατάλοιποι
                              οἴκου Ισραηλ. οὐχ ὑμῖν ἐστιν τοῦ γνῶναι τὸ κρίμα;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="2">
-                        <p>οἱ 
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p>οἱ 
                             μισοῦντες τὰ καλὰ καὶ ζητοῦντες τὰ πονηρά, ἁρπάζοντες τὰ δέρματα
                              αὐτῶν ἀπ’ αὐτῶν καὶ τὰς σάρκας αὐτῶν ἀπὸ τῶν ὀστέων 
                             αὐτῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="3">
-                        <p>ὃν τρόπον κατέφαγον τὰς σάρκας τοῦ λαοῦ μου καὶ τὰ 
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p>ὃν τρόπον κατέφαγον τὰς σάρκας τοῦ λαοῦ μου καὶ τὰ 
                             δέρματα αὐτῶν ἀπὸ τῶν ὀστέων αὐτῶν ἐξέδειραν καὶ τὰ ὀστέα αὐτῶν 
                             συνέθλασαν καὶ ἐμέλισαν ὡς σάρκας εἰς λέβητα καὶ ὡς κρέα εἰς 
                             χύτραν,
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="4">
-                        <p>οὕτως κεκράξονται πρὸς κύριον, καὶ οὐκ εἰσακούσεται 
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p>οὕτως κεκράξονται πρὸς κύριον, καὶ οὐκ εἰσακούσεται 
                             αὐτῶν· καὶ ἀποστρέψει τὸ πρόσωπον αὐτοῦ ἀπ’ αὐτῶν ἐν τῷ 
                             καιρῷ ἐκείνῳ, ἀνθ’ ὧν ἐπονηρεύσαντο ἐν τοῖς ἐπιτηδεύμασιν αὐτῶν 
                             ἐπ’ αὐτούς.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="5">
-                        <p>τάδε λέγει κύριος ἐπὶ τοὺς προφήτας τοὺς πλανῶντας 
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p>τάδε λέγει κύριος ἐπὶ τοὺς προφήτας τοὺς πλανῶντας 
                             τὸν λαόν μου, τοὺς δάκνοντας ἐν τοῖς ὀδοῦσιν αὐτῶν καὶ κηρύσσοντας
                              ἐπ’ αὐτὸν εἰρήνην, καὶ οὐκ ἐδόθη εἰς τὸ στόμα αὐτῶν, 
                             ἤγειραν ἐπ’ αὐτὸν πόλεμον·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="6">
-                        <p>διὰ τοῦτο νὺξ ὑμῖν ἔσται ἐξ ὁράσεως, 
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p>διὰ τοῦτο νὺξ ὑμῖν ἔσται ἐξ ὁράσεως, 
                             καὶ σκοτία ὑμῖν ἔσται ἐκ μαντείας, καὶ δύσεται ὁ ἥλιος ἐπὶ τοὺς 
                             προφήτας, καὶ συσκοτάσει ἐπ’ αὐτοὺς ἡ ἡμέρα·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="7">
-                        <p>καὶ καταισχυνθήσονται
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p>καὶ καταισχυνθήσονται
                              οἱ ὁρῶντες τὰ ἐνύπνια, καὶ καταγελασθήσονται οἱ μάντεις, 
                             καὶ καταλαλήσουσιν κατ’ αὐτῶν πάντες αὐτοί, διότι οὐκ ἔσται ὁ 
                             εἰσακούων αὐτῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="8">
-                        <p>ἐὰν μὴ ἐγὼ ἐμπλήσω ἰσχὺν ἐν πνεύματι κυρίου 
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p>ἐὰν μὴ ἐγὼ ἐμπλήσω ἰσχὺν ἐν πνεύματι κυρίου 
                             καὶ κρίματος καὶ δυναστείας τοῦ ἀπαγγεῖλαι τῷ Ιακωβ ἀσεβείας 
                             αὐτοῦ καὶ τῷ Ισραηλ ἁμαρτίας αὐτοῦ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="9">
-                        <p>ἀκούσατε δὴ ταῦτα, οἱ ἡγούμενοι
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p>ἀκούσατε δὴ ταῦτα, οἱ ἡγούμενοι
                              οἴκου Ιακωβ καὶ οἱ κατάλοιποι οἴκου Ισραηλ οἱ βδελυσσόμενοι
                              κρίμα καὶ πάντα τὰ ὀρθὰ διαστρέφοντες,
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="10">
-                        <p>οἱ οἰκοδομοῦντες 
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p>οἱ οἰκοδομοῦντες 
                             Σιων ἐν αἵμασιν καὶ Ιερουσαλημ ἐν ἀδικίαις·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="11">
-                        <p>οἱ ἡγούμενοι αὐτῆς 
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p>οἱ ἡγούμενοι αὐτῆς 
                             μετὰ δώρων ἔκρινον, καὶ οἱ ἱερεῖς αὐτῆς μετὰ μισθοῦ ἀπεκρίνοντο, 
                             καὶ οἱ προφῆται αὐτῆς μετὰ ἀργυρίου ἐμαντεύοντο, καὶ ἐπὶ τὸν 
                             κύριον ἐπανεπαύοντο λέγοντες Οὐχὶ κύριος ἐν ἡμῖν ἐστιν; οὐ μὴ 
                             ἐπέλθῃ ἐφ’ ἡμᾶς κακά.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="12">
-                        <p>διὰ τοῦτο δι’ ὑμᾶς Σιων ὡς ἀγρὸς ἀροτριαθήσεται,
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p>διὰ τοῦτο δι’ ὑμᾶς Σιων ὡς ἀγρὸς ἀροτριαθήσεται,
                              καὶ Ιερουσαλημ ὡς ὀπωροφυλάκιον ἔσται καὶ τὸ ὄρος 
                             τοῦ οἴκου ὡς ἄλσος δρυμοῦ.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="4">
-                    <div type="textpart" subtype="verse" n="1">
-                        <p>Καὶ ἔσται ἐπ’ ἐσχάτων τῶν ἡμερῶν ἐμφανὲς τὸ ὄρος τοῦ κυρίου,
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="4">
+               <div type="textpart" subtype="verse" n="1">
+                  <p>Καὶ ἔσται ἐπ’ ἐσχάτων τῶν ἡμερῶν ἐμφανὲς τὸ ὄρος τοῦ κυρίου,
                              ἕτοιμον ἐπὶ τὰς κορυφὰς τῶν ὀρέων, καὶ μετεωρισθήσεται 
                             ὑπεράνω τῶν βουνῶν· καὶ σπεύσουσιν πρὸς αὐτὸ λαοί,
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="2">
-                        <p>καὶ πορεύσονται
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p>καὶ πορεύσονται
                              ἔθνη πολλὰ καὶ ἐροῦσιν Δεῦτε ἀναβῶμεν εἰς τὸ ὄρος 
                             κυρίου καὶ εἰς τὸν οἶκον τοῦ θεοῦ Ιακωβ, καὶ δείξουσιν ἡμῖν τὴν 
                             ὁδὸν αὐτοῦ, καὶ πορευσόμεθα ἐν ταῖς τρίβοις αὐτοῦ· ὅτι ἐκ Σιων
                             ἐξελεύσεται νόμος καὶ λόγος κυρίου ἐξ Ιερουσαλημ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="3">
-                        <p>καὶ κρινεῖ 
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p>καὶ κρινεῖ 
                             ἀνὰ μέσον λαῶν πολλῶν καὶ ἐξελέγξει ἔθνη ἰσχυρὰ ἕως εἰς γῆν 
                             μακράν, καὶ κατακόψουσιν τὰς ῥομφαίας αὐτῶν εἰς ἄροτρα καὶ τὰ 
                             δόρατα αὐτῶν εἰς δρέπανα, καὶ οὐκέτι μὴ ἀντάρῃ ἔθνος ἐπ’ ἔθνος 
                             ῥομφαίαν, καὶ οὐκέτι μὴ μάθωσιν πολεμεῖν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="4">
-                        <p>καὶ ἀναπαύσεται ἕκαστος
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p>καὶ ἀναπαύσεται ἕκαστος
                              ὑποκάτω ἀμπέλου αὐτοῦ καὶ ἕκαστος ὑποκάτω συκῆς αὐτοῦ, 
                             καὶ οὐκ ἔσται ὁ ἐκφοβῶν, διότι τὸ στόμα κυρίου παντοκράτορος 
                             ἐλάλησεν ταῦτα.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="5">
-                        <p>ὅτι πάντες οἱ λαοὶ πορεύσονται ἕκαστος τὴν ὁδὸν 
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p>ὅτι πάντες οἱ λαοὶ πορεύσονται ἕκαστος τὴν ὁδὸν 
                             αὐτοῦ, ἡμεῖς δὲ πορευσόμεθα ἐν ὀνόματι κυρίου θεοῦ ἡμῶν εἰς 
                             τὸν αἰῶνα καὶ ἐπέκεινα.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="6">
-                        <p>ἐν τῇ ἡμέρᾳ ἐκείνῃ, λέγει κύριος, συνάξω 
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p>ἐν τῇ ἡμέρᾳ ἐκείνῃ, λέγει κύριος, συνάξω 
                             τὴν συντετριμμένην καὶ τὴν ἐξωσμένην εἰσδέξομαι καὶ οὓς ἀπωσάμην·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="7">
-                        <p>καὶ θήσομαι τὴν συντετριμμένην εἰς ὑπόλειμμα καὶ τὴν 
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p>καὶ θήσομαι τὴν συντετριμμένην εἰς ὑπόλειμμα καὶ τὴν 
                             ἀπωσμένην εἰς ἔθνος ἰσχυρόν, καὶ βασιλεύσει κύριος ἐπ’ αὐτοὺς 
                             ἐν ὄρει Σιων ἀπὸ τοῦ νῦν καὶ ἕως εἰς τὸν αἰῶνα.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="8">
-                        <p>καὶ σύ, πύργος 
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p>καὶ σύ, πύργος 
                             ποιμνίου αὐχμώδης, θύγατερ Σιων, ἐπὶ σὲ ἥξει καὶ εἰσελεύσεται ἡ 
                             ἀρχὴ ἡ πρώτη, βασιλεία ἐκ Βαβυλῶνος τῇ θυγατρὶ Ιερουσαλημ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="9">
-                        <p>Καὶ νῦν ἵνα τί ἔγνως κακά; μὴ βασιλεὺς οὐκ ἦν σοι; ἢ ἡ βουλή 
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p>Καὶ νῦν ἵνα τί ἔγνως κακά; μὴ βασιλεὺς οὐκ ἦν σοι; ἢ ἡ βουλή 
                             σου ἀπώλετο ὅτι κατεκράτησάν σου ὠδῖνες ὡς τικτούσης;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="10">
-                        <p>ὤδινε 
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p>ὤδινε 
                             καὶ ἀνδρίζου καὶ ἔγγιζε, θύγατερ Σιων, ὡς τίκτουσα· διότι νῦν 
                             ἐξελεύσῃ ἐκ πόλεως καὶ κατασκηνώσεις ἐν πεδίῳ καὶ ἥξεις ἕως 
                             Βαβυλῶνος· ἐκεῖθεν ῥύσεταί σε καὶ ἐκεῖθεν λυτρώσεταί σε κύριος 
                             ὁ θεός σου ἐκ χειρὸς ἐχθρῶν σου.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="11">
-                        <p>καὶ νῦν ἐπισυνήχθη ἐπὶ σὲ 
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p>καὶ νῦν ἐπισυνήχθη ἐπὶ σὲ 
                             ἔθνη πολλὰ οἱ λέγοντες Ἐπιχαρούμεθα, καὶ ἐπόψονται ἐπὶ Σιων 
                             οἱ ὀφθαλμοὶ ἡμῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="12">
-                        <p>αὐτοὶ δὲ οὐκ ἔγνωσαν τὸν λογισμὸν κυρίου 
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p>αὐτοὶ δὲ οὐκ ἔγνωσαν τὸν λογισμὸν κυρίου 
                             καὶ οὐ συνῆκαν τὴν βουλὴν αὐτοῦ, ὅτι συνήγαγεν αὐτοὺς ὡς δράγματα
                              ἅλωνος.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="13">
-                        <p>ἀνάστηθι καὶ ἀλόα αὐτούς, θύγατερ Σιων, ὅτι τὰ 
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p>ἀνάστηθι καὶ ἀλόα αὐτούς, θύγατερ Σιων, ὅτι τὰ 
                             κέρατά σου θήσομαι σιδηρᾶ καὶ τὰς ὁπλάς σου θήσομαι χαλκᾶς, 
                             καὶ κατατήξεις ἐν αὐτοῖς ἔθνη καὶ λεπτυνεῖς λαοὺς πολλοὺς καὶ 
                             ἀναθήσεις τῷ κυρίῳ τὸ πλῆθος αὐτῶν καὶ τὴν ἰσχὺν αὐτῶν τῷ 
                             κυρίῳ πάσης τῆς γῆς.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="14">
-                        <p>νῦν ἐμφραχθήσεται θυγάτηρ Εφραιμ ἐν 
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p>νῦν ἐμφραχθήσεται θυγάτηρ Εφραιμ ἐν 
                             φραγμῷ, συνοχὴν ἔταξεν ἐφ’ ἡμᾶς, ἐν ῥάβδῳ πατάξουσιν ἐπὶ σιαγόνα
                              τὰς φυλὰς τοῦ Ισραηλ.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="5">
-                    <div type="textpart" subtype="verse" n="1">
-                        <p>Καὶ σύ, Βηθλεεμ οἶκος τοῦ Εφραθα, ὀλιγοστὸς εἶ τοῦ εἶναι ἐν 
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="5">
+               <div type="textpart" subtype="verse" n="1">
+                  <p>Καὶ σύ, Βηθλεεμ οἶκος τοῦ Εφραθα, ὀλιγοστὸς εἶ τοῦ εἶναι ἐν 
                             χιλιάσιν Ιουδα· ἐκ σοῦ μοι ἐξελεύσεται τοῦ εἶναι εἰς ἄρχοντα ἐν 
                             τῷ Ισραηλ, καὶ αἱ ἔξοδοι αὐτοῦ ἀπ’ ἀρχῆς ἐξ ἡμερῶν αἰῶνος.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="2">
-                        <p>διὰ 
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p>διὰ 
                             τοῦτο δώσει αὐτοὺς ἕως καιροῦ τικτούσης τέξεται, καὶ οἱ ἐπίλοιποι 
                             τῶν ἀδελφῶν αὐτῶν ἐπιστρέψουσιν ἐπὶ τοὺς υἱοὺς Ισραηλ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="3">
-                        <p>καὶ 
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p>καὶ 
                             στήσεται καὶ ὄψεται καὶ ποιμανεῖ τὸ ποίμνιον αὐτοῦ ἐν ἰσχύι κυρίου,
                              καὶ ἐν τῇ δόξῃ τοῦ ὀνόματος κυρίου τοῦ θεοῦ αὐτῶν ὑπάρξουσιν·
                              διότι νῦν μεγαλυνθήσεται ἕως ἄκρων τῆς γῆς.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="4">
-                        <p>καὶ ἔσται 
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p>καὶ ἔσται 
                             αὕτη εἰρήνη· ὅταν Ἀσσύριος ἐπέλθῃ ἐπὶ τὴν γῆν ὑμῶν καὶ ὅταν 
                             ἐπιβῇ ἐπὶ τὴν χώραν ὑμῶν, καὶ ἐπεγερθήσονται ἐπ’ αὐτὸν ἑπτὰ 
                             ποιμένες καὶ ὀκτὼ δήγματα ἀνθρώπων·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="5">
-                        <p>καὶ ποιμανοῦσιν τὸν Ασσουρ
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p>καὶ ποιμανοῦσιν τὸν Ασσουρ
                              ἐν ῥομφαίᾳ καὶ τὴν γῆν τοῦ Νεβρωδ ἐν τῇ τάφρῳ αὐτῆς· 
                             καὶ ῥύσεται ἐκ τοῦ Ασσουρ, ὅταν ἐπέλθῃ ἐπὶ τὴν γῆν ὑμῶν καὶ 
                             ὅταν ἐπιβῇ ἐπὶ τὰ ὅρια ὑμῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="6">
-                        <p>καὶ ἔσται τὸ ὑπόλειμμα τοῦ Ιακωβ 
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p>καὶ ἔσται τὸ ὑπόλειμμα τοῦ Ιακωβ 
                             ἐν τοῖς ἔθνεσιν ἐν μέσῳ λαῶν πολλῶν ὡς δρόσος παρὰ κυρίου 
                             πίπτουσα καὶ ὡς ἄρνες ἐπὶ ἄγρωστιν, ὅπως μὴ συναχθῇ μηδεὶς 
                             μηδὲ ὑποστῇ ἐν υἱοῖς ἀνθρώπων.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="7">
-                        <p>καὶ ἔσται τὸ ὑπόλειμμα τοῦ 
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p>καὶ ἔσται τὸ ὑπόλειμμα τοῦ 
                             Ιακωβ ἐν τοῖς ἔθνεσιν ἐν μέσῳ λαῶν πολλῶν ὡς λέων ἐν κτήνεσιν
                              ἐν τῷ δρυμῷ καὶ ὡς σκύμνος ἐν ποιμνίοις προβάτων, ὃν τρόπον
                              ὅταν διέλθῃ καὶ διαστείλας ἁρπάσῃ καὶ μὴ ᾖ ὁ ἐξαιρούμενος.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="8">
-                        <p>ὑψωθήσεται ἡ χείρ σου ἐπὶ τοὺς θλίβοντάς σε, καὶ πάντες οἱ 
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p>ὑψωθήσεται ἡ χείρ σου ἐπὶ τοὺς θλίβοντάς σε, καὶ πάντες οἱ 
                             ἐχθροί σου ἐξολεθρευθήσονται.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="9">
-                        <p>Καὶ ἔσται ἐν ἐκείνῃ τῇ ἡμέρᾳ, λέγει κύριος, ἐξολεθρεύσω τοὺς 
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p>Καὶ ἔσται ἐν ἐκείνῃ τῇ ἡμέρᾳ, λέγει κύριος, ἐξολεθρεύσω τοὺς 
                             ἵππους σου ἐκ μέσου σου καὶ ἀπολῶ τὰ ἅρματά σου
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="10">
-                        <p>καὶ ἐξολεθρεύσω
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p>καὶ ἐξολεθρεύσω
                              τὰς πόλεις τῆς γῆς σου καὶ ἐξαρῶ πάντα τὰ ὀχυρώματά 
                             σου·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="11">
-                        <p>καὶ ἐξαρῶ τὰ φάρμακά σου ἐκ τῶν χειρῶν σου, καὶ ἀποφθεγγόμενοι
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p>καὶ ἐξαρῶ τὰ φάρμακά σου ἐκ τῶν χειρῶν σου, καὶ ἀποφθεγγόμενοι
                              οὐκ ἔσονται ἐν σοί·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="12">
-                        <p>καὶ ἐξολεθρεύσω τὰ γλυπτά σου 
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p>καὶ ἐξολεθρεύσω τὰ γλυπτά σου 
                             καὶ τὰς στήλας σου ἐκ μέσου σου, καὶ οὐκέτι μὴ προσκυνήσῃς 
                             τοῖς ἔργοις τῶν χειρῶν σου·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="13">
-                        <p>καὶ ἐκκόψω τὰ ἄλση σου ἐκ μέσου 
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p>καὶ ἐκκόψω τὰ ἄλση σου ἐκ μέσου 
                             σου καὶ ἀφανιῶ τὰς πόλεις σου·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="14">
-                        <p>καὶ ποιήσω ἐν ὀργῇ καὶ ἐν 
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p>καὶ ποιήσω ἐν ὀργῇ καὶ ἐν 
                             θυμῷ ἐκδίκησιν ἐν τοῖς ἔθνεσιν, ἀνθ’ ὧν οὐκ εἰσήκουσαν.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="6">
-                    <div type="textpart" subtype="verse" n="1">
-                        <p>Ἀκούσατε δὴ λόγον κυρίου· κύριος εἶπεν Ἀνάστηθι κρίθητι πρὸς
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="6">
+               <div type="textpart" subtype="verse" n="1">
+                  <p>Ἀκούσατε δὴ λόγον κυρίου· κύριος εἶπεν Ἀνάστηθι κρίθητι πρὸς
                             τὰ ὄρη, καὶ ἀκουσάτωσαν οἱ βουνοὶ φωνήν σου.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="2">
-                        <p>ἀκούσατε, βουνοί, 
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p>ἀκούσατε, βουνοί, 
                             τὴν κρίσιν τοῦ κυρίου, καὶ αἱ φάραγγες θεμέλια τῆς γῆς, ὅτι 
                             κρίσις τῷ κυρίῳ πρὸς τὸν λαὸν αὐτοῦ, καὶ μετὰ τοῦ Ισραηλ διελεγχθήσεται.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="3">
-                        <p>λαός μου, τί ἐποίησά σοι ἢ τί ἐλύπησά σε ἢ τί παρηνώχλησά
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p>λαός μου, τί ἐποίησά σοι ἢ τί ἐλύπησά σε ἢ τί παρηνώχλησά
                              σοι; ἀποκρίθητί μοι.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="4">
-                        <p>διότι ἀνήγαγόν σε ἐκ γῆς Αἰγύπτου 
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p>διότι ἀνήγαγόν σε ἐκ γῆς Αἰγύπτου 
                             καὶ ἐξ οἴκου δουλείας ἐλυτρωσάμην σε καὶ ἐξαπέστειλα πρὸ προσώπου
                              σου τὸν Μωυσῆν καὶ Ααρων καὶ Μαριαμ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="5">
-                        <p>λαός μου, μνήσθητι
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p>λαός μου, μνήσθητι
                              δὴ τί ἐβουλεύσατο κατὰ σοῦ Βαλακ βασιλεὺς Μωαβ, καὶ τί 
                             ἀπεκρίθη αὐτῷ Βαλααμ υἱὸς τοῦ Βεωρ ἀπὸ τῶν σχοίνων ἕως τοῦ 
                             Γαλγαλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="6">
-                        <p>ἐν τίνι καταλάβω 
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p>ἐν τίνι καταλάβω 
                             τὸν κύριον, ἀντιλήμψομαι θεοῦ μου ὑψίστου; εἰ καταλήμψομαι 
                             αὐτὸν ἐν ὁλοκαυτώμασιν, ἐν μόσχοις ἐνιαυσίοις;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="7">
-                        <p>εἰ προσδέξεται 
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p>εἰ προσδέξεται 
                             κύριος ἐν χιλιάσιν κριῶν ἢ ἐν μυριάσιν χειμάρρων πιόνων; εἰ δῶ 
                             πρωτότοκά μου ἀσεβείας, καρπὸν κοιλίας μου ὑπὲρ ἁμαρτίας ψυχῆς 
                             μου;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="8">
-                        <p>εἰ ἀνηγγέλη σοι, ἄνθρωπε, τί καλόν; ἢ τί κύριος ἐκζητεῖ 
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p>εἰ ἀνηγγέλη σοι, ἄνθρωπε, τί καλόν; ἢ τί κύριος ἐκζητεῖ 
                             παρὰ σοῦ ἀλλ’ ἢ τοῦ ποιεῖν κρίμα καὶ ἀγαπᾶν ἔλεον καὶ ἕτοιμον 
                             εἶναι τοῦ πορεύεσθαι μετὰ κυρίου θεοῦ σου;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="9">
-                        <p>Φωνὴ κυρίου τῇ πόλει ἐπικληθήσεται, καὶ σώσει φοβουμένους 
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p>Φωνὴ κυρίου τῇ πόλει ἐπικληθήσεται, καὶ σώσει φοβουμένους 
                             τὸ ὄνομα αὐτοῦ. ἄκουε, φυλή, καὶ τίς κοσμήσει πόλιν;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="10">
-                        <p>μὴ πῦρ 
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p>μὴ πῦρ 
                             καὶ οἶκος ἀνόμου θησαυρίζων θησαυροὺς ἀνόμους καὶ μετὰ ὕβρεως 
                             ἀδικία;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="11">
-                        <p>εἰ δικαιωθήσεται ἐν ζυγῷ ἄνομος καὶ ἐν μαρσίππῳ στάθμια
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p>εἰ δικαιωθήσεται ἐν ζυγῷ ἄνομος καὶ ἐν μαρσίππῳ στάθμια
                              δόλου;
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="12">
-                        <p>ἐξ ὧν τὸν πλοῦτον αὐτῶν ἀσεβείας ἔπλησαν, καὶ οἱ 
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p>ἐξ ὧν τὸν πλοῦτον αὐτῶν ἀσεβείας ἔπλησαν, καὶ οἱ 
                             κατοικοῦντες αὐτὴν ἐλάλουν ψευδῆ, καὶ ἡ γλῶσσα αὐτῶν ὑψώθη 
                             ἐν τῷ στόματι αὐτῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="13">
-                        <p>καὶ ἐγὼ ἄρξομαι τοῦ πατάξαι σε, ἀφανιῶ 
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p>καὶ ἐγὼ ἄρξομαι τοῦ πατάξαι σε, ἀφανιῶ 
                             σε ἐπὶ ταῖς ἁμαρτίαις σου.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="14">
-                        <p>σὺ φάγεσαι καὶ οὐ μὴ ἐμπλησθῇς· 
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p>σὺ φάγεσαι καὶ οὐ μὴ ἐμπλησθῇς· 
                             καὶ σκοτάσει ἐν σοὶ καὶ ἐκνεύσει, καὶ οὐ μὴ διασωθῇς· καὶ ὅσοι 
                             ἐὰν διασωθῶσιν, εἰς ῥομφαίαν παραδοθήσονται.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="15">
-                        <p>σὺ σπερεῖς καὶ 
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p>σὺ σπερεῖς καὶ 
                             οὐ μὴ ἀμήσῃς, σὺ πιέσεις ἐλαίαν καὶ οὐ μὴ ἀλείψῃ ἔλαιον, καὶ 
                             οἶνον καὶ οὐ μὴ πίητε, καὶ ἀφανισθήσεται νόμιμα λαοῦ μου.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="16">
-                        <p>καὶ 
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <p>καὶ 
                             ἐφύλαξας τὰ δικαιώματα Ζαμβρι καὶ πάντα τὰ ἔργα οἴκου Αχααβ 
                             καὶ ἐπορεύθητε ἐν ταῖς βουλαῖς αὐτῶν, ὅπως παραδῶ σε εἰς ἀφανισμὸν
                              καὶ τοὺς κατοικοῦντας αὐτὴν εἰς συρισμόν· καὶ ὀνείδη 
                             λαῶν λήμψεσθε.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="7">
-                    <div type="textpart" subtype="verse" n="1">
-                        <p>Οἴμμοι ὅτι ἐγενόμην ὡς συνάγων καλάμην ἐν ἀμήτῳ καὶ ὡς 
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="7">
+               <div type="textpart" subtype="verse" n="1">
+                  <p>Οἴμμοι ὅτι ἐγενόμην ὡς συνάγων καλάμην ἐν ἀμήτῳ καὶ ὡς 
                             ἐπιφυλλίδα ἐν τρυγήτῳ οὐχ ὑπάρχοντος βότρυος τοῦ φαγεῖν τὰ
                             πρωτόγονα. οἴμμοι, ψυχή,
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="2">
-                        <p>ὅτι ἀπόλωλεν εὐλαβὴς ἀπὸ τῆς γῆς, 
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p>ὅτι ἀπόλωλεν εὐλαβὴς ἀπὸ τῆς γῆς, 
                             καὶ κατορθῶν ἐν ἀνθρώποις οὐχ ὑπάρχει· πάντες εἰς αἵματα δικάζονται,
                              ἕκαστος τὸν πλησίον αὐτοῦ ἐκθλίβουσιν ἐκθλιβῇ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="3">
-                        <p>ἐπὶ τὸ 
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p>ἐπὶ τὸ 
                             κακὸν τὰς χεῖρας αὐτῶν ἑτοιμάζουσιν· ὁ ἄρχων αἰτεῖ, καὶ ὁ κριτὴς 
                             εἰρηνικοὺς λόγους ἐλάλησεν, καταθύμιον ψυχῆς αὐτοῦ ἐστιν. καὶ 
                             ἐξελοῦμαι
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="4">
-                        <p>τὰ ἀγαθὰ αὐτῶν ὡς σὴς ἐκτρώγων καὶ βαδίζων ἐπὶ 
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p>τὰ ἀγαθὰ αὐτῶν ὡς σὴς ἐκτρώγων καὶ βαδίζων ἐπὶ 
                             κανόνος ἐν ἡμέρᾳ σκοπιᾶς. οὐαὶ οὐαί, αἱ ἐκδικήσεις σου ἥκασιν, νῦν 
                             ἔσονται κλαυθμοὶ αὐτῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="5">
-                        <p>μὴ καταπιστεύετε ἐν φίλοις καὶ μὴ ἐλπίζετε
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p>μὴ καταπιστεύετε ἐν φίλοις καὶ μὴ ἐλπίζετε
                              ἐπὶ ἡγουμένοις, ἀπὸ τῆς συγκοίτου σου φύλαξαι τοῦ ἀναθέσθαι
                              τι αὐτῇ·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="6">
-                        <p>διότι υἱὸς ἀτιμάζει πατέρα, θυγάτηρ ἐπαναστήσεται 
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p>διότι υἱὸς ἀτιμάζει πατέρα, θυγάτηρ ἐπαναστήσεται 
                             ἐπὶ τὴν μητέρα αὐτῆς, νύμφη ἐπὶ τὴν πενθερὰν αὐτῆς, ἐχθροὶ 
                             ἀνδρὸς πάντες οἱ ἄνδρες οἱ ἐν τῷ οἴκῳ αὐτοῦ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="7">
-                        <p>Ἐγὼ δὲ ἐπὶ τὸν κύριον ἐπιβλέψομαι, ὑπομενῶ ἐπὶ τῷ θεῷ τῷ 
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p>Ἐγὼ δὲ ἐπὶ τὸν κύριον ἐπιβλέψομαι, ὑπομενῶ ἐπὶ τῷ θεῷ τῷ 
                             σωτῆρί μου, εἰσακούσεταί μου ὁ θεός μου.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="8">
-                        <p>μὴ ἐπίχαιρέ μοι, ἡ 
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p>μὴ ἐπίχαιρέ μοι, ἡ 
                             ἐχθρά μου, ὅτι πέπτωκα· καὶ ἀναστήσομαι, διότι ἐὰν καθίσω ἐν 
                             τῷ σκότει, κύριος φωτιεῖ μοι.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="9">
-                        <p>ὀργὴν κυρίου ὑποίσω, ὅτι ἥμαρτον 
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p>ὀργὴν κυρίου ὑποίσω, ὅτι ἥμαρτον 
                             αὐτῷ, ἕως τοῦ δικαιῶσαι αὐτὸν τὴν δίκην μου· καὶ ποιήσει τὸ 
                             κρίμα μου καὶ ἐξάξει με εἰς τὸ φῶς, ὄψομαι τὴν δικαιοσύνην αὐτοῦ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="10">
-                        <p>καὶ ὄψεται ἡ ἐχθρά μου καὶ περιβαλεῖται αἰσχύνην ἡ λέγουσα 
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p>καὶ ὄψεται ἡ ἐχθρά μου καὶ περιβαλεῖται αἰσχύνην ἡ λέγουσα 
                             πρός με Ποῦ κύριος ὁ θεός σου; οἱ ὀφθαλμοί μου ἐπόψονται αὐτήν·
                              νῦν ἔσται εἰς καταπάτημα ὡς πηλὸς ἐν ταῖς ὁδοῖς
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="11">
-                        <p>ἡμέρας 
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p>ἡμέρας 
                             ἀλοιφῆς πλίνθου. ἐξάλειψίς σου ἡ ἡμέρα ἐκείνη, καὶ ἀποτρίψεται 
                             νόμιμά σου 
                             ἡ ἡμέρα ἐκείνη·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="12">
-                        <p>καὶ αἱ πόλεις σου ἥξουσιν εἰς ὁμαλισμὸν
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p>καὶ αἱ πόλεις σου ἥξουσιν εἰς ὁμαλισμὸν
                              καὶ εἰς διαμερισμὸν Ἀσσυρίων καὶ αἱ πόλεις σου αἱ ὀχυραὶ 
                             εἰς διαμερισμὸν ἀπὸ Τύρου ἕως τοῦ ποταμοῦ Συρίας, ἡμέρα ὕδατος 
                             καὶ θορύβου·
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="13">
-                        <p>καὶ ἔσται ἡ γῆ εἰς ἀφανισμὸν σὺν τοῖς κατοικοῦσιν
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p>καὶ ἔσται ἡ γῆ εἰς ἀφανισμὸν σὺν τοῖς κατοικοῦσιν
                              αὐτὴν ἐκ καρπῶν ἐπιτηδευμάτων αὐτῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="14">
-                        <p>Ποίμαινε λαόν σου ἐν ῥάβδῳ σου, πρόβατα κληρονομίας σου, 
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p>Ποίμαινε λαόν σου ἐν ῥάβδῳ σου, πρόβατα κληρονομίας σου, 
                             κατασκηνοῦντας καθ’ ἑαυτοὺς δρυμὸν ἐν μέσῳ τοῦ Καρμήλου· νεμήσονται
                              τὴν Βασανῖτιν καὶ τὴν Γαλααδῖτιν καθὼς αἱ ἡμέραι τοῦ αἰῶνος.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="15">
-                        <p>καὶ κατὰ τὰς ἡμέρας ἐξοδίας σου ἐξ Αἰγύπτου ὄψεσθε
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p>καὶ κατὰ τὰς ἡμέρας ἐξοδίας σου ἐξ Αἰγύπτου ὄψεσθε
                             θαυμαστά.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="16">
-                        <p>ὄψονται ἔθνη καὶ καταισχυνθήσονται ἐκ πάσης τῆς 
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <p>ὄψονται ἔθνη καὶ καταισχυνθήσονται ἐκ πάσης τῆς 
                             ἰσχύος αὐτῶν, ἐπιθήσουσιν χεῖρας ἐπὶ τὸ στόμα αὐτῶν, τὰ ὦτα 
                             αὐτῶν ἀποκωφωθήσονται.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="17">
-                        <p>λείξουσιν χοῦν ὡς ὄφεις σύροντες γῆν, 
+               </div>
+               <div type="textpart" subtype="verse" n="17">
+                  <p>λείξουσιν χοῦν ὡς ὄφεις σύροντες γῆν, 
                             συγχυθήσονται ἐν συγκλεισμῷ αὐτῶν· ἐπὶ τῷ κυρίῳ θεῷ ἡμῶν 
                             ἐκστήσονται καὶ φοβηθήσονται ἀπὸ σοῦ.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="18">
-                        <p>τίς θεὸς ὥσπερ σύ; 
+               </div>
+               <div type="textpart" subtype="verse" n="18">
+                  <p>τίς θεὸς ὥσπερ σύ; 
                             ἐξαίρων ἀδικίας καὶ ὑπερβαίνων ἀσεβείας τοῖς καταλοίποις τῆς κληρονομίας
                              αὐτοῦ καὶ οὐ συνέσχεν εἰς μαρτύριον ὀργὴν αὐτοῦ, ὅτι 
                             θελητὴς ἐλέους ἐστίν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="19">
-                        <p>αὐτὸς ἐπιστρέψει καὶ οἰκτιρήσει ἡμᾶς, καταδύσει
+               </div>
+               <div type="textpart" subtype="verse" n="19">
+                  <p>αὐτὸς ἐπιστρέψει καὶ οἰκτιρήσει ἡμᾶς, καταδύσει
                              τὰς ἀδικίας ἡμῶν καὶ ἀπορριφήσονται εἰς τὰ βάθη τῆς θαλάσσης,
                              πάσας τὰς ἁμαρτίας ἡμῶν.
                         </p>
-                    </div>
-                    <div type="textpart" subtype="verse" n="20">
-                        <p>δώσεις ἀλήθειαν τῷ Ιακωβ, 
+               </div>
+               <div type="textpart" subtype="verse" n="20">
+                  <p>δώσεις ἀλήθειαν τῷ Ιακωβ, 
                             ἔλεον τῷ Αβρααμ, καθότι ὤμοσας τοῖς πατράσιν ἡμῶν κατὰ τὰς 
                             ἡμέρας τὰς ἔμπροσθεν.
                         </p>
-                    </div>
-                </div>
+               </div>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>
