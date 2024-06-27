@@ -1,337 +1,432 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title xml:lang="la">Epistula ad Dracontium</title>
-                <author><persName key="pta0022">Athanasius Alexandrinus</persName></author>
-                <funder>Deutsche Forschungsgemeinschaft</funder>
-                <respStmt>
-                    <persName xml:id="AvS">Annette von Stockhausen</persName>
-                    <resp>Conversion to CTS-compliant PTA TEI. Markup of places and persons.</resp>
-                </respStmt>
-            </titleStmt>
-            <publicationStmt>
-                <authority>Arbeitsstelle Athanasius Werke, FAU Erlangen-Nürnberg</authority>
-                <distributor>Patristic Text Archive</distributor>
-                <availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
-                </availability>
-                <date>2018</date>
-                <idno type="PTA">pta0022.pta013</idno>
-                <idno type="TLG">tlg2035.tlg137</idno>
-                <idno type="CPG">2132</idno>
-                <idno type="Aldama"/>
-                <idno type="Pinakes-Oeuvre">4970</idno>
-            </publicationStmt>
-            <sourceDesc>
-                <bibl xml:id="AW_II_8">
-                    <note>Critical edition (without critical apparatus; based on https://www.athanasius.theologie.uni-erlangen.de/epdrac.html)</note>
-                    <title>Athanasius Werke. Band 2: Die »Apologien«. Lieferung 8: Apologia ad Constantium / Epistula ad Ioannem et Antiochum / Epistula ad Palladium / Epistula ad Dracontium / Epistula ad Afros / Tomus ad Antiochenos / Epistula ad Jovianum / Epistula Joviani ad Athanasium / Petitiones Arianorum</title>
-                    <editor>
-                        <forename>Hanns Christof</forename>
-                        <surname>Brennecke</surname>
-                    </editor>
-                    <editor>
-                        <forename>Uta</forename>
-                        <surname>Heil</surname>
-                    </editor>
-                    <editor>
-                        <forename>Annette</forename>
-                        <surname>von Stockhausen</surname>
-                    </editor>
-                    <publisher>Walter de Gruyter</publisher>
-                    <pubPlace>Berlin/New York</pubPlace>
-                    <biblScope unit="page" from="314" to="321">314–321</biblScope>
-                    <date when="2006">2006</date>
-                </bibl>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="section" matchPattern="(.+).(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])"/>
-                <cRefPattern n="chapter" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
-            </refsDecl>
-            <refsDecl xml:id="biblical">
-                <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
-                    <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
-                    <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
-                    <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="(.+):(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
-                    <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
-                </cRefPattern>
-            </refsDecl>
-            <editorialDecl>
-                <interpretation>
-                    <p xml:id="biblical-quotations">
-                        Bibelzitate sind ausgezeichnet und nach den oben angeführten Grundsätzen nachgewiesen.
-                    </p>
-                    <p xml:id="places">
-                        Orte sind ausgezeichnet und mit den IDs des
-                        <ref target="https://pleiades.stoa.org/">Pleiades Gazetteers</ref>
-                        referenziert.
-                    </p>
-                    <p xml:id="persons">
-                        Personen sind ausgezeichnet. Biblische Personen sind mit den IDs der
-                        <ref target="https://github.com/tyndale/STEPBible-Data">TIPNR - Tyndale Individualised Proper Names with all References</ref>-Liste, alle übrigen Personen mit den IDs der
-                        <ref target="https://lobid.org/gnd">GND</ref>
-                        referenziert.
-                    </p>
-                </interpretation>
-                <normalization>
-                    <p>
-                        Angaben zur Handhabung von Großschreibung, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum,
-                           Trema, Enklitika, Apostroph/Elisionen, Zahlzeichen, Worttrennung, nomina sacra.
-                    </p>
-                </normalization>
-                <punctuation>
-                    <p>
-                        Angaben zur Normalisierung der Interpunktion: Setzung von Punkt,
-                         	         Komma, Semikolon, Fragezeichen, Gedankenstrichen und Klammern
-                    </p>
-                </punctuation>
-            </editorialDecl>
-            <classDecl>
-                <taxonomy xml:id="comphistsem">
-                    <bibl>
-                        Text Type Classification by
-                        <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
-                    </bibl>
-                </taxonomy>
-            </classDecl>
-        </encodingDesc>
-        <profileDesc>
-            <creation>
-                <date notBefore="0030" notAfter="0800"/>
-                <placeName ref="https://pleiades.stoa.org/places/XXXXX">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">Epistula ad Dracontium</title>
+            <author>
+               <persName key="pta0022">Athanasius Alexandrinus</persName>
+            </author>
+            <funder>Deutsche Forschungsgemeinschaft</funder>
+            <respStmt>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <resp>Conversion to CTS-compliant PTA TEI. Markup of places and persons.</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Arbeitsstelle Athanasius Werke, FAU Erlangen-Nürnberg</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2018</date>
+            <idno type="PTA">pta0022.pta013</idno>
+            <idno type="TLG">tlg2035.tlg137</idno>
+            <idno type="CPG">2132</idno>
+            <idno type="Aldama"/>
+            <idno type="Pinakes-Oeuvre">4970</idno>
+            <idno type="GND">4381261-2</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <bibl xml:id="AW_II_8">
+                  <note>Critical edition (without critical apparatus; based on https://www.athanasius.theologie.uni-erlangen.de/epdrac.html)</note>
+                  <title>Athanasius Werke. Band 2: Die »Apologien«. Lieferung 8: Apologia ad Constantium / Epistula ad Ioannem et Antiochum / Epistula ad Palladium / Epistula ad Dracontium / Epistula ad Afros / Tomus ad Antiochenos / Epistula ad Jovianum / Epistula Joviani ad Athanasium / Petitiones Arianorum</title>
+                  <editor>
+                     <forename>Hanns Christof</forename>
+                     <surname>Brennecke</surname>
+                  </editor>
+                  <editor>
+                     <forename>Uta</forename>
+                     <surname>Heil</surname>
+                  </editor>
+                  <editor>
+                     <forename>Annette</forename>
+                     <surname>von Stockhausen</surname>
+                  </editor>
+                  <publisher>Walter de Gruyter</publisher>
+                  <pubPlace>Berlin/New York</pubPlace>
+                  <biblScope unit="page" from="314" to="321">314–321</biblScope>
+                  <date when="2006">2006</date>
+               </bibl>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern n="chapter"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations"
+                  ana="fully-annotated fully-identified">
+            Biblical quotations are fully annotated and fully referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references"
+                  ana="fully-annotated fully-identified">
+            Other references are fully annotated and fully referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons"
+                  ana="fully-annotated partially-identified">
+            Persons are fully annotated and partially referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups"
+                  ana="fully-annotated fully-identified">
+            Groups of persons and organisations are fully annotated and fully referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places"
+                  ana="fully-annotated fully-identified">
+            Places are fully annotated and fully referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0030" notAfter="0800"/>
+            <placeName ref="https://pleiades.stoa.org/places/XXXXX">
                     placeName missing
                 </placeName>
-            </creation>
-            <textClass>
-                <keywords scheme="#comphistsem">
-                    <term>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>
                         Genre missing
                     </term>
-                </keywords>
-            </textClass>
-        </profileDesc>
-        <revisionDesc status="critical-edition-no-app">
-            <change when="2019-12-17" who="#AvS">
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>critical-edition-no-app</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2019-12-17" who="#AvS">
                 Updated file to comply with version 1.2 of
                 <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
-            </change>
-            <change when="2018-11-02" who="#AvS">Converted to PTA/CapiTainS</change>
-        </revisionDesc>
-    </teiHeader>
-    <text>
-        <body>
-            <div type="praefatio" xml:lang="deu">
-                <p>Dracontius war vor seiner Bischofsweihe Vorsteher eines uns nicht bekannten Klosters (vgl. 7,2), ehe er als Nachfolger des Agathammon (zuletzt genannt im Jahr 346/47, vgl. apol.sec. 49,3 Nr. 198) Bischof von Hermupolis parva (vgl. tom. 10,2; Pall., h.Laus.[copt.] 10,1) wurde. 356/57 gehörte er zu den verbannten Anhängern des Athanasius (vgl. fug. 7,4; h.Ar. 72,4; Ammon. Aeg., ep. 32, PTS 27, 155,3f. Goehring) und nahm 362 an der Synode von Alexandrien teil (vgl. tom. 10,2). 368 war er tot, da Athanasius im Festbrief dieses Jahres (ep.fest. 40) Isidor als seinen Nachfolger nennt. Athanasius schreibt an Dracontius, weil dieser sein Bischofsamt verlassen hatte, nachdem aus monastischen Kreisen, vielleicht aus seinem ehemaligen Kloster, Kritik an seiner Weihe und der Übernahme eines Bischofsamtes laut geworden war. Nach 5,1 hatte Dracontius sich als Mönch offenbar verpflichtet, kein kirchliches Amt anzunehmen, da ein solches im Widerspruch zu den monastischen Idealen angesehen wurde (vgl. 9,1; 10,3; s. auch vit.Pachom. 30). Demgegenüber behaftet Athanasius Dracontius auf die aus der Weihe erwachsenen Pflichten gegenüber seiner Gemeinde (vgl. 2,3; 10,1f.). Gegen die monastische Amtskritik zeigt er, daß zum einen das Bischofsamt dem Mönchtum vorgeordnet ist (vgl. 4,1; 10,3) und zum anderen kirchliches Amt und monastisches Leben durchaus miteinander vereinbar sind (vgl. 9,1f.). Der Brief wurde von dem Presbyter Hierax und dem Lektor Maximus überbracht (vgl. 10,5) und gehört sicher in eine vorösterliche Fastenzeit (vgl. 10,1); die übliche Datierung in das Jahr 354 ist jedoch nicht zwingend. Die in 1,1 angedeuteten Betrübnisse der Kirche müssen sich nicht unbedingt auf die Situation der Zeit ab 353 (Synode von Arles) beziehen, sondern können auch auf die problematische Integration des Mönchtums in die Kirchenstrukturen hinweisen, die durch die Einsetzung des Dracontius zunächst gelöst (vgl. 1,3), durch seine Flucht wieder in Frage gestellt wurde. Zudem erscheint der Amtsvorgänger des Dracontius, Agathammon, in der apol.sec. 71 (Nr. 33) zitierten Liste der melitianischen Bischöfe, so daß möglicherweise auch noch zur Zeit des Dracontius mit melitianischer Konkurrenz um das Bischofsamt in Hermupolis parva zu rechnen wäre (vgl. 1,3). Die Beschreibung des Ammonius als τοῦ μετὰ Σεραπίωνος ἀποδημήσαντος (7,2) ist sehr wahrscheinlich keine Anspielung auf die hist.Ath. 1,7 und ind.ep.fest. 25 (a. 353) erwähnte Delegation mehrerer ägyptischer Bischöfe an den Hof des Constantius in Mailand, sondern darauf, daß beide gemeinsam Mönch wurden. Die Abfassungszeit läßt sich daher nur auf die Zeit zwischen 346/47 und der Verbannung des Dracontius im Jahr 356/57 eingrenzen.
+         </change>
+         <change when="2018-11-02" who="#AvS">Converted to PTA/CapiTainS</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="praefatio" xml:lang="deu">
+            <p>Dracontius war vor seiner Bischofsweihe Vorsteher eines uns nicht bekannten Klosters (vgl. 7,2), ehe er als Nachfolger des Agathammon (zuletzt genannt im Jahr 346/47, vgl. apol.sec. 49,3 Nr. 198) Bischof von Hermupolis parva (vgl. tom. 10,2; Pall., h.Laus.[copt.] 10,1) wurde. 356/57 gehörte er zu den verbannten Anhängern des Athanasius (vgl. fug. 7,4; h.Ar. 72,4; Ammon. Aeg., ep. 32, PTS 27, 155,3f. Goehring) und nahm 362 an der Synode von Alexandrien teil (vgl. tom. 10,2). 368 war er tot, da Athanasius im Festbrief dieses Jahres (ep.fest. 40) Isidor als seinen Nachfolger nennt. Athanasius schreibt an Dracontius, weil dieser sein Bischofsamt verlassen hatte, nachdem aus monastischen Kreisen, vielleicht aus seinem ehemaligen Kloster, Kritik an seiner Weihe und der Übernahme eines Bischofsamtes laut geworden war. Nach 5,1 hatte Dracontius sich als Mönch offenbar verpflichtet, kein kirchliches Amt anzunehmen, da ein solches im Widerspruch zu den monastischen Idealen angesehen wurde (vgl. 9,1; 10,3; s. auch vit.Pachom. 30). Demgegenüber behaftet Athanasius Dracontius auf die aus der Weihe erwachsenen Pflichten gegenüber seiner Gemeinde (vgl. 2,3; 10,1f.). Gegen die monastische Amtskritik zeigt er, daß zum einen das Bischofsamt dem Mönchtum vorgeordnet ist (vgl. 4,1; 10,3) und zum anderen kirchliches Amt und monastisches Leben durchaus miteinander vereinbar sind (vgl. 9,1f.). Der Brief wurde von dem Presbyter Hierax und dem Lektor Maximus überbracht (vgl. 10,5) und gehört sicher in eine vorösterliche Fastenzeit (vgl. 10,1); die übliche Datierung in das Jahr 354 ist jedoch nicht zwingend. Die in 1,1 angedeuteten Betrübnisse der Kirche müssen sich nicht unbedingt auf die Situation der Zeit ab 353 (Synode von Arles) beziehen, sondern können auch auf die problematische Integration des Mönchtums in die Kirchenstrukturen hinweisen, die durch die Einsetzung des Dracontius zunächst gelöst (vgl. 1,3), durch seine Flucht wieder in Frage gestellt wurde. Zudem erscheint der Amtsvorgänger des Dracontius, Agathammon, in der apol.sec. 71 (Nr. 33) zitierten Liste der melitianischen Bischöfe, so daß möglicherweise auch noch zur Zeit des Dracontius mit melitianischer Konkurrenz um das Bischofsamt in Hermupolis parva zu rechnen wäre (vgl. 1,3). Die Beschreibung des Ammonius als τοῦ μετὰ Σεραπίωνος ἀποδημήσαντος (7,2) ist sehr wahrscheinlich keine Anspielung auf die hist.Ath. 1,7 und ind.ep.fest. 25 (a. 353) erwähnte Delegation mehrerer ägyptischer Bischöfe an den Hof des Constantius in Mailand, sondern darauf, daß beide gemeinsam Mönch wurden. Die Abfassungszeit läßt sich daher nur auf die Zeit zwischen 346/47 und der Verbannung des Dracontius im Jahr 356/57 eingrenzen.
                 </p>
-            </div>
-            <div type="edition" xml:lang="grc" n="urn:cts:pta:pta0022.pta013.pta-grc1">
-                <head>
-                    <title>Τοῦ αὐτοῦ ἐπιστολὴ πρὸς
-                        <persName>Δρακόντιον</persName>
-                    </title>
-                </head>
-                <div type="textpart" subtype="chapter" n="1">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Ἀπορῶ τί γράψω. ἆρα γὰρ ὡς παραιτούμενον μέμψομαί σε ἢ ὡς τὸν καιρὸν ὁρῶντα καὶ κρυπτόμενον
+         </div>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta0022.pta013.pta-grc1">
+            <head>
+               <title>Τοῦ αὐτοῦ ἐπιστολὴ πρὸς
+                        <persName key="PTA_P00067">Δρακόντιον</persName>
+               </title>
+            </head>
+            <div type="textpart" subtype="chapter" n="1">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Ἀπορῶ τί γράψω. ἆρα γὰρ ὡς παραιτούμενον μέμψομαί σε ἢ ὡς τὸν καιρὸν ὁρῶντα καὶ κρυπτόμενον
                             <quote>διὰ τὸν φόβον τῶν Ἰουδαίων<ref decls="#biblical" cRef="NA:Jn:19:38"/>
-                            </quote>; πλὴν εἴτε ἄλλως εἴτε οὕτως ἄξιον μέμψεως τὸ παρὰ σοῦ γεγενημένον, ἀγαπητὲ
-                            <persName>Δρακόντιε</persName>. οὐ γὰρ ἔπρεπε λαβόντα σε τὴν χάριν κρύπτεσθαι οὐδὲ φρόνιμον ὄντα διδόναι τοῖς ἄλλοις προφάσεις φυγῆς. πολλοὶ γὰρ ἀκούσαντες σκανδαλίζονται, οὐχ ὡς ἁπλῶς τοῦτό σου ποιοῦντος, ἀλλὰ συνορῶντος τὸν καιρὸν καὶ τὰς ἐπικειμένας θλίψεις τῇ ἐκκλη­σίᾳ.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>καὶ φοβοῦμαι, μὴ διὰ σαυτὸν φεύγων δι’ ἄλλους εὑρεθῇς κινδυνεύων παρὰ τῷ κυρίῳ. εἰ γὰρ ὁ
+                     </quote>; πλὴν εἴτε ἄλλως εἴτε οὕτως ἄξιον μέμψεως τὸ παρὰ σοῦ γεγενημένον, ἀγαπητὲ
+                            <persName key="PTA_P00067">Δρακόντιε</persName>. οὐ γὰρ ἔπρεπε λαβόντα σε τὴν χάριν κρύπτεσθαι οὐδὲ φρόνιμον ὄντα διδόναι τοῖς ἄλλοις προφάσεις φυγῆς. πολλοὶ γὰρ ἀκούσαντες σκανδαλίζονται, οὐχ ὡς ἁπλῶς τοῦτό σου ποιοῦντος, ἀλλὰ συνορῶντος τὸν καιρὸν καὶ τὰς ἐπικειμένας θλίψεις τῇ ἐκκλησίᾳ.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>καὶ φοβοῦμαι, μὴ διὰ σαυτὸν φεύγων δι’ ἄλλους εὑρεθῇς κινδυνεύων παρὰ τῷ κυρίῳ. εἰ γὰρ ὁ
                             <quote>ἕνα τῶν μικρῶν σκανδαλίζων ἕλοιτ’ ἂν μύλον ὀνικὸν περὶ τὸν τράχηλον αὐτοῦ κρεμασθῆναι καὶ καταποντισθῆναι<ref decls="#biblical" cRef="NA:Mt:18:6"/>
-                            </quote>, τί ἂν πάθοις σὺ τοσού­τοις γινόμενος σκάνδαλον;</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>καὶ γὰρ ἡ ἐκ παραδόξου γενομένη συμφωνία ἐν τῇ
+                     </quote>, τί ἂν πάθοις σὺ τοσούτοις γινόμενος σκάνδαλον;</p>
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>καὶ γὰρ ἡ ἐκ παραδόξου γενομένη συμφωνία ἐν τῇ
                             <placeName ref="https://pleiades.stoa.org/places/727070">Ἀλεξανδρέων χώρᾳ</placeName>
-                            ἐν τῇ σῇ καταστάσει ἐξ ἀνάγκης σχισθήσεται διὰ τὴν σὴν ἀναχώρησιν· καὶ ἡ ἐπισκοπὴ δὲ τῆς χώρας αὐτῆς ὑπὸ πολλῶν ἁρπαγήσεται καὶ πολλῶν οὐκ ὀρθῶν, ἀλλ’ ὧν οἶδας καὶ αὐτός. καὶ ἐθνικοὶ δὲ οἱ ἐπαγγελλόμενοι Χριστιανοὶ γίνεσθαι ἐπὶ τῇ σῇ καταστάσει ἀπομενοῦσιν Ἕλληνες τῆς σῆς εὐλαβεί­ας ἐξουθενούσης τὴν δοθεῖσαν χάριν.
+                            ἐν τῇ σῇ καταστάσει ἐξ ἀνάγκης σχισθήσεται διὰ τὴν σὴν ἀναχώρησιν· καὶ ἡ ἐπισκοπὴ δὲ τῆς χώρας αὐτῆς ὑπὸ πολλῶν ἁρπαγήσεται καὶ πολλῶν οὐκ ὀρθῶν, ἀλλ’ ὧν οἶδας καὶ αὐτός. καὶ ἐθνικοὶ δὲ οἱ ἐπαγγελλόμενοι Χριστιανοὶ γίνεσθαι ἐπὶ τῇ σῇ καταστάσει ἀπομενοῦσιν Ἕλληνες τῆς σῆς εὐλαβείας ἐξουθενούσης τὴν δοθεῖσαν χάριν.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="2">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Ποία οὖν ἐπὶ τοῖς τοιούτοις ἀπολογία παρὰ σοῦ δοθήσεται; ποίοις ἂν ἀπονί­ψασθαι καὶ ἀπομάξασθαι λόγοις τὰς τοιαύτας αἰτίας δυνήσῃ; πῶς θεραπεύσεις τοὺς διὰ σὲ πεσόντας καὶ σκανδαλιζομένους; ἢ πῶς μετὰ τὸ σχισθῆναι τὴν εἰρήνην συρράψαι ταύτην δυνήσῃ;</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>ὦ ἀγαπητὲ
-                            <persName>Δρακόντιε</persName>, ἀντὶ χαρᾶς λύπην ἡμῖν πε­ποίηκας, ἀντὶ παραμυθίας στεναγμόν. προσεδοκῶμεν γὰρ παραμυθίαν ἔχειν σε μεθ’ ἡμῶν καὶ νῦν βλέπομεν φεύγοντά σε καὶ ὁρῶμεν ὅτι κρινόμενος μὲν ἐλεγχθή­σῃ, κινδυνεύων δὲ μεταμεληθήσῃ. καὶ τίς
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="2">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Ποία οὖν ἐπὶ τοῖς τοιούτοις ἀπολογία παρὰ σοῦ δοθήσεται; ποίοις ἂν ἀπονίψασθαι καὶ ἀπομάξασθαι λόγοις τὰς τοιαύτας αἰτίας δυνήσῃ; πῶς θεραπεύσεις τοὺς διὰ σὲ πεσόντας καὶ σκανδαλιζομένους; ἢ πῶς μετὰ τὸ σχισθῆναι τὴν εἰρήνην συρράψαι ταύτην δυνήσῃ;</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>ὦ ἀγαπητὲ
+                            <persName key="PTA_P00067">Δρακόντιε</persName>, ἀντὶ χαρᾶς λύπην ἡμῖν πεποίηκας, ἀντὶ παραμυθίας στεναγμόν. προσεδοκῶμεν γὰρ παραμυθίαν ἔχειν σε μεθ’ ἡμῶν καὶ νῦν βλέπομεν φεύγοντά σε καὶ ὁρῶμεν ὅτι κρινόμενος μὲν ἐλεγχθήσῃ, κινδυνεύων δὲ μεταμεληθήσῃ. καὶ τίς
                             <quote>φείσεται<seg type="insertion">, ὡς ὁ προφήτης εἴρηκεν,</seg>
                                 ἐπὶ σοί<ref decls="#biblical" cRef="LXX:Jr:15:5"/>
-                            </quote>; τίς ἀνακάμψει ἐπὶ σὲ εἰς εἰρήνην ὁρῶν τοὺς ἀδελφούς, δι’ οὓς
-                            <persName>Χριστὸς</persName>
-                            ἀπ­έθανε, βλαβέντας ἐπὶ τῇ σῇ φυγῇ;</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>δεῖ γὰρ εἰδέναι σε καὶ μὴ ἀμφιβάλλειν, ὅτι πρὶν μὲν κατασταθῇς σαυτῷ ἔζης, κατασταθεὶς δὲ οἷς κατεστάθης. καὶ πρὶν μὲν λάβῃς τὴν τῆς ἐπισκοπῆς χάριν, οὐδεὶς ἐγίνωσκέ σε, γενόμενον δὲ λοιπὸν οἱ λαοὶ προσδοκῶσι φέροντα τροφὴν αὐτοῖς τὴν ἐκ τῶν γραφῶν διδασκαλίαν. ὅταν τοίνυν οἱ προσδοκῶντες λιμώττωσι, σὺ δὲ σεαυτὸν μόνον τρέφῃς, καὶ ἔλθῃ ὁ κύριος ἡμῶν
-                            <persName>Ἰησοῦς Χριστὸς</persName>
+                     </quote>; τίς ἀνακάμψει ἐπὶ σὲ εἰς εἰρήνην ὁρῶν τοὺς ἀδελφούς, δι’ οὓς
+                            <persName key="Jesus_Mat.1.1">Χριστὸς</persName>
+                            ἀπέθανε, βλαβέντας ἐπὶ τῇ σῇ φυγῇ;</p>
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>δεῖ γὰρ εἰδέναι σε καὶ μὴ ἀμφιβάλλειν, ὅτι πρὶν μὲν κατασταθῇς σαυτῷ ἔζης, κατασταθεὶς δὲ οἷς κατεστάθης. καὶ πρὶν μὲν λάβῃς τὴν τῆς ἐπισκοπῆς χάριν, οὐδεὶς ἐγίνωσκέ σε, γενόμενον δὲ λοιπὸν οἱ λαοὶ προσδοκῶσι φέροντα τροφὴν αὐτοῖς τὴν ἐκ τῶν γραφῶν διδασκαλίαν. ὅταν τοίνυν οἱ προσδοκῶντες λιμώττωσι, σὺ δὲ σεαυτὸν μόνον τρέφῃς, καὶ ἔλθῃ ὁ κύριος ἡμῶν
+                            <persName key="Jesus_Mat.1.1">Ἰησοῦς Χριστὸς</persName>
                             ἡμεῖς τε αὐτῷ παραστῶμεν, ποίαν σχοίης ἀπολογίαν ὁρῶντος αὐτοῦ τὰ ἴδια πρόβατα λιμώττοντα; εἰ μὲν γὰρ μὴ εἰλήφεις τὰ δηνάρια, οὐκ ἂν ἐμέμψατό σε· λαβόντα δὲ καὶ χώσαντα καὶ κρύψαντα, μέμψαιτ’ ἂν εἰκότως λέγων ἐκεῖνα τὰ ῥήματα, ἃ μὴ γένοιτο κἂν ἀκοῦσαι τὴν σὴν εὐλάβειαν·
                             <quote>ἔδει σε βαλεῖν τὰ δηνάριά μου τοῖς τραπεζίταις, ἵνα ἐλθὼν κἀγὼ παρ’ ἐκείνων ἀπαιτήσω.<ref decls="#biblical" cRef="NA:Mt:25:27"/>
-                            </quote>
-                        </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="3">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Παρακαλῶ φεῖσαι σεαυτοῦ καὶ ἡμῶν· σαυτοῦ μέν, ἵνα μὴ κινδυνεύσῃς, ἡμῶν δέ, ἵνα μὴ λυπηθῶμεν ἐπὶ σοί. φρόντιζε τῆς ἐκκλησίας, ἵνα μὴ διὰ σὲ πολλοὶ τῶν μικρῶν βλαβῶσι καὶ οἱ ἄλλοι δὲ πρόφασιν λάβωσιν εἰς τὸ ἀναχωρεῖν.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>εἰ μὲν οὖν τὸν καιρὸν ἐφοβήθης καὶ καταπτήξας τοῦτο ἐποίησας, οὐκ ἀνδρικὸν τὸ φρόνημα. ἔδει γὰρ τὸν κατὰ Χριστὸν ζῆλον ἐν τοῖς τοιούτοις ἐπιδείκνυσθαι καὶ μᾶλλον ἐν ταῖς περιστάσεσι παρρησιάζεσθαι λέγειν τε
+                     </quote>
+                  </p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="3">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Παρακαλῶ φεῖσαι σεαυτοῦ καὶ ἡμῶν· σαυτοῦ μέν, ἵνα μὴ κινδυνεύσῃς, ἡμῶν δέ, ἵνα μὴ λυπηθῶμεν ἐπὶ σοί. φρόντιζε τῆς ἐκκλησίας, ἵνα μὴ διὰ σὲ πολλοὶ τῶν μικρῶν βλαβῶσι καὶ οἱ ἄλλοι δὲ πρόφασιν λάβωσιν εἰς τὸ ἀναχωρεῖν.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>εἰ μὲν οὖν τὸν καιρὸν ἐφοβήθης καὶ καταπτήξας τοῦτο ἐποίησας, οὐκ ἀνδρικὸν τὸ φρόνημα. ἔδει γὰρ τὸν κατὰ Χριστὸν ζῆλον ἐν τοῖς τοιούτοις ἐπιδείκνυσθαι καὶ μᾶλλον ἐν ταῖς περιστάσεσι παρρησιάζεσθαι λέγειν τε
                             <cit>
-                                <ref decls="#biblical" cRef="NA:Rom:8:37">τὰ τοῦ μακαρίου
+                        <ref decls="#biblical" cRef="NA:Rom:8:37">τὰ τοῦ μακαρίου
                                     <persName type="biblical" key="Paul_Act.7.58">Παύλου</persName>
                                     ῥήματα·
                                 </ref>
-                                <quote>ἐν τούτοις πᾶσιν ὑπερνικῶμεν</quote>
-                            </cit>, καὶ μάλιστα ὅτι οὐ πρέπει τῷ καιρῷ δουλεύειν, ἀλλὰ τῷ κυρίῳ.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>εἰ δὲ τῶν ἐκκλησιῶν ἡ διάταξις οὐκ ἀρέσκει σοι οὐδὲ νομίζεις τὸ τῆς ἐπισκοπῆς λειτούργημα μισθὸν ἔχειν, ἀλλὰ καὶ καταφρονεῖν τοῦ ταῦτα δια­ταξα­μένου σωτῆρος πεποίηκας σαυτόν, παρακαλῶ, μὴ τοιαῦτα λογίζου μηδὲ ἀνέχου τῶν ταῦτα συμβουλευόντων. οὐ γὰρ ἄξια
-                            <persName>Δρακοντίου</persName>
+                        <quote>ἐν τούτοις πᾶσιν ὑπερνικῶμεν</quote>
+                     </cit>, καὶ μάλιστα ὅτι οὐ πρέπει τῷ καιρῷ δουλεύειν, ἀλλὰ τῷ κυρίῳ.</p>
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>εἰ δὲ τῶν ἐκκλησιῶν ἡ διάταξις οὐκ ἀρέσκει σοι οὐδὲ νομίζεις τὸ τῆς ἐπισκοπῆς λειτούργημα μισθὸν ἔχειν, ἀλλὰ καὶ καταφρονεῖν τοῦ ταῦτα διαταξαμένου σωτῆρος πεποίηκας σαυτόν, παρακαλῶ, μὴ τοιαῦτα λογίζου μηδὲ ἀνέχου τῶν ταῦτα συμβουλευόντων. οὐ γὰρ ἄξια
+                            <persName key="PTA_P00067">Δρακοντίου</persName>
                             ταῦτα. ἃ γὰρ ὁ κύριος διὰ τῶν ἀποστόλων τετύπωκε, ταῦτα καλὰ καὶ βέβαια μένει· ἡ δὲ τῶν ἀδελφῶν δειλία παύσεται.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="4">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Εἰ γὰρ τὸν αὐτὸν νοῦν εἶχον πάντες οἷον νῦν ἔχουσιν οἱ συμβουλεύοντές σοι, πῶς ἂν ἐγένου σὺ Χριστιανὸς ἐπισκόπων μὴ ὄντων; ἐὰν δὲ καὶ οἱ μεθ’ ἡμᾶς ἀνα­λάβωσι τὸν τοιοῦτον νοῦν, πῶς ἂν συστῆναι δυνήσονται αἱ ἐκκλησίαι; ἢ νομίζου­σιν οἱ συμβουλεύοντές σοι μηδὲν εἰληφέναι σε ὅτι καταφρονοῦσιν; ἀλλὰ καὶ τοῦτο ψευδῶς.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>ὥρα γὰρ αὐτοὺς νομίζειν μηδὲν εἶναι μηδὲ τὴν τοῦ λουτροῦ χάριν, ἐάν τινες τούτου καταφρονῶσιν. ἀλλ’ εἴληφας, ὦ ἀγαπητὲ
-                            <persName>Δρακόντιε</persName>· μὴ ἀνέχου τῶν συμβουλευόντων σοι μηδὲ ἀπάτα σαυτόν. ἀπαιτηθήσῃ γὰρ τοῦτο παρὰ τοῦ δεδωκότος θεοῦ. ἢ οὐκ ἤκουσας
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="4">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Εἰ γὰρ τὸν αὐτὸν νοῦν εἶχον πάντες οἷον νῦν ἔχουσιν οἱ συμβουλεύοντές σοι, πῶς ἂν ἐγένου σὺ Χριστιανὸς ἐπισκόπων μὴ ὄντων; ἐὰν δὲ καὶ οἱ μεθ’ ἡμᾶς ἀναλάβωσι τὸν τοιοῦτον νοῦν, πῶς ἂν συστῆναι δυνήσονται αἱ ἐκκλησίαι; ἢ νομίζουσιν οἱ συμβουλεύοντές σοι μηδὲν εἰληφέναι σε ὅτι καταφρονοῦσιν; ἀλλὰ καὶ τοῦτο ψευδῶς.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>ὥρα γὰρ αὐτοὺς νομίζειν μηδὲν εἶναι μηδὲ τὴν τοῦ λουτροῦ χάριν, ἐάν τινες τούτου καταφρονῶσιν. ἀλλ’ εἴληφας, ὦ ἀγαπητὲ
+                            <persName key="PTA_P00067">Δρακόντιε</persName>· μὴ ἀνέχου τῶν συμβουλευόντων σοι μηδὲ ἀπάτα σαυτόν. ἀπαιτηθήσῃ γὰρ τοῦτο παρὰ τοῦ δεδωκότος θεοῦ. ἢ οὐκ ἤκουσας
                             <cit>
-                                <ref decls="#biblical" cRef="NA:1Tim:4:14">τοῦ ἀποστόλου λέγοντος·
+                        <ref decls="#biblical" cRef="NA:1Tim:4:14">τοῦ ἀποστόλου λέγοντος·
                                 </ref>
-                                <quote>μὴ ἀμέλει τοῦ ἐν σοὶ χαρίσματος</quote>
-                            </cit>; ἢ οὐκ ἀνέγνως,
-                            <seg type="allusion">πῶς μὲν τὸν διπλάσαντα ἀποδέχεται, τὸν δὲ κρύψ­αντα κατεδίκασε;<ref decls="#biblical" cRef="NA:Mt:25:28-30"/>
-                            </seg>
+                        <quote>μὴ ἀμέλει τοῦ ἐν σοὶ χαρίσματος</quote>
+                     </cit>; ἢ οὐκ ἀνέγνως,
+                            <seg type="allusion">πῶς μὲν τὸν διπλάσαντα ἀποδέχεται, τὸν δὲ κρύψαντα κατεδίκασε;<ref decls="#biblical" cRef="NA:Mt:25:28-30"/>
+                     </seg>
                             γένοιτο δὲ ταχέως ἐπανελθεῖν σε, ἵνα καὶ σὺ τῶν ἐπαινουμένων γένῃ·</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>ἢ εἰπέ, τίνος σε θέλουσιν εἶναι μιμητὴν οἱ συμβουλεύοντές σοι; δεῖ γὰρ ἡμᾶς κατὰ σκοπὸν τῶν ἁγίων καὶ τῶν πατέρων πολιτεύεσθαι καὶ τούτους μι­μεῖσθαι, εἰδέναι δὲ ὅτι τούτων ἀφιστάμενοι ἀλλότριοι καὶ τῆς τούτων κοινωνίας γινόμεθα.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="4">
-                        <p>τίνα μὲν μιμεῖσθαί σε θέλουσιν ἐκεῖνοι;
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>ἢ εἰπέ, τίνος σε θέλουσιν εἶναι μιμητὴν οἱ συμβουλεύοντές σοι; δεῖ γὰρ ἡμᾶς κατὰ σκοπὸν τῶν ἁγίων καὶ τῶν πατέρων πολιτεύεσθαι καὶ τούτους μιμεῖσθαι, εἰδέναι δὲ ὅτι τούτων ἀφιστάμενοι ἀλλότριοι καὶ τῆς τούτων κοινωνίας γινόμεθα.</p>
+               </div>
+               <div type="textpart" subtype="section" n="4">
+                  <p>τίνα μὲν μιμεῖσθαί σε θέλουσιν ἐκεῖνοι;
                             <seg type="allusion">τὸν διστάζοντα καὶ θέλοντα μὲν ἀκολουθῆσαι, ὑπερτιθέμενον δὲ καὶ συμβουλευόμενον διὰ τοὺς ἰδίους<ref decls="#biblical" cRef="NA:Lk:9:61-62"/>
-                            </seg>, ἢ τὸν μακά­ριον
+                     </seg>, ἢ τὸν μακάριον
                             <persName type="biblical" key="Paul_Act.7.58">Παῦλον</persName>
                             τὸν ἅμα τῷ τὴν οἰκονομίαν ἐγχειρισθῆναι
                             <quote>μὴ προσαναθέμενον σαρκὶ καὶ αἵματι<ref decls="#biblical" cRef="NA:Gal:1:16"/>
-                            </quote>; εἰ γὰρ καὶ ἔλεγεν
+                     </quote>; εἰ γὰρ καὶ ἔλεγεν
                             <quote>οὐκ εἰμὶ ἱκανὸς καλεῖσθαι ἀπόστολος<ref decls="#biblical" cRef="NA:1Cor:15:9"/>
-                            </quote>, ὅμως γινώσ­κων ὃ ἔλαβε καὶ οὐκ ἀγνοῶν τὸν δεδωκότα ἔγραφεν·
+                     </quote>, ὅμως γινώσκων ὃ ἔλαβε καὶ οὐκ ἀγνοῶν τὸν δεδωκότα ἔγραφεν·
                             <quote>οὐαὶ γάρ μοί ἐστιν, ἐὰν μὴ εὐαγγελίζωμαι<ref decls="#biblical" cRef="NA:1Cor:9:16"/>
-                            </quote>· ὥσπερ δὲ τὸ
+                     </quote>· ὥσπερ δὲ τὸ
                             <quote>οὐαί μοι οὐκ εὐαγγελιζόμενος<ref decls="#biblical" cRef="NA:1Cor:9:16"/>
-                            </quote>
+                     </quote>
                             οὕτως διδάσκων καὶ κηρύσσων τὸ εὐαγγέλιον
                             <quote>χαρὰν καὶ στέφανον<ref decls="#biblical" cRef="NA:Phil:4:1"/>
-                            </quote>
-                            εἶχε τοὺς μαθητευ­ομένους.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="5">
-                        <p>διὰ τοῦτο καὶ σπουδὴ τῷ ἁγίῳ ἦν
+                     </quote>
+                            εἶχε τοὺς μαθητευομένους.</p>
+               </div>
+               <div type="textpart" subtype="section" n="5">
+                  <p>διὰ τοῦτο καὶ σπουδὴ τῷ ἁγίῳ ἦν
                             <seg type="allusion">μέχρι τοῦ
                                 <placeName ref="https://pleiades.stoa.org/places/481865">Ἰλλυρικοῦ</placeName>
                                 κηρύττειν<ref decls="#biblical" cRef="NA:Rom:15:19"/>
-                            </seg>
+                     </seg>
                             καὶ μὴ ὀκνεῖν μηδὲ
                             <seg type="allusion">εἰς τὴν
                                 <placeName ref="https://pleiades.stoa.org/places/423025">Ῥώμην</placeName>
                                 ἀπελθεῖν<ref decls="#biblical" cRef="NA:Act:19:21"/>
-                            </seg>
+                     </seg>
                             μηδὲ
                             <seg type="allusion">εἰς τὰς
                                 <placeName ref="https://pleiades.stoa.org/places/1027">Σπανίας</placeName>
                                 ἀναβῆναι<ref decls="#biblical" cRef="NA:Rom:15:24"/>
-                            </seg>, ἵνα ὅσον κοπιᾷ τοσ­οῦτον καὶ τοῦ κόπου τὸν μισθὸν μείζονα ἀπολάβῃ.
-                            <seg type="allusion">ἐκαυχᾶτο οὖν τὸν καλὸν ἀγῶ­να ἀγωνισάμενος καὶ ἐθάρρει τὸν μέγαν στέφανον ἀποληψόμενος.<ref decls="#biblical" cRef="NA:2Tim:4:7-8"/>
-                            </seg>
-                            οὐκοῦν, ἀγαπη­τὲ
-                            <persName>Δρακόντιε</persName>, τίνα μιμούμενος τοῦτο ποιεῖς; τοῦτον ἢ τοὺς μὴ τοιούτους; ἐγὼ μὲν εὔχομαί σε καὶ ἐμαυτὸν πάντων τῶν ἁγίων μιμητὰς γενέσθαι.
+                     </seg>, ἵνα ὅσον κοπιᾷ τοσοῦτον καὶ τοῦ κόπου τὸν μισθὸν μείζονα ἀπολάβῃ.
+                            <seg type="allusion">ἐκαυχᾶτο οὖν τὸν καλὸν ἀγῶνα ἀγωνισάμενος καὶ ἐθάρρει τὸν μέγαν στέφανον ἀποληψόμενος.<ref decls="#biblical" cRef="NA:2Tim:4:7-8"/>
+                     </seg>
+                            οὐκοῦν, ἀγαπητὲ
+                            <persName key="PTA_P00067">Δρακόντιε</persName>, τίνα μιμούμενος τοῦτο ποιεῖς; τοῦτον ἢ τοὺς μὴ τοιούτους; ἐγὼ μὲν εὔχομαί σε καὶ ἐμαυτὸν πάντων τῶν ἁγίων μιμητὰς γενέσθαι.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="5">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Ἤ τάχα τινές εἰσιν οἱ διὰ τοῦτο συμβουλεύοντές σοι κρύπτεσθαι ὡς λόγον καὶ ὅρκον σου δεδωκότος μὴ στῆναι, ἐὰν κατασταθῇς; τοιαῦτα γὰρ αὐτοὺς ἀκούω περιβομβεῖν ταῖς ἀκοαῖς καὶ δοκεῖν ἐν τούτοις εὐλαβεῖσθαι. ἀλλ’ εἰ ἦσαν ἀληθῶς εὐλαβεῖς, ηὐλαβήθησαν ἂν μάλιστα τὸν ἐπιθέντα σοι θεὸν τὸ λειτούργημα. εἰ δὲ ἀναγνόντες ἦσαν τὰς θείας γραφάς, οὐκ ἂν παρὰ ταύτας συνεβούλευον.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>ὥρα γὰρ αὐτοὺς καὶ τὸν
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="5">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Ἤ τάχα τινές εἰσιν οἱ διὰ τοῦτο συμβουλεύοντές σοι κρύπτεσθαι ὡς λόγον καὶ ὅρκον σου δεδωκότος μὴ στῆναι, ἐὰν κατασταθῇς; τοιαῦτα γὰρ αὐτοὺς ἀκούω περιβομβεῖν ταῖς ἀκοαῖς καὶ δοκεῖν ἐν τούτοις εὐλαβεῖσθαι. ἀλλ’ εἰ ἦσαν ἀληθῶς εὐλαβεῖς, ηὐλαβήθησαν ἂν μάλιστα τὸν ἐπιθέντα σοι θεὸν τὸ λειτούργημα. εἰ δὲ ἀναγνόντες ἦσαν τὰς θείας γραφάς, οὐκ ἂν παρὰ ταύτας συνεβούλευον.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>ὥρα γὰρ αὐτοὺς καὶ τὸν
                             <persName type="biblical" key="Jeremiah_2Ch.35.25">Ἱερεμίαν</persName>
                             καταμέμφεσθαι καὶ τὸν μέγαν αἰτιᾶσθαι
                             <persName type="biblical" key="Moses_Exo.2.10">Μωσῆν</persName>, ὅτι τὴν τούτων συμβουλὴν οὐκ ἤκουσαν, ἀλλὰ τὸν θεὸν φοβηθέντες τὴν διακονίαν ἐτέλεσαν καὶ προφητεύοντες ἐτελειώθησαν. καὶ γὰρ αὐτοὶ ἀποσταλέντες καὶ λαβόντες ἤδη τὴν τῆς προφητείας χάριν παρῃτήσαντο μέν, ἐφοβήθησαν δὲ μετὰ ταῦτα καὶ οὐκ ἐξουδένωσαν τὸν ἀποστείλαντα.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>εἴτε τοίνυν
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>εἴτε τοίνυν
                             <quote>ἰσχνόφωνος<ref decls="#biblical" cRef="LXX:Ex:4:10"/>
-                            </quote>
+                     </quote>
                             εἶ καὶ
                             <quote>βραδύγλωσσος<ref decls="#biblical" cRef="LXX:Ex:4:10"/>
-                            </quote>, ἀλλὰ φοβήθητι τὸν πλάσαντά σε θεόν, εἴτε
+                     </quote>, ἀλλὰ φοβήθητι τὸν πλάσαντά σε θεόν, εἴτε
                             <quote>νεώτερον<ref decls="#biblical" cRef="LXX:Jr:1:16-17"/>
-                            </quote>
-                            σαυ­τὸν λέγεις πρὸς τὸ κήρυγμα, ἀλλ’ εὐλαβοῦ
-                            <seg type="allusion">τὸν γινώσκοντά σε πρὸ τοῦ πλασθῆ­ναι<ref decls="#biblical" cRef="LXX:Jr:1:5"/>
-                            </seg>, εἴτε λόγον δέδωκας – ὁ δὲ λόγος τοῖς ἁγίοις ὡς ὅρκος ἦν –, ἀλλὰ ἀνάγνωθι τὸν
+                     </quote>
+                            σαυτὸν λέγεις πρὸς τὸ κήρυγμα, ἀλλ’ εὐλαβοῦ
+                            <seg type="allusion">τὸν γινώσκοντά σε πρὸ τοῦ πλασθῆναι<ref decls="#biblical" cRef="LXX:Jr:1:5"/>
+                     </seg>, εἴτε λόγον δέδωκας – ὁ δὲ λόγος τοῖς ἁγίοις ὡς ὅρκος ἦν –, ἀλλὰ ἀνάγνωθι τὸν
                             <persName type="biblical" key="Jeremiah_2Ch.35.25">Ἱερεμίαν</persName>, πῶς καὶ αὐτὸς εἰρηκὼς
                             <quote>οὐ μὴ ὀνομάσω τὸ ὄνομα κυρίου<ref decls="#biblical" cRef="LXX:Jr:20:9"/>
-                            </quote>, ὕστερον δὲ φοβηθεὶς τὸ ἐν αὐτῷ πῦρ γενόμενον οὐκέτι, ὡς εἴρηκε, πεποίηκεν οὐδὲ ὡς προληφθεὶς τῷ ὅρκῳ ἐκρύβη, ἀλλὰ τὸν ἐγχειρίσαντα εὐλαβούμενος τετελείωκε τὴν προφητείαν. ἢ οὐκ οἶδας, ἀγαπητέ, ὅτι καὶ
+                     </quote>, ὕστερον δὲ φοβηθεὶς τὸ ἐν αὐτῷ πῦρ γενόμενον οὐκέτι, ὡς εἴρηκε, πεποίηκεν οὐδὲ ὡς προληφθεὶς τῷ ὅρκῳ ἐκρύβη, ἀλλὰ τὸν ἐγχειρίσαντα εὐλαβούμενος τετελείωκε τὴν προφητείαν. ἢ οὐκ οἶδας, ἀγαπητέ, ὅτι καὶ
                             <seg type="allusion">
-                                <persName type="biblical" key="Jonah_2Ki.14.25">Ἰωνᾶς</persName>
+                        <persName type="biblical" key="Jonah_2Ki.14.25">Ἰωνᾶς</persName>
                                 φυγὼν<ref decls="#biblical" cRef="LXX:Jon:1:3"/>
-                            </seg>
-                            γέγονε μέν, ὡς γέ­γονε, μετὰ δὲ ταῦτα πάλιν προεφήτευσεν;
+                     </seg>
+                            γέγονε μέν, ὡς γέγονε, μετὰ δὲ ταῦτα πάλιν προεφήτευσεν;
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="6">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Μὴ τοίνυν ἄλλα παρὰ ταῦτα συμβουλεύου. μᾶλλον γὰρ ἡμῶν οἶδεν ὁ κύριος τὰ ἡμῶν καὶ οἶδε τίσιν ἐγχειρίζει τὰς ἑαυτοῦ ἐκκλησίας. κἂν γὰρ μὴ ἄξιός τις τυγχάνῃ, ἀλλὰ μὴ πρὸς τὸν πρότερον βίον ἀποβλεπέτω, ἀλλὰ τὴν διακονίαν ἐκτελείτω, ἵνα μὴ πρὸς τῷ βίῳ καὶ τὴν ἐκ τῆς ἀμελείας κατάραν ἀπενέγκηται.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>ἆρα γάρ, ἀγα­πητὲ
-                            <persName>Δρακόντιε</persName>, ταῦτα γινώσκων καὶ συνετὸς τυγχάνων οὐ κατανύττῃ τὴν ψυχήν; οὐ φροντίζεις μὴ ἀπόληταί τις τῶν ἐγχειρισθέντων σοι; οὐ φλέγῃ ὡς ὑπὸ πυρὸς τοῦ συνειδότος; οὐ φοβῇ τὴν ἡμέραν τῆς κρίσεως, ἐν ᾗ οὐδεὶς τῶν συμβουλευόν­των νῦν ἐκεῖ γενήσεται βοηθός; ἕκαστος γὰρ τῶν ἐγχειρισθέντων αὐτῷ καὶ λόγον ἀποδώσει.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>
-                            <seg type="allusion">τί γὰρ ὤνησε τὸν κρύψαντα τὸ δηνάριον ἡ πρόφασις;<ref decls="#biblical" cRef="NA:Mt:15:25-30"/>
-                            </seg>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="6">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Μὴ τοίνυν ἄλλα παρὰ ταῦτα συμβουλεύου. μᾶλλον γὰρ ἡμῶν οἶδεν ὁ κύριος τὰ ἡμῶν καὶ οἶδε τίσιν ἐγχειρίζει τὰς ἑαυτοῦ ἐκκλησίας. κἂν γὰρ μὴ ἄξιός τις τυγχάνῃ, ἀλλὰ μὴ πρὸς τὸν πρότερον βίον ἀποβλεπέτω, ἀλλὰ τὴν διακονίαν ἐκτελείτω, ἵνα μὴ πρὸς τῷ βίῳ καὶ τὴν ἐκ τῆς ἀμελείας κατάραν ἀπενέγκηται.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>ἆρα γάρ, ἀγαπητὲ
+                            <persName key="PTA_P00067">Δρακόντιε</persName>, ταῦτα γινώσκων καὶ συνετὸς τυγχάνων οὐ κατανύττῃ τὴν ψυχήν; οὐ φροντίζεις μὴ ἀπόληταί τις τῶν ἐγχειρισθέντων σοι; οὐ φλέγῃ ὡς ὑπὸ πυρὸς τοῦ συνειδότος; οὐ φοβῇ τὴν ἡμέραν τῆς κρίσεως, ἐν ᾗ οὐδεὶς τῶν συμβουλευόντων νῦν ἐκεῖ γενήσεται βοηθός; ἕκαστος γὰρ τῶν ἐγχειρισθέντων αὐτῷ καὶ λόγον ἀποδώσει.</p>
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>
+                     <seg type="allusion">τί γὰρ ὤνησε τὸν κρύψαντα τὸ δηνάριον ἡ πρόφασις;<ref decls="#biblical" cRef="NA:Mt:15:25-30"/>
+                     </seg>
                             ἢ τί ὠφέλησε τὸν
                             <persName type="biblical" key="Adam_Gen.2.19">Ἀδὰμ</persName>
                             εἰρηκότα
                             <quote>ἡ γυνή με ἠπάτησεν<ref decls="#biblical" cRef="LXX:Gn:3:12"/>
-                            </quote>; ἀγαπητὲ
-                            <persName>Δρακόντιε</persName>, εἰ καὶ ἀληθῶς ἀσθενὴς τυγχάνεις, ἀλλὰ ἀναλαβεῖν σε τὴν φροντίδα πρέπει, ἵνα μὴ τῆς ἐκκλησίας ἐρήμου τυγχανούσης οἱ ἐχθροὶ ταύτην βλάψωσι πρόφασιν εὑρόντες τὴν σὴν φυ­γήν. πρέπει σε ἀναζώσασθαι, ἵνα μὴ μόνους ἡμᾶς ἀφῇς ἐν τῷ ἀγῶνι· πρέπει σε συγκαμεῖν, ἵνα μετὰ πάντων καὶ τὸν μισθὸν ἀπολάβῃς.
+                     </quote>; ἀγαπητὲ
+                            <persName key="PTA_P00067">Δρακόντιε</persName>, εἰ καὶ ἀληθῶς ἀσθενὴς τυγχάνεις, ἀλλὰ ἀναλαβεῖν σε τὴν φροντίδα πρέπει, ἵνα μὴ τῆς ἐκκλησίας ἐρήμου τυγχανούσης οἱ ἐχθροὶ ταύτην βλάψωσι πρόφασιν εὑρόντες τὴν σὴν φυγήν. πρέπει σε ἀναζώσασθαι, ἵνα μὴ μόνους ἡμᾶς ἀφῇς ἐν τῷ ἀγῶνι· πρέπει σε συγκαμεῖν, ἵνα μετὰ πάντων καὶ τὸν μισθὸν ἀπολάβῃς.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="7">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Σπεῦδε τοιγαροῦν, ἀγαπητέ, μηκέτι βραδύνων μηδὲ ἀνέχου τῶν σε κωλυόν­των, ἀλλὰ τοῦ δεδωκότος μνήσθητι· καὶ δεῦρο πρὸς ἡμᾶς τοὺς ἀγαπῶντάς σε τοὺς συμβουλεύοντάς σοι τὰ τῶν γραφῶν, ἵνα καὶ παρ’ ἡμῶν προπεμφθῇς καὶ λειτουργῶν ἐν ταῖς ἐκκλησίαις μνημονεύσῃς καὶ ὑπὲρ ἡμῶν.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>οὐ γὰρ σὺ μόνος ἐκ μοναχῶν κατεστάθης οὐδὲ σὺ μόνος προέστης μοναστηρίου ἢ μόνος ὑπὸ μοναχῶν ἠγαπήθης, ἀλλ’ οἶδας, ὅτι καὶ
-                            <persName>Σεραπίων</persName>
-                            μοναχός ἐστι καὶ τόσων μοναχῶν προ­έστη· οὐκ ἔλαθέ σε πόσων μοναχῶν πατὴρ γέγονεν
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="7">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Σπεῦδε τοιγαροῦν, ἀγαπητέ, μηκέτι βραδύνων μηδὲ ἀνέχου τῶν σε κωλυόντων, ἀλλὰ τοῦ δεδωκότος μνήσθητι· καὶ δεῦρο πρὸς ἡμᾶς τοὺς ἀγαπῶντάς σε τοὺς συμβουλεύοντάς σοι τὰ τῶν γραφῶν, ἵνα καὶ παρ’ ἡμῶν προπεμφθῇς καὶ λειτουργῶν ἐν ταῖς ἐκκλησίαις μνημονεύσῃς καὶ ὑπὲρ ἡμῶν.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>οὐ γὰρ σὺ μόνος ἐκ μοναχῶν κατεστάθης οὐδὲ σὺ μόνος προέστης μοναστηρίου ἢ μόνος ὑπὸ μοναχῶν ἠγαπήθης, ἀλλ’ οἶδας, ὅτι καὶ
+                            <persName key="PTA_P00068">Σεραπίων</persName>
+                            μοναχός ἐστι καὶ τόσων μοναχῶν προέστη· οὐκ ἔλαθέ σε πόσων μοναχῶν πατὴρ γέγονεν
                             <persName>Ἀπολλώς</persName>· οἶδας
                             <persName>Ἀγαθὸν</persName>
                             καὶ οὐκ ἀγνοεῖς
                             <persName>Ἀρίστωνα</persName>, μνημονεύεις
                             <persName>Ἀμμωνίου</persName>
                             τοῦ μετὰ
-                            <persName>Σαραπίωνος</persName>
-                            ἀποδημή­σαντος, ἴσως δὲ ἤκουσας καὶ περὶ
+                            <persName key="PTA_P00068">Σαραπίωνος</persName>
+                            ἀποδημήσαντος, ἴσως δὲ ἤκουσας καὶ περὶ
                             <persName>Μουΐτου</persName>
                             ἐν τῇ
                             <placeName ref="https://pleiades.stoa.org/places/1001948">ἄνω Θηβαΐδι</placeName>
@@ -340,94 +435,94 @@
                             τοῦ ἐν
                             <placeName ref="https://pleiades.stoa.org/places/786059">τῇ Λατῶν</placeName>
                             καὶ περὶ ἄλλων πολλῶν.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>καὶ ὅμως οὗτοι κατα­σταθέντες οὐκ ἀντειρήκασιν, ἀλλ’ ἔχοντες τύπον τὸν
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>καὶ ὅμως οὗτοι κατασταθέντες οὐκ ἀντειρήκασιν, ἀλλ’ ἔχοντες τύπον τὸν
                             <persName type="biblical" key="Elisha_1Ki.19.16">Ἐλισσαῖον</persName>
                             καὶ εἰδότες τὰ κατὰ
                             <persName type="biblical" key="Elijah_1Ki.17.1">Ἠλίαν</persName>
-                            μαθόντες τε τὰ κατὰ τοὺς μαθητὰς καὶ ἀποστόλους ἀντελάβοντο τῆς φροντίδος καὶ οὐ κατεφρόνησαν τῆς λειτουργίας καὶ οὔτε χείρους ἑαυτῶν γεγό­νασιν, ἀλλὰ καὶ μᾶλλον τοῦ καμάτου τὸν μισθὸν προσδοκῶσι προκόπτοντες καὶ προκόπτειν ἄλλους νουθετοῦντες.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="4">
-                        <p>πόσους ἀπὸ τῶν εἰδώλων ἐπέστρεψαν; πόσους ἀπὸ τῆς δαιμονιώδους συνηθείας ἔπαυσαν νουθετοῦντες; πόσους παρέ­στησαν τῷ κυρίῳ δούλους, ὥστε καὶ τοὺς ὁρῶντας τὰ σημεῖα ταῦτα βλέποντας θαυμάζειν; ἢ οὐχὶ μέγα σημεῖον κόρην ποιῆσαι παρθενεύειν καὶ νεώτερον ἐγ­κρα­τεύεσθαι καὶ εἰδωλολάτρην ἐπιγνῶναι τὸν Χριστόν;
+                            μαθόντες τε τὰ κατὰ τοὺς μαθητὰς καὶ ἀποστόλους ἀντελάβοντο τῆς φροντίδος καὶ οὐ κατεφρόνησαν τῆς λειτουργίας καὶ οὔτε χείρους ἑαυτῶν γεγόνασιν, ἀλλὰ καὶ μᾶλλον τοῦ καμάτου τὸν μισθὸν προσδοκῶσι προκόπτοντες καὶ προκόπτειν ἄλλους νουθετοῦντες.</p>
+               </div>
+               <div type="textpart" subtype="section" n="4">
+                  <p>πόσους ἀπὸ τῶν εἰδώλων ἐπέστρεψαν; πόσους ἀπὸ τῆς δαιμονιώδους συνηθείας ἔπαυσαν νουθετοῦντες; πόσους παρέστησαν τῷ κυρίῳ δούλους, ὥστε καὶ τοὺς ὁρῶντας τὰ σημεῖα ταῦτα βλέποντας θαυμάζειν; ἢ οὐχὶ μέγα σημεῖον κόρην ποιῆσαι παρθενεύειν καὶ νεώτερον ἐγκρατεύεσθαι καὶ εἰδωλολάτρην ἐπιγνῶναι τὸν Χριστόν;
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="8">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Μὴ τοίνυν κωλυέτωσάν σε μοναχοὶ ὡς μόνον ἐκ μοναχῶν κατασταθέντα, μηδὲ σὺ προφασίζου ὡς χείρων σεαυτοῦ ἐσόμενος· δύνασαι γὰρ καὶ καλλίων γενέσθαι μιμούμενος τὸν
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="8">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Μὴ τοίνυν κωλυέτωσάν σε μοναχοὶ ὡς μόνον ἐκ μοναχῶν κατασταθέντα, μηδὲ σὺ προφασίζου ὡς χείρων σεαυτοῦ ἐσόμενος· δύνασαι γὰρ καὶ καλλίων γενέσθαι μιμούμενος τὸν
                             <persName type="biblical" key="Paul_Act.7.58">Παῦλον</persName>, ζηλῶν τῶν ἁγίων τὰς πράξεις. οἶδας γάρ, ὅτι οἱ τοιοῦτοι
                             <quote>οἰκονόμοι τῶν μυστηρίων<ref decls="#biblical" cRef="NA:1Cor:4:1"/>
-                            </quote>
+                     </quote>
                             κατασταθέντες μᾶλλον
                             <quote>κατὰ σκοπὸν ἐδίωκον εἰς τὸ βραβεῖον τῆς ἄνω κλήσεως<ref decls="#biblical" cRef="NA:Phil:3:14"/>
-                            </quote>.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>πότε
+                     </quote>.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>πότε
                             <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>
                             ἐμαρτύρησε καὶ τὸν στέφανον λαβεῖν προσεδόκησεν, εἰ μὴ ὅτε ἀπεστάλη διδάσκειν; πότε
                             <persName type="biblical" key="Peter_Mat.4.18">Πέτρος</persName>
                             ὡμολόγησεν, εἰ μὴ ὅτε εὐηγγελίζετο καὶ
                             <quote>ἁλιεὺς ἀνθρώπων<ref decls="#biblical" cRef="NA:Mt:4:19"/>
-                            </quote>
+                     </quote>
                             γέγονε; πότε
                             <seg type="allusion">
-                                <persName type="biblical" key="Elijah_1Ki.17.1">Ἠλίας</persName>
+                        <persName type="biblical" key="Elijah_1Ki.17.1">Ἠλίας</persName>
                                 ἀνελήφθη, εἰ μὴ ὅτε πᾶσαν τὴν προφητείαν ἐπλήρωσε<ref decls="#biblical" cRef="LXX:2Ko:2:11"/>
-                            </seg>; πότε
+                     </seg>; πότε
                             <persName type="biblical" key="Elisha_1Ki.19.16">Ἐλισσαῖος</persName>
-                            <quote>ἐν πνεύματι ἔσχε διπλᾶ<ref decls="#biblical" cRef="LXX:2Ko:2:9"/>
-                            </quote>, εἰ μὴ ὅτε πάντα καταλιπὼν ἠκολούθησε τῷ
+                     <quote>ἐν πνεύματι ἔσχε διπλᾶ<ref decls="#biblical" cRef="LXX:2Ko:2:9"/>
+                     </quote>, εἰ μὴ ὅτε πάντα καταλιπὼν ἠκολούθησε τῷ
                             <persName type="biblical" key="Elijah_1Ki.17.1">Ἠλίᾳ</persName>; διὰ τί δὲ καὶ ἐξελέξατο μαθητὰς ὁ σωτήρ, εἰ μὴ ἵνα καὶ ἀποστείλῃ;</p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="9">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Οθεν τούτους ἔχων τύπον, ἀγαπητὲ
-                            <persName>Δρακόντιε</persName>, μὴ λέγε μηδὲ πείθου τοῖς λέγουσιν ἁμαρτίας εἶναι πρόφασιν τὴν ἐπισκοπὴν μηδὲ ὅτι ἐκ ταύτης ἀφορμὴ τοῦ ἁμαρτάνειν ἐστίν. ἔξεστι γὰρ καὶ ἐπίσκοπον ὄντα σε
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="9">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Οθεν τούτους ἔχων τύπον, ἀγαπητὲ
+                            <persName key="PTA_P00067">Δρακόντιε</persName>, μὴ λέγε μηδὲ πείθου τοῖς λέγουσιν ἁμαρτίας εἶναι πρόφασιν τὴν ἐπισκοπὴν μηδὲ ὅτι ἐκ ταύτης ἀφορμὴ τοῦ ἁμαρτάνειν ἐστίν. ἔξεστι γὰρ καὶ ἐπίσκοπον ὄντα σε
                             <seg type="allusion">πεινᾶν καὶ διψᾶν ὡς ὁ
-                                <persName type="biblical" key="Paul_Act.7.58">Παῦ­λος</persName>
-                                <ref decls="#biblical" cRef="NA:1Cor:4:11"/>
-                            </seg>, δύνασαι
+                                <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>
+                        <ref decls="#biblical" cRef="NA:1Cor:4:11"/>
+                     </seg>, δύνασαι
                             <seg type="allusion">μὴ πιεῖν οἶνον ὡς ὁ
                                 <persName type="biblical" key="Timothy_Act.16.1">Τιμόθεος</persName>
-                                <ref decls="#biblical" cRef="NA:1Tim:3:8"/>
-                            </seg>
+                        <ref decls="#biblical" cRef="NA:1Tim:3:8"/>
+                     </seg>
                             καὶ
                             <seg type="allusion">νηστεύειν καὶ αὐτὸς συνεχῶς, ὡς ὁ
                                 <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>
                                 ἐποίει<ref decls="#biblical" cRef="NA:2Cor:11:27"/>
-                            </seg>, ἵνα κατ’ ἐκεῖνον οὕτως νηστεύων χορτάζῃς ἄλλους ἐν τοῖς λόγοις καὶ διψῶν ἐν τῷ μὴ πιεῖν ποτίζῃς ἄλλους διδάσκων.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>μὴ οὖν ταῦτα προβαλλέ­τωσαν οἱ συμβουλεύοντές σοι. εἴδομεν γὰρ καὶ ἐπισκόπους νηστεύοντας καὶ μονα­χοὺς ἐσθίοντας. εἴδομεν καὶ ἐπισκόπους μὴ πίνοντας οἶνον, μοναχοὺς δὲ πίνοντας· εἴδομεν καὶ σημεῖα ποιοῦντας ἐπισκόπους, μοναχοὺς δὲ μὴ ποιοῦντας. πολλοὶ δὲ τῶν ἐπισκόπων οὐδὲ γεγαμήκασι, μοναχοὶ δὲ πατέρες τέκνων γεγόνασιν· ὥσπερ καὶ ἐπισκόπους πατέρας τέκνων καὶ μοναχοὺς ἐξ ὁλοκλήρου γένους τυγχάνοντας. καὶ πάλιν εἴδομεν κληρικοὺς πεινῶντας, μοναχοὺς δὲ νηστεύοντας. ἔξεστι γὰρ καὶ οὕτως, καὶ ἐκείνως οὐ κεκώλυται. ἀλλὰ πανταχοῦ τις ἀγωνιζέσθω· καὶ γὰρ ὁ στέφανος οὐ κατὰ τόπον, ἀλλὰ κατὰ τὴν πρᾶξιν ἀποδίδοται.
+                     </seg>, ἵνα κατ’ ἐκεῖνον οὕτως νηστεύων χορτάζῃς ἄλλους ἐν τοῖς λόγοις καὶ διψῶν ἐν τῷ μὴ πιεῖν ποτίζῃς ἄλλους διδάσκων.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>μὴ οὖν ταῦτα προβαλλέτωσαν οἱ συμβουλεύοντές σοι. εἴδομεν γὰρ καὶ ἐπισκόπους νηστεύοντας καὶ μοναχοὺς ἐσθίοντας. εἴδομεν καὶ ἐπισκόπους μὴ πίνοντας οἶνον, μοναχοὺς δὲ πίνοντας· εἴδομεν καὶ σημεῖα ποιοῦντας ἐπισκόπους, μοναχοὺς δὲ μὴ ποιοῦντας. πολλοὶ δὲ τῶν ἐπισκόπων οὐδὲ γεγαμήκασι, μοναχοὶ δὲ πατέρες τέκνων γεγόνασιν· ὥσπερ καὶ ἐπισκόπους πατέρας τέκνων καὶ μοναχοὺς ἐξ ὁλοκλήρου γένους τυγχάνοντας. καὶ πάλιν εἴδομεν κληρικοὺς πεινῶντας, μοναχοὺς δὲ νηστεύοντας. ἔξεστι γὰρ καὶ οὕτως, καὶ ἐκείνως οὐ κεκώλυται. ἀλλὰ πανταχοῦ τις ἀγωνιζέσθω· καὶ γὰρ ὁ στέφανος οὐ κατὰ τόπον, ἀλλὰ κατὰ τὴν πρᾶξιν ἀποδίδοται.
                         </p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="10">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Οὐκοῦν μὴ ἀνέχου τῶν ἕτερα παρὰ ταῦτα συμβουλευόντων, ἀλλὰ μᾶλλον ἐπείγου καὶ μὴ μέλλε, μάλιστα ὅτι καὶ ἡ ἁγία ἑορτὴ ἐγγίζει, ἵνα μὴ χωρὶς σοῦ οἱ λαοὶ τὴν ἑορτὴν ποιήσωσι, καὶ μέγαν κίνδυνον ἐπισπάσῃ κατὰ σαυτοῦ.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>τίς γὰρ αὐτοῖς εὐαγγελίσεται τὸ πάσχα μὴ παρόντος σου; τίς αὐτοῖς τὴν ἡμέραν ἀναγ­γελεῖ τῆς ἀναστάσεως κρυπτομένου σου; τίς αὐτοῖς συμβουλεύσει δεόντως ἑορτά­ζειν φεύγοντός σου; ὢ πόσοι μὲν ὠφεληθήσονται παραγενομένου σου, πόσοι δὲ βλαβήσονται φεύγοντός σου. καὶ τίς ἐπὶ τούτοις ἀποδέξεταί σε;</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>καὶ διὰ τί συμ­βουλεύουσί σοι μὴ ἀντιλαμβάνεσθαί σε τῆς ἐπισκοπῆς αὐτοὶ θέλοντες ἔχειν πρεσ­βυτέρους; εἰ γὰρ φαῦλος τυγχάνεις, μὴ συνέστωσάν σοι· εἰ δὲ ἐπιτήδειον εἶναί σε ἐπιγινώσκουσι, μὴ φθονείτωσαν τοῖς ἄλλοις. εἰ γὰρ τὸ διδάσκειν καὶ προΐστασθαι πρόφασίς ἐστιν ἁμαρτίας κατ’ ἐκείνους, μὴ διδασκέσθωσαν αὐτοὶ μηδὲ πρεσβυτέ­ρους ἐχέτωσαν, ἵνα μὴ χείρους ἑαυτῶν γένωνται αὐτοί τε καὶ οἱ διδάσκοντες αὐ­τούς.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="4">
-                        <p>ἀλλὰ μὴ πρόσεχε τούτοις τοῖς ἀνθρωπίνοις ῥήμασι μηδὲ ἀνέχου τῶν ταῦτα συμβουλευόντων, καθὰ πολλάκις προεῖπον, σπεῦδε δὲ μᾶλλον καὶ ἐπίστρε­φε πρὸς τὸν κύριον, ἵνα τῶν προβάτων αὐτοῦ φροντίζων μνημονεύσῃς καὶ ἡμῶν.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="5">
-                        <p>τούτου δὲ χάριν προετρεψάμην ἐλθεῖν τοὺς ἀγαπητοὺς ἡμῶν
-                            <persName>Ἱέρακα</persName>
-                            τὸν πρεσβύ­τερον καὶ
-                            <persName>Μάξιμον</persName>
-                            τὸν ἀναγνώστην, ἵνα καὶ διὰ λόγων σε προτρέψωνται καὶ μα­θεῖν δυνηθῇς ἐκ τούτου τήν τε διάθεσιν ἣν ἔχων ἔγραψα καὶ τὸν ἐκ τοῦ ἀντιλέγειν τῇ ἐκκλησιαστικῇ διατάξει κίνδυνον.
-                        </p>
-                    </div>
-                </div>
+               </div>
             </div>
-        </body>
-    </text>
+            <div type="textpart" subtype="chapter" n="10">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Οὐκοῦν μὴ ἀνέχου τῶν ἕτερα παρὰ ταῦτα συμβουλευόντων, ἀλλὰ μᾶλλον ἐπείγου καὶ μὴ μέλλε, μάλιστα ὅτι καὶ ἡ ἁγία ἑορτὴ ἐγγίζει, ἵνα μὴ χωρὶς σοῦ οἱ λαοὶ τὴν ἑορτὴν ποιήσωσι, καὶ μέγαν κίνδυνον ἐπισπάσῃ κατὰ σαυτοῦ.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>τίς γὰρ αὐτοῖς εὐαγγελίσεται τὸ πάσχα μὴ παρόντος σου; τίς αὐτοῖς τὴν ἡμέραν ἀναγγελεῖ τῆς ἀναστάσεως κρυπτομένου σου; τίς αὐτοῖς συμβουλεύσει δεόντως ἑορτάζειν φεύγοντός σου; ὢ πόσοι μὲν ὠφεληθήσονται παραγενομένου σου, πόσοι δὲ βλαβήσονται φεύγοντός σου. καὶ τίς ἐπὶ τούτοις ἀποδέξεταί σε;</p>
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>καὶ διὰ τί συμβουλεύουσί σοι μὴ ἀντιλαμβάνεσθαί σε τῆς ἐπισκοπῆς αὐτοὶ θέλοντες ἔχειν πρεσβυτέρους; εἰ γὰρ φαῦλος τυγχάνεις, μὴ συνέστωσάν σοι· εἰ δὲ ἐπιτήδειον εἶναί σε ἐπιγινώσκουσι, μὴ φθονείτωσαν τοῖς ἄλλοις. εἰ γὰρ τὸ διδάσκειν καὶ προΐστασθαι πρόφασίς ἐστιν ἁμαρτίας κατ’ ἐκείνους, μὴ διδασκέσθωσαν αὐτοὶ μηδὲ πρεσβυτέρους ἐχέτωσαν, ἵνα μὴ χείρους ἑαυτῶν γένωνται αὐτοί τε καὶ οἱ διδάσκοντες αὐτούς.</p>
+               </div>
+               <div type="textpart" subtype="section" n="4">
+                  <p>ἀλλὰ μὴ πρόσεχε τούτοις τοῖς ἀνθρωπίνοις ῥήμασι μηδὲ ἀνέχου τῶν ταῦτα συμβουλευόντων, καθὰ πολλάκις προεῖπον, σπεῦδε δὲ μᾶλλον καὶ ἐπίστρεφε πρὸς τὸν κύριον, ἵνα τῶν προβάτων αὐτοῦ φροντίζων μνημονεύσῃς καὶ ἡμῶν.</p>
+               </div>
+               <div type="textpart" subtype="section" n="5">
+                  <p>τούτου δὲ χάριν προετρεψάμην ἐλθεῖν τοὺς ἀγαπητοὺς ἡμῶν
+                            <persName>Ἱέρακα</persName>
+                            τὸν πρεσβύτερον καὶ
+                            <persName>Μάξιμον</persName>
+                            τὸν ἀναγνώστην, ἵνα καὶ διὰ λόγων σε προτρέψωνται καὶ μαθεῖν δυνηθῇς ἐκ τούτου τήν τε διάθεσιν ἣν ἔχων ἔγραψα καὶ τὸν ἐκ τοῦ ἀντιλέγειν τῇ ἐκκλησιαστικῇ διατάξει κίνδυνον.
+                        </p>
+               </div>
+            </div>
+         </div>
+      </body>
+   </text>
 </TEI>
