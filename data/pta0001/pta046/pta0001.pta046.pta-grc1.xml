@@ -1,290 +1,381 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title>In Iob sermo 2</title>
-                <author>
-                    <persName key="pta0001">Severianus Gabalensis</persName>
-                </author>
-                <respStmt>
-                    <persName xml:id="SV">Sever J. Voicu</persName>
-                    <resp>Transcription of the text; correction and standardisation of spelling, accents, and punctuation to modern editorial standards</resp>
-                </respStmt>
-                <respStmt>
-                    <persName xml:id="AvS">Annette von Stockhausen</persName>
-                    <resp>Conversion to CTS-compliant PTA TEI; added biblical references</resp>
-                </respStmt>
-            </titleStmt>
-            <publicationStmt>
-                <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
-                <distributor>Patristic Text Archive</distributor>
-                <availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
-                </availability>
-                <date>2018</date>
-                <idno type="PTA">pta0001.pta046</idno>
-                <idno type="TLG">tlg4139.tlg038</idno>
-                <idno type="CPG">4564.2</idno>
-                <idno type="CPG">4236a.2-1</idno>
-                <idno type="BHG">939e</idno>
-                <idno type="Aldama">475</idno>
-                <idno type="Pinakes-Oeuvre">14910</idno>
-            </publicationStmt>
-            <sourceDesc>
-                <bibl>
-                    <note>Non-critical edition (spelling, accents and punctuation corrected and standardised to modern editorial standards by Sever Voicu)</note>
-                    <title>Patrologia graeca</title>
-                    <title type="volume">56</title>
-                    <editor role="editor">
-                        <surname>Migne</surname>
-                        <forename>Jean-Paul</forename>
-                    </editor>
-                    <pubPlace>Paris</pubPlace>
-                    <biblScope unit="page" from="567" to="570">567–570</biblScope>
-                    <date when="1862">1862</date>
-                </bibl>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="chapter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
-            </refsDecl>
-            <refsDecl xml:id="biblical">
-                <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
-                    <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
-                    <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
-                    <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="(.+):(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
-                    <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
-                </cRefPattern>
-            </refsDecl>
-            <editorialDecl>
-                <interpretation>
-                    <p xml:id="biblical-quotations">
-                        Bibelzitate sind ausgezeichnet und nach den oben angeführten Grundsätzen nachgewiesen.
-                    </p>
-                    <p xml:id="persons">
-                        Personen sind ausgezeichnet. Biblische Personen sind mit den IDs der
-                        <ref target="https://github.com/tyndale/STEPBible-Data">TIPNR - Tyndale Individualised Proper Names with all References</ref>-Liste, alle übrigen Personen mit den IDs der
-                        <ref target="https://lobid.org/gnd">GND</ref>
-                        referenziert.
-                    </p>
-                </interpretation>
-                <normalization>
-                    <p>
-                        Angaben zur Handhabung von Großschreibung, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum,
-                           Trema, Enklitika, Apostroph/Elisionen, Zahlzeichen, Worttrennung, nomina sacra.
-                    </p>
-                </normalization>
-                <punctuation>
-                    <p>
-                        Angaben zur Normalisierung der Interpunktion: Setzung von Punkt,
-                         	         Komma, Semikolon, Fragezeichen, Gedankenstrichen und Klammern
-                    </p>
-                </punctuation>
-            </editorialDecl>
-            <classDecl>
-                <taxonomy xml:id="comphistsem">
-                    <bibl>
-                        Text Type Classification by
-                        <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
-                    </bibl>
-                </taxonomy>
-            </classDecl>
-        </encodingDesc>
-        <profileDesc>
-            <creation>
-                <date notBefore="0401" notAfter="0404"/>
-                <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
-            </creation>
-            <textClass>
-                <keywords scheme="#comphistsem">
-                    <term>Paraenetic</term>
-					<term>Sermon</term>
-                </keywords>
-            </textClass>
-        </profileDesc>
-        <revisionDesc status="pre-critical-edition">
-            <change when="2021-06-08" who="#AvS">Split file in parts</change>
-            <change when="2019-12-17" who="#AvS">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>In Iob sermo 2</title>
+            <author>
+               <persName key="pta0001">Severianus Gabalensis</persName>
+            </author>
+            <respStmt>
+               <persName xml:id="SV">Sever J. Voicu</persName>
+               <resp>Transcription of the text; correction and standardisation of spelling, accents, and punctuation to modern editorial standards</resp>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <resp>Conversion to CTS-compliant PTA TEI; added biblical references</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2018</date>
+            <idno type="PTA">pta0001.pta046</idno>
+            <idno type="TLG">tlg4139.tlg038</idno>
+            <idno type="CPG">4564.2; 4236a.2-1</idno>
+            <idno type="BHG">939e</idno>
+            <idno type="Aldama">475</idno>
+            <idno type="Pinakes-Oeuvre">14910</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <bibl>
+                  <note>Non-critical edition (spelling, accents and punctuation corrected and standardised to modern editorial standards by Sever Voicu)</note>
+                  <title>Patrologia graeca</title>
+                  <title type="volume">56</title>
+                  <editor role="editor">
+                     <surname>Migne</surname>
+                     <forename>Jean-Paul</forename>
+                  </editor>
+                  <pubPlace>Paris</pubPlace>
+                  <biblScope unit="page" from="567" to="570">567–570</biblScope>
+                  <date when="1862">1862</date>
+               </bibl>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="chapter"
+                         matchPattern="(\w+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations" ana="fully-annotated fully-identified">
+            Biblical quotations are fully annotated and fully referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references" ana="fully-annotated fully-identified">
+            Other references are fully annotated and fully referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons" ana="fully-annotated fully-identified">
+            Persons are fully annotated and fully referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups" ana="fully-annotated fully-identified">
+            Groups of persons and organisations are fully annotated and fully referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places" ana="fully-annotated fully-identified">
+            Places are fully annotated and fully referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+            </interpretation>
+            <normalization>
+               <p>Spelling, accents and punctuation corrected and standardised to modern editorial standards by Sever Voicu.</p>
+            </normalization>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>pre-critical-edition</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2024-06-18" who="#AvS">Added annotations</change>
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2021-06-08" who="#AvS">Split file in parts</change>
+         <change when="2019-12-17" who="#AvS">
                 Updated file to comply with version 1.2 of
                 <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
-            </change>
-            <change when="2018-12-10" who="#AvS">Converted to PTA/CapiTainS</change>
-        </revisionDesc>
-    </teiHeader>
-    <text>
-        <body>
-            <div type="edition" xml:lang="grc" n="urn:cts:pta:pta0001.pta046.pta-grc1">
-                    <head>
-                        <title>
-                            <pb n="567"/>Εἰς τὸν δίκαιον καὶ μακάριον <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> λόγος βʹ.</title>
-                    </head>
-                    <div type="textpart" subtype="chapter" n="1">
-                        <p>Τὰ μεγάλα τῶν πραγμάτων μεγάλων δεῖται διηγημάτων, καὶ αἱ λαμπραὶ τῶν δικαίων ἱστορίαι λαμπρᾶς δέονται καὶ γλώττης καὶ διανοίας· διανοίας μὲν εἰλικρινῶς τὰς θείας γραφὰς θεωρούσης, γλώττης δὲ τρανῶς τὰ θεῖα ἑρμηνευούσης, καὶ μάλιστα ἐπὶ τῆς προκειμένης ὑποθέσεως, λέγω δὲ τῶν τῷ μακαρίῳ <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> πεπονημένων, ἃ διὰ πάσης φοιτῶντα τῆς ὑπ’ οὐρανόν, τὸν τῆς ὑπομονῆς ἀπαστράπτει λόγον. Πλὴν εἰ καὶ νικᾷ τὴν ἡμετέραν ἀσθένειαν ὁ τῆς ὑποθέσεως λόγος, ἀλλ’ εὖ οἶδα, ὅτι παρέχει ἡ τοῦ θεοῦ χάρις λόγον, οὐ διὰ τὴν τοῦ λέγοντος ἀξίαν, ἀλλὰ διὰ τὴν τῶν πατέρων πρεσβείαν. Ἀλλ’ ἐπ’ αὐτὴν ἔλθωμεν τὴν διήγησιν·
-                            <quote>Ἄνθρωπός τις ἦν ἐν χώρᾳ τῇ Αὐσίτιδι.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+         </change>
+         <change when="2018-12-10" who="#AvS">Converted to PTA/CapiTainS</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta0001.pta046.pta-grc1">
+            <head>
+               <title>
+                  <pb n="567"/>Εἰς τὸν δίκαιον καὶ μακάριον <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> λόγος <num>β</num>.</title>
+            </head>
+            <div type="textpart" subtype="chapter" n="1">
+               <p>Τὰ μεγάλα τῶν πραγμάτων μεγάλων δεῖται διηγημάτων, καὶ αἱ λαμπραὶ τῶν δικαίων ἱστορίαι λαμπρᾶς δέονται καὶ γλώττης καὶ διανοίας· διανοίας μὲν εἰλικρινῶς τὰς θείας γραφὰς θεωρούσης, γλώττης δὲ τρανῶς τὰ θεῖα ἑρμηνευούσης, καὶ μάλιστα ἐπὶ τῆς προκειμένης ὑποθέσεως, λέγω δὲ τῶν τῷ μακαρίῳ <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> πεπονημένων, ἃ διὰ πάσης φοιτῶντα τῆς ὑπ’ οὐρανόν, τὸν τῆς ὑπομονῆς ἀπαστράπτει λόγον. Πλὴν εἰ καὶ νικᾷ τὴν ἡμετέραν ἀσθένειαν ὁ τῆς ὑποθέσεως λόγος, ἀλλ’ εὖ οἶδα, ὅτι παρέχει ἡ τοῦ θεοῦ χάρις λόγον, οὐ διὰ τὴν τοῦ λέγοντος ἀξίαν, ἀλλὰ διὰ τὴν τῶν πατέρων πρεσβείαν. Ἀλλ’ ἐπ’ αὐτὴν ἔλθωμεν τὴν διήγησιν·
+                            <quote>Ἄνθρωπός τις ἦν ἐν χώρᾳ τῇ <placeName key="Uz_Job.1.1">Αὐσίτιδι</placeName>.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
+                  </quote>
                             Ἀναγκαῖόν ἐστι πρῶτον σκοπῆσαι τὸ προοίμιον ποίαν ἔχει δύναμιν, καὶ τίνος ἕνεκεν ἀπὸ ταύτης τῆς λέξεως τὸ προοίμιον πεποίηται ὁ ἱστοριογράφος·
                             <quote>Ἄνθρωπός τις ἦν<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>. Ἐπειδὴ ἔμελλε βίον ἐνάρετον διηγήσασθαι καὶ πολὺ τὴν ἡμετέραν κατάστασιν νικῶντα, ἵνα μή τις εἰς τὴν ὑπερβολὴν τῶν ἀγώνων ἀποβλέψας, νομίσῃ ξένην εἶναι φύσιν καὶ οὐκ ἀνθρωπίνην, προλαβὼν ἔδειξε τὴν φύσιν, ἵνα θαυμάσῃς τὴν πρόθεσιν, ὅτι ἄνθρωπος ὢν ὑπὲρ ἄνθρωπον ἐπολιτεύσατο, καὶ μὲν κοινῆς φύσεως ἅπασι κοινωνήσας, ἀνωτέραν δὲ τοῦ κόσμου τὴν ψυχὴν ἀναγαγών.
-                            <quote>Ἄνθρωπός τις ἦν ἐν χώρᾳ τῇ Αὐσίτιδι.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+                  </quote>. Ἐπειδὴ ἔμελλε βίον ἐνάρετον διηγήσασθαι καὶ πολὺ τὴν ἡμετέραν κατάστασιν νικῶντα, ἵνα μή τις εἰς τὴν ὑπερβολὴν τῶν ἀγώνων ἀποβλέψας, νομίσῃ ξένην εἶναι φύσιν καὶ οὐκ ἀνθρωπίνην, προλαβὼν ἔδειξε τὴν φύσιν, ἵνα θαυμάσῃς τὴν πρόθεσιν, ὅτι ἄνθρωπος ὢν ὑπὲρ ἄνθρωπον ἐπολιτεύσατο, καὶ μὲν κοινῆς φύσεως ἅπασι κοινωνήσας, ἀνωτέραν δὲ τοῦ κόσμου τὴν ψυχὴν ἀναγαγών.
+                            <quote>Ἄνθρωπός τις ἦν ἐν χώρᾳ τῇ <placeName key="Uz_Job.1.1">Αὐσίτιδι</placeName>.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
+                  </quote>
                             Κηρύττει αὐτὸν καὶ ἀπὸ τῆς
                             <pb n="568"/>
-                            φύσεως, κηρύττει αὐτὸν καὶ ἀπὸ τῆς χώρας, ἵν ̓, ὥσπερ ἀκούσας αὐτὸν ἄνθρωπον θαυμάζεις ὅτι ὑπὲρ ἄνθρωπον ἐπολιτεύσατο, οὕτως ἐὰν μάθῃς καὶ τὴν χώραν, ἐξ ἧς ὁ τοσοῦτος καρπὸς ἤνθησε, θαυμάσῃς ἀληθῶς ὁποῖον ῥόδον ἐν μέσῳ τῶν ἀκανθῶν ἐβλάστησεν. Πρόσεχε ἀκριβῶς. Ἡ χώρα τοίνυν ἡ τῆς Αὐσίτιδος, χώρα ἦν τοῦ Ἡσαῦ· ἀπὸ γὰρ τοῦ Ἡσαῦ ἡ Αὐσῖτις. Ὀνομάζει δὲ τοῦ βεβήλου καὶ πονηροῦ Ἡσαῦ τὴν χώραν,
+                            φύσεως, κηρύττει αὐτὸν καὶ ἀπὸ τῆς χώρας, ἵν’, ὥσπερ ἀκούσας αὐτὸν ἄνθρωπον θαυμάζεις ὅτι ὑπὲρ ἄνθρωπον ἐπολιτεύσατο, οὕτως ἐὰν μάθῃς καὶ τὴν χώραν, ἐξ ἧς ὁ τοσοῦτος καρπὸς ἤνθησε, θαυμάσῃς ἀληθῶς ὁποῖον ῥόδον ἐν μέσῳ τῶν ἀκανθῶν ἐβλάστησεν. Πρόσεχε ἀκριβῶς. Ἡ χώρα τοίνυν ἡ τῆς <placeName key="Uz_Job.1.1">Αὐσίτιδος</placeName>, χώρα ἦν τοῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName>· ἀπὸ γὰρ τοῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> ἡ <placeName key="Uz_Job.1.1">Αὐσῖτις</placeName>. Ὀνομάζει δὲ τοῦ βεβήλου καὶ πονηροῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> τὴν χώραν,
                             <cit>
-                                <ref decls="#biblical" cRef="NA:Heb:12:16">ὥς φησιν ὁ Ἀπόστολος·
+                     <ref decls="#biblical" cRef="NA:Heb:12:16">ὥς φησιν ὁ Ἀπόστολος·
                                 </ref>
-                                <quote>Μή τις πόρνος ἢ βέβηλος, ὡς Ἡσαῦ</quote>
-                            </cit>, ἵνα θαυμάσῃς ἐκ ποίων παιδευτηρίων κακίας οἷος καρπὸς ἀληθείας ἤνθησεν. Ἀλλὰ οὐ μόνον αὐτὸν ἡ χώρα τοῦ Ἡσαῦ ἤνεγκεν, ἀλλὰ καὶ αὐτὴ ἡ ῥίζα τοῦ Ἡσαῦ· ἀπόγονος γὰρ ἦν τοῦ διαβαλλομένου. Λέγει γὰρ τὸν <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> ἡ γραφὴ πέμπτον εἶναι ἀπὸ τοῦ Ἀβραάμ. Καὶ ὅπως πέμπτος, ἄκουε·
-                            <seg type="allusion">Ἀβραὰμ ἐγέννησε τὸν Ἰσαάκ, Ἰσαὰκ τὸν Ἡσαῦ, Ἡσαῦ τὸν Ῥαγουήλ, Ῥαγουὴλ τὸν Ζαρά, Ζαρὰ δὲ τὸν <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>.<ref decls="#biblical" cRef="LXX:Gn:36:10-13"/>
-                            </seg>
-                            Εἶχεν οὖν τὴν διαδοχὴν ἀπὸ τοῦ Ἀβραὰμ διὰ τοῦ Ἡσαῦ εἰς αὐτὸν κατερχομένην. Δείκνυσιν οὖν τὴν ῥίζαν, ἵνα τὸν καρπὸν θαυμάσῃς. Τίς δὲ ἦν Ἡσαῦ;
+                     <quote>Μή τις πόρνος ἢ βέβηλος, ὡς <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName>
+                     </quote>
+                  </cit>, ἵνα θαυμάσῃς ἐκ ποίων παιδευτηρίων κακίας οἷος καρπὸς ἀληθείας ἤνθησεν. Ἀλλὰ οὐ μόνον αὐτὸν ἡ χώρα τοῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> ἤνεγκεν, ἀλλὰ καὶ αὐτὴ ἡ ῥίζα τοῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName>· ἀπόγονος γὰρ ἦν τοῦ διαβαλλομένου. Λέγει γὰρ τὸν <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> ἡ γραφὴ πέμπτον εἶναι ἀπὸ τοῦ <persName type="biblical" key="Abraham_Gen.11.26">Ἀβραάμ</persName>. Καὶ ὅπως πέμπτος, ἄκουε·
+                            <seg type="allusion">
+                     <persName type="biblical" key="Abraham_Gen.11.26">Ἀβραὰμ</persName> ἐγέννησε τὸν <persName type="biblical" key="Isaac_Gen.17.19">Ἰσαάκ</persName>, <persName type="biblical" key="Isaac_Gen.17.19">Ἰσαὰκ</persName> τὸν <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName>, <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> τὸν <persName type="biblical" key="Reuel_Gen.36.4">Ῥαγουήλ</persName>, <persName type="biblical" key="Reuel_Gen.36.4">Ῥαγουὴλ</persName> τὸν <persName type="biblical" key="Zerah_Gen.36.13">Ζαρά</persName>, <persName type="biblical" key="Zerah_Gen.36.13">Ζαρὰ</persName> δὲ τὸν <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>.<ref decls="#biblical" cRef="LXX:Gn:36:10-13"/>
+                  </seg>
+                            Εἶχεν οὖν τὴν διαδοχὴν ἀπὸ τοῦ <persName type="biblical" key="Abraham_Gen.11.26">Ἀβραὰμ</persName> διὰ τοῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> εἰς αὐτὸν κατερχομένην. Δείκνυσιν οὖν τὴν ῥίζαν, ἵνα τὸν καρπὸν θαυμάσῃς. Τίς δὲ ἦν <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName>;
                             <quote>Πόρνος καὶ βέβηλος.<ref decls="#biblical" cRef="NA:Heb:12:16"/>
-                            </quote>
+                  </quote>
                             Τίς δὲ ἦν καὶ <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>; Ὁ ἀπὸ τοῦ πόρνου, οὗτος αὐτὸς ὁ σεμνὸς καὶ θαυμάσιος ἀνήρ, ὁ νῦν προκείμενος ἡμῖν εἰς διήγησιν, ὁ λέγων·
                             <quote>Εἰ ἐπηκολούθησεν ὁ ὀφθαλμός μου γυναικὶ ἀλλοτρίᾳ, ἀρέσει καὶ ἡ γυνή μου ἀλλοτρίῳ ἀνδρί.<ref decls="#biblical" cRef="LXX:Job:31:9-10"/>
-                            </quote>
-                            Ἡσαῦ περὶ πολλὰς ἔσχε μίξιν γυναῖκας ἄπληστος ὢν εἰς ἀσέλγειαν, ὁ δὲ <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> τὸν τρόπον νόμον εἶχε τοῦ βίου καὶ τοσοῦτον ἀπέσχε, ὥστε ἀλλότρια κάλλη μὴ περιεργάζεσθαι, καὶ πορνείας καὶ μοιχείας τοσοῦτον ἀπεῖχεν, ὡς μηδὲ ταῖς μηδέπω κατεγγυωμέναις γυναιξὶ προσέχειν, τουτέστι, ταῖς ἀμνηστεύτοις παρθένοις. Δεῖ γὰρ τῇ τρανοτέρᾳ λέξει χρήσασθαι· Τοσοῦτον ἀπεῖχεν ἀλλοτρίοις γάμοις ἐπιβουλεύειν, ὅτι οὐδὲ τῇ ἀμνηστεύτῳ παρθένῳ, ἐφ’ ᾗ οὐδεὶς ἦν κίνδυνος, ἀπέτεινε τὸ ὄμμα πρὸς ἀκολασίαν. Καὶ τίς ὁ ταῦτα μαρτυρῶν;
+                  </quote>
+                  <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> περὶ πολλὰς ἔσχε μίξιν γυναῖκας ἄπληστος ὢν εἰς ἀσέλγειαν, ὁ δὲ <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> τὸν τρόπον νόμον εἶχε τοῦ βίου καὶ τοσοῦτον ἀπέσχε, ὥστε ἀλλότρια κάλλη μὴ περιεργάζεσθαι, καὶ πορνείας καὶ μοιχείας τοσοῦτον ἀπεῖχεν, ὡς μηδὲ ταῖς μηδέπω κατεγγυωμέναις γυναιξὶ προσέχειν, τουτέστι, ταῖς ἀμνηστεύτοις παρθένοις. Δεῖ γὰρ τῇ τρανοτέρᾳ λέξει χρήσασθαι· Τοσοῦτον ἀπεῖχεν ἀλλοτρίοις γάμοις ἐπιβουλεύειν, ὅτι οὐδὲ τῇ ἀμνηστεύτῳ παρθένῳ, ἐφ’ ᾗ οὐδεὶς ἦν κίνδυνος, ἀπέτεινε τὸ ὄμμα πρὸς ἀκολασίαν. Καὶ τίς ὁ ταῦτα μαρτυρῶν;
                             <cit>
-                                <ref decls="#biblical" cRef="LXX:Job:31:1">Αὐτὸς ὁ <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>·
+                     <ref decls="#biblical" cRef="LXX:Job:31:1">Αὐτὸς ὁ <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>·
                                 </ref>
-                                <quote>Διαθήκην
+                     <quote>Διαθήκην
                                     <seg type="insertion">φησὶ</seg>
                                     διεθέμην τοῖς ὀφθαλμοῖς μου, καὶ οὐ συνῆκα ἐπὶ παρθένῳ.</quote>
-                            </cit>
-                            Βλέπε μέχρι τίνος παιδαγωγίας ἤκμασεν αὐτῷ τὰ τῆς εὐσεβείας. Παιδαγωγεῖ τὸν ὀφθαλμὸν εἰς εὐσέβειαν, παιδαγωγεῖ καὶ τὰ μέλη εἰς δικαιοσύνην, καὶ ἀπὸ τοῦ πόρνου τὴν διαδοχὴν φέρων, μεγίστῃ σωφροσύνῃ διέλαμψεν. Ἡσαῦ καὶ ἀδελφοκτόνος ὑπῆρχεν, ὅσον εἰς πρόθεσιν· εἰ γὰρ καὶ μὴ ἐξέβη ἡ πρᾶξις, ἀλλὰ κατηγορεῖται ἡ πρόθεσις.
+                  </cit>
+                            Βλέπε μέχρι τίνος παιδαγωγίας ἤκμασεν αὐτῷ τὰ τῆς εὐσεβείας. Παιδαγωγεῖ τὸν ὀφθαλμὸν εἰς εὐσέβειαν, παιδαγωγεῖ καὶ τὰ μέλη εἰς δικαιοσύνην, καὶ ἀπὸ τοῦ πόρνου τὴν διαδοχὴν φέρων, μεγίστῃ σωφροσύνῃ διέλαμψεν. <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> καὶ ἀδελφοκτόνος ὑπῆρχεν, ὅσον εἰς πρόθεσιν· εἰ γὰρ καὶ μὴ ἐξέβη ἡ πρᾶξις, ἀλλὰ κατηγορεῖται ἡ πρόθεσις.
                             <quote>Εἶπε
                                 <seg type="insertion">γάρ, φησίν,</seg>
-                                Ἡσαῦ ἐν τῇ καρδίᾳ αὐτοῦ· Ἐγγισάτωσαν αἱ ἡμέραι τοῦ πένθους τοῦ πατρός μου, καὶ ἀνελῶ Ἰακὼβ τὸν ἀδελφόν μου.<ref decls="#biblical" cRef="LXX:Gn:27:41"/>
-                            </quote>
+                     <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> ἐν τῇ καρδίᾳ αὐτοῦ· Ἐγγισάτωσαν αἱ ἡμέραι τοῦ πένθους τοῦ πατρός μου, καὶ ἀνελῶ <persName type="biblical" key="Israel_Gen.25.26">Ἰακὼβ</persName> τὸν ἀδελφόν μου.<ref decls="#biblical" cRef="LXX:Gn:27:41"/>
+                  </quote>
                             Ἡ τοίνυν ῥίζα ἀδελφοκτόνος, ὁ δὲ ἐκ τῆς ῥίζης ἀνθήσας δικαιοσύνης βραβευτής. Ἐκεῖνος τῇ φύσει ἐπολέμησε καὶ τὸν ἀδελφὸν ἀλλότριον ἡγεῖτο· οὗτος καὶ τοὺς ἀλλοτρίους ἀδελφοὺς ἐνόμιζεν
                             <cit>
-                                <ref decls="#biblical" cRef="LXX:Job:29:12.16">ὁ λέγων·
+                     <ref decls="#biblical" cRef="LXX:Job:29:12.16">ὁ λέγων·
                                 </ref>
-                                <quote>Ἐγενόμην ὀρφανοῖς ὡς πατήρ, καὶ ἀντὶ ἀνδρὸς τῇ μητρὶ αὐτῶν. Δίκην ἣν οὐκ ᾔδειν, ἐξιχνίασα, καὶ κατέπαυσα ἀδίκους.</quote>
-                            </cit>
-                            Καὶ πάντα τὰ ἀλλότρια ἰδιοποιεῖται ὁ ἀπὸ τοῦ Ἡσαῦ φέρων τὴν διαδοχὴν τοῦ τὰ ἀλλότρια ἴδια τιθεμένου. Ἡσαῦ ἐν τῇ διανοίᾳ ἐλογίζετο ἀνελεῖν τὸν Ἰακώβ, <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> δὲ προσέφερε θυσίας ὑπὲρ τῶν υἱῶν ἐννοῶν
+                     <quote>Ἐγενόμην ὀρφανοῖς ὡς πατήρ, καὶ ἀντὶ ἀνδρὸς τῇ μητρὶ αὐτῶν. Δίκην ἣν οὐκ ᾔδειν, ἐξιχνίασα, καὶ κατέπαυσα ἀδίκους.</quote>
+                  </cit>
+                            Καὶ πάντα τὰ ἀλλότρια ἰδιοποιεῖται ὁ ἀπὸ τοῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> φέρων τὴν διαδοχὴν τοῦ τὰ ἀλλότρια ἴδια τιθεμένου. <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> ἐν τῇ διανοίᾳ ἐλογίζετο ἀνελεῖν τὸν <persName type="biblical" key="Israel_Gen.25.26">Ἰακώβ</persName>, <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> δὲ προσέφερε θυσίας ὑπὲρ τῶν υἱῶν ἐννοῶν
                             <said>μή τι κατὰ διάνοιαν ἥμαρτον</said>. Ἐπειδὴ γὰρ ἐκεῖνος κατὰ διάνοιαν ἐμελέτησε τὸν φόνον, φοβηθεὶς οὗτος ὁ μέγας καὶ γενναῖος ἀθλητής, μὴ καὶ οὗτοι ἐν τῇ διανοίᾳ παραδέξωνται τὸν ἰὸν τῆς ἁμαρτίας, προσέφερε θυσίαν καὶ μόσχον ἕνα περὶ ἁμαρτιῶν.
                             <cit>
-                                <ref decls="#biblical" cRef="LXX:Job:1:5">Ἔλεγε γὰρ ὁ <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>·
+                     <ref decls="#biblical" cRef="LXX:Job:1:5">Ἔλεγε γὰρ ὁ <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>·
                                 </ref>
-                                <quote>Μήποτε οἱ υἱοί μου κακὰ ἐνενόησαν πρὸς τὸν θεόν;</quote>
-                            </cit>
-                            Ἐννόησον εἰς ὅσην ἀκρίβειαν αὐτῷ ἔφθασεν ἡ παιδαγωγία τοῦ τρόπου. Καὶ τί ποιεῖ; Ἐπειδὴ Ἡσαῦ καὶ Ἰακὼβ οἱ πρόγονοι ἐξεπολεμώθησαν πρὸς ἀλλήλους, οὐ τοῦ Ἰακὼβ εἰς κακίαν συμφωνήσαντος, ἀλλὰ τοῦ Ἡσαῦ εἰς κακίαν ἄρξαντος, τὴν διαφωνίαν τῶν προγόνων διαλύει τῇ ἑστιάσει καὶ ποιεῖ τοὺς υἱοὺς αὐτοῦ καθ’ ἡμέραν μετ’ ἀλλήλων ἑστιᾶσθαι, ἵνα ἡ συνήθης τράπεζα διαλύσῃ τῆς κακίας τὸν ἰόν. Παρ’ ἀλλήλους ἐφοίτων οἱ υἱοὶ τοῦ <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> ὁμόνοιαν παιδευόμενοι ἐκ νέας ἡλικίας, εἰρήνην ἀσκούμενοι, συμφωνίαν παιδευόμενοι καὶ μετ’ ἀλλήλων ἤσθιον καὶ ἔπινον.
+                     <quote>Μήποτε οἱ υἱοί μου κακὰ ἐνενόησαν πρὸς τὸν θεόν;</quote>
+                  </cit>
+                            Ἐννόησον εἰς ὅσην ἀκρίβειαν αὐτῷ ἔφθασεν ἡ παιδαγωγία τοῦ τρόπου. Καὶ τί ποιεῖ; Ἐπειδὴ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> καὶ <persName type="biblical" key="Israel_Gen.25.26">Ἰακὼβ</persName> οἱ πρόγονοι ἐξεπολεμώθησαν πρὸς ἀλλήλους, οὐ τοῦ <persName type="biblical" key="Israel_Gen.25.26">Ἰακὼβ</persName> εἰς κακίαν συμφωνήσαντος, ἀλλὰ τοῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> εἰς κακίαν ἄρξαντος, τὴν διαφωνίαν τῶν προγόνων διαλύει τῇ ἑστιάσει καὶ ποιεῖ τοὺς υἱοὺς αὐτοῦ καθ’ ἡμέραν μετ’ ἀλλήλων ἑστιᾶσθαι, ἵνα ἡ συνήθης τράπεζα διαλύσῃ τῆς κακίας τὸν ἰόν. Παρ’ ἀλλήλους ἐφοίτων οἱ υἱοὶ τοῦ <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> ὁμόνοιαν παιδευόμενοι ἐκ νέας ἡλικίας, εἰρήνην ἀσκούμενοι, συμφωνίαν παιδευόμενοι καὶ μετ’ ἀλλήλων ἤσθιον καὶ ἔπινον.
                             <quote>Παρελάμβανον δέ
                                 <seg type="insertion">φησι</seg>
                                 καὶ τὰς τρεῖς ἀδελφὰς ἐσθίειν καὶ πίνειν μετ’ αὐτῶν.<ref decls="#biblical" cRef="LXX:Job:1:4"/>
-                            </quote>
+                  </quote>
                             Καὶ τί τοῦτο εἰς ὠφέλειαν τῷ ἀκροατῇ; καὶ διὰ τί προσέθηκε τῶν ἀδελφῶν τὴν συνεστίασιν; Ἵνα δειχθῇ εἰς ὅσον σωφροσύνης ἠνέχθη αὐτῶν τὸ συμπόσιον καὶ ὅτι οὐκ ἦν γέλως ἄτακτος καὶ ἐκκεχυμένος καὶ ἀκολασία τὴν τράπεζαν ὑβρίζουσα, διὰ τοῦτο παρεισάγει καὶ τὰς παρθένους εὐωχουμένας, ἵνα δείξῃ τὸ πρόσχημα τοῦ συμποσίου οὐ μέθῃ ὑβριζόμενον, ἀλλὰ συμφωνίᾳ στεφανούμενον.
-                            <quote>Ἄν<pb n="569" break="no"/>θρωπός τις ἦν ἐν χώρᾳ τῇ Αὐσίτιδι<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>· περιστερὰ ἐν μέσῳ ἱεράκων, πρόβατον ἐν μέσῳ λύκων, ἀστὴρ ἐν μέσῳ τῶν νεφελῶν, κρίνον ἐν μέσῳ τῶν ἀκανθῶν, τὸ βλάστημα τῆς δικαιοσύνης ἐν τῇ κώμῃ τῆς ἀδικίας.
+                            <quote>Ἄν<pb n="569" break="no"/>θρωπός τις ἦν ἐν χώρᾳ τῇ <placeName key="Uz_Job.1.1">Αὐσίτιδι</placeName>
+                     <ref decls="#biblical" cRef="LXX:Job:1:1"/>
+                  </quote>· περιστερὰ ἐν μέσῳ ἱεράκων, πρόβατον ἐν μέσῳ λύκων, ἀστὴρ ἐν μέσῳ τῶν νεφελῶν, κρίνον ἐν μέσῳ τῶν ἀκανθῶν, τὸ βλάστημα τῆς δικαιοσύνης ἐν τῇ κώμῃ τῆς ἀδικίας.
                             <quote>Καὶ ἦν ὁ ἄνθρωπος ἐκεῖνος ἄμεμπτος.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
-                        </p>
-                    </div>
-                    <div type="textpart" subtype="chapter" n="2">
-                        <p>Πρόσεχε ἀκριβῶς· Οἱ ἔξωθεν ὅρον ἔθεντο ἀνθρώπου·
+                  </quote>
+               </p>
+            </div>
+            <div type="textpart" subtype="chapter" n="2">
+               <p>Πρόσεχε ἀκριβῶς· Οἱ ἔξωθεν ὅρον ἔθεντο ἀνθρώπου·
                             <said>Τί ἐστιν ἄνθρωπος; Ἄνθρωπός ἐστι φησὶ ζῷον λογικόν, θνητόν.</said>
                             Ταῦτα βούλονται τῶν φιλοσόφων οἱ ὅροι· ἡ δὲ γραφὴ οὐ τοιούτους ὅρους δίδωσιν· ἀλλὰ τί;
                             <quote>Ἄνθρωπος ἄμεμπτος, δίκαιος, ἀληθινός.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+                  </quote>
                             Ἐάν τις σε ἐρωτήσῃ καὶ ὅρον ἀπαιτήσῃ
                             <said>τί ἄνθρωπος;</said>, εἰπὲ πρὸς αὐτόν·
                             <quote>Ἄμεμπτος, δίκαιος, ἀληθινός, ἀπεχόμενος ἀπὸ παντὸς πονηροῦ πράγματος·<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+                  </quote>
                             ὡς ὅ γε τοῖς τοιούτοις κατορθώμασι μὴ μεμαρτυρημένος, οὐδὲ ἄνθρωπος ὑπάρχει. Ἐὰν γὰρ ἔχῃ μὲν τὸν χαρακτῆρα τῆς φύσεως, ὑβρίζῃ δὲ αὐτὸν τῇ κακίᾳ τῆς προαιρέσεως, ἀκούει
                             <cit>
-                                <ref decls="#biblical" cRef="LXX:Ps:48:13">παρὰ τοῦ προφήτου·
+                     <ref decls="#biblical" cRef="LXX:Ps:48:13">παρὰ τοῦ προφήτου·
                                 </ref>
-                                <quote>Ἄνθρωπος ἐν τιμῇ ὢν οὐ συνῆκε· παρασυνεβλήθη τοῖς κτήνεσι τοῖς ἀνοήτοις, καὶ ὡμοιώθη αὐτοῖς.</quote>
-                            </cit>
-                            <quote>Καὶ ἦν ὁ ἄνθρωπος ἐκεῖνος ἄμεμπτος.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+                     <quote>Ἄνθρωπος ἐν τιμῇ ὢν οὐ συνῆκε· παρασυνεβλήθη τοῖς κτήνεσι τοῖς ἀνοήτοις, καὶ ὡμοιώθη αὐτοῖς.</quote>
+                  </cit>
+                  <quote>Καὶ ἦν ὁ ἄνθρωπος ἐκεῖνος ἄμεμπτος.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
+                  </quote>
                             Οὐ μικρὸν τὸ ἐγκώμιον. Βασάνισον τὴν λέξιν, ἵνα θαυμάσῃς τὴν πρόθεσιν. Ἄλλο ἐστὶν ἔγκλημα καὶ ἄλλο μέμψις· ἔγκλημα μὲν γὰρ ταῖς βαρυτάταις ἐπάγεται τῶν ἁμαρτιῶν, ἡ δὲ μέμψις ἐπὶ τῶν κουφοτάτων γίνεται πταισμάτων. Ἠθέλησεν οὖν δεῖξαι ὁ συγγραφεύς, ὅτι οὐ μόνον ἐγκλημάτων μακρὰν ἦν ὁ δίκαιος, ἀλλὰ καὶ μέμψεων. Οὐδεὶς αὐτῷ ἐνεκάλεσεν ὡς μεγάλα δράσαντι, ὅπουγε οὐδὲ ἐμέμψατο ὡς μικρὰ πράξαντι. Τοῦτο δὲ μέγα τεκμήριον, οὗ μέσος ὁ βίος ἀνέγκλητος. Ὧι γὰρ μὴ ἔχῃς περὶ μοιχείας ἐγκαλεῖν ἢ περὶ φόνων, ὁ τοιοῦτος ἀνέγκλητος, ᾧ δὲ μέμψεις προσάγεις ὕβρεως, διαβολῆς ἢ λοιδορίας ἢ μέθης, ὁ τοιοῦτος ἐγκλημάτων μὲν ἐκτός, ὑπὸ μέμψιν δὲ τρέχει. Ἠθέλησεν οὖν δεῖξαι, ὅτι καὶ τῶν μικρῶν καὶ ἐλαχίστων πταισμάτων μακρὰν ἦν,
                             <cit>
-                                <ref decls="#biblical" cRef="LXX:Job:1:1">καί φησιν·
+                     <ref decls="#biblical" cRef="LXX:Job:1:1">καί φησιν·
                                 </ref>
-                                <quote>Ἦν ἄμεμπτος, δίκαιος, ἀληθινός, θεοσεβής, ἀπεχόμενος ἀπὸ παντὸς πονηροῦ πράγματος.</quote>
-                            </cit>
-                            Ὅθεν καὶ ὁ θεὸς τῷ Ἀβραὰμ βουλόμενος δεῖξαι, ὅτι τὸ πρῶτον κατ’ ἀρετὴν τὸ ἄμεμπτόν ἐστι,
+                     <quote>Ἦν ἄμεμπτος, δίκαιος, ἀληθινός, θεοσεβής, ἀπεχόμενος ἀπὸ παντὸς πονηροῦ πράγματος.</quote>
+                  </cit>
+                            Ὅθεν καὶ ὁ θεὸς τῷ <persName type="biblical" key="Abraham_Gen.11.26">Ἀβραὰμ</persName> βουλόμενος δεῖξαι, ὅτι τὸ πρῶτον κατ’ ἀρετὴν τὸ ἄμεμπτόν ἐστι,
                             <cit>
-                                <ref decls="#biblical" cRef="LXX:Gn:17:1">λέγει αὐτῷ·
+                     <ref decls="#biblical" cRef="LXX:Gn:17:1">λέγει αὐτῷ·
                                 </ref>
-                                <quote>Σὺ δὲ εὐαρέστει ἐνώπιόν μου, καὶ γίνου ἄμεμπτος.</quote>
-                            </cit>
+                     <quote>Σὺ δὲ εὐαρέστει ἐνώπιόν μου, καὶ γίνου ἄμεμπτος.</quote>
+                  </cit>
                             Τὸ
                             <quote>ἄμεμπτος<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
-                            εἰς ἀκρότητα τρόπων ἐκλαμβάνεται. Ὁ δὲ ἀπόστολος Παῦλος, ἐπειδὴ πρὸς τὰ ἔθνη εἶχε τοὺς ἀπὸ πολυθεΐας ἀπεσπασμένους, τοὺς ἀπὸ κακίας συνειλεγμένους, τοὺς ἀπὸ πορνείας καὶ μοιχείας συνηθροισμένους, οὐ προσέθηκε τὸ ἄκρον τῆς ἀρετῆς, ἀλλ’ ὡς ἦλθεν εἰς τὴν οἰκουμένην πεπληρωμένην πορνείας καὶ μοιχείας, ἠθέλησε καὶ ποιμένας καταστῆσαι τῆς οἰκουμένης, ἐπειδὴ τότε ἐσπάνιζε τὰ καλὰ τῆς ἀρετῆς, καθιστῶν ἐπισκόπους,
+                  </quote>
+                            εἰς ἀκρότητα τρόπων ἐκλαμβάνεται. Ὁ δὲ ἀπόστολος <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>, ἐπειδὴ πρὸς τὰ ἔθνη εἶχε τοὺς ἀπὸ πολυθεΐας ἀπεσπασμένους, τοὺς ἀπὸ κακίας συνειλεγμένους, τοὺς ἀπὸ πορνείας καὶ μοιχείας συνηθροισμένους, οὐ προσέθηκε τὸ ἄκρον τῆς ἀρετῆς, ἀλλ’ ὡς ἦλθεν εἰς τὴν οἰκουμένην πεπληρωμένην πορνείας καὶ μοιχείας, ἠθέλησε καὶ ποιμένας καταστῆσαι τῆς οἰκουμένης, ἐπειδὴ τότε ἐσπάνιζε τὰ καλὰ τῆς ἀρετῆς, καθιστῶν ἐπισκόπους,
                             <cit>
-                                <ref decls="#biblical" cRef="NA:Tt:1:5-6">Τίτῳ λέγει·
+                     <ref decls="#biblical" cRef="NA:Tt:1:5-6">
+                        <persName type="biblical" key="Titus_2Co.2.13">Τίτῳ</persName> λέγει·
                                 </ref>
-                                <quote>Κατάστησον ἐπισκόπους, ὡς ἐγώ σοι διεταξάμην, εἴ τίς ἐστιν ἀνέγκλητος.</quote>
-                            </cit>
+                     <quote>Κατάστησον ἐπισκόπους, ὡς ἐγώ σοι διεταξάμην, εἴ τίς ἐστιν ἀνέγκλητος.</quote>
+                  </cit>
                             Τὸ
                             <quote>ἄμεμπτος<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+                  </quote>
                             οὐκ εἶχε τότε χώραν, ἐπειδή, ὡς προεῖπον, ἐσπάνιζεν ἀκμὴν τὰ τῆς εὐσεβείας. Μέγα τὸ ἄμεμπτον, μέσον δὲ τὸ ἀνέγκλητον, μέγα δὲ ἐν κακοῖς καὶ τὸ μικρὸν ἀγαθόν.</p>
-                        <p>Διὰ τοῦτο εἶπε·
+               <p>Διὰ τοῦτο εἶπε·
                             <quote>Μιᾶς γυναικὸς ἄνδρα.<ref decls="#biblical" cRef="NA:Tt:1:6"/>
-                            </quote>
+                  </quote>
                             Οὐκ ἐπειδὴ τοῦτο νῦν φυλάττεται ἐν τῇ ἐκκλησίᾳ – δεῖ γὰρ παντελεῖ ἁγνείᾳ καὶ ἁγιωσύνῃ ἐστέφθαι τὸν ἱερέα –, ἀλλ’ ἐπειδὴ τότε πρὸς τοὺς ἐν πορνείᾳ μέγα ἦν,
                             <cit>
-                                <ref decls="#biblical" cRef="NA:Tt:1:6">λέγει·
+                     <ref decls="#biblical" cRef="NA:Tt:1:6">λέγει·
                                 </ref>
-                                <quote>Κατάστησον ἐπισκόπους, ὡς ἐγώ σοι διεταξάμην, εἴ τίς ἐστιν ἀνέγκλητος, μιᾶς γυναικὸς ἀνήρ·</quote>
-                            </cit>
+                     <quote>Κατάστησον ἐπισκόπους, ὡς ἐγώ σοι διεταξάμην, εἴ τίς ἐστιν ἀνέγκλητος, μιᾶς γυναικὸς ἀνήρ·</quote>
+                  </cit>
                             οὐκ ἐπειδὴ νόμον ἔθηκε τοῦτο, ἀλλ’ ἐπειδὴ τῇ πλάνῃ συνέγνω. Ἤιδει γάρ, ὅτι ἀνθοῦντος τοῦ λόγου τῆς εὐσεβείας εὐθαίρετον αὐτὴ ἡ φύσις ἕξει τὸ ἀγαθὸν καὶ ἡ ἐκλογὴ γενήσεται τῶν κρειττόνων.
                             <quote>Ἄμεμπτος, δίκαιο.ς<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+                  </quote>
                             Οὐ πρότερον οὖν ἔστι γενέσθαι δίκαιον, ἄμεμπτον μὴ γενόμενον.
                             <quote>Ἀληθινός.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+                  </quote>
                             Ὁ
                             <quote>ἀληθινός<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>, τί βούλεται; Ὁ μὴ ἐσχηματισμένος τὴν ὄψιν καὶ ἄλλην ἔχων τὴν κατάστασιν, ὁ μὴ σωφροσύνην σχηματιζόμενος, ἀκολασίαν δὲ ἐνδεδυμένος, ὁ μὴ τὴν δικαιοσύνην ἐν τῷ σχήματι δεικνύων, τὴν δὲ ἀδικίαν ἐν τῇ καρδίᾳ φέρων. Οὗτος ἀληθινὸς καὶ εὐθέως θεοσεβής. Ὅταν γὰρ ᾖ τὸ ἄμεμπτον, ὅταν τὸ δίκαιον, ὅταν τὸ ἀληθινόν, τότε ἡ ἀληθὴς ἀπαρτίζεται θεοσέβεια.
+                  </quote>, τί βούλεται; Ὁ μὴ ἐσχηματισμένος τὴν ὄψιν καὶ ἄλλην ἔχων τὴν κατάστασιν, ὁ μὴ σωφροσύνην σχηματιζόμενος, ἀκολασίαν δὲ ἐνδεδυμένος, ὁ μὴ τὴν δικαιοσύνην ἐν τῷ σχήματι δεικνύων, τὴν δὲ ἀδικίαν ἐν τῇ καρδίᾳ φέρων. Οὗτος ἀληθινὸς καὶ εὐθέως θεοσεβής. Ὅταν γὰρ ᾖ τὸ ἄμεμπτον, ὅταν τὸ δίκαιον, ὅταν τὸ ἀληθινόν, τότε ἡ ἀληθὴς ἀπαρτίζεται θεοσέβεια.
                             <quote>Ἀπεχόμενος ἀπὸ παντὸς πονηροῦ πράγματος.<ref decls="#biblical" cRef="LXX:Job:1:1"/>
-                            </quote>
+                  </quote>
                             Ἐπειδὴ πολλοὶ ἀπέχονται ἀπὸ πολλῶν ἁμαρτημάτων, πάντων δὲ οὐκ ἀπέχονται, τὸ ἄκρον πάλιν τῆς ἀρετῆς βουλόμενος ὑποθέσθαι,
                             <cit>
-                                <ref decls="#biblical" cRef="LXX:Job:1:1">φησίν·
+                     <ref decls="#biblical" cRef="LXX:Job:1:1">φησίν·
                                 </ref>
-                                <quote>Ἀπεχόμενος ἀπὸ παντὸς πονηροῦ πράγματος.</quote>
-                            </cit>
-                            <cit>
-                                <ref decls="#biblical" cRef="LXX:Ps:96:10">Ὅθεν καὶ ὁ Δαυίδ φησιν·
+                     <quote>Ἀπεχόμενος ἀπὸ παντὸς πονηροῦ πράγματος.</quote>
+                  </cit>
+                  <cit>
+                     <ref decls="#biblical" cRef="LXX:Ps:96:10">Ὅθεν καὶ ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName> φησιν·
                                 </ref>
-                                <quote>Οἱ ἀγαπῶντες κύριον, μισεῖτε πονηρά.</quote>
-                            </cit>
+                     <quote>Οἱ ἀγαπῶντες κύριον, μισεῖτε πονηρά.</quote>
+                  </cit>
                             Οὐ γὰρ οἷόν τε καὶ θεοσεβεῖν καὶ πονηρεύεσθαι. Ἐκτίθεται δὲ αὐτοῦ καὶ τὴν ὕπαρξιν, ὅτι εἶχε πρόβατα ἑπτακισχίλια, καμήλους τρισχιλίας, ζεύγη βοῶν πεντακόσια, ὄνους νομάδας πεντακοσίας. Διὰ τί ταῦτα ἐκτίθεται; Οὐ τὸν πλοῦτον θαυμάζων τοῦ <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>,
                             <pb n="570"/>
-                            ἀλλὰ σοὶ τῷ ἀκροατῇ καταλιμπάνων τὸ πλῆθος τῆς οὐσίας, ἵν ̓, ὅταν αὐτὸν ἴδῃς μετὰ ταῦτα γεγυμνωμένον τῶν ὑπαρχόντων καὶ μὴ στένοντα, θαυμάσῃς, ὅτι τόσων στερούμενος ἀγαθῶν οὐκ ἀθετεῖ τὸν εὐεργέτην, οὐχ ὑβρίζει τὸν δημιουργόν. Ταῦτα τοίνυν ἐγράφη, οὐχ ἵνα τὸν πλοῦτον θαυμάσῃς, ἀλλὰ ἵνα τὴν καρτερίαν καὶ τὴν ὑπομονὴν ἐπαινέσῃς τοῦ δικαίου, πρὸ ὀφθαλμῶν ἔχῃς πάντοτε τὸν φόβον τοῦ θεοῦ. Ἡ δὲ ἀκολουθία τὴν θεωρίαν εἰς ἕτερον καιρὸν ταμιεύσεται. Ὁ γὰρ διάβολος, ἀδελφοί, ἐπειδὴ εἶδεν αὐτὸν πλουτοῦντα τούτῳ τῷ πλούτῳ τῷ προσκαίρῳ, καὶ ἐκ τούτου τοῦ πλούτου τοῦ προσκαίρου τὸν αἰώνιον πλοῦτον ταμιευόμενον ἐνενόησεν, ὅθ’ ὥσπερ πλουτοῦντι αὐτῷ συνεπλούτησεν ἡ δικαιοσύνη, οὕτω καὶ πτωχεύοντι συμπτωχεύσει καὶ ἀρετή. Πειρᾶται οὖν αὐτὸν γυμνῶσαι τῶν χρημάτων, ἵνα γυμνώσῃ καὶ τῶν πλεονεκτημάτων. Ἐνταῦθα δὲ προσεχέτωσαν ἀκριβῶς οἱ λέγοντες· Μὴ ὁ <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> οὐκ ἦν πλούσιος; μὴ ὁ Ἀβραὰμ οὐκ ἦν πλούσιος; διὰ τί οὖν ὑποτίθης ἡμῖν ἀκτημοσύνην; Ἐρῶ κἀγὼ πρὸς σέ· Γενοῦ κατὰ τὸν <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> πλούσιος, καὶ ἐπεύχομαί σοι πλείονα κτήσασθαι· γενοῦ κατὰ τὸν Ἀβραάμ, καὶ πᾶσα ἡ γῆ συνεύξεταί σοι τοῦ πλούτου. Εἰπὲ καὶ σύ, ὡς <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>,
+                            ἀλλὰ σοὶ τῷ ἀκροατῇ καταλιμπάνων τὸ πλῆθος τῆς οὐσίας, ἵν’, ὅταν αὐτὸν ἴδῃς μετὰ ταῦτα γεγυμνωμένον τῶν ὑπαρχόντων καὶ μὴ στένοντα, θαυμάσῃς, ὅτι τόσων στερούμενος ἀγαθῶν οὐκ ἀθετεῖ τὸν εὐεργέτην, οὐχ ὑβρίζει τὸν δημιουργόν. Ταῦτα τοίνυν ἐγράφη, οὐχ ἵνα τὸν πλοῦτον θαυμάσῃς, ἀλλὰ ἵνα τὴν καρτερίαν καὶ τὴν ὑπομονὴν ἐπαινέσῃς τοῦ δικαίου, πρὸ ὀφθαλμῶν ἔχῃς πάντοτε τὸν φόβον τοῦ θεοῦ. Ἡ δὲ ἀκολουθία τὴν θεωρίαν εἰς ἕτερον καιρὸν ταμιεύσεται. Ὁ γὰρ διάβολος, ἀδελφοί, ἐπειδὴ εἶδεν αὐτὸν πλουτοῦντα τούτῳ τῷ πλούτῳ τῷ προσκαίρῳ, καὶ ἐκ τούτου τοῦ πλούτου τοῦ προσκαίρου τὸν αἰώνιον πλοῦτον ταμιευόμενον ἐνενόησεν, ὅθ’ ὥσπερ πλουτοῦντι αὐτῷ συνεπλούτησεν ἡ δικαιοσύνη, οὕτω καὶ πτωχεύοντι συμπτωχεύσει καὶ ἀρετή. Πειρᾶται οὖν αὐτὸν γυμνῶσαι τῶν χρημάτων, ἵνα γυμνώσῃ καὶ τῶν πλεονεκτημάτων. Ἐνταῦθα δὲ προσεχέτωσαν ἀκριβῶς οἱ λέγοντες· Μὴ ὁ <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> οὐκ ἦν πλούσιος; μὴ ὁ <persName type="biblical" key="Abraham_Gen.11.26">Ἀβραὰμ</persName> οὐκ ἦν πλούσιος; διὰ τί οὖν ὑποτίθης ἡμῖν ἀκτημοσύνην; Ἐρῶ κἀγὼ πρὸς σέ· Γενοῦ κατὰ τὸν <persName type="biblical" key="Job_Job.1.1">Ἰὼβ</persName> πλούσιος, καὶ ἐπεύχομαί σοι πλείονα κτήσασθαι· γενοῦ κατὰ τὸν <persName type="biblical" key="Abraham_Gen.11.26">Ἀβραάμ</persName>, καὶ πᾶσα ἡ γῆ συνεύξεταί σοι τοῦ πλούτου. Εἰπὲ καὶ σύ, ὡς <persName type="biblical" key="Job_Job.1.1">Ἰώβ</persName>,
                             <quote>Ἡ θύρα μου ἀνέῳκται παντὶ θλιβομένῳ·<ref decls="#biblical" cRef="LXX:Job:31:32"/>
-                            </quote>
+                  </quote>
                             εἰπέ·
                             <quote>Ὤμους πενήτων ἐθέρμανα·<ref decls="#biblical" cRef="LXX:Job:31:20"/>
-                            </quote>· εἰπέ·
+                  </quote>· εἰπέ·
                             <quote>Ἐκ τῆς κουρᾶς τῶν προβάτων μου ἐθερμάνθησαν ὦμοι πενήτων·<ref decls="#biblical" cRef="LXX:Job:31:20"/>
-                            </quote>
+                  </quote>
                             εἰπέ·
                             <quote>Καὶ στόμα χήρας εὐλόγησέ με·<ref decls="#biblical" cRef="LXX:Job:29:13"/>
-                            </quote>
+                  </quote>
                             καὶ πλούτει πλοῦτον ὃν θέλεις. Εὑρεθήσῃ γὰρ οὐ σαυτῷ πλουτῶν, ἀλλὰ τοῖς πένησιν οἰκονομῶν.
                             <quote>Ἡ θύρα μου
                                 <seg type="insertion">γάρ φησιν</seg>
                                 ἀνέῳκται παντὶ θλιβομένῳ.<ref decls="#biblical" cRef="LXX:Job:31:32"/>
-                            </quote>
-                            Μίμησαι τὴν ἀκρότητα ταύτης τῆς φιλοπτωχίας· ἔνδυσαι τὸν ζῆλον τῆς ὑπομονῆς, ἄνδρισαι κατὰ τῶν ἐναντίων, τὰ ἴσα φρόνησον. Ἀλλὰ ταῦτα μὲν εἰς τοσοῦτον. Γένοιτο δὲ ἡμᾶς τὸν ζῆλον καὶ τὴν ὑπομονὴν ἔχοντας ἔναυλον ἔχειν καὶ τὴν ἀκολουθίαν τῶν λειπομένων καὶ ὑμᾶς παρ’ ἡμῶν ἀπαιτεῖν τὰ λειπόμενα καὶ ἡμᾶς ὑμῖν τιννύειν τῶν θεωρημάτων τὴν ἀκολουθίαν. Καὶ γένοιτο ἡμᾶς γνησίως καὶ τὴν ἑορτὴν ἐπιτελέσαι καὶ τοῖς παθήμασι τῶν ἁγίων κοινωνήσαντας κοινωνῆσαι καὶ τῷ πάθει Χριστοῦ. Ἀληθῶς γάρ, ἀδελφοί, δικαίως προέλαμψε τοῦ πάθους τοῦ Χριστοῦ τὰ πάθη τῶν ἁγίων. Προέλαμψαν γάρ, ὥσπερ ἀστραπαί, τὰ πάθη τῶν δικαίων,
-                            <seg type="allusion">ἵνα μετὰ ταῦτα φανῇ ὁ Χριστός, ὥς φησιν ὁ Παῦλος, ὁ πᾶσι συμπάσχων, καὶ πᾶσι συνδοξαζόμενος<ref decls="#biblical" cRef="NA:Rom:8:17"/>
-                            </seg>. Εὐχαῖς οὖν καὶ πρεσβείαις τῶν ἁγίων πατέρων καὶ τοῖς εἰρημένοις στοιχήσαντες καὶ τὰ λειπόμενα προσδοκήσαντες δόξαν ἀναπέμψωμεν τῷ πατρὶ καὶ τῷ υἱῷ καὶ τῷ ἁγίῳ Πνεύματι, εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.</p>
-                    </div>
+                  </quote>
+                            Μίμησαι τὴν ἀκρότητα ταύτης τῆς φιλοπτωχίας· ἔνδυσαι τὸν ζῆλον τῆς ὑπομονῆς, ἄνδρισαι κατὰ τῶν ἐναντίων, τὰ ἴσα φρόνησον. Ἀλλὰ ταῦτα μὲν εἰς τοσοῦτον. Γένοιτο δὲ ἡμᾶς τὸν ζῆλον καὶ τὴν ὑπομονὴν ἔχοντας ἔναυλον ἔχειν καὶ τὴν ἀκολουθίαν τῶν λειπομένων καὶ ὑμᾶς παρ’ ἡμῶν ἀπαιτεῖν τὰ λειπόμενα καὶ ἡμᾶς ὑμῖν τιννύειν τῶν θεωρημάτων τὴν ἀκολουθίαν. Καὶ γένοιτο ἡμᾶς γνησίως καὶ τὴν ἑορτὴν ἐπιτελέσαι καὶ τοῖς παθήμασι τῶν ἁγίων κοινωνήσαντας κοινωνῆσαι καὶ τῷ πάθει <persName type="biblical" key="Jesus_Mat.1.1">Χριστοῦ</persName>. Ἀληθῶς γάρ, ἀδελφοί, δικαίως προέλαμψε τοῦ πάθους τοῦ <persName type="biblical" key="Jesus_Mat.1.1">Χριστοῦ</persName> τὰ πάθη τῶν ἁγίων. Προέλαμψαν γάρ, ὥσπερ ἀστραπαί, τὰ πάθη τῶν δικαίων,
+                            <seg type="allusion">ἵνα μετὰ ταῦτα φανῇ ὁ Χριστός, ὥς φησιν ὁ <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>, ὁ πᾶσι συμπάσχων, καὶ πᾶσι συνδοξαζόμενος<ref decls="#biblical" cRef="NA:Rom:8:17"/>
+                  </seg>. Εὐχαῖς οὖν καὶ πρεσβείαις τῶν ἁγίων πατέρων καὶ τοῖς εἰρημένοις στοιχήσαντες καὶ τὰ λειπόμενα προσδοκήσαντες δόξαν ἀναπέμψωμεν τῷ πατρὶ καὶ τῷ υἱῷ καὶ τῷ ἁγίῳ Πνεύματι, εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.</p>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>

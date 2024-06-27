@@ -1,918 +1,1350 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0"
-    xmlns:telota="http://www.telota.de" telota:doctype="transcription">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title xml:lang="la">In illud: in principium erat
+     xmlns:telota="http://www.telota.de"
+     telota:doctype="transcription">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">In illud: in principium erat
                     verbum (Ms Od)</title>
-                <author>
-                    <persName key="pta0001">Severianus
+            <author>
+               <persName key="pta0001">Severianus
                         Gabalensis</persName>
-                </author>
-                <respStmt>
-                    <resp>transkribiert von</resp>
-                    <persName xml:id="MB">Mathias Berger</persName>
-                </respStmt>
-            </titleStmt>
-            <editionStmt>
-                <p>New transcription.</p>
-            </editionStmt>
-            <publicationStmt>
-                <publisher>Patristic Text Archive</publisher>
-                <date>2022</date>
-                <idno type="PTA">pta0001.pta026</idno>
-                <idno type="TLG">tlg4139.tlg016</idno>
-                <idno type="CPG">4210</idno>
-                <idno type="Aldama">549</idno>
-                <idno type="Pinakes-Oeuvre">7957</idno>
-            </publicationStmt>
-            <sourceDesc>
-                <msDesc>
-                    <msIdentifier xml:id="Od" corresp="PTAMS00290">
-                        <settlement>Oxford</settlement>
-                        <repository>Bodleian Library</repository>
-                        <idno>Canon. gr. 99</idno>
-                        <altIdentifier type="diktyon">
-                            <idno>47649</idno>
-                        </altIdentifier>
-                    </msIdentifier>
-                </msDesc>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="section" matchPattern="(.+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"
-                />
-            </refsDecl>
-        </encodingDesc>
-        <revisionDesc>
-            <change who="#MB" when="2022-06-26">Transkription des
+            </author>
+            <respStmt>
+               <resp>transkribiert von</resp>
+               <persName xml:id="MB">Mathias Berger</persName>
+            </respStmt>
+         </titleStmt>
+         <editionStmt>
+            <p>New transcription.</p>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Patristic Text Archive</publisher>
+            <date>2022</date>
+            <idno type="PTA">pta0001.pta026</idno>
+            <idno type="TLG">tlg4139.tlg016</idno>
+            <idno type="CPG">4210</idno>
+            <idno type="Aldama">549</idno>
+            <idno type="Pinakes-Oeuvre">7957</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier xml:id="Od" corresp="PTAMS00290">
+                  <settlement>Oxford</settlement>
+                  <repository>Bodleian Library</repository>
+                  <idno>Canon. gr. 99</idno>
+                  <altIdentifier type="diktyon">
+                     <idno>47649</idno>
+                  </altIdentifier>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations"
+                  ana="not-annotated not-identified">
+            Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references"
+                  ana="not-annotated not-identified">
+            Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons"
+                  ana="not-annotated not-identified">
+            Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups"
+                  ana="not-annotated not-identified">
+            Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places"
+                  ana="not-annotated not-identified">
+            Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term/>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change who="#MB" when="2022-06-26">Transkription des
                 Textes</change>
-        </revisionDesc>
-    </teiHeader>
-    <text xml:lang="grc">
-        <body>
-            <div type="edition" xml:lang="grc"
-                n="urn:cts:pta:pta0001.pta026.pta-MsOd">
-                <pb n="110r"/>
-                <head><title>+ τοῦ ἐν ἁγίοις <choice>
-                            <expan>πατρὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρς</hi></abbr>
-                        </choice> ἡμῶν ἰωάννου ἀρχιεπισκόπου <lb/>
-                        κωνσταντίνου πόλεως τοῦ χρυσοστόμου· ὁμηλία
-                        εἰς τὸ ἐν ἀρχὴ <lb/> ἦν ὁ λόγος· καὶ ὅτι τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> ἐρευνᾶ τὰ βάθη τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice>:–</title></head>
-                <div type="textpart" subtype="section" n="1">
-                    <p><hi rend="initial">χ</hi>θὲς ἡμῖν ὁ λόγος, εἰς
-                        τὴν τοῦ μεγάλου ἀετοῦ θεωρίαν κατέληξεν· <lb/>
-                        ἀετοῦ τοῦ μεγάλου καὶ <choice>
-                            <expan>πνεύματι</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνι</hi></abbr>
-                        </choice> τὸν <choice>
-                            <expan>οὐρανὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνὸν</hi></abbr>
-                        </choice> καὶ τὰς ὑπερκοσμιους δυνάμεις <lb/>
-                        ὑπερβάντος, καὶ ἁπ’ αὐτῆς τῆς κορυφῆς τῶν
-                        ἁπάντων ἀρξαμένου· <lb/> ἰωάννης γὰρ ἡμῖν
-                        προεκήρυξεν ἀετὸν δεικνὺς ἑαυτὸν ὑψηλότερον
-                        <lb/> πάσης κτίσεως γενόμενον, ὡς περὶ τῆς
-                        ἀκτίστου φύσεως φιλοσοφή<lb break="no"/>σαντα·
-                        ὃς ὑπερέβη μὲν τὴν κτίσιν, ὑπὲρ πᾶσαν ἀετοῦ
-                        φύσιν· ὑ<lb break="no"/>περέβη δὲ πάσης
-                        βροντῆς μόνος τὴν ὑπερκόσμιον φιλοσοφίαν· ἡ δὲ
-                        <lb/> βροντὴ φοβεῖ καὶ ἀρδεύει· καὶ ἀρδεύει
-                        μὲν τῶν νεφῶν· φοβεῖ δὲ καὶ κατα<lb break="no"
-                        />πλήττει διὰ τῆς φωνῆς· μερίζει τοίνυν καὶ ἡ
-                        ἰωάννου φωνὴ· ἀρδεύου<lb break="no"/>σα μὲν
-                        τὴν ἐκκλησίαν· καταπλήττουσα δὲ τῶν αἱρετικῶν
-                        τὸ σύστημα. <lb/> ὅτ’ ἂν γὰρ τὰ μάταια
-                        εἴπωσιν, ὅταν γνῶντες τὰ ὄντα μὴ ὡς ὄντα
-                        εἰπεῖν <lb/> τολμήσωσιν· ὅταν τὴν ἀνθρωπίνην
-                        διάλεκτον κατὰ τῆς θείας γρα<lb break="no"
-                        />φῆς στρατεύσωσιν, τότε βοᾷ ἰωάννης τὸ ἦν πρὸ
-                        τοῦ οὐκ ἦν· ἐν ἀρ<lb break="no"/>χὴ ἦν ὁ
-                        λόγος· καὶ ὁ λόγος ἦν πρὸς τὸν <choice>
-                            <expan>θεόν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θν</hi></abbr>
-                        </choice>· καὶ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θς</hi></abbr>
-                        </choice> ἦν ὁ λόγος· τῇ φωνῇ <lb/>
-                        καταπλήττων τοὺς ἐναντίους· ἐπιμαρτυροῦντος
-                        τοῦ <choice>
-                            <expan>δαυὶδ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >δαδ</hi></abbr>
-                        </choice> καὶ λέ<lb break="no"/>γοντος· ἀπὸ
-                        ἐπιτιμήσεώς σου φεύξονται· ἀπὸ φωνῆς βροντῆς
-                        σου <lb/> δειλιάσωσιν· ἐν ἀρχὴ ἦν ὁ λόγος καὶ
-                        ὁ λόγος ἦν πρὸς τὸν <choice>
-                            <expan>θεὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θν</hi></abbr>
-                        </choice> καὶ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θς</hi></abbr>
-                        </choice>
-                        <lb/> ἦν ὁ λόγος· ἐπειδὴ γὰρ ἀπαθὴς ἡ τοῦ
-                        λόγου γέννησις· λόγον λέγει· ἵ<lb break="no"
-                        />να ἀπὸ τῶν κατὰ σὲ τὰ ὑπὲρ σὲ παιδεύση· ὅτι
-                        ὥσπερ ὁ νοῦς γενῶν <lb/> τὸν λόγον οὐ πάθει
-                        γεννᾶ· οὐ τέμνεται οὐ ρεῖ· οὐδὲ ἄλλό τι τῶν
-                            σω<lb break="no"/>ματικῶν ὑφίσταται οὕτως
-                        ἡ ἀπαθὴς γέννησις ἄφραστος καὶ ἀκατά<lb
-                            break="no"/>ληπτος· οὐ τεμνομένη οὐ
-                        μεριζομένη· ἀλλ’ ὑπὸ τῶν μὲν αἱρετικῶν <lb/>
-                        τεμνομένη κακῶς, ὑπὸ δὲ τῆς εὐσεβείας ἑνουμένη
-                        καλῶς· διατί τοῦτο <pb n="110v"/> παρητήσατο
-                        καὶ οὐκ εἶπεν ἐν ἀρχὴ ἦν ὁ <choice>
-                            <expan>υἱὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >υς</hi></abbr>
-                        </choice> ἵνα μὴ ἡ τοῦ υἱοῦ προ<lb break="no"
-                        />σηγορία πάθους γέννησιν· εἰσαγάγη· ἀλλὰ
-                        λέγει αὐτὸν λόγον ἵνα τὸ ἀ<lb break="no"
-                        />παθὲς παραστήση τῆς γεννήσεως· καὶ ἵνα μὴ
-                        προφορικὸν λόγον νο<lb break="no"/>μίσης,
+      </revisionDesc>
+   </teiHeader>
+   <text xml:lang="grc">
+      <body>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta0001.pta026.pta-MsOd">
+            <pb n="110r"/>
+            <head>
+               <title>+ τοῦ ἐν ἁγίοις <choice>
+                     <expan>πατρὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρς</hi>
+                     </abbr>
+                  </choice> ἡμῶν ἰωάννου ἀρχιεπισκόπου <lb/>
+                        κωνσταντίνου πόλεως τοῦ χρυσοστόμου· ὁμηλία
+                        εἰς τὸ ἐν ἀρχὴ <lb/> ἦν ὁ λόγος· καὶ ὅτι τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> ἐρευνᾶ τὰ βάθη τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>:–</title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p>
+                  <hi rend="initial">χ</hi>θὲς ἡμῖν ὁ λόγος, εἰς
+                        τὴν τοῦ μεγάλου ἀετοῦ θεωρίαν κατέληξεν·
+                        <lb/> ἀετοῦ τοῦ μεγάλου καὶ <choice>
+                     <expan>πνεύματι</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνι</hi>
+                     </abbr>
+                  </choice> τὸν <choice>
+                     <expan>οὐρανὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνὸν</hi>
+                     </abbr>
+                  </choice> καὶ τὰς ὑπερκοσμιους δυνάμεις
+                        <lb/> ὑπερβάντος, καὶ ἁπ’ αὐτῆς τῆς κορυφῆς
+                        τῶν ἁπάντων ἀρξαμένου·
+                        <lb/> ἰωάννης γὰρ ἡμῖν προεκήρυξεν ἀετὸν
+                        δεικνὺς ἑαυτὸν ὑψηλότερον
+                        <lb/> πάσης κτίσεως γενόμενον, ὡς περὶ τῆς
+                        ἀκτίστου φύσεως φιλοσοφή<lb break="no"/>σαντα·
+                        ὃς ὑπερέβη μὲν τὴν κτίσιν, ὑπὲρ πᾶσαν ἀετοῦ
+                        φύσιν· ὑ<lb break="no"/>περέβη δὲ πάσης
+                        βροντῆς μόνος τὴν ὑπερκόσμιον φιλοσοφίαν· ἡ δὲ
+                        <lb/> βροντὴ φοβεῖ καὶ ἀρδεύει· καὶ ἀρδεύει
+                        μὲν τῶν νεφῶν· φοβεῖ δὲ καὶ κατα<lb break="no"/>πλήττει διὰ τῆς φωνῆς· μερίζει τοίνυν καὶ ἡ
+                        ἰωάννου φωνὴ· ἀρδεύου<lb break="no"/>σα μὲν
+                        τὴν ἐκκλησίαν· καταπλήττουσα δὲ τῶν αἱρετικῶν
+                        τὸ σύστημα.
+                        <lb/> ὅτ’ ἂν γὰρ τὰ μάταια εἴπωσιν, ὅταν
+                        γνῶντες τὰ ὄντα μὴ ὡς ὄντα εἰπεῖν
+                        <lb/> τολμήσωσιν· ὅταν τὴν ἀνθρωπίνην
+                        διάλεκτον κατὰ τῆς θείας γρα<lb break="no"/>φῆς στρατεύσωσιν, τότε βοᾷ ἰωάννης τὸ ἦν πρὸ
+                        τοῦ οὐκ ἦν· ἐν ἀρ<lb break="no"/>χὴ ἦν ὁ
+                        λόγος· καὶ ὁ λόγος ἦν πρὸς τὸν <choice>
+                     <expan>θεόν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>· καὶ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἦν ὁ λόγος· τῇ φωνῇ
+                        <lb/> καταπλήττων τοὺς ἐναντίους·
+                        ἐπιμαρτυροῦντος τοῦ <choice>
+                     <expan>δαυὶδ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">δαδ</hi>
+                     </abbr>
+                  </choice> καὶ λέ<lb break="no"/>γοντος· ἀπὸ
+                        ἐπιτιμήσεώς σου φεύξονται· ἀπὸ φωνῆς βροντῆς
+                        σου
+                        <lb/> δειλιάσωσιν· ἐν ἀρχὴ ἦν ὁ λόγος καὶ ὁ
+                        λόγος ἦν πρὸς τὸν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice> καὶ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> ἦν ὁ λόγος· ἐπειδὴ γὰρ ἀπαθὴς ἡ τοῦ
+                        λόγου γέννησις· λόγον λέγει· ἵ<lb break="no"/>να ἀπὸ τῶν κατὰ σὲ τὰ ὑπὲρ σὲ παιδεύση· ὅτι
+                        ὥσπερ ὁ νοῦς γενῶν
+                        <lb/> τὸν λόγον οὐ πάθει γεννᾶ· οὐ τέμνεται οὐ
+                        ρεῖ· οὐδὲ ἄλλό τι τῶν σω<lb break="no"/>ματικῶν ὑφίσταται οὕτως ἡ ἀπαθὴς γέννησις
+                        ἄφραστος καὶ ἀκατά<lb break="no"/>ληπτος· οὐ
+                        τεμνομένη οὐ μεριζομένη· ἀλλ’ ὑπὸ τῶν μὲν
+                        αἱρετικῶν
+                        <lb/> τεμνομένη κακῶς, ὑπὸ δὲ τῆς εὐσεβείας
+                        ἑνουμένη καλῶς· διατί τοῦτο
+                        <pb n="110v"/>
+                         παρητήσατο καὶ οὐκ εἶπεν ἐν ἀρχὴ ἦν ὁ <choice>
+                     <expan>υἱὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">υς</hi>
+                     </abbr>
+                  </choice> ἵνα μὴ ἡ τοῦ υἱοῦ προ<lb break="no"/>σηγορία πάθους γέννησιν· εἰσαγάγη· ἀλλὰ
+                        λέγει αὐτὸν λόγον ἵνα τὸ ἀ<lb break="no"/>παθὲς παραστήση τῆς γεννήσεως· καὶ ἵνα μὴ
+                        προφορικὸν λόγον νο<lb break="no"/>μίσης,
                         ἐπήγαγεν καὶ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θς</hi></abbr>
-                        </choice> ἦν ὁ λόγος· ἵνα ἀπὸ τοῦ μὲν λόγου τὸ
-                            ἀπα<lb break="no"/>θὲς· ἀπὸ δὲ τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> τὴν ἀξίαν νοήσης· εἶτα εἰσηγησάμενος
-                        αὐτοῦ <lb/> τὰ τῆς γεννήσεως, εἰσάγη καὶ τὸ
-                        δυνατὸν τῆς δημιουργίας ἀξίωμα· πάν<lb
-                            break="no"/>τα δι’ αὐτοῦ ἐγένετο· πάντα τὰ
-                        γενόμενα οὐχ’ ὡς οἱ τῶν αἱρετικῶν παῖ<lb
-                            break="no"/>δες καὶ τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τὸ προσκυνητὸν τολμῶσιν τῆ λέξει
-                        ταύτη συμπα<lb break="no"/>ραλαβεῖν λέγοντες
-                        πάντα δι’ αὐτοῦ ἐγένετο· καὶ χωρὶς αὐτοῦ
-                        ἐγένετο <lb/> οὐδὲ ἓν ὃ γέγονεν ἐν αὐτῷ· εἴτι
-                        οὖν γέγονεν ἐν αὐτῷ· οὐχ’ ἡ ἄκτιστος <lb/>
-                        φύσις τοῦ <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice> ἀλλ’ εἴρηται φησὶ πάντα· ἀλλ’ ἡ τὰ
-                        πάντα φωνὴ οὐ <lb/> περιλαμβάνει τὴν ἄκτιστον
-                        φύσιν μετὰ τῆς κτιστῆς· εἰ δὲ τῇ πάν<lb
-                            break="no"/>τα φωηῇ πρὸς ἔχων κατετόλμησας
-                        τῆς ἁγίας φύσεως, ἐὰν ἀκού<lb break="no"/>σης
-                        τοῦ <choice>
-                            <expan>κυρίου</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >κυ</hi></abbr>
-                        </choice> λέγοντος πάντες ὅσοι ἦλθον πρὸ ἐμοῦ
-                        κλέπται ἦσαν καὶ <lb/> λησταὶ, τί ἂν εἴποις·
-                        μωϋσῆν ἐὰν ληστὴν ὀνομάζης· καὶ τοὺς προφή<lb
-                            break="no"/>τας κλέπτας προσαγορεύεις·
-                        πάντες γὰρ ὅσοι πρὸ ἐμοῦ ἦλθον <lb/> φησὶν· ἡ
-                        δὲ ἔννοια μερίζει καὶ περὶ τίνων ὁ λόγος καὶ
-                        πρὸς τίνας· <lb/> καὶ νῦν περὶ δημιουργίας ὁ
-                        λόγος· καὶ τὴν δημιουργίαν λέγει δι’ αὐτοῦ
-                        <lb/> γεγενῆσθαι· οὐ τὴν τοῦ <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice> οὐσίαν τὴν οὕτως γνωρίζουσαν τὰ τοῦ <lb/>
-                        <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice>, ὡς τὸ τοῦ ἀνθρώπου <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τὰ ἐν αὐτῷ· καθὼς λέγει παῦλος·
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἦν ὁ λόγος· ἵνα ἀπὸ τοῦ μὲν λόγου τὸ
+                            ἀπα<lb break="no"/>θὲς· ἀπὸ δὲ τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> τὴν ἀξίαν νοήσης· εἶτα εἰσηγησάμενος
+                        αὐτοῦ
+                        <lb/> τὰ τῆς γεννήσεως, εἰσάγη καὶ τὸ δυνατὸν
+                        τῆς δημιουργίας ἀξίωμα· πάν<lb break="no"/>τα
+                        δι’ αὐτοῦ ἐγένετο· πάντα τὰ γενόμενα οὐχ’ ὡς
+                        οἱ τῶν αἱρετικῶν παῖ<lb break="no"/>δες καὶ τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὸ προσκυνητὸν τολμῶσιν τῆ λέξει
+                        ταύτη συμπα<lb break="no"/>ραλαβεῖν λέγοντες
+                        πάντα δι’ αὐτοῦ ἐγένετο· καὶ χωρὶς αὐτοῦ
+                        ἐγένετο
+                        <lb/> οὐδὲ ἓν ὃ γέγονεν ἐν αὐτῷ· εἴτι οὖν
+                        γέγονεν ἐν αὐτῷ· οὐχ’ ἡ ἄκτιστος
+                        <lb/> φύσις τοῦ <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice> ἀλλ’ εἴρηται φησὶ πάντα· ἀλλ’ ἡ τὰ
+                        πάντα φωνὴ οὐ
+                        <lb/> περιλαμβάνει τὴν ἄκτιστον φύσιν μετὰ τῆς
+                        κτιστῆς· εἰ δὲ τῇ πάν<lb break="no"/>τα φωηῇ
+                        πρὸς ἔχων κατετόλμησας τῆς ἁγίας φύσεως, ἐὰν
+                            ἀκού<lb break="no"/>σης τοῦ <choice>
+                     <expan>κυρίου</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κυ</hi>
+                     </abbr>
+                  </choice> λέγοντος πάντες ὅσοι ἦλθον πρὸ ἐμοῦ
+                        κλέπται ἦσαν καὶ
+                        <lb/> λησταὶ, τί ἂν εἴποις· μωϋσῆν ἐὰν ληστὴν
+                        ὀνομάζης· καὶ τοὺς προφή<lb break="no"/>τας
+                        κλέπτας προσαγορεύεις· πάντες γὰρ ὅσοι πρὸ
+                        ἐμοῦ ἦλθον
+                        <lb/> φησὶν· ἡ δὲ ἔννοια μερίζει καὶ περὶ
+                        τίνων ὁ λόγος καὶ πρὸς τίνας·
+                        <lb/> καὶ νῦν περὶ δημιουργίας ὁ λόγος· καὶ
+                        τὴν δημιουργίαν λέγει δι’ αὐτοῦ
+                        <lb/> γεγενῆσθαι· οὐ τὴν τοῦ <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice> οὐσίαν τὴν οὕτως γνωρίζουσαν τὰ τοῦ
+                        <lb/>
+                  <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>, ὡς τὸ τοῦ ἀνθρώπου <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὰ ἐν αὐτῷ· καθὼς λέγει παῦλος·
                         <lb/> οὐδεὶς οἶδεν τὰ τοῦ <choice>
-                            <expan>ἀνθρώπου</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >ἀνου</hi></abbr>
-                        </choice>, εἰ μὴ τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τοῦ ἀνθρώπου τὸ ἐν αὐτῷ· <lb/> εἰ
-                        οὖν τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τὸ ἐμὸν ἀλλότριον τῆς ἐμῆς φύσεως·
+                     <expan>ἀνθρώπου</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἀνου</hi>
+                     </abbr>
+                  </choice>, εἰ μὴ τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τοῦ ἀνθρώπου τὸ ἐν αὐτῷ·
+                        <lb/> εἰ οὖν τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὸ ἐμὸν ἀλλότριον τῆς ἐμῆς φύσεως·
                         καὶ τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice>
-                        <lb/> τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> ἀλλότριον τῆς τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> φύσεως· τὸ γὰρ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> φησὶν πάντα ἐ<lb break="no"/>ρευνᾷ
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> ἀλλότριον τῆς τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> φύσεως· τὸ γὰρ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> φησὶν πάντα ἐ<lb break="no"/>ρευνᾷ
                         καὶ τὰ βάθη τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice>· ἀλλ’ ὁ αἱρετικὸς μὲν τὸ ἐρευνᾷ
-                        ἀκούει· <lb/> τὴν δὲ ἔννοιαν κακῶς ἐκλαμβάνει·
-                        εἰ γὰρ εἴδει φησὶν τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τὰ <lb/> ἐν τῷ <choice>
-                            <expan>θεῷ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θῷ</hi></abbr>
-                        </choice> οὐκ ἂν ἠρεύνα· μαρτυρεῖ γὰρ αὐτοῦ τῆ
-                        ἐννοία ἡ ἔρευνα· εἰ <lb/> τοίνυν τὸ ἐρευνᾶν τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τὸ ἅγιον τὰ βάθη τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> ἀγνοίας κατηγο<lb break="no"/>ρίαν
-                        αὐτῷ ἐπάγει· ὅτ ἂν εἶδης τὸν <choice>
-                            <expan>θεὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θν</hi></abbr>
-                        </choice> ἐρευνῶντα τὰς καρδίας τῶν <lb/>
-                        ἀνθρώπων ἀγνοίας αὐτοῦ καταψηφίζη· ἄκουε γοῦν
-                        τοῦ παύλου <pb n="111r"/> λέγοντος· ὃς περὶ
-                        τοῦ <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice> εἶπεν· τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> πάντα ἐρευνᾶ καὶ τὰ βάθη <lb/> τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice>· οὕτως καὶ περὶ τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> φιλοσοφῶν ὁ παῦλος φησὶν· ὁ δὲ
-                            ἐρευ<lb break="no"/>νῶν τὰς καρδίας· οἶδεν
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>· ἀλλ’ ὁ αἱρετικὸς μὲν τὸ ἐρευνᾷ
+                        ἀκούει·
+                        <lb/> τὴν δὲ ἔννοιαν κακῶς ἐκλαμβάνει· εἰ γὰρ
+                        εἴδει φησὶν τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὰ
+                        <lb/> ἐν τῷ <choice>
+                     <expan>θεῷ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θῷ</hi>
+                     </abbr>
+                  </choice> οὐκ ἂν ἠρεύνα· μαρτυρεῖ γὰρ αὐτοῦ τῆ
+                        ἐννοία ἡ ἔρευνα· εἰ
+                        <lb/> τοίνυν τὸ ἐρευνᾶν τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὸ ἅγιον τὰ βάθη τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> ἀγνοίας κατηγο<lb break="no"/>ρίαν
+                        αὐτῷ ἐπάγει· ὅτ ἂν εἶδης τὸν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice> ἐρευνῶντα τὰς καρδίας τῶν
+                        <lb/> ἀνθρώπων ἀγνοίας αὐτοῦ καταψηφίζη· ἄκουε
+                        γοῦν τοῦ παύλου
+                        <pb n="111r"/>
+                         λέγοντος· ὃς περὶ τοῦ <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice> εἶπεν· τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> πάντα ἐρευνᾶ καὶ τὰ βάθη
+                        <lb/> τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>· οὕτως καὶ περὶ τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> φιλοσοφῶν ὁ παῦλος φησὶν· ὁ δὲ
+                            ἐρευ<lb break="no"/>νῶν τὰς καρδίας· οἶδεν
                         τί τὸ φρόνημα τοῦ <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice>· εἰ οὖν <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θς</hi></abbr>
-                        </choice> ἐρευνᾷ ἀ<lb break="no"/>γνοῶν· καὶ
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice>· εἰ οὖν <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἐρευνᾷ ἀ<lb break="no"/>γνοῶν· καὶ
                         τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> ἀγνοῶν ἐρευνᾶ· ἀλλ’ ἵνα δὲ μάθης ὅτι
-                        τὸ ἐρευνᾷν <lb/> οὐκ ἀγνοοῦντός ἐστὶν ἀλλ’
-                        εἰδότος ἐπήγαγεν· οὕτω καὶ τὰ τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> οὐδεὶς <lb/> ἔγνω· εἰ μὴ τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> καὶ γνῶσιν ἐπιγράφει τῷ <choice>
-                            <expan>πνεύματι</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνι</hi></abbr>
-                        </choice>· οὐ τὴν <lb/> ἐκ τῆς φύσεως
-                        κατάληψιν ἀλλὰ τὴν ἐκ τῆς φύσεως ἐπίγνωσιν·
-                        <lb/> τοιγαροῦν μὴ μέριζε τὴν ἀμέτρητον φύσιν·
-                        μὴ τέμνε τὴν ἀδιαίρετον <lb/> οὐσίαν· γνώριζε
-                        τὴν δύναμιν ἧς κέκληται ὁ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πὴρ</hi></abbr>
-                        </choice> καὶ ὁ υἱὸς καὶ τὸ <lb/>
-                        <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τὸ ἅγιον· περὶ μὲν γὰρ τοῦ <choice>
-                            <expan>πατρὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρς</hi></abbr>
-                        </choice> λέγει ὁ υἱὸς· ὅταν ἴδητε τὸν υἱὸν
-                        <lb/> τοῦ ἀνθρώπου καθήμενον ἐκ δεξιῶν τῆς
-                        δυνάμεως· καὶ δύναμιν εἰ<lb break="no"/>ρηκὼς
-                        ἔστησεν τὴν δόξαν· ἵνα θαυμάσης τὴν ἔννοιαν·
-                        αὐτὸν τὸν <choice>
-                            <expan>θεὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θν</hi></abbr>
-                        </choice>
-                        <lb/> καλέσας δύναμιν πρὸς καϊάφαν
-                        διαλεγόμενος· ὅτ’ ἂν ἴδητε τὸν υἱὸν <lb/> τοῦ
-                        ἀνθρώπου καθήμενον ἐκ δεξιῶν τῆς δυνάμεως·
-                        δύναμις οὖν ὁ <lb/>
-                        <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πὴρ</hi></abbr>
-                        </choice>· δύναμις δὲ καὶ ὁ υἱὸς· <choice>
-                            <expan>χριστὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >χς</hi></abbr>
-                        </choice>
-                        <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> δύναμις καὶ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> σοφία· δύναμις <lb/> καὶ τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τὸ ἅγιον· λέγει οὖν ὁ <choice>
-                            <expan>σωτὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >σὴρ</hi></abbr>
-                        </choice> τοῖς μαθηταῖς· μείνατε ἐν ἱερου<lb
-                            break="no"/>σαλὴμ ἕως οὓ ἐνδύσησθε δύναμιν
-                        ἐξ’ ὕψους· εἰδὼς οὖν τὴν ὁμοίαν <lb/> ταύτην
-                        δύναμιν ἔχε τὴν πίστιν ἀσάλευτον· μὴ μερίσης
-                        τὴν δόξαν <lb/> τὴν ἀκατάληπτον· ἐπίγνωθι τὰς
-                        συνθήκας τοῦ φωτίσματος· βλέ<lb break="no"/>πε
-                        τοὺς υἱοὺς τῆς χάριτος διὰ τοῦ μεγάλου
-                        ἀρχιερέως ἀνθήσαντας· <lb/> βλέπε τὰ τέκνα τοῦ
-                        φωτὸς δραμόντα πρὸς τοὺς κήρυκας τοῦ φωτὸς·
-                        <lb/> δεῖ γὰρ τοὺς ἀπὸ τοῦ φωτίσματος
-                        ἀναγεννηθέντας δραμεῖν πρὸς <lb/> τοὺς τὴν
-                        οἰκουμένην ἀναγεννήσαντας· εἴπωμεν καὶ ἡμεῖς
-                        μετὰ τοῦ <lb/> προφήτου καὶ τῶν ἀποστόλων·
-                        ἀνάβλεψον τοῖς ὀφθαλμοῖς καὶ ἴδε <lb/>
-                        συνηγμένα τὰ τέκνα σου· ζῶ ἐγὼ λέγει <choice>
-                            <expan>κύριος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >κς</hi></abbr>
-                        </choice> ὅτι πάντας αὐτοὺς ἐνδύ<lb break="no"
-                        />σω ὡς κόσμον νύμφης· ἔστηκεν ἡσαΐας σήμερον
-                        λέγων πρὸς τὰ τῶν <lb/> φωτισθέντων πλήθη τοὺς
-                        γεννηθέντας ἐν <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice> ἁγίου· τοὺς ἀθρόον ἀνα<lb break="no"
-                        />καινισθέντας· τοὺς ἐν μιᾷ ῥοπῆ
-                        μεταβληθέντας· τοὺς ἀπογηΐνης <lb/>
-                        καταστάσεως εἰς <choice>
-                            <expan>οὐράνιον</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνιον</hi></abbr>
-                        </choice> εἰκόνα μεταποιηθέντας· ἐκπλήττεται
-                            <pb n="111v"/><g type="diple"/> γὰρ ἡσαΐας λέγων· τίς
-                        ἴδεν τίς ἤκουσεν τοιαῦτα ὅτι ἔτεκεν ἡ γῆ τὰ
-                        τέκνα <lb/><g type="diple"/> αὐτῆς ἐν ἡμέρα μιᾷ ἔτεκεν ἡ γῇ
-                        παιδία αὐτῆς ἐν ἡμέρα μιᾷ· καὶ ἐτέ<lb
-                            break="no"/>χθη ἔθνος εἰς ἅπαξ· τευχεία
-                        γὰρ τοῦ <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice> ἡ ἀναγέννησις· οὐκ ἀναμένει <lb/>
-                        χρόνον· οὐ δουλεύει καιροῖς· καὶ γενεαῖς· ἀλλ’
-                        ἅμα βούλεται, ἅμα <lb/> τίκτεται τὸ
-                        ἀναγεννώμενον· ἔπρεπεν τοῖς υἱοῖς τοῦ φωτὸς
-                        ἅπασαν <lb/> τὴν ἀγορὰν πομπεύειν· καὶ
-                        ἀναφωνεῖν ἐκεῖνον τὸν δι’ αὐτοὺς ἐλ<lb
-                            break="no"/>θόντα κάτω, ἵνα ἅπασαν τὴν
-                        οἰκουμένην ἀναγάγη πρὸς αὐτὸν <lb/> ἄνω· <choice>
-                            <expan>χριστὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >χς</hi></abbr>
-                        </choice> κατῆλθεν ἐκ τῶν <choice>
-                            <expan>οὐρανῶν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνῶν</hi></abbr>
-                        </choice>· κατῆλθεν οὐ μεταστὰς τῶν <choice>
-                            <expan>οὐρανῶν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνῶν</hi></abbr>
-                        </choice>
-                        <lb/> ἀνῆλθεν οὐ μεταστὰς τῆς γῆς· οὔτε γὰρ
-                        κατελθὼν τοὺς <choice>
-                            <expan>οὐρανοὺς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνοὺς</hi></abbr>
-                        </choice> ἐρήμους <lb/> κατέλιπεν, οὔτε
-                        ἀνελθὼν ἔρημον τὴν γῆν τῆς ἑαυτοῦ ἐπιστασίας
-                        <lb/> ἀπέλιπεν· ἔπρεπεν τοῖς υἱοῖς τοῦ φωτὸς
-                        τὴν λαμπάδα τοῦ λόγου <lb/> περιφέρειν ἐν ταῖς
-                        ἀγοραῖς· οὐχ’ ὑβρίζετο τὸ μυστήριον· οὐκ
-                        ητιμάζετο <lb/> τῶν νεοφωτίστων ὁ χαρακτὴρ τῆς
-                        ἀληθείας· ἔπρεπεν καὶ αὐτοῖς <lb/> ἐν
-                        πλατείαις ὑμνεῖν· σοφία γὰρ ἐν ἐξόδοις
-                        ὑμνεῖται, ἐν δὲ πλα<lb break="no"/>τείαις
-                        παρρησίαν ἄγει· ἐπάκρων δὲ τειχέων κηρύττεται·
-                            καθά<lb break="no"/>ρωμεν τὸν ἀέρα ὃν
-                        ἐμίανεν τὰ πορνικὰ ἄσματα λέγοντες· καὶ
-                            ἔχρα<lb break="no"/>ναν ποτὲ βοαὶ ἀσεβῶν
-                        καὶ ὁλολυγμοὶ τῶν ἐπιτελούντων τὰ τῶν δαι<lb
-                            break="no"/>μόνων μιάσματα· ἐκαθαρίσθησαν
-                        τῷ λόγῳ τοῦ φωτὸς καὶ ὁ ἀὴρ <lb/> καὶ ἡ γῆ καὶ
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> ἀγνοῶν ἐρευνᾶ· ἀλλ’ ἵνα δὲ μάθης ὅτι
+                        τὸ ἐρευνᾷν
+                        <lb/> οὐκ ἀγνοοῦντός ἐστὶν ἀλλ’ εἰδότος
+                        ἐπήγαγεν· οὕτω καὶ τὰ τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> οὐδεὶς
+                        <lb/> ἔγνω· εἰ μὴ τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> καὶ γνῶσιν ἐπιγράφει τῷ <choice>
+                     <expan>πνεύματι</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνι</hi>
+                     </abbr>
+                  </choice>· οὐ τὴν
+                        <lb/> ἐκ τῆς φύσεως κατάληψιν ἀλλὰ τὴν ἐκ τῆς
+                        φύσεως ἐπίγνωσιν·
+                        <lb/> τοιγαροῦν μὴ μέριζε τὴν ἀμέτρητον φύσιν·
+                        μὴ τέμνε τὴν ἀδιαίρετον
+                        <lb/> οὐσίαν· γνώριζε τὴν δύναμιν ἧς κέκληται
                         ὁ <choice>
-                            <expan>οὐρανὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνὸς</hi></abbr>
-                        </choice>· ὥσπερ γὰρ στενάζει καὶ ὁ <choice>
-                            <expan>οὐρανὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνὸς</hi></abbr>
-                        </choice> καὶ ἡ γῆ ἐπὶ τῇ <lb/> κακία τῶν
-                        ἀσεβῶν, οὕτως εὐφραίνεται πάλιν ἐπὶ τῆ
-                        δικαιοσύνη <lb/> τῶν κατορθούντων· ὅτ’ ἂν μὲν
-                        γὰρ ἁμαρτάνη ἄνθρωπος, ἀγανα<lb break="no"
-                        />κτεῖ ὁ <choice>
-                            <expan>οὐρανὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνὸς</hi></abbr>
-                        </choice> ἀγανακτεῖ δὲ καὶ ἡ γῆ· ὡς φησὶν
-                        ἱερεμίας· ἐξέστη ὁ <lb/>
-                        <choice>
-                            <expan>οὐρανὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνὸς</hi></abbr>
-                        </choice> ἐπὶ τοῦτο καὶ ἔφριξεν ἡ γῆ ὅτι δύο
-                        καὶ πονηρὰ ἐποίησεν ὁ <lb/> λαὸς· ὁρᾶς πῶς
-                        φρίττει ὁ <choice>
-                            <expan>οὐρανὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνὸς</hi></abbr>
-                        </choice> καὶ ἡ γῆ ἁμαρτανόντων τῶν ἀν<lb
-                            break="no"/>θρώπων· μεταποιούντων δὲ
-                        ἑαυτοὺς εἰς εὐσέβειαν· ἄκουε τοῦ <lb/>
-                        προφήτου λέγοντος· εὐφραινέσθωσαν οἱ <choice>
-                            <expan>οὐρανοὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνοὶ</hi></abbr>
-                        </choice> καὶ ἀγαλλιάσθω <lb/> ἡ γῆ· ῥηξάτῳ τὰ
-                        ὄρη εὐφροσύνην, ὅτι ἠλέησεν ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θς</hi></abbr>
-                        </choice> τὸν λαὸν αὐτοῦ· <lb/> λεγέτῳ καὶ ἡ
-                        ἐκκλησία ἡ τοσούτω ὄχλω καὶ λαῷ κομῶσα· ἐγὼ
-                        <lb/> κατελήφθην ποτὲ μόνη· οὗτοι δέ μοι ποῦ
-                        ἦσαν· ἐγὼ ἄτεκνος καὶ <pb n="112r"/> χήρα·
-                        τούτους δέ μοι τίς ἐγέννησεν·
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πὴρ</hi>
+                     </abbr>
+                  </choice> καὶ ὁ υἱὸς καὶ τὸ
+                        <lb/>
+                  <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὸ ἅγιον· περὶ μὲν γὰρ τοῦ <choice>
+                     <expan>πατρὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρς</hi>
+                     </abbr>
+                  </choice> λέγει ὁ υἱὸς· ὅταν ἴδητε τὸν υἱὸν
+                        <lb/> τοῦ ἀνθρώπου καθήμενον ἐκ δεξιῶν τῆς
+                        δυνάμεως· καὶ δύναμιν εἰ<lb break="no"/>ρηκὼς
+                        ἔστησεν τὴν δόξαν· ἵνα θαυμάσης τὴν ἔννοιαν·
+                        αὐτὸν τὸν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> καλέσας δύναμιν πρὸς καϊάφαν
+                        διαλεγόμενος· ὅτ’ ἂν ἴδητε τὸν υἱὸν
+                        <lb/> τοῦ ἀνθρώπου καθήμενον ἐκ δεξιῶν τῆς
+                        δυνάμεως· δύναμις οὖν ὁ
+                        <lb/>
+                  <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πὴρ</hi>
+                     </abbr>
+                  </choice>· δύναμις δὲ καὶ ὁ υἱὸς· <choice>
+                     <expan>χριστὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χς</hi>
+                     </abbr>
+                  </choice>
+                  <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> δύναμις καὶ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> σοφία· δύναμις
+                        <lb/> καὶ τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὸ ἅγιον· λέγει οὖν ὁ <choice>
+                     <expan>σωτὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σὴρ</hi>
+                     </abbr>
+                  </choice> τοῖς μαθηταῖς· μείνατε ἐν ἱερου<lb break="no"/>σαλὴμ ἕως οὓ ἐνδύσησθε δύναμιν
+                        ἐξ’ ὕψους· εἰδὼς οὖν τὴν ὁμοίαν
+                        <lb/> ταύτην δύναμιν ἔχε τὴν πίστιν ἀσάλευτον·
+                        μὴ μερίσης τὴν δόξαν
+                        <lb/> τὴν ἀκατάληπτον· ἐπίγνωθι τὰς συνθήκας
+                        τοῦ φωτίσματος· βλέ<lb break="no"/>πε τοὺς
+                        υἱοὺς τῆς χάριτος διὰ τοῦ μεγάλου ἀρχιερέως
+                        ἀνθήσαντας·
+                        <lb/> βλέπε τὰ τέκνα τοῦ φωτὸς δραμόντα πρὸς
+                        τοὺς κήρυκας τοῦ φωτὸς·
+                        <lb/> δεῖ γὰρ τοὺς ἀπὸ τοῦ φωτίσματος
+                        ἀναγεννηθέντας δραμεῖν πρὸς
+                        <lb/> τοὺς τὴν οἰκουμένην ἀναγεννήσαντας·
+                        εἴπωμεν καὶ ἡμεῖς μετὰ τοῦ
+                        <lb/> προφήτου καὶ τῶν ἀποστόλων· ἀνάβλεψον
+                        τοῖς ὀφθαλμοῖς καὶ ἴδε
+                        <lb/> συνηγμένα τὰ τέκνα σου· ζῶ ἐγὼ λέγει <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice> ὅτι πάντας αὐτοὺς ἐνδύ<lb break="no"/>σω ὡς κόσμον νύμφης· ἔστηκεν ἡσαΐας σήμερον
+                        λέγων πρὸς τὰ τῶν
+                        <lb/> φωτισθέντων πλήθη τοὺς γεννηθέντας ἐν <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice> ἁγίου· τοὺς ἀθρόον ἀνα<lb break="no"/>καινισθέντας· τοὺς ἐν μιᾷ ῥοπῆ
+                        μεταβληθέντας· τοὺς ἀπογηΐνης
+                        <lb/> καταστάσεως εἰς <choice>
+                     <expan>οὐράνιον</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνιον</hi>
+                     </abbr>
+                  </choice> εἰκόνα μεταποιηθέντας· ἐκπλήττεται
+                        <pb n="111v"/>
+                  <g type="diple"/> γὰρ ἡσαΐας λέγων· τίς ἴδεν
+                        τίς ἤκουσεν τοιαῦτα ὅτι ἔτεκεν ἡ γῆ τὰ τέκνα
+                        <lb/>
+                  <g type="diple"/> αὐτῆς ἐν ἡμέρα μιᾷ
+                        ἔτεκεν ἡ γῇ παιδία αὐτῆς ἐν ἡμέρα μιᾷ· καὶ
+                            ἐτέ<lb break="no"/>χθη ἔθνος εἰς ἅπαξ·
+                        τευχεία γὰρ τοῦ <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice> ἡ ἀναγέννησις· οὐκ ἀναμένει
+                        <lb/> χρόνον· οὐ δουλεύει καιροῖς· καὶ
+                        γενεαῖς· ἀλλ’ ἅμα βούλεται, ἅμα
+                        <lb/> τίκτεται τὸ ἀναγεννώμενον· ἔπρεπεν τοῖς
+                        υἱοῖς τοῦ φωτὸς ἅπασαν
+                        <lb/> τὴν ἀγορὰν πομπεύειν· καὶ ἀναφωνεῖν
+                        ἐκεῖνον τὸν δι’ αὐτοὺς ἐλ<lb break="no"/>θόντα
+                        κάτω, ἵνα ἅπασαν τὴν οἰκουμένην ἀναγάγη πρὸς
+                        αὐτὸν
+                        <lb/> ἄνω· <choice>
+                     <expan>χριστὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χς</hi>
+                     </abbr>
+                  </choice> κατῆλθεν ἐκ τῶν <choice>
+                     <expan>οὐρανῶν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνῶν</hi>
+                     </abbr>
+                  </choice>· κατῆλθεν οὐ μεταστὰς τῶν <choice>
+                     <expan>οὐρανῶν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνῶν</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> ἀνῆλθεν οὐ μεταστὰς τῆς γῆς· οὔτε γὰρ
+                        κατελθὼν τοὺς <choice>
+                     <expan>οὐρανοὺς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνοὺς</hi>
+                     </abbr>
+                  </choice> ἐρήμους
+                        <lb/> κατέλιπεν, οὔτε ἀνελθὼν ἔρημον τὴν γῆν
+                        τῆς ἑαυτοῦ ἐπιστασίας
+                        <lb/> ἀπέλιπεν· ἔπρεπεν τοῖς υἱοῖς τοῦ φωτὸς
+                        τὴν λαμπάδα τοῦ λόγου
+                        <lb/> περιφέρειν ἐν ταῖς ἀγοραῖς· οὐχ’
+                        ὑβρίζετο τὸ μυστήριον· οὐκ ητιμάζετο
+                        <lb/> τῶν νεοφωτίστων ὁ χαρακτὴρ τῆς ἀληθείας·
+                        ἔπρεπεν καὶ αὐτοῖς
+                        <lb/> ἐν πλατείαις ὑμνεῖν· σοφία γὰρ ἐν
+                        ἐξόδοις ὑμνεῖται, ἐν δὲ πλα<lb break="no"/>τείαις παρρησίαν ἄγει· ἐπάκρων δὲ τειχέων
+                        κηρύττεται· καθά<lb break="no"/>ρωμεν τὸν ἀέρα
+                        ὃν ἐμίανεν τὰ πορνικὰ ἄσματα λέγοντες· καὶ
+                            ἔχρα<lb break="no"/>ναν ποτὲ βοαὶ ἀσεβῶν
+                        καὶ ὁλολυγμοὶ τῶν ἐπιτελούντων τὰ τῶν δαι<lb break="no"/>μόνων μιάσματα· ἐκαθαρίσθησαν
+                        τῷ λόγῳ τοῦ φωτὸς καὶ ὁ ἀὴρ
+                        <lb/> καὶ ἡ γῆ καὶ ὁ <choice>
+                     <expan>οὐρανὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνὸς</hi>
+                     </abbr>
+                  </choice>· ὥσπερ γὰρ στενάζει καὶ ὁ <choice>
+                     <expan>οὐρανὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνὸς</hi>
+                     </abbr>
+                  </choice> καὶ ἡ γῆ ἐπὶ τῇ
+                        <lb/> κακία τῶν ἀσεβῶν, οὕτως εὐφραίνεται
+                        πάλιν ἐπὶ τῆ δικαιοσύνη
+                        <lb/> τῶν κατορθούντων· ὅτ’ ἂν μὲν γὰρ
+                        ἁμαρτάνη ἄνθρωπος, ἀγανα<lb break="no"/>κτεῖ ὁ <choice>
+                     <expan>οὐρανὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνὸς</hi>
+                     </abbr>
+                  </choice> ἀγανακτεῖ δὲ καὶ ἡ γῆ· ὡς φησὶν
+                        ἱερεμίας· ἐξέστη ὁ
+                        <lb/>
+                  <choice>
+                     <expan>οὐρανὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνὸς</hi>
+                     </abbr>
+                  </choice> ἐπὶ τοῦτο καὶ ἔφριξεν ἡ γῆ ὅτι δύο
+                        καὶ πονηρὰ ἐποίησεν ὁ
+                        <lb/> λαὸς· ὁρᾶς πῶς φρίττει ὁ <choice>
+                     <expan>οὐρανὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνὸς</hi>
+                     </abbr>
+                  </choice> καὶ ἡ γῆ ἁμαρτανόντων τῶν ἀν<lb break="no"/>θρώπων· μεταποιούντων δὲ
+                        ἑαυτοὺς εἰς εὐσέβειαν· ἄκουε τοῦ
+                        <lb/> προφήτου λέγοντος· εὐφραινέσθωσαν οἱ <choice>
+                     <expan>οὐρανοὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνοὶ</hi>
+                     </abbr>
+                  </choice> καὶ ἀγαλλιάσθω
+                        <lb/> ἡ γῆ· ῥηξάτῳ τὰ ὄρη εὐφροσύνην, ὅτι
+                        ἠλέησεν ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> τὸν λαὸν αὐτοῦ·
+                        <lb/> λεγέτῳ καὶ ἡ ἐκκλησία ἡ τοσούτω ὄχλω καὶ
+                        λαῷ κομῶσα· ἐγὼ
+                        <lb/> κατελήφθην ποτὲ μόνη· οὗτοι δέ μοι ποῦ
+                        ἦσαν· ἐγὼ ἄτεκνος καὶ
+                        <pb n="112r"/>
+                         χήρα· τούτους δέ μοι τίς ἐγέννησεν·
                             λεγέτ<unclear>ω</unclear> καὶ τὰ τέκνα τῆς
-                        ἐκκλησίας <lb/> τὰ συνέχοντα τῷ πλήθει πρὸς
-                        τὸν <choice>
-                            <expan>θεὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θν</hi></abbr>
-                        </choice>· τὴν φωνὴν τῶν προφητῶν· <lb/>
-                        στενός μοι ὁ τόπος· ποίησόν μοι τόπον ἵνα
-                        κατοικήσω· ὅτε γὰρ ἤκμα<lb break="no"/>ζεν τὰ
-                        τῆς αἱρέσεως· ὅτε ἐπενέμετο τὴν πόλιν ταύτην ἡ
-                        νομὴ τῆς αἱ<lb break="no"/>ρέσεως, ἀνείλωτο τὰ
-                        τέκνα τῆς ἐκκλησίας· καὶ ὥσπερ ἀκρὶς ἐπελ<lb
-                            break="no"/>θοῦσα τῆ ὑπ’ <choice>
-                            <expan>οὐρανὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνὸν</hi></abbr>
-                        </choice> ἀναλίσκει τοὺς καρποὺς αὐτοὺς· οὕτως
+                        ἐκκλησίας
+                        <lb/> τὰ συνέχοντα τῷ πλήθει πρὸς τὸν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>· τὴν φωνὴν τῶν προφητῶν·
+                        <lb/> στενός μοι ὁ τόπος· ποίησόν μοι τόπον
+                        ἵνα κατοικήσω· ὅτε γὰρ ἤκμα<lb break="no"/>ζεν
+                        τὰ τῆς αἱρέσεως· ὅτε ἐπενέμετο τὴν πόλιν
+                        ταύτην ἡ νομὴ τῆς αἱ<lb break="no"/>ρέσεως,
+                        ἀνείλωτο τὰ τέκνα τῆς ἐκκλησίας· καὶ ὥσπερ
+                        ἀκρὶς ἐπελ<lb break="no"/>θοῦσα τῆ ὑπ’ <choice>
+                     <expan>οὐρανὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνὸν</hi>
+                     </abbr>
+                  </choice> ἀναλίσκει τοὺς καρποὺς αὐτοὺς· οὕτως
                         ἡ φθορο<lb break="no"/>ποιὸς διδασκαλία τοὺς
-                        καρποὺς τῆς ὄντως διδασκαλίας ἀνήλισκεν <lb/>
-                        καὶ τῆς εὐσεβείας· ἀλλὰ σήμερον ἐξεβλήθη ἡ
-                        φθοροποιὸς διδασκαλία· <lb/> καὶ εἰσῆλθεν ἡ <choice>
-                            <expan>σωτήριος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >σριος</hi></abbr>
-                        </choice> χάρις ἀναγεννῶσα τὸν λαὸν καὶ
-                        λέγουσα πρὸς αὐ<lb break="no"/>τόν· νῦν
-                        ἀνταποδώσω ἀντὶ τῶν γώνων ὧν κατέφαγεν ἡ
-                            κάμ<lb break="no"/>πη καὶ ἡ ἀκρίς καὶ ἡ
-                        ἐρυσίβη· τί φιλονεικεῖς αἱρετικὲ μετὰ ἰου<lb
-                            break="no"/>δαίων κρύψαι τὴν δόξαν τοῦ
-                        μονογενοῦς· ἐκεῖνοι μὲν ἔκρυψαν <lb/> τὴν
-                        ἀνάστασιν ὅσον ἐπ’ αὐτοῖς· σὺ δὲ κρύπτεις τὴν
-                        θεότητα ὅσον <lb/> ἐπὶ σοῦ· ἀλλ’ οὔτε ἐκεῖνοι
-                        ἐπιγράφουσιν τὴν ἀλήθειαν, οὔτε σὺ <lb/><g type="diple"/>
-                        συνῆκας τὴν εὐσέβειαν· ἄκουε γοῦν τοῦ προφήτου
-                        λέγοντος· ἐ<lb break="no"/><g type="diple"/>κάλυψεν <choice>
-                            <expan>οὐρανοὺς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >οὐνοὺς</hi></abbr>
-                        </choice> ἡ ἀρετὴ αὐτοῦ, καὶ τῆς συνέσεως
-                        αὐτοῦ πλήρις ἡ γῆ· <lb/> τῆς συνέσεως οὐ τῆς
-                        καταλείψεως· πίστεως οὐκ ἐξετάσεως· ἀγάπης
-                        <lb/> οὐ ζητήσεως· οὐ ζητεῖν ἐδιδάχθημεν ἀλλὰ
-                        πιστεύειν ἐπαιδεύθημεν· <lb/> πιστεύοντες
-                        φωτιζόμεθα, οὐ πολυπραγμονοῦντες βαπτιζόμεθα·
-                        μὴ <lb/> ἀπατάτω σε τῶν αἱρετικῶν τὰ
-                        συστήματα· βάπτισμα γὰρ ἔχουσιν <lb/> οὐ
-                        φώτισμα· καὶ βαπτίζονται μὲν σώματι ψυχὴ δὲ οὐ
-                        φωτίζονται· ὥσ<lb break="no"/>περ γὰρ καὶ
-                        σίμων ἐβαπτίσθη ἀλλ’ οὐκ ἐφωτίσθη· οὕτως καὶ
-                        αὐτοὶ <lb/> ἀκολούθως εὑρίσκονται· ἀγαλλιάσθω
-                        τοίνυν τὰ <choice>
-                            <expan>πνεύματα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνατα</hi></abbr>
-                        </choice> τῶν ἀποστό<lb break="no"/>λων· τὰ τῇ <choice>
-                            <expan>πνευματι</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνι</hi></abbr>
-                        </choice>κῇ σαγίνη τὸν πολὺν τοῦτον λαὸν
-                        σαγινεύσαντα <lb/> διὰ τοῦ ἁγίου <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice>· νῦν πεπλήρωται ἐν ὀφθαλμοῖς ἡμῶν ἡ
-                            προ<lb break="no"/><g type="diple"/>φητικὴ φωνὴ· ἐν ταῖς
-                        ἐσχάταις ἡμέραις λέγει ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θς</hi></abbr>
-                        </choice>· οὐκέτι μὴ εἴ<lb break="no"/><g type="diple"/>πωσιν· 
-                        ἰδοὺ ἡ κιβωτὸς τῆς διαθήκης ἁγίου <choice>
-                            <expan>ἰσραὴλ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >ἰὴλ</hi></abbr>
-                        </choice>· ἀντὶ τοῦ ἡ παλαιὰ <lb/> λατρεία·
-                        οὐδε μὴ ἀναβήσεται εἰς τὴν καρδίαν αὐτῶν ἡ
-                        διαθήκη <lb/> τῆς κιβωτοῦ· διατί; ὅτι <add
-                            place="margin">ἰδοὺ</add> ἐγὼ ἀποστέλλω
-                        πολλοὺς θηρευτὰς καὶ ἁλιεῖς· <pb n="112v"/>
-                        περιέγραψεν τὴν κιβωτὸν τὴν παλαιὰν καὶ
-                        εἰσήγαγεν τὴν κιβωτὸν <lb/> τῆς ἐκκλησίας τὴν
-                        μὴ ἀπολλυμένην· ἀποστέλλω πολλοὺς θηρευ<lb
-                            break="no"/>τὰς καὶ ἀλιεῖς ὦ ξένης ἀλείας
-                        ὁ χθὲς ἁλιευθεις, σήμερον ἀλιεύει· <lb/>
-                        ἐπληρῶθη γὰρ ἡ γῆ τῆς δόξης τοῦ <choice>
-                            <expan>χριστοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >χυ</hi></abbr>
-                        </choice>· καὶ πεπλήρωται τῆς πίστεως, <lb/>
-                        τῆς οἰκουμένης τὰ πέρατα· μὴ οὖν ὕβριζε τὴν
-                        ἀξίαν διὰ τὴν οἰκο<lb break="no"/>νομίαν παρὰ
-                        ἰουδαίοις ἐξῆλθεν ὁ λόγος ὅτι ἐπράθη ἡ
-                        ἀνάστασις <lb/> καὶ ἐξῆλθεν ὁ λόγος ὅτι οἱ
-                        μαθηταὶ αὐτοῦ ἔκλεψαν αὐτὸν· ἐκεῖνοι μὲν οὖν
-                        <lb/> ἀπεφήναντο θάνατον κατὰ τοῦ σώματος· οἱ
-                        δὲ τὴν θεολογίαν ὅσον <lb/> ἐπ’ αὐτοῖς
-                        ἐνηχοῦσαν· ἀλλὰ παρ’ ἐκείνοις μὲν ἡ πλάνη
-                        πολιτεύεται· <lb/> παρὰ δὲ τῆ ἐκκλησία ζωὴ
-                        κηρύττεται· καὶ ἔχεις εἰκόνα παλαιὰν· <lb/>
-                        ὥσπερ γὰρ ὅτε ἐπεβούλευσαν τῷ ἰωσὴφ οἱ ἀδελφοὶ
-                        ἰακὼβ καὶ ὁ <lb/> οἶκος αὐτοῦ ἐπένθει αὐτὸν
-                        σφόδρα· ἀλλ’ ἡ αἴγυπτος εἶχεν αὐτὸν ζῶντα
-                        <lb/> καὶ βασιλεύοντα· οὗτος παρὰ τῶ ἰακὼβ
-                        νεκρὸς ἐπενθεῖτο· ἐν <lb/> δὲ τῆ αἰγύπτω ζῶν
-                        εὐασίλευεν· οὕτως καὶ νῦν παρὰ μὲν τῆ συνα<lb
-                            break="no"/>γωγῆ καὶ τῆ τῶν αἱρετικῶν
-                        μανία νεκρὸς· νεκροῦσιν γὰρ τὴν θεο<lb
-                            break="no"/>λογίαν οἱ πίστιν ἀναιροῦντες
-                        καὶ ζήτησιν εἰσάγοντες· παρ’ ἡμῖν <lb/> δὲ
-                        βασιλεύει ζῶν καὶ ἀξίως προσκυνούμενος· ἀλλ’
-                        ἰσχυρὸς ὁ τοῦ <lb/>
-                        <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> λόγος ἀήττητος ἡ τῶν ἀποστόλων
-                        διδασκαλία· ὥστε οὐκ εἰκῆ <lb/> κάμνει παύλου
-                        ἡ φωνὴ συνηγορήσαντος· εἰπὲ παύλε ὑπὲρ τῆς
-                        <lb/> ἀληθείας κινούμενος· ἀγανάκτησον ὑπὲρ
-                        τῆς πίστεως· ἀγανακτῶν <lb/> εἰπὲ τοῖς
-                        αἱρετικοῖς· πόθεν ἐδιδάχθητε τὰ ἀριστοτελικὰ·
-                        τίς <lb/> τὸν πλάτωνα προετίμησεν τῶν
-                        εὐαγγελίων· τίς ἐξέβαλεν τὸ <lb/> κήρυγμα τῆς
-                        πίστεως καἰ εἰσήγαγεν τὴν ἄπιστον ζήτησιν· ποῦ
+                        καρποὺς τῆς ὄντως διδασκαλίας ἀνήλισκεν
+                        <lb/> καὶ τῆς εὐσεβείας· ἀλλὰ σήμερον ἐξεβλήθη
+                        ἡ φθοροποιὸς διδασκαλία·
+                        <lb/> καὶ εἰσῆλθεν ἡ <choice>
+                     <expan>σωτήριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σριος</hi>
+                     </abbr>
+                  </choice> χάρις ἀναγεννῶσα τὸν λαὸν καὶ
+                        λέγουσα πρὸς αὐ<lb break="no"/>τόν· νῦν
+                        ἀνταποδώσω ἀντὶ τῶν γώνων ὧν κατέφαγεν ἡ
+                            κάμ<lb break="no"/>πη καὶ ἡ ἀκρίς καὶ ἡ
+                        ἐρυσίβη· τί φιλονεικεῖς αἱρετικὲ μετὰ ἰου<lb break="no"/>δαίων κρύψαι τὴν δόξαν τοῦ
+                        μονογενοῦς· ἐκεῖνοι μὲν ἔκρυψαν
+                        <lb/> τὴν ἀνάστασιν ὅσον ἐπ’ αὐτοῖς· σὺ δὲ
+                        κρύπτεις τὴν θεότητα ὅσον
+                        <lb/> ἐπὶ σοῦ· ἀλλ’ οὔτε ἐκεῖνοι ἐπιγράφουσιν
+                        τὴν ἀλήθειαν, οὔτε σὺ
+                        <lb/>
+                  <g type="diple"/> συνῆκας τὴν εὐσέβειαν·
+                        ἄκουε γοῦν τοῦ προφήτου λέγοντος· ἐ<lb break="no"/>
+                  <g type="diple"/>κάλυψεν <choice>
+                     <expan>οὐρανοὺς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνοὺς</hi>
+                     </abbr>
+                  </choice> ἡ ἀρετὴ αὐτοῦ, καὶ τῆς συνέσεως
+                        αὐτοῦ πλήρις ἡ γῆ·
+                        <lb/> τῆς συνέσεως οὐ τῆς καταλείψεως· πίστεως
+                        οὐκ ἐξετάσεως· ἀγάπης
+                        <lb/> οὐ ζητήσεως· οὐ ζητεῖν ἐδιδάχθημεν ἀλλὰ
+                        πιστεύειν ἐπαιδεύθημεν·
+                        <lb/> πιστεύοντες φωτιζόμεθα, οὐ
+                        πολυπραγμονοῦντες βαπτιζόμεθα· μὴ
+                        <lb/> ἀπατάτω σε τῶν αἱρετικῶν τὰ συστήματα·
+                        βάπτισμα γὰρ ἔχουσιν
+                        <lb/> οὐ φώτισμα· καὶ βαπτίζονται μὲν σώματι
+                        ψυχὴ δὲ οὐ φωτίζονται· ὥσ<lb break="no"/>περ
+                        γὰρ καὶ σίμων ἐβαπτίσθη ἀλλ’ οὐκ ἐφωτίσθη·
+                        οὕτως καὶ αὐτοὶ
+                        <lb/> ἀκολούθως εὑρίσκονται· ἀγαλλιάσθω τοίνυν
+                        τὰ <choice>
+                     <expan>πνεύματα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνατα</hi>
+                     </abbr>
+                  </choice> τῶν ἀποστό<lb break="no"/>λων· τὰ τῇ <choice>
+                     <expan>πνευματι</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνι</hi>
+                     </abbr>
+                  </choice>κῇ σαγίνη τὸν πολὺν τοῦτον λαὸν
+                        σαγινεύσαντα
+                        <lb/> διὰ τοῦ ἁγίου <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice>· νῦν πεπλήρωται ἐν ὀφθαλμοῖς ἡμῶν ἡ
+                            προ<lb break="no"/>
+                  <g type="diple"/>φητικὴ
+                        φωνὴ· ἐν ταῖς ἐσχάταις ἡμέραις λέγει ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice>· οὐκέτι μὴ εἴ<lb break="no"/>
+                  <g type="diple"/>πωσιν· ἰδοὺ ἡ κιβωτὸς τῆς
+                        διαθήκης ἁγίου <choice>
+                     <expan>ἰσραὴλ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἰὴλ</hi>
+                     </abbr>
+                  </choice>· ἀντὶ τοῦ ἡ παλαιὰ
+                        <lb/> λατρεία· οὐδε μὴ ἀναβήσεται εἰς τὴν
+                        καρδίαν αὐτῶν ἡ διαθήκη
+                        <lb/> τῆς κιβωτοῦ· διατί; ὅτι <add place="margin">ἰδοὺ</add> ἐγὼ ἀποστέλλω
+                        πολλοὺς θηρευτὰς καὶ ἁλιεῖς·
+                        <pb n="112v"/>
+                         περιέγραψεν τὴν κιβωτὸν τὴν παλαιὰν καὶ
+                        εἰσήγαγεν τὴν κιβωτὸν
+                        <lb/> τῆς ἐκκλησίας τὴν μὴ ἀπολλυμένην·
+                        ἀποστέλλω πολλοὺς θηρευ<lb break="no"/>τὰς καὶ
+                        ἀλιεῖς ὦ ξένης ἀλείας ὁ χθὲς ἁλιευθεις,
+                        σήμερον ἀλιεύει·
+                        <lb/> ἐπληρῶθη γὰρ ἡ γῆ τῆς δόξης τοῦ <choice>
+                     <expan>χριστοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χυ</hi>
+                     </abbr>
+                  </choice>· καὶ πεπλήρωται τῆς πίστεως,
+                        <lb/> τῆς οἰκουμένης τὰ πέρατα· μὴ οὖν ὕβριζε
+                        τὴν ἀξίαν διὰ τὴν οἰκο<lb break="no"/>νομίαν
+                        παρὰ ἰουδαίοις ἐξῆλθεν ὁ λόγος ὅτι ἐπράθη ἡ
+                        ἀνάστασις
+                        <lb/> καὶ ἐξῆλθεν ὁ λόγος ὅτι οἱ μαθηταὶ αὐτοῦ
+                        ἔκλεψαν αὐτὸν· ἐκεῖνοι μὲν οὖν
+                        <lb/> ἀπεφήναντο θάνατον κατὰ τοῦ σώματος· οἱ
+                        δὲ τὴν θεολογίαν ὅσον
+                        <lb/> ἐπ’ αὐτοῖς ἐνηχοῦσαν· ἀλλὰ παρ’ ἐκείνοις
+                        μὲν ἡ πλάνη πολιτεύεται·
+                        <lb/> παρὰ δὲ τῆ ἐκκλησία ζωὴ κηρύττεται· καὶ
+                        ἔχεις εἰκόνα παλαιὰν·
+                        <lb/> ὥσπερ γὰρ ὅτε ἐπεβούλευσαν τῷ ἰωσὴφ οἱ
+                        ἀδελφοὶ ἰακὼβ καὶ ὁ
+                        <lb/> οἶκος αὐτοῦ ἐπένθει αὐτὸν σφόδρα· ἀλλ’ ἡ
+                        αἴγυπτος εἶχεν αὐτὸν ζῶντα
+                        <lb/> καὶ βασιλεύοντα· οὗτος παρὰ τῶ ἰακὼβ
+                        νεκρὸς ἐπενθεῖτο· ἐν
+                        <lb/> δὲ τῆ αἰγύπτω ζῶν εὐασίλευεν· οὕτως καὶ
+                        νῦν παρὰ μὲν τῆ συνα<lb break="no"/>γωγῆ καὶ
+                        τῆ τῶν αἱρετικῶν μανία νεκρὸς· νεκροῦσιν γὰρ
+                        τὴν θεο<lb break="no"/>λογίαν οἱ πίστιν
+                        ἀναιροῦντες καὶ ζήτησιν εἰσάγοντες· παρ’ ἡμῖν
+                        <lb/> δὲ βασιλεύει ζῶν καὶ ἀξίως
+                        προσκυνούμενος· ἀλλ’ ἰσχυρὸς ὁ τοῦ
+                        <lb/>
+                  <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> λόγος ἀήττητος ἡ τῶν ἀποστόλων
+                        διδασκαλία· ὥστε οὐκ εἰκῆ
+                        <lb/> κάμνει παύλου ἡ φωνὴ συνηγορήσαντος·
+                        εἰπὲ παύλε ὑπὲρ τῆς
+                        <lb/> ἀληθείας κινούμενος· ἀγανάκτησον ὑπὲρ
+                        τῆς πίστεως· ἀγανακτῶν
+                        <lb/> εἰπὲ τοῖς αἱρετικοῖς· πόθεν ἐδιδάχθητε
+                        τὰ ἀριστοτελικὰ· τίς
+                        <lb/> τὸν πλάτωνα προετίμησεν τῶν εὐαγγελίων·
+                        τίς ἐξέβαλεν τὸ
+                        <lb/> κήρυγμα τῆς πίστεως καἰ εἰσήγαγεν τὴν
+                        ἄπιστον ζήτησιν· ποῦ
                         <lb/> ἔγνως τὸ ἀγέννητος καὶ τὸ γεννητὸς
                         κατέλιπες <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρα</hi></abbr>
-                        </choice>· διέπτυσας <lb/> τοῦ υἱοῦ τὴν
-                        προσηγορίαν· ἀναξίαν ἐνόμισας τὴν τοῦ <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice>
-                        <lb/> ἀξίαν· εἰς ἀνθρώπινα ῥήματα τρέπη; καλῶς
-                        ἔλεγεν ἱερεμίας· <lb/> ἀπώλετο πίστις ἐκ τοῦ
-                        στόματος αὐτῶν· τί εἶπεν πέτρος καὶ <lb/>
-                        ἐμακαρίσθη· σὺ εἶ ὁ <choice>
-                            <expan>χριστὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >χς</hi></abbr>
-                        </choice> ὁ υἱὸς τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice>· οὐκ’ εἶπεν σὺ εἶ τὸ γέννημα τοῦ
-                            <add place="above">ἀ</add>γε<lb break="no"
-                        />ννητοῦ· ὅτε ἀπεκάλυπτεν αὐτῷ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πὴρ</hi></abbr>
-                        </choice> τὴν σοφίαν· οὐκ ήδει κατα<pb
-                            n="113r" break="no"/>λαβεῖν, ὅτε ἐκέλευσεν
-                        βαπτίζειν ὁ <choice>
-                            <expan>υἱὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >υς</hi></abbr>
-                        </choice>· οὐκ ἠδύνατο εἰπεῖν πο<lb break="no"
-                        />ρευθέντες βαπτίσατε αὐτοὺς εἰς τὸ ὅνομα τοῦ
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice>· διέπτυσας
+                        <lb/> τοῦ υἱοῦ τὴν προσηγορίαν· ἀναξίαν
+                        ἐνόμισας τὴν τοῦ <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> ἀξίαν· εἰς ἀνθρώπινα ῥήματα τρέπη; καλῶς
+                        ἔλεγεν ἱερεμίας·
+                        <lb/> ἀπώλετο πίστις ἐκ τοῦ στόματος αὐτῶν· τί
+                        εἶπεν πέτρος καὶ
+                        <lb/> ἐμακαρίσθη· σὺ εἶ ὁ <choice>
+                     <expan>χριστὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χς</hi>
+                     </abbr>
+                  </choice> ὁ υἱὸς τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>· οὐκ’ εἶπεν σὺ εἶ τὸ γέννημα τοῦ
+                            <add place="above">ἀ</add>γε<lb break="no"/>ννητοῦ· ὅτε ἀπεκάλυπτεν αὐτῷ <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πὴρ</hi>
+                     </abbr>
+                  </choice> τὴν σοφίαν· οὐκ ήδει κατα<pb n="113r" break="no"/>λαβεῖν, ὅτε ἐκέλευσεν
+                        βαπτίζειν ὁ <choice>
+                     <expan>υἱὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">υς</hi>
+                     </abbr>
+                  </choice>· οὐκ ἠδύνατο εἰπεῖν πο<lb break="no"/>ρευθέντες βαπτίσατε αὐτοὺς εἰς τὸ ὅνομα τοῦ
                         ἀγεννήτου καὶ γεννη<lb break="no"/>τοῦ, ἀλλ’
-                        ὅνομα εὗρεν σοφώτερον τῶν μυστικῶν παραδόσεων·
-                        <lb/> περιγράφεις τὰ θεία; ἀναιρεῖς τὴν
-                        πίστην; καὶ εἰσάγεις ζήτη<lb break="no"/>σιν·
-                        ἀλλὰ φοβήθητι ἐχθρὲ· πέτρος κατέχει τὰς κλεῖς·
-                        ἐπειδὴ <lb/> εἶπεν σὺ εἶ ὁ <choice>
-                            <expan>χριστὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >χς</hi></abbr>
-                        </choice> ὁ υἱὸς τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice>· κλεῖς ἔλαβεν· οὓς δ’ ἂν βλέπη πέ<lb
-                            break="no"/>τρος υἱὸν λέγοντας τούτοις
-                        ἀνοίγει τὴν θύραν τῆς βασιλείας· ὅσους <lb/>
-                        δὲ ἐὰν εὕρη κτίσμα λέγοντας καὶ βλασφημοῦντας
-                        τούτοις ἀπο<lb break="no"/>κλείη σε τὴν θύραν
-                        τῆς ἐκκλησίας· οὐ πρότερον γὰρ ἔλαβεν τὰς
+                        ὅνομα εὗρεν σοφώτερον τῶν μυστικῶν παραδόσεων·
+                        <lb/> περιγράφεις τὰ θεία; ἀναιρεῖς τὴν
+                        πίστην; καὶ εἰσάγεις ζήτη<lb break="no"/>σιν·
+                        ἀλλὰ φοβήθητι ἐχθρὲ· πέτρος κατέχει τὰς κλεῖς·
+                        ἐπειδὴ
+                        <lb/> εἶπεν σὺ εἶ ὁ <choice>
+                     <expan>χριστὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χς</hi>
+                     </abbr>
+                  </choice> ὁ υἱὸς τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>· κλεῖς ἔλαβεν· οὓς δ’ ἂν βλέπη πέ<lb break="no"/>τρος υἱὸν λέγοντας τούτοις
+                        ἀνοίγει τὴν θύραν τῆς βασιλείας· ὅσους
+                        <lb/> δὲ ἐὰν εὕρη κτίσμα λέγοντας καὶ
+                        βλασφημοῦντας τούτοις ἀπο<lb break="no"/>κλείη
+                        σε τὴν θύραν τῆς ἐκκλησίας· οὐ πρότερον γὰρ
+                        ἔλαβεν τὰς
                         <lb/> κλεῖς ἕως εἶπεν σὺ εἶ ὁ υἱὸς τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> καὶ ἀκούει· μακάριος εἶ <lb/> σίμων
-                        βὰρ ἰωνᾶ· σοὶ δώσω τὰς κλεῖς τῆς βασιλείας·
-                        μετὰ τὴν <lb/> ὁμολογίαν ἡ ἐξουσία· μετὰ τὴν
-                        πίστιν, ἡ παράδοσις τῆς <lb/> ἐκκλησίας καὶ
-                        τῆς βασιλείας· ἀλλ’ οἱ μὲν κατὰ τοῦ υἱοῦ
-                            στρα<lb break="no"/>τεύονται· οἱ δὲ κατὰ
-                        τοῦ <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice> ταράττονται· οὐδὲν δὲ ὄφελος <lb/>
-                        τὸν <choice>
-                            <expan>χριστὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >χν</hi></abbr>
-                        </choice> μὲν ὁμολογοῦντας· καὶ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> ἅγιον ἀθετοῦντας· ὥσπερ <lb/> οὐδὲν
-                        ὄφελος τῶν τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> ὁμολογούντων, καὶ υἱὸν ἀθετοῦντων·
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> καὶ ἀκούει· μακάριος εἶ
+                        <lb/> σίμων βὰρ ἰωνᾶ· σοὶ δώσω τὰς κλεῖς τῆς
+                        βασιλείας· μετὰ τὴν
+                        <lb/> ὁμολογίαν ἡ ἐξουσία· μετὰ τὴν πίστιν, ἡ
+                        παράδοσις τῆς
+                        <lb/> ἐκκλησίας καὶ τῆς βασιλείας· ἀλλ’ οἱ μὲν
+                        κατὰ τοῦ υἱοῦ στρα<lb break="no"/>τεύονται· οἱ
+                        δὲ κατὰ τοῦ <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice> ταράττονται· οὐδὲν δὲ ὄφελος
+                        <lb/> τὸν <choice>
+                     <expan>χριστὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χν</hi>
+                     </abbr>
+                  </choice> μὲν ὁμολογοῦντας· καὶ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> ἅγιον ἀθετοῦντας· ὥσπερ
+                        <lb/> οὐδὲν ὄφελος τῶν τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> ὁμολογούντων, καὶ υἱὸν ἀθετοῦντων·
                         <lb/> ὁμολογοῦσι γὰρ καὶ οἱ ἰουδαῖοι τὸν <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρα</hi></abbr>
-                        </choice>, τὸν υἱὸν ἀρνούμενοι· <lb/> καὶ οὐκ
-                        ἔχουσι ζωὴν αἰώνιον ὁ παρορῶν τοῦ υἱοῦ τὴν
-                        δόξαν οὐ <lb/> δεκτέοις παρὰ τῷ <choice>
-                            <expan>πατρὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρὶ</hi></abbr>
-                        </choice>· πρόσεχε ἀκριβῶς· καὶ γὰρ οἱ φίλοι
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice>, τὸν υἱὸν ἀρνούμενοι·
+                        <lb/> καὶ οὐκ ἔχουσι ζωὴν αἰώνιον ὁ παρορῶν
+                        τοῦ υἱοῦ τὴν δόξαν οὐ
+                        <lb/> δεκτέοις παρὰ τῷ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρὶ</hi>
+                     </abbr>
+                  </choice>· πρόσεχε ἀκριβῶς· καὶ γὰρ οἱ φίλοι
                         <lb/> τοῦ ἰὼβ τῷ <choice>
-                            <expan>θεῷ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θῷ</hi></abbr>
-                        </choice> μὲν συνῆλθον τὸν δὲ ἰὼβ κατέκριναν·
+                     <expan>θεῷ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θῷ</hi>
+                     </abbr>
+                  </choice> μὲν συνῆλθον τὸν δὲ ἰὼβ κατέκριναν·
                         ὁ δὲ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θς</hi></abbr>
-                        </choice>
-                        <lb/> οὐδὲ τοὺς συνηγορήσαντας αὐτῷ ἀπεδέξατο
-                        ἀλλὰ λέγει· δια<lb break="no"/>τί κατελαλήσατε
-                        κατὰ τοῦ θεράποντός μου ἰὼβ· εἰ κατὰ τοῦ <lb/>
-                        ἰὼβ εἰρηκότας τοὺς φίλους καὶ αὐτὸν δοξάσαντας
-                        οὐκ ἐδέξατο· <lb/> τοὺς τὸν υἱὸν ἀθετοῦντας
-                        καὶ αὐτὸν ὁμολογοῦντας δέξηταί <lb/> ποτε,
-                        οὐδαμῶς ὁ γὰρ φησὶ μισών ἐμὲ καὶ τὸν <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρα</hi></abbr>
-                        </choice> μου <lb/> μισεῖ· ὁμοίως ὥσπερ οὐ
-                        δέχεται <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πὴρ</hi></abbr>
-                        </choice> τὴν εἰς αὐτὸν τιμὴν τοῦ <lb/> υἱοῦ
-                        ἀθετουμένου· οὕτως οὐδὲ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πὴρ</hi></abbr>
-                        </choice> καὶ υἱὸς ἀθετουμένου <lb/> τοῦ ἁγίου <choice>
-                            <expan>πνεύματος</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνς</hi></abbr>
-                        </choice>· παῦλος γοῦν εὗρεν πρὸς τὰ αἱρετικὰ
-                        ζιζάνια <lb/> ἀρχὴν μὲν λαβόντα, οὐδέποτε δὲ
-                        παρρησίαν δεξάμενα· <pb n="113v"/> ἐν ἐφέσω
-                        γὰρ τῆς ἀσίας εὐρίσκει τινὰς βαπτισθέντας καὶ
-                        λέγει <lb/> αὐτοῖς· εἰ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> ἅγιον ἐλάβετε πιστεύσαντες· οἱ δὲ
-                        ἔφησαν· οὐ<lb break="no"/>δὲ εἰ ἐστιν <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> ἅγιον ἠκούσαμεν· εἶτα ἡ γενναία
-                        φωνὴ· εἰς τί <lb/> οὖν ἐβαπτίσθητε· παιδευσάτῳ
-                        πέτρος τὴν ἐκκλησίαν καὶ <lb/> παῦλος, μὴ
-                        αἱρετικᾶ πλέκειν συζητήματα· πόθεν ἡ δυσώνυμος
-                        <lb/> εὐνομίου προσηγορία· πόθεν τὰ αἱρετικὰ
-                        σπέρματα· ἀπώλετο <lb/> ἡ ἀλήθεια παρὰ τοῖς
-                        ἀσεβέσιν, καὶ ἐκράτησεν ἀριστοτελικὰς <lb/>
-                        διδασκαλίας· τοὺς ὅρους τῆς ἀνθρωπίνης φύσεως
-                        λαμβάνεις <lb/> ἐπὶ τῆς θείας καὶ ἀγεννήτου;
-                        γεννητὸν λέγεις; σὺ δὲ φησὶν τί <lb/> λέγεις
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> οὐδὲ τοὺς συνηγορήσαντας αὐτῷ ἀπεδέξατο
+                        ἀλλὰ λέγει· δια<lb break="no"/>τί κατελαλήσατε
+                        κατὰ τοῦ θεράποντός μου ἰὼβ· εἰ κατὰ τοῦ
+                        <lb/> ἰὼβ εἰρηκότας τοὺς φίλους καὶ αὐτὸν
+                        δοξάσαντας οὐκ ἐδέξατο·
+                        <lb/> τοὺς τὸν υἱὸν ἀθετοῦντας καὶ αὐτὸν
+                        ὁμολογοῦντας δέξηταί
+                        <lb/> ποτε, οὐδαμῶς ὁ γὰρ φησὶ μισών ἐμὲ καὶ
                         τὸν <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρα</hi></abbr>
-                        </choice>· ἀγέννητον λέγω· ἀλλ’ οὐχ ὡς σύ·
-                        λέγω ἀγέννητον <lb/> τὸν <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρα</hi></abbr>
-                        </choice>, ἐπεὶ μὴ ἐγεννήθη· ἀλλὰ καὶ τὸν ἀδὰμ
-                        λέγω ἀγέννητον <lb/> ἐπειδὴ μὴ ἐγεννήθη ἀλλ’
-                        ἐπλάσθη· μὴ ξένιζε τοὺς ἀκροατὰς· ταῦ<lb
-                            break="no"/>τα πλάσματα. ἀγέννητος ὁ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πὴρ</hi></abbr>
-                        </choice>· καὶ πολλὰ ἕτερα ἀγέννητα· <lb/>
-                        λέγεται μὲν οὖν ἀγέννητον πᾶν τὸ μὴ
-                        γεννώμενον· λέγεται ἀγέ<lb break="no"/>ννητον
-                        καὶ πᾶν τὸ γιγνόμενον· μηδέποτε γενόμενον· ἡ
-                        ἀνάστασις <lb/> τῶν νεκρῶν ἀγέννητος νῦν
-                        γίνεται γὰρ ἀλλ’ οὔπω γέγονεν· καὶ <lb/> ἔστιν
-                        ἀκατασκεύαστος μηδέπω γεναμένη· λέγεται
-                        ἀγέννητον καὶ <lb/> τὸ μηδέποτε μήτε γενόμενον
-                        μήτε γενέσθαι ὀφεῖλον· οἷον πολλὰ <lb/>
-                        ἀγέννητα· ἐπεὶ οὖν οἱ προφῆται καὶ δανιὴλ μὲν
-                        λέγε·, ἐθεώ<lb break="no"/>ρουν τέσσαρα θηρία
-                        ἐξερχόμενα ἐκ τῆς θαλάσσης· καὶ ἦν τὸ <lb/>
-                        πρῶτον θηρίον ὡσεὶ λέαινα καὶ πτερὰ αὐτοῦ ὡς
-                        ἀετοῦ· καὶ ποῦ <lb/> ἐθεάσω θηρίον λεαίνης
-                        οὕτως διεσκευασμένην ἔχων τὴν κατά<lb
-                            break="no"/>στασιν· ποῦ εἶδες θηρίον ἔχον
-                        ὄνυχας σιδηροὺς· καὶ ὁδόντας <lb/> χαλκοὺς·
-                        ταῦτα τὰ εἰς θεωρίαν ἀνέπλαττεν ὁ προφήτης·
-                            οὐ<lb break="no"/>μὴν ἐγένετο οὐδὲ
-                        γίνεται· ἀλλ’ ἔστιν τὸ θηρίον ἐκεῖνο
-                        ἀγέννητον· <lb/> μηδεπώποτε γενόμενον ἀλλ’
-                        ὠνομάσθη μόνον· ποῖαι γυναῖ<lb break="no"/>κες
-                        ἐγένοντο πτερὰ ἔχουσαι οἷας οἶδεν ζαχαρίας
-                        πτερὰ φε<lb break="no"/>ρούσας· ποῦ ἐθεάσω
-                        πάρδαλιν ἔχουσαν πτερὰ· ταῦτα <lb/> δὲ πάντα
-                        ἐξηγεῖται ὁ μακάριος δανιὴλ· ἢ ποῦ ἐθεᾶσω
-                            ἀν<pb n="114r" break="no"/>δριάντα ἀπὸ
-                        χρυσοῦ καὶ ἀργύρου καὶ χαλκοῦ, καὶ σιδήρου καὶ
-                        <lb/> ὀστράκου· οἷον εἶδεν δανιῆλ ἕκαστον δὲ
-                        τούτων ἀγέννητον <lb/> οὐ γὰρ ἐγένετο ἀνεγράφη
-                        δὲ ὡς πλάσμα καὶ θεωρία· μὴ τοί<lb break="no"
-                        />νυν νομίσης μέγα τι τῷ <choice>
-                            <expan>πατρὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρὶ</hi></abbr>
-                        </choice> χαρίζεσθαι τὸ λέγειν αὐτὸν ἀγέννη<lb
-                            break="no"/>τον, διὰ τὸ πολλὰ καὶ ἕτερα μὴ
-                        γεγεννημένα λέγεσθαι ἀγε<lb break="no"/>ννητα·
-                        οἶδα ὄτι βαθὺς ὁ λόγος· ἀλλ’ ἵνα ἐλέγξω τὴν
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice> μου
+                        <lb/> μισεῖ· ὁμοίως ὥσπερ οὐ δέχεται <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πὴρ</hi>
+                     </abbr>
+                  </choice> τὴν εἰς αὐτὸν τιμὴν τοῦ
+                        <lb/> υἱοῦ ἀθετουμένου· οὕτως οὐδὲ <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πὴρ</hi>
+                     </abbr>
+                  </choice> καὶ υἱὸς ἀθετουμένου
+                        <lb/> τοῦ ἁγίου <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice>· παῦλος γοῦν εὗρεν πρὸς τὰ αἱρετικὰ
+                        ζιζάνια
+                        <lb/> ἀρχὴν μὲν λαβόντα, οὐδέποτε δὲ παρρησίαν
+                        δεξάμενα·
+                        <pb n="113v"/>
+                         ἐν ἐφέσω γὰρ τῆς ἀσίας εὐρίσκει τινὰς
+                        βαπτισθέντας καὶ λέγει
+                        <lb/> αὐτοῖς· εἰ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> ἅγιον ἐλάβετε πιστεύσαντες· οἱ δὲ
+                        ἔφησαν· οὐ<lb break="no"/>δὲ εἰ ἐστιν <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> ἅγιον ἠκούσαμεν· εἶτα ἡ γενναία
+                        φωνὴ· εἰς τί
+                        <lb/> οὖν ἐβαπτίσθητε· παιδευσάτῳ πέτρος τὴν
+                        ἐκκλησίαν καὶ
+                        <lb/> παῦλος, μὴ αἱρετικᾶ πλέκειν συζητήματα·
+                        πόθεν ἡ δυσώνυμος
+                        <lb/> εὐνομίου προσηγορία· πόθεν τὰ αἱρετικὰ
+                        σπέρματα· ἀπώλετο
+                        <lb/> ἡ ἀλήθεια παρὰ τοῖς ἀσεβέσιν, καὶ
+                        ἐκράτησεν ἀριστοτελικὰς
+                        <lb/> διδασκαλίας· τοὺς ὅρους τῆς ἀνθρωπίνης
+                        φύσεως λαμβάνεις
+                        <lb/> ἐπὶ τῆς θείας καὶ ἀγεννήτου; γεννητὸν
+                        λέγεις; σὺ δὲ φησὶν τί
+                        <lb/> λέγεις τὸν <choice>
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice>· ἀγέννητον λέγω· ἀλλ’ οὐχ ὡς σύ·
+                        λέγω ἀγέννητον
+                        <lb/> τὸν <choice>
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice>, ἐπεὶ μὴ ἐγεννήθη· ἀλλὰ καὶ τὸν ἀδὰμ
+                        λέγω ἀγέννητον
+                        <lb/> ἐπειδὴ μὴ ἐγεννήθη ἀλλ’ ἐπλάσθη· μὴ
+                        ξένιζε τοὺς ἀκροατὰς· ταῦ<lb break="no"/>τα
+                        πλάσματα. ἀγέννητος ὁ <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πὴρ</hi>
+                     </abbr>
+                  </choice>· καὶ πολλὰ ἕτερα ἀγέννητα·
+                        <lb/> λέγεται μὲν οὖν ἀγέννητον πᾶν τὸ μὴ
+                        γεννώμενον· λέγεται ἀγέ<lb break="no"/>ννητον
+                        καὶ πᾶν τὸ γιγνόμενον· μηδέποτε γενόμενον· ἡ
+                        ἀνάστασις
+                        <lb/> τῶν νεκρῶν ἀγέννητος νῦν γίνεται γὰρ
+                        ἀλλ’ οὔπω γέγονεν· καὶ
+                        <lb/> ἔστιν ἀκατασκεύαστος μηδέπω γεναμένη·
+                        λέγεται ἀγέννητον καὶ
+                        <lb/> τὸ μηδέποτε μήτε γενόμενον μήτε γενέσθαι
+                        ὀφεῖλον· οἷον πολλὰ
+                        <lb/> ἀγέννητα· ἐπεὶ οὖν οἱ προφῆται καὶ
+                        δανιὴλ μὲν λέγε·, ἐθεώ<lb break="no"/>ρουν
+                        τέσσαρα θηρία ἐξερχόμενα ἐκ τῆς θαλάσσης· καὶ
+                        ἦν τὸ
+                        <lb/> πρῶτον θηρίον ὡσεὶ λέαινα καὶ πτερὰ
+                        αὐτοῦ ὡς ἀετοῦ· καὶ ποῦ
+                        <lb/> ἐθεάσω θηρίον λεαίνης οὕτως
+                        διεσκευασμένην ἔχων τὴν κατά<lb break="no"/>στασιν· ποῦ εἶδες θηρίον ἔχον ὄνυχας
+                        σιδηροὺς· καὶ ὁδόντας
+                        <lb/> χαλκοὺς· ταῦτα τὰ εἰς θεωρίαν ἀνέπλαττεν
+                        ὁ προφήτης· οὐ<lb break="no"/>μὴν ἐγένετο οὐδὲ
+                        γίνεται· ἀλλ’ ἔστιν τὸ θηρίον ἐκεῖνο
+                        ἀγέννητον·
+                        <lb/> μηδεπώποτε γενόμενον ἀλλ’ ὠνομάσθη
+                        μόνον· ποῖαι γυναῖ<lb break="no"/>κες ἐγένοντο
+                        πτερὰ ἔχουσαι οἷας οἶδεν ζαχαρίας πτερὰ φε<lb break="no"/>ρούσας· ποῦ ἐθεάσω πάρδαλιν
+                        ἔχουσαν πτερὰ· ταῦτα
+                        <lb/> δὲ πάντα ἐξηγεῖται ὁ μακάριος δανιὴλ· ἢ
+                        ποῦ ἐθεᾶσω ἀν<pb n="114r" break="no"/>δριάντα
+                        ἀπὸ χρυσοῦ καὶ ἀργύρου καὶ χαλκοῦ, καὶ σιδήρου
+                        καὶ
+                        <lb/> ὀστράκου· οἷον εἶδεν δανιῆλ ἕκαστον δὲ
+                        τούτων ἀγέννητον
+                        <lb/> οὐ γὰρ ἐγένετο ἀνεγράφη δὲ ὡς πλάσμα καὶ
+                        θεωρία· μὴ τοί<lb break="no"/>νυν νομίσης μέγα
+                        τι τῷ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρὶ</hi>
+                     </abbr>
+                  </choice> χαρίζεσθαι τὸ λέγειν αὐτὸν ἀγέννη<lb break="no"/>τον, διὰ τὸ πολλὰ καὶ ἕτερα μὴ
+                        γεγεννημένα λέγεσθαι ἀγε<lb break="no"/>ννητα·
+                        οἶδα ὄτι βαθὺς ὁ λόγος· ἀλλ’ ἵνα ἐλέγξω τὴν
                         αἱρετικὴν κα<lb break="no"/>κίαν, εἰς τούσδε
-                        τοὺς τόπους ἐλήλυθα· λέγεται καὶ ἄνθρωπος
-                        <lb/> ἀγέννητος ὁ μὴ γεννηθεὶς· καὶ εἰ μὴ
-                        ἐγεννήθη φησὶ πῶς λέγεται· <lb/> δείκνυμί σοι
-                        ἄνθρωπον μὴ γεννηθέντα· λέγει οὖν ὁ <choice>
-                            <expan>σωτὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >σὴρ</hi></abbr>
-                        </choice> περὶ <lb/> ἱούδα τοῦ προδότου· οὐαὶ
-                        τῶ ἀνθρώπω ἐκείνω δι’ οὗ παραδίδο<lb
-                            break="no"/>ται ὁ υἱὸς τοῦ ἀνθρώπου·
-                        συνέφερεν αὐτῷ μὴ ἐγεννήθη· καὶ πῶς <lb/> αὐτῷ
-                        συνεφερεν· τῶ γὰρ μὴ ὄντι οὐδὲν οὔτε συμφέρει
-                        οὔτε ζημίαν <lb/> φέρει· καὶ σολομὼν δὲ
-                        μακαρίζει ἄνθρωπον τὸν μὴ γεννηθέν<lb
-                            break="no"/>τα τάδε λέγων· μακάριος ὁ
-                        τεθνηκὼς μᾶλλον ἢ ζῶν· καὶ ὑπὲρ τοὺς <lb/>
-                        δύο, ὁ μὴ γεννηθεὶς· καὶ εἰ μὴ ἐγεννήθει πῶς
-                        μακάριος· βλέ<lb break="no"/>πε ὀνόματα
-                        ἀγεννήτα φύσεως· εἶπεν ἄνθρωπον τὸν μὴ <lb/>
-                        γεννηθέντα μηδὲ πλασθέντα μακάριον· ὥστε ἡ τοῦ
-                        ἀγεννήτου <lb/> προσηγορία, οὐ φύσιν θείαν
-                        ἑρμηνεύει· οὐδὲ ὡς σὺ ἀγέννητον <lb/> οὐσίαν
-                        σημαίνει· οὐ τιμὴν τῶ <choice>
-                            <expan>πατρὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πρὶ</hi></abbr>
-                        </choice> φέρει ὄντων καὶ ἑτέρων παρὰ <lb/> τῶ
-                        προφήτη ὀνομάτων ἀγεννήτων τε καὶ γεννητῶν
-                        καθὰ προα<lb break="no"/>ποδέδεικται· ἀλλὰ μὴ
-                        τὸ μὴ γεγονὼς δείκνυσιν· ἀλλ’ εἴπωμεν <lb/>
-                        πρὸς αὐτοὺς μετὰ τοῦ <choice>
-                            <expan>δαυὶδ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >δαδ</hi></abbr>
-                        </choice>· διηγήσαντό μοι παράνομοι ἀδο<lb
-                            break="no"/>λεσχίας· ἀλλ’ οὐχ’ ὡς ὁ νόμος
+                        τοὺς τόπους ἐλήλυθα· λέγεται καὶ ἄνθρωπος
+                        <lb/> ἀγέννητος ὁ μὴ γεννηθεὶς· καὶ εἰ μὴ
+                        ἐγεννήθη φησὶ πῶς λέγεται·
+                        <lb/> δείκνυμί σοι ἄνθρωπον μὴ γεννηθέντα·
+                        λέγει οὖν ὁ <choice>
+                     <expan>σωτὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σὴρ</hi>
+                     </abbr>
+                  </choice> περὶ
+                        <lb/> ἱούδα τοῦ προδότου· οὐαὶ τῶ ἀνθρώπω
+                        ἐκείνω δι’ οὗ παραδίδο<lb break="no"/>ται ὁ
+                        υἱὸς τοῦ ἀνθρώπου· συνέφερεν αὐτῷ μὴ ἐγεννήθη·
+                        καὶ πῶς
+                        <lb/> αὐτῷ συνεφερεν· τῶ γὰρ μὴ ὄντι οὐδὲν
+                        οὔτε συμφέρει οὔτε ζημίαν
+                        <lb/> φέρει· καὶ σολομὼν δὲ μακαρίζει ἄνθρωπον
+                        τὸν μὴ γεννηθέν<lb break="no"/>τα τάδε λέγων·
+                        μακάριος ὁ τεθνηκὼς μᾶλλον ἢ ζῶν· καὶ ὑπὲρ
+                        τοὺς
+                        <lb/> δύο, ὁ μὴ γεννηθεὶς· καὶ εἰ μὴ ἐγεννήθει
+                        πῶς μακάριος· βλέ<lb break="no"/>πε ὀνόματα
+                        ἀγεννήτα φύσεως· εἶπεν ἄνθρωπον τὸν μὴ
+                        <lb/> γεννηθέντα μηδὲ πλασθέντα μακάριον· ὥστε
+                        ἡ τοῦ ἀγεννήτου
+                        <lb/> προσηγορία, οὐ φύσιν θείαν ἑρμηνεύει·
+                        οὐδὲ ὡς σὺ ἀγέννητον
+                        <lb/> οὐσίαν σημαίνει· οὐ τιμὴν τῶ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρὶ</hi>
+                     </abbr>
+                  </choice> φέρει ὄντων καὶ ἑτέρων παρὰ
+                        <lb/> τῶ προφήτη ὀνομάτων ἀγεννήτων τε καὶ
+                        γεννητῶν καθὰ προα<lb break="no"/>ποδέδεικται·
+                        ἀλλὰ μὴ τὸ μὴ γεγονὼς δείκνυσιν· ἀλλ’ εἴπωμεν
+                        <lb/> πρὸς αὐτοὺς μετὰ τοῦ <choice>
+                     <expan>δαυὶδ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">δαδ</hi>
+                     </abbr>
+                  </choice>· διηγήσαντό μοι παράνομοι ἀδο<lb break="no"/>λεσχίας· ἀλλ’ οὐχ’ ὡς ὁ νόμος
                         σου <choice>
-                            <expan>κύριε</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >κε</hi></abbr>
-                        </choice>· τὴν πέτρου δέξαι φωνὴν· <lb/> τὴν
-                        παύλου διδασκαλίαν· <choice>
-                            <expan>χριστὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >χς</hi></abbr>
-                        </choice> κατὰ σάρκα ὁ ὢν ἐπὶ πάντων <lb/>
-                        <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θς</hi></abbr>
-                        </choice> εὐλογητὸς· τὸ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice> τὸ ἅγιον προσκυνείτω· ἀνυμνείτω· ἐκ
-                        <lb/> τῶν θείων γραφῶν θεολογοῦμεν· κἂν
-                        θέλωσιν οἱ ἐχθροῖ κἂν <lb/> μὴ· μαρτυρήσει δέ
-                        μοι καὶ παῦλος λέγων· οὐκ οἴδατε ὅτι ναὸς <lb/>
-                        <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> ἐστὲ; καὶ τίς ὁ κατοικῶν· καὶ <choice>
-                            <expan>πνεῦμα</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >πνα</hi></abbr>
-                        </choice>
-                        <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline"
-                                   >θυ</hi></abbr>
-                        </choice> οἰκεῖ ἐν ὑμῖν· ἄλλο οὖν να<lb
-                            break="no"/>ὸς καὶ ἄλλος ὁ ἐν οἰκῶν· οὐκ
-                        ἤκουσας πέτρου λέγοντος ἀνανία <pb n="114v"/>
-                    </p>
-                </div>
+                     <expan>κύριε</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κε</hi>
+                     </abbr>
+                  </choice>· τὴν πέτρου δέξαι φωνὴν·
+                        <lb/> τὴν παύλου διδασκαλίαν· <choice>
+                     <expan>χριστὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χς</hi>
+                     </abbr>
+                  </choice> κατὰ σάρκα ὁ ὢν ἐπὶ πάντων
+                        <lb/>
+                  <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> εὐλογητὸς· τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὸ ἅγιον προσκυνείτω· ἀνυμνείτω· ἐκ
+                        <lb/> τῶν θείων γραφῶν θεολογοῦμεν· κἂν
+                        θέλωσιν οἱ ἐχθροῖ κἂν
+                        <lb/> μὴ· μαρτυρήσει δέ μοι καὶ παῦλος λέγων·
+                        οὐκ οἴδατε ὅτι ναὸς
+                        <lb/>
+                  <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> ἐστὲ; καὶ τίς ὁ κατοικῶν· καὶ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice>
+                  <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> οἰκεῖ ἐν ὑμῖν· ἄλλο οὖν να<lb break="no"/>ὸς καὶ ἄλλος ὁ ἐν οἰκῶν· οὐκ
+                        ἤκουσας πέτρου λέγοντος ἀνανία
+                        <pb n="114v"/>
+                        ἵνα τί ἐπείρασεν ὁ σατανᾶς τὴν καρδίαν σου
+                        ψεύσασθαίσε τὸ
+                        <lb/>
+                  <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> τὸ ἅγιον· καὶ ἐπήγαγεν οὐκ ἐψεύσω
+                        ἀνθρώποις ἀλλὰ τῷ
+                        <lb/>
+                  <choice>
+                     <expan>θεῷ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θῷ</hi>
+                     </abbr>
+                  </choice>· ἀλλὰ φασὶν οἱ αἱρετικοὶ οὐ τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> ἐκάλεσεν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>, ἀλλ’ ἐ<lb break="no"/>πειδὴ τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice> ἐκ τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> ἀπεστάλη ὁ ὑβρίζων φησὶ τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>τὸν <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice> ὑβρίζει τὸν ἀποστείλαντα τὸ <choice>
+                     <expan>πνεῦμα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνα</hi>
+                     </abbr>
+                  </choice>· ἀλλ’ ἄφρων καὶ ἀλόγιστε·
+                        <lb/>οὐδὲ μία γὰρ ἄλλη πρέπουσα τῷ ἀθέῳ
+                        προσηγορία, εἰ μὴ ἡ
+                        <lb/>τοῦ ἄφρονος· εἶπεν γὰρ ἄφρων ἐν καρδία
+                        αὐτοῦ οὐκ ἔστιν <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice>·
+                        <lb/>οὐκ εἶπεν ὡς σὺ ἐνόησας· εἰ γὰρ ἡ τοῦ <choice>
+                     <expan>πνεύματος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνς</hi>
+                     </abbr>
+                  </choice> ὕβρις εἰς <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice> ἀνέτρε<lb break="no"/>χεν ὡς
+                        ἀποστείλαντα ἐχρῆν εἰπεῖν οὐκ ἐψεύσω τῷ <choice>
+                     <expan>πνεύματι</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνι</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>ἀλλὰ τῷ <choice>
+                     <expan>θεῷ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θῷ</hi>
+                     </abbr>
+                  </choice>· ἀλλὰ ταῦτα μὲν εἰς τοσοῦτον· δεῖ
+                        γὰρ τῆ ἀποστο<lb break="no"/>λικῆ χορεία
+                        παραχωρῆσαι τὴν ἁγίαν τρίαδα, ἣν ὁ <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πὴρ</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>καταγγέλλει· τριὰς ἀποστόλων· μάρτυς τῆς <choice>
+                     <expan>οὐρανίου</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνίου</hi>
+                     </abbr>
+                  </choice> τριά<lb break="no"/>δος· χορεύσωμεν
+                        εἱλικρινῶς· εἴπωμεν πολλὰ τὰ τέκνα
+                        <lb/>τῆς ἐρήμου μᾶλλον, ἢ τῆς ἐχούσης τὸν
+                        ἄνδρα· ἡ πᾶσα αἴρε<lb break="no"/>σις ἡ
+                        ἄνθρωπον ἔχουσα διδάσκαλον καὶ οὐ <choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>· γένοιτο δὲ εὐ<lb break="no"/>χαῖς
+                        καὶ πρεσβείαις τοῦ κοινοῦ <choice>
+                     <expan>πατρὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρς</hi>
+                     </abbr>
+                  </choice> καὶ διδασκάλου· ἀποστό<lb break="no"/>λοις ἡμᾶς καὶ μάρτυσιν ἐν ὀρθοδόξω πίστει
+                        συναυλίζεσθαι ἐν
+                        <lb/>
+                  <choice>
+                     <expan>χριστῷ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χῷ</hi>
+                     </abbr>
+                  </choice>
+                  <choice>
+                     <expan>ἰησοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἰυ</hi>
+                     </abbr>
+                  </choice>· ᾦ ἡ δόξα εἰς τοὺς αἰῶνας τῶν αἰώνων
+                        ἀμήν:</p>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>

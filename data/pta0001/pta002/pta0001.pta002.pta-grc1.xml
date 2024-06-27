@@ -1,388 +1,497 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title>De paenitentia et compunctione</title>
-                <author>
-                    <persName key="pta0001">Severianus Gabalensis</persName>
-                </author>
-                <respStmt>
-                    <persName xml:id="SV">Sever J. Voicu</persName>
-                    <resp>Transcription of the text; correction and standardisation of spelling, accents, and punctuation to modern editorial standards</resp>
-                </respStmt>
-                <respStmt>
-                    <persName xml:id="AvS">Annette von Stockhausen</persName>
-                    <resp>Conversion to CTS-compliant PTA TEI; added biblical references</resp>
-                </respStmt>
-                <respStmt>
-                    <persName xml:id="CP">Carmen Prüfer</persName>
-                    <resp>Encoding of persons and places</resp>
-                </respStmt>
-            </titleStmt>
-            <publicationStmt>
-                <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
-                <distributor>Patristic Text Archive</distributor>
-                <availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
-                </availability>
-                <date>2018</date>
-                <idno type="PTA">pta0001.pta002</idno>
-                <idno type="CPG">4186</idno>
-                <idno type="BHG"/>
-                <idno type="Aldama">395</idno>
-                <idno type="Pinakes-Oeuvre">3430</idno>
-            </publicationStmt>
-            <sourceDesc>
-                <bibl>
-                    <note>Non-critical edition (spelling, accents and punctuation corrected and standardised to modern editorial standards by Sever Voicu)</note>
-                    <title type="collection">Patrologia Graeca</title>
-                    <idno>49</idno>
-                    <title type="volume">Volumen 49</title>
-                    <editor role="editor">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>De paenitentia et compunctione</title>
+            <author>
+               <persName key="pta0001">Severianus Gabalensis</persName>
+            </author>
+            <respStmt>
+               <persName xml:id="SV">Sever J. Voicu</persName>
+               <resp>Transcription of the text; correction and standardisation of spelling, accents, and punctuation to modern editorial standards</resp>
+            </respStmt>
+            <respStmt>
+               <persName ref="#AvS">Annette von Stockhausen</persName>
+               <resp>Conversion to CTS-compliant PTA TEI; added biblical references</resp>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="CP">Carmen Prüfer</persName>
+               <resp>Encoding of persons and places</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2018</date>
+            <idno type="PTA">pta0001.pta002</idno>
+            <idno type="CPG">4186</idno>
+            <idno type="BHG"/>
+            <idno type="Aldama">395</idno>
+            <idno type="Pinakes-Oeuvre">3430</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+                  <bibl xml:id="PG">
+                  <note>Non-critical edition (spelling, accents and punctuation corrected and standardised to modern editorial standards by Sever Voicu)</note>
+                  <title type="collection">Patrologia Graeca</title>
+                  <idno>49</idno>
+                  <title type="volume">Volumen 49</title>
+                  <editor role="editor">
                         <surname>Migne</surname>
                         <forename>Jean-Paul</forename>
-                    </editor>
-                    <pubPlace>Paris</pubPlace>
-                    <biblScope unit="column" from="323" to="336">323–336</biblScope>
-                    <date when="1859">1859</date>
-                </bibl>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="section" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
-            </refsDecl>
-            <refsDecl xml:id="biblical">
-                <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
-                    <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
-                    <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
-                    <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="(.+):(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
-                    <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
-                </cRefPattern>
-            </refsDecl>
-            <editorialDecl>
-                <interpretation>
-                    <p xml:id="biblical-quotations">
-                        Bibelzitate sind ausgezeichnet und nach den oben angeführten Grundsätzen nachgewiesen.
-                    </p>
-                    <p xml:id="persons">
-                        Personen sind ausgezeichnet. Biblische Personen sind mit den IDs der
-                        <ref target="https://github.com/tyndale/STEPBible-Data">TIPNR - Tyndale Individualised Proper Names with all References</ref>-Liste, alle übrigen Personen mit den IDs der
-                        <ref target="https://lobid.org/gnd">GND</ref>
-                        referenziert.
-                    </p>
-                </interpretation>
-                <normalization>
-                    <p>
-                        Angaben zur Handhabung von Großschreibung, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum,
-                           Trema, Enklitika, Apostroph/Elisionen, Zahlzeichen, Worttrennung, nomina sacra.
-                    </p>
-                </normalization>
-                <punctuation>
-                    <p>
-                        Angaben zur Normalisierung der Interpunktion: Setzung von Punkt,
-                         	         Komma, Semikolon, Fragezeichen, Gedankenstrichen und Klammern
-                    </p>
-                </punctuation>
-            </editorialDecl>
-            <classDecl>
-                <taxonomy xml:id="comphistsem">
-                    <bibl>
-                        Text Type Classification by
-                        <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
-                    </bibl>
-                </taxonomy>
-            </classDecl>
-        </encodingDesc>
-        <profileDesc>
-            <creation>
-                <date notBefore="0401" notAfter="0404"/>
-                <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
-            </creation>
-            <textClass>
-                <keywords scheme="#comphistsem">
-                    <term>Paraenetic</term>
-					<term>Sermon</term>
-                </keywords>
-            </textClass>
-        </profileDesc>
-        <revisionDesc status="pre-critical-edition">
-            <change when="2021-02-05" who="#CP">Encoding of persons and places</change>
-            <change when="2019-12-17" who="#AvS">
+                  </editor>
+                  <pubPlace>Paris</pubPlace>
+                  <biblScope unit="column" from="323" to="336">323–336</biblScope>
+                  <date when="1859">1859</date>
+                  </bibl>
+            </listBibl>
+            <listPerson>
+                  <person xml:id="AvS">
+                        <persName ref="https://orcid.org/0000-0001-5382-6322">
+                              <abbr type="siglum">AvS</abbr>
+                              <forename>Annette</forename>
+                              <surname>von Stockhausen</surname>
+                        </persName>
+                  </person>
+            </listPerson>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations"
+                  ana="fully-annotated fully-identified">
+            Biblical quotations are fully annotated and/but not fully/partially referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references"
+                  ana="fully-annotated fully-identified">
+            Other references are fully annotated and/but not fully/partially referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons"
+                  ana="fully-annotated fully-identified">
+            Persons are fully annotated and fully referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups"
+                  ana="partially-annotated fully-identified">
+            Groups of persons and organisations are partially annotated but not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places"
+                  ana="fully-annotated fully-identified">
+            Places are fully annotated and fully referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+            </interpretation>
+            <normalization>
+               <p>Spelling, accents and punctuation corrected and standardised to modern editorial standards by Sever Voicu.</p>
+            </normalization>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>pre-critical-edition</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="unfinished">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema and groups identified</ref>
+         </change>
+         <change when="2021-02-05" who="#CP">Encoding of persons and places</change>
+         <change when="2019-12-17" who="#AvS">
                 Updated file to comply with version 1.2 of
                 <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
-            </change>
-            <change when="2018-08-07" who="#AvS">Converted to PTA/CapiTainS</change>
-            <change when="2018-09-28" who="#AvS">Sever Voicu's version adapted</change>
-        </revisionDesc>
-    </teiHeader>
-    <text>
-        <body>
-            <div type="edition" xml:lang="grc" n="urn:cts:pta:pta0001.pta002.pta-grc1">
-                <head>
-                    <cb n="323"/>
-                    <title>Λόγος περὶ μετανοίας καὶ κατανύξεως, καὶ ὅτι ταχὺς ὁ θεὸς εἰς σωτηρίαν καὶ βραδὺς εἰς τιμωρίαν· ἐν ᾧ καὶ περὶ τῆς <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> παράδοξος ἱστορία.</title>
-                    <title>Ὁμιλία ζʹ.</title>
-                </head>
-                <div type="textpart" subtype="section" n="1">
-                    <p>Πάντοτε μὲν ὁ θεῖος ἀπόστολος θείᾳ καὶ οὐρανίῳ κέχρηται γλώττῃ, καὶ μετὰ πολλῆς ἐπιστήμης τὸν εὐαγγελικὸν ὑφαίνει λόγον· οὐκ ἐξ οἰκείας γνώμης ἁπλῶς φθεγγόμενος, ἀλλ’ ἐκ τῆς βασιλικῆς αὐτοῦ αὐθεντίας προφέρων τὰ δόγματα· ἐξαιρέτως δὲ ταύτῃ κέχρηται τῇ ἐπιστήμῃ, ὅταν τὸν τῆς μετανοίας εἰσάγῃ λόγον τοῖς ἁμαρτάνουσι· περὶ δὲ αὐτοῦ τοῦ κεφαλαίου πάντας ὑμᾶς ὑπομνήσω. Ἠκούσατε τοίνυν, ἵνα ἐκ μέρους ἅψωμαι τῶν εἰρημένων,
+         </change>
+         <change when="2018-08-07" who="#AvS">Converted to PTA/CapiTainS</change>
+         <change when="2018-09-28" who="#AvS">Sever Voicu's version adapted</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta0001.pta002.pta-grc1">
+            <head>
+               <cb n="323"/>
+               <title>Λόγος περὶ μετανοίας καὶ κατανύξεως, καὶ ὅτι ταχὺς ὁ θεὸς εἰς σωτηρίαν καὶ βραδὺς εἰς τιμωρίαν· ἐν ᾧ καὶ περὶ τῆς <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> παράδοξος ἱστορία.</title>
+               <title>Ὁμιλία ζʹ.</title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p>Πάντοτε μὲν ὁ θεῖος ἀπόστολος θείᾳ καὶ οὐρανίῳ κέχρηται γλώττῃ, καὶ μετὰ πολλῆς ἐπιστήμης τὸν εὐαγγελικὸν ὑφαίνει λόγον· οὐκ ἐξ οἰκείας γνώμης ἁπλῶς φθεγγόμενος, ἀλλ’ ἐκ τῆς βασιλικῆς αὐτοῦ αὐθεντίας προφέρων τὰ δόγματα· ἐξαιρέτως δὲ ταύτῃ κέχρηται τῇ ἐπιστήμῃ, ὅταν τὸν τῆς μετανοίας εἰσάγῃ λόγον τοῖς ἁμαρτάνουσι· περὶ δὲ αὐτοῦ τοῦ κεφαλαίου πάντας ὑμᾶς ὑπομνήσω. Ἠκούσατε τοίνυν, ἵνα ἐκ μέρους ἅψωμαι τῶν εἰρημένων,
                         <cit>
-                            <ref decls="#biblical" cRef="NA:2Cor:12:21">ὡς ἀρτίως διαλεγόμενος τοῖς <orgName>Κορινθίοις</orgName> ἔλεγεν ὁ γενναῖος ἐκεῖνος καὶ θαυμάσιος ἀνήρ·
+                     <ref decls="#biblical" cRef="NA:2Cor:12:21">ὡς ἀρτίως διαλεγόμενος τοῖς <orgName key="PTA_O00025">Κορινθίοις</orgName> ἔλεγεν ὁ γενναῖος ἐκεῖνος καὶ θαυμάσιος ἀνήρ·
                             </ref>
-                            <quote>Μήπως ἐλθὼν πολλοὺς πενθήσω τῶν προημαρτηκότων, καὶ μὴ μετανοησάντων.</quote>
-                        </cit>
+                     <quote>Μήπως ἐλθὼν πολλοὺς πενθήσω τῶν προημαρτηκότων, καὶ μὴ μετανοησάντων.</quote>
+                  </cit>
                         Ἄνθρωπος μὲν ἦν τῇ φύσει ὁ μέγας οὗτος διδάσκαλος, θεοῦ δ’ ὑπηρέτης τὴν πρόθεσιν· διὰ τοῦτο ὥσπερ οὐρανίῳ κέχρηται γλώττῃ, καὶ ὡς ἐξ αὐτῶν τῶν οὐρανῶν φθεγγόμενος, οὕτω καὶ τοῖς ἁμαρτάνουσιν ἀπειλεῖ, καὶ τοῖς μετανοοῦσιν ἱλασμὸν ἐπαγγέλλεται. Ὅταν δὲ ταῦτα εἴπω, οὐ τῇ <persName type="biblical" key="Paul_Act.7.58">Παύλου</persName> γλώττῃ τὴν αὐθεντίαν ἐπιγράφω, ἀλλ’ ἐπὶ τὴν τοῦ θεοῦ χάριν τὸ πᾶν ἀναφέρω,
                         <cit>
-                            <ref decls="#biblical" cRef="NA:2Cor:13:3">περὶ οὗ νῦν αὐτὸς ἔλεγεν·
+                     <ref decls="#biblical" cRef="NA:2Cor:13:3">περὶ οὗ νῦν αὐτὸς ἔλεγεν·
                             </ref>
-                            <quote>Εἰ δοκιμὴν ζητεῖτε τοῦ ἐν ἐμοὶ λαλοῦντος Χριστοῦ;</quote>
-                        </cit>
+                     <quote>Εἰ δοκιμὴν ζητεῖτε τοῦ ἐν ἐμοὶ λαλοῦντος Χριστοῦ;</quote>
+                  </cit>
                         Ὑποτίθεται τοίνυν τοῖς ἁμαρτάνουσι φάρμακον εὐεργεσίας, καὶ μετάνοιαν εἰς σωτηρίαν. Συνέδραμε δὲ σήμερον τῇ ἀποστολικῇ ἀναγνώσει καὶ ἡ εὐαγγελικὴ τοῦ σωτῆρος αὐθεντία, ἁμαρτιῶν ἄφεσιν ἀφθόνως χαριζομένη.
                         <cit>
-                            <ref decls="#biblical" cRef="NA:Mk:2:5">Τὸν γὰρ παραλυτικὸν ὁ σωτὴρ ἰώμενος ἔλεγεν, ὡς ἀρτίως ἀκηκόατε·
+                     <ref decls="#biblical" cRef="NA:Mk:2:5">Τὸν γὰρ παραλυτικὸν ὁ σωτὴρ ἰώμενος ἔλεγεν, ὡς ἀρτίως ἀκηκόατε·
                             </ref>
-                            <quote>Τέκνον, ἀφέωνταί σοι αἱ ἁμαρτίαι σου αἱ πολλαί.</quote>
-                        </cit>
+                     <quote>Τέκνον, ἀφέωνταί σοι αἱ ἁμαρτίαι σου αἱ πολλαί.</quote>
+                  </cit>
                         Ἄφεσις δὲ ἁμαρτιῶν πηγὴ σωτηρίας καὶ ἔπαθλον μετανοίας· ἰατρεῖον γάρ ἐστιν ἀναιρετικὸν τῆς ἁμαρτίας ἡ μετάνοια· δῶρόν ἐστιν οὐράνιον, δύναμις θαυμαστή, χάριτι νικῶσα τὴν τῶν νόμων ἀκολουθίαν. Διὰ τοῦτο οὐ πόρνον ἀποσείεται, οὐ μοιχὸν ἀποσοβεῖ, οὐ μέθυσον ἀποστρέφεται, οὐκ εἰδωλολάτρην βδελύσσεται, οὐ λοίδορον ἀπελαύνει, οὐ βλάσφημον ἀποδιώκει, οὐκ ἀλαζόνα, ἀλλὰ πάντας μεταποιεῖ. Χωνευτήριον γάρ ἐστι τῆς ἁμαρτίας ἡ μετάνοια. Ἀναγκαῖον δὲ πρῶτον γνωρίσαι τοῦ θεοῦ τὸν σκοπόν, οὐκ ἐξ ἡμετέρων ἐννοιῶν ἐπιβάλλοντας ταύτῃ τῇ θεωρίᾳ, ἀλλ’ ἐξ αὐτῶν τῶν θείων γραφῶν μεμαρτυρημένην ἀποδεικνύντας τὴν ἀλήθειαν. Σκοπὸς τῷ θεῷ μακροθυμεῖν τοῖς ἁμαρτάνουσι· διπλοῦς ἐστιν εἰς σωτηρίαν ἵλεως· μνηστευόμενος αὐτοῖς τὴν ἐκ μετανοίας σωτηρίαν, καὶ τοῖς ἐξ αὐτῶν ἀπογόνοις τοῖς εἰς ἀρετὴν ἐπιδιδόναι μέλλουσι ταμιευόμενος τὴν
                         <cb n="324"/>
                         εὐεργεσίαν. Καὶ ἵνα πάλιν ἀναλάβω τὸν λόγον, ὁ θεὸς μακροθυμεῖ, ἵνα καὶ ὁ ἁμαρτάνων μετανοήσῃ, καὶ τοῖς ἐξ αὐτοῦ τικτομένοις μὴ ἀποκλείσῃ τὴν σωτηρίαν. Κἂν γὰρ αὐτὸς ὁ ἁμαρτάνων ἀμετανόητα πταίῃ, φείδεται πολλάκις τῆς ῥίζης, ἵνα φυλάξῃ τοὺς καρπούς· πολλάκις μὲν οὖν καὶ αὐτὴν μεταβάλλει τὴν ῥίζαν, ὡς ἔφθην εἰπών· ἀλλ’ ἐπειδὰν εἰς παντελῆ κακίαν ἐκείνη πέσῃ, ὁ θεὸς ὑπερτίθεται χρησίμως τὴν τιμωρίαν, ἀναμένων τῶν μετανοούντων τὴν σωτηρίαν· καὶ ὅπως ἄκουε Θάρρα ὁ πατὴρ <persName type="biblical" key="Abraham_Gen.11.26">Ἀβραὰμ</persName> εἰδώλων ἦν προσκυνητής, ἀλλ’ οὐ δέδωκεν ἐνταῦθα τῆς ἀσεβείας τὴν δίκην· καὶ εἰκότως. Εἰ γὰρ προλαβὼν ὁ θεὸς ἀπέτεμε τὴν ῥίζαν, πόθεν ὁ τοσοῦτος καρπὸς τῆς πίστεως ἀνεδίδοτο; Τί τοῦ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> μοχθηρότερον; Σκόπει μοι καὶ ἑτέρας φιλανθρωπίας ὑπόθεσιν. Τί τῆς κακίας ἐκείνης ἀναιδέστερον; οὐ
                         <cit>
-                            <quote>πόρνος καὶ βέβηλος</quote>
-                            <ref decls="#biblical" cRef="NA:Heb:12:16">, ὥς φησιν ὁ ἀπόστολος</ref>
-                        </cit>; οὐ μητρολοίας καὶ πατρολοίας; οὐκ ἀδελφοῦ φονεὺς ὅσον εἰς πρόθεσιν; οὐχ ὑπὸ τοῦ θεοῦ μισούμενος;
+                     <quote>πόρνος καὶ βέβηλος</quote>
+                     <ref decls="#biblical" cRef="NA:Heb:12:16">, ὥς φησιν ὁ ἀπόστολος</ref>
+                  </cit>; οὐ μητρολοίας καὶ πατρολοίας; οὐκ ἀδελφοῦ φονεὺς ὅσον εἰς πρόθεσιν; οὐχ ὑπὸ τοῦ θεοῦ μισούμενος;
                         <cit>
-                            <ref decls="#biblical" cRef="NA:Rom:9:13">ἡ γραφὴ μαρτυρεῖ λέγουσα·
+                     <ref decls="#biblical" cRef="NA:Rom:9:13">ἡ γραφὴ μαρτυρεῖ λέγουσα·
                             </ref>
-                            <quote>Τὸν <persName type="biblical" key="Israel_Gen.25.26">Ἰακὼβ</persName> ἠγάπησα, τὸν δὲ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> ἐμίσησα.</quote>
-                        </cit>
+                     <quote>Τὸν <persName type="biblical" key="Israel_Gen.25.26">Ἰακὼβ</persName> ἠγάπησα, τὸν δὲ <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> ἐμίσησα.</quote>
+                  </cit>
                         Εἰ τοίνυν πόρνος καὶ ἀδελφοκτόνος καὶ βέβηλος καὶ μεμισημένος, διὰ τί μὴ ἀφανίζεται; διὰ τί μὴ ἐκκόπτεται; διὰ τί παραχρῆμα τὴν προσήκουσαν τιμωρίαν οὐ δέχεται; Διὰ τί; Καλὸν ὡς ἀληθῶς καὶ τὴν αἰτίαν εἰπεῖν. Εἰ ἐξεκόπη, μέγιστον καρπὸν δικαιοσύνης ὁ κόσμος ἀπώλεσεν ἄν. Καὶ ὁποῖον, ἄκουε.
-                        <seg type="allusion"><persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> ἐγέννησε τὸν <persName type="biblical" key="Reuel_Gen.36.4">Ῥαγουήλ</persName>, <persName type="biblical" key="Reuel_Gen.36.4">Ῥαγουὴλ</persName> τὸν <persName type="biblical" key="Zerah_Gen.36.13">Ζαρά</persName>, <persName type="biblical" key="Zerah_Gen.36.13">Ζαρὰ</persName>τὸν <persName type="biblical" key="Jobab_Gen.36.33"><app type="textcritical"><lem resp="#AvS" cause="conjecture">Ἰωβάβ</lem><rdg source="#PG">Ἰώβ</rdg></app></persName>.<ref decls="#biblical" cRef="LXX:Gn:36:10-13.33"/>
-                        </seg>
+                        <seg type="allusion">
+                     <persName type="biblical" key="Esau_Gen.25.25">Ἡσαῦ</persName> ἐγέννησε τὸν <persName type="biblical" key="Reuel_Gen.36.4">Ῥαγουήλ</persName>, <persName type="biblical" key="Reuel_Gen.36.4">Ῥαγουὴλ</persName> τὸν <persName type="biblical" key="Zerah_Gen.36.13">Ζαρά</persName>, <persName type="biblical" key="Zerah_Gen.36.13">Ζαρὰ</persName> τὸν <persName type="biblical" key="Jobab_Gen.36.33">
+                        <app type="variants">
+                           <lem resp="#AvS" type="conjecture">Ἰωβάβ</lem>
+                           <rdg source="#PG">Ἰώβ</rdg>
+                        </app>
+                     </persName>.<ref decls="#biblical" cRef="LXX:Gn:36:10-13.33"/>
+                  </seg>
                         Ὁρᾷς πηλίκον ὑπομονῆς ἄνθος ἠφανίζετο, εἰ προλαβὼν ὁ θεὸς δίκην ἀπῄτησε τὴν ῥίζαν;</p>
-                </div>
-                <div type="textpart" subtype="section" n="2">
-                    <p>Καθ’ ὅλων οὖν τῶν πραγμάτων ταύτην ἐκλάμβανε τὴν θεωρίαν. Διὰ τοῦτο μακροθυμεῖ τοῖς <orgName>Αἰγυπτίοις</orgName> ἀνύποιστα βλασφημοῦσι, διὰ τὰς νῦν ἀνθούσας ἐκκλησίας ἐν <placeName ref="https://pleiades.stoa.org/places/1001943">Αἰγύπτῳ</placeName>, διὰ τὰ μοναστήρια καὶ τοὺς ἀγγελικὸν ἐπανῃρημένους βίον. Καὶ γάρ, ὥς φασιν οἱ τῶν νόμων τῶν κοινῶν ἔμπειροι, καὶ ὡς οἱ <orgName>Ῥωμαίων</orgName> παρακελεύονται νόμοι, τὴν κυοφοροῦσαν, εἴ ποτε περιπέσοι πταίσματι θανάτου δίκην ἐπάγοντι, μὴ πρότερον ἀναιρεῖσθαι, πρὶν ἂν τέκῃ τὸ κυοφορούμενον· καὶ μάλα εἰκότως οὐ γὰρ ἐδικαίωσαν οἱ καλῶς τεθεικότες τοὺς νόμους συναφανισθῆναι τὸ ἀναμάρτητον τῇ ἁμαρτησάσῃ. Εἰ δὲ οἱ ἀνθρώπινοι νόμοι φείδονται τῶν μηδὲν ἡμαρτηκότων, ὁ θεὸς οὐ πολλῷ μᾶλλον εἰκότως φυλάξει τὴν ῥίζαν, τοῖς καρποῖς ταμιευόμενος τὴν ἐκ τῆς μετανοίας εὐεργεσίαν; Λάβε μοι λοιπὸν καὶ ἐπ’ αὐτῶν τῶν ἁμαρτανόντων τὴν ἐκ μετανοίας εὐεργεσίαν· καὶ γὰρ καὶ ἐπὶ
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <p>Καθ’ ὅλων οὖν τῶν πραγμάτων ταύτην ἐκλάμβανε τὴν θεωρίαν. Διὰ τοῦτο μακροθυμεῖ τοῖς <orgName key="PTA_O00014">Αἰγυπτίοις</orgName> ἀνύποιστα βλασφημοῦσι, διὰ τὰς νῦν ἀνθούσας ἐκκλησίας ἐν <placeName ref="https://pleiades.stoa.org/places/1001943">Αἰγύπτῳ</placeName>, διὰ τὰ μοναστήρια καὶ τοὺς ἀγγελικὸν ἐπανῃρημένους βίον. Καὶ γάρ, ὥς φασιν οἱ τῶν νόμων τῶν κοινῶν ἔμπειροι, καὶ ὡς οἱ <orgName key="PTA_O00015">Ῥωμαίων</orgName> παρακελεύονται νόμοι, τὴν κυοφοροῦσαν, εἴ ποτε περιπέσοι πταίσματι θανάτου δίκην ἐπάγοντι, μὴ πρότερον ἀναιρεῖσθαι, πρὶν ἂν τέκῃ τὸ κυοφορούμενον· καὶ μάλα εἰκότως οὐ γὰρ ἐδικαίωσαν οἱ καλῶς τεθεικότες τοὺς νόμους συναφανισθῆναι τὸ ἀναμάρτητον τῇ ἁμαρτησάσῃ. Εἰ δὲ οἱ ἀνθρώπινοι νόμοι φείδονται τῶν μηδὲν ἡμαρτηκότων, ὁ θεὸς οὐ πολλῷ μᾶλλον εἰκότως φυλάξει τὴν ῥίζαν, τοῖς καρποῖς ταμιευόμενος τὴν ἐκ τῆς μετανοίας εὐεργεσίαν; Λάβε μοι λοιπὸν καὶ ἐπ’ αὐτῶν τῶν ἁμαρτανόντων τὴν ἐκ μετανοίας εὐεργεσίαν· καὶ γὰρ καὶ ἐπὶ
                         <cb n="325"/>
                         τούτων ὁ αὐτὸς τῆς φιλανθρωπίας ἀποδίδοται λόγος. Εἰ προελάμβανεν ἡ δίκη τὴν διόρθωσιν, ὁ κόσμος παντελῶς ἀπώλλυτο καὶ διεφθείρετο· εἰ ὀξὺς ἦν πρὸς τιμωρίαν ὁ θεός, οὐκ ἂν ἐκτήσατο <persName type="biblical" key="Paul_Act.7.58">Παῦλον</persName> ἡ ἐκκλησία, οὐκ ἐδέχετο τὸν τοιοῦτον καὶ τηλικοῦτον. Διὰ τοῦτο οὖν ὑπερέθετο βλασφημοῦντα, ἵνα δείξῃ μετανοοῦντα. Ἡ τοῦ θεοῦ μακροθυμία τὸν διώκτην ἐποίησε κήρυκα· ἡ τοῦ θεοῦ μακροθυμία τὸν λύκον μετέβαλεν εἰς ποιμένα·
                         <seg type="allusion">ἡ τοῦ θεοῦ μακροθυμία τὸν τελώνην ἐποίησεν εὐαγγελιστήν<ref decls="#biblical" cRef="NA:Mt:9:9"/>
-                        </seg>· ἡ τοῦ θεοῦ μακροθυμία πάντας ἡμᾶς ἠλέησε, πάντας μετέβαλε, πάντας μετέστρεψεν. Ἐὰν ἴδῃς τόν ποτε μέθυσον νηστευτήν, ἐὰν ἴδῃς τόν ποτε βλάσφημον θεολόγον, ἐὰν ἴδῃς τόν ποτε αἰσχραῖς ᾠδαῖς τὸ στόμα μολύναντα, νῦν τοῖς θείοις ὕμνοις τὴν ψυχὴν καθαίροντα, θαύμαζε τὴν μακροθυμίαν τοῦ θεοῦ καὶ ἐπαίνει τὴν μετάνοιαν καὶ ἐκ τῆς ἀλλοιώσεως λέγε ἀναλαβών·
+                  </seg>· ἡ τοῦ θεοῦ μακροθυμία πάντας ἡμᾶς ἠλέησε, πάντας μετέβαλε, πάντας μετέστρεψεν. Ἐὰν ἴδῃς τόν ποτε μέθυσον νηστευτήν, ἐὰν ἴδῃς τόν ποτε βλάσφημον θεολόγον, ἐὰν ἴδῃς τόν ποτε αἰσχραῖς ᾠδαῖς τὸ στόμα μολύναντα, νῦν τοῖς θείοις ὕμνοις τὴν ψυχὴν καθαίροντα, θαύμαζε τὴν μακροθυμίαν τοῦ θεοῦ καὶ ἐπαίνει τὴν μετάνοιαν καὶ ἐκ τῆς ἀλλοιώσεως λέγε ἀναλαβών·
                         <quote>Αὕτη ἡ ἀλλοίωσις τῆς δεξιᾶς τοῦ ὑψίστου.<ref decls="#biblical" cRef="LXX:Ps:76:11"/>
-                        </quote>
+                  </quote>
                         Ἀγαθὸς μὲν ὁ θεὸς πρὸς πάντας, ἐξαιρέτως δὲ τὴν ἑαυτοῦ μακροθυμίαν ἐνδείκνυται πρὸς τοὺς ἁμαρτάνοντας. Καὶ εἰ βούλει ξένον ἐπακοῦσαι λόγον, ξένον μὲν ὅσον εἰς συνήθειαν, ἀληθινὸν δὲ ὅσον εἰς εὐσέβειαν, ἄκουσον.</p>
-                    <p>Βαρὺς ὁ θεὸς πανταχοῦ φαίνεται τοῖς δικαίοις, χρηστὸς δὲ τοῖς ἁμαρτωλοῖς, καὶ ταχὺς εἰς φιλανθρωπίαν· τὸν ἁμαρτάνοντα καὶ πεσόντα διανίστησι, καί φησι πρὸς αὐτόν·
+               <p>Βαρὺς ὁ θεὸς πανταχοῦ φαίνεται τοῖς δικαίοις, χρηστὸς δὲ τοῖς ἁμαρτωλοῖς, καὶ ταχὺς εἰς φιλανθρωπίαν· τὸν ἁμαρτάνοντα καὶ πεσόντα διανίστησι, καί φησι πρὸς αὐτόν·
                         <quote>Μὴ ὁ πίπτων οὐκ ἀνίσταται; ἢ ὁ ἀποστρέφων οὐκ ἐπιστρέφει;<ref decls="#biblical" cRef="LXX:Jr:8:4"/>
-                        </quote>
+                  </quote>
                         καὶ
                         <quote>Ἱνατί ἀπέστρεψεν ἀποστροφὴν ἀναιδῆ ἡ ἀσύνετος θυγάτηρ <placeName ref="https://pleiades.stoa.org/places/687934">Ἰούδα</placeName>;<ref decls="#biblical" cRef="LXX:Jr:8:5"/>
-                        </quote>
+                  </quote>
                         καὶ πάλιν·
                         <quote>Ἐπιστράφητε πρός με, καὶ ἐπιστραφήσομαι πρὸς ὑμᾶς.<ref decls="#biblical" cRef="LXX:Sach:1:3"/>
-                        </quote>
+                  </quote>
                         Καὶ ἑτέρωθι δὲ ὅρκῳ βεβαιοῖ τὴν ἐκ μετανοίας σωτηρίαν διὰ πολλὴν φιλανθρωπίαν.
                         <quote>Ζῶ γὰρ ἐγώ, λέγει κύριος· οὐ βούλομαι τὸν θάνατον τοῦ ἁμαρτωλοῦ, ὡς τὸ ἐπιστρέψαι καὶ ζῆν αὐτόν.<ref decls="#biblical" cRef="LXX:Hes:33:11"/>
-                        </quote>
+                  </quote>
                         Πρὸς δὲ τὸν δίκαιον λέγει·
                         <quote>Ἐὰν ποιήσῃ ἄνθρωπος πᾶσαν δικαιοσύνην καὶ πᾶσαν ἀλήθειαν, καὶ στραφεὶς ἁμάρτῃ, οὐ μὴ μνησθῶ τῆς δικαιοσύνης αὐτοῦ, ἀλλ’ ἐν τῇ ἁμαρτίᾳ αὐτοῦ ἀποθανεῖται.<ref decls="#biblical" cRef="LXX:Hes:18:24"/>
-                        </quote>
+                  </quote>
                         Ὢ πολλῆς ἀκριβείας τῆς πρὸς τὸν δίκαιον· ὢ πολλῆς δαψιλείας τῆς πρὸς τὸν ἁμαρτάνοντα. Οὕτω δὲ ποικίλως καὶ διαφόρως μηχανᾶται, οὐκ αὐτὸς μεταβαλλόμενος, ἀλλὰ χρησίμως μερίζων τῆς ἀγαθότητος αὐτοῦ τὰς οἰκονομίας. Καὶ ὅπως, ἄκουε. Τὸν ἁμαρτωλὸν καὶ ἐμμένοντα ταῖς ἁμαρτίαις, ἐὰν φοβήσῃ, εἰς ἀπόγνωσιν αὐτὸν καὶ ἀπαγόρευσιν τῆς ἐλπίδος φέρει· τὸν δὲ δίκαιον ἐὰν μακαρίσῃ, χαυνοῖ τῆς ἀρετῆς αὐτοῦ τὸν τόνον, καὶ ὡς ἤδη μακαρισθέντα, ἀμελεῖν αὐτὸν τῆς σπουδῆς παρασκευάζει. Διὰ τοῦτο τὸν μὲν ἁμαρτωλὸν ἐλεεῖ, τὸν δὲ δίκαιον φοβεῖ·
                         <quote>Φοβερὸς γὰρ ἐπὶ πάντας τοὺς περικύκλῳ αὐτοῦ<ref decls="#biblical" cRef="LXX:Ps:88:8"/>
-                        </quote>· καὶ
+                  </quote>· καὶ
                         <quote>Χρηστὸς κύριος τοῖς σύμπασι<ref decls="#biblical" cRef="LXX:Ps:144:9"/>
-                        </quote>.
+                  </quote>.
                         <quote>Φοβερός
                             <seg type="insertion">φησιν</seg>
                             ἐστὶν ἐπὶ πάντας τοὺς περικύκλῳ αὐτοῦ.<ref decls="#biblical" cRef="LXX:Ps:88:8"/>
-                        </quote>
+                  </quote>
                         καὶ τίνες ἂν εἶεν, ἀλλ’ ἢ οἱ ἅγιοι;
                         <quote>Ὁ θεὸς
                             <seg type="insertion">γάρ, φησὶν ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>,</seg>
                             ὁ ἐνδοξαζόμενος ἐν βουλῇ ἁγίων, μέγας καὶ φοβερός ἐστιν ἐπὶ πάντας τοὺς περικύκλῳ αὐτοῦ.<ref decls="#biblical" cRef="LXX:Ps:88:8"/>
-                        </quote>
+                  </quote>
                         Ἐὰν ἴδῃ πεσόντα, ἐκτείνει χεῖρα φιλανθρωπίας· ἐὰν ἴδῃ ἑστῶτα, ἐπάγει φόβον· καὶ τοῦτο δικαιοσύνης καὶ δικαιοκρισίας. Τὸν μὲν γὰρ δίκαιον τῷ φόβῳ στηρίζει, τὸν δὲ ἁμαρτωλὸν τῇ φιλανθρωπίᾳ διεγείρει. Καὶ θέλεις αὐτοῦ γνῶναι τὴν εὔκαιρον ἀγαθότητα καὶ τὴν εὔχρηστον καὶ ἁρμόζουσαν ἡμῖν ἀποτομίαν; Πρόσεχε ἀκριβῶς, μή σε διαφύγῃ τῆς θεωρίας τὸ μέγεθος· ἡ ἁμαρτωλὸς ἐκείνη γυ<cb n="326" break="no"/>νὴ ἡ μεμαρτυρημένη ἐπὶ πάσῃ ἁμαρτίᾳ καὶ ἀνομίᾳ, ἡ τοσαῦτα ἁμαρτήσασα, καὶ τοσούτοις ἁμαρτιῶν ἔργοις ἐνεχομένη, διψήσασα τὴν ἐκ μετανοίας σωτηρίαν ὑπεισῆλθε τῷ συμποσίῳ τῶν ἁγίων· καλῶ δὲ συμπόσιον ἁγίων, ἐπειδὴ παρῆν ὁ ἅγιος τῶν ἁγίων. Τοῦ γὰρ σωτῆρος κατακεκλιμένου ἐν τῷ οἴκῳ <persName type="biblical" key="Simon_Luk.7.40">Σίμωνος τοῦ Φαρισαίου</persName>, ὑπεισῆλθεν ἡ γυνὴ ἡ ἁμαρτωλὸς ἐκείνη, καὶ τῶν ποδῶν ἥπτετο τοῦ σωτῆρος, καὶ τοῖς δάκρυσιν ἀπέπλυνεν αὐτοῦ τοὺς πόδας, καὶ ταῖς θριξὶν ἐξέματτε· καὶ τὴν τοσούτοις κεχωσμένην ἁμαρτήμασι διανίστησιν ὁ φιλάνθρωπος, λέγων·
                         <quote>Ἀφέωνται αὐτῆς αἱ ἁμαρτίαι.<ref decls="#biblical" cRef="NA:Lk:7:47"/>
-                        </quote>
+                  </quote>
                         Οὐ γὰρ πρόκειταί μοι νῦν ἐξετάσαι πᾶσαν τὴν ἱστορίαν, ἀλλὰ μόνην παραγαγεῖν τὴν μαρτυρίαν. Ὅρα τοίνυν τὴν δαψίλειαν·
                         <quote>Οὗ χάριν λέγω σοι, ἀφέωνται αὐτῆς αἱ ἁμαρτίαι αἱ πολλαί, ὅτι πολὺ ἠγάπησε.<ref decls="#biblical" cRef="NA:Lk:7:47"/>
-                        </quote>. Τοσούτων οὖν ἁμαρτημάτων ἀμνηστίαν ἐκομίσατο ἡ ἁμαρτωλὸς γυνή.
+                  </quote>. Τοσούτων οὖν ἁμαρτημάτων ἀμνηστίαν ἐκομίσατο ἡ ἁμαρτωλὸς γυνή.
                         <seg type="allusion">Καὶ <persName type="biblical" key="Miriam_Exo.15.20">Μαρία</persName> δέ, ἡ ἀδελφὴ <persName type="biblical" key="Moses_Exo.2.10">Μωϋσέως</persName>, διὰ μικρὸν γογγυσμὸν λέπρᾳ καταδικάζεται.<ref decls="#biblical" cRef="LXX:Num:12:10"/>
-                        </seg>
+                  </seg>
                         Τοῖς ἁμαρτάνουσι λέγει·
                         <quote>Ἐὰν ὦσιν αἱ ἁμαρτίαι ὑμῶν ὡς κόκκινον, ὡς χιόνα λευκανῶ·<ref decls="#biblical" cRef="LXX:Is:1:18"/>
-                        </quote>
+                  </quote>
                         καὶ
                         <quote>μεταβάλλει τὸ σκότος εἰς φῶς<ref decls="#biblical" cRef="LXX:Is:42:16"/>
-                        </quote>, τῇ μεταβολῇ τῆς μετανοίας, καὶ τοσαύτην κακῶν ἀφθονίαν διαλύει τῇ φωνῇ τῆς ἀγαθότητος· πρὸς δὲ τὸν ἐν δικαιοσύνῃ βαδίζοντά φησιν·
+                  </quote>, τῇ μεταβολῇ τῆς μετανοίας, καὶ τοσαύτην κακῶν ἀφθονίαν διαλύει τῇ φωνῇ τῆς ἀγαθότητος· πρὸς δὲ τὸν ἐν δικαιοσύνῃ βαδίζοντά φησιν·
                         <quote>Ὃς ἂν εἴπῃ τῷ ἀδελφῷ αὐτοῦ, μωρέ, ἔνοχός ἐστι τῇ γεέννῃ τοῦ πυρός.<ref decls="#biblical" cRef="NA:Mt:5:22"/>
-                        </quote>
+                  </quote>
                         Ἑνὶ ῥήματι τοσαύτην ἐπέθηκεν ἀκρίβειαν καὶ τοσούτοις ἁμαρτήμασι τοσαύτην μετρεῖ τὴν ἀφθονίαν.</p>
-                </div>
-                <div type="textpart" subtype="section" n="3">
-                    <p>Καὶ ἕτερόν μοι σκόπησον θαυμαστόν. Ἐπειδὴ τὰ ἁμαρτήματα ὡς ὀφλήματα ἀναγράφεται, τοῖς μὲν ἁμαρτωλοῖς καὶ τὸ κεφάλαιον συγχωρεῖ μετανοοῦσι· παρὰ δὲ τῶν δικαίων καὶ τόκους ἀπαιτεῖ. Προσῆλθεν αὐτῷ χρεωφειλέτης πολλῶν ταλάντων, καὶ ὡς τῇ μετανοίᾳ καὶ τῇ πολλῇ ἱκεσίᾳ ἐδυσώπησε τὴν δίκην, καὶ εἶπε·
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <p>Καὶ ἕτερόν μοι σκόπησον θαυμαστόν. Ἐπειδὴ τὰ ἁμαρτήματα ὡς ὀφλήματα ἀναγράφεται, τοῖς μὲν ἁμαρτωλοῖς καὶ τὸ κεφάλαιον συγχωρεῖ μετανοοῦσι· παρὰ δὲ τῶν δικαίων καὶ τόκους ἀπαιτεῖ. Προσῆλθεν αὐτῷ χρεωφειλέτης πολλῶν ταλάντων, καὶ ὡς τῇ μετανοίᾳ καὶ τῇ πολλῇ ἱκεσίᾳ ἐδυσώπησε τὴν δίκην, καὶ εἶπε·
                         <quote>Κύριε, μακροθύμησον ἐπ’ ἐμοί, καὶ πάντα ἀποδώσω.<ref decls="#biblical" cRef="NA:Mt:18:26"/>
-                        </quote>
+                  </quote>
                         Οὐκ ἀνέμεινε τὴν ἀπόδοσιν ὁ φιλάνθρωπος, ἀλλὰ τὴν ἐξομολόγησιν λύσιν ἐποίησε τοῦ ὀφλήματος· τῷ ὀφειλέτῃ τῶν μυρίων ταλάντων πάντα συνεχώρησε καὶ αὐτὸ τὸ κεφάλαιον. Παρὰ δὲ τῶν δικαίων ἐπαγγέλλεται καὶ τόκους ἀπαιτεῖν·
                         <quote>Διὰ τί γὰρ οὐκ ἐδώκατε τὸ ἀργύριόν μου τοῖς τραπεζίταις· κἀγὼ ἐλθὼν σὺν τόκοις ἀπῄτησα;<ref decls="#biblical" cRef="NA:Lk:19:23"/>
-                        </quote>
+                  </quote>
                         Ταῦτα λέγω, οὐχ ὡς τοῦ θεοῦ πρὸς τοὺς δικαίους ἀπεχθῶς διακειμένου· οὐδὲν γὰρ τῷ θεῷ τοῦ δικαίου ποθεινότερον· ἀλλ’, ὡς ἔφθην εἰπών, παραμυθεῖται τὸν ἁμαρτωλόν, ἵνα διεγείρῃ· φοβεῖ καὶ τὸν δίκαιον, ἵνα στηρίξῃ· καὶ τοῖς μὲν τὰ πολλὰ συγχωρεῖ πλημμελήματα ὡς ἐχθροῖς καὶ πεφυσιωμένοις, τοῖς δὲ καὶ περὶ τῶν τυχόντων ἀκριβολογεῖται, μηδὲν αὐτοῖς ἐλλιπὲς εἶναι βουλόμενος εἰς ἀκρότητα. Ὃ γάρ ἐστιν ἐν τῷ κόσμῳ τούτῳ πλούσιος, τοῦτο τῷ θεῷ δίκαιος· καὶ ὅ ἐστιν ἐν τῷ κόσμῳ πένης, τοῦτο τῷ θεῷ ἁμαρτωλός· οὐδὲν πτωχότερον τοῦ ἁμαρτάνοντος, καὶ οὐδὲν πλουσιώτερον τοῦ δικαιοπραγοῦντος. Διὰ τοῦτο περὶ μὲν τῶν ἐν εὐσεβείᾳ καὶ εὐθηνίᾳ διαγόντων
                         <cit>
-                            <ref decls="#biblical" cRef="NA:1Cor:1:4-5">φησὶν ὁ <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>·
+                     <ref decls="#biblical" cRef="NA:1Cor:1:4-5">φησὶν ὁ <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>·
                             </ref>
-                            <quote>Εὐχαριστῶ τῷ θεῷ, ὅτι ἐν παντὶ ἐπλουτίσθητε ἐν αὐτῷ, ἐν παντὶ λόγῳ καὶ πάσῃ γνώσει.</quote>
-                        </cit>
-                        <cit>
-                            <ref decls="#biblical" cRef="LXX:Jr:5:4">Περὶ δὲ τῶν ἀσεβούντων ὁ μακάριος <persName type="biblical" key="Jeremiah_2Ch.35.25">Ἱερεμίας</persName> λέγει·
+                     <quote>Εὐχαριστῶ τῷ θεῷ, ὅτι ἐν παντὶ ἐπλουτίσθητε ἐν αὐτῷ, ἐν παντὶ λόγῳ καὶ πάσῃ γνώσει.</quote>
+                  </cit>
+                  <cit>
+                     <ref decls="#biblical" cRef="LXX:Jr:5:4">Περὶ δὲ τῶν ἀσεβούντων ὁ μακάριος <persName type="biblical" key="Jeremiah_2Ch.35.25">Ἱερεμίας</persName> λέγει·
                             </ref>
-                            <quote>Ἴσως πτωχοί εἰσι, διὰ τοῦτο οὐκ ἠδύναντο ἀκούειν λόγον κυρίου.</quote>
-                        </cit>
+                     <quote>Ἴσως πτωχοί εἰσι, διὰ τοῦτο οὐκ ἠδύναντο ἀκούειν λόγον κυρίου.</quote>
+                  </cit>
                         Ὁρᾷς ὅπως πτωχοὺς καλεῖ τοὺς ἀπεσχοινισμένους τῆς
                         <cb n="327"/>
                         εὐσεβείας. Ὡς πτωχοὺς τοίνυν τοὺς ἁμαρτάνοντας ἐλεεῖ, καὶ ὡς πλουσίους τοὺς δικαιοπραγοῦντας ἀπαιτεῖ, τοῖς μὲν διὰ τὴν πενίαν χαριζόμενος, τοῖς δὲ διὰ τὸν τῆς εὐσεβείας πλοῦτον μετὰ πολλῆς ἀκριβείας τοὺς λόγους εἰσπραττόμενος. Ὃ δὲ ποιεῖ ἐπὶ δικαίων καὶ ἁμαρτωλῶν, τοῦτο ποιεῖ καὶ ἐπὶ πλουσίων καὶ πενήτων· καὶ ὥσπερ τὸν ἁμαρτάνοντα ἐγείρει διὰ φιλανθρωπίαν, τὸν δὲ δίκαιον φοβεῖ διὰ τῆς ἀποτομίας· οὕτω καὶ ἐν τοῖς κοσμικοῖς πράγμασιν διατίθησι τὴν ἑαυτοῦ οἰκονομίαν. Ἐὰν ἴδῃ δυνάστας ἀξιώμασιν ὑπερλάμποντας, βασιλεῖς, ἄρχοντας, πάντας τοὺς ἐν πλούτῳ διαπρέποντας, τούτοις διαλέγεται μετὰ φόβου, καὶ ἐπιτίθησι χρησίμως τῇ δυναστείᾳ τὸν φόβον·
                         <quote>Καὶ νῦν, βασιλεῖς, σύνετε, παιδεύθητε πάντες οἱ κρίνοντες τὴν γῆν· δουλεύσατε τῷ κυρίῳ ἐν φόβῳ, καὶ ἀγαλλιᾶσθε αὐτῷ ἐν τρόμῳ<ref decls="#biblical" cRef="LXX:Ps:2:10"/>
-                        </quote>, ὅτι
+                  </quote>, ὅτι
                         <quote>Βασιλεύς ἐστι τῶν βασιλευόντων, καὶ κύριος τῶν κυριευόντων<ref decls="#biblical" cRef="NA:1Tim:6:15"/>
-                        </quote>. Ὅπου ἀρχὴ δυναστείας, ἐπιτίθησι τὸν φόβον τῆς αὐτοῦ βασιλείας· ὅπου ταπείνωσις εὐτελείας, προσφέρει τὸ φάρμακον τῆς ἑαυτοῦ φιλανθρωπίας. Ὁ γὰρ θεὸς οὗτος
+                  </quote>. Ὅπου ἀρχὴ δυναστείας, ἐπιτίθησι τὸν φόβον τῆς αὐτοῦ βασιλείας· ὅπου ταπείνωσις εὐτελείας, προσφέρει τὸ φάρμακον τῆς ἑαυτοῦ φιλανθρωπίας. Ὁ γὰρ θεὸς οὗτος
                         <quote>μέγας βασιλεὺς τῶν βασιλευόντων, καὶ κύριος τῶν κυριευόντων<ref decls="#biblical" cRef="NA:1Tim:6:15"/>
-                        </quote>. οὗτος αὐτός, πάλιν ὑποβαίνων τῆς ἑαυτοῦ ἀξίας, εὑρίσκεται κατὰ τὴν ἁγίαν γραφὴν
+                  </quote>. οὗτος αὐτός, πάλιν ὑποβαίνων τῆς ἑαυτοῦ ἀξίας, εὑρίσκεται κατὰ τὴν ἁγίαν γραφὴν
                         <quote>πατὴρ ὀρφανῶν καὶ κριτὴς τῶν χηρῶν<ref decls="#biblical" cRef="LXX:Ps:67:6"/>
-                        </quote>, βασιλέων βασιλεύς, ἀρχόντων ἄρχων, κυριευόντων κύριος. Ὁρᾷς πολλὴν ἀφθονίαν φιλανθρωπίας; ὁρᾷς χρήσιμον τὸν φόβον τῆς εὐσεβείας καὶ τῆς ἐξουσίας; Ὅπου μὲν γὰρ εἶδεν ἀρκοῦσαν τὴν ἐξουσίαν εἰς παραμυθίαν, ἐπέθηκε τὸν φόβον εἰς ὠφέλειαν· ὅπου δὲ εἶδε παραλελυμένην τῇ εὐτελείᾳ τὴν ὀρφανίαν, καὶ τὴν πτωχείαν τῇ ἀτονίᾳ τῆς χηρείας, προσήγαγε τὴν φιλανθρωπίαν εἰς παραμυθίαν.
+                  </quote>, βασιλέων βασιλεύς, ἀρχόντων ἄρχων, κυριευόντων κύριος. Ὁρᾷς πολλὴν ἀφθονίαν φιλανθρωπίας; ὁρᾷς χρήσιμον τὸν φόβον τῆς εὐσεβείας καὶ τῆς ἐξουσίας; Ὅπου μὲν γὰρ εἶδεν ἀρκοῦσαν τὴν ἐξουσίαν εἰς παραμυθίαν, ἐπέθηκε τὸν φόβον εἰς ὠφέλειαν· ὅπου δὲ εἶδε παραλελυμένην τῇ εὐτελείᾳ τὴν ὀρφανίαν, καὶ τὴν πτωχείαν τῇ ἀτονίᾳ τῆς χηρείας, προσήγαγε τὴν φιλανθρωπίαν εἰς παραμυθίαν.
                         <quote>Ἐγὼ πατὴρ τῶν ὀρφανῶν.<ref decls="#biblical" cRef="LXX:Ps:67:6"/>
-                        </quote>
+                  </quote>
                         Δύο ποιεῖ, καὶ τὴν φιλανθρωπίαν δείκνυσι, καὶ τὴν δυναστείαν κολάζει. Καλεῖ ἑαυτὸν
                         <quote>πατέρα τῶν ὀρφανῶν<ref decls="#biblical" cRef="LXX:Ps:67:6"/>
-                        </quote>, ἵνα καὶ τοὺς ἐν συμφορᾷ παραμυθήσηται, καὶ τοὺς ἐν δυναστείᾳ καταπλήξῃ, ὥστε μὴ ἐπηρεάζειν ὀρφανοῖς τε καὶ χήραις· ἐπειδὴ ὁ θάνατος ἐγύμνωσε τὸν μὲν τοῦ πατρός, τὴν δὲ ἐστέρησε τοῦ ἀνδρός, καὶ οὓς διέφθειρεν ὁ τῆς φύσεως νόμος, ἀνεκαίνισεν ὁ τῆς φιλανθρωπίας ὅρος· καὶ ἡ αὐτὴ χάρις τῇ μὲν ἔδωκε τὸν κριτήν, τῷ δὲ ὀρφανῷ πατέρα, τὸν βασιλέα τῶν ἁγίων. Ὥστε, φησίν, ὦ ἄδικε, ἐὰν χήραις ἐπηρεάζῃς, τὸν τῶν χηρῶν προνοητὴν παροξύνεις· ἐὰν ὀρφανοὺς ἀδικῇς, υἱοὺς ἀδικεῖς θεοῦ.
+                  </quote>, ἵνα καὶ τοὺς ἐν συμφορᾷ παραμυθήσηται, καὶ τοὺς ἐν δυναστείᾳ καταπλήξῃ, ὥστε μὴ ἐπηρεάζειν ὀρφανοῖς τε καὶ χήραις· ἐπειδὴ ὁ θάνατος ἐγύμνωσε τὸν μὲν τοῦ πατρός, τὴν δὲ ἐστέρησε τοῦ ἀνδρός, καὶ οὓς διέφθειρεν ὁ τῆς φύσεως νόμος, ἀνεκαίνισεν ὁ τῆς φιλανθρωπίας ὅρος· καὶ ἡ αὐτὴ χάρις τῇ μὲν ἔδωκε τὸν κριτήν, τῷ δὲ ὀρφανῷ πατέρα, τὸν βασιλέα τῶν ἁγίων. Ὥστε, φησίν, ὦ ἄδικε, ἐὰν χήραις ἐπηρεάζῃς, τὸν τῶν χηρῶν προνοητὴν παροξύνεις· ἐὰν ὀρφανοὺς ἀδικῇς, υἱοὺς ἀδικεῖς θεοῦ.
                         <quote>Ἐγώ εἰμι ὁ πατὴρ τῶν ὀρφανῶν καὶ κριτὴς τῶν χηρῶν.<ref decls="#biblical" cRef="LXX:Ps:67:6"/>
-                        </quote>
+                  </quote>
                         Τίς δὲ οὕτω τολμηρὸς πρὸς ἀσέβειαν, ὥστε υἱοὺς ἀδικεῖν θεοῦ, καὶ ταῖς ὑπὸ τοῦ θεοῦ προνοουμέναις χήραις ἐπηρεάζειν; Ὁρᾷς πῶς χρησίμως κατασκευάζει τὰ φάρμακα τῆς εὐσεβείας, καὶ τοὺς μὲν φοβεῖ, τοὺς δὲ ἐλεεῖ, οὐκ αὐτὸς μεριζόμενος, πρὸς δὲ τὰς γνώμας τῶν ἀνθρώπων ἁρμοζόμενος; Προσάγωμεν τοίνυν ἑαυτοῖς, ἀδελφοί, φάρμακον εἰς σωτηρίαν τὴν μετάνοιαν· μᾶλλον δὲ δεξώμεθα παρὰ τοῦ θεοῦ τὴν μετάνοιαν ἰατρεύουσαν ἡμᾶς. Οὐ γὰρ ἡμεῖς αὐτῷ ταύτην προσάγομεν, ἀλλ’ αὐτὸς ἡμῖν ταύτην ἐχορήγησεν. Ὁρᾷς αὐτοῦ τὴν ἀκρίβειαν τὴν ἐν τῷ νόμῳ; ὁρᾷς τὴν φιλανθρωπίαν αὐτοῦ τὴν ἐν τῇ χάριτι; Ὅταν δὲ εἴπω τὴν ἀκρίβειαν τὴν ἐν τῷ νόμῳ, οὐ διαβάλλω κρίσιν, Ὅταν δὲ εἴπω τὴν ἀκρίβειαν τὴν ἐν τῷ νόμῳ, οὐ διαβάλλω κρίσιν, ἀλλὰ τῆς εὐαγγελικῆς χάριτος κηρύττω τὴν φιλανθρωπίαν· ὅτι ὁ μὲν νόμος ἀπαραιτήτως ἐκόλαζε τοὺς ἁμαρτάνοντας, ἡ δὲ χάρις μετὰ πολλῆς μακροθυμίας ὑπερτίθεται τὴν τιμωρίαν, ἵνα ἐπαγάγῃ τὴν διόρθωσιν. Δεξώμεθα τοίνυν μετάνοιαν, ἀδελφοί, φάρμακον εἰς σωτηρίαν, δεξώμεθα φάρμακον ἐξαλεῖφον ἡμῶν
                         <cb n="328"/>
                         τὰ πταίσματα. Μετάνοια δέ ἐστιν, οὐχ ἡ λόγῳ κηρυττομένη, ἀλλ’ ἡ πράγμασι βεβαιουμένη· μετάνοια ἡ ἐξ αὐτῆς τῆς καρδίας ἐξαλείφουσα τὸν ῥύπον τῆς ἀσεβείας.
                         <quote>Λούσασθε
                             <seg type="insertion">γάρ φησι</seg>
                             καθαροὶ γίνεσθε· ἀφέλετε τὰς πονηρίας ἀπὸ τῶν καρδιῶν ὑμῶν, ἀπέναντι τῶν ὀφθαλμῶν μου.<ref decls="#biblical" cRef="LXX:Is:1:16"/>
-                        </quote>
+                  </quote>
                         Τί βούλεται τὸ περιττὸν τῆς λέξεως; τὸ γὰρ
                         <quote>Ἀφέλετε τὰς πονηρίας ἀπὸ τῶν καρδιῶν ὑμῶν<ref decls="#biblical" cRef="LXX:Is:1:16"/>
-                        </quote>, οὐχ ἱκανὸν μηνῦσαι τὸ πᾶν; Διὰ τί οὖν
+                  </quote>, οὐχ ἱκανὸν μηνῦσαι τὸ πᾶν; Διὰ τί οὖν
                         <quote>Ἀπέναντι τῶν ὀφθαλμῶν μου<ref decls="#biblical" cRef="LXX:Is:1:16"/>
-                        </quote>; Ἐπειδὴ ἄλλως ὁρῶσιν ὀφθαλμοὶ ἀνθρώπων, καὶ ἄλλως ὁρᾷ ὀφθαλμὸς τοῦ θεοῦ·
+                  </quote>; Ἐπειδὴ ἄλλως ὁρῶσιν ὀφθαλμοὶ ἀνθρώπων, καὶ ἄλλως ὁρᾷ ὀφθαλμὸς τοῦ θεοῦ·
                         <quote>Ἄνθρωπος γὰρ εἰς πρόσωπον, θεὸς δὲ εἰς καρδίαν.<ref decls="#biblical" cRef="LXX:1Sa:16:7"/>
-                        </quote>
+                  </quote>
                         Μὴ σχήμασι, φησί, νοθεύσητε τὴν μετάνοιαν, ἀλλ’
                         <quote>ἀπέναντι τῶν ὀφθαλμῶν μου<ref decls="#biblical" cRef="LXX:Is:1:16"/>
-                        </quote>, τῶν τὰ κρυπτὰ ἐρευνώντων, δείξατε
+                  </quote>, τῶν τὰ κρυπτὰ ἐρευνώντων, δείξατε
                         <seg type="allusion">τοὺς καρποὺς τῆς μετανοίας<ref decls="#biblical" cRef="NA:Mt:3:8"/>
-                        </seg>.</p>
-                </div>
-                <div type="textpart" subtype="section" n="4">
-                    <p>Δεῖ δὲ ἡμᾶς καθαιρομένους ἀπὸ τῶν ἁμαρτιῶν πρὸ ὀφθαλμῶν ἔχειν αὐτὰ τὰ ἁμαρτήματα· κἂν ὁ θεὸς διὰ φιλανθρωπίαν συγχωρήσῃ σοι τὴν ἁμαρτίαν, ἀλλὰ σὺ πρὸς τὴν ἀσφάλειαν τῆς ἑαυτοῦ ψυχῆς πρὸ ὀφθαλμῶν ἔχε τὴν ἁμαρτίαν. Ἡ γὰρ μνήμη τῶν προλαβόντων ἐποχὴ γίνεται τῶν μελλόντων· καὶ ὁ ἐπὶ τοῖς προτέροις δακνόμενος, περὶ τὰ δεύτερα ἀσφαλεστέραν τὴν γνώμην δείκνυσι.
+                  </seg>.</p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
+               <p>Δεῖ δὲ ἡμᾶς καθαιρομένους ἀπὸ τῶν ἁμαρτιῶν πρὸ ὀφθαλμῶν ἔχειν αὐτὰ τὰ ἁμαρτήματα· κἂν ὁ θεὸς διὰ φιλανθρωπίαν συγχωρήσῃ σοι τὴν ἁμαρτίαν, ἀλλὰ σὺ πρὸς τὴν ἀσφάλειαν τῆς ἑαυτοῦ ψυχῆς πρὸ ὀφθαλμῶν ἔχε τὴν ἁμαρτίαν. Ἡ γὰρ μνήμη τῶν προλαβόντων ἐποχὴ γίνεται τῶν μελλόντων· καὶ ὁ ἐπὶ τοῖς προτέροις δακνόμενος, περὶ τὰ δεύτερα ἀσφαλεστέραν τὴν γνώμην δείκνυσι.
                         <cit>
-                            <ref decls="#biblical" cRef="LXX:Ps:50:5">Διὰ τοῦτο καὶ ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>·
+                     <ref decls="#biblical" cRef="LXX:Ps:50:5">Διὰ τοῦτο καὶ ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>·
                             </ref>
-                            <quote>Καὶ ἡ ἁμαρτία μου
+                     <quote>Καὶ ἡ ἁμαρτία μου
                                 <seg type="insertion">φησὶν</seg>
                                 ἐνώπιόν μού ἐστι διὰ παντός</quote>
-                        </cit>, ἵνα πρὸ ὀφθαλμῶν ἔχων τὰ προλαβόντα, μὴ περιπέσῃ τοῖς μέλλουσιν. Ὅτι δὲ ταύτην παρ’ ἡμῶν ὁ θεὸς ἀπαιτεῖ τὴν κατάστασιν, ἄκουσον αὐτοῦ λέγοντος·
+                  </cit>, ἵνα πρὸ ὀφθαλμῶν ἔχων τὰ προλαβόντα, μὴ περιπέσῃ τοῖς μέλλουσιν. Ὅτι δὲ ταύτην παρ’ ἡμῶν ὁ θεὸς ἀπαιτεῖ τὴν κατάστασιν, ἄκουσον αὐτοῦ λέγοντος·
                         <quote>Ἐγώ εἰμι ὁ ἐξαλείφων τὰς ἁμαρτίας σου, καὶ οὐ μὴ μνησθήσομαι· σὺ δὲ μνήσθητι, καὶ κριθῶμεν, λέγει κύριος· λέγε σὺ πρῶτον τὰς ἁμαρτίας σου, ἵνα δικαιωθῇς.<ref decls="#biblical" cRef="LXX:Is:43:25-26"/>
-                        </quote>
+                  </quote>
                         Οὐκ ἀναμένει ὁ θεὸς χρόνον τὸν ἀπὸ τῆς μετανοίας· εἶπες τὴν ἁμαρτίαν σου, ἐδικαιώθης· μετενόησας, ἠλεήθης. Οὐ χρόνος ἀπολογεῖται, ἀλλ’ ὁ τρόπος τοῦ μετανοοῦντος τὴν ἁμαρτίαν σβέννυσιν· ἔστι καὶ χρόνῳ πολλῷ παρεδρεύσαντα μὴ τυχεῖν σωτηρίας, καὶ ἐν ὀλίγῳ χρόνῳ γνησίως ἐξομολογησάμενον ἀποδύσασθαι τὴν ἁμαρτίαν. Πολὺν ἀνάλωσε χρόνον ὁ μακάριος <persName type="biblical" key="Samuel_1Sa.1.20">Σαμουὴλ</persName> ἀξιῶν περὶ τοῦ <persName type="biblical" key="Saul_1Sa.9.2">Σαούλ</persName>, καὶ πολλὰς νύκτας διήνυσεν ἀγρυπνῶν περὶ τῆς τοῦ ἁμαρτήσαντος σωτηρίας· Ὁ δὲ θεὸς τὸν χρόνον παραπεμπόμενος – Οὐ γὰρ συνέδραμε τῇ ἱκεσίᾳ τοῦ προφήτου ἡ μετάνοια τοῦ ἁμαρτήσαντος.– λέγει πρὸς τὸν ἑαυτοῦ προφήτην·
                         <quote>Ἕως πότε σὺ πενθεῖς περὶ <persName type="biblical" key="Saul_1Sa.9.2">Σαοὺλ</persName> κἀγὼ ἀπῶσμαι αὐτόν;<ref decls="#biblical" cRef="LXX:1Sa:16:1"/>
-                        </quote>
+                  </quote>
                         Τὸ
                         <quote>Ἕως πότε<ref decls="#biblical" cRef="LXX:1Sa:16:1"/>
-                        </quote>
+                  </quote>
                         τὸν χρόνον δείκνυσι καὶ τὴν παραμονὴν τοῦ ἱκετεύοντος· καὶ ἀπεπέμψατο ὁ θεὸς τὸν χρόνον τῆς ἱκεσίας τοῦ προφήτου· οὐ γὰρ συνέδραμε τῇ πρεσβείᾳ τοῦ δικαίου ἡ μετάνοια τοῦ βασιλέως. Τῷ δέ γε μακαρίῳ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>, δεξαμένῳ τὸν ἔλεγχον τῆς ἁμαρτίας διὰ τοῦ ἁγίου <persName type="biblical" key="Nathan_2Sa.7.2">Ναθᾶν</persName> τοῦ προφήτου, καὶ εὐθέως πρὸς τὴν ἀπειλὴν ἐπιδειξαμένῳ τὴν γνησίαν ἐπιστροφήν, καὶ εἰπόντι
                         <quote>Ἥμαρτον τῷ κυρίῳ<ref decls="#biblical" cRef="LXX:2Sa:12:13"/>
-                        </quote>, εὐθέως ῥῆμα ἓν ἐν μιᾷ ῥοπῇ προενεχθὲν γνησίως ὁλόκληρον ἤνεγκε τῷ μετανοήσαντι τὴν σωτηρίαν. Εὐθὺς γὰρ ἡ διόρθωσις κατέλαβε τὴν ἀπόφασιν. Φησὶ γοῦν πρὸς αὐτὸν ὁ <persName type="biblical" key="Nathan_2Sa.7.2">Ναθᾶν</persName>·
+                  </quote>, εὐθέως ῥῆμα ἓν ἐν μιᾷ ῥοπῇ προενεχθὲν γνησίως ὁλόκληρον ἤνεγκε τῷ μετανοήσαντι τὴν σωτηρίαν. Εὐθὺς γὰρ ἡ διόρθωσις κατέλαβε τὴν ἀπόφασιν. Φησὶ γοῦν πρὸς αὐτὸν ὁ <persName type="biblical" key="Nathan_2Sa.7.2">Ναθᾶν</persName>·
                         <quote>Καὶ κύριος ἀφῆκε τὴν ἁμαρτίαν σου.<ref decls="#biblical" cRef="LXX:2Sa:12:13"/>
-                        </quote>
-                    </p>
-                    <p>Ὅρα δέ μοι τὸν θεὸν βραδὺν εἰς τιμωρίαν καὶ ταχὺν εἰς σωτηρίαν· καί μοι πρῶτον ἐννόησον, ὅπως τὸν ἔλεγχον ὁ φιλάνθρωπος μετὰ πολλοὺς προσήγαγε χρόνους. Ἥμαρτεν ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>, ἐκυοφόρησεν ἡ γυνὴ καὶ οὐδεὶς ἔλεγχος τῇ ἁμαρτίᾳ παρηκολούθησεν, ἀλλὰ μετὰ τὸ ἀποτεχθῆναι τὸ βρέφος τὸ ἐκ τῆς ἁμαρτίας ἀποστέλλεται ὁ ἰατρὸς τῆς ἁμαρτίας. Διὰ τί δὲ ἁμαρτήσαντα
+                  </quote>
+               </p>
+               <p>Ὅρα δέ μοι τὸν θεὸν βραδὺν εἰς τιμωρίαν καὶ ταχὺν εἰς σωτηρίαν· καί μοι πρῶτον ἐννόησον, ὅπως τὸν ἔλεγχον ὁ φιλάνθρωπος μετὰ πολλοὺς προσήγαγε χρόνους. Ἥμαρτεν ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>, ἐκυοφόρησεν ἡ γυνὴ καὶ οὐδεὶς ἔλεγχος τῇ ἁμαρτίᾳ παρηκολούθησεν, ἀλλὰ μετὰ τὸ ἀποτεχθῆναι τὸ βρέφος τὸ ἐκ τῆς ἁμαρτίας ἀποστέλλεται ὁ ἰατρὸς τῆς ἁμαρτίας. Διὰ τί δὲ ἁμαρτήσαντα
                         <cb n="329"/>
                         εὐθέως οὐ διωρθώσατο; Ἐπειδὴ οἶδεν ἐν ταῖς ἀκμαῖς τῶν ἁμαρτημάτων τυφλώττουσαν τὴν ψυχὴν τῶν ἁμαρτανόντων, διότι ἐκκεκώφωται τὰ ὦτα τῶν βεβαπτισμένων ἐν τῷ βάθει τῆς ἁμαρτίας. Ὑπερτίθεται οὖν φλεγμαίνοντι τῷ πάθει προσάγειν τὴν βοήθειαν, καὶ μετὰ τοσοῦτον χρόνον ὁ ἔλεγχος προσέρχεται· καὶ ἐν μιᾷ καιροῦ ῥοπῇ ἡ μετάνοια καὶ ἡ ἄφεσις.
                         <quote>Καὶ κύριος ἀφῆκε τὴν ἁμαρτίαν σου.<ref decls="#biblical" cRef="LXX:2Sa:12:13"/>
-                        </quote>
+                  </quote>
                         Ὢ τῆς οἰκονομίας τοῦ ἀπειλήσαντος. Ὁρᾷς ὅτι ὀξὺς εἰς σωτηρίαν; Τοῦτο καὶ ἐπὶ τῶν ἄλλων ποιεῖ, βραδύνων μὲν πρὸς καθαίρεσιν, ταχύνων δὲ πρὸς ἀντίληψιν. Οἷόν τι λέγω· ἐφ’ ἡμῶν τῶν ἀνθρώπων διὰ πολλῶν χρόνων τὰ κτίσματα κατασκευάζεται, καὶ ἐν πολλῷ χρόνῳ κτίζομεν οἶκον· καὶ τῆς μὲν οἰκοδομῆς πολὺς ὁ χρόνος, τῆς δὲ καθαιρέσεως ὀλίγος. Ἐπὶ δὲ τοῦ θεοῦ τὸ ἀνάπαλιν· ὅταν κτίζῃ, ταχέως κτίζει· ὅταν καταστρέφῃ, βραδέως καταστρέφει. Ταχὺς ὁ θεὸς κτίζων, βραδὺς καταστρέφων· ἐπειδὴ θεῷ τὰ δύο πρέποντα· καὶ γὰρ ἐκεῖνο, δυνάμεως, καὶ τοῦτο, ἀγαθότητος· δι’ ὑπερβολὴν δυνάμεως ταχύς, διὰ πολλὴν ἀγαθότητα βραδύς· ἔλεγχος δὲ τῶν ῥημάτων, ἡ πεῖρα τῶν πραγμάτων. Ἐν ἓξ ἡμέραις ἐποίησεν ὁ θεὸς τὸν οὐρανὸν καὶ τὴν γῆν, τὰ μεγέθη τῶν ὀρέων, τὰς πεδιάδας, τὰς φάραγγας, τὰς νάπας, τὰς ὕλας, τὰ βλαστήματα, πηγάς, ποταμούς, παράδεισον, πᾶσαν τὴν ὁρωμένην ποικιλίαν,
                         <quote>τὴν θάλατταν ταύτην τὴν μεγάλην καὶ εὐρύχωρον<ref decls="#biblical" cRef="LXX:Ps:103:25"/>
-                        </quote>, τὰς νήσους, τὰς παραλίους χώρας καὶ τὰς μεσογείους· πάντα τὸν ὁρώμενον τοῦτον κόσμον καὶ τὸ ἐν αὐτῷ κάλλος ἐν ἓξ ἡμέραις ἐποίησεν ὁ θεός· τὰ ἐν αὐτῷ ζῷα τὰ λογικά, καὶ τὰ ἄλογα, καὶ πᾶσαν τὴν ὁρωμένην διακόσμησιν ἐν ἓξ ἡμέραις ποιεῖ. Οὗτος οὖν ὁ ταχὺς εἰς τὸ κτίζειν, ὅτε ἐβουλεύσατο μίαν πόλιν καθελεῖν, εὑρέθη βραδὺς δι’ ἀγαθότητα.
-                        <seg type="allusion">Θέλει καθελεῖν τὴν <placeName ref="https://pleiades.stoa.org/places/687917">Ἱεριχὼ</placeName> καί φησι πρὸς τὸν <orgName>Ἰσραήλ</orgName>. Κυκλώσατε αὐτὴν ἐπὶ ἑπτὰ ἡμέρας· καὶ τῇ ἑβδόμῃ ἡμέρᾳ πεσεῖται τὸ τεῖχος.<ref decls="#biblical" cRef="LXX:Jos:6:1-20"/>
-                        </seg>
+                  </quote>, τὰς νήσους, τὰς παραλίους χώρας καὶ τὰς μεσογείους· πάντα τὸν ὁρώμενον τοῦτον κόσμον καὶ τὸ ἐν αὐτῷ κάλλος ἐν ἓξ ἡμέραις ἐποίησεν ὁ θεός· τὰ ἐν αὐτῷ ζῷα τὰ λογικά, καὶ τὰ ἄλογα, καὶ πᾶσαν τὴν ὁρωμένην διακόσμησιν ἐν ἓξ ἡμέραις ποιεῖ. Οὗτος οὖν ὁ ταχὺς εἰς τὸ κτίζειν, ὅτε ἐβουλεύσατο μίαν πόλιν καθελεῖν, εὑρέθη βραδὺς δι’ ἀγαθότητα.
+                        <seg type="allusion">Θέλει καθελεῖν τὴν <placeName ref="https://pleiades.stoa.org/places/687917">Ἱεριχὼ</placeName> καί φησι πρὸς τὸν <orgName key="PTA_O00012">Ἰσραήλ</orgName>. Κυκλώσατε αὐτὴν ἐπὶ ἑπτὰ ἡμέρας· καὶ τῇ ἑβδόμῃ ἡμέρᾳ πεσεῖται τὸ τεῖχος.<ref decls="#biblical" cRef="LXX:Jos:6:1-20"/>
+                  </seg>
                         Τὸν κόσμον ὅλον ἐν ἓξ ἡμέραις κατασκευάζεις, καὶ μίαν πόλιν ἐν ἑπτὰ ἡμέραις λύεις; Τί γὰρ ἐμποδίζει σου τῇ δυναστείᾳ; Διὰ τί γὰρ μὴ ἀθρόον καθαιρεῖς; Οὐ περὶ σοῦ ὁ προφήτης βοᾷ λέγων·
                         <quote>Ἐὰν ἀνοίξῃς τὸν οὐρανόν, τρόμος λήψεται ἀπὸ σοῦ ὄρη, καὶ τακήσονται ὡς κηρὸς ἀπὸ προσώπου πυρός<ref decls="#biblical" cRef="LXX:Is:63:19-64:1"/>
-                        </quote>; Οὐ τὰ ἔργα τῆς δυνάμεώς σου διηγούμενός φησιν ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>·
+                  </quote>; Οὐ τὰ ἔργα τῆς δυνάμεώς σου διηγούμενός φησιν ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>·
                         <quote>Οὐ φοβηθησόμεθα ἐν τῷ ταράσσεσθαι τὴν γῆν, καὶ μετατίθεσθαι ὄρη ἐν καρδίαις θαλασσῶν.<ref decls="#biblical" cRef="LXX:Ps:45:3"/>
-                        </quote>
-                        <seg type="allusion">Ὄρη δύνῃ μεθιστᾶν καὶ εἰς θάλασσαν ἐμβάλλειν<ref decls="#biblical" cRef="NA:Mt:21:21"/>
-                        </seg>, καὶ μίαν πόλιν οὐ θέλεις καθελεῖν ἀντιλέγουσαν, ἀλλ’ ἑπτὰ ἡμέρας δίδως τῇ καθαιρέσει; Διὰ τί; Οὐχ ἡ δύναμίς φησιν ἀτονεῖ, ἀλλ’ ἡ φιλανθρωπία μακροθυμεῖ. Δίδωμι ἑπτὰ ἡμέρας,
+                  </quote>
+                  <seg type="allusion">Ὄρη δύνῃ μεθιστᾶν καὶ εἰς θάλασσαν ἐμβάλλειν<ref decls="#biblical" cRef="NA:Mt:21:21"/>
+                  </seg>, καὶ μίαν πόλιν οὐ θέλεις καθελεῖν ἀντιλέγουσαν, ἀλλ’ ἑπτὰ ἡμέρας δίδως τῇ καθαιρέσει; Διὰ τί; Οὐχ ἡ δύναμίς φησιν ἀτονεῖ, ἀλλ’ ἡ φιλανθρωπία μακροθυμεῖ. Δίδωμι ἑπτὰ ἡμέρας,
                         <seg type="allusion">ὡς τῇ <placeName ref="https://pleiades.stoa.org/places/874621">Νινευὶ</placeName> τρεῖς ἡμέρας<ref decls="#biblical" cRef="LXX:Jon:3:4"/>
-                        </seg>. Ἴσως δέξεται κήρυγμα μετανοίας καὶ σωθήσεται. Καὶ τίς ὁ κηρύττων αὐτοῖς τὴν μετάνοιαν; Πολέμιοι τὴν πόλιν περιετειχίσαντο· ὁ στρατηγὸς ἐκύκλου τὰ τείχη· πολὺς ὁ φόβος, πολὺς ὁ θόρυβος. Ποίαν οὖν αὐτοῖς ὁδὸν τῆς μετανοίας ἀνέῳξας; Μὴ γὰρ προφήτην ἀπέστειλας; μὴ γὰρ εὐαγγελιστὴν διεπέμψω, μὴ γὰρ ἦν τις αὐτοῖς ὑποτιθέμενος τὸ συμφέρον; Ναί φησιν, εἶχον ἔνδον διδάσκαλον τῆς μετανοίας τὴν θαυμαστὴν ἐκείνην <persName type="biblical" key="Rahab_Jos.2.1">Ῥαάβ</persName>, ἣν ἔσωσα διὰ μετανοίας. Τοῦ αὐτοῦ ἦν φυράματος. Ἀλλ’ ἐπειδὴ ἐξ αὐτοῦ οὐκ ἦν τοῦ φρονήματος, οὐκ ἐκοινώνησε τῇ ἁμαρτίᾳ ἡ μὴ κοινωνήσασα τῇ ἀπιστίᾳ.</p>
-                </div>
-                <div type="textpart" subtype="section" n="5">
-                    <p>Καὶ ὅρα μοι τὸ ξένον τῆς φιλανθρωπίας κήρυγμα· ὁ λέγων ἐν τῷ νόμῳ·
+                  </seg>. Ἴσως δέξεται κήρυγμα μετανοίας καὶ σωθήσεται. Καὶ τίς ὁ κηρύττων αὐτοῖς τὴν μετάνοιαν; Πολέμιοι τὴν πόλιν περιετειχίσαντο· ὁ στρατηγὸς ἐκύκλου τὰ τείχη· πολὺς ὁ φόβος, πολὺς ὁ θόρυβος. Ποίαν οὖν αὐτοῖς ὁδὸν τῆς μετανοίας ἀνέῳξας; Μὴ γὰρ προφήτην ἀπέστειλας; μὴ γὰρ εὐαγγελιστὴν διεπέμψω, μὴ γὰρ ἦν τις αὐτοῖς ὑποτιθέμενος τὸ συμφέρον; Ναί φησιν, εἶχον ἔνδον διδάσκαλον τῆς μετανοίας τὴν θαυμαστὴν ἐκείνην <persName type="biblical" key="Rahab_Jos.2.1">Ῥαάβ</persName>, ἣν ἔσωσα διὰ μετανοίας. Τοῦ αὐτοῦ ἦν φυράματος. Ἀλλ’ ἐπειδὴ ἐξ αὐτοῦ οὐκ ἦν τοῦ φρονήματος, οὐκ ἐκοινώνησε τῇ ἁμαρτίᾳ ἡ μὴ κοινωνήσασα τῇ ἀπιστίᾳ.</p>
+            </div>
+            <div type="textpart" subtype="section" n="5">
+               <p>Καὶ ὅρα μοι τὸ ξένον τῆς φιλανθρωπίας κήρυγμα· ὁ λέγων ἐν τῷ νόμῳ·
                         <quote>Οὐ μοιχεύσεις, οὐ πορνεύσεις<ref decls="#biblical" cRef="LXX:Ex:20:14"/>
-                        </quote>, με<cb n="330" break="no"/>ταβαλὼν τὸ ῥῆμα διὰ φιλανθρωπίαν, βοᾷ διὰ τοῦ μακαρίου <persName type="biblical" key="Joshua_Exo.17.9">Ἰησοῦ</persName>·
-                        <seg type="allusion"><persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἡ πόρνη ζήτω<ref decls="#biblical" cRef="LXX:Jos:6:17"/>
-                        </seg>. <persName type="biblical" key="Joshua_Exo.17.9">Ἰησοῦς</persName> ἐκεῖνος ὁ <persName type="biblical" key="Nun_Exo.33.11">Ναυὴ</persName> υἱὸς ὁ λέγων
+                  </quote>, με<cb n="330" break="no"/>ταβαλὼν τὸ ῥῆμα διὰ φιλανθρωπίαν, βοᾷ διὰ τοῦ μακαρίου <persName type="biblical" key="Joshua_Exo.17.9">Ἰησοῦ</persName>·
+                        <seg type="allusion">
+                     <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἡ πόρνη ζήτω<ref decls="#biblical" cRef="LXX:Jos:6:17"/>
+                  </seg>. <persName type="biblical" key="Joshua_Exo.17.9">Ἰησοῦς</persName> ἐκεῖνος ὁ <persName type="biblical" key="Nun_Exo.33.11">Ναυὴ</persName> υἱὸς ὁ λέγων
                         <seg type="allusion">Ἡ πόρνη ζήτω<ref decls="#biblical" cRef="LXX:Jos:6:17"/>
-                        </seg>, εἰκὼν ἦν τοῦ κυρίου <persName type="biblical" key="Jesus_Mat.1.1">Ἰησοῦ</persName> τοῦ λέγοντος·
+                  </seg>, εἰκὼν ἦν τοῦ κυρίου <persName type="biblical" key="Jesus_Mat.1.1">Ἰησοῦ</persName> τοῦ λέγοντος·
                         <quote>Πόρναι καὶ τελῶναι προάξουσιν ὑμᾶς εἰς τὴν βασιλείαν τῶν οὐρανῶν.<ref decls="#biblical" cRef="NA:Mt:21:31"/>
-                        </quote>
-                        Εἰ ζῆν ὀφείλει, διὰ τί πόρνη; εἰ πόρνη, διὰ τί ζήτω; Λέγω φησὶ τὴν προτέραν κατάστασιν, ἵνα θαυμάσῃς τὴν δευτέραν μετάστασιν. Καὶ τί ἐποίησέ φησιν ἡ <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> σωτηρίας πρόξενον; ὅτι ἐδέξατο τοὺς κατασκόπους μετὰ εἰρήνης; Τοῦτο καὶ πανδοχεύτρια ποιεῖ. Ἀλλ’ οὐκ ἀπὸ τῆς λέξεως μόνης καρποῦται τὴν σωτηρίαν, ἀλλὰ προηγουμένως ἀπὸ τῆς πίστεως καὶ τῆς πρὸς θεὸν διαθέσεως. Καὶ ἵνα μάθῃς τὴν ὑπερβολὴν τῆς ἐν αὐτῇ πίστεως, ἄκουε αὐτῆς τῆς γραφῆς διηγουμένης τὰ μεμαρτυρημένα αὐτῇ κατορθώματα. Ἦν ἐν πορνείῳ, ὥσπερ μαργαρίτης ἐν βορβόρῳ συμπεφυρμένος, χρυσὸς ἐν πηλῷ διερριμμένος, ἄνθος εὐσεβείας ἀκάνθαις κεχωσμένον, εὐσεβὴς ψυχὴ ἐν ἀσεβείας χώρῳ κατεκέκλειστο. Καί μοι πρόσεχε τὸν νοῦν ἀκριβῶς. Ἐδέξατο τοὺς κατασκόπους, καὶ ὃν προέδωκεν <orgName>Ἰσραὴλ</orgName> ἐν τῇ ἐρήμῳ, τοῦτον ἐκήρυξεν ἡ <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἐν τῷ πορνείῳ. Οἷόν τι λέγω, ὁ <orgName>Ἰσραὴλ</orgName> ἐν τῇ ἐρήμῳ; Ὅτε τὸ ὄρος ἐπεπλήρωτο νεφέλης, καὶ γνόφου, καὶ σαλπίγγων, καὶ ἀστραπῶν, καὶ τῶν ἄλλων φοβήτρων, ἤκουσε παρὰ τοῦ θεοῦ ἐκ μέσου τοῦ πυρός·
-                        <quote>Ἄκουε <orgName>Ἰσραήλ</orgName>· Κύριος ὁ θεός σου, κύριος εἷς ἐστιν·<ref decls="#biblical" cRef="LXX:Dt:6:4"/>
-                        </quote>
-                        <quote>οὐκ ἔσονταί σοι θεοὶ ἕτεροι·<ref decls="#biblical" cRef="LXX:Ex:29:4"/>
-                        </quote>
-                        <quote>ἐγὼ ἐν τῷ οὐρανῷ ἄνω, καὶ ἐν τῇ γῇ κάτω, καὶ πλὴν ἐμοῦ θεὸς οὐκ ἔστι.<ref decls="#biblical" cRef="LXX:Dt:4:39"/>
-                        </quote>
-                        Ταῦτα ἀκούων ὁ <orgName>Ἰσραήλ</orgName>,
+                  </quote>
+                        Εἰ ζῆν ὀφείλει, διὰ τί πόρνη; εἰ πόρνη, διὰ τί ζήτω; Λέγω φησὶ τὴν προτέραν κατάστασιν, ἵνα θαυμάσῃς τὴν δευτέραν μετάστασιν. Καὶ τί ἐποίησέ φησιν ἡ <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> σωτηρίας πρόξενον; ὅτι ἐδέξατο τοὺς κατασκόπους μετὰ εἰρήνης; Τοῦτο καὶ πανδοχεύτρια ποιεῖ. Ἀλλ’ οὐκ ἀπὸ τῆς λέξεως μόνης καρποῦται τὴν σωτηρίαν, ἀλλὰ προηγουμένως ἀπὸ τῆς πίστεως καὶ τῆς πρὸς θεὸν διαθέσεως. Καὶ ἵνα μάθῃς τὴν ὑπερβολὴν τῆς ἐν αὐτῇ πίστεως, ἄκουε αὐτῆς τῆς γραφῆς διηγουμένης τὰ μεμαρτυρημένα αὐτῇ κατορθώματα. Ἦν ἐν πορνείῳ, ὥσπερ μαργαρίτης ἐν βορβόρῳ συμπεφυρμένος, χρυσὸς ἐν πηλῷ διερριμμένος, ἄνθος εὐσεβείας ἀκάνθαις κεχωσμένον, εὐσεβὴς ψυχὴ ἐν ἀσεβείας χώρῳ κατεκέκλειστο. Καί μοι πρόσεχε τὸν νοῦν ἀκριβῶς. Ἐδέξατο τοὺς κατασκόπους, καὶ ὃν προέδωκεν <orgName key="PTA_O00012">Ἰσραὴλ</orgName> ἐν τῇ ἐρήμῳ, τοῦτον ἐκήρυξεν ἡ <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἐν τῷ πορνείῳ. Οἷόν τι λέγω, ὁ <orgName key="PTA_O00012">Ἰσραὴλ</orgName> ἐν τῇ ἐρήμῳ; Ὅτε τὸ ὄρος ἐπεπλήρωτο νεφέλης, καὶ γνόφου, καὶ σαλπίγγων, καὶ ἀστραπῶν, καὶ τῶν ἄλλων φοβήτρων, ἤκουσε παρὰ τοῦ θεοῦ ἐκ μέσου τοῦ πυρός·
+                        <quote>Ἄκουε <orgName key="PTA_O00012">Ἰσραήλ</orgName>· Κύριος ὁ θεός σου, κύριος εἷς ἐστιν·<ref decls="#biblical" cRef="LXX:Dt:6:4"/>
+                  </quote>
+                  <quote>οὐκ ἔσονταί σοι θεοὶ ἕτεροι·<ref decls="#biblical" cRef="LXX:Ex:29:4"/>
+                  </quote>
+                  <quote>ἐγὼ ἐν τῷ οὐρανῷ ἄνω, καὶ ἐν τῇ γῇ κάτω, καὶ πλὴν ἐμοῦ θεὸς οὐκ ἔστι.<ref decls="#biblical" cRef="LXX:Dt:4:39"/>
+                  </quote>
+                        Ταῦτα ἀκούων ὁ <orgName key="PTA_O00012">Ἰσραήλ</orgName>,
                         <seg type="allusion">μόσχον ἐχώνευσε<ref decls="#biblical" cRef="LXX:Ex:32:4"/>
-                        </seg>, καὶ θεὸν ἠθέτησεν· ἠγνόησε τὸν δεσπότην, ἀπέγνω τὸν εὐεργέτην, καὶ λέγει τῷ <persName type="biblical" key="Aaron_Exo.4.14">Ἀαρών</persName>·
+                  </seg>, καὶ θεὸν ἠθέτησεν· ἠγνόησε τὸν δεσπότην, ἀπέγνω τὸν εὐεργέτην, καὶ λέγει τῷ <persName type="biblical" key="Aaron_Exo.4.14">Ἀαρών</persName>·
                         <quote>Ποίησον ἡμῖν θεούς.<ref decls="#biblical" cRef="LXX:Ex:32:1"/>
-                        </quote>
+                  </quote>
                         Εἰ θεούς, διὰ τί ποίησον; πῶς θεοὶ τὰ γινόμενα; Οὕτως ἡ κακία τυφλώττουσα, αὐτὴ ἑαυτῇ μάχεται, καὶ ἑαυτὴν ἀφανίζει.</p>
-                    <p>
-                        <quote>Οὗτοι οἱ θεοί σου, <orgName>Ἰσραήλ</orgName>, οἱ ἐξαγαγόντες σε ἐκ γῆς <placeName ref="https://pleiades.stoa.org/places/1001943">Αἰγύπτου</placeName>.<ref decls="#biblical" cRef="LXX:Ex:32:4"/>
-                        </quote>
-                        <quote>Οὗτοι οἱ θεοί.<ref decls="#biblical" cRef="LXX:Ex:32:4"/>
-                        </quote>
-                        <persName type="biblical" key="Eve_Gen.3.20">Ἕνα</persName> βλέπει μόσχον, ἓν τὸ γινόμενον εἴδωλον. Διὰ τί οὖν
+               <p>
+                  <quote>Οὗτοι οἱ θεοί σου, <orgName key="PTA_O00012">Ἰσραήλ</orgName>, οἱ ἐξαγαγόντες σε ἐκ γῆς <placeName ref="https://pleiades.stoa.org/places/1001943">Αἰγύπτου</placeName>.<ref decls="#biblical" cRef="LXX:Ex:32:4"/>
+                  </quote>
+                  <quote>Οὗτοι οἱ θεοί.<ref decls="#biblical" cRef="LXX:Ex:32:4"/>
+                  </quote>
+                  <persName type="biblical" key="Eve_Gen.3.20">Ἕνα</persName> βλέπει μόσχον, ἓν τὸ γινόμενον εἴδωλον. Διὰ τί οὖν
                         <quote>Οὗτοι οἱ θεοί<ref decls="#biblical" cRef="LXX:Ex:32:4"/>
-                        </quote>; Ἵνα δείξῃ, ὅτι οὐχ ὃ βλέπει μόνον προσκυνεῖ, ἀλλὰ πολυθεΐαν φαντάζεται· τὴν γνώμην ἑρμηνεύει, οὐ τὸ φαινόμενον κρίνει. Ἵνα δὲ εἰς τὸ προκείμενον ἐπανέλθωμεν πάλιν, ἃ ἤκουσεν <orgName>Ἰσραήλ</orgName>, ὁ τοσούτοις περιστοιχιζόμενος θαύμασι, καὶ τοσούτῳ νόμῳ παιδαγωγούμενος, καὶ ἠρνήσατο, ταῦτα ἡ <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἀποκεκλεισμένη ἐν τῷ πορνείῳ κηρύττει· λέγει γὰρ τοῖς κατασκόποις·
-                        <quote>Ἔγνωμεν ὅσα ἐποίησεν ὁ θεὸς ὑμῶν τοῖς <orgName>Αἰγυπτίοις</orgName>.<ref decls="#biblical" cRef="LXX:Jos:2:9"/>
-                        </quote>
-                        Ὁ <orgName>Ἰουδαῖος</orgName> λέγει·
-                        <quote>Οὗτοι οἱ θεοί σου οἱ ἐξαγαγόντες σε ἐκ γῆς <placeName ref="https://pleiades.stoa.org/places/1001943">Αἰγύπτου</placeName><ref decls="#biblical" cRef="LXX:Ex:32:4"/>
-                        </quote>, καὶ ἡ πόρνη, οὐ θεοῖς, ἀλλὰ θεῷ ἐπιγράφει τὴν σωτηρίαν.
-                        <quote>Ἔγνωμεν ὅσα ὁ θεὸς ὑμῶν ἐποίησε τοῖς <orgName>Αἰγυπτίοις</orgName> ἐν τῇ ἐρήμῳ, καὶ ἠκούσαμεν, καὶ ἐτάκη ἡμῶν ἡ καρδία, καὶ ἰσχὺς ἐν ἡμῖν οὐκ ἔστιν.<ref decls="#biblical" cRef="LXX:Jos:2:9"/>
-                        </quote>
-                        <quote>Ἔγνωμεν ὅσα ὁ θεὸς ὑμῶν ἐποίησε.<ref decls="#biblical" cRef="LXX:Jos:2:9"/>
-                        </quote>
+                  </quote>; Ἵνα δείξῃ, ὅτι οὐχ ὃ βλέπει μόνον προσκυνεῖ, ἀλλὰ πολυθεΐαν φαντάζεται· τὴν γνώμην ἑρμηνεύει, οὐ τὸ φαινόμενον κρίνει. Ἵνα δὲ εἰς τὸ προκείμενον ἐπανέλθωμεν πάλιν, ἃ ἤκουσεν <orgName key="PTA_O00012">Ἰσραήλ</orgName>, ὁ τοσούτοις περιστοιχιζόμενος θαύμασι, καὶ τοσούτῳ νόμῳ παιδαγωγούμενος, καὶ ἠρνήσατο, ταῦτα ἡ <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἀποκεκλεισμένη ἐν τῷ πορνείῳ κηρύττει· λέγει γὰρ τοῖς κατασκόποις·
+                        <quote>Ἔγνωμεν ὅσα ἐποίησεν ὁ θεὸς ὑμῶν τοῖς <orgName key="PTA_O00014">Αἰγυπτίοις</orgName>.<ref decls="#biblical" cRef="LXX:Jos:2:9"/>
+                  </quote>
+                        Ὁ <orgName key="PTA_O00008">Ἰουδαῖος</orgName> λέγει·
+                        <quote>Οὗτοι οἱ θεοί σου οἱ ἐξαγαγόντες σε ἐκ γῆς <placeName ref="https://pleiades.stoa.org/places/1001943">Αἰγύπτου</placeName>
+                     <ref decls="#biblical" cRef="LXX:Ex:32:4"/>
+                  </quote>, καὶ ἡ πόρνη, οὐ θεοῖς, ἀλλὰ θεῷ ἐπιγράφει τὴν σωτηρίαν.
+                        <quote>Ἔγνωμεν ὅσα ὁ θεὸς ὑμῶν ἐποίησε τοῖς <orgName key="PTA_O00014">Αἰγυπτίοις</orgName> ἐν τῇ ἐρήμῳ, καὶ ἠκούσαμεν, καὶ ἐτάκη ἡμῶν ἡ καρδία, καὶ ἰσχὺς ἐν ἡμῖν οὐκ ἔστιν.<ref decls="#biblical" cRef="LXX:Jos:2:9"/>
+                  </quote>
+                  <quote>Ἔγνωμεν ὅσα ὁ θεὸς ὑμῶν ἐποίησε.<ref decls="#biblical" cRef="LXX:Jos:2:9"/>
+                  </quote>
                         Βλέπεις πῶς ἀναλαμβάνει τοῦ νομοθέτου τὸ ῥῆμα διὰ πίστεως;
                         <quote>Καὶ οἶδα, ὅτι ὁ θεὸς ὑμῶν ἐν τῷ οὐρανῷ ἄνω, καὶ ἐν τῇ γῇ κάτω, καὶ πλὴν αὐτοῦ θεὸς οὐκ ἔστιν.<ref decls="#biblical" cRef="LXX:Jos:2:11"/>
-                        </quote>
-                    </p>
-                    <p>Εἰκὼν τῆς ἐκκλησίας ἡ <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> τῆς ποτε πεφυρμένης τῇ πορνείᾳ τῶν δαιμόνων, δεχομένης δὲ νῦν τοὺς τοῦ Χριστοῦ κατασκόπους, οὐ τοὺς παρὰ <persName type="biblical" key="Joshua_Exo.17.9">Ἰησοῦ</persName> τοῦ <persName type="biblical" key="Nun_Exo.33.11">Ναυή</persName>, ἀλλὰ τοὺς ἀποστόλους τοὺς παρὰ <persName type="biblical" key="Jesus_Mat.1.1">Ἰησοῦ</persName> τοῦ ἀληθινοῦ σωτῆρος ἀπεσταλμένους.
+                  </quote>
+               </p>
+               <p>Εἰκὼν τῆς ἐκκλησίας ἡ <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> τῆς ποτε πεφυρμένης τῇ πορνείᾳ τῶν δαιμόνων, δεχομένης δὲ νῦν τοὺς τοῦ Χριστοῦ κατασκόπους, οὐ τοὺς παρὰ <persName type="biblical" key="Joshua_Exo.17.9">Ἰησοῦ</persName> τοῦ <persName type="biblical" key="Nun_Exo.33.11">Ναυή</persName>, ἀλλὰ τοὺς ἀποστόλους τοὺς παρὰ <persName type="biblical" key="Jesus_Mat.1.1">Ἰησοῦ</persName> τοῦ ἀληθινοῦ σωτῆρος ἀπεσταλμένους.
                         <quote>Ἔγνων
                             <seg type="insertion">φησὶν</seg>
                             ὅτι ὁ θεὸς ὑμῶν ἐν τῷ οὐρανῷ ἄνω, καὶ ἐν τῇ γῇ κάτω, καὶ πλὴν αὐτοῦ θεὸς οὐκ ἔστι.<ref decls="#biblical" cRef="LXX:Jos:2:11"/>
-                        </quote>
-                        Ταῦτα παρέλαβον οἱ <orgName>Ἰουδαῖοι</orgName> καὶ οὐκ ἐφύλαξαν· ταῦτα ἤκουσεν ἡ ἐκκλησία
+                  </quote>
+                        Ταῦτα παρέλαβον οἱ <orgName key="PTA_O00008">Ἰουδαῖοι</orgName> καὶ οὐκ ἐφύλαξαν· ταῦτα ἤκουσεν ἡ ἐκκλησία
                         <cb n="331"/>
                         καὶ διετήρησεν. Ἀξία τοίνυν ἐπαίνου παντὸς <persName type="biblical" key="Rahab_Jos.2.1">Ῥαάβ</persName>, ἡ εἰκὼν τῆς ἐκκλησίας. Διὰ τοῦτο καὶ ὁ γενναῖος <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>, καταμαθὼν αὐτῆς τὸ ἀξίωμα τῆς πίστεως, καὶ οὐκ ἀδόκιμον ἡγησάμενος διὰ τὴν προτέραν κατάστασιν, ἀλλὰ δόκιμον διὰ τὴν ἔνθεον μεταβολήν, συναριθμεῖ αὐτὴν τοῖς ἁγίοις πᾶσι, καὶ εἰρηκώς·
                         <seg type="allusion">Πίστει <persName type="biblical" key="Abel_Gen.4.2">Ἄβελ</persName> θυσίαν προσήνεγκε· πίστει <persName type="biblical" key="Abraham_Gen.11.26">Ἀβραὰμ</persName> τὸ καὶ τὸ ἐποίησε· πίστει <persName type="biblical" key="Noah_Gen.5.29">Νῶε</persName> κιβωτὸν εἰργάσατο· πίστει <persName type="biblical" key="Moses_Exo.2.10">Μωϋσῆς</persName> τὰ καὶ τὰ ἐποίησε καὶ κατώρθωσε.<ref decls="#biblical" cRef="NA:Heb:11:4.7-8.23"/>
-                        </seg>
+                  </seg>
                         Καί πολλῶν ἐφεξῆς μνησθεὶς ἁγίων, τὸ τελευταῖον ἐπήγαγε·
                         <quote>Πίστει <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἡ πόρνη οὐ συναπώλετο τοῖς ἀπειθήσασι, δεξαμένη τοὺς κατασκόπους, καὶ ἑτέρᾳ ὁδῷ ἐκβαλοῦσα.<ref decls="#biblical" cRef="NA:Heb:11:31"/>
-                        </quote>
+                  </quote>
                         Καὶ ὅρα πῶς μετὰ πολλῆς σοφίας ἐκέρασε τὴν ἑαυτῆς εὐγνωμοσύνην. Ὅτε γὰρ ἀπεστάλησαν παρὰ τοῦ βασιλέως ζητοῦντες τοὺς κατασκόπους, λέγουσιν αὐτῇ·
                         <said>
-                            <seg type="allusion">Εἰ εἰσῆλθον πρὸς σὲ ἄνδρες;<ref decls="#biblical" cRef="LXX:Jos:2:3-4"/>
-                            </seg>
-                        </said>
+                     <seg type="allusion">Εἰ εἰσῆλθον πρὸς σὲ ἄνδρες;<ref decls="#biblical" cRef="LXX:Jos:2:3-4"/>
+                     </seg>
+                  </said>
                         Ἡ δὲ πρὸς αὐτούς·
                         <said>Ναί φησιν εἰσῆλθον.</said>
                         Πρῶτον οἰκοδομεῖ τὴν ἀλήθειαν, καὶ οὕτως ἐπάγει τὸ ψεῦδος. Οὐδέποτε γὰρ καθ’ αὑτὸ τὸ ψεῦδος πιστεύεται, ἐὰν μὴ προλαβὸν ἐνδείξηται τὴν ἀλήθειαν· διὰ τοῦτο οἱ πιθανῶς ψευδόμενοι πρῶτον λέγουσι τἀληθῆ καὶ πᾶσιν ὡμολογημένα, καὶ τότε ἐπάγουσι τὰ ψευδῆ καὶ ἀμφιβαλλόμενα. Εἰσῆλθον πρὸς σὲ κατάσκοποι; Λέγει
@@ -390,159 +499,159 @@
                         <said>οὔ</said>, προεκαλεῖτο εἰς ἔρευναν τοὺς ἐπελθόντας· ἀλλὰ
                         <said>καὶ εἰσῆλθον, φησί, καὶ ἐξῆλθον τῇδε τῇ ὁδῷ, καταδιώξατε, καὶ καταλήψεσθε αὐτούς</said>. Ὢ καλοῦ ψεύδους· ὢ καλοῦ δόλου οὐ προδιδόντος τὰ θεῖα, ἀλλὰ φυλάττοντος τὴν εὐσέβειαν. Εἰ τοίνυν τὴν <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἐκείνην ἡ μετάνοια σωτηρίας τοσαύτης ἠξίωσε καὶ διὰ στόματος ἁγίων κηρύττεται, <persName type="biblical" key="Joshua_Exo.17.9">Ἰησοῦ</persName> μὲν τοῦ <persName type="biblical" key="Nun_Exo.33.11">Ναυὴ</persName> βοῶντος ἐν τῇ ἐρήμῳ·
                         <seg type="allusion">Ζήτω <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἡ πόρνη<ref decls="#biblical" cRef="LXX:Jos:6:17"/>
-                        </seg>, <persName type="biblical" key="Paul_Act.7.58">Παύλου</persName> δὲ λέγοντος·
+                  </seg>, <persName type="biblical" key="Paul_Act.7.58">Παύλου</persName> δὲ λέγοντος·
                         <quote>Πίστει <persName type="biblical" key="Rahab_Jos.2.1">Ῥαὰβ</persName> ἡ πόρνη οὐ συναπώλετο τοῖς ἀπειθήσασι<ref decls="#biblical" cRef="NA:Heb:11:31"/>
-                        </quote>, πόσῳ μᾶλλον ἡμεῖς, ἐὰν προσάγωμεν τὴν μετάνοιαν, δεξόμεθα τὴν σωτηρίαν; Μετανοίας νῦν ὁ παρὼν καιρός· πολὺς γὰρ ὁ φόβος τῶν ἐπικειμένων ἡμῖν ἁμαρτημάτων, ἂν μὴ προλάβοι τὴν τιμωρίαν ἡ μετάνοια.
+                  </quote>, πόσῳ μᾶλλον ἡμεῖς, ἐὰν προσάγωμεν τὴν μετάνοιαν, δεξόμεθα τὴν σωτηρίαν; Μετανοίας νῦν ὁ παρὼν καιρός· πολὺς γὰρ ὁ φόβος τῶν ἐπικειμένων ἡμῖν ἁμαρτημάτων, ἂν μὴ προλάβοι τὴν τιμωρίαν ἡ μετάνοια.
                         <quote>Προφθάσωμεν τὸ πρόσωπον αὐτοῦ ἐν ἐξομολογήσει.<ref decls="#biblical" cRef="LXX:Ps:94:2"/>
-                        </quote>
+                  </quote>
                         σβέσωμεν τὴν πυρκαϊὰν τῶν ἁμαρτημάτων, οὐχ ὕδασι πολλοῖς, ἀλλὰ μικροῖς δάκρυσι. Πολὺ τὸ πῦρ τῆς ἁμαρτίας, καὶ ὀλίγῳ δακρύῳ σβέννυται· τὸ γὰρ δάκρυον σβέννυσι πυρκαϊὰν ἁμαρτημάτων, καὶ ἀποπλύνει δυσωδίαν ἁμαρτίας.
                         <cit>
-                            <ref decls="#biblical" cRef="LXX:Ps:6:7">Μαρτυρεῖ <persName type="biblical" key="David_Rut.4.17">Δαυὶδ</persName> ὁ μακάριος λέγων καὶ δεικνύων τὴν δύναμιν τῶν δακρύων ὅσον ἰσχύει·
+                     <ref decls="#biblical" cRef="LXX:Ps:6:7">Μαρτυρεῖ <persName type="biblical" key="David_Rut.4.17">Δαυὶδ</persName> ὁ μακάριος λέγων καὶ δεικνύων τὴν δύναμιν τῶν δακρύων ὅσον ἰσχύει·
                             </ref>
-                            <quote>Λούσω γάρ φησι καθ’ ἑκάστην νύκτα τὴν κλίνην μου, ἐν δάκρυσί μου τὴν στρωμνήν μου βρέξω.</quote>
-                        </cit>
+                     <quote>Λούσω γάρ φησι καθ’ ἑκάστην νύκτα τὴν κλίνην μου, ἐν δάκρυσί μου τὴν στρωμνήν μου βρέξω.</quote>
+                  </cit>
                         Καὶ μὴν εἰ τὴν ἀφθονίαν ἐβούλετο δεῖξαι τῶν δακρύων, ἤρκει τὸ εἰπεῖν·
                         <quote>Ἐν δάκρυσί μου τὴν στρωμνήν μου βρέξω.<ref decls="#biblical" cRef="LXX:Ps:6:7"/>
-                        </quote>
+                  </quote>
                         Διὰ τί οὖν προέταξε τὸ
                         <quote>λούσω<ref decls="#biblical" cRef="LXX:Ps:6:7"/>
-                        </quote>; Ἵνα δείξῃ ὅτι λουτρόν ἐστι καὶ καθάρσιον ἁμαρτημάτων τὰ δάκρυα.</p>
-                </div>
-                <div type="textpart" subtype="section" n="6">
-                    <p>Πάντων τῶν κακῶν αἴτια τὰ ἁμαρτήματα. Διὰ τὰ ἁμαρτήματα λῦπαι, διὰ τὰ ἁμαρτήματα ταραχαί, διὰ τὰ ἁμαρτήματα πόλεμοι, διὰ τὰ ἁμαρτήματα νόσοι, καὶ πάντα ὅσα ἡμῖν προσπίπτει δυσίατα πάθη. Ὥσπερ οὖν οἱ ἄριστοι τῶν ἰατρῶν οὐ τὰ φαινόμενα πάθη ἐξετάζουσιν, ἀλλὰ τὴν αἰτίαν τῶν φαινομένων ἐπιζητοῦσιν· οὕτω καὶ ὁ σωτὴρ βουλόμενος δεῖξαι πάντων τῶν κακῶν τῶν ἐν ἀνθρώποις αἰτίαν τὴν ἁμαρτίαν, φησὶ τῷ παραλελυμένῳ τὸ σῶμα· ἐπειδὴ εἶδεν αὐτὸν ὁ ἰατρὸς τῶν ψυχῶν πρότερον τὴν ψυχὴν παραλυθέντα, καὶ τότε τὸ σῶμα, λέγει πρὸς αὐτόν·
+                  </quote>; Ἵνα δείξῃ ὅτι λουτρόν ἐστι καὶ καθάρσιον ἁμαρτημάτων τὰ δάκρυα.</p>
+            </div>
+            <div type="textpart" subtype="section" n="6">
+               <p>Πάντων τῶν κακῶν αἴτια τὰ ἁμαρτήματα. Διὰ τὰ ἁμαρτήματα λῦπαι, διὰ τὰ ἁμαρτήματα ταραχαί, διὰ τὰ ἁμαρτήματα πόλεμοι, διὰ τὰ ἁμαρτήματα νόσοι, καὶ πάντα ὅσα ἡμῖν προσπίπτει δυσίατα πάθη. Ὥσπερ οὖν οἱ ἄριστοι τῶν ἰατρῶν οὐ τὰ φαινόμενα πάθη ἐξετάζουσιν, ἀλλὰ τὴν αἰτίαν τῶν φαινομένων ἐπιζητοῦσιν· οὕτω καὶ ὁ σωτὴρ βουλόμενος δεῖξαι πάντων τῶν κακῶν τῶν ἐν ἀνθρώποις αἰτίαν τὴν ἁμαρτίαν, φησὶ τῷ παραλελυμένῳ τὸ σῶμα· ἐπειδὴ εἶδεν αὐτὸν ὁ ἰατρὸς τῶν ψυχῶν πρότερον τὴν ψυχὴν παραλυθέντα, καὶ τότε τὸ σῶμα, λέγει πρὸς αὐτόν·
                         <quote>Ἴδε, ὑγιὴς γέγονας, μηκέτι ἁμάρτανε, ἵνα μὴ χεῖρόν τί σοι γένηται.<ref decls="#biblical" cRef="NA:Jn:5:14"/>
-                        </quote>
+                  </quote>
                         Οὐκοῦν καὶ τῆς προλαβούσης ἀρρωστίας αἴτιον ἡ ἁμαρτία· τοῦτο καὶ ζημίας αἴτιον· τοῦτο καὶ λύπης, τοῦτο καὶ συμφορᾶς
                         <cb n="332"/>
                         ἁπάσης ὑπόθεσις γίνεται. Πλὴν θαυμάζω ἐκεῖνο, πῶς τὴν λύπην ἀπ’ ἀρχῆς τῷ ἀνθρώπῳ δοὺς ὁ θεὸς διὰ τὴν ἁμαρτίαν τῇ ἀποφάσει τὴν ἀπόφασιν λύει, καὶ τῇ καταδίκῃ τὴν καταδίκην ἐκβάλλει· Ἐδόθη λύπη διὰ τὴν ἁμαρτίαν, καὶ διὰ λύπης λύεται ἁμαρτία. Πρόσεχε ἀκριβῶς· τῇ γυναικὶ ἀπειλῶν ὁ θεός, καὶ διὰ τὴν παράβασιν τὴν τιμωρίαν ἐπάγων, φησὶ πρὸς αὐτήν·
                         <quote>Ἐν λύπαις τέξῃ τέκνα·<ref decls="#biblical" cRef="LXX:Gn:3:16"/>
-                        </quote>
+                  </quote>
                         καὶ ἔδειξε καρπὸν τῆς ἁμαρτίας, τὴν λύπην· ἀλλ’, ὢ τοῦ μεγαλοδώρου· ὃ ἔδωκεν εἰς τιμωρίαν, μετέβαλεν εἰς σωτηρίαν. Ἁμαρτία λύπην ἐγέννησε· λύπη τὴν ἁμαρτίαν ἀνάλωσε, καὶ ὥσπερ σκώληξ ἀπὸ τοῦ ξύλου τικτόμενος, αὐτὸ δαπανᾷ τὸ ξύλον· οὕτω καὶ ἡ λύπη τεχθεῖσα ἀπὸ τῆς ἁμαρτίας, ἀναλίσκει τὴν ἁμαρτίαν, διὰ τῆς μετανοίας προσαγομένη.
                         <cit>
-                            <ref decls="#biblical" cRef="NA:2Cor:7:10">Διὰ τοῦτό φησιν ὁ <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>·
+                     <ref decls="#biblical" cRef="NA:2Cor:7:10">Διὰ τοῦτό φησιν ὁ <persName type="biblical" key="Paul_Act.7.58">Παῦλος</persName>·
                             </ref>
-                            <quote>Ἡ κατὰ θεὸν λύπη μετάνοιαν εἰς σωτηρίαν ἀμεταμέλητον ἐργάζεται.</quote>
-                        </cit>
+                     <quote>Ἡ κατὰ θεὸν λύπη μετάνοιαν εἰς σωτηρίαν ἀμεταμέλητον ἐργάζεται.</quote>
+                  </cit>
                         Καλὴ ἡ λύπη τοῖς γνησίως μετανοοῦσι· πρέπει τοῖς ἁμαρτάνουσι τὸ ὑπὲρ τῆς ἁμαρτίας πένθος·
                         <quote>Μακάριοι γὰρ οἱ πενθοῦντες, ὅτι αὐτοὶ παρακληθήσονται.<ref decls="#biblical" cRef="NA:Mt:5:5"/>
-                        </quote>
+                  </quote>
                         Πένθησον τὴν ἁμαρτίαν, ἵνα μὴ θρηνήσῃς τὴν τιμωρίαν· ἀπολόγησαι τῷ κριτῇ, πρὶν ἔλθῃς εἰς τὸ κριτήριον. Ἢ οὐκ οἶδας, ὅτι πάντες οἱ βουλόμενοι δυσωπῆσαι τὸν κριτήν, οὐκ ἐν αὐτῇ τῇ ἐτάσει τῆς δίκης θεραπεύουσιν, ἀλλὰ πρὶν εἰσελθεῖν εἰς τὸ κριτήριον, ἢ διὰ φίλων, ἢ διὰ προστατῶν, ἢ δι’ ἑτέρου τρόπου τινὸς τὸν δικαστὴν θεραπεύουσιν; Οὐκοῦν καὶ ἐπὶ τοῦ θεοῦ ἐν τῷ καιρῷ τοῦ βήματος οὐκ ἔστι πεῖσαι τὸν δικαστήν· πρὸ δὲ τοῦ καιροῦ τῆς κρίσεως δυνατὸν δυσωπῆσαι τὸν κριτήν. Διόπερ ἔλεγεν ὁ <persName type="biblical" key="David_Rut.4.17">Δαυίδ</persName>·
                         <quote>Προφθάσωμεν τὸ πρόσωπον αὐτοῦ ἐν ἐξομολογήσει.<ref decls="#biblical" cRef="LXX:Ps:94:2"/>
-                        </quote>
+                  </quote>
                         Ἐκεῖ τὸν μέγαν κριτὴν οὐ παραλογίζεται ῥητόρων τέχνη· οὐ δυσωπεῖ δυναστεία· ἀξιώματι οὐ πείθεται· πρόσωπον οὐκ αἰσχύνεται· χρήμασιν οὐ διαφθείρεται, ἀλλὰ φοβερά ἐστι καὶ ἀδυσώπητος ἡ δικαιοκρισία.</p>
-                    <p>Ἐνταῦθα οὖν τὸν κριτὴν δυσωπήσωμεν καὶ παρακαλέσωμεν· ἐνταῦθα παντὶ σθένει καθικετεύσωμεν, ἀλλ’ οὐ χρήμασι· μᾶλλον δέ, εἰ χρὴ τἀληθῆ λέγειν, πείθεται καὶ χρήμασιν ὁ φιλάνθρωπος, οὐκ αὐτὸς δεχόμενος, ἀλλὰ διὰ τῶν πενήτων. Δὸς πενομένῳ χρήματα, καὶ τὸν κριτὴν ἐδυσώπησας. Ταῦτα δὲ λέγω οἰκειούμενος ὑμᾶς, ἐπειδὴ μετάνοια ἐκτὸς ἐλεημοσύνης νεκρά ἐστι καὶ ἄπτερος· οὐ δύναται μετάνοια πτερωθῆναι, μὴ ἔχουσα πτερὸν ἐλεημοσύνης. Διὰ τοῦτο τῷ καλῶς μετανοήσαντι <persName type="biblical" key="Cornelius_Act.10.1">Κορνηλίῳ</persName> πτερὸν ἐγένετο τῆς εὐσεβείας ἡ ἐλεημοσύνη·
+               <p>Ἐνταῦθα οὖν τὸν κριτὴν δυσωπήσωμεν καὶ παρακαλέσωμεν· ἐνταῦθα παντὶ σθένει καθικετεύσωμεν, ἀλλ’ οὐ χρήμασι· μᾶλλον δέ, εἰ χρὴ τἀληθῆ λέγειν, πείθεται καὶ χρήμασιν ὁ φιλάνθρωπος, οὐκ αὐτὸς δεχόμενος, ἀλλὰ διὰ τῶν πενήτων. Δὸς πενομένῳ χρήματα, καὶ τὸν κριτὴν ἐδυσώπησας. Ταῦτα δὲ λέγω οἰκειούμενος ὑμᾶς, ἐπειδὴ μετάνοια ἐκτὸς ἐλεημοσύνης νεκρά ἐστι καὶ ἄπτερος· οὐ δύναται μετάνοια πτερωθῆναι, μὴ ἔχουσα πτερὸν ἐλεημοσύνης. Διὰ τοῦτο τῷ καλῶς μετανοήσαντι <persName type="biblical" key="Cornelius_Act.10.1">Κορνηλίῳ</persName> πτερὸν ἐγένετο τῆς εὐσεβείας ἡ ἐλεημοσύνη·
                         <quote>Αἱ ἐλεημοσύναι σου γάρ, φησί, καὶ αἱ προσευχαί σου εἰς οὐρανὸν ἀνέβησαν.<ref decls="#biblical" cRef="NA:Act:10:4"/>
-                        </quote>
+                  </quote>
                         Ὡς εἰ μὴ εἶχε πτερὸν τὴν ἐλεημοσύνην ἡ μετάνοια, οὐκ ἂν εἰς οὐρανὸν ἐχώρησεν. Ἀνέῳκται οὖν σήμερον ἐμπορεῖον ἐλεημοσύνης. Ὁρῶμεν γὰρ τοὺς αἰχμαλώτους καὶ τοὺς πένητας· ὁρῶμεν τοὺς ἐν ἀγορᾷ περιφερομένους, ὁρῶμεν τοὺς βοῶντας, ὁρῶμεν τοὺς δακρύοντας, ὁρῶμεν τοὺς στένοντας· πανήγυρις ἡμῖν πρόκειται θαυμαστή, πανηγύρεως δὲ οὐδὲν ἕτερόν ἐστιν ἐπάγγελμα, καὶ τῷ ἐμπόρῳ οὐδὲν ἕτερόν ἐστι φρόνημα, ἢ τὰ ἐν τοῖς ὠνίοις ὀλίγου μὲν ἀγοράσαι, πολλοῦ δὲ πωλῆσαι. Οὐχ οὗτος τῶν ἐμπόρων ἑκάστου ὁ σκοπός; μὴ δι’ ἕτερόν τι ἐπιβάλλεταί τις τῇ ἐμπορίᾳ, ἢ ἵνα τὰ μικροῦ ἐωνημένα μεγάλου διαπωλήσῃ, καὶ ἄρῃ πολυπλασιαζομένην αὐτῷ τὴν ἐμπορίαν; Τοιαύτην οὖν πανήγυριν προέθηκεν ἡμῖν ὁ θεός· ὀλίγου τὰς δικαιοσύνας ἀγόρασον, ἵνα πολλοῦ μεταπωλήσῃς ἐν τῷ μέλλοντι· εἴ γε δεῖ μετάπρασιν εἰ<cb n="333" break="no"/>πεῖν τὴν ἀνταπόδοσιν. Ἐνταῦθα δι’ ὀλίγων ἀγοράζεται δικαιοσύνη, δι’ εὐτελοῦς κλάσματος ἄρτου, δι’ εὐτελοῦς ἱματίου, διὰ ποτηρίου ψυχροῦ·
                         <quote>Ὃς ποτίσῃ ποτήριον ψυχροῦ, ἀμὴν λέγω ὑμῖν<seg type="insertion">, φησὶν ὁ τῆς πνευματικῆς ἐμπορίας διδάσκαλος,</seg>
                             οὐ μὴ ἀπολέσῃ τὸν μισθὸν αὐτοῦ.<ref decls="#biblical" cRef="NA:Mt:10:42"/>
-                        </quote>
+                  </quote>
                         Ποτήριον ψυχροῦ ἔμμισθον, ἱμάτια καὶ χρήματα διδόμενα δι’ εὐεργεσίαν οὐκ ἔμμισθα; Τοὐναντίον μὲν οὖν καὶ πολύμισθα. Διὰ τί οὖν ποτήριον ἐμνημόνευσε ψυχροῦ; Ἀδάπανον εἶπεν ἐλεημοσύνην· τῷ γὰρ ψυχρῷ οὔτε ξύλον ἀναλίσκεις, οὔτε ἕτερόν τι προσδαπανᾷς. Εἰ δ’ ὅπου ἀδάπανος ἡ δόσις, τοσαύτη τῆς εὐεργεσίας ἡ χάρις, ἔνθα ἱματίων ἀφθονία, χρημάτων χορηγία, τῶν ἄλλων ἀγαθῶν ἡ περιουσία, πόσον ἀπεκδέχεσθαι χρὴ μισθὸν παρὰ τοῦ δικαίου κριτοῦ; Ἐν ὅσῳ οὖν πρόκεινται αἱ ἀρεταὶ ὀλίγου πωλούμεναι, παρὰ τοῦ μεγαλοδώρου λάβωμεν, ἁρπάσωμεν, ἀγοράσωμεν.
                         <quote>Οἱ διψῶντές
                             <seg type="insertion">φησι</seg>
                             πορεύεσθε ἐφ’ ὕδωρ, καὶ ὅσοι μὴ ἔχετε ἀργύριον, βαδίσαντες ἀγοράσατε.<ref decls="#biblical" cRef="LXX:Is:55:1"/>
-                        </quote>
+                  </quote>
                         Ἐν ὅσῳ πρόκειται ἡ πανήγυρις, ἀγοράσωμεν ἐλεημοσύνας, μᾶλλον δὲ διὰ τῆς ἐλεημοσύνης ἀγοράσωμεν τὴν σωτηρίαν. Χριστὸν ἐνδύεις, πτωχὸν ἐνδύων. Ταῦτα, φησίν, οἶδα καλῶς καὶ ἀκριβῶς· ταῦτα προμεμάθηκα, οὐ σὺ πρῶτος ἐδίδαξας· οὐ παρὰ σοῦ τοῦτο πρῶτον ἀκηκόαμεν· οὐ ξένα κηρύττεις, ἀλλ’ ἃ πολλάκις ἡμᾶς πολλοὶ τῶν παρόντων ἐδίδαξαν. Οἶδα καὶ αὐτός, οἶδα, ὅτι ταῦτα καὶ τὰ τοιαῦτα πολλάκις μεμαθήκατε, ἀλλ’ εἴθε πολλάκις μαθόντες, κἂν ὀλίγον τὸ καλὸν εἰργαζώμεθα.
                         <quote>Ὁ ἐλεῶν πτωχὸν δανείζει θεῷ.<ref decls="#biblical" cRef="LXX:Prov:19:17"/>
-                        </quote>
+                  </quote>
                         Θεῷ δανείσωμεν τὴν ἐλεημοσύνην, ἵνα παρ’ αὐτοῦ λάβωμεν φιλανθρωπίας ἀντίδοσιν. Ἀλλ’ ὢ τοῦ σοφωτάτου ῥήματος.
                         <quote>Ὁ ἐλεῶν πτωχὸν δανείζει θεῷ.<ref decls="#biblical" cRef="LXX:Prov:19:17"/>
-                        </quote>
+                  </quote>
                         Διὰ τί οὖν οὐκ εἶπεν·
                         <said>Ὁ ἐλεῶν πτωχὸν δίδωσι θεῷ</said>, ἀλλὰ
                         <quote>δανείζει<ref decls="#biblical" cRef="LXX:Prov:19:17"/>
-                        </quote>; Οἶδεν ἡ γραφὴ τὴν ἡμετέραν πλεονεξίαν. Προσέσχεν ὅτι ἡ ἀπληστία ἡμῶν πρὸς πλεονεξίαν βλέπουσα τὸν πλεονασμὸν ζητεῖ. Καὶ διὰ τοῦτο οὐκ εἶπεν ἁπλῶς·
+                  </quote>; Οἶδεν ἡ γραφὴ τὴν ἡμετέραν πλεονεξίαν. Προσέσχεν ὅτι ἡ ἀπληστία ἡμῶν πρὸς πλεονεξίαν βλέπουσα τὸν πλεονασμὸν ζητεῖ. Καὶ διὰ τοῦτο οὐκ εἶπεν ἁπλῶς·
                         <said>Ὁ ἐλεῶν πτωχὸν δίδωσι θεῷ</said>, ἵνα μὴ ἁπλῆν τὴν ἀντιμισθίαν νομίσῃς· ἀλλ’
                         <quote>Ὁ ἐλεῶν πτωχὸν δανείζει θεῷ<ref decls="#biblical" cRef="LXX:Prov:19:17"/>
-                        </quote>. Εἰ δανείζεται θεὸς παρ’ ἡμῶν, ἄρα χρεώστης ἡμῶν ἐστι. Τί οὖν θέλεις αὐτὸν ἔχειν, κριτὴν ἢ χρεώστην; Ὁ χρεώστης αἰδεῖται τὸν δανείσαντα· ὁ κριτὴς οὐ δυσωπεῖται τὸν δανειζόμενον.</p>
-                </div>
-                <div type="textpart" subtype="section" n="7">
-                    <p>Ἀναγκαῖον δὲ καὶ καθ’ ἕτερον τρόπον ἰδεῖν, τίνος ἕνεκεν ὁ θεὸς εἶπεν, ὅτι ἐμοὶ δανείζει ὁ διδοὺς πτωχῷ. Ἐπειδὴ εἶδεν ἡμῶν τὴν πλεονεξίαν ῥέπουσαν εἰς πλεονασμόν, ὡς ἔφθην εἰπών, καὶ μηδαμοῦ τὸν χρήματα ἔχοντα δανείζειν θέλοντα ἄνευ ἀσφαλείας· ἀπαιτεῖ γὰρ ὁ δανείζων ἢ ὑποθήκην ἢ ἐνέχυρα ἢ τὸν ἀντιφωνοῦντα καὶ διὰ τῶν τριῶν τούτων ἀσφαλειῶν ἐμπιστεύει τὰ ἑαυτοῦ χρήματα ἢ ἐγγύας δεχόμενος, ὡς ἔφθην εἰπών, ἢ ὑποθήκην πραγμάτων ἢ ἐνέχυρα· ἐπειδὴ οὖν εἶδεν ὁ θεός, ὅτι ἐκτὸς τούτων οὐδεὶς δανείζει, οὐδὲ εἰς φιλανθρωπίαν βλέπει, ἀλλ’ εἰς μόνον τὸ κέρδος ὁρᾷ, πάντων δὲ τούτων ἔρημος ὁ πτωχός, οὐχ ὑποθήκην ἔχων· οὐ κέκτηται γὰρ οὐδέν· οὐκ ἐνέχυρα φέρων· γεγύμνωται γάρ· οὐ τὸν ἀντιφωνοῦντα παρέχων· ἀπιστεῖται γὰρ διὰ τὴν ἀπορίαν· ὡς οὖν εἶδεν αὐτὸν διακινδυνεύοντα τῇ ἀπορίᾳ, καὶ τὸν ἔχοντα χρήματα κινδυνεύοντα διὰ τὴν ἀπανθρωπίαν, μέσον ἑαυτὸν παρενέθηκεν, ἐχέγγυον μὲν τῷ πένητι, ἐνέχυρον δὲ τῷ δανείζοντι. Ἀπιστεῖς τούτῳ, φησί, διὰ τὴν ἀπορίαν· ἐμοὶ πίστευσον διὰ τὴν ἀφθονίαν. Εἶδε τὸν πτωχόν, καὶ ἠλέησεν· εἶδε τὸν πτωχόν, καὶ οὐ παρεῖδεν, ἀλλ’ ἑαυτὸν ἔδωκεν ἐνέχυρον τῷ μηδὲν
+                  </quote>. Εἰ δανείζεται θεὸς παρ’ ἡμῶν, ἄρα χρεώστης ἡμῶν ἐστι. Τί οὖν θέλεις αὐτὸν ἔχειν, κριτὴν ἢ χρεώστην; Ὁ χρεώστης αἰδεῖται τὸν δανείσαντα· ὁ κριτὴς οὐ δυσωπεῖται τὸν δανειζόμενον.</p>
+            </div>
+            <div type="textpart" subtype="section" n="7">
+               <p>Ἀναγκαῖον δὲ καὶ καθ’ ἕτερον τρόπον ἰδεῖν, τίνος ἕνεκεν ὁ θεὸς εἶπεν, ὅτι ἐμοὶ δανείζει ὁ διδοὺς πτωχῷ. Ἐπειδὴ εἶδεν ἡμῶν τὴν πλεονεξίαν ῥέπουσαν εἰς πλεονασμόν, ὡς ἔφθην εἰπών, καὶ μηδαμοῦ τὸν χρήματα ἔχοντα δανείζειν θέλοντα ἄνευ ἀσφαλείας· ἀπαιτεῖ γὰρ ὁ δανείζων ἢ ὑποθήκην ἢ ἐνέχυρα ἢ τὸν ἀντιφωνοῦντα καὶ διὰ τῶν τριῶν τούτων ἀσφαλειῶν ἐμπιστεύει τὰ ἑαυτοῦ χρήματα ἢ ἐγγύας δεχόμενος, ὡς ἔφθην εἰπών, ἢ ὑποθήκην πραγμάτων ἢ ἐνέχυρα· ἐπειδὴ οὖν εἶδεν ὁ θεός, ὅτι ἐκτὸς τούτων οὐδεὶς δανείζει, οὐδὲ εἰς φιλανθρωπίαν βλέπει, ἀλλ’ εἰς μόνον τὸ κέρδος ὁρᾷ, πάντων δὲ τούτων ἔρημος ὁ πτωχός, οὐχ ὑποθήκην ἔχων· οὐ κέκτηται γὰρ οὐδέν· οὐκ ἐνέχυρα φέρων· γεγύμνωται γάρ· οὐ τὸν ἀντιφωνοῦντα παρέχων· ἀπιστεῖται γὰρ διὰ τὴν ἀπορίαν· ὡς οὖν εἶδεν αὐτὸν διακινδυνεύοντα τῇ ἀπορίᾳ, καὶ τὸν ἔχοντα χρήματα κινδυνεύοντα διὰ τὴν ἀπανθρωπίαν, μέσον ἑαυτὸν παρενέθηκεν, ἐχέγγυον μὲν τῷ πένητι, ἐνέχυρον δὲ τῷ δανείζοντι. Ἀπιστεῖς τούτῳ, φησί, διὰ τὴν ἀπορίαν· ἐμοὶ πίστευσον διὰ τὴν ἀφθονίαν. Εἶδε τὸν πτωχόν, καὶ ἠλέησεν· εἶδε τὸν πτωχόν, καὶ οὐ παρεῖδεν, ἀλλ’ ἑαυτὸν ἔδωκεν ἐνέχυρον τῷ μηδὲν
                         <cb n="334"/>
                         ἔχοντι, καὶ τῷ ἀπόρῳ παρέστη διὰ πολλὴν ἀγαθότητα,
                         <cit>
-                            <ref decls="#biblical" cRef="LXX:Ps:108:31">ἐπαληθεύοντος τοῦ μακαρίου <persName type="biblical" key="David_Rut.4.17">Δαυὶδ</persName> τῇ φιλανθρωπίᾳ ταύτῃ καὶ λέγοντος·
+                     <ref decls="#biblical" cRef="LXX:Ps:108:31">ἐπαληθεύοντος τοῦ μακαρίου <persName type="biblical" key="David_Rut.4.17">Δαυὶδ</persName> τῇ φιλανθρωπίᾳ ταύτῃ καὶ λέγοντος·
                             </ref>
-                            <quote>Ὅτι παρέστη ἐκ δεξιῶν πένητος.</quote>
-                        </cit>
-                        <quote>Ὁ ἐλεῶν πτωχὸν δανείζει θεῷ.<ref decls="#biblical" cRef="LXX:Prov:19:17"/>
-                        </quote>
+                     <quote>Ὅτι παρέστη ἐκ δεξιῶν πένητος.</quote>
+                  </cit>
+                  <quote>Ὁ ἐλεῶν πτωχὸν δανείζει θεῷ.<ref decls="#biblical" cRef="LXX:Prov:19:17"/>
+                  </quote>
                         Θάρσει, φησίν, ἐμοὶ δανείζεις. Καὶ τί τοσοῦτον κερδαίνω σοι δανείζων; Μάλιστα μὲν οὖν παρανομώτατον παρὰ θεοῦ λόγον ἀπαιτεῖν· πλὴν ἵνα συγκαταβῶ σου τῇ ἀνομίᾳ, καὶ λύσω τῇ φιλανθρωπίᾳ τὴν ἀποτομίαν, ἀντεξετάσωμεν πρὸς ταῦτα. Δανείζων τοῖς ἄλλοις τί κερδαίνεις; τί παρ’ αὐτῶν εἰς πλεονασμὸν ἐπιζητεῖς; οὐχ ἑκατοστήν, ἐὰν τὴν ἔννομον ζητήσῃς; Ἐὰν δὲ πλεονάσῃς τὴν ἀπληστίαν, διπλῆν καὶ τριπλῆν καρπώσῃ τὴν ἀδικίαν. Ἐγὼ δέ σου νικῶ τὴν πλεονεξίαν· ὑπερβαίνω σου τὴν ὄρεξιν τῆς ἀπληστίας· καλύπτω τῇ ἐμῇ ἀφθονίᾳ τὴν σὴν ἀμετρίαν. Σὺ ἑκατοστὴν ζητεῖς, ἐγὼ δὲ ἑκατονταπλασίονα δίδωμί σοι. Εἶτα δανείζῃ, κύριε· καὶ δανείζῃ παρ’ ἐμοῦ ἐνταῦθα τὴν εἰς τὸν πτωχὸν ἐλεημοσύνην, ἵνα πότε μοι ταῦτα ἀποδῷς; Ἀπαιτῶ τὰ σύμφωνα, στηρίξαι βουλόμενος τὸ συνάλλαγμα. Δός μοι τῆς ἀντιδόσεως τὸν καιρόν· ὅρισον τῆς ἀπολήψεως τὴν προθεσμίαν. Μάλιστα μὲν οὖν τοῦτο περιττόν·
                         <quote>Πιστὸς γὰρ κύριος ἐν πᾶσι τοῖς λόγοις αὐτοῦ.<ref decls="#biblical" cRef="LXX:Ps:144:13"/>
-                        </quote>
+                  </quote>
                         Ἐπειδὴ δὲ ἔθος καὶ σκοπὸς τῷ δανειζομένῳ εὐγνωμόνως, χρόνους μετρεῖν, καὶ ἡμέρας ὁρίζειν, ἄκουε πότε καὶ ποῦ σοι τὴν ὀφειλὴν ἀποδίδωσιν ὁ διὰ τοῦ πτωχοῦ δανεισάμενος.
                         <quote>Ὅταν καθίσῃ ὁ υἱὸς τοῦ ἀνθρώπου ἐπὶ θρόνου δόξης αὐτοῦ, καὶ στήσῃ τὰ μὲν πρόβατα ἐκ δεξιῶν αὐτοῦ, τὰ δὲ ἐρίφια ἐξ εὐωνύμων, καὶ ἐρεῖ τοῖς ἐκ δεξιῶν.<ref decls="#biblical" cRef="NA:Mt:25:31.33-34"/>
-                        </quote>
+                  </quote>
                         Ἐνταῦθα πρόσεχε πῶς ὁ χρεώστης εὐγνώμων περὶ τὸν δανείσαντα, πῶς ὁ δανεισάμενος μετὰ πολλῆς χάριτος ἀποδίδωσι·
                         <quote>Δεῦτε οἱ εὐλογημένοι τοῦ πατρός μου, κληρονομήσατε τὴν ἡτοιμασμένην ὑμῖν βασιλείαν ἀπὸ καταβολῆς κόσμου.<ref decls="#biblical" cRef="NA:Mt:25:34"/>
-                        </quote>
+                  </quote>
                         Ὑπὲρ τίνων;
                         <quote>Ὅτι ἐπείνασα, καὶ ἐδώκατέ μοι φαγεῖν· ἐδίψησα, καὶ ἐποτίσατέ με· γυμνὸς ἤμην, καὶ ἐνεδύσατέ με· ἐν φυλακῇ, καὶ ἤλθετε πρὸς μέ· ἀσθενὴς ἤμην, καὶ ἐπεσκέψασθέ με· ξένος ἤμην, καὶ συνηγάγετέ με.<ref decls="#biblical" cRef="NA:Mt:25:35-36"/>
-                        </quote>
+                  </quote>
                         Εἶτα οἱ καλῶς ἐν καιρῷ διακονήσαντες, εἰς τὴν οἰκείαν ἀσθένειαν ἀφορῶντες, καὶ εἰς τὴν ἀξίαν τοῦ δανεισαμένου, λέγουσι·
                         <quote>Κύριε, πότε σε εἴδομεν πεινῶντα, καὶ ἐθρέψαμεν; ἢ διψῶντα, καὶ ἐποτίσαμεν;<ref decls="#biblical" cRef="NA:Mt:25:37"/>
-                        </quote>, εἰς ὃν
+                  </quote>, εἰς ὃν
                         <quote>οἱ ὀφθαλμοὶ πάντων ἐλπίζουσι, καὶ σὺ δίδως τὴν τροφὴν αὐτῶν ἐν ἀφθονίᾳ.<ref decls="#biblical" cRef="LXX:Ps:144:15"/>
-                        </quote>
+                  </quote>
                         Ὢ τῆς πολλῆς ἀγαθότητος· κρύπτει τὴν ἀξίαν διὰ φιλανθρωπίαν·
                         <quote>Ἐπείνασα γὰρ καὶ ἐδώκατέ μοι φαγεῖν.<ref decls="#biblical" cRef="NA:Mt:25:35"/>
-                        </quote>
+                  </quote>
                         ὢ τῆς πολλῆς ἀγαθότητος, ὢ τῆς ἀμέτρου χρηστότητος·
                         <quote>Ὁ διδοὺς τροφὴν πάσῃ σαρκί, καὶ ἀνοίγων τὰς χεῖρας, καὶ ἐμπιπλῶν πᾶν ζῷον εὐδοκίας.<ref decls="#biblical" cRef="LXX:Ps:144:15-16"/>
-                        </quote>
-                        <quote>Ἐπείνων
+                  </quote>
+                  <quote>Ἐπείνων
                             <seg type="insertion">φησὶ</seg>
                             καὶ ἐδώκατέ μοι φαγεῖν<ref decls="#biblical" cRef="NA:Mt:25:35"/>
-                        </quote>, οὐ τῆς ἀξίας ἐλαττουμένης, ἀλλὰ τῆς φιλανθρωπίας τοὺς πτωχοὺς ἐγγυωμένης.
+                  </quote>, οὐ τῆς ἀξίας ἐλαττουμένης, ἀλλὰ τῆς φιλανθρωπίας τοὺς πτωχοὺς ἐγγυωμένης.
                         <quote>Ἐδίψησα καὶ ἐποτίσατέ με.<ref decls="#biblical" cRef="NA:Mt:25:35"/>
-                        </quote>
+                  </quote>
                         Τίς ὁ ταῦτα λέγων; Ὁ λίμναις καὶ ποταμοῖς καὶ πηγαῖς τῶν ὑδάτων τὴν φύσιν ἐκχέων· ὁ διὰ τῶν εὐαγγελίων φάσκων, ὅτι
                         <quote>Ὁ πιστεύων εἰς ἐμέ, καθὼς εἶπεν ἡ γραφή, ποταμοὶ ἐκ κοιλίας αὐτοῦ ῥεύσουσιν ὕδατος ζῶντος·<ref decls="#biblical" cRef="NA:Jn:7:38"/>
-                        </quote>
+                  </quote>
                         ὁ εἰπὼν
                         <quote>Εἴ τις διψᾷ, ἐρχέσθω πρὸς μέ, καὶ πινέτω.<ref decls="#biblical" cRef="NA:Jn:7:37"/>
-                        </quote>
+                  </quote>
                         Ἀλλά,
                         <quote>Γυμνὸς ἤμην
                             <cb n="335"/>
-                            <seg type="insertion">φησὶ</seg>
+                     <seg type="insertion">φησὶ</seg>
                             καὶ ἐνεδύσατέ με.<ref decls="#biblical" cRef="NA:Mt:25:36"/>
-                        </quote>
+                  </quote>
                         Ἐνεδύσαμεν τὸν ἐνδύοντα
                         <quote>τὸν οὐρανὸν ἐν νεφέλαις<ref decls="#biblical" cRef="LXX:Ps:146:8"/>
-                        </quote>, τὸν ἐνδύοντα τὴν ἐκκλησίαν ἅπασαν καὶ τὴν οἰκουμένην.
+                  </quote>, τὸν ἐνδύοντα τὴν ἐκκλησίαν ἅπασαν καὶ τὴν οἰκουμένην.
                         <quote>Ὅσοι γὰρ εἰς <persName type="biblical" key="Jesus_Mat.1.1">Χριστὸν</persName> ἐβαπτίσθητε, <persName type="biblical" key="Jesus_Mat.1.1">Χριστὸν</persName> ἐνεδύσασθε.<ref decls="#biblical" cRef="NA:Gal:3:27"/>
-                        </quote>
-                        <quote>Ἐν φυλακῇ ἤμην·<ref decls="#biblical" cRef="NA:Mt:25:36"/>
-                        </quote>
+                  </quote>
+                  <quote>Ἐν φυλακῇ ἤμην·<ref decls="#biblical" cRef="NA:Mt:25:36"/>
+                  </quote>
                         ἐν φυλακῇ σὺ
                         <quote>ὁ ἐξάγων πεπεδημένους<ref decls="#biblical" cRef="LXX:Ps:67:7"/>
-                        </quote>; Ἑρμήνευσον ἃ λαλεῖς· ἡ γὰρ ἀξία ἀρνεῖται τὰ λεγόμενα. Πότε σε εἴδομεν ἐν ἐνδείᾳ τοσαύτῃ; Πότε ταῦτα πεποιήκαμεν;
+                  </quote>; Ἑρμήνευσον ἃ λαλεῖς· ἡ γὰρ ἀξία ἀρνεῖται τὰ λεγόμενα. Πότε σε εἴδομεν ἐν ἐνδείᾳ τοσαύτῃ; Πότε ταῦτα πεποιήκαμεν;
                         <quote>Ἐφ’ ὅσον
                             <seg type="insertion">φησιν</seg>
                             ἑνὶ τούτων τῶν ἐλαχίστων πεποιήκατε, ἐμοὶ ἐποιήσατε.<ref decls="#biblical" cRef="NA:Mt:25:40"/>
-                        </quote>
+                  </quote>
                         Μὴ οὐκ ἀληθὴς ὁ λόγος, ὅτι
                         <quote>ὁ ἐλεῶν πτωχὸν δανείζει θεῷ<ref decls="#biblical" cRef="LXX:Prov:19:17"/>
-                        </quote>; Καὶ ὅρα τὸ θαυμαστόν· οὐδὲν ἕτερον ὑπέμνησεν ἔργον ἀρετῆς ἢ τοῦτο· καίτοι ἐδύνατο εἰπεῖν·
+                  </quote>; Καὶ ὅρα τὸ θαυμαστόν· οὐδὲν ἕτερον ὑπέμνησεν ἔργον ἀρετῆς ἢ τοῦτο· καίτοι ἐδύνατο εἰπεῖν·
                         <quote>Δεῦτε οἱ εὐλογημένοι<ref decls="#biblical" cRef="NA:Mt:25:34"/>
-                        </quote>, ὅτι ἐσωφρονήσατε, ὅτι ἐπαρθενεύσατε, ὅτι ἀγγελικὴν πολιτείαν ἀνελάβετε»· ἀλλὰ σιωπᾷ ταῦτα, οὐχ ὅτι ἀνάξια μνήμης, ἀλλ’ ὡς δεύτερα φιλανθρωπίας. Ἀλλ’ ὥσπερ τούτοις τοῖς ἐκ δεξιῶν διὰ τὴν φιλανθρωπίαν ἔδειξε δεδωρημένην τὴν βασιλείαν· οὕτω καὶ τοῖς ἐξ ἀριστερῶν διὰ τὴν ἀκαρπίαν ἠπείλησε τὴν τιμωρίαν.
+                  </quote>, ὅτι ἐσωφρονήσατε, ὅτι ἐπαρθενεύσατε, ὅτι ἀγγελικὴν πολιτείαν ἀνελάβετε»· ἀλλὰ σιωπᾷ ταῦτα, οὐχ ὅτι ἀνάξια μνήμης, ἀλλ’ ὡς δεύτερα φιλανθρωπίας. Ἀλλ’ ὥσπερ τούτοις τοῖς ἐκ δεξιῶν διὰ τὴν φιλανθρωπίαν ἔδειξε δεδωρημένην τὴν βασιλείαν· οὕτω καὶ τοῖς ἐξ ἀριστερῶν διὰ τὴν ἀκαρπίαν ἠπείλησε τὴν τιμωρίαν.
                         <quote>Πορεύεσθε οἱ κατῃραμένοι εἰς τὸ σκότος τὸ ἐξώτερον, τὸ ἡτοιμασμένον τῷ διαβόλῳ καὶ τοῖς ἀγγέλοις αὐτοῦ.<ref decls="#biblical" cRef="NA:Mt:25:41"/>
-                        </quote>
+                  </quote>
                         Διὰ τί; ὑπὲρ τίνος;
                         <quote>Ὅτι ἐπείνων, καὶ οὐκ ἐδώκατέ μοι φαγεῖν.<ref decls="#biblical" cRef="NA:Mt:25:42"/>
-                        </quote>
+                  </quote>
                         Οὐκ εἶπεν· Ὅτι ἐπορνεύσατε, ὅτι ἐμοιχεύσατε, ὅτι ἐκλέψατε, ὅτι ἐψευδομαρτυρήσατε, ὅτι ἐπιωρκήσατε· κακὰ μὲν ὁμολογουμένως καὶ ταῦτα, ἀλλὰ τῆς ἀπανθρωπίας κατώτερα καὶ τῆς ἀνελεημοσύνης. Διὰ τί δέ, ὦ κύριε, οὐκ ἄλλων ὁδῶν φέρεις μνήμην; Οὐ κρίνω, φησί, τὴν ἁμαρτίαν, ἀλλὰ τὴν ἀπανθρωπίαν· οὐ κρίνω τοὺς ἁμαρτήσαντας, ἀλλὰ τοὺς μὴ μετανοήσαντας· ὑπὲρ ἀπανθρωπίας ὑμᾶς καταδικάζω, ὅτι ἔχοντες τοσοῦτον καὶ τηλικοῦτον φάρμακον σωτηρίας τὴν ἐλεημοσύνην, ἐν ᾗ ἐξηλείφετο πάντα τὰ ἁμαρτήματα, παρήκατε τοσαύτην εὐεργεσίαν. Ὀνειδίζω τοίνυν τὴν ἀπανθρωπίαν ὡς ῥίζαν κακίας καὶ πάσης ἀσεβείας· ἐπαινῶ τὴν φιλανθρωπίαν ὡς ῥίζαν πάντων τῶν ἀγαθῶν, καὶ ἀπειλῶ τοῖς μὲν πῦρ αἰώνιον, τοῖς δὲ βασιλείαν οὐρανῶν ἐπαγγέλλομαι. Καλαί σου, ὦ δέσποτα, καὶ αἱ ἐπαγγελίαι· καλή σου καὶ ἡ προσδοκωμένη βασιλεία καὶ ἡ γέεννα πάλιν ἀπειλουμένη· ἡ μὲν προτρε<cb n="336" break="no"/>πομένη, ἡ δὲ ἐκφοβοῦσα. Προτρέπεται γὰρ καλῶς ἡ βασιλεία, φοβεῖ δὲ χρησίμως ἡ γέεννα. Ἀπειλεῖ γὰρ γέενναν ὁ θεός, οὐχ ἵνα εἰς γέενναν ἐμβάλῃ, ἀλλ’ ἵνα γεέννης ἀπαλλάξῃ. Εἰ γὰρ ἐβούλετο κολάσαι, οὐκ ἂν προηπείλησεν, ἵνα ἀσφαλισάμενοι φύγωμεν τὰ ἀπειλούμενα. Ἀπειλεῖ τὴν τιμωρίαν, ἵνα φύγωμεν τὴν πεῖραν τῆς τιμωρίας· φοβεῖ τῷ λόγῳ, ἵνα μὴ κολάσῃ τῷ ἔργῳ. Δανείσωμεν τοίνυν τῷ θεῷ τὴν φιλανθρωπίαν, δανείσωμεν, ἵνα εὕρωμεν αὐτὸν χρεώστην, ὡς ἔφθην εἰπών, καὶ μὴ δικαστήν. Αἰδεῖται γὰρ ὁ χρεώστης τὸν δανείσαντα, αἰδεῖται αὐτὸν καὶ δυσωπεῖται. Ἐὰν ἀπέλθῃ δανειστὴς εἰς θύραν χρεώστου, ἐὰν μὲν ᾖ ἄπορος, φεύγει· ἐὰν δὲ εὔπορος, μετὰ παρρησίας δέχεται αὐτόν. Ὅρα δέ μοι καὶ ἕτερον θαῦμα τοῦ δικαίου κριτοῦ ἐκ τῶν ἀνθρωπίνων παρατιθέμενον· ἐάν τινι ἐν πενίᾳ καθεστῶτι δανείσῃς, προέλθῃ δὲ εἰς εὐθηνίαν ὁ δανεισάμενος, καὶ δύνηταί σοι λοιπὸν ἀποδοῦναι τὸ χρέος, λανθάνει τοὺς πολλούς, καὶ ἀποδίδωσιν, ἵνα μὴ αἰσχύνηται ἐπὶ τῇ προτέρᾳ καταστάσει· καὶ χάριτας μὲν ὁμολογεῖ, κρύπτει δὲ τὴν εὐεργεσίαν, τὴν προτέραν ἔνδειαν αἰσχυνόμενος. Ὁ δὲ θεὸς οὐχ οὕτω ποιεῖ, ἀλλ’ ἐν κρυπτῷ δανειζόμενος, παρρησίᾳ τὸ χρέος ἀποδίδωσιν. Ὅτε μὲν γὰρ λαμβάνει, διὰ λανθανούσης ἐλεημοσύνης· ὅτε δὲ ἀποδίδωσιν, ἐπ’ ὄψεσι πάσης τῆς δημιουργίας ἀποδίδωσιν. Ἀλλ’ ἐρεῖ τις ἴσως· Διὰ τί δὲ ὅλως ὥσπερ ἐμοὶ τῷ πλουσίῳ δέδωκεν, οὐχὶ καὶ τῷ πένητι παραπλησίως δέδωκεν; Ἐδύνατο μὲν καὶ σοὶ δοῦναι ὁμοίως, καὶ τῷ πένητι, ἀλλ’ οὐκ ἠθέλησεν οὔτε σοῦ ἄκαρπον εἶναι τὸν πλοῦτον, οὔτε ἐκείνου ἄμισθον τὴν πενίαν. Σοὶ τῷ πλουτοῦντι δέδωκε πλουτεῖν ἐλεημοσύνῃ, καὶ σκορπίζειν ἐν δικαιοσύνῃ·
                         <quote>Ἐσκόρπισε γάρ· ἔδωκε τοῖς πένησιν· ἡ δικαιοσύνη αὐτοῦ μένει εἰς τὸν αἰῶνα.<ref decls="#biblical" cRef="LXX:Ps:111:9"/>
-                        </quote>
+                  </quote>
                         Ὁρᾷς, ὅτι ὁ πλούσιος ἐκ τῆς ἐλεημοσύνης θησαυρίζει δικαιοσύνην αἰώνιον; Ὅρα πάλιν καὶ τὸν πένητα· ἐπειδὴ οὐκ ἔχει πλοῦτον, ᾧ ἐργάσηται δικαιοσύνην, ἔχει πενίαν, ἐξ ἧς καρποῦται ὑπομονὴν αἰώνιον·
                         <quote>Ἡ
                             <seg type="insertion">γὰρ</seg>
                             ὑπομονὴ τῶν πενήτων οὐκ ἀπολεῖται εἰς τὸν αἰῶνα<ref decls="#biblical" cRef="LXX:Ps:111:9"/>
-                        </quote>
+                  </quote>
                         ἐν Χριστῷ τῷ κυρίῳ ἡμῶν, ᾧ ἡ δόξα εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.</p>
-                </div>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>

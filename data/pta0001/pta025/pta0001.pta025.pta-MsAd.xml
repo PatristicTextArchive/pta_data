@@ -1,1267 +1,1631 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" 
-    xmlns:telota="http://www.telota.de" telota:doctype="transcription">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title xml:lang="la">De sigillis sermo (Ms Ad)</title>
-                <author>
-                    <persName key="pta0001">Severianus Gabalensis</persName>
-                </author>
-                <respStmt>
-                    <resp>transkribiert von</resp>
-                    <persName xml:id="YJ">Yan Jin</persName>
-                </respStmt>
-            </titleStmt>
-            <editionStmt>
-                <p>New transcription.</p>
-            </editionStmt>
-            <publicationStmt>
-                <publisher>Patristic Text Archive</publisher>
-                <availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:telota="http://www.telota.de"
+     telota:doctype="transcription">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">De sigillis sermo (Ms Ad)</title>
+            <author>
+               <persName key="pta0001">Severianus Gabalensis</persName>
+            </author>
+            <respStmt>
+               <resp>transkribiert von</resp>
+               <persName xml:id="YJ">Yan Jin</persName>
+            </respStmt>
+         </titleStmt>
+         <editionStmt>
+            <p>New transcription.</p>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Patristic Text Archive</publisher>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available
                         under a Creative Commons Attribution ShareAlike 4.0 International
                         License</licence>
-                </availability>
-                <date>2022</date>
-                <idno type="PTA">pta0001.pta025</idno>
-                <idno type="CPG">4209</idno>
-                <idno type="BHG">2351</idno>
-                <idno type="Aldama">246</idno>
-                <idno type="Pinakes-Oeuvre">3935</idno>
-            </publicationStmt>
-            <sourceDesc>
-                <msDesc>
-                    <msIdentifier xml:id="Ad" corresp="PTAMS00023">
-                        <settlement>Athen</settlement>
-                        <repository>EBE</repository>
-                        <idno>455</idno>
-                        <altIdentifier type="diktyon">
-                            <idno>2751</idno>
-                        </altIdentifier>
-                    </msIdentifier>
-                </msDesc>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="chapter" matchPattern="(.+)"
-                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"
-                />
-            </refsDecl>
-        </encodingDesc>
-        <revisionDesc>
-            <change who="#YJ" when="2021-12-01">Transkription des Textes anhand des Digitalisates
+            </availability>
+            <date>2022</date>
+            <idno type="PTA">pta0001.pta025</idno>
+            <idno type="CPG">4209</idno>
+            <idno type="BHG">2351</idno>
+            <idno type="Aldama">246</idno>
+            <idno type="Pinakes-Oeuvre">3935</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier xml:id="Ad" corresp="PTAMS00023">
+                  <settlement>Athen</settlement>
+                  <repository>EBE</repository>
+                  <idno>455</idno>
+                  <altIdentifier type="diktyon">
+                     <idno>2751</idno>
+                  </altIdentifier>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations"
+                  ana="not-annotated not-identified">
+            Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references"
+                  ana="not-annotated not-identified">
+            Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons"
+                  ana="not-annotated not-identified">
+            Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups"
+                  ana="not-annotated not-identified">
+            Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places"
+                  ana="not-annotated not-identified">
+            Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term/>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change who="#YJ" when="2021-12-01">Transkription des Textes anhand des Digitalisates
                 der EBE</change>
-        </revisionDesc>
-    </teiHeader>
-    <text xml:lang="grc">
-        <body>
-            <div type="edition" xml:lang="grc" n="urn:cts:pta:pta0001.pta025.pta-MsAd">
-                <pb type="page" n="168"
-                    facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455174.tif/full/full/0/default.jpg"/>
-                <note place="top_center">168</note>
-                <div type="textpart" subtype="chapter" n="1">
-                    <p>
-                        <gap reason="damage" quantity="13" unit="character"/>ραγῖδας
+      </revisionDesc>
+   </teiHeader>
+   <text xml:lang="grc">
+      <body>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta0001.pta025.pta-MsAd">
+            <pb type="page"
+                n="168"
+                facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455174.tif/full/full/0/default.jpg"/>
+            <note place="top_center">168</note>
+            <head>
+               <title>
+                  <gap reason="damage" quantity="13" unit="character"/>ραγῖδας
                         <lb/>
-                        <gap reason="damage" quantity="17" unit="character"/> προσφέ<lb break="no"
-                            /><gap reason="damage" quantity="17" unit="character"/>
-                        <choice>
-                            <expan><unclear>πατὴρ</unclear></expan>
-                            <abbr type="nomSac">
-                                <hi rend="overline"><unclear>η</unclear>ρ</hi>
-                            </abbr>
-                        </choice> τῶ υἱῶ.
+                  <gap reason="damage" quantity="17" unit="character"/> προσφέ<lb break="no"/>
+                  <gap reason="damage" quantity="17" unit="character"/>
+                  <choice>
+                     <expan>
+                        <unclear>πατὴρ</unclear>
+                     </expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">
+                           <unclear>η</unclear>ρ</hi>
+                     </abbr>
+                  </choice> τῶ υἱῶ.
                         <lb/>
-                        <gap reason="damage" quantity="21" unit="character"
-                        /><unclear>μ</unclear>ίαν· <choice>
-                            <expan>κύριε</expan>
-                            <abbr type="nomSac"><hi rend="overline">κε</hi></abbr>
-                        </choice> ευλογησον
+                  <gap reason="damage" quantity="21" unit="character"/>
+                  <unclear>μ</unclear>ίαν· <choice>
+                     <expan>κύριε</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κε</hi>
+                     </abbr>
+                  </choice> ευλογησον</title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p>
+                  <gap reason="damage" quantity="21" unit="character"/>ς <choice>
+                     <expan>σωτηρίαν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σριαν</hi>
+                     </abbr>
+                  </choice>.
                         <lb/>
-                        <gap reason="damage" quantity="21" unit="character"/>ς <choice>
-                            <expan>σωτηρίαν</expan>
-                            <abbr type="nomSac"><hi rend="overline">σριαν</hi></abbr>
-                        </choice>.
+                  <gap reason="damage" quantity="16" unit="character"/>δηρος μὲν
                         <lb/>
-                        <gap reason="damage" quantity="16" unit="character"/>δηρος μὲν
+                  <gap reason="damage" quantity="21" unit="character"/> δὲ θεῖος
                         <lb/>
-                        <gap reason="damage" quantity="21" unit="character"/> δὲ θεῖος
+                  <gap reason="damage" quantity="18" unit="character"/>ὲν σῶμα
                         <lb/>
-                        <gap reason="damage" quantity="18" unit="character"/>ὲν σῶμα
+                  <gap reason="damage" quantity="20" unit="character"/>χὴ στη<lb break="no"/>
+                  <gap reason="damage" quantity="24" unit="character"/> μωϋ<lb break="no"/>
+                  <gap reason="damage" quantity="21" unit="character"/>
+                            διδα<lb break="no"/>
+                  <gap reason="damage" quantity="25" unit="character"/>ησίν·
                         <lb/>
-                        <gap reason="damage" quantity="20" unit="character"/>χὴ στη<lb break="no"
-                            /><gap reason="damage" quantity="24" unit="character"/> μωϋ<lb
-                            break="no"/><gap reason="damage" quantity="21" unit="character"/>
-                            διδα<lb break="no"/><gap reason="damage" quantity="25" unit="character"
-                        />ησίν·
+                  <gap reason="damage" quantity="21" unit="character"/>νος.
                         <lb/>
-                        <gap reason="damage" quantity="21" unit="character"/>νος.
+                  <gap reason="damage" quantity="21" unit="character"/>ευομέ<lb break="no"/>
+                  <gap reason="damage" quantity="28" unit="character"/>
+                  <unclear>ν</unclear>υν
                         <lb/>
-                        <gap reason="damage" quantity="21" unit="character"/>ευομέ<lb break="no"
-                            /><gap reason="damage" quantity="28" unit="character"
-                            /><unclear>ν</unclear>υν
+                  <gap reason="damage" quantity="27" unit="character"/>κό<lb break="no"/>
+                  <gap reason="damage" quantity="27" unit="character"/>῀ς
                         <lb/>
-                        <gap reason="damage" quantity="27" unit="character"/>κό<lb break="no"/><gap
-                            reason="damage" quantity="27" unit="character"/>῀ς
+                  <gap reason="damage" quantity="27" unit="character"/>ό<lb break="no"/>
+                  <gap reason="damage" quantity="22" unit="character"/>
+                  <unclear>ν</unclear>
+                  <lb break="no"/>
+                  <gap reason="damage" quantity="2" unit="line"/>
+                  <lb/>
+                  <gap reason="damage" quantity="30" unit="character"/>.
                         <lb/>
-                        <gap reason="damage" quantity="27" unit="character"/>ό<lb break="no"/><gap
-                            reason="damage" quantity="22" unit="character"/><unclear>ν</unclear><lb
-                            break="no"/><gap reason="damage" quantity="2" unit="line"/>
+                  <gap reason="damage" quantity="17" unit="line"/>
+                  <cb/>
+                         δην πρὸς τὸν νόθον<unclear>,</unclear> τὸν εὐσεβὴ καὶ ἀ<lb break="no"/>
+                  <g type="diple"/> ληθὴ λόγον ἀντεἰσάγων ἔλεγεν· σοφί<lb break="no"/>
+                  <g type="diple"/> αν δὲ λαλοῦμεν εν τοῖς τελείοις· σο<lb break="no"/>
+                  <g type="diple"/> φίαν δὲ οὐ τὴν τοῦ αἰῶνος τοῦτου.
                         <lb/>
-                        <gap reason="damage" quantity="30" unit="character"/>.
-                        <lb/>
-                        <gap reason="damage" quantity="17" unit="line"/>
-                        <cb/>
-                         δην πρὸς τὸν νόθον<unclear>,</unclear> τὸν εὐσεβὴ καὶ ἀ<lb break="no"/><g
-                            type="diple"/> ληθὴ λόγον ἀντεἰσάγων ἔλεγεν· σοφί<lb break="no"/><g
-                            type="diple"/> αν δὲ λαλοῦμεν εν τοῖς τελείοις· σο<lb break="no"/><g
-                            type="diple"/> φίαν δὲ οὐ τὴν τοῦ αἰῶνος τοῦτου.
-                        <lb/>
-                        <g type="diple"/> αλλὰ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> σοφίαν ἐν μυστηρίω· σοφία
+                  <g type="diple"/> αλλὰ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> σοφίαν ἐν μυστηρίω· σοφία
                         <lb/> τοίνυν ἡμῖν. ἡ προφητικὴ γλῶττα
-                        <lb/> καὶ ἀποστολικὴ διδασκαλία· καὶ τὸ
+                        <lb/> καὶ ἀποστολικὴ διδασκαλία· καὶ τὸ
                         <lb/> εὐαγγέλιον τῆς βασιλείας. ἡ κορυφὴ
-                        <lb/> τῆς λογικῆς ἐξουσίας· εὐαγγέλιον δὲ
+                        <lb/> τῆς λογικῆς ἐξουσίας· εὐαγγέλιον δὲ
                         <lb/> ἀδελφοὶ ὅτ’ἂν ἀκούσωμεν. ἀξίαν
-                        <lb/> τῆς προσηγορίας ἔννοιαν ἀναλά<lb break="no"/>βωμεν· πολλοὶ γὰρ
+                        <lb/> τῆς προσηγορίας ἔννοιαν ἀναλά<lb break="no"/>βωμεν· πολλοὶ γὰρ
                         πολλάκις τῆ
                         <lb/> συνηθεία τῶν ὀνομάτων ἐμμελε<lb break="no"/>τήσαντες. τὴν δύναμιν
                         αὐτῶν
-                        <lb/> τῶν πραγμάτων ἠγνόησαν· ἔστιν
-                        <lb/> δὲ εὐαγγέλιον, ἑρμηνεία τοῦ πράγμα<lb break="no"/>τος· εὐαγγελίζεται
+                        <lb/> τῶν πραγμάτων ἠγνόησαν· ἔστιν
+                        <lb/> δὲ εὐαγγέλιον, ἑρμηνεία τοῦ πράγμα<lb break="no"/>τος· εὐαγγελίζεται
                         γὰρ ἡμᾶς τὴν
                         <lb/> πολυὕμνητον τοῦ <choice>
-                            <expan>σωτῆρος</expan>
-                            <abbr type="nomSac"><hi rend="overline">σρς</hi></abbr>
-                        </choice> οἰκονομίαν·
+                     <expan>σωτῆρος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σρς</hi>
+                     </abbr>
+                  </choice> οἰκονομίαν·
                         <lb/>
-                        <hi rend="ekthesis">ὅ</hi>τι <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> ἐν ἀνθρώποις ἐγένετο διὰ
+                  <hi rend="ekthesis">ὅ</hi>τι <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἐν ἀνθρώποις ἐγένετο διὰ
                         <lb/>
-                        <choice>
-                            <expan>φιλανθρωπίαν</expan>
-                            <abbr type="nomSac"><hi rend="overline">φιλανιαν</hi></abbr>
-                        </choice>· οὐ τὴν προαιώνιον ἀ<lb break="no"/>ξίαν προἀποθέμενος, ἀλλὰ τὴν
+                  <choice>
+                     <expan>φιλανθρωπίαν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">φιλανιαν</hi>
+                     </abbr>
+                  </choice>· οὐ τὴν προαιώνιον ἀ<lb break="no"/>ξίαν προἀποθέμενος, ἀλλὰ τὴν
                         <lb/>
-                        <unclear>σ</unclear>ωτήριον οἰκονομίαν ἐνδυσάμε<lb break="no"
-                            /><unclear>ν</unclear>ος· εὐαγγελίζεται ἡμᾶς τὸ εὐαγγέ<lb break="no"
-                            />λ<unclear>ι</unclear>ον, ὅτι τοῖς κάμνουσιν ἰατρὸς ἐ<lb break="no"
-                        />πεδήμησεν· οὐ φαρμάκοις θε<lb break="no"/>ραπεύων. ἀλλὰ νεύματι <choice>
-                            <expan>φιλανθρωπίας</expan>
-                            <abbr type="nomSac"><hi rend="overline">φιλανιας</hi></abbr>
-                        </choice>
-                        <lb/> ἰώμενος· εὐαγγελίζεται ἡμᾶς, ὅτι
+                  <unclear>σ</unclear>ωτήριον οἰκονομίαν ἐνδυσάμε<lb break="no"/>
+                  <unclear>ν</unclear>ος· εὐαγγελίζεται ἡμᾶς τὸ εὐαγγέ<lb break="no"/>λ<unclear>ι</unclear>ον, ὅτι τοῖς κάμνουσιν ἰατρὸς ἐ<lb break="no"/>πεδήμησεν· οὐ φαρμάκοις θε<lb break="no"/>ραπεύων. ἀλλὰ νεύματι <choice>
+                     <expan>φιλανθρωπίας</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">φιλανιας</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> ἰώμενος· εὐαγγελίζεται ἡμᾶς, ὅτι
                         <lb/>
-                        <unclear>τ</unclear>οῖς πεπλανημένοις ὁδὸς ἀνεδεί<lb break="no"
-                            /><unclear>χ</unclear>θη· τοῖς ἐσκοτισμένοις, τὸ φῶς
-                        <lb/> ἔλαμψε· τοῖς ἀπεγνωσμένοις ἡ
+                  <unclear>τ</unclear>οῖς πεπλανημένοις ὁδὸς ἀνεδεί<lb break="no"/>
+                  <unclear>χ</unclear>θη· τοῖς ἐσκοτισμένοις, τὸ φῶς
+                        <lb/> ἔλαμψε· τοῖς ἀπεγνωσμένοις ἡ
                         <lb/>
-                        <unclear>σια</unclear>· ἐπειδὴ γὰρ νόμω παιδευθέν<lb break="no"/>τες οὐκ
-                        επεστράφημεν· καὶ προφη<lb break="no"/>τείαις ὁδηγηθέντες οὐκ ανεκλή<lb
-                            break="no"/>θημεν πρὸς τὴν ἐπίγνωσιν τῆς
-                        <lb/> ἀληθείας. καὶ ἐκινδυνεύετο τῆ ἡ<lb break="no"
-                        />με<unclear>τ</unclear>έρα ἀγνωμοσύνη φθαρῆναι τὰ
-                        <lb/> πάντα καὶ λυθῆναι τὰ ἀνθρώπι<lb break="no"/>να· ὡς εἶδεν ἡμᾶς ἡ τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice>
-                        <choice>
-                            <expan>φιλανθρωπία</expan>
-                            <abbr type="nomSac">
-                                <hi rend="overline">φι<lb break="no"/>λανια</hi>
-                            </abbr>
-                        </choice> καὶ πρὸς τὴν τοῦ νόμου παι<lb break="no"/>δίαν ἀπειρηκότας· καὶ
+                  <unclear>σια</unclear>· ἐπειδὴ γὰρ νόμω παιδευθέν<lb break="no"/>τες οὐκ
+                        επεστράφημεν· καὶ προφη<lb break="no"/>τείαις ὁδηγηθέντες οὐκ ανεκλή<lb break="no"/>θημεν πρὸς τὴν ἐπίγνωσιν τῆς
+                        <lb/> ἀληθείας. καὶ ἐκινδυνεύετο τῆ ἡ<lb break="no"/>με<unclear>τ</unclear>έρα ἀγνωμοσύνη φθαρῆναι τὰ
+                        <lb/> πάντα καὶ λυθῆναι τὰ ἀνθρώπι<lb break="no"/>να· ὡς εἶδεν ἡμᾶς ἡ τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>
+                  <choice>
+                     <expan>φιλανθρωπία</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">φι<lb break="no"/>λανια</hi>
+                     </abbr>
+                  </choice> καὶ πρὸς τὴν τοῦ νόμου παι<lb break="no"/>δίαν ἀπειρηκότας· καὶ
                         πρὸς τὴν
                         <lb/> τῶν προφητῶν ὡδηγίαν ὠκλά<lb break="no"/>σαντας. ἀγαθότητι πολλῆ καὶ
-                        <lb/> ἀμέτρω τὴν ἀγνωμοσύνην ἐνίκη<lb break="no"/>σεν· καὶ τὸ εὐαγγέλιον τῆς
-                            βασιλεί<lb break="no"/>ας· οἷάν τινα βασιλικὴν δωρε<lb break="no"/>ὰν
+                        <lb/> ἀμέτρω τὴν ἀγνωμοσύνην ἐνίκη<lb break="no"/>σεν· καὶ τὸ εὐαγγέλιον τῆς
+                            βασιλεί<lb break="no"/>ας· οἷάν τινα βασιλικὴν δωρε<lb break="no"/>ὰν
                         εἰς πᾶσαν προθεὶς τὴν οἰκου<lb break="no"/>μένην. πάντα τοῖς ἀναξίοις ἐ
-                        <pb type="page" n="169" break="no"
-                            facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455175.tif/full/full/0/default.jpg"/>
-                        <note place="top_inner">85</note>χαρίσατο διὰ <unclear>φ</unclear><gap
-                            reason="damage" quantity="14" unit="character"/>
-                        <lb/> γ’οὖν ἡ <choice>
-                            <expan>σωτήριος</expan>
-                            <abbr type="nomSac"><hi rend="overline">σριος</hi></abbr>
-                        </choice> χα<gap reason="damage" quantity="17" unit="character"/>
-                        <lb/> εὐεργετοῦσα· το<gap reason="damage" quantity="18" unit="character"
-                            /><lb break="no"/>σα· τοὺς πτωχοὺ<gap reason="damage" quantity="16"
-                            unit="character"/>
-                        <lb/> ἐξορίστους ἀνακα<gap reason="damage" quantity="16" unit="character"
-                            /><lb break="no"/>λώτους ἐξαγοράζο<gap reason="damage" quantity="14"
-                            unit="character"/><lb break="no"/>σιν ἐγίνετο, οὐ διὰ τ<gap
-                            reason="illegible" quantity="1" unit="character"/><gap reason="damage"
-                            quantity="14" unit="character"/>
-                        <lb/> ἀλλὰ διὰ τὴν αὐ<gap reason="damage" quantity="16" unit="character"
-                            /><lb break="no"/>πουσαν ἀγαθότητα <gap reason="damage" quantity="13"
-                            unit="character"/>
-                        <lb/> φύσιν καὶ ἀμέριστος <gap reason="damage" quantity="15"
-                            unit="character"/>
-                        <lb/> αὐτ◌̬o <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> ἐκ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice>· εἰκὼ<gap reason="damage" quantity="12" unit="character"/><lb
-                            break="no"/>παύγασμα τῆς δόξη<gap reason="damage" quantity="12"
-                            unit="character"/>
-                        <lb/> τῆς ὑποστάσεως. <unclear>δ</unclear><gap reason="damage" quantity="13"
-                            unit="character"/><lb break="no"/>ται προσηγορίας·
-                            <unclear>ο</unclear><gap reason="damage" quantity="13" unit="character"/>
-                        <lb/> ἁρμοζούσας, ἀλλὰ τ<gap reason="illegible" quantity="1"
-                            unit="character"/>
-                        <gap reason="damage" quantity="12" unit="character"/><lb break="no"/>πούσας·
+                        <pb type="page"
+                      n="169"
+                      break="no"
+                      facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455175.tif/full/full/0/default.jpg"/>
+                  <note place="top_inner">85</note>χαρίσατο διὰ <unclear>φ</unclear>
+                  <gap reason="damage" quantity="14" unit="character"/>
+                  <lb/> γ’οὖν ἡ <choice>
+                     <expan>σωτήριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σριος</hi>
+                     </abbr>
+                  </choice> χα<gap reason="damage" quantity="17" unit="character"/>
+                  <lb/> εὐεργετοῦσα· το<gap reason="damage" quantity="18" unit="character"/>
+                  <lb break="no"/>σα· τοὺς πτωχοὺ<gap reason="damage" quantity="16" unit="character"/>
+                  <lb/> ἐξορίστους ἀνακα<gap reason="damage" quantity="16" unit="character"/>
+                  <lb break="no"/>λώτους ἐξαγοράζο<gap reason="damage" quantity="14" unit="character"/>
+                  <lb break="no"/>σιν ἐγίνετο, οὐ διὰ τ<gap reason="illegible" quantity="1" unit="character"/>
+                  <gap reason="damage" quantity="14" unit="character"/>
+                  <lb/> ἀλλὰ διὰ τὴν αὐ<gap reason="damage" quantity="16" unit="character"/>
+                  <lb break="no"/>πουσαν ἀγαθότητα <gap reason="damage" quantity="13" unit="character"/>
+                  <lb/> φύσιν καὶ ἀμέριστος <gap reason="damage" quantity="15" unit="character"/>
+                  <lb/> αὐτ◌̬o <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἐκ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>· εἰκὼ<gap reason="damage" quantity="12" unit="character"/>
+                  <lb break="no"/>παύγασμα τῆς δόξη<gap reason="damage" quantity="12" unit="character"/>
+                  <lb/> τῆς ὑποστάσεως. <unclear>δ</unclear>
+                  <gap reason="damage" quantity="13" unit="character"/>
+                  <lb break="no"/>ται προσηγορίας·
+                            <unclear>ο</unclear>
+                  <gap reason="damage" quantity="13" unit="character"/>
+                  <lb/> ἁρμοζούσας, ἀλλὰ τ<gap reason="illegible" quantity="1" unit="character"/>
+                  <gap reason="damage" quantity="12" unit="character"/>
+                  <lb break="no"/>πούσας·
                         ἐπειδὴ γὰ<gap reason="illegible" quantity="1" unit="character"/>
-                        <gap reason="damage" quantity="12" unit="character"/>
-                        <lb/> τὰ ἀνθρώπινα· εἰς <gap reason="damage" quantity="12" unit="character"
-                            /><lb break="no"/>βάνει τὰ πάντα οἰκει<gap reason="damage" quantity="12"
-                            unit="character"/><lb break="no"/>τα ἀνακαινιζούση χα<gap
-                            reason="damage" quantity="12" unit="character"/><lb break="no"/>γορίας
-                        δεχόμενος· λι<gap reason="illegible" quantity="1" unit="character"/><gap
-                            reason="damage" quantity="9" unit="character"/>
-                        <lb/> λιμὸς θείου λόγου· λιμ<gap reason="damage" quantity="10"
-                            unit="character"/><lb break="no"/>σεν ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> τῆ συναγωγῆ λ<gap reason="damage" quantity="12" unit="character"/>
-                        <lb/> αὐτοῖς· οὐ λιμὸν ἄρτου ὀ<gap reason="damage" quantity="11"
-                            unit="character"/><lb break="no"/>τος, ἀλλὰ λιμὸν τοῦ ἀκοῦ<gap
-                            reason="damage" quantity="10" unit="character"/>
-                        <lb/>
-                        <hi rend="initial">ἐ</hi>πεὶ οὖν εἶδεν πεινῶσαν <gap reason="damage"
-                            quantity="10" unit="character"/><lb break="no"/>νην καὶ λιμῶ
-                            φθειρομέν<unclear>η</unclear><gap reason="damage" quantity="10"
-                            unit="character"/>
-                        <lb/> ἀτροφία τῶ σώματι· τοῦ<gap reason="damage" quantity="9"
-                            unit="character"/><lb break="no"/>σία τῆ ψυχῆ. βοᾶ διὰ τῶν <gap
-                            reason="damage" quantity="10" unit="character"/>
-                        <lb/>
-                        <g type="diple"/> ἡ πηγὴ τῶν ἀγαθῶν· ἐγώ <unclear>εἰ</unclear><gap
-                            reason="damage" quantity="8" unit="character"/>
-                        <lb/>
-                        <g type="diple"/> ὁ ἐξ <choice>
-                            <expan>οὐρανοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">οὐνοῦ</hi></abbr>
-                        </choice> καταβᾶς καὶ ζ<gap reason="illegible" quantity="1" unit="character"
-                            /><gap reason="damage" quantity="8" unit="character"/>
-                        <lb/> τῶ κόσμω· ὁ μὲν γὰρ αἰσθη<gap reason="damage" quantity="9"
-                            unit="character"/>
-                        <lb/> προέρχεται κατὰ τὸ εἰρημέ<gap reason="damage" quantity="9"
-                            unit="character"/><lb break="no"/><g type="diple"/> γαγεῖν ἄρτον ἐκ τῆς
-                        γῆς, ὁ δ<gap reason="damage" quantity="13" unit="character"/><lb break="no"
-                        />ρανοῦ πηγάζει· ἐγὼ γάρ εἰ<gap reason="damage" quantity="8"
-                            unit="character"/>
-                        <lb/>
-                        <g type="diple"/> ὁ ἐξ <choice>
-                            <expan>οὐρανοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">οὐνοῦ</hi></abbr>
-                        </choice> καταβᾶς· ἔρη<gap reason="damage" quantity="7" unit="character"/>
-                        <lb/> διψῶσα καὶ ἐστερημένη τοῦ <gap reason="damage" quantity="10"
-                            unit="character"/>
-                        <lb/> καὶ οὐκ έχουσα τῆς <choice>
-                            <expan>πνευματικῆ<unclear>ς</unclear></expan>
-                            <abbr type="nomSac">
-                                <hi rend="overline">πνικῆ<unclear>ς</unclear></hi>
-                            </abbr>
-                        </choice>
-                        <gap reason="damage" quantity="7" unit="character"/>
-                        <lb/> τὴν ἀπόλαυσιν. τί οὖν ἡ ἀ<gap reason="damage" quantity="8"
-                            unit="character"/>
-                        <lb/> χάρις βοᾶ τὴν εὐεργεσίαν· <gap reason="damage" quantity="7"
-                            unit="character"/><lb break="no"/><g type="diple"/> σα· εἴ τις διψὰ
+                  <gap reason="damage" quantity="12" unit="character"/>
+                  <lb/> τὰ ἀνθρώπινα· εἰς <gap reason="damage" quantity="12" unit="character"/>
+                  <lb break="no"/>βάνει τὰ πάντα οἰκει<gap reason="damage" quantity="12" unit="character"/>
+                  <lb break="no"/>τα ἀνακαινιζούση χα<gap reason="damage" quantity="12" unit="character"/>
+                  <lb break="no"/>γορίας
+                        δεχόμενος· λι<gap reason="illegible" quantity="1" unit="character"/>
+                  <gap reason="damage" quantity="9" unit="character"/>
+                  <lb/> λιμὸς θείου λόγου· λιμ<gap reason="damage" quantity="10" unit="character"/>
+                  <lb break="no"/>σεν ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> τῆ συναγωγῆ λ<gap reason="damage" quantity="12" unit="character"/>
+                  <lb/> αὐτοῖς· οὐ λιμὸν ἄρτου ὀ<gap reason="damage" quantity="11" unit="character"/>
+                  <lb break="no"/>τος, ἀλλὰ λιμὸν τοῦ ἀκοῦ<gap reason="damage" quantity="10" unit="character"/>
+                  <lb/>
+                  <hi rend="initial">ἐ</hi>πεὶ οὖν εἶδεν πεινῶσαν <gap reason="damage" quantity="10" unit="character"/>
+                  <lb break="no"/>νην καὶ λιμῶ
+                            φθειρομέν<unclear>η</unclear>
+                  <gap reason="damage" quantity="10" unit="character"/>
+                  <lb/> ἀτροφία τῶ σώματι· τοῦ<gap reason="damage" quantity="9" unit="character"/>
+                  <lb break="no"/>σία τῆ ψυχῆ. βοᾶ διὰ τῶν <gap reason="damage" quantity="10" unit="character"/>
+                  <lb/>
+                  <g type="diple"/> ἡ πηγὴ τῶν ἀγαθῶν· ἐγώ <unclear>εἰ</unclear>
+                  <gap reason="damage" quantity="8" unit="character"/>
+                  <lb/>
+                  <g type="diple"/> ὁ ἐξ <choice>
+                     <expan>οὐρανοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνοῦ</hi>
+                     </abbr>
+                  </choice> καταβᾶς καὶ ζ<gap reason="illegible" quantity="1" unit="character"/>
+                  <gap reason="damage" quantity="8" unit="character"/>
+                  <lb/> τῶ κόσμω· ὁ μὲν γὰρ αἰσθη<gap reason="damage" quantity="9" unit="character"/>
+                  <lb/> προέρχεται κατὰ τὸ εἰρημέ<gap reason="damage" quantity="9" unit="character"/>
+                  <lb break="no"/>
+                  <g type="diple"/> γαγεῖν ἄρτον ἐκ τῆς
+                        γῆς, ὁ δ<gap reason="damage" quantity="13" unit="character"/>
+                  <lb break="no"/>ρανοῦ πηγάζει· ἐγὼ γάρ εἰ<gap reason="damage" quantity="8" unit="character"/>
+                  <lb/>
+                  <g type="diple"/> ὁ ἐξ <choice>
+                     <expan>οὐρανοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνοῦ</hi>
+                     </abbr>
+                  </choice> καταβᾶς· ἔρη<gap reason="damage" quantity="7" unit="character"/>
+                  <lb/> διψῶσα καὶ ἐστερημένη τοῦ <gap reason="damage" quantity="10" unit="character"/>
+                  <lb/> καὶ οὐκ έχουσα τῆς <choice>
+                     <expan>πνευματικῆ<unclear>ς</unclear>
+                     </expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνικῆ<unclear>ς</unclear>
+                        </hi>
+                     </abbr>
+                  </choice>
+                  <gap reason="damage" quantity="7" unit="character"/>
+                  <lb/> τὴν ἀπόλαυσιν. τί οὖν ἡ ἀ<gap reason="damage" quantity="8" unit="character"/>
+                  <lb/> χάρις βοᾶ τὴν εὐεργεσίαν· <gap reason="damage" quantity="7" unit="character"/>
+                  <lb break="no"/>
+                  <g type="diple"/> σα· εἴ τις διψὰ
                         ἐρχέσθω π<gap reason="damage" quantity="8" unit="character"/>
-                        <lb/> πινέτω· ἐπειδὴ γὰρ διαφό<gap reason="damage" quantity="8"
-                            unit="character"/>
-                        <lb/> οἱ προφῆται· καὶ πᾶς ὁ τῶ<gap reason="damage" quantity="8"
-                            unit="character"/><lb break="no"/>ρὸς ἐδίψα αὐτοῦ τὴν παρ<gap
-                            reason="damage" quantity="11" unit="character"/>
-                        <lb/>
-                        <hi rend="ekthesis">ὁ</hi>
-                        <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> ὁ <choice>
-                            <expan>θεός</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> μου πρὸς σὲ ὀρθρί<gap reason="damage" quantity="7"
-                            unit="character"/><lb break="no"/><g type="diple"/> σεν ἡ ψυχή μου πρὸς
+                  <lb/> πινέτω· ἐπειδὴ γὰρ διαφό<gap reason="damage" quantity="8" unit="character"/>
+                  <lb/> οἱ προφῆται· καὶ πᾶς ὁ τῶ<gap reason="damage" quantity="8" unit="character"/>
+                  <lb break="no"/>ρὸς ἐδίψα αὐτοῦ τὴν παρ<gap reason="damage" quantity="11" unit="character"/>
+                  <lb/>
+                  <hi rend="ekthesis">ὁ</hi>
+                  <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ὁ <choice>
+                     <expan>θεός</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> μου πρὸς σὲ ὀρθρί<gap reason="damage" quantity="7" unit="character"/>
+                  <lb break="no"/>
+                  <g type="diple"/> σεν ἡ ψυχή μου πρὸς
                         τὸν θ<gap reason="illegible" quantity="1" unit="character"/>
-                        <gap reason="damage" quantity="5" unit="character"/>
-                        <lb/> βουλόμενος δεῖξαι ὅτι αὐτ<gap reason="damage" quantity="10"
-                            unit="character"/><lb break="no"/>δίψον οἱ προφῆται, βοᾶ <gap
-                            reason="illegible" quantity="1" unit="character"/><gap reason="damage"
-                            quantity="11" unit="character"/><lb break="no"/><g type="diple"/> λίων·
+                  <gap reason="damage" quantity="5" unit="character"/>
+                  <lb/> βουλόμενος δεῖξαι ὅτι αὐτ<gap reason="damage" quantity="10" unit="character"/>
+                  <lb break="no"/>δίψον οἱ προφῆται, βοᾶ <gap reason="illegible" quantity="1" unit="character"/>
+                  <gap reason="damage" quantity="11" unit="character"/>
+                  <lb break="no"/>
+                  <g type="diple"/> λίων·
                         εἴ τις διψᾶ, ἐρχέσ
                         <cb break="no"/>
-                        <gap reason="damage" quantity="47" unit="line"/>
-                        <pb type="page" n="170"
-                            facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455176.tif/full/full/0/default.jpg"/>
-                        <gap reason="damage" quantity="47" unit="line"/>
-                        <cb/>
-                        <note place="top_inner">170</note>
-                        <unclear>· σὺ γὰρ</unclear> εἶ ἱε<lb break="no"/><gap reason="damage"
-                            quantity="19" unit="character"/>
-                        <gap reason="illegible" quantity="5" unit="character"
-                            /><unclear>ξιν</unclear>
+                  <gap reason="damage" quantity="47" unit="line"/>
+                  <pb type="page"
+                      n="170"
+                      facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455176.tif/full/full/0/default.jpg"/>
+                  <gap reason="damage" quantity="47" unit="line"/>
+                  <cb/>
+                  <note place="top_inner">170</note>
+                  <unclear>· σὺ γὰρ</unclear> εἶ ἱε<lb break="no"/>
+                  <gap reason="damage" quantity="19" unit="character"/>
+                  <gap reason="illegible" quantity="5" unit="character"/>
+                  <unclear>ξιν</unclear>
+                  <lb/>
+                  <gap reason="damage" quantity="14" unit="character"/>
+                  <unclear>χρεί</unclear>
+                  <gap reason="illegible" quantity="3" unit="character"/>
+                  <unclear>ἱ</unclear>ερεῖ.
                         <lb/>
-                        <gap reason="damage" quantity="14" unit="character"/>
-                        <unclear>χρεί</unclear><gap reason="illegible" quantity="3" unit="character"/>
-                        <unclear>ἱ</unclear>ερεῖ.
-                        <lb/>
-                        <gap reason="damage" quantity="15" unit="character"/>ρείου
+                  <gap reason="damage" quantity="15" unit="character"/>ρείου
                             π<unclear>ρο</unclear>ς τὸ τὸν <choice>
-                            <expan>θεὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline">θν</hi></abbr>
-                        </choice>
+                     <expan>θεὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>
+                  <gap reason="damage" quantity="17" unit="character"/>ς σοι πάλιν γίνε<lb break="no"/>
+                  <gap reason="damage" quantity="13" unit="character"/>οῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> ὁ αἴρων τὴν
                         <lb/>
-                        <gap reason="damage" quantity="17" unit="character"/>ς σοι πάλιν γίνε<lb
-                            break="no"/><gap reason="damage" quantity="13" unit="character"/>οῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> ὁ αἴρων τὴν
+                  <gap reason="damage" quantity="14" unit="character"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>ου· <unclear>ἤ</unclear>κουσας ταῦ<lb break="no"/>
+                  <gap reason="damage" quantity="12" unit="character"/>
+                        ἄκουσον τὸν δι’ αὐ<lb break="no"/>
+                  <gap reason="damage" quantity="12" unit="character"/> τοῦ ἱερέως τάξει στή<lb break="no"/>
+                  <gap reason="damage" quantity="13" unit="character"/>· μὴ ἴδης αὐτὸν ὡς
                         <lb/>
-                        <gap reason="damage" quantity="14" unit="character"/><gap reason="illegible"
-                            quantity="1" unit="character"/>ου· <unclear>ἤ</unclear>κουσας ταῦ<lb
-                            break="no"/><gap reason="damage" quantity="12" unit="character"/>
-                        ἄκουσον τὸν δι’ αὐ<lb break="no"/><gap reason="damage" quantity="12"
-                            unit="character"/> τοῦ ἱερέως τάξει στή<lb break="no"/><gap
-                            reason="damage" quantity="13" unit="character"/>· μὴ ἴδης αὐτὸν ὡς
+                  <gap reason="damage" quantity="15" unit="character"/>α· ἀλλὰ βλέπε αὐ<lb break="no"/>
+                  <gap reason="damage" quantity="11" unit="character"/>
+                  <unclear>τ</unclear>οῦ ἀξίαν τῶ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρι</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>
+                  <gap reason="damage" quantity="12" unit="character"/>· ἀλλὰ μὴ ἐχθρὸς
                         <lb/>
-                        <gap reason="damage" quantity="15" unit="character"/>α· ἀλλὰ βλέπε αὐ<lb
-                            break="no"/><gap reason="damage" quantity="11" unit="character"
-                            /><unclear>τ</unclear>οῦ ἀξίαν τῶ <choice>
-                            <expan>πατρὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρι</hi></abbr>
-                        </choice>
+                  <gap reason="damage" quantity="12" unit="character"/>ηθείας· τὰ μὲν ἁρ<lb break="no"/>
+                  <gap reason="damage" quantity="9" unit="character"/>
+                        κρύπτων· οἶδα ὅτι
                         <lb/>
-                        <gap reason="damage" quantity="12" unit="character"/>· ἀλλὰ μὴ ἐχθρὸς
+                  <gap reason="damage" quantity="12" unit="character"/>
+                  <unclear>τ</unclear>ικός τις ἐχθρὸς τῆς
                         <lb/>
-                        <gap reason="damage" quantity="12" unit="character"/>ηθείας· τὰ μὲν ἁρ<lb
-                            break="no"/><gap reason="damage" quantity="9" unit="character"/>
-                        κρύπτων· οἶδα ὅτι
+                  <gap reason="damage" quantity="12" unit="character"/>
+                  <unclear>λ</unclear>έγων· ὁρᾶς ὡς οὐκ έ<lb break="no"/>
+                  <gap reason="damage" quantity="12" unit="character"/>ν τῶ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρι</hi>
+                     </abbr>
+                  </choice> ἄνευ τοῦ υἱοῦ,
                         <lb/>
-                        <gap reason="damage" quantity="12" unit="character"
-                        /><unclear>τ</unclear>ικός τις ἐχθρὸς τῆς
+                  <gap reason="damage" quantity="11" unit="character"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>σιν ἐπέχει τάξιν καὶ ὑ<lb break="no"/>
+                  <gap reason="damage" quantity="10" unit="character"/>σάγων τῶ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρι</hi>
+                     </abbr>
+                  </choice> τοὺς σω<lb break="no"/>
+                  <gap reason="damage" quantity="10" unit="character"/>ειδὴ μὴ ἐχώρει ἡ ἀνθρω<lb break="no"/>
+                  <gap reason="damage" quantity="10" unit="character"/>ι’ ἑαυτῆς προσελθεῖν
                         <lb/>
-                        <gap reason="damage" quantity="12" unit="character"/>
-                        <unclear>λ</unclear>έγων· ὁρᾶς ὡς οὐκ έ<lb break="no"/><gap reason="damage"
-                            quantity="12" unit="character"/>ν τῶ <choice>
-                            <expan>πατρὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρι</hi></abbr>
-                        </choice> ἄνευ τοῦ υἱοῦ,
-                        <lb/>
-                        <gap reason="damage" quantity="11" unit="character"/><gap reason="illegible"
-                            quantity="1" unit="character"/>σιν ἐπέχει τάξιν καὶ ὑ<lb break="no"
-                            /><gap reason="damage" quantity="10" unit="character"/>σάγων τῶ <choice>
-                            <expan>πατρὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρι</hi></abbr>
-                        </choice> τοὺς σω<lb break="no"/><gap reason="damage" quantity="10"
-                            unit="character"/>ειδὴ μὴ ἐχώρει ἡ ἀνθρω<lb break="no"/><gap
-                            reason="damage" quantity="10" unit="character"/>ι’ ἑαυτῆς προσελθεῖν
-                        <lb/>
-                        <gap reason="damage" quantity="11" unit="character"/>ον γίνεται τῆς κτιστῆς
+                  <gap reason="damage" quantity="11" unit="character"/>ον γίνεται τῆς κτιστῆς
                         καὶ
                         <lb/>
-                        <gap reason="damage" quantity="16" unit="character"/><unclear>ς</unclear> ὁ <choice>
-                            <expan>υἱὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">υς</hi></abbr>
-                        </choice> προσάγων τὴν οἰκουμένην·
+                  <gap reason="damage" quantity="16" unit="character"/>
+                  <unclear>ς</unclear> ὁ <choice>
+                     <expan>υἱὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">υς</hi>
+                     </abbr>
+                  </choice> προσάγων τὴν οἰκουμένην·
                         <lb/>
-                        <gap reason="damage" quantity="10" unit="character"/>
-                        <unclear>μ</unclear>ανίας· ὦ τοῦ κενοῦ δρά<lb break="no"/><gap
-                            reason="damage" quantity="8" unit="character"/>ερβολὴ τῆς τοῦ <choice>
-                            <expan>πατρὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρς</hi></abbr>
-                        </choice> ἀγα<lb break="no"/><gap reason="damage" quantity="9"
-                            unit="character"/>νδυνεύει παρὰ τοῖς αἱρε<lb break="no"/><gap
-                            reason="damage" quantity="8" unit="character"/>βλύνει τὴν ἀξίαν τῆς
-                            θε<lb break="no"/><gap reason="damage" quantity="7" unit="character"
-                            /><unclear>λ</unclear>λ’ ἡ μὲν αἱρετικὴ μανία θρα<lb break="no"/><gap
-                            reason="damage" quantity="8" unit="character"/>
-                        <unclear>δ</unclear>ὲ τοῦ <choice>
-                            <expan>σωτῆρος</expan>
-                            <abbr type="nomSac"><hi rend="overline">σρς</hi></abbr>
-                        </choice> δύναμις οὐκ αμ<lb break="no"/><gap reason="damage" quantity="8"
-                            unit="character"/>
-                        <gap reason="illegible" quantity="1" unit="character"/> δόξα οὐ σβέννυται. ἡ
-                            χά<lb break="no"/><gap reason="damage" quantity="8" unit="character"
-                        />αιρεῖται· ἐὰν φησὶν ἡμεῖς
+                  <gap reason="damage" quantity="10" unit="character"/>
+                  <unclear>μ</unclear>ανίας· ὦ τοῦ κενοῦ δρά<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>ερβολὴ τῆς τοῦ <choice>
+                     <expan>πατρὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρς</hi>
+                     </abbr>
+                  </choice> ἀγα<lb break="no"/>
+                  <gap reason="damage" quantity="9" unit="character"/>νδυνεύει παρὰ τοῖς αἱρε<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>βλύνει τὴν ἀξίαν τῆς
+                            θε<lb break="no"/>
+                  <gap reason="damage" quantity="7" unit="character"/>
+                  <unclear>λ</unclear>λ’ ἡ μὲν αἱρετικὴ μανία θρα<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>
+                  <unclear>δ</unclear>ὲ τοῦ <choice>
+                     <expan>σωτῆρος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σρς</hi>
+                     </abbr>
+                  </choice> δύναμις οὐκ αμ<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>
+                  <gap reason="illegible" quantity="1" unit="character"/> δόξα οὐ σβέννυται. ἡ
+                            χά<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>αιρεῖται· ἐὰν φησὶν ἡμεῖς
                         <lb/>
-                        <gap reason="damage" quantity="8" unit="character"/>θα. ἐκεῖνος πιστὸς
-                        μένει·
+                  <gap reason="damage" quantity="8" unit="character"/>θα. ἐκεῖνος πιστὸς
+                        μένει·
                         <lb/>
-                        <gap reason="damage" quantity="7" unit="character"/><unclear>θ</unclear>αι
-                        γὰρ ἑαυτὸν οὐ δύναται·
+                  <gap reason="damage" quantity="7" unit="character"/>
+                  <unclear>θ</unclear>αι
+                        γὰρ ἑαυτὸν οὐ δύναται·
                         <lb/>
-                        <gap reason="damage" quantity="7" unit="character"/>ται διὰ τὴν οἰκίαν
-                        ἀξίαν·
+                  <gap reason="damage" quantity="7" unit="character"/>ται διὰ τὴν οἰκίαν
+                        ἀξίαν·
                         <lb/>
-                        <gap reason="damage" quantity="10" unit="character"/> ἱερεὺς. διὰ τὴν
+                  <gap reason="damage" quantity="10" unit="character"/> ἱερεὺς. διὰ τὴν
                         πρέπουσαν
                         <lb/>
-                        <gap reason="damage" quantity="7" unit="character"
-                        /><unclear>α</unclear>νιαν· καὶ ὅρα τὸ θαυμα<lb break="no"/><gap
-                            reason="damage" quantity="8" unit="character"/>φέ· ἐπειδὴ ἐν ὑπηρέτου
-                            τά<lb break="no"/><gap reason="damage" quantity="8" unit="character"
-                        />ήματι διακονοῦντος ἐκ<lb break="no"/><gap reason="damage" quantity="8"
-                            unit="character"/>σι τὸ ῥῆμα· ὅτι οὐδεὶς ἔρχε<lb break="no"/><gap
-                            reason="damage" quantity="9" unit="character"/>ν <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρα</hi></abbr>
-                        </choice> εἰ μὴ δι’ ἐμοῦ, ἀναγ<lb break="no"/><gap reason="damage"
-                            quantity="7" unit="character"/>ὸς τοὺς αἱρετικοὺς ἀπο<lb break="no"
-                            /><gap reason="damage" quantity="8" unit="character"/><gap
-                            reason="illegible" quantity="1" unit="character"/> ἔλεγχον τῆς
-                        εὐσεβείας·
+                  <gap reason="damage" quantity="7" unit="character"/>
+                  <unclear>α</unclear>νιαν· καὶ ὅρα τὸ θαυμα<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>φέ· ἐπειδὴ ἐν ὑπηρέτου
+                            τά<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>ήματι διακονοῦντος ἐκ<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>σι τὸ ῥῆμα· ὅτι οὐδεὶς ἔρχε<lb break="no"/>
+                  <gap reason="damage" quantity="9" unit="character"/>ν <choice>
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice> εἰ μὴ δι’ ἐμοῦ, ἀναγ<lb break="no"/>
+                  <gap reason="damage" quantity="7" unit="character"/>ὸς τοὺς αἱρετικοὺς ἀπο<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>
+                  <gap reason="illegible" quantity="1" unit="character"/> ἔλεγχον τῆς
+                        εὐσεβείας·
                         <lb/>
-                        <gap reason="damage" quantity="12" unit="character"/>ν τῶ <choice>
-                            <expan>πατρὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρι</hi></abbr>
-                        </choice> τὸν υἱὸν καθαι<lb break="no"/><gap reason="damage" quantity="8"
-                            unit="character"/>ίαν τοῦ προσάγοντος· ἐ<lb break="no"/><gap
-                            reason="damage" quantity="8" unit="character"/>ν <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρα</hi></abbr>
-                        </choice> τῶ υἱῶ προσάγον<lb break="no"/><gap reason="damage" quantity="8"
-                            unit="character"/><unclear>ε</unclear>ις ἐκεῖ τὴν ἀσέβειαν·
+                  <gap reason="damage" quantity="12" unit="character"/>ν τῶ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρι</hi>
+                     </abbr>
+                  </choice> τὸν υἱὸν καθαι<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>ίαν τοῦ προσάγοντος· ἐ<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>ν <choice>
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice> τῶ υἱῶ προσάγον<lb break="no"/>
+                  <gap reason="damage" quantity="8" unit="character"/>
+                  <unclear>ε</unclear>ις ἐκεῖ τὴν ἀσέβειαν·
                         <lb/>
-                        <gap reason="damage" quantity="8" unit="character"/>ὲν οὖν εἰς υἱὸν ἀσεβῶν,
-                        <pb type="page" n="171"
-                            facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455177.tif/full/full/0/default.jpg"/>
-                        <note place="top_center">86</note><note place="top_outer">1051 <subst>
-                                <del rend="strikethrough">169</del>
-                                <add place="inline">171</add>
-                            </subst> 171</note> τὸν <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρα</hi></abbr>
-                        </choice> βλασ<unclear>φ</unclear><gap reason="illegible" quantity="2"
-                            unit="character"/><unclear>εῖ</unclear><gap reason="illegible"
-                            quantity="5" unit="character"/><unclear>οίνυν ἀδελ</unclear><lb
-                            break="no"/>φοί εν τ<gap reason="illegible" quantity="1"
-                            unit="character"/>
-                        <unclear>λόγω</unclear>
-                        <unclear>τῆ</unclear><gap reason="illegible" quantity="6" unit="character"
-                        />ειας κα<unclear>ὶ τ</unclear>ῆς
-                        <lb/> ἀληθείας. καὶ <unclear>τ</unclear><gap reason="illegible" quantity="3"
-                            unit="character"/><unclear>α</unclear>κίαν ἐπιστομί<lb break="no"/>σωμεν
-                        καὶ τὴν <unclear>εὐσε</unclear><gap reason="illegible" quantity="1"
-                            unit="character"/><unclear>η δ</unclear>όξαν γνωρίσω<lb break="no"/><g
-                            type="diple"/> μεν· ζῶν γὰρ <unclear>ὁ λόγ</unclear>ος καὶ ἐνεργής καὶ
+                  <gap reason="damage" quantity="8" unit="character"/>ὲν οὖν εἰς υἱὸν ἀσεβῶν,
+                        <pb type="page"
+                      n="171"
+                      facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455177.tif/full/full/0/default.jpg"/>
+                  <note place="top_center">86</note>
+                  <note place="top_outer">1051 <subst>
+                        <del rend="strikethrough">169</del>
+                        <add place="inline">171</add>
+                     </subst> 171</note> τὸν <choice>
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice> βλασ<unclear>φ</unclear>
+                  <gap reason="illegible" quantity="2" unit="character"/>
+                  <unclear>εῖ</unclear>
+                  <gap reason="illegible" quantity="5" unit="character"/>
+                  <unclear>οίνυν ἀδελ</unclear>
+                  <lb break="no"/>φοί εν τ<gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>λόγω</unclear>
+                  <unclear>τῆ</unclear>
+                  <gap reason="illegible" quantity="6" unit="character"/>ειας κα<unclear>ὶ τ</unclear>ῆς
+                        <lb/> ἀληθείας. καὶ <unclear>τ</unclear>
+                  <gap reason="illegible" quantity="3" unit="character"/>
+                  <unclear>α</unclear>κίαν ἐπιστομί<lb break="no"/>σωμεν
+                        καὶ τὴν <unclear>εὐσε</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>η δ</unclear>όξαν γνωρίσω<lb break="no"/>
+                  <g type="diple"/> μεν· ζῶν γὰρ <unclear>ὁ λόγ</unclear>ος καὶ ἐνεργής καὶ
                         <lb/>
-                        <g type="diple"/> τομότερος ὑπὲρ πᾶσαν μάχαιραν δίστο<lb break="no"/>μον·
+                  <g type="diple"/> τομότερος ὑπὲρ πᾶσαν μάχαιραν δίστο<lb break="no"/>μον·
                         δίστομον δὲ καλεῖ τὴν μάχαιραν,
-                        <lb/> ἐπειδὴ διπλῶ κέχρηται τῶ λόγω· τὸ
-                        <lb/> μὲν στηρίζοντι τὸ δὲ καθαιροῦντι·
-                        <lb/> καθαιροῦντι μὲν τοὺς ἐναντίους· στη<lb break="no"/>ρίζοντι δὲ τοὺς
+                        <lb/> ἐπειδὴ διπλῶ κέχρηται τῶ λόγω· τὸ
+                        <lb/> μὲν στηρίζοντι τὸ δὲ καθαιροῦντι·
+                        <lb/> καθαιροῦντι μὲν τοὺς ἐναντίους· στη<lb break="no"/>ρίζοντι δὲ τοὺς
                         οἰκείους τῆς πίστε<lb break="no"/>ως, ἄκουε αὐτοῦ τοῦ <choice>
-                            <expan>κυρίου</expan>
-                            <abbr type="nomSac"><hi rend="overline">κυ</hi></abbr>
-                        </choice> λέγοντος·
+                     <expan>κυρίου</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κυ</hi>
+                     </abbr>
+                  </choice> λέγοντος·
                         <lb/>
-                        <g type="diple"/>
-                        <hi rend="ekthesis">ο</hi>ὐδεὶς δύνατ<subst>
-                            <del rend="unmarked">αι</del>
-                            <add place="inline">ες</add>
-                        </subst> ἐλθεῖν πρός με, ἐὰν
+                  <g type="diple"/>
+                  <hi rend="ekthesis">ο</hi>ὐδεὶς δύνατ<subst>
+                     <del rend="unmarked">αι</del>
+                     <add place="inline">ες</add>
+                  </subst> ἐλθεῖν πρός με, ἐὰν
                         <lb/>
-                        <g type="diple"/> μὴ ὁ <choice>
-                            <expan>πατήρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> μου ὁ <choice>
-                            <expan>οὐράνιος</expan>
-                            <abbr type="nomSac"><hi rend="overline">οὐνιος</hi></abbr>
-                        </choice> ἑλκύσει αὐτόν·
+                  <g type="diple"/> μὴ ὁ <choice>
+                     <expan>πατήρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> μου ὁ <choice>
+                     <expan>οὐράνιος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνιος</hi>
+                     </abbr>
+                  </choice> ἑλκύσει αὐτόν·
                         <lb/> ἀναγκαῖον δὲ ἀδελφοὶ τὰ εἰκότα πρὸς
                         <lb/> τοὺς αἱρετικοὺς εἰπεῖν. καὶ τὰ περὶ
                         <lb/> τοῦτου τοῦ νοήματος τοὺς υἱοὺς τῆς
-                        <lb/> πίστεως πληροφορῆσαι· τίνος ἕνε<lb break="no"/>κεν καταδιεῖλεν ὁ
+                        <lb/> πίστεως πληροφορῆσαι· τίνος ἕνε<lb break="no"/>κεν καταδιεῖλεν ὁ
                         μον◌̬oγενὴς τοῦ
                         <lb/>
-                        <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> λόγος τὴν προ<unclear>σαγω</unclear>γήν· πῆ μ<gap
-                            reason="illegible" quantity="1" unit="character"/>ν
+                  <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> λόγος τὴν προ<unclear>σαγω</unclear>γήν· πῆ μ<gap reason="illegible" quantity="1" unit="character"/>ν
                         <lb/> παρ’ αὐτοῦ λέγων προσάγεσθαι τῶ
                         <lb/>
-                        <choice>
-                            <expan>πατρί</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρι</hi></abbr>
-                        </choice>. πῆ δὲ παρὰ τοῦ <choice>
-                            <expan>πατρὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρς</hi></abbr>
-                        </choice> πρὸς
-                        <lb/> αὐτόν· οὐ γὰρ συγκέχυται τὰ τῆς θ<gap reason="illegible" quantity="2"
-                            unit="character"/><lb break="no"/>ας φύσεως. ἀλλ’ εὐκρινής ἐστι καὶ
-                            <unclear>ε</unclear><gap reason="illegible" quantity="1"
-                            unit="character"/><lb break="no"/>διόριστος ὁ λόγος τῆς ἀληθείας·
-                        <lb/> οὐδὲν σκολιὸν ἔχων, οὐδὲν στραγγαλ<gap reason="illegible" quantity="1"
-                            unit="character"/><lb break="no"/>ῶδες· πᾶσαι γὰρ αἱ ὁδοὶ <choice>
-                            <expan>κυρίου</expan>
-                            <abbr type="nomSac"><hi rend="overline">κυ</hi></abbr>
-                        </choice> εὐθεία<gap reason="illegible" quantity="1" unit="character"/>·
+                  <choice>
+                     <expan>πατρί</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρι</hi>
+                     </abbr>
+                  </choice>. πῆ δὲ παρὰ τοῦ <choice>
+                     <expan>πατρὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρς</hi>
+                     </abbr>
+                  </choice> πρὸς
+                        <lb/> αὐτόν· οὐ γὰρ συγκέχυται τὰ τῆς θ<gap reason="illegible" quantity="2" unit="character"/>
+                  <lb break="no"/>ας φύσεως. ἀλλ’ εὐκρινής ἐστι καὶ
+                            <unclear>ε</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <lb break="no"/>διόριστος ὁ λόγος τῆς ἀληθείας·
+                        <lb/> οὐδὲν σκολιὸν ἔχων, οὐδὲν στραγγαλ<gap reason="illegible" quantity="1" unit="character"/>
+                  <lb break="no"/>ῶδες· πᾶσαι γὰρ αἱ ὁδοὶ <choice>
+                     <expan>κυρίου</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κυ</hi>
+                     </abbr>
+                  </choice> εὐθεία<gap reason="illegible" quantity="1" unit="character"/>·
                         <lb/> ἆρα γὰρ ἀδελφοὶ ὁ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> ποτὲ μὲν
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> ποτὲ μὲν
                         <lb/> τὴν βασιλικὴν προεδρ<subst>
-                            <del rend="unmarked">ϊ</del>
-                            <add place="inline">ί</add>
-                        </subst>αν ἐπέχω<gap reason="illegible" quantity="1" unit="character"/>
-                        <lb/> δέχεται τοὺς προσαγομένους· ποτ<unclear>ὲ</unclear>
-                        <lb/> δὲ τῶ υἱῶ ἐν βασιλικῶ σχήματι
-                        <lb/> προκαθήσαντι δίδωσι τὴν ὀφει<unclear>λ</unclear><gap
-                            reason="illegible" quantity="2" unit="character"/>
-                        <lb/> καὶ ἐν ὑπηρέτου τάξει παριστάμεν<unclear>ο</unclear><gap
-                            reason="illegible" quantity="1" unit="character"/>·
-                        <lb/> προσάγει τῶ υἱῶ, μ<unclear>ὴ</unclear> γένοιτο· ἐπὶ γὰρ
+                     <del rend="unmarked">ϊ</del>
+                     <add place="inline">ί</add>
+                  </subst>αν ἐπέχω<gap reason="illegible" quantity="1" unit="character"/>
+                  <lb/> δέχεται τοὺς προσαγομένους· ποτ<unclear>ὲ</unclear>
+                  <lb/> δὲ τῶ υἱῶ ἐν βασιλικῶ σχήματι
+                        <lb/> προκαθήσαντι δίδωσι τὴν ὀφει<unclear>λ</unclear>
+                  <gap reason="illegible" quantity="2" unit="character"/>
+                  <lb/> καὶ ἐν ὑπηρέτου τάξει παριστάμεν<unclear>ο</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>·
+                        <lb/> προσάγει τῶ υἱῶ, μ<unclear>ὴ</unclear> γένοιτο· ἐπὶ γὰρ
                         <lb/>
-                        <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> οὔτε καθέδραν εἰπόντα ἔστι<unclear>ν</unclear>
-                        <lb/> τί ἀνθρώπινο<unclear>ν</unclear> ἐννοῆσαι· οὐδε
+                  <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> οὔτε καθέδραν εἰπόντα ἔστι<unclear>ν</unclear>
+                  <lb/> τί ἀνθρώπινο<unclear>ν</unclear> ἐννοῆσαι· οὐδε
                         <lb/> στᾶσιν ἀκούσαντα πάλιν, ἔστιν νοῆ<lb break="no"/>σαί
-                            τ<unclear>ι</unclear> τῶν καθ’ ἡμᾶς· ἐὰν ἀκούση<gap reason="illegible"
-                            quantity="1" unit="character"/>
-                        <lb/> περὶ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> ὅτι <unclear>ἕ</unclear>στηκ<gap reason="illegible" quantity="1"
-                            unit="character"/>ν, τ<unclear>ὸ</unclear> ἀκλ<gap reason="illegible"
-                            quantity="4" unit="character"/> κ<gap reason="illegible" quantity="2"
-                            unit="character"/>
-                        <lb/> τὸ ὄρθιον νόει τῆ<unclear>ς</unclear> θείας οὐσ<unclear>ι</unclear>ας·
-                        <lb/> κὰν πάλιν ἀναγ<unclear>γο</unclear>ς καὶ ἀκούσης <gap
-                            reason="illegible" quantity="1" unit="character"/><lb break="no"/>τι
+                            τ<unclear>ι</unclear> τῶν καθ’ ἡμᾶς· ἐὰν ἀκούση<gap reason="illegible" quantity="1" unit="character"/>
+                  <lb/> περὶ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> ὅτι <unclear>ἕ</unclear>στηκ<gap reason="illegible" quantity="1" unit="character"/>ν, τ<unclear>ὸ</unclear> ἀκλ<gap reason="illegible" quantity="4" unit="character"/> κ<gap reason="illegible" quantity="2" unit="character"/>
+                  <lb/> τὸ ὄρθιον νόει τῆ<unclear>ς</unclear> θείας οὐσ<unclear>ι</unclear>ας·
+                        <lb/> κὰν πάλιν ἀναγ<unclear>γο</unclear>ς καὶ ἀκούσης <gap reason="illegible" quantity="1" unit="character"/>
+                  <lb break="no"/>τι
                         κάθηται. τὸ ἑ<gap reason="illegible" quantity="1" unit="character"/>ραῖον
-                        καὶ ἀσάλ<gap reason="illegible" quantity="2" unit="character"/><lb
-                            break="no"/>τον ἐκλάμβαν<gap reason="illegible" quantity="1"
-                            unit="character"/> τῆς μακαρίας φύ<lb break="no"/>σεως· αὐτὸς
-                            λέ<unclear>γ</unclear><gap reason="illegible" quantity="2"
-                            unit="character"/>
-                        <unclear>ἑ</unclear>αυτὸν ἑστᾶναι καὶ
-                        <lb/> καθῆσθαι· τ<gap reason="illegible" quantity="1" unit="character"/>
-                        μωϋσῆ λέγει· σὺ στ<gap reason="illegible" quantity="1" unit="character"/>θι
-                        <lb/> ὧδε μετ’ ἐμοῦ <unclear>κ</unclear>αὶ ἦν ὁ τόπος οὗ <gap
-                            reason="illegible" quantity="2" unit="character"/><lb break="no"/>στήκει
+                        καὶ ἀσάλ<gap reason="illegible" quantity="2" unit="character"/>
+                  <lb break="no"/>τον ἐκλάμβαν<gap reason="illegible" quantity="1" unit="character"/> τῆς μακαρίας φύ<lb break="no"/>σεως· αὐτὸς
+                            λέ<unclear>γ</unclear>
+                  <gap reason="illegible" quantity="2" unit="character"/>
+                  <unclear>ἑ</unclear>αυτὸν ἑστᾶναι καὶ
+                        <lb/> καθῆσθαι· τ<gap reason="illegible" quantity="1" unit="character"/>
+                        μωϋσῆ λέγει· σὺ στ<gap reason="illegible" quantity="1" unit="character"/>θι
+                        <lb/> ὧδε μετ’ ἐμοῦ <unclear>κ</unclear>αὶ ἦν ὁ τόπος οὗ <gap reason="illegible" quantity="2" unit="character"/>
+                  <lb break="no"/>στήκει
                         ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> ἰ<gap reason="illegible" quantity="2" unit="character"/>, ὡς λῆθος
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἰ<gap reason="illegible" quantity="2" unit="character"/>, ὡς λῆθος
                             σαπ<unclear>φ</unclear>εί
                         <cb break="no"/>
-                        <gap reason="damage" quantity="3" unit="character"/>
-                        <unclear>π</unclear>ρόσεχε ἀκριβῶς· ὁ μωϋσῆς
+                  <gap reason="damage" quantity="3" unit="character"/>
+                  <unclear>π</unclear>ρόσεχε ἀκριβῶς· ὁ μωϋσῆς
                         <lb/>
-                        <gap reason="illegible" quantity="1" unit="character"
-                            /><unclear>στωτα</unclear> λέγει· καὶ ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> τῶ μωϋσῆ ὡς
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>στωτα</unclear> λέγει· καὶ ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> τῶ μωϋσῆ ὡς
                         <lb/>
-                        <unclear>ἱστ</unclear>άμενος φησίν· στῆθι μετ’ ἐμ<unclear>οῦ</unclear>·
-                        <lb/> τί οὖν ποιοῦμεν ἱερεμίου λέγοντος·
+                  <unclear>ἱστ</unclear>άμενος φησίν· στῆθι μετ’ ἐμ<unclear>οῦ</unclear>·
+                        <lb/> τί οὖν ποιοῦμεν ἱερεμίου λέγοντος·
                         <lb/>
-                        <g type="diple"/> σὺ καθήμενος εἰς τὸν αἰῶνα, καὶ ἡ<lb break="no"/><g
-                            type="diple"/>μεῖς ἀπολλύμενοι εἰς τὸν αἰῶνα· κα<lb break="no"/>θέδρα
-                        καὶ στάσις ἀνθρώπινα ῥή<lb break="no"/>ματα, ἀλλὰ θεία νοήματα· διὰ τὸν
+                  <g type="diple"/> σὺ καθήμενος εἰς τὸν αἰῶνα, καὶ ἡ<lb break="no"/>
+                  <g type="diple"/>μεῖς ἀπολλύμενοι εἰς τὸν αἰῶνα· κα<lb break="no"/>θέδρα
+                        καὶ στάσις ἀνθρώπινα ῥή<lb break="no"/>ματα, ἀλλὰ θεία νοήματα· διὰ τὸν
                         <lb/> ἄστατον καὶ ὧδε κακεῖσε περιαγό<lb break="no"/>μενον τὸν ἀνθρώπινον
                         βίον <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> λέ<lb break="no"/>γεται ἑστᾶναι· καὶ διὰ τὴν ἀστήρικτον
-                        <lb/> καὶ πανταχοῦσε<gap reason="illegible" quantity="2" unit="character"
-                        />περιτρεπομένην
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> λέ<lb break="no"/>γεται ἑστᾶναι· καὶ διὰ τὴν ἀστήρικτον
+                        <lb/> καὶ πανταχοῦσε<gap reason="illegible" quantity="2" unit="character"/>περιτρεπομένην
                         <lb/> τῶν καθ’ ἡμᾶς κατάστασιν λέγεται
-                        <lb/> καθῆσθαι, τὸ γὰρ καθήμενον ἔδρα<lb break="no"/>σται· φύγε τὰ ἀπὸ τῆς
-                        λέξεως ὑπο<lb break="no"/>βαλλόμενα. καὶ νόει τὰ διὰ τῆς πί<lb break="no"
-                        />στεως θεωρούμενα· πῶς οὖν προ<lb break="no"/>σάγει τῶ <choice>
-                            <expan>πατρὶ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρι</hi></abbr>
-                        </choice> ὁ υἱὸς. πῶς <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> τῶ υἱῶ·
-                        <lb/> οὐ γὰρ δεῖ καταλιπεῖν τὸν λόγον ἀνε<lb break="no"/>ξέταστον· ὁ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> φανεροὺς τινὰς καὶ
-                        <lb/> ὁμολογουμένους προσάγει τῶ υἱῶ·
+                        <lb/> καθῆσθαι, τὸ γὰρ καθήμενον ἔδρα<lb break="no"/>σται· φύγε τὰ ἀπὸ τῆς
+                        λέξεως ὑπο<lb break="no"/>βαλλόμενα. καὶ νόει τὰ διὰ τῆς πί<lb break="no"/>στεως θεωρούμενα· πῶς οὖν προ<lb break="no"/>σάγει τῶ <choice>
+                     <expan>πατρὶ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρι</hi>
+                     </abbr>
+                  </choice> ὁ υἱὸς. πῶς <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> τῶ υἱῶ·
+                        <lb/> οὐ γὰρ δεῖ καταλιπεῖν τὸν λόγον ἀνε<lb break="no"/>ξέταστον· ὁ <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> φανεροὺς τινὰς καὶ
+                        <lb/> ὁμολογουμένους προσάγει τῶ υἱῶ·
                         <lb/> ὁ υἱὸς πάλιν. φανεροὺς τινὰς καὶ
                         <lb/> ὁμολογουμένους προσάγει τω <choice>
-                            <expan>πατρί</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρι</hi></abbr>
-                        </choice>·
+                     <expan>πατρί</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρι</hi>
+                     </abbr>
+                  </choice>·
                         <lb/> μὴ προλαβὼν ἁρπάσης τὸ ῥῆμα
                         <lb/> εἰς διαβολὴν. ἀλλ’ ἀνάμεινον τὸ τέλος
-                        <lb/> καὶ κρίνον τὸ λεγόμενον· μὴ γίνου
-                        <lb/> δικαστὴς δυσμενὴς. ἀλλὰ συναγω<lb break="no"/>νιστὴς εὐμενής· ἐν τῶ <choice>
-                            <expan>ἰσραὴλ</expan>
-                            <abbr type="nomSac"><hi rend="overline">ἰηλ</hi></abbr>
-                        </choice> ἔγνωστο μὲν
+                        <lb/> καὶ κρίνον τὸ λεγόμενον· μὴ γίνου
+                        <lb/> δικαστὴς δυσμενὴς. ἀλλὰ συναγω<lb break="no"/>νιστὴς εὐμενής· ἐν τῶ <choice>
+                     <expan>ἰσραὴλ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἰηλ</hi>
+                     </abbr>
+                  </choice> ἔγνωστο μὲν
                         <lb/> ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> καὶ <choice>
-                            <expan>πατήρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice>, ἠγνωεῖτο δὲ ὁ υἱός·
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> καὶ <choice>
+                     <expan>πατήρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice>, ἠγνωεῖτο δὲ ὁ υἱός·
                         <lb/> ἐν τοῖς ἔθνεσι, καὶ ὁ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> ἠγνοεῖτο
-                        <lb/> καὶ ὁ υἱός· τῆ πολυθέω πλάνη δε<lb break="no"/>δούλωτω τὰ ἔθνη· ὅπου
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> ἠγνοεῖτο
+                        <lb/> καὶ ὁ υἱός· τῆ πολυθέω πλάνη δε<lb break="no"/>δούλωτω τὰ ἔθνη· ὅπου
                         οὖν <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice>
-                        <lb/> μὲν γνωρίζεται· υἱὸς δὲ οὐ γνωρί<lb break="no"
-                        /><unclear>ζε</unclear>ται, ἑρμηνεὺς γίνεται τοῦ ἠγνωη<lb break="no"/>μένου
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> μὲν γνωρίζεται· υἱὸς δὲ οὐ γνωρί<lb break="no"/>
+                  <unclear>ζε</unclear>ται, ἑρμηνεὺς γίνεται τοῦ ἠγνωη<lb break="no"/>μένου
                         υἱοῦ ὁ <choice>
-                            <expan>πατήρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice>· <unclear>ἐπα</unclear>ναλήψομαι
-                        <lb/> τὸν λόγον, ἵνα στήσω τὸ νόημα· ὅ<lb break="no"/>που <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> γνωρίζεται καὶ υἱὸς ἀμ<lb break="no"/>φιβάλλεται, ἑρμηνεὺς γίνεται
-                        ὁ γνω<lb break="no"/>ριζόμενος τοῦ ἀγνοουμένου· ὅπου
+                     <expan>πατήρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice>· <unclear>ἐπα</unclear>ναλήψομαι
+                        <lb/> τὸν λόγον, ἵνα στήσω τὸ νόημα· ὅ<lb break="no"/>που <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> γνωρίζεται καὶ υἱὸς ἀμ<lb break="no"/>φιβάλλεται, ἑρμηνεὺς γίνεται
+                        ὁ γνω<lb break="no"/>ριζόμενος τοῦ ἀγνοουμένου· ὅπου
                         <lb/>
-                        <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> ἠγνόηται<unclear>.</unclear> κῆρυξ τοῦ ἀγνοουμέ<lb break="no"/>νου
-                        ὁ υἱὸς γίνεται· διὰ τοῦτο ἵνα λά<lb break="no"/>βης
+                  <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> ἠγνόηται<unclear>.</unclear> κῆρυξ τοῦ ἀγνοουμέ<lb break="no"/>νου
+                        ὁ υἱὸς γίνεται· διὰ τοῦτο ἵνα λά<lb break="no"/>βης
                             ἀκριβ<unclear>ὴ</unclear> τῶν εἰρημένων τὴν ἐξέ<lb break="no"/>τασιν.
-                        ἔγγυόν σοι παρέχω τὸ εὐαγγέλιον·
+                        ἔγγυόν σοι παρέχω τὸ εὐαγγέλιον·
                         <lb/>
-                        <hi rend="ekthesis">λ</hi>έγει ὁ <choice>
-                            <expan>σωτὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">σηρ</hi></abbr>
-                        </choice> περὶ τῶν ἐθνῶν· τὸ ὄνομά
-                        <lb/> σου ἐφανέρωσα τῶ κόσμω· μᾶλλον
-                        <lb/> ὅτι τῶ ἀγνοοῦντι· ἐφανέρωσά σου τὸ ὄ<lb break="no"/>νομα τῶ κόσμω·
-                        ποῖον ὄνομα ἐφανέ<lb break="no"/>ρωσεν· ὅτι <choice>
-                            <expan>θεός</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice>· ἀ<unclear>λλ</unclear>ὰ προειλήφει ἡ
-                        <pb type="page" n="172"
-                            facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455178.tif/full/full/0/default.jpg"/>
-                        <note place="top_outer">172</note>γνῶσις τὸ ὄνομα· καὶ οἱ πλανώμε<lb
-                            break="no"/>νοι γὰρ λέγουσι <choice>
-                            <expan>θεόν</expan>
-                            <abbr type="nomSac"><hi rend="overline">θν</hi></abbr>
-                        </choice>. καὶ οἱ ἀποσχοινισ<lb break="no"/>μένοι τῆς εὐσεβείας οὐκ
+                  <hi rend="ekthesis">λ</hi>έγει ὁ <choice>
+                     <expan>σωτὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σηρ</hi>
+                     </abbr>
+                  </choice> περὶ τῶν ἐθνῶν· τὸ ὄνομά
+                        <lb/> σου ἐφανέρωσα τῶ κόσμω· μᾶλλον
+                        <lb/> ὅτι τῶ ἀγνοοῦντι· ἐφανέρωσά σου τὸ ὄ<lb break="no"/>νομα τῶ κόσμω·
+                        ποῖον ὄνομα ἐφανέ<lb break="no"/>ρωσεν· ὅτι <choice>
+                     <expan>θεός</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice>· ἀ<unclear>λλ</unclear>ὰ προειλήφει ἡ
+                        <pb type="page"
+                      n="172"
+                      facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455178.tif/full/full/0/default.jpg"/>
+                  <note place="top_outer">172</note>γνῶσις τὸ ὄνομα· καὶ οἱ πλανώμε<lb break="no"/>νοι γὰρ λέγουσι <choice>
+                     <expan>θεόν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>. καὶ οἱ ἀποσχοινισ<lb break="no"/>μένοι τῆς εὐσεβείας οὐκ
                         αρνοῦνται
-                        <lb/> τὴν προσηγορίαν· ποῖον οὖν ὄνομα
-                        <lb/> ἐγνώρισεν· ὅτι ὁ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> καλεῖ· ἐφανέ<lb break="no"/>ρωσά σου τὸ ὄνομα τῶ κόσμω· ὁρᾶς ὅ<lb
-                            break="no"/>τι ὅπου ἠγνόηται <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> ἑρμηνεὺς γί<lb break="no"/>νεται ὁ υἱὸς τῶ εὐαγγελικῶ κηρύγματι
+                        <lb/> τὴν προσηγορίαν· ποῖον οὖν ὄνομα
+                        <lb/> ἐγνώρισεν· ὅτι ὁ <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> καλεῖ· ἐφανέ<lb break="no"/>ρωσά σου τὸ ὄνομα τῶ κόσμω· ὁρᾶς ὅ<lb break="no"/>τι ὅπου ἠγνόηται <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> ἑρμηνεὺς γί<lb break="no"/>νεται ὁ υἱὸς τῶ εὐαγγελικῶ κηρύγματι
                         <lb/> σαφινίζων τὴν ἀλήθειαν, ὅπου
                         <lb/> δὲ ὁ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> ἐνομίζετο γνωρίζεσθαι ὁ
-                        <lb/> δὲ υἱὸς μὴ γνωρίζεσθαι· ἑρμηνεὺς
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> ἐνομίζετο γνωρίζεσθαι ὁ
+                        <lb/> δὲ υἱὸς μὴ γνωρίζεσθαι· ἑρμηνεὺς
                         <lb/> γίνεται αὐτὸς τοῦ ἀγνοουμένου, οἷον
                         <lb/> ἵνα ἐπ’ αὐτῶν δείξω τῶν πραγμάτων
-                        <lb/> τὴν ἀλήθειαν· παῦλος ἤδει τὸν
+                        <lb/> τὴν ἀλήθειαν· παῦλος ἤδει τὸν
                         <lb/>
-                        <choice>
-                            <expan>θεόν</expan>
-                            <abbr type="nomSac"><hi rend="overline">θν</hi></abbr>
-                        </choice>, οὐκ ήδει τὸν υἱόν· ἤδει <choice>
-                            <expan>θεόν</expan>
-                            <abbr type="nomSac"><hi rend="overline">θν</hi></abbr>
-                        </choice>, οὐκ ή<lb break="no"/>δει δὲ <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρα</hi></abbr>
-                        </choice> ὄντα τοῦ <choice>
-                            <expan>χριστοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">χυ</hi></abbr>
-                        </choice> τὸν <choice>
-                            <expan>θεόν</expan>
-                            <abbr type="nomSac"><hi rend="overline">θν</hi></abbr>
-                        </choice>· καὶ
-                        <lb/> ἦν ζηλωτὴς εὐσεβείας ὑπὲρ τοῦ νό<lb break="no"/>μου μαχόμενος· ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> ἀπέβλεπεν
-                        <lb/> εἰς τὸν ζῆλον· ἀγνοίας μὲν πεπληρω<lb break="no"/>μένον, πόθου δὲ
-                        γέμοντα· καὶ τί
-                        <lb/> ποιεῖ· γνωρίζει τῶ ἀγνοοῦντι τὸν ἀγνο<lb break="no"/>ούμενον· τίς
-                            <unclear>η</unclear>μῖν ταῦτα σαφινίζει·
+                  <choice>
+                     <expan>θεόν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>, οὐκ ήδει τὸν υἱόν· ἤδει <choice>
+                     <expan>θεόν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>, οὐκ ή<lb break="no"/>δει δὲ <choice>
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice> ὄντα τοῦ <choice>
+                     <expan>χριστοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χυ</hi>
+                     </abbr>
+                  </choice> τὸν <choice>
+                     <expan>θεόν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice>· καὶ
+                        <lb/> ἦν ζηλωτὴς εὐσεβείας ὑπὲρ τοῦ νό<lb break="no"/>μου μαχόμενος· ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> ἀπέβλεπεν
+                        <lb/> εἰς τὸν ζῆλον· ἀγνοίας μὲν πεπληρω<lb break="no"/>μένον, πόθου δὲ
+                        γέμοντα· καὶ τί
+                        <lb/> ποιεῖ· γνωρίζει τῶ ἀγνοοῦντι τὸν ἀγνο<lb break="no"/>ούμενον· τίς
+                            <unclear>η</unclear>μῖν ταῦτα σαφινίζει·
                         <lb/> αὐτὸς ὁ ποτὲ ἀγνοήσας, καὶ ὕστερον
-                        <lb/> γνωρίσας· αὐτὸς ὁ ποτὲ διώξας.
-                        <lb/> καὶ ὕστερον εὐαγγελισάμενος·
+                        <lb/> γνωρίσας· αὐτὸς ὁ ποτὲ διώξας.
+                        <lb/> καὶ ὕστερον εὐαγγελισάμενος·
                         <lb/>
-                        <g type="diple"/>
-                        <hi rend="initial">τ</hi>ί γὰρ φησ<subst>
-                            <del rend="unmarked">ὶ</del>
-                            <add place="inline">ί</add>
-                        </subst>ν· καὶ ἤμην ζηλωτὴς
+                  <g type="diple"/>
+                  <hi rend="initial">τ</hi>ί γὰρ φησ<subst>
+                     <del rend="unmarked">ὶ</del>
+                     <add place="inline">ί</add>
+                  </subst>ν· καὶ ἤμην ζηλωτὴς
                         <lb/>
-                        <g type="diple"/> τοῦ πατρῶου νόμου. καθ’ ὑπερβο<lb break="no"/><g
-                            type="diple"/> λὴν διώκων τὴν ἐκκλησίαν τοῦ
+                  <g type="diple"/> τοῦ πατρῶου νόμου. καθ’ ὑπερβο<lb break="no"/>
+                  <g type="diple"/> λὴν διώκων τὴν ἐκκλησίαν τοῦ
                         <lb/>
-                        <g type="diple"/>
-                        <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice>· ὅτε δὲ εὐδόκησεν ὁ ἀφορίσας
+                  <g type="diple"/>
+                  <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice>· ὅτε δὲ εὐδόκησεν ὁ ἀφορίσας
                         <lb/>
-                        <g type="diple"/> με ἐκ κοιλίας <choice>
-                            <expan>μητρός</expan>
-                            <abbr type="nomSac"><hi rend="overline">μρς</hi></abbr>
-                        </choice> μου· καὶ καλέσας
+                  <g type="diple"/> με ἐκ κοιλίας <choice>
+                     <expan>μητρός</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">μρς</hi>
+                     </abbr>
+                  </choice> μου· καὶ καλέσας
                         <lb/>
-                        <g type="diple"/> διὰ τῆς χάριτος αὐτοῦ ἀποκαλύ<lb break="no"/>ψαι τὸν υἱὸν
-                        αὐτοῦ ἐν ἐμοὶ καὶ τὰ ἐ<lb break="no"/>ξῆς· ἡ γὰρ μαρτυρία τὸ δεῖξαι τὸ
-                        <lb/> ζητούμενον, οὐχ’ ἡ θεωρία(zweimal lenis auf α) τοῦ νο<lb break="no"
-                        />ήματος· πάλιν ἐρωτᾶ ὁ <choice>
-                            <expan>σωτὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">σηρ</hi></abbr>
-                        </choice> τοὺς
+                  <g type="diple"/> διὰ τῆς χάριτος αὐτοῦ ἀποκαλύ<lb break="no"/>ψαι τὸν υἱὸν
+                        αὐτοῦ ἐν ἐμοὶ καὶ τὰ ἐ<lb break="no"/>ξῆς· ἡ γὰρ μαρτυρία τὸ δεῖξαι τὸ
+                        <lb/> ζητούμενον, οὐχ’ ἡ θεωρία(zweimal lenis auf α) τοῦ νο<lb break="no"/>ήματος· πάλιν ἐρωτᾶ ὁ <choice>
+                     <expan>σωτὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σηρ</hi>
+                     </abbr>
+                  </choice> τοὺς
                         <lb/>
-                        <g type="diple"/> ἀποστόλους· τίνα με λέγουσιν οἱ ἄν<lb break="no"/><g
-                            type="diple"/> θρωποι εἶναι τὸν υἱὸν τοῦ <choice>
-                            <expan>ἀνθρώπου</expan>
-                            <abbr type="nomSac"><hi rend="overline">ἀνου</hi></abbr>
-                        </choice>· ἐ<lb break="no"/>ρωτᾶ· οὐχ’ ἵνα μάθη, ἀλλ’ ἵνα τὴν
+                  <g type="diple"/> ἀποστόλους· τίνα με λέγουσιν οἱ ἄν<lb break="no"/>
+                  <g type="diple"/> θρωποι εἶναι τὸν υἱὸν τοῦ <choice>
+                     <expan>ἀνθρώπου</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἀνου</hi>
+                     </abbr>
+                  </choice>· ἐ<lb break="no"/>ρωτᾶ· οὐχ’ ἵνα μάθη, ἀλλ’ ἵνα τὴν
                         <lb/> ὑπόνοιαν ἐξορίσας τὴν ἀλήθειαν
                         <lb/>
-                        <g type="diple"/> στηρίξει· τίνα με λέγουσιν οἱ <choice>
-                            <expan>ἄνθρωποι</expan>
-                            <abbr type="nomSac"><hi rend="overline">ἄνοι</hi></abbr>
-                        </choice>· οἱ
+                  <g type="diple"/> στηρίξει· τίνα με λέγουσιν οἱ <choice>
+                     <expan>ἄνθρωποι</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἄνοι</hi>
+                     </abbr>
+                  </choice>· οἱ
                         <lb/> ἀπόστολοι πρῶτον τὰς τῶν πολλῶν
-                        <lb/> ὑπονοίας ἀντιβάλλουσιν· οἱ μὲν γὰρ
-                        <lb/> φασὶν ἱερεμίαν· οἱ δὲ ἡλίαν, ἢ ἕνα
-                        <lb/> τῶν προφητῶν· τί οὖν ὁ <choice>
-                            <expan>σωτήρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">σήρ</hi></abbr>
-                        </choice>· πρὸς
+                        <lb/> ὑπονοίας ἀντιβάλλουσιν· οἱ μὲν γὰρ
+                        <lb/> φασὶν ἱερεμίαν· οἱ δὲ ἡλίαν, ἢ ἕνα
+                        <lb/> τῶν προφητῶν· τί οὖν ὁ <choice>
+                     <expan>σωτήρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σήρ</hi>
+                     </abbr>
+                  </choice>· πρὸς
                         <lb/> μὲν τὰς ψευδεὶς δόξας, οὐδεμίαν
                         <lb/> ἀπόκρισιν ποιεῖται ἀναξίας ἀ<lb break="no"/>ποκρίσεως κρίνων τὰς
                         ψευδεὶς
                         <lb/>
-                        <g type="diple"/> ὑπονοίας· ὑμεῖς δὲ τίνα με λέγετε
+                  <g type="diple"/> ὑπονοίας· ὑμεῖς δὲ τίνα με λέγετε
                         <cb/>
-                         εἶναι· οὐ τῶν πολλῶν μοι λόγος τῶν
-                        <lb/> πεπλανημένων, ἀλλ’ ὑμῶν τῶν κη<lb break="no"/>ρυττόντων· ἐπειδὴ γὰρ
+                         εἶναι· οὐ τῶν πολλῶν μοι λόγος τῶν
+                        <lb/> πεπλανημένων, ἀλλ’ ὑμῶν τῶν κη<lb break="no"/>ρυττόντων· ἐπειδὴ γὰρ
                         ὑμεῖς ἐστε οἱ μέ<lb break="no"/>λλοντες διαγγέλλειν τὸν λαμπτῆρα τῆς
-                        <lb/> ἀληθείας· τὸ κήρυγμα τῆς εὐσεβείας
+                        <lb/> ἀληθείας· τὸ κήρυγμα τῆς εὐσεβείας
                         <lb/> εἰς πᾶσαν φέρειν τὴν ὑπ’ <choice>
-                            <expan>οὐρανόν</expan>
-                            <abbr type="nomSac"><hi rend="overline">οὐνόν</hi></abbr>
-                        </choice>· ἐν ὑ<lb break="no"/>μ<unclear>ὶ</unclear>ν σαλεύει τὰ ἀνθρώπινα.
+                     <expan>οὐρανόν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνόν</hi>
+                     </abbr>
+                  </choice>· ἐν ὑ<lb break="no"/>μ<unclear>ὶ</unclear>ν σαλεύει τὰ ἀνθρώπινα.
                         ἐν ὑμῖν
-                        <lb/> κινδυνεύει τὰ τῆς ἀληθείας· καὶ ὥσ<lb break="no"/>περ ἡ ὑμετέρα γνῶσις
+                        <lb/> κινδυνεύει τὰ τῆς ἀληθείας· καὶ ὥσ<lb break="no"/>περ ἡ ὑμετέρα γνῶσις
                         κοινὴ τῶν <choice>
-                            <expan>ἀνθρώπων</expan>
-                            <abbr type="nomSac"><hi rend="overline">ἀνων</hi></abbr>
-                        </choice>
-                        <lb/> εὐεργεσία, οὕτως ἡ ὑμετέρα ἄγνοια κοι<lb break="no"/>νὴ τῆς οἰκουμένης
-                        ζημία· διὰ τοῦ<lb break="no"/>το ὑμεῖς τίνα με λέγετε· τότε ἀπο<lb
-                            break="no"/><g type="diple"/>
-                        <hi rend="ekthesis">κ</hi>ριθεὶς πέτρος εἶπεν· σὺ εἶ ὁ <choice>
-                            <expan>χριστὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">χς</hi></abbr>
-                        </choice> ὁ υἱ<lb break="no"/><g type="diple"/> ὸς τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> τοῦ ζῶντος· οὗτος πίστε<lb break="no"/>ως ὅρος· οὗτος ἀληθείας
-                        λόγος· αὕ<lb break="no"/>τη τῆς ὀρθῆς δόξης ἡ ὁμολογία·
+                     <expan>ἀνθρώπων</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἀνων</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> εὐεργεσία, οὕτως ἡ ὑμετέρα ἄγνοια κοι<lb break="no"/>νὴ τῆς οἰκουμένης
+                        ζημία· διὰ τοῦ<lb break="no"/>το ὑμεῖς τίνα με λέγετε· τότε ἀπο<lb break="no"/>
+                  <g type="diple"/>
+                  <hi rend="ekthesis">κ</hi>ριθεὶς πέτρος εἶπεν· σὺ εἶ ὁ <choice>
+                     <expan>χριστὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χς</hi>
+                     </abbr>
+                  </choice> ὁ υἱ<lb break="no"/>
+                  <g type="diple"/> ὸς τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> τοῦ ζῶντος· οὗτος πίστε<lb break="no"/>ως ὅρος· οὗτος ἀληθείας
+                        λόγος· αὕ<lb break="no"/>τη τῆς ὀρθῆς δόξης ἡ ὁμολογία·
                         <lb/> ἀλλ’ ἐπειδὴ ἐνεδέχετο καὶ ταύτην τὴν
                         <lb/> φωνὴν εἰς τὰς ἄλλας ἰσ◌̬oνοεῖσθαι.
                         <lb/>
-                        <unclear>τ</unclear>ὰς μὲν ἀποκρίσεως οὐκ ηξίου.
+                  <unclear>τ</unclear>ὰς μὲν ἀποκρίσεως οὐκ ηξίου.
                         <lb/>
-                        <gap reason="illegible" quantity="1" unit="character"/>ῆ δὲ τὴν ψῆφον φέρει
-                        καὶ τί φη<lb break="no"/><gap reason="illegible" quantity="2"
-                            unit="character"/>ν· ἵνα μὴ καὶ τοῦτο ἐξ ἀνθρωπί<lb break="no"/><gap
-                            reason="illegible" quantity="1" unit="character"/><unclear>η</unclear>ς
-                        νομισθῆ ὑπονοίας εἶναι τὸ ῥῆμα·
+                  <gap reason="illegible" quantity="1" unit="character"/>ῆ δὲ τὴν ψῆφον φέρει
+                        καὶ τί φη<lb break="no"/>
+                  <gap reason="illegible" quantity="2" unit="character"/>ν· ἵνα μὴ καὶ τοῦτο ἐξ ἀνθρωπί<lb break="no"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>η</unclear>ς
+                        νομισθῆ ὑπονοίας εἶναι τὸ ῥῆμα·
                         <lb/>
-                        <gap reason="illegible" quantity="2" unit="character"
-                        />ι<unclear>σ</unclear>φραγίσας καὶ σήμαντρον αὐτὸ
+                  <gap reason="illegible" quantity="2" unit="character"/>ι<unclear>σ</unclear>φραγίσας καὶ σήμαντρον αὐτὸ
                         <lb/>
-                        <gap reason="illegible" quantity="2" unit="character"/>ιθεὶς τῆς ἀληθείας,
-                        φησίν· μα<lb break="no"/><g type="diple"/>
-                        <gap reason="illegible" quantity="1" unit="character"
-                            />άρ<unclear>ι</unclear>ος εἶ σίμων, βὰρ ἰωνᾶ· ἐνταῦ<lb break="no"/><gap
-                            reason="illegible" quantity="1" unit="character"/>α μνημόνευσον ὅτι <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice>. καὶ τῶ γι<lb break="no"/><gap reason="illegible" quantity="1"
-                            unit="character"/>ώσκοντι αὐτὸν. ἀποκαλύπτει τὸν
+                  <gap reason="illegible" quantity="2" unit="character"/>ιθεὶς τῆς ἀληθείας,
+                        φησίν· μα<lb break="no"/>
+                  <g type="diple"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>άρ<unclear>ι</unclear>ος εἶ σίμων, βὰρ ἰωνᾶ· ἐνταῦ<lb break="no"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>α μνημόνευσον ὅτι <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice>. καὶ τῶ γι<lb break="no"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>ώσκοντι αὐτὸν. ἀποκαλύπτει τὸν
                         <lb/>
-                        <g type="diple"/>
-                        <gap reason="illegible" quantity="1" unit="character"
-                        /><unclear>γ</unclear>νοούμενον· μακάριος εἶ σίμων,
+                  <g type="diple"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>γ</unclear>νοούμενον· μακάριος εἶ σίμων,
                         <lb/>
-                        <g type="diple"/>
-                        <gap reason="illegible" quantity="1" unit="character"/>ὰρ ἰωνᾶ· ὅτι σὰρξ καὶ
-                        αἷμα οὐκ α<lb break="no"/><g type="diple"/> πεκάλυψέν σοι. ἀλλ’ ὁ <choice>
-                            <expan>πατήρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> μου ὁ ἐν
+                  <g type="diple"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>ὰρ ἰωνᾶ· ὅτι σὰρξ καὶ
+                        αἷμα οὐκ α<lb break="no"/>
+                  <g type="diple"/> πεκάλυψέν σοι. ἀλλ’ ὁ <choice>
+                     <expan>πατήρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> μου ὁ ἐν
                         <lb/>
-                        <g type="diple"/>
-                        <unclear>τ</unclear>οῖς <choice>
-                            <expan>οὐρανοῖς</expan>
-                            <abbr type="nomSac"><hi rend="overline">οὐνοῖς</hi></abbr>
-                        </choice>· ὁρᾶς ὅτι τῶ μεν κόσ<lb break="no"/><gap reason="illegible"
-                            quantity="1" unit="character"/>ω παντὶ ἀγνοοῦντι τὸν <choice>
-                            <expan>πατέρα</expan>
-                            <abbr type="nomSac"><hi rend="overline">πρα</hi></abbr>
-                        </choice>· ὁ υἱ<lb break="no"/><gap reason="illegible" quantity="1"
-                            unit="character"/>ς ἑρμηνεὺς γίνεται τοῦ ἀγνοουμένου,
+                  <g type="diple"/>
+                  <unclear>τ</unclear>οῖς <choice>
+                     <expan>οὐρανοῖς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνοῖς</hi>
+                     </abbr>
+                  </choice>· ὁρᾶς ὅτι τῶ μεν κόσ<lb break="no"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>ω παντὶ ἀγνοοῦντι τὸν <choice>
+                     <expan>πατέρα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πρα</hi>
+                     </abbr>
+                  </choice>· ὁ υἱ<lb break="no"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>ς ἑρμηνεὺς γίνεται τοῦ ἀγνοουμένου,
                         <lb/>
-                        <gap reason="illegible" quantity="1" unit="character"/>ῆ δὲ συναγωγῆ
+                  <gap reason="illegible" quantity="1" unit="character"/>ῆ δὲ συναγωγῆ
                             κα<unclear>ὶ</unclear> τοῖς ἰουδαίοις.
                         <lb/>
-                        <choice>
-                            <expan><unclear>θεὸν</unclear></expan>
-                            <abbr type="nomSac"><hi rend="overline">ν<gap reason="illegible"
-                                        quantity="4" unit="character"/></hi></abbr>
-                        </choice> μὲν ὑπονοοῦσι<unclear>ν</unclear> εἰδέναι, τὸν δε
+                  <choice>
+                     <expan>
+                        <unclear>θεὸν</unclear>
+                     </expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ν<gap reason="illegible" quantity="4" unit="character"/>
+                        </hi>
+                     </abbr>
+                  </choice> μὲν ὑπονοοῦσι<unclear>ν</unclear> εἰδέναι, τὸν δε
                         <lb/>
-                        <gap reason="illegible" quantity="1" unit="character"/>οῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> λόγον οὐκ επιγινώσκουσιν·
+                  <gap reason="illegible" quantity="1" unit="character"/>οῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> λόγον οὐκ επιγινώσκουσιν·
                         <lb/>
-                        <gap reason="illegible" quantity="1" unit="character"/>ὐτὸς ὁ <choice>
-                            <expan>πατὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">πηρ</hi></abbr>
-                        </choice> ἑρμηνεὺς γίνεται τοῦ
+                  <gap reason="illegible" quantity="1" unit="character"/>ὐτὸς ὁ <choice>
+                     <expan>πατὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πηρ</hi>
+                     </abbr>
+                  </choice> ἑρμηνεὺς γίνεται τοῦ
                         <lb/>
-                        <gap reason="illegible" quantity="1" unit="character"
-                            />μφιβαλλομέν<unclear>ο</unclear>υ· μὴ τοίνυν τὴν
+                  <gap reason="illegible" quantity="1" unit="character"/>μφιβαλλομέν<unclear>ο</unclear>υ· μὴ τοίνυν τὴν
                         <lb/>
-                        <hi rend="ekthesis">ὑ</hi><unclear>π</unclear>ε<unclear>ρ</unclear><gap
-                            reason="illegible" quantity="2" unit="character"/>λλουσαν <choice>
-                            <expan>φιλανθρωπίαν</expan>
-                            <abbr type="nomSac"><hi rend="overline"><gap reason="illegible"
-                                        quantity="1" unit="character"/>ιλανιαν</hi></abbr>
-                        </choice> εἰς ἐφόδι<lb break="no"/>ο<unclear>ν</unclear> τάξης ἀσεβεί<gap
-                            reason="illegible" quantity="1" unit="character"/>ς, μὴ ἐλαττώσης
+                  <hi rend="ekthesis">ὑ</hi>
+                  <unclear>π</unclear>ε<unclear>ρ</unclear>
+                  <gap reason="illegible" quantity="2" unit="character"/>λλουσαν <choice>
+                     <expan>φιλανθρωπίαν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">
+                           <gap reason="illegible" quantity="1" unit="character"/>ιλανιαν</hi>
+                     </abbr>
+                  </choice> εἰς ἐφόδι<lb break="no"/>ο<unclear>ν</unclear> τάξης ἀσεβεί<gap reason="illegible" quantity="1" unit="character"/>ς, μὴ ἐλαττώσης
                         <lb/>
-                        <unclear>τ</unclear>ὴν ἀξίαν διὰ τ<unclear>ὴ</unclear>ν οἰκονομίαν·
+                  <unclear>τ</unclear>ὴν ἀξίαν διὰ τ<unclear>ὴ</unclear>ν οἰκονομίαν·
                         <lb/> μὴ πολυπραγμόν<gap reason="illegible" quantity="2" unit="character"/>
-                        φύσιν ἀμέτρητον·
-                        <lb/> μὴ ἑρεύνα οὐσίαν <gap reason="illegible" quantity="1" unit="character"
-                        />κατάληπτον·
-                        <lb/> ἡσαΐας σε πεισάτ<gap reason="illegible" quantity="1" unit="character"/>
-                        <unclear>τ</unclear>οιαῦτα μη διε<lb break="no"/>ρε<unclear>υ</unclear>νᾶν. μ<subst>
-                            <del rend="erasure">ὴ</del>
-                            <add place="inline">η</add>
-                        </subst>δὲ τοιαῦ<gap reason="illegible" quantity="2" unit="character"/>
-                            πραγματ◌̬o<lb break="no"/><g type="diple"/> γραφεῖν· τὴν γεν<gap
-                            reason="illegible" quantity="1" unit="character"/>ὰν <add place="above"
-                            >γαρ</add> αὐτοῦ τίς
+                        φύσιν ἀμέτρητον·
+                        <lb/> μὴ ἑρεύνα οὐσίαν <gap reason="illegible" quantity="1" unit="character"/>κατάληπτον·
+                        <lb/> ἡσαΐας σε πεισάτ<gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>τ</unclear>οιαῦτα μη διε<lb break="no"/>ρε<unclear>υ</unclear>νᾶν. μ<subst>
+                     <del rend="erasure">ὴ</del>
+                     <add place="inline">η</add>
+                  </subst>δὲ τοιαῦ<gap reason="illegible" quantity="2" unit="character"/>
+                            πραγματ◌̬o<lb break="no"/>
+                  <g type="diple"/> γραφεῖν· τὴν γεν<gap reason="illegible" quantity="1" unit="character"/>ὰν <add place="above">γαρ</add> αὐτοῦ τίς
                         <lb/>
-                        <g type="diple"/> διηγήσεται· ἀλλ’ ὦ τ<gap reason="illegible" quantity="2"
-                            unit="character"/> ἀνεσχύντου
-                        <pb type="page" n="173"
-                            facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455179.tif/full/full/0/default.jpg"/>
-                        <note place="top_center">87</note><note place="top_outer">1058 173</note>
-                        τίλμης τ<unclear>ῶ</unclear>ν πάντα ῥαδί<unclear>ω</unclear>ς φρονεῖν καὶ
-                        <lb/> λέγειν τολμώντων· καὶ οὐ φοβεῖται ὁ ἄ<unclear>ν</unclear>ο<lb
-                            break="no"/>μος ὡς <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> φύσιν διερευνώμενος καὶ τολ<lb break="no"/>μῶν λέγειν τὰ
+                  <g type="diple"/> διηγήσεται· ἀλλ’ ὦ τ<gap reason="illegible" quantity="2" unit="character"/> ἀνεσχύντου
+                        <pb type="page"
+                      n="173"
+                      facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455179.tif/full/full/0/default.jpg"/>
+                  <note place="top_center">87</note>
+                  <note place="top_outer">1058 173</note>
+                        τίλμης τ<unclear>ῶ</unclear>ν πάντα ῥαδί<unclear>ω</unclear>ς φρονεῖν καὶ
+                        <lb/> λέγειν τολμώντων· καὶ οὐ φοβεῖται ὁ ἄ<unclear>ν</unclear>ο<lb break="no"/>μος ὡς <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> φύσιν διερευνώμενος καὶ τολ<lb break="no"/>μῶν λέγειν τὰ
                             ἄρρητ<unclear>α</unclear> καὶ δημοσιεύειν τὰ
-                        <lb/> ἅγια· καὶ εἰκότως· ἐπειδὴ γὰρ ἀγνοεῖ τὴν
-                        <lb/> ἀλήθειαν· ἐπαγγέλλεται ἀγνοεῖν, ἵνα κρύψη
-                        <lb/> τὰ κηρυττόμενα· οὐκ ήκουσε τῆς ἁγίας
-                        <lb/> γραφῆς παραινούσης· ἃ προσετάχθη σοι
-                        <lb/> ταῦτα διανοοῦ· οὐ γὰρ χρεία σοι τῶν κρυπτῶν·
+                        <lb/> ἅγια· καὶ εἰκότως· ἐπειδὴ γὰρ ἀγνοεῖ τὴν
+                        <lb/> ἀλήθειαν· ἐπαγγέλλεται ἀγνοεῖν, ἵνα κρύψη
+                        <lb/> τὰ κηρυττόμενα· οὐκ ήκουσε τῆς ἁγίας
+                        <lb/> γραφῆς παραινούσης· ἃ προσετάχθη σοι
+                        <lb/> ταῦτα διανοοῦ· οὐ γὰρ χρεία σοι τῶν κρυπτῶν·
                         <lb/> ὁ μακάριος <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> καὶ μόνος καὶ δυνάστης
-                        <lb/> τῶν θαυμασίων· ἰὼβ τὸν ἀπὸ τῆς ὑπο<lb break="no"/>μονῆς λάμψαντα
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> καὶ μόνος καὶ δυνάστης
+                        <lb/> τῶν θαυμασίων· ἰὼβ τὸν ἀπὸ τῆς ὑπο<lb break="no"/>μονῆς λάμψαντα
                         βουληθεὶς ποτὲ τῆ
                         <lb/> ἱστορία τῆς δημιουργίας ἐκπλῆξαι, λέγει
                         <lb/>
-                        <g type="diple"/> αὐτῶ· ποῦ ἦς ἐν τῶ θεμελιοῦν με τὴν
+                  <g type="diple"/> αὐτῶ· ποῦ ἦς ἐν τῶ θεμελιοῦν με τὴν
                         <lb/>
-                        <g type="diple"/> γῆν· ὅτε ἡ θάλασσα ἐγένετο· ἵνα συντέ<lb break="no"/>μω·
-                        ὅτε τ<unclear>ὰ</unclear> ὄρη ἐπλάττετο· σὺ ἐφύλα<lb break="no"/>ξας
-                        τοκετοὺς τραγελάφων· ἀπάγγειλόν
-                        <lb/> μοι φησὶν τοῦ κόσμου τὴν διατύπωσιν·
+                  <g type="diple"/> γῆν· ὅτε ἡ θάλασσα ἐγένετο· ἵνα συντέ<lb break="no"/>μω·
+                        ὅτε τ<unclear>ὰ</unclear> ὄρη ἐπλάττετο· σὺ ἐφύλα<lb break="no"/>ξας
+                        τοκετοὺς τραγελάφων· ἀπάγγειλόν
+                        <lb/> μοι φησὶν τοῦ κόσμου τὴν διατύπωσιν·
                         <lb/> τὴν τῶν θηρίων ὠδῖνα, καὶ τὴν τῶν
-                        <lb/> κτηνῶν τροφήν· τὴν κατάστασιν πά<gap reason="illegible" quantity="1"
-                            unit="character"/><lb break="no"/>των τῶν ἐν τῶ κόσμω, τὴν ποικιλία<gap
-                            reason="illegible" quantity="1" unit="character"/>
-                        <lb/> ταῦτα δὲ πρὸς αὐτὸν ἔλεγεν· ὅμως π<gap reason="illegible" quantity="2"
-                            unit="character"/><lb break="no"/>δεύων αὐτὸν ὅτι καὶ τὰ ἐν αυτῆ τῆ
+                        <lb/> κτηνῶν τροφήν· τὴν κατάστασιν πά<gap reason="illegible" quantity="1" unit="character"/>
+                  <lb break="no"/>των τῶν ἐν τῶ κόσμω, τὴν ποικιλία<gap reason="illegible" quantity="1" unit="character"/>
+                  <lb/> ταῦτα δὲ πρὸς αὐτὸν ἔλεγεν· ὅμως π<gap reason="illegible" quantity="2" unit="character"/>
+                  <lb break="no"/>δεύων αὐτὸν ὅτι καὶ τὰ ἐν αυτῆ τῆ
                             κτίσ<gap reason="illegible" quantity="2" unit="character"/>
-                        <lb/> φαινόμενα, τοῖς <choice>
-                            <expan>ἀνθρώποις</expan>
-                            <abbr type="nomSac"><hi rend="overline">ἀνοις</hi></abbr>
-                        </choice> ἀκατάληπτ<gap reason="illegible" quantity="1" unit="character"/>·
+                  <lb/> φαινόμενα, τοῖς <choice>
+                     <expan>ἀνθρώποις</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἀνοις</hi>
+                     </abbr>
+                  </choice> ἀκατάληπτ<gap reason="illegible" quantity="1" unit="character"/>·
                         <lb/>
-                        <hi rend="ekthesis">εἶ</hi>τα ὁ μακάριος ἐκπλαγε<subst>
-                            <del rend="unmarked">ῖ</del>
-                            <add place="inline">ὶ</add>
-                        </subst>ς, φησίν· <choice>
-                            <expan>κύριε</expan>
-                            <abbr type="nomSac"><hi rend="overline">κε</hi></abbr>
-                        </choice>
-                        <lb/> ἄπαξ ἐλάλησα, ἐπὶ δὲ τῶ δευτέρω <gap reason="illegible" quantity="1"
-                            unit="character"/>ὐ
-                        <lb/> προσθήσω· εἶτα· ἡ ζήτησις τῶν φαι<lb break="no"/>νομένων ἐνίκησε τὸν
-                        ἰώβ· σοῦ δὲ τὴν
-                        <lb/> τόλμαν οὐδὲ ἡ ἄρρητος τοῦ μον◌̬oγενούς
+                  <hi rend="ekthesis">εἶ</hi>τα ὁ μακάριος ἐκπλαγε<subst>
+                     <del rend="unmarked">ῖ</del>
+                     <add place="inline">ὶ</add>
+                  </subst>ς, φησίν· <choice>
+                     <expan>κύριε</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κε</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> ἄπαξ ἐλάλησα, ἐπὶ δὲ τῶ δευτέρω <gap reason="illegible" quantity="1" unit="character"/>ὐ
+                        <lb/> προσθήσω· εἶτα· ἡ ζήτησις τῶν φαι<lb break="no"/>νομένων ἐνίκησε τὸν
+                        ἰώβ· σοῦ δὲ τὴν
+                        <lb/> τόλμαν οὐδὲ ἡ ἄρρητος τοῦ μον◌̬oγενούς
                         <lb/> ἐνίκησε γέννησις, ἀλλ’ ἐπειδὴ ἀγγέλεις
                         <lb/> ἃ μὴ οἶδας, ἀπετοῦ λόγον ὃν πάντ<unclear>ες</unclear>
-                        <lb/> ἴσμεν· εἰπέ μοι πῶς ἡ γῆ ἐστηρίχθ<unclear>η</unclear>
-                        <lb/> ἐπὶ τῶν ὑδάτων· εἰπὲ πῶς ὁ ἀδὰμ <unclear>ε</unclear><lb break="no"
-                        />πλάσθη ἀπὸ γῆς· εἰπὲ πῶς τὸ μ<gap reason="illegible" quantity="1"
-                            unit="character"/>ν<lb break="no"/>να ἐχωρηγήθη· πῶς ἡ θάλαττα δ<gap
-                            reason="illegible" quantity="1" unit="character"/>η<lb break="no"/>ρέθη
-                        καὶ τὰ λοιπὰ θαύματα. ἵνα μ<gap reason="illegible" quantity="1"
-                            unit="character"/>
-                        <lb/> μηκύνω· εἰπέ μοι πῶς οἱ ἄγγελοι πα<gap reason="illegible" quantity="1"
-                            unit="character"/>α<lb break="no"/>τεθέντα αὐτοῖς τὸν μόσχον ὑπὸ τοῦ
-                            <unclear>α</unclear><lb break="no"/>βραὰμ ἔφαγον· γαστὴρ οὐκ ἦν·
-                            δοχε<unclear>ί</unclear>α
-                        <lb/> τροφῆς οὐχ’ ὑπῆρχεν ἀγγέλων φύσ<unclear>ει</unclear>·
+                  <lb/> ἴσμεν· εἰπέ μοι πῶς ἡ γῆ ἐστηρίχθ<unclear>η</unclear>
+                  <lb/> ἐπὶ τῶν ὑδάτων· εἰπὲ πῶς ὁ ἀδὰμ <unclear>ε</unclear>
+                  <lb break="no"/>πλάσθη ἀπὸ γῆς· εἰπὲ πῶς τὸ μ<gap reason="illegible" quantity="1" unit="character"/>ν<lb break="no"/>να ἐχωρηγήθη· πῶς ἡ θάλαττα δ<gap reason="illegible" quantity="1" unit="character"/>η<lb break="no"/>ρέθη
+                        καὶ τὰ λοιπὰ θαύματα. ἵνα μ<gap reason="illegible" quantity="1" unit="character"/>
+                  <lb/> μηκύνω· εἰπέ μοι πῶς οἱ ἄγγελοι πα<gap reason="illegible" quantity="1" unit="character"/>α<lb break="no"/>τεθέντα αὐτοῖς τὸν μόσχον ὑπὸ τοῦ
+                            <unclear>α</unclear>
+                  <lb break="no"/>βραὰμ ἔφαγον· γαστὴρ οὐκ ἦν·
+                            δοχε<unclear>ί</unclear>α
+                        <lb/> τροφῆς οὐχ’ ὑπῆρχεν ἀγγέλων φύσ<unclear>ει</unclear>·
                         <lb/>
-                        <hi rend="ekthesis">ὁ</hi> ποιῶν γὰρ τοὺς ἀγγέλους αὐτοῦ <choice>
-                            <expan>πνεύματα</expan>
-                            <abbr type="nomSac"><hi rend="overline">πνατα</hi></abbr>
-                        </choice>
-                        <lb/> καὶ τοὺς λειτουργοὺς αὐτοῦ πῦρ φλέγον·
-                        <lb/> πῶς ἀνηλώθη· εὐθέως ὁ αἱρετικός·
-                        <lb/> καὶ τί φησὶν ἀδύνατον ζητεῖς· δυνά<lb break="no"/>μει τῶν ἀγγέλων
-                        ἐνεφανίσθη· καὶ τῆ
+                  <hi rend="ekthesis">ὁ</hi> ποιῶν γὰρ τοὺς ἀγγέλους αὐτοῦ <choice>
+                     <expan>πνεύματα</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνατα</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> καὶ τοὺς λειτουργοὺς αὐτοῦ πῦρ φλέγον·
+                        <lb/> πῶς ἀνηλώθη· εὐθέως ὁ αἱρετικός·
+                        <lb/> καὶ τί φησὶν ἀδύνατον ζητεῖς· δυνά<lb break="no"/>μει τῶν ἀγγέλων
+                        ἐνεφανίσθη· καὶ τῆ
                         <lb/> μὲν δυνάμει τῶν ἀγγέλων πιστεύεις καὶ
                         <lb/> οὐκ εξετάζεις. <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> δὲ γέννησιν πολυ<lb break="no"/>πραγμονεῖς, πῶς ἐποίησεν ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> τὸν
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> δὲ γέννησιν πολυ<lb break="no"/>πραγμονεῖς, πῶς ἐποίησεν ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> τὸν
                         <lb/>
-                        <choice>
-                            <expan>οὐρανὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline">οὐνον</hi></abbr>
-                        </choice> καὶ τὴν γῆν· ὡς οἶδεν. ὡς ἠθέ
+                  <choice>
+                     <expan>οὐρανὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνον</hi>
+                     </abbr>
+                  </choice> καὶ τὴν γῆν· ὡς οἶδεν. ὡς ἠθέ
                         <cb break="no"/>
-                         λησεν· εἶτα· ἡ μὲν δύναμις τοῦ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> λο<lb break="no"/>γισμοῖς οὐχ’ ὑποβάλλεται ἀλλὰ πίστει πα<lb
-                            break="no"/>ραδίδοται· θεία δὲ γέννησις τῶν λογισ<lb break="no"/>μῶν
+                         λησεν· εἶτα· ἡ μὲν δύναμις τοῦ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> λο<lb break="no"/>γισμοῖς οὐχ’ ὑποβάλλεται ἀλλὰ πίστει πα<lb break="no"/>ραδίδοται· θεία δὲ γέννησις τῶν λογισ<lb break="no"/>μῶν
                         ἀνάγκαις περιστοιχίζεται, οὐκ ἤκου<lb break="no"/>σας τοῦ <choice>
-                            <expan>δαβὶδ</expan>
-                            <abbr type="nomSac"><hi rend="overline">δαδ</hi></abbr>
-                        </choice> λέγοντος. πάντα ὅσα ἠθέ<lb break="no"/>λησεν ὁ <choice>
-                            <expan>κύριος</expan>
-                            <abbr type="nomSac"><hi rend="overline">κς</hi></abbr>
-                        </choice> ἐποίησεν, τὸ θέλημα οὐ πολ◌̬υ<lb break="no"/>πραγμονεῖς. καὶ τὴν
+                     <expan>δαβὶδ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">δαδ</hi>
+                     </abbr>
+                  </choice> λέγοντος. πάντα ὅσα ἠθέ<lb break="no"/>λησεν ὁ <choice>
+                     <expan>κύριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κς</hi>
+                     </abbr>
+                  </choice> ἐποίησεν, τὸ θέλημα οὐ πολ◌̬υ<lb break="no"/>πραγμονεῖς. καὶ τὴν
                         φύσιν περιεργάζη,
                         <lb/>
-                        <hi rend="ekthesis">κ</hi>αὶ τί ἀδελφοί· ἃ μὲν ἐποίησεν ὁ <choice>
-                            <expan>θεὸς</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice> θέλων,
-                        <lb/> ὁρᾶτε· ὃν δὲ ἐγένησεν ἐκ τῆς ἰδίας οὐσίας.
-                        <lb/> ἀόρατον· εἰκὼν γὰρ <choice>
-                            <expan>θεοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">θυ</hi></abbr>
-                        </choice> ἀοράτου· τὰ φαι<lb break="no"/>νόμενα ποιήματα νῦν ἐν τῶ λογισμῶ·
+                  <hi rend="ekthesis">κ</hi>αὶ τί ἀδελφοί· ἃ μὲν ἐποίησεν ὁ <choice>
+                     <expan>θεὸς</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice> θέλων,
+                        <lb/> ὁρᾶτε· ὃν δὲ ἐγένησεν ἐκ τῆς ἰδίας οὐσίας.
+                        <lb/> ἀόρατον· εἰκὼν γὰρ <choice>
+                     <expan>θεοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θυ</hi>
+                     </abbr>
+                  </choice> ἀοράτου· τὰ φαι<lb break="no"/>νόμενα ποιήματα νῦν ἐν τῶ λογισμῶ·
                         <lb/> ἡ ἀόρατος γέννησις τοῖς λογισμοῖς δουλεύ<lb break="no"/>ει, ἃ, θελήσας
-                        ἐποίησεν οὐκ ανακρίνεται·
+                        ἐποίησεν οὐκ ανακρίνεται·
                         <lb/> ὃ, κατὰ τὴν θείαν καὶ ἄχραντον φύσιν
                         <lb/> ὑπήνεγκεν πολ◌̬υπραγμονῆς, ὦ κενῆς
-                        <lb/> τόλμης· ὦ ξένης ἐπιχειρήσεως· ὦ βου<lb break="no"/>λήματος τιμωμένου
-                        καὶ φύσεως ὑβρι<lb break="no"/>ζομένης· καλῶς ὁ μακάριος <choice>
-                            <expan>δαβὶδ</expan>
-                            <abbr type="nomSac"><hi rend="overline">δαδ</hi></abbr>
-                        </choice> ἔλε<lb break="no"/><g type="diple"/> γεν· υἱοὶ <choice>
-                            <expan>ἀνθρώπων</expan>
-                            <abbr type="nomSac"><hi rend="overline">ἀνων</hi></abbr>
-                        </choice> ἕως πότε βαρ◌̬υκάρδιοι·
+                        <lb/> τόλμης· ὦ ξένης ἐπιχειρήσεως· ὦ βου<lb break="no"/>λήματος τιμωμένου
+                        καὶ φύσεως ὑβρι<lb break="no"/>ζομένης· καλῶς ὁ μακάριος <choice>
+                     <expan>δαβὶδ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">δαδ</hi>
+                     </abbr>
+                  </choice> ἔλε<lb break="no"/>
+                  <g type="diple"/> γεν· υἱοὶ <choice>
+                     <expan>ἀνθρώπων</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ἀνων</hi>
+                     </abbr>
+                  </choice> ἕως πότε βαρ◌̬υκάρδιοι·
                         <lb/>
-                        <g type="diple"/> ἵνα τί ἀγαπᾶτε ματαιότητα καὶ ζητεῖ<lb break="no"/>τε
-                        ψεῦδος· πᾶν γὰρ ἀλλότριον τῆς <choice>
-                            <expan>χριστοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">χυ</hi></abbr>
-                        </choice>
-                        <lb/> διδασκαλίας. καὶ ψεῦσμα καὶ μάταιον·
-                        <lb/> εἰ γὰρ ἀληθεύει λέγων ἐγώ εἰμι ἡ <unclear>ἀ</unclear>λήθει<lb
-                            break="no"/>α· ὅσα ἐκτὸς τῆς <choice>
-                            <expan>χριστοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">χυ</hi></abbr>
-                        </choice> διδασκαλίας. εἰς
-                        <lb/> ψεῦδος φέρει· ἄναγέ σου τὴν ψυχὴν ἀπὸ
+                  <g type="diple"/> ἵνα τί ἀγαπᾶτε ματαιότητα καὶ ζητεῖ<lb break="no"/>τε
+                        ψεῦδος· πᾶν γὰρ ἀλλότριον τῆς <choice>
+                     <expan>χριστοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χυ</hi>
+                     </abbr>
+                  </choice>
+                  <lb/> διδασκαλίας. καὶ ψεῦσμα καὶ μάταιον·
+                        <lb/> εἰ γὰρ ἀληθεύει λέγων ἐγώ εἰμι ἡ <unclear>ἀ</unclear>λήθει<lb break="no"/>α· ὅσα ἐκτὸς τῆς <choice>
+                     <expan>χριστοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χυ</hi>
+                     </abbr>
+                  </choice> διδασκαλίας. εἰς
+                        <lb/> ψεῦδος φέρει· ἄναγέ σου τὴν ψυχὴν ἀπὸ
                         <lb/> τῶν χαμαὶ κειμένων ζητημάτων καὶ
                         <lb/> τῶν ματαίων λογισμῶν ἐπὶ τὸ ὕψος
                         <lb/> τῆς θεολογίας, καὶ κατάλιπε τὴν πτω<lb break="no"/>χὴν τῶν λογισμῶν
-                        ἔρευναν· λάβε τὸν
+                        ἔρευναν· λάβε τὸν
                         <lb/>
-                        <g type="diple"/> θησαυρὸν τῆς ἀληθείας· ὁμοῖά ἐστιν
+                  <g type="diple"/> θησαυρὸν τῆς ἀληθείας· ὁμοῖά ἐστιν
                         <lb/>
-                        <g type="diple"/> ἡ βασιλεία τῶν <choice>
-                            <expan>οὐρανῶν</expan>
-                            <abbr type="nomSac"><hi rend="overline">οὐνῶν</hi></abbr>
-                        </choice> θησαυρῶ κεκρυμ<lb break="no"/>μένω· διὰ τι θησαυρὸς ὠνομάζεται
+                  <g type="diple"/> ἡ βασιλεία τῶν <choice>
+                     <expan>οὐρανῶν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">οὐνῶν</hi>
+                     </abbr>
+                  </choice> θησαυρῶ κεκρυμ<lb break="no"/>μένω· διὰ τι θησαυρὸς ὠνομάζεται
                         <lb/> ὁ <choice>
-                            <expan>σωτήρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">σήρ</hi></abbr>
-                        </choice>· ἐνταῦθα πρόσεχε ἀκριβῶς·
+                     <expan>σωτήρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σήρ</hi>
+                     </abbr>
+                  </choice>· ἐνταῦθα πρόσεχε ἀκριβῶς·
                         <lb/>
-                        <hi rend="ekthesis">ὥ</hi>σπερ ὁ θησαυρὸς οὐχ’ ὅτε εὑρίσκεται τό<lb
-                            break="no"/>τε συνίσταται· ἀλλ’ ἔστιν μὲν παλαιὸς
-                        <lb/> τὴν θέσιν· νέος δὲ τῆ εὑρέσει. οὕτω
+                  <hi rend="ekthesis">ὥ</hi>σπερ ὁ θησαυρὸς οὐχ’ ὅτε εὑρίσκεται τό<lb break="no"/>τε συνίσταται· ἀλλ’ ἔστιν μὲν παλαιὸς
+                        <lb/> τὴν θέσιν· νέος δὲ τῆ εὑρέσει. οὕτω
                         <lb/> καὶ ὁ <choice>
-                            <expan>σωτήριος</expan>
-                            <abbr type="nomSac"><hi rend="overline">σριος</hi></abbr>
-                        </choice> λόγος· παλαιὸς μέν ἐστι τὴν
-                        <lb/> ἀξίαν καὶ ἀρχὴ τῶν ἁπάντων· ἐπει<lb break="no"/>δὴ ἐν αρχὴ ἦν ὁ λόγος.
-                        νέον δὲ τὸ κ<unclear>ή</unclear><lb break="no"/>ρυγμα, διὰ τὴν τῆς σαρκὸς
-                            οἰκο<gap reason="illegible" quantity="2" unit="character"/>μί<lb
-                            break="no"/>αν· ἀμέλει οὖν ἀδελφ<unclear>έ</unclear>· ἵνα μάθης
+                     <expan>σωτήριος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σριος</hi>
+                     </abbr>
+                  </choice> λόγος· παλαιὸς μέν ἐστι τὴν
+                        <lb/> ἀξίαν καὶ ἀρχὴ τῶν ἁπάντων· ἐπει<lb break="no"/>δὴ ἐν αρχὴ ἦν ὁ λόγος.
+                        νέον δὲ τὸ κ<unclear>ή</unclear>
+                  <lb break="no"/>ρυγμα, διὰ τὴν τῆς σαρκὸς
+                            οἰκο<gap reason="illegible" quantity="2" unit="character"/>μί<lb break="no"/>αν· ἀμέλει οὖν ἀδελφ<unclear>έ</unclear>· ἵνα μάθης
                         <lb/> ὅτι δίκην θησαυροῦ τοῖς ποθοῦσιν
-                        <lb/> ἐκλάμπει· καὶ οἱ εὑρίσκοντες οὕτως ἐ<lb break="no"/>πιτρέχουσιν ὡς
+                        <lb/> ἐκλάμπει· καὶ οἱ εὑρίσκοντες οὕτως ἐ<lb break="no"/>πιτρέχουσιν ὡς
                         θησαυρῶ εὑρημένω,
-                        <lb/> ὁ ἀνδρέας τῶ πέτρω τὴν εὐεργεσίαν
+                        <lb/> ὁ ἀνδρέας τῶ πέτρω τὴν εὐεργεσίαν
                         <lb/>
-                        <g type="diple"/> κηρύττων φησίν· ὃν ἔγραψεν μωϋσῆς
+                  <g type="diple"/> κηρύττων φησίν· ὃν ἔγραψεν μωϋσῆς
                         <lb/>
-                        <g type="diple"/> ἐν τῶ νόμω καὶ οἱ προφῆται. εὑρήκαμεν
+                  <g type="diple"/> ἐν τῶ νόμω καὶ οἱ προφῆται. εὑρήκαμεν
                         <lb/>
-                        <choice>
-                            <expan>χριστόν</expan>
-                            <abbr type="nomSac"><hi rend="overline">χν</hi></abbr>
-                        </choice>· μωϋσῆς γὰρ καὶ οἱ προφῆται ἐν
+                  <choice>
+                     <expan>χριστόν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χν</hi>
+                     </abbr>
+                  </choice>· μωϋσῆς γὰρ καὶ οἱ προφῆται ἐν
                         <lb/> ταῖς ἁγίοις βίβλοις ὡς ἐν θησαυροῖς
-                        <pb type="page" n="174"
-                            facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455180.tif/full/full/0/default.jpg"/>
-                        <unclear>ἀ</unclear>π<unclear>έ</unclear>θεντο τὸ
-                            κήρυγμα8·<unclear> </unclear>ἀλλ8 <gap reason="illegible" quantity="7"
-                            unit="character"/>
-                        <lb/> κρυπτὸν θησαυρὸν ἀποτιθέμ<gap reason="illegible" quantity="6"
-                            unit="character"/><lb break="no"/>τοὶ μὲν ὁρῶσιν ἃ καταβάλλονται· <gap
-                            reason="illegible" quantity="3" unit="character"/><lb break="no"/>πουσι
-                        δὲ τῆ ὄψει μὴ εὐδιάρπαστος γ<unclear>ε</unclear><lb break="no"/>νηται τοῖς
-                        ἀλλοτρίοις. οὕτω καὶ οἱ προφῆ<lb break="no"/>ται· <choice>
-                            <expan>χριστὸν</expan>
-                            <abbr type="nomSac"><hi rend="overline">χν</hi></abbr>
-                        </choice> κηρύξαντες. τῆ ἀσοφία τῶν λέ<lb break="no"/>ξεων, ἔκρυψαν τὸν
-                        θησαυρόν· διὰ τί· εἰ
+                        <pb type="page"
+                      n="174"
+                      facs="https://digitalcollections.nlg.gr/iiif/3011/EBE0455180.tif/full/full/0/default.jpg"/>
+                  <unclear>ἀ</unclear>π<unclear>έ</unclear>θεντο τὸ
+                            κήρυγμα8·<unclear/>ἀλλ8 <gap reason="illegible" quantity="7" unit="character"/>
+                  <lb/> κρυπτὸν θησαυρὸν ἀποτιθέμ<gap reason="illegible" quantity="6" unit="character"/>
+                  <lb break="no"/>τοὶ μὲν ὁρῶσιν ἃ καταβάλλονται· <gap reason="illegible" quantity="3" unit="character"/>
+                  <lb break="no"/>πουσι
+                        δὲ τῆ ὄψει μὴ εὐδιάρπαστος γ<unclear>ε</unclear>
+                  <lb break="no"/>νηται τοῖς
+                        ἀλλοτρίοις. οὕτω καὶ οἱ προφῆ<lb break="no"/>ται· <choice>
+                     <expan>χριστὸν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χν</hi>
+                     </abbr>
+                  </choice> κηρύξαντες. τῆ ἀσοφία τῶν λέ<lb break="no"/>ξεων, ἔκρυψαν τὸν
+                        θησαυρόν· διὰ τί· εἰ
                         <lb/> γὰρ σαφῶς εἶπαν. οὐκ ἦν προφητεία
-                        <lb/> ἀλλὰ κήρυγμα· καὶ προελάμβανεν ἡ
+                        <lb/> ἀλλὰ κήρυγμα· καὶ προελάμβανεν ἡ
                         <lb/> ἀωρία τῆς ἐκφράσεως τὴν εὐκαιρίαν
-                        <lb/> τοῦ κηρύγματος· τί οὖν ποιοῦσιν· καὶ
-                        <lb/> ἑρμηνεύουσιν, καὶ κρύπτουσιν· τίς ταῦ<lb break="no"/><g type="diple"/>
-                        τα λέγει· ἡσαΐας· καὶ ἔσται τοῦτο τὸ βιβλί<lb break="no"/><g type="diple"/>
-                        ον. ὡς βιβλίον ἐσφραγισμένον· ὃ ἐὰν δο<lb break="no"/><g type="diple"/> θῆ
-                        ἀνδρὶ ἐπισταμένω γράμματα, ἐρεῖ·
+                        <lb/> τοῦ κηρύγματος· τί οὖν ποιοῦσιν· καὶ
+                        <lb/> ἑρμηνεύουσιν, καὶ κρύπτουσιν· τίς ταῦ<lb break="no"/>
+                  <g type="diple"/>
+                        τα λέγει· ἡσαΐας· καὶ ἔσται τοῦτο τὸ βιβλί<lb break="no"/>
+                  <g type="diple"/>
+                        ον. ὡς βιβλίον ἐσφραγισμένον· ὃ ἐὰν δο<lb break="no"/>
+                  <g type="diple"/> θῆ
+                        ἀνδρὶ ἐπισταμένω γράμματα, ἐρεῖ·
                         <lb/>
-                        <g type="diple"/>
-                        <hi rend="ekthesis">ο</hi>ὐ δύναμαι ἀναγνῶναι.
-                        ἐσφρ<unclear>ά</unclear>γισται γάρ·
+                  <g type="diple"/>
+                  <hi rend="ekthesis">ο</hi>ὐ δύναμαι ἀναγνῶναι.
+                        ἐσφρ<unclear>ά</unclear>γισται γάρ·
                         <lb/>
-                        <g type="diple"/> καὶ ἐὰν δοθῆ τῶ μὴ εἰδότι γράμματα
+                  <g type="diple"/> καὶ ἐὰν δοθῆ τῶ μὴ εἰδότι γράμματα
                         <lb/>
-                        <g type="diple"/> ἐρεῖ, οὐ δύναμαι ἀναγνῶναι· οὐ γὰρ ἔμα<lb break="no"/>θον
-                        γράμματα· τί βούλεται ο<unclear>ὖ</unclear>ν τοῦτο
-                        <lb/> τὸ αἴνιγμα· ἡ περὶ <choice>
-                            <expan>χριστοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">χυ</hi></abbr>
-                        </choice> προφητεί<unclear>α</unclear> φη<lb break="no"/>σὶ καὶ ἰουδαίοις
-                        καὶ ἕλλησιν <unclear>ἠ</unclear>γνοεῖτο·
+                  <g type="diple"/> ἐρεῖ, οὐ δύναμαι ἀναγνῶναι· οὐ γὰρ ἔμα<lb break="no"/>θον
+                        γράμματα· τί βούλεται ο<unclear>ὖ</unclear>ν τοῦτο
+                        <lb/> τὸ αἴνιγμα· ἡ περὶ <choice>
+                     <expan>χριστοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χυ</hi>
+                     </abbr>
+                  </choice> προφητεί<unclear>α</unclear> φη<lb break="no"/>σὶ καὶ ἰουδαίοις
+                        καὶ ἕλλησιν <unclear>ἠ</unclear>γνοεῖτο·
                         <lb/> ἰουδαίοις μὲν τοῖς εἰδόσι γράμματα
-                        <lb/> νόμον καὶ προφήτας, ἐπειδὴ <unclear>ἐ</unclear>σφρά<lb break="no"
-                        />γιστο· ἰουδαῖοι γράμματα ἤδεισαν καὶ
-                        <lb/> ἐπαιδεύθησαν· διὰ τοῦτο λέγει αὐτοῖς
+                        <lb/> νόμον καὶ προφήτας, ἐπειδὴ <unclear>ἐ</unclear>σφρά<lb break="no"/>γιστο· ἰουδαῖοι γράμματα ἤδεισαν καὶ
+                        <lb/> ἐπαιδεύθησαν· διὰ τοῦτο λέγει αὐτοῖς
                         <lb/> ὁ <choice>
-                            <expan>θεός</expan>
-                            <abbr type="nomSac"><hi rend="overline">θς</hi></abbr>
-                        </choice>· οἱ βασταζόμενοι ἐκ κοιλίας καὶ
-                        <lb/> παιδευόμενοι· ἕως γ<subst>
-                            <del rend="unmarked">ῆ</del>
-                            <add place="inline">ή</add>
-                        </subst>ρους ἦσαν παι<lb break="no"/>δευόμενοι, ἀλλ’ οὐκ ήδεισαν· ἐπειδὴ τῆ
-                        <lb/> ἀσαφεία ἐκρύπτετο· τοῖς δὲ ἕλλησιν, ἠγνο<lb break="no"/>εῖτο· οὐ διὰ
+                     <expan>θεός</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θς</hi>
+                     </abbr>
+                  </choice>· οἱ βασταζόμενοι ἐκ κοιλίας καὶ
+                        <lb/> παιδευόμενοι· ἕως γ<subst>
+                     <del rend="unmarked">ῆ</del>
+                     <add place="inline">ή</add>
+                  </subst>ρους ἦσαν παι<lb break="no"/>δευόμενοι, ἀλλ’ οὐκ ήδεισαν· ἐπειδὴ τῆ
+                        <lb/> ἀσαφεία ἐκρύπτετο· τοῖς δὲ ἕλλησιν, ἠγνο<lb break="no"/>εῖτο· οὐ διὰ
                         τὴν ἀσάφειαν. ἀλλὰ διὰ τὸ
-                        <lb/> ὅλως μὴ εἰδέναι γράμματα· διὰ τοῦ<lb break="no"/>το παῦλος τιμοθέω τῶ
+                        <lb/> ὅλως μὴ εἰδέναι γράμματα· διὰ τοῦ<lb break="no"/>το παῦλος τιμοθέω τῶ
                         ἐγγραφέντι
                         <lb/>
-                        <g type="diple"/> τῶ νόμω λέγει· ὅτι ἐκ βρέφους τὰ ἱερὰ
+                  <g type="diple"/> τῶ νόμω λέγει· ὅτι ἐκ βρέφους τὰ ἱερὰ
                         <lb/>
-                        <g type="diple"/> γράμματα οἶδας. τὰ δυνάμενά σε
+                  <g type="diple"/> γράμματα οἶδας. τὰ δυνάμενά σε
                         <lb/>
-                        <g type="diple"/> σοφίσαι εἰς <choice>
-                            <expan>σωτηρίαν</expan>
-                            <abbr type="nomSac"><hi rend="overline">σριαν</hi></abbr>
-                        </choice>· ἦ οὖν ἡ προφητεία
+                  <g type="diple"/> σοφίσαι εἰς <choice>
+                     <expan>σωτηρίαν</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σριαν</hi>
+                     </abbr>
+                  </choice>· ἦ οὖν ἡ προφητεία
                         <lb/> τεθησαυρισμένη καὶ ἐν ταῖς ἁγίαις
-                        <lb/> βίβλοις ἐγκεκρυμμένη· δῆ γὰρ μὴ
-                        <lb/> ἀποστ<unclear>ῆ</unclear>ναι τοῦ κεκρυμμένου· οὐχ’ ἡ<lb break="no"
-                            /><unclear>σα</unclear>ΐας δὲ μόνος δείκνυσι τὰς
-                            προφ<unclear>η</unclear><lb break="no"/>τ<gap reason="illegible"
-                            quantity="3" unit="character"/>ς ἐσφραγισμένας, ἀλλὰ καὶ δανιήλ·
+                        <lb/> βίβλοις ἐγκεκρυμμένη· δῆ γὰρ μὴ
+                        <lb/> ἀποστ<unclear>ῆ</unclear>ναι τοῦ κεκρυμμένου· οὐχ’ ἡ<lb break="no"/>
+                  <unclear>σα</unclear>ΐας δὲ μόνος δείκνυσι τὰς
+                            προφ<unclear>η</unclear>
+                  <lb break="no"/>τ<gap reason="illegible" quantity="3" unit="character"/>ς ἐσφραγισμένας, ἀλλὰ καὶ δανιήλ·
                         <lb/>
-                        <hi rend="ekthesis">λ</hi>έγει γὰρ αὐτ<unclear>ῶ</unclear> ὁ ἄγγελος μετὰ τὸ
-                        μηνύσαι
-                        <lb/> αὐτῶ τὴν ἀποκάλυψιν τῶν μ<unclear>ελ</unclear>λόντων·
+                  <hi rend="ekthesis">λ</hi>έγει γὰρ αὐτ<unclear>ῶ</unclear> ὁ ἄγγελος μετὰ τὸ
+                        μηνύσαι
+                        <lb/> αὐτῶ τὴν ἀποκάλυψιν τῶν μ<unclear>ελ</unclear>λόντων·
                         <lb/>
-                        <g type="diple"/> καὶ σὺ δανιὴλ σφράγισον τὸ <unclear>βιβ</unclear>λίον
-                            τοῦ<lb break="no"/><g type="diple"/> το τῆς ὁ<unclear>ράσε</unclear>ως
+                  <g type="diple"/> καὶ σὺ δανιὴλ σφράγισον τὸ <unclear>βιβ</unclear>λίον
+                            τοῦ<lb break="no"/>
+                  <g type="diple"/> το τῆς ὁ<unclear>ράσε</unclear>ως
                         ὅτι ἡ δήλ<unclear>ω</unclear>σις αὐτοῦ
-                        <lb/> εἰς μακρ<unclear>ά</unclear>ν· διὰ τοῦτο ὁ μακάριος <choice>
-                            <expan>δαβὶδ</expan>
-                            <abbr type="nomSac"><hi rend="overline">δαδ</hi></abbr>
-                        </choice>
-                        <lb/>
-                        <gap reason="illegible" quantity="5" unit="character"
-                            />ν<unclear>ώσκων</unclear> τὸν νόμον καὶ ἀναγινώσ<lb break="no"/><gap
-                            reason="illegible" quantity="5" unit="character"/><unclear>ὺ</unclear>ς
+                        <lb/> εἰς μακρ<unclear>ά</unclear>ν· διὰ τοῦτο ὁ μακάριος <choice>
+                     <expan>δαβὶδ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">δαδ</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>
+                  <gap reason="illegible" quantity="5" unit="character"/>ν<unclear>ώσκων</unclear> τὸν νόμον καὶ ἀναγινώσ<lb break="no"/>
+                  <gap reason="illegible" quantity="5" unit="character"/>
+                  <unclear>ὺ</unclear>ς
                             <unclear>προφήτας</unclear> ἐκ προσώπου
                         <lb/>
-                        <gap reason="illegible" quantity="3" unit="character"/>
-                        <unclear>λα</unclear>οῦ. <unclear>οὐ</unclear> γὰρ αὐτὸς
-                            <unclear>ἡ</unclear>γνόει ὁ προφη<lb break="no"
-                        /><unclear>τεύ</unclear>ων· β<unclear>ου</unclear>λ<unclear>ό</unclear>μενος
+                  <gap reason="illegible" quantity="3" unit="character"/>
+                  <unclear>λα</unclear>οῦ. <unclear>οὐ</unclear> γὰρ αὐτὸς
+                            <unclear>ἡ</unclear>γνόει ὁ προφη<lb break="no"/>
+                  <unclear>τεύ</unclear>ων· β<unclear>ου</unclear>λ<unclear>ό</unclear>μενος
                         δεῖξαι ὅτι ἔμφα<unclear>σιν</unclear>
-                        <cb/>
-                        <unclear>μὲν τινα δέχεται τῆς</unclear>
-                        <gap reason="illegible" quantity="2" unit="character"/>υ <choice>
-                            <expan>χριστοῦ</expan>
-                            <abbr type="nomSac"><hi rend="overline">χυ</hi></abbr>
-                        </choice> ο<gap reason="illegible" quantity="3" unit="character"
-                            /><unclear>νομι</unclear><gap reason="illegible" quantity="2"
-                            unit="character"/>
-                        <lb/> ο<unclear>ὐ δ</unclear><gap reason="illegible" quantity="3"
-                            unit="character"/><unclear>ται δὲ</unclear>
-                        <gap reason="illegible" quantity="1" unit="character"
-                            /><unclear>οῆ</unclear><gap reason="illegible" quantity="3"
-                            unit="character"/>
-                        <unclear>διὰ τὴ</unclear><gap reason="illegible" quantity="5"
-                            unit="character"/><unclear>ει</unclear><lb break="no"
-                            /><unclear>α</unclear>ν τῶν λ<unclear>έξε</unclear><gap
-                            reason="illegible" quantity="6" unit="character"/><unclear>χέν τι
-                            παραπ</unclear><gap reason="illegible" quantity="2" unit="character"
-                            /><lb break="no"/>σιον τοῖς ὁρ<gap reason="illegible" quantity="6"
-                            unit="character"/><unclear>αντιον ἐ</unclear><gap reason="illegible"
-                            quantity="1" unit="character"/><unclear>φραγι</unclear><gap
-                            reason="illegible" quantity="3" unit="character"/><lb break="no"/>νον·
+                  <cb/>
+                  <unclear>μὲν τινα δέχεται τῆς</unclear>
+                  <gap reason="illegible" quantity="2" unit="character"/>υ <choice>
+                     <expan>χριστοῦ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χυ</hi>
+                     </abbr>
+                  </choice> ο<gap reason="illegible" quantity="3" unit="character"/>
+                  <unclear>νομι</unclear>
+                  <gap reason="illegible" quantity="2" unit="character"/>
+                  <lb/> ο<unclear>ὐ δ</unclear>
+                  <gap reason="illegible" quantity="3" unit="character"/>
+                  <unclear>ται δὲ</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>οῆ</unclear>
+                  <gap reason="illegible" quantity="3" unit="character"/>
+                  <unclear>διὰ τὴ</unclear>
+                  <gap reason="illegible" quantity="5" unit="character"/>
+                  <unclear>ει</unclear>
+                  <lb break="no"/>
+                  <unclear>α</unclear>ν τῶν λ<unclear>έξε</unclear>
+                  <gap reason="illegible" quantity="6" unit="character"/>
+                  <unclear>χέν τι
+                            παραπ</unclear>
+                  <gap reason="illegible" quantity="2" unit="character"/>
+                  <lb break="no"/>σιον τοῖς ὁρ<gap reason="illegible" quantity="6" unit="character"/>
+                  <unclear>αντιον ἐ</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>φραγι</unclear>
+                  <gap reason="illegible" quantity="3" unit="character"/>
+                  <lb break="no"/>νον·
                         τί οὖν ποι<unclear>εῖ</unclear>
-                        <gap reason="illegible" quantity="1" unit="character"
-                            /><unclear>λέπ</unclear>ων <unclear>τ</unclear><gap reason="illegible"
-                            quantity="1" unit="character"/>
-                        <unclear>γράμμα</unclear><lb break="no"/>τα καὶ μὴ
-                            καταβαλ<unclear>λ</unclear>ομένων <unclear>αὐτῶν</unclear> τὰ
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>λέπ</unclear>ων <unclear>τ</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>γράμμα</unclear>
+                  <lb break="no"/>τα καὶ μὴ
+                            καταβαλ<unclear>λ</unclear>ομένων <unclear>αὐτῶν</unclear> τὰ
                         <lb/>
-                        <g type="diple"/> νοήματα, λέγει· ἀπ<unclear>ο</unclear>κάλυψον τοὺς
-                            <unclear>ὀ</unclear>φθαλ<lb break="no"/><g type="diple"/> μούς μου καὶ
-                            κατ<unclear>α</unclear>νοήσω τὰ θ<unclear>αυμάσ</unclear><gap
-                            reason="illegible" quantity="1" unit="character"/><lb break="no"/><g
-                            type="diple"/> ά<gap reason="illegible" quantity="1" unit="character"
-                        />ου ἐκ τοῦ νόμο<gap reason="illegible" quantity="3" unit="character"/>υ·
-                        καὶ πάλιν <unclear>ο ἀ</unclear><gap reason="illegible" quantity="1"
-                            unit="character"/><lb break="no"/><g type="diple"/> τός· εὐλογητὸς εἶ
+                  <g type="diple"/> νοήματα, λέγει· ἀπ<unclear>ο</unclear>κάλυψον τοὺς
+                            <unclear>ὀ</unclear>φθαλ<lb break="no"/>
+                  <g type="diple"/> μούς μου καὶ
+                            κατ<unclear>α</unclear>νοήσω τὰ θ<unclear>αυμάσ</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <lb break="no"/>
+                  <g type="diple"/> ά<gap reason="illegible" quantity="1" unit="character"/>ου ἐκ τοῦ νόμο<gap reason="illegible" quantity="3" unit="character"/>υ·
+                        καὶ πάλιν <unclear>ο ἀ</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <lb break="no"/>
+                  <g type="diple"/> τός· εὐλογητὸς εἶ
                             <gap reason="illegible" quantity="1" unit="character"/>ε
-                            δ<unclear>ί</unclear>δαζόν μετὰ δι<lb break="no"/>καιώματά σου·
+                            δ<unclear>ί</unclear>δαζόν μετὰ δι<lb break="no"/>καιώματά σου·
                             ο<unclear>ὐ γὰρ</unclear> ἀν<unclear>έγ</unclear>νως
-                            π<unclear>α</unclear><lb break="no"/>ρὰ τοῦ νόμου, οὐκ <gap
-                            reason="illegible" quantity="1" unit="character"
-                            /><unclear>παί</unclear>δε<gap reason="illegible" quantity="2"
-                            unit="character"/>έν <unclear>σ</unclear>ε ὁ μωϋ<lb break="no"/>σῆς τὴν
-                        δεκάλογον, ἀλλα τὰ σὰ βούλ<gap reason="illegible" quantity="1"
-                            unit="character"/><lb break="no"/>μαι μαθεῖν, καὶ τ<unclear>ὰ</unclear>
+                            π<unclear>α</unclear>
+                  <lb break="no"/>ρὰ τοῦ νόμου, οὐκ <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>παί</unclear>δε<gap reason="illegible" quantity="2" unit="character"/>έν <unclear>σ</unclear>ε ὁ μωϋ<lb break="no"/>σῆς τὴν
+                        δεκάλογον, ἀλλα τὰ σὰ βούλ<gap reason="illegible" quantity="1" unit="character"/>
+                  <lb break="no"/>μαι μαθεῖν, καὶ τ<unclear>ὰ</unclear>
                         παρὰ <gap reason="illegible" quantity="2" unit="character"/>ῦ τοῦ
-                            νο<unclear>μ</unclear>ο<lb break="no"/>θέτου· παρὰ
-                        τ<unclear>ῆ</unclear>ς πηγ<unclear>ης</unclear> τοῦ νόμου βού<lb break="no"
-                        />λομαι μαθεῖν το<unclear>υ</unclear> νόμου τὴν ἀλήθεια<unclear>ν</unclear>
-                        <lb/>
-                        <hi rend="ekthesis"><unclear>ἀ</unclear></hi>λλ’ ἐζήτει μὲν μαθεῖν, ἡ δὲ
+                            νο<unclear>μ</unclear>ο<lb break="no"/>θέτου· παρὰ
+                        τ<unclear>ῆ</unclear>ς πηγ<unclear>ης</unclear> τοῦ νόμου βού<lb break="no"/>λομαι μαθεῖν το<unclear>υ</unclear> νόμου τὴν ἀλήθεια<unclear>ν</unclear>
+                  <lb/>
+                  <hi rend="ekthesis">
+                     <unclear>ἀ</unclear>
+                  </hi>λλ’ ἐζήτει μὲν μαθεῖν, ἡ δὲ
                         χάρις ἐταμιεύ<lb break="no"/>ετο τοῖς μέλλο<unclear>υ</unclear>σι λαμβάνειν
-                        τὴν εὐεργε<lb break="no"/>σίαν· διὰ τοῦτο ἔλεγεν ὁ <choice>
-                            <expan>σωτὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">σηρ</hi></abbr>
-                        </choice> τοῖς μαθη<lb break="no"/><g type="diple"/> ταῖς· πολλ<unclear>οὶ
-                            βα</unclear>σιλεῖς καὶ δίκαιοι ἐπε<lb break="no"/><g type="diple"/>
-                        θύμησαν ἰ<unclear>δ</unclear><gap reason="illegible" quantity="4"
-                            unit="character"/> βλέπετε. καὶ ο<unclear>ὐ</unclear>κ εῖδον·
+                        τὴν εὐεργε<lb break="no"/>σίαν· διὰ τοῦτο ἔλεγεν ὁ <choice>
+                     <expan>σωτὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σηρ</hi>
+                     </abbr>
+                  </choice> τοῖς μαθη<lb break="no"/>
+                  <g type="diple"/> ταῖς· πολλ<unclear>οὶ
+                            βα</unclear>σιλεῖς καὶ δίκαιοι ἐπε<lb break="no"/>
+                  <g type="diple"/>
+                        θύμησαν ἰ<unclear>δ</unclear>
+                  <gap reason="illegible" quantity="4" unit="character"/> βλέπετε. καὶ ο<unclear>ὐ</unclear>κ εῖδον·
                         <lb/>
-                        <g type="diple"/>
-                        <gap reason="illegible" quantity="1" unit="character"/>αὶ ἀκοῦσαι ἃ ἀκούετε,
-                        καὶ οὐκ ήκ<unclear>ο</unclear>υσαν·
+                  <g type="diple"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>αὶ ἀκοῦσαι ἃ ἀκούετε,
+                        καὶ οὐκ ήκ<unclear>ο</unclear>υσαν·
                         <lb/>
-                        <g type="diple"/>
-                        <unclear>υ</unclear><gap reason="illegible" quantity="1" unit="character"
-                        />ῶν δὲ μακάριοι οἱ ὀφθαλμοὶ. ὅτι βλ<unclear>έ</unclear><lb break="no"
-                        />πετε· ἀλλὰ ζητοῦμεν πότε ὅλως ἡ
-                        <lb/> σφραγὶς ἀπεσφραγίσθη· πότε ὁ δεσ<lb break="no"/>μος τῆς ἀγνοίας ἐλύθη·
-                        πότε τὰ κε<lb break="no"/>κλεισμένα ἀνεώγη· ἀπαιτεῖ παρ’ ἡ<lb break="no"
-                        />μῶν ὁ ἀκροατ<unclear>ή</unclear>ς· καὶ παρὰ τὸν λόγον
+                  <g type="diple"/>
+                  <unclear>υ</unclear>
+                  <gap reason="illegible" quantity="1" unit="character"/>ῶν δὲ μακάριοι οἱ ὀφθαλμοὶ. ὅτι βλ<unclear>έ</unclear>
+                  <lb break="no"/>πετε· ἀλλὰ ζητοῦμεν πότε ὅλως ἡ
+                        <lb/> σφραγὶς ἀπεσφραγίσθη· πότε ὁ δεσ<lb break="no"/>μος τῆς ἀγνοίας ἐλύθη·
+                        πότε τὰ κε<lb break="no"/>κλεισμένα ἀνεώγη· ἀπαιτεῖ παρ’ ἡ<lb break="no"/>μῶν ὁ ἀκροατ<unclear>ή</unclear>ς· καὶ παρὰ τὸν λόγον
                         <lb/> τὸν τρόπον μ<unclear>οι</unclear> φησὶν ἐμήνυσας τοῦ
-                        <lb/> σφραγίσμ<unclear>ατο</unclear>ς· τὸν καιρόν μοι τῆς ἐ<lb break="no"
-                            />πιλύσεω<unclear>ς</unclear>
-                        <gap reason="illegible" quantity="3" unit="character"/> ἐσφραγισμένον οὐ
+                        <lb/> σφραγίσμ<unclear>ατο</unclear>ς· τὸν καιρόν μοι τῆς ἐ<lb break="no"/>πιλύσεω<unclear>ς</unclear>
+                  <gap reason="illegible" quantity="3" unit="character"/> ἐσφραγισμένον οὐ
                         λέγεις,
                         <lb/>
-                        <unclear>κ</unclear>εκλεισμένας ἔδειξας τὰς πύλας·
+                  <unclear>κ</unclear>εκλεισμένας ἔδειξας τὰς πύλας·
                         <lb/>
-                        <unclear>α</unclear>νεωγμένας οὐχ’ ὑποδείξεις, τί οὖν·
-                        <lb/> 2<unclear>ἀ</unclear>2πὸ ἑνὸς ῥήματος τὰ πολλὰ παρω<lb break="no"
-                        />σάμενος. παραστήσω τὸ ζητούμενο<unclear>υ</unclear>
-                        <lb/> τ<gap reason="illegible" quantity="1" unit="character"/> οὖν· μετὰ τὴν
+                  <unclear>α</unclear>νεωγμένας οὐχ’ ὑποδείξεις, τί οὖν·
+                        <lb/> 2<unclear>ἀ</unclear>2πὸ ἑνὸς ῥήματος τὰ πολλὰ παρω<lb break="no"/>σάμενος. παραστήσω τὸ ζητούμενο<unclear>υ</unclear>
+                  <lb/> τ<gap reason="illegible" quantity="1" unit="character"/> οὖν· μετὰ τὴν
                         τοῦ <choice>
-                            <expan>σωτῆρος</expan>
-                            <abbr type="nomSac"><hi rend="overline">σρς</hi></abbr>
-                        </choice> ἀνάστασιν.
+                     <expan>σωτῆρος</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σρς</hi>
+                     </abbr>
+                  </choice> ἀνάστασιν.
                         <lb/>
-                        <unclear>ἀγ</unclear>νοουμένης τοῖς πολλοῖς τῆς θείας
-                        <lb/> χ<unclear>ά</unclear>ριτος. τινὲς φησὶ τῶν μαθητῶν δύ<lb break="no"
-                        />ο· ἔξω εἰς κόμην ἀπήεσαν· καὶ πρὸς
-                        <lb/> ἀλλήλους οἵα φίλοι. ἐν ὁδῶ ἀντέβα<lb break="no"
-                        />λ<unclear>λ</unclear>ον περὶ τῆς οἰκονομίας· ὁ <choice>
-                            <expan>σωτὴρ</expan>
-                            <abbr type="nomSac"><hi rend="overline">σηρ</hi></abbr>
-                        </choice> ἁμε<unclear>ί</unclear><lb break="no"/>ψας τὸ
-                            σχ<unclear>ῆ</unclear>μα καὶ τὸ ἐκφώνημα· ὃ γάρ
+                  <unclear>ἀγ</unclear>νοουμένης τοῖς πολλοῖς τῆς θείας
+                        <lb/> χ<unclear>ά</unclear>ριτος. τινὲς φησὶ τῶν μαθητῶν δύ<lb break="no"/>ο· ἔξω εἰς κόμην ἀπήεσαν· καὶ πρὸς
+                        <lb/> ἀλλήλους οἵα φίλοι. ἐν ὁδῶ ἀντέβα<lb break="no"/>λ<unclear>λ</unclear>ον περὶ τῆς οἰκονομίας· ὁ <choice>
+                     <expan>σωτὴρ</expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">σηρ</hi>
+                     </abbr>
+                  </choice> ἁμε<unclear>ί</unclear>
+                  <lb break="no"/>ψας τὸ
+                            σχ<unclear>ῆ</unclear>μα καὶ τὸ ἐκφώνημα· ὃ γάρ
                         <lb/> ἐσ<unclear>τ</unclear>ι πρόσωπον τοῖς ὁρῶσιν, τοῦτ<unclear>ο</unclear>
-                            φω<lb break="no"/>νὴ τοῖς τὸ πρόσωπον ἐγχωροῦσιν· κρύ<lb break="no"
-                        />πτει καὶ τὴν φωνὴν καὶ τὴν μορφ<unclear>ὴν</unclear>
-                        <lb/> καὶ λέγει αὐτοῖς ὁ τὰ πάντ<unclear>α</unclear> εἰδώς·
-                            <unclear>τι</unclear><lb break="no"/>νες οἱ λόγοι οὗτοι. οὓς ἀντιβάλλετε
+                            φω<lb break="no"/>νὴ τοῖς τὸ πρόσωπον ἐγχωροῦσιν· κρύ<lb break="no"/>πτει καὶ τὴν φωνὴν καὶ τὴν μορφ<unclear>ὴν</unclear>
+                  <lb/> καὶ λέγει αὐτοῖς ὁ τὰ πάντ<unclear>α</unclear> εἰδώς·
+                            <unclear>τι</unclear>
+                  <lb break="no"/>νες οἱ λόγοι οὗτοι. οὓς ἀντιβάλλετε
                         πρὸς
                         <lb/>
-                        <unclear>ἀλλ</unclear>ήλους, λέγει αὐτῶ τῶ τὰ πάντα ε<unclear>ἰ</unclear><lb
-                            break="no"/><gap reason="illegible" quantity="1" unit="character"
-                            /><unclear>ό</unclear>τι ὁ παρ’ αὐτοῦ τὰ πάντα μανθάνων·
+                  <unclear>ἀλλ</unclear>ήλους, λέγει αὐτῶ τῶ τὰ πάντα ε<unclear>ἰ</unclear>
+                  <lb break="no"/>
+                  <gap reason="illegible" quantity="1" unit="character"/>
+                  <unclear>ό</unclear>τι ὁ παρ’ αὐτοῦ τὰ πάντα μανθάνων·
                         <lb/>
-                        <note place="bottom_center"><stamp>ΔΗΜΟΣΙΑ ΒΙΒΛΙΟΘΗΚΗ</stamp></note>
-                        <note place="bottom_inner"><num>κδ</num></note>
-                    </p>
-                </div>
+                  <note place="bottom_center">
+                     <stamp>ΔΗΜΟΣΙΑ ΒΙΒΛΙΟΘΗΚΗ</stamp>
+                  </note>
+                  <note place="bottom_inner">
+                     <num>κδ</num>
+                  </note>
+               </p>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>

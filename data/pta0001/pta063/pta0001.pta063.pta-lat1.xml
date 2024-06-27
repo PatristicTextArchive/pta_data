@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>De incarnatione</title>
+            <author>
+               <persName key="pta0001">Severianus Gabalensis</persName>
+            </author>
+            <respStmt>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <resp>Conversion of the online text to CTS-compliant PTA TEI; added paragraph numbering</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Patristic Text Archive</publisher>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">Available under a Creative Commons Attribution 4.0 International License</licence>
+            </availability>
+            <date>2023</date>
+            <idno type="PTA">pta0001.pta063</idno>
+            <idno type="CPG">4240</idno>
+            <idno type="BHG"></idno>
+            <idno type="Aldama"></idno>
+            <idno type="Pinakes-Oeuvre"></idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <biblStruct type="book" xml:id="aucher_seberianosi_1827">
+                  <monogr>
+                     <title level="m">Սեբերիանոսի կամ Սեւերիանոսի Եմեսացւոյ Գաբաղացւոց եպիսկոպոսի ճառք.
+                        Severiani sive Seberiani Gabalorum episcopi
+                        Emesensis Homiliae</title>
+                     <author>
+                        <forename>Johannes Baptista</forename>
+                        <surname>Aucher</surname>
+                     </author>
+                     <imprint>
+                        <pubPlace>Venedig</pubPlace>
+                        <publisher>I Vans Srboyn Ghazaru</publisher>
+                        <date>1827</date>
+                        <biblScope unit="page">16–55</biblScope>
+                     </imprint>
+                  </monogr>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section" matchPattern="(.+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='translation']/tei:div[@n='$1'])"
+            />
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern
+               matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter,
+                  verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3
+                  for a sequence of verses or LXX:Gn:1:1.3 for two
+                  verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv,
+                  Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr,
+                  2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak,
+                  4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir,
+                  PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph,
+                  Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes,
+                  Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor,
+                  Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm,
+                  Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern
+               matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter,
+                  sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a
+                  sequence of chapters or LXX:Gn:1.3 for two chapters
+                  not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc.
+                  LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)"
+               replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+               replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p> This file is encoded according to the guidelines of
+                  the Patristic Text Archive (PTA). See <ref
+                     target="https://pta.bbaw.de/project/encoding-guidelines"
+                     >https://pta.bbaw.de/project/encoding-guidelines</ref>
+                  and <ref
+                     target="https://doi.org/10.5281/zenodo.3737666"
+                     >https://doi.org/10.5281/zenodo.3737666</ref>. </p>
+               <p xml:id="biblical-quotations"
+                  ana="fully-annotated not-identified"> Biblical
+                  quotations are annotated but not referenced.
+                  References follow the scheme declared <ref
+                     target="#biblical">above</ref>. </p>
+               <p xml:id="other-references"
+                  ana="not-annotated not-identified"> Other references
+                  are not annotated and not referenced. References to
+                  texts in the PTA follow the scheme declared <ref
+                     target="#pta">above (pta)</ref>, references to
+                  texts available in the <ref
+                     target="https://scaife.perseus.org/">Perseus
+                     Digital Library</ref> follow the scheme declared
+                     <ref target="#perseus">above (perseus)</ref>. If
+                  the referenced text is not available in either
+                  repository, the reference for the referenced text is
+                  given in the attribute @source in the form
+                  “Authorabbrev_Workabbrev_Location”; ancient Greek
+                  authors should be referenced according to the lists
+                  of H. G. Liddell/R. Scott/H. S. Jones, A Greek English Lexicon, Oxford 1968 (9th edition) and G. W.
+                  H. Lampe, A Patristic Greek Lexicon, Oxford 1987
+                  (3rd edition), for Latin ones the abbreviations of
+                  the Thesaurus Linguae Latinae (cf. Index librorum
+                  scriptorum inscriptionum ex quibus exempla
+                  afferuntur) should be used, with dots in the
+                  abbreviations deleted without replacement. </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+                  Persons are not annotated and not referenced with
+                  IDs according to the <ref
+                     target="https://github.com/PatristicTextArchive/tipnr_data"
+                     >TIPNR - Tyndale Individualised Proper Names with
+                     all References</ref> list for biblical persons
+                  and IDs of <ref
+                     target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json"
+                     >PTA persons index</ref> for all other persons. </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+                  Groups of persons and organisations are not
+                  annotated and not referenced with IDs according to
+                  the IDs of <ref
+                     target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json"
+                     >PTA groups index</ref> for all other groups. </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+                  Places are not annotated and not referenced with
+                     <ref target="https://pleiades.stoa.org/">Pleiades
+                     Gazetteer</ref> IDs. </p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra,...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl> Text Type Classification by <ref
+                     target="https://www.comphistsem.org/46.html"
+                     >"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl> Patristic Text Archive Status of edition </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc> Critical edition in which the
+                     text-critical variants have been encoded.
+                  </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc> Critical edition in which the
+                     text-critical variants have not been encoded,
+                     e.g. because it is a retro-digitisation of a
+                     printed critical edition and for copyright
+                     reasons the apparatus cannot be included in the
+                     retro-digitisation. </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc> Edition which notes text-critical
+                     variants, but does not, for example,
+                     comprehensively include the manuscripts.
+                  </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc> Pre-modern editions (e.g. editions in the
+                     Patrologia Graeca or Latina) </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl> Patristic Text Archive Status of annotation </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc> All instances of a phenomenon (e.g.
+                     biblical quotations, persons, places) are encoded
+                     with the respective element. </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc> Some instances of a phenomenon (e.g.
+                     biblical quotations, persons, places) are encoded
+                     with the respective element. </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc> No instances of a phenomenon (e.g.
+                     biblical quotations, persons, places) are encoded
+                     with the respective element. </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc> All encoded instances of a phenomenon
+                     (e.g. biblical quotations, persons, places) are
+                     identified with the respective norm data.
+                  </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc> Some encoded instances of a phenomenon
+                     (e.g. biblical quotations, persons, places) are
+                     identified with the respective norm data
+                  </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc> No encoded instances of a phenomenon (e.g.
+                     biblical quotations, persons, places) are
+                     identified with the respective norm data.
+                  </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+            url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"
+         />
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394"
+               >Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS"> Updated file to comply
+            with version 3.0 of <ref
+               target="https://github.com/PatristicTextArchive/Schema"
+               >TEI-PTA-Schema</ref>
+         </change>
+         <change when="2023-03-13" who="#AvS">Converted to
+            PTA/CapiTainS</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="translation" xml:lang="la"
+            n="urn:cts:pta:pta0001.pta063.pta-lat1"
+            corresp="urn:cts:pta:pta0001.pta063.pta-xcl1">
+            <pb n="16"/>
+            <head>
+               <title>Beati Severiani Emesensis Episcopi (de Incarnatione).</title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p>Filios lucis illuminant lucis radii, et lucis oracula clarificant (eos). Lux piorum pietas est, quae nebulam ac caliginem ignorantiae repellit. Lux veritatis in studiosos (suos) fulget. Sicut visibilis lux, corporis est illuminatio, sic et animae veritas. Et sicut die secernimus inter se invicem infirmum et sanum, pulchrum et deforme, humile et altum, planum et salebrosum, viam et deviationem, spinam et ramum, coenum et fontes; nocte vero omnia visum fugiunt (vel phantasmata sunt). Similiter, fratres, et veritas orta ignorantiam operit, et sanitatem fidei ostendit, ac insaniam infidelitatis; pulchritudinem modestiae, et deformitatem luxuriae; pravitatem impietatis, et aequitatem rectitudinis; pertinaciam malitiae; palmites virtutis, et spinas peccati; coenum cupiditatis, et fontes justitiae.</p>
+            </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>Propterea nimirum beatus David lucem et veritatem una modulatione decantans sonat, <quote>Mitte, inquiens, lucem tuam, et veritatem tuam.</quote> Quam lucem ac veri<pb n="19" break="no"/>ritatem velit mitti? Patet quod eam lucem, de qua Joannes dixit, quod Erat lux vera, quae illuminat omnem hominem venientem in (hunc) mundum. Quoniam Dominus noster Jesus Christus est lux vera, splendor pietatis, justitiae sol, Oriens veritatis, qui ex alto oritur, et de terra illuminat: ex alto secundum Divinitatem honorifice oritur, et de terra secandum corporis dispensationem sursum elevatur. Oriens, qui est intelligibilis lux ex alto orta, secundum beatum Zachariam patrem Joannis Praecursoris: quo fuit, ait, nobis visitator Oriens ex alto. Idem itidem Oriens de terra ortus: de quo ejusdem nominis Zacharias in duodecim Prophetis dicit, quod <quote>Ecce vir, et nomen ejus Oriens.</quote></p>
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>Unde vero oriatur, David interpretatur. <quote>Veritas de terra orta est.</quote> Quae veritas? Noli a me discere, sed ab ipso universorum Salvatore. <quote>Ego sum, inquit, via et veritas et vita.</quote> Quique, ut in primo sermone jam dictum fuit, simplex et pura natura est, indivisa et incorporea, forma carens; sicut et genitor suus Pater: verum varias appellationes ultro suscipit ob suam benevolentiam. Vocatur itaque via ad persequendum errorem, et veritas ad evertendum mendacium, et vita ad destruendam mortem.</p>
+               </div>
+               <div type="textpart" subtype="section" n="4">
+                  <p>Et vide, quomodo multoties sui facit nuncupationes, quae contrariae videntur verbo tenus, concordant autem rebus ipsis. Idem pastor, idem ovis (dicitur). <quote>Ego sum, ait, pastor bonus.</quote> Et quomodo ovis, Joannes asseruit, <quote>Ecce agnus Dei.</quote> Qui vero volunt abalienationem inducere diversis nominibus, opponunt dicentes: Quomodo ovis et pastoris una sit natura? Num dividatur Christi natura per varias appellationes? Liquet ergo, quod non essentiae, sed operationis utique indicia sunt diversa nomina. Pastorem se <pb n="21"/> vocat, nominatur et ovis, appellatur et sacerdos, nuncupatur et templum sacerdotis, juxta illud: <quote>Tu es sacerdos secundum ordinem Melchisedec.</quote> Et templum, secundum illud: <quote>Solvite templum hoc, et in tertia die excitabo illud.</quote></p>
+               </div>
+               <div type="textpart" subtype="section" n="5">
+                  <p>Evellatur itaque omnis error, et teneat ac dominetur universis veritas regnans. Quod autem Dominus noster Jesus Christus nominavit se vitem, quomodo autem erat, probavimus: et Patrem agricolam, non dissimilitudinem aliquam in naturam introducens, sed suae dispensationis renovationem referens. Quoniam omnia quae in veteri (lege) populo data fuerant, destructa sunt. Datum est sacerdotium, et corruptionem subiit. Datum est regnum, concessa fuit prophetia: <quote>fuit vitis pulchri sarmenti</quote> Israel, quemadmodum dicit Jeremias propheta, et pro fructu pietatis tulit injustitiam. Similiter ei et Isaias dicit, quod <quote>Expectavi uvam, et tulit spinam.</quote> Quia vero vidit omnia destructa et veterata ex pigritia, venit et per se renovavit omnia. Fit omne omnibus, non ipse divisus, sed secundum uuam contemplationem omnia concinnavit.</p>
+               </div>
+               <div type="textpart" subtype="section" n="6">
+                  <p>Quod autem omnia haec destructa corruptaque erant inter Judaeos, testatur Scriptura. <quote>Sacerdotes eorum, inquiens, non dicebant, ubi sit Deus, et prophetae eorum argento hariolabantur, et apostoli eorum non noverunt me, et principes eorum comtempserunt me; et populus meus non novit me.</quote> Et quia omnia una cum ordine pietatis depravata sunt, veniens per se ipsum resuscitat sacerdotium, erigitque regnum, et renovat prophetiam, atque omnia destructa corruptaque reparat per gratiam suam. Corruptum erat sacerdotium: ipse sacerdos extitit; de quo ait Apostolus, quod <quote>talem habemus Pontificem, qui sedit a dex tra majestatis in excelsis.</quote> Quia vero sublatum fuit regnum Judaeorum, veniens ingressus est Rex Sanctorum: de quo Nathanael dicit, <quote>Rabbi, tu es filius <pb n="23"/> Dei, tu es Rex Israel.</quote> Quoniam vero prophetiam occultarunt pseudoprophetiae, abstulit Deus gratiam prophetiae propter indignitatem incolarum terrae. Venit ergo, ut iterum instauraret per se prophetiam; sicut et beatus Moyses dixerat, quod prophetam vobis excitabit Dominus Deus.</p>
+               </div>
+               <div type="textpart" subtype="section" n="7">
+                  <p>Erat itaque Propheta, et Sacerdos, et Rex, nou quod ipse indigebat tali honore, sed ut cadentes suscitaret. Non quod regno egebat Rex Regum; nec sacerdotii egenus erat ille, qui a toto sacerdotio colebatur; neque prophetiae opus habuit ille, qui fons erat prophetiae, et in omnes prophetas emanabat rivos justitiae: sed quia venit ad suscitandos omnes cadentes, reparandosque omnes corruptos. Invenit vitem quoque Israel depravatam; de qua dicit David: <quote>Vitem, quam eduxisti de terra Ægyptiorum; eradicasti ethnicos, et plantasti eam.</quote> Quum ergo renovasset corruptam, dixit: <quote>Ego sum vitis vera.</quote> Non quasi naturae sit opera, sed gratiâ restaurat corruptam. Si ipse vitis operabilis sit, quomodo seminator sit sicut agricola vitis? quum agens de sua doctrina, dixerit: <quote>Ecce exit seminator seminare.</quote> Et ipse explicat, quis sit seminator. <quote>Qui seminat, ait, semen, est filius hominis.</quote> Et quomodo fieri potest, ut idem sit vitis operabilis, et agricola seminans semina? Si non dijudicans dabis unum divinitati ejus, et alterum ejusdem carnali dispensationi, confundes utique res secum invicem, et vix eris conscius veritatis.<quote> Ego sum, ait, vitis, atque vocat se agricolam vitis;</quote> sicut et alibi <quote>Pastorem, et ovem</quote>. Hinc sane haeretici bene scripta male legunt: quemadmodum et propheta dicit, quod <quote>Rectae sunt viae Domini, et justi ambulabunt in eis.</quote> Illi vero non intelligunt rectam, nec purgatam selectamque dispositionem intellectus, ut valeant quaedam attribuere Divinitatis dignitati, quaedam vero dispensationi carnis. Et ideo confuderunt omnia in<pb n="25" break="no"/>ter se invicem, et depravarunt, atque caligine erroris adimpleverunt totum universum.</p>
+               </div>
+               <div type="textpart" subtype="section" n="8">
+                  <p>Quoniam Salvator Dominusque hominum amantissimus venit in mundum propter nos, nullatenus autem hoc abfuit a sua dignitate, quam habebat ante saecula, sed adornavit (rem) propter nos benignitate sua, monstravit duo luminaria ad descriptionem veritatis, Divinitatis nempe miraculis, et humanitatis cruciatibus. Siquidem cruciatum subiit qui pati non poterat, per doloribus obnoxium (corpus); haud illas affectiones subiit, quae in peccatum conducant, sed quae afficiunt communem naturam. Quoniam corpus et anima serviunt etiam affectionibus in peccatum conducentibus; qui tamen extra illas affectiones est, extra est etiam peccata. Ut, esurire et sitire, fatigari et dormire, corporis sunt affectiones, non tamen in peccatum censentur. At fornicatio, et immunditia lasciviaque, quae corporis decorem contaminant, affectiones sunt peccati. Praeterea et anima habet circumpositas sibi affectiones a Creatore, ex ipsa natura, suscipiens saluti necessaria, timorem, tristitiam, iram. Quae si separatim examinentur, affectiones (passiones) vocitantur; moderate tamen et pro tempore, adjutrices sunt naturae nostrae.</p>
+               </div>
+               <div type="textpart" subtype="section" n="9">
+                  <p>Attende autem: datur indignatio justa, quaeque ira justitiae nominatur; non frustra ardens, sed ex divina justitia aestuans, ut plurimum ex flatu Spiritus Sancti. Non quod frustra quis indignetur, sed quando propter pietatem in iram moveatur. Testatur autem Scriptura, dicens: <quote>Venit Spiritus Domini super <pb n="27"/> Saul, et indignatus est.</quote> Quum ira justa propter justitias usurpetur, illam laudavit. Quum adversus impietatem ardeat, quum ad haereticos deprehendendos feratur, quum propter gloriam magni regis sit dimicatio, ibi iram demonstrare probitas est, occultare vero dolus. Observa, frater, et cupiditatem, non illam quae peccatum mittat, sed eam quae exornat generationes per legitimum matrimonium. Observa timorem, non qui gratis sit, sed qui in utilitatem et emolumentum. Ubi enim timor Dei sit, dona sunt bona: et ubi timor impietatis, ibi opera inania. Timorem, inquam, affectionem corporis et animae praeter peccatum in se recepit Salvator noster. Esurivit secundum carnem, sitivit, defatigatus est, dormivit: his autem non divinitatem umquam injuria adfecit, sed ut corporis naturam vere declarasset. Pariter secundum animam metuit, sollicitus est, timuit: <quote>Tristis est, inquit, anima mea usque ad mortem.</quote> Et iterum, coepit tristari et sollicitus esse. Haec autem non erant affectiones peccati, sed naturae corporis indicia.</p>
+               </div>
+               <div type="textpart" subtype="section" n="10">
+                  <p>Ut autem evidentius patefaceret Salvator hujusmodi verba non Divinitati convenire, sed carni, exponit discipulis, qualis sit modus adfectionum illarum. <quote>Tristis est, inquiens, anima mea usque ad mortem; vigilate, ut non intretis in tentationem.</quote> Et illico subdit: <quote>Anima quidem prompta est, caro autem infirma.</quote> Atque sic omnino declarat in veritate Divinitatis honorem, et carnis dispensationem. Manducavit ut homo, cibavit sicut hominum amator. Magis autem illud mirum est, quod dum poscebat bibere, potat universum. Ad mulierem Samaritanam dicit, <quote>Pota me:</quote> et clamans dicebat, <quote>Siquis sitit, veniat ad me, et bibat.</quote> Dormit in mari ad verificandam carnis naturam; et surgens, in somnum vertit undas maris: ut discas, quod et dor<pb n="29" break="no"/>mit, et dormire facit. Praevidit sicut Deus omnia, quae ubique agebantur; et ambulabat in plagis Galileae sicut homo, atque adveniens stat e regione Bethaniae vici Lazari. Per intervallum locorum vel in distantia vicinum se demonstrat, et virtute Divinitatis omnia prius scit. Narrat in Galilea quae in Judaea opera agebantur. <quote>Lazarus, dicit, amicus noster dormit.</quote> Et qui non prope ad locum cum esset, videbat quicquid in loco illo ageretur, superveniens ad vicum, dicit: <quote>Ubi posuistis eum?</quote> Et quis audebit accusationem ignorantiae adducere de Christo propter interrogationem talem, <quote>Ubi posuistis eum?</quote> Quod si scandalum tibi ferant ista verba, considera similia verba de Patre quoque Christi dicta fuisse. Num ignorantiae vox sit et Patris dictum, <quote>Ubi es Adam?</quote> Haec ergo vox illi voci socia est. Interrogat Christus, <quote>Ubi posuistis eum?</quote> Interrogat et Deus in veteri testamento, <quote>Ubi est Abel frater tuus?</quote></p>
+                  <p>At forte quis dixerit, quod hoc non sit solutio mysterii, sed additamentum dubii: quippe qui manifestasti, quod non solus Christus, verum etiam Christi Pater sciscitatur. Si ita res se habet, ergo mens etiam interrogationis expandetur tam Patris, quam Filii. Disce itaque primum mentem ejus, qui ibi sciscitatus est, et deinde hujus hic. Verum quum dixerim, Ejus ibi, et Hujus hic, non alteri illud dico, et alteri istud, sed quicquid in Evangelio dictum fuerit, ad Patrem refero; et quicquid in veteri (testamento), Filio offero. Nihil enim est nec ex novis, neque ex antiquis, quod sine Christi virtute factum fuerit. Quemadmodum et Joannes testatur non modo de creatione, sed de tota quoque dispensatione, <quote>Omnia, dicens, per ipsum facta sunt, et sine ipso factum est nihil, quod factum est.</quote> <pb n="31"/> Quis autem sensus sit interrogationis ad Cain, <quote>Ubi est Abel frater tuus?</quote> disce, ut pote sciscitando viam illi parasset responsionis (sive justificationis). Judicat sicut justus judex, et ad poenitentiam vocat sicut benignus. <quote>Ubi est, ait, Abel frater tuus?</quote> In tribunal inducit eum tamquam judex. Ille vero ignorantiae opinionem putans interrogationem, occultare rem nitebatur benefactori. <quote>Nescio, dicit, num custos ego eram fratris mei?</quote> Quid ergo? Attende Dei intentionem . Explicat ei Omniscius, quod ego ultro simulavi ignorantiam: tu autem censuisti me sine scientia interrogasse. Si ita est, disce scientiam Omniscii: <quote>Clamor sanguinis fratris tui appellat ad me de terra.</quote></p>
+                  <p>Disce demum et intentionem benefactoris, qua mente dixerit ad Judaeos, <quote>Ubi posuistis eum?</quote> Congregatio spectaculi ingratorum erat; populus, qui nequibat intelligere divina miracula: imo satis intelligebaut quidem, verum ob ingratitudinem obtegere volebant miracula. Videbat eos arrogantes illudentesque mira opera; aspiciebat in eos, quod videntes virtutes, negabant harum operatorem: sicut testatur et David, quod <quote>In multiplici virtute tua mentiti sunt tibi inimici tui.</quote> Quid ergo ad haec agat? Poterat tacite proficisci (in Bethaniam ), imo sine profectione cum corpore virtutem mittere suam, atque per radios virtutis poterat dissolvere sepulchrum, suscitare mortuum, et in lucem educere detentum in tenebris. Sed tamen vult vel ipsos ingratos testes fieri miraculorum, et praeveniens trahit ad se multitudinem ingratorum ad ostendendum sepulchrum. <quote>Ubi inquit, posuistis eum?</quote> <quote>Veni, respondent illi, et vide sepulchrum. Dixit autem ad illos: Tollite lapidem.</quote> Qui discipulis promisisti, et in pignus virtutem praestasti, dicens: <quote>Si habueritis fidem sicut granum sinapis, dicitote monti, mutare, et mutabitur.</quote> Qui, inquam, illis tantam <pb n="33"/> contulisti potestatem, tune lapidem pusillum ad portam sepulchri non potes devolvere ? Verum tamen, ut jam dixi, propter easdam causas, quoniam increduli, critici, et inobedientes spectatores erant, et dicere poterant fallaciam imaginariamque visionem esse casum mortui, et sub tali praetextu desistere poterant ab exaudiendo, adventu ejus in suspicionem redacto (¹), propterea illos ipsos deducit in sepulchrum. Quum enim lapidem revolvissent, et odor nares attigisset, testis fuisset eis odor cadaveris, quod revera mortuus erat. Quoniam cum morti mortui crediderint, postea etiam de resurrectione non haesitabunt.</p>
+               </div>
+               <div type="textpart" subtype="section" n="11">
+                  <p>Quod autem hujusmodi adinventionem excogitabat Dominus humiliter rem gerens, ipsum ordinem attende, et discas. Accedens Martha ad lapidem, dicit: <quote>Domine, jam foetet, quatriduanus est enim.</quote> Redemptor tamen ut conscius propriae virtutis dicebat: Id ipsum volo discere a vobis; dicite, et replicate dictionem, <quote>jam foetet</quote>: affirmate mortuum esse, ut et resurrectio vere praedicetur. Multoties mortis nomen replicatum fuit, ut saltem semel et veritas resurrectionis veniat in professionem. Tunc demum, fratres, aliud quidpiam adstruit Redemptor; in caelum aspicit, et Patrem invocat: <quote>Pater, inquiens, gra tias ago tibi, quoniam audisti me.</quote> Ansam quandam in hoc dicto reperiunt haereticorum discipuli, statim irruentes, dicentesque: Viden' quantum intersit? unus enim rogat, et alter rogatur; (2) unus supplicat, et alter supplicationem exaudit. Viden', quod fons miraculorum Pater est, et concedit Filio virtutem miraculorum? Sed, sicut anterius saepe dixi, minime intellexere cum gratitudine dijudicare opera Salvatoris, sed semel ab initio deprehensi in blasphemia obcaecati sunt, ita ut nequeant seligere veritatem.</p>
+               </div>
+               <div type="textpart" subtype="section" n="12">
+                  <p><pb n="35"/> Verum tu rationem hodiernae lectionis disce. Dixit eis Salvator. <quote>Multa bona opera ostendi vobis ex Patre meo, propter quod eorum opus me lapidatis? Responderunt ei Judaei: de bono opere non lapidamus te, sed de blasphemia, quia tu homo es, et facis te ipsum Deum, et patrem tibi vocas Deum.</quote> Illud valde tristes reddebat Judaeos, quia patrem suum vocabat Deum. Irascebantur Judaei in Jesum, <quote>quia non solum solvebat sabbatum, sed et patrem suum dicebat Deum, et aequalem se faciebat Deo.</quote> Quia ergo blasphemia arguebant patrem vocare Deum, tribunal constituit apud sepulchrum, et judicem sedere veritatem voluit; ducit et testes in circuitu ingratos ipsos, ut oculis videant, et auribus audiant, qui dicebant, quod blasphemas, cum te ipsum filium vocas Dei. Vocat itaque Patrem, et fere eo ipso monet eos, dicens: Ecce vel in conspectu vestro voco; si aegre ferat, quod Patrem voco eum, et blasphemia sit, sicut vos putatis, non me audiat: quod si vero haud moleste ferat, ergo patet, quod vere pater est meus. <quote>Pater, inquit, gratias ago tibi, quia audisti me.</quote> Si obedientiae actus erat oratio, quomodo ante orationem dicebat, quod  <quote>audisti me</quote>? Quoniam antequam orasset, dixit, <quote>Pater gratias ago tibi, quia audisti me.</quote> Monet autem circumstantes, Si irascatur, ait, Pater, eo quod Patrem voco ipsum, et blasphemia quaedam sit contra Deum, ut vobis videtur, non cooperetur mihi velut blasphemanti: sin autem vocante me mortuum, audiat jussum, ex operibus ipsis probationem accipite veritatis; mortuum enim suscitare non blasphemantis est opus, sed Filii Dei jussum. Quod autem haec est intentio orationis, non vero propter indigentiam suam, sed pro utilitate audientium, correctioneque usurpaverit orationem, ipse testatur: quum enim dixit, <quote>Pater gratias ago tibi, quoniam audisti me</quote>, subdit adhaec, <quote>Ego autem sciebam quia semper me audis, sed propter populum, qui circumstant, dixi.</quote></p>
+               </div>
+               <div type="textpart" subtype="section" n="13">
+                  <p>Nemo itaque confundat veritatem, nemo injuria <pb n="37"/> adficiat pietatem, nemo dissimulationem propter salutem nostram factam pro infirmitate vel contumelia Sancti recenseat. Propter te factus est homo hominum amantissimus. Non suam abjecit naturam, sed cadentem suscitat, et mortuum vivificat. Accipit tuum, et dat suum. Non ex dispensatione venit in praestantem dignitatem, sed ex Divinitate venit suscipere in se dispensationem. Non, ut haereticorum auditores putant, quasi vero post crucem ac dispensationem promotus fuerit ad dignitatem: etenim notam aliquam impie assuere volunt ex Apostoli dicto, qui agens de Salvatore, dixerat: <quote>Qui erat in forma Dei, nullam rapinam existimavit esse aequalem Deo, sed seipsum exinanivit, formam servi sumens, et in similitudine hominis factus, et formá inventus sicut homo, humiliavit se, ut esset obediens usque ad mortem, mor temque crucis.</quote> Atque subdit, quod <quote>propterea Deus ipsum magis exaltavit, et concessit ei nomen, quod su pra est omne nomen.</quote> Viden', inquiunt, quia pro obedientia accepit in mercedem dignitatem: qui quippe humiliatus est usque ad mortem, propterea et Deus ipsum exaltavit, et concessit ei nomen, quod superat omne nomen? Si ita est, audiant. Si ut mercedem pro dispensatione profectum accepit, ergo ex paupertate in divitias provenit. Attende itaque, quaeso: Si mercedem pro obedientia accepit profectum, ergo ex paupertate in opulentiam venit, ut adorationem ab omnibus acciperet; quoniam omne genu flectatur in nomen Jesu Christi. Tu dicis, quod pauper erat, et in divitias venit per dispensationem. Sed Paulus minime annuit tibi: quia non ostendit eum ex paupertate in opulentiam venisse, sed una cum opulentia paupertatem sibi adscivisse.</p>
+               </div>
+               <div type="textpart" subtype="section" n="14">
+                  <p>Quid dicit Apostolus? <quote>Scitis, iniquit, fratres, gratiam Domini Jesu Christi; quoniam propter nos pauper est factus, qui dives erat; ut vos ejus paupertate dite<pb n="39" break="no"/>scatis.</quote> Ut ditescas, non ut blasphemes. Pauper est factus Dominus noster Jesus Christus, non aeternam opulentiam abjiciens, Divinitatem, inquam, sed illam occultans, et istam acceptans. Quae sit opulentia ejus? Vocatur Pater dives, vocatur et Filius dives ex divite. De quo Paulus dicit, quod <quote>Ipse Deus ditat omnes invocantes se;</quote> et iterum, <quote>O altitudo Divitiarum, et sapientiae, et scientiae Dei!</quote> Pariter et Jesus dives est, et pauper factus est propter nos. Qua autem re dives sit? Quia consubstantialis est Patri, et lumen gloriae, et character essentiae, et imago invisibilis Patris; non acquisitione talis factus, sed natura hujusmodi visus. Opulentia Christi ea est, quod ipsi Patri aequalis est, et eandem virtutem atque gloriam reguumque habet; ejusdem throni cum Patre (est), et ejusdem diguitatis, atque in eodem honore reverentiae. Verum qui in tali erat opulentia, et supra cum Patre sedebat, vide, ad quam paupertatem descendit, ut coram Pilato tamquam reus staret in tribunali. Divitiae Christi, myriades myriadum Angelorum sunt, qui stant in ejus ministerio; et paupertas Christi duodecim piscatores, qui eum sequebantur. Opulentia Christi, thronus in caelis est, et a dextra Patris sedere; et paupertas sua, quia <quote>vulpes foveas habent, et volucres caeli nidos, Filius autem hominis non habet locum, ubi ponat caput suum.</quote> Paupertas Christi in juvenca (asini) sedere; et divitiae Christi in Cherubim scendere: de quo propheta ait, <quote>Currus Dei myriades sunt, et mille directores.</quote> Vidisti amplam opulentiam? vidisti paupertatem dispensatione plenam?</p>
+               </div>
+               <div type="textpart" subtype="section" n="15">
+                  <p>Sed fortassis aliquis haereticorum pruriens ob excellentiam praesentis theologiae, dicat: Num ad Redemptorem referatur illud dictum, <quote>Currus Dei myriades sunt</quote>? In eumne refertur testimonium citatum? An currus Filii dixit, vel currus dignitatis Unigeniti? Ne itaque venundetur pietas ab ingratis auditoribus, et putetur incongruum esse testimonium, necesse  est comprobare, quod <quote>Currus Dei myriades, et mille <pb n="41"/> directores</quote>, in Dominum nostrum Jesum Christum optime quadrant. Demonstrationem ergo ex ipsis accipe verbis: non enim opus est quaestionis mentis, neque artificiosi sermonis ad persuadendum, sed veritatis, quae in conspectu refulget. Sic enim dixit Beatus David. <quote>Currus Dei myriades sunt, et mille rectores, Dominus autem in eis in Sina in Sanctis. Ascendit in excelsa, et captavit captivitatem, et dedit dona filiis hominum.</quote> Haec David. Citemus in medium interpretem prophetarum, tubam magnae vocis, linguam Spiritus Sancti, armatum virtute omnique gratia, Paulum, inquam, Sancti cantorem. Videamus, in quem accipit currus Dei, ascensumque in excelsa, et illud, captavit captivitatem, et dedit dona filiis hominum. Dicit Apostolus: <quote>Unus Dominus, et una fides, et unum baptisma, et unus Deus Pater omnium, et per omnia, et in omnibus. Verum unicuique ex nobis datae sunt gratiae secundum mensuram donorum Christi. Dicit enim: Ascendit in excelsa, captavit captivitatem, et dedit dona filiis hominum.</quote> In operam autem mittens Paulus intentionem verbi, adjicit : <quote>Qui ascendit, quis est, nisi qui descendit primum in inferiorem partem terrae? Qui descendit, idem est, qui ascendit in caelum, ut impleat omnia.</quote></p>
+               </div>
+               <div type="textpart" subtype="section" n="16">
+                  <p>Non est opus multarum linguarum ad exponendum, nec multorum verborum ad suadendum, sed quaeritur mens grati animi, et concordia fidei, unita cum professione Filii Dei. Quoniam non dixit, Ingenitus et Genitus, neque Increatus et creatura; illud enim non est concordia fidei. Visne scire quid est concordia fidei? audi Paulum dicentem: <quote>Donec venientes perveniamus omnes in unam concordiam fidei et scientiae Filii Dei.</quote> Concordia fidei, scientia Filii Dei est, non vero scientia Ingeniti et Geniti. Quare evellis scripta, et adducis non scripta? Nonne fidelius est nomen Patris, et Filii, et Spiritus Sancti, quam Ingeniti, et Geniti; sicut et scriptum, quam non scriptum.</p>
+               </div>
+               <div type="textpart" subtype="section" n="17">
+                  <p>At opponit se haereticus, dicens: Tu autem qua<pb n="43" break="no"/>re dicis Consubstantialem, minime scriptum? In discrimine praelii necesse est usurpare apparatum vix necessarium in pace. Quis coegit nos instare navali pugnae? nonne hostilitas marina? Vel quis arma construet contra inimicos, quando pax undique influat? Aufer tu primum heterusion (alienosubstantialem), ut non opponatur tibi homousion (consubstantialis). Quod si dicas heterusion, necesse est ut congrediatur contra te homousion. Sin autem tacebis, taceo ego quoque, et eandem essentiam, quae Patris est, cognosco et Filii: quia Filii et Patris nomen eandem habet vim; quoniam consubstantiale est nomen Patris et Filii: Pater enim, Filii est Pater; et Filius, Patris est Filius; et Spiritus Sanctus, Dei est Spiritus.</p>
+               </div>
+               <div type="textpart" subtype="section" n="18">
+                  <p>Sed vide, quid patiuntur haeretici? quippe qui praemoverunt bellum, nunc pudet eos talem rejicere sententiam. Vide, quid ad haec operatur Dei gratia? Vidit eos inobedientes divinis legibus, et submisit illos tributo legis Romanae. Nam semper Deus id facit, quando vidit quosquam pugnare contra legem pietatis, excitat super illos timorem hominum, quoniam non tenuerunt timorem Dei. Vide quid agit. Ardet ira in animo pii regis, et scribit edicta pietatis per pios ministros, et jacit sicut jacula mandata tamquam ex arcu legis.</p>
+               </div>
+               <div type="textpart" subtype="section" n="19">
+                  <p>Quemadmodum etiam Salvator saepe id fecit cum ingratis Judaeis; qui negata pietate, quum veritatem eis loquebatur, dicebant: qua potestate tu haec facis? Retorquet enim responsum, quod poterat conducere eos in timorem hominum: <quote>Interrogabo et ego vos verbum unum; baptismus Joannis unde erat, de caelone an ex hominibus? Cogitabant inter se invicem Judaei, dicentes: Si dicamus, de caelo, dixerit, quod cur non credidistis ei; Sin autem dicamus, quod ex hominibus <pb n="45"/> erat, metuimus populum, ne lapidemur.</quote> Quia vero non habebant timorem Dei, hominum timorem proposuerunt sibi, manifestantes, quod ob humanum timorem non audemus dicere. Quid ergo Redemptor ad haec? Nec ego dico vobis. Vos nescitis etiam, ego vero sciens non dico.</p>
+               </div>
+               <div type="textpart" subtype="section" n="20">
+                  <p>Nunc itaque excitavit Deus animum pii regis: regnum enim justitia est. Attende, regnum justitia quoque est, quum Deo servitium praestat. In uno gradu sunt regnum et justitia: quando in veritate administratores sint regni, Dei dignitatis consortes erunt. Audi, quid dicit Scriptura: <quote>Animae justorum in manu Dei sunt.</quote> Et de regibus quid dicat? <quote>Cor regis, ait, in manibus Dei est.</quote> Cur autem cordis meminerit? Quoniam fons mentis est cor, et radix consilii; ab ipso fonte egreditur lex. Quoniam autem verbum regis lex est, tenet cor in manu, ne velut ex humano corde aliquid emanet, sed tamquam ex divina manu exeat lex. Legem fert rex concordantem legi Dei; nam regnum statutum fuit, ut vindex sit caelestis regni. Non quod impos sit supernum regnum ad ulciscendos adversarios, sed ut divina gratia aperiat portam pietatis zelantibus.</p>
+               </div>
+               <div type="textpart" subtype="section" n="21">
+                  <p>Et revera si perquiramus, inveniemus, quod omni tempore, ubicumque pugnavit impietas, non vindictas sumpsit Deus sine justo quodam. Si desit in medio mediator vir justus, vix ulciscitur malos, sed usurpat humanum instrumentum justitia plenum. Impietatem praesetulerunt Sodoma et Gomora, nec tamen deletae fuere quinque civitates (Pentapolis), antequam habitasset Loth in illa terra. Ut non dicerent incolae regionis, quod non erat quispiam, in quem inspicerent, sive non prostabat, quam aemula<pb n="46" break="no"/>rentur, vita alicujus, adducens justum, fecit, ut habitaret in Sodoma; qui in iisdem locis vivens, extra illos comperiebatur esse conversatione. Ut non haberent locum responsi, quasi vero non habuerint magistrum, apparuit Loth in Sodoma. Et ecce pervenit ultio: quandoquidem nec legem, neque virum justum aemulati sunt, deperditi sunt ab ira ignem spargente.</p>
+               </div>
+               <div type="textpart" subtype="section" n="22">
+                  <p>Itidem pugnabat et Pharao Aegyptius cum Deo, sub praetextu ignorantiae, nec venerunt ei plagae, donec revelatus fuit Moyses genti Israel. Impie agebat et Achaab rex Israelitarum, implicatus iniqua idololatria; neque erat alicubi comminatio irae, donec apparuit Elias zelotypus. Similiter et nunc potest Deus vindictas capere sui et Ecclesiae, quae in praelio stat; verum suscitat bellatores propter pietatem, atque vult protegere Ecclesiam per alumnos pietatis. Sic et Beatus Elias conquirebatur apud Deum de Israel, quum ingressus est desertum, persecutione actus ab Jezabel. Et antequam ipse loqueretur, dixit ei Deus: <quote>Ut quid tu (hic es) Elia?</quote> interrogat nimirum eum Deus, quid hic tu facis? Pergens in eremum ipsum, unde Moyses legem sumpsit, ait: <quote>Aemulatus sum aemulationem Domini Dei omnipotentis, quia reliquerunt te filii Israel, altaria tua everterunt, et prophetas tuos ceciderunt. Ego solus mansi, et quaerunt animam meam.</quote> Haec dicit, non ut doceat, sed accuset; non quasi ignorantem certiorem faciat, sed tamquam judici delationem praestet. <quote>Altaria, inquiens, tua everterunt, prophetas tuos ceciderunt: ego solus mansi, et quaerunt animam meam.</quote></p>
+               </div>
+               <div type="textpart" subtype="section" n="23">
+                  <p>Quoniam vero irritabat tamquam judicem, et in iram excitabat per accusationem sicut castigatorem, volens Deus persuadere prophetam, quod ipse longa<pb n="49" break="no"/>nimitate indulget praevaricatoribus, non vero ob impotentiam vix punit illos, dixit ei: <quote>Ecce exies tu mane coram me, et ecce ventus vehemens, conterens montes, et diminuens colles; non erit autem in vento Dominus. Et ecce motus (terrae), et non erit in motu Dominus. Et ecce ignis, et non erit in igne Dominus.</quote> Quid autem sit consilium horum omnium? Siquam putas, inquit, quod non valeam ulcisci, persuadebo te, quod non propter imbecillitatem non induco poenas peccatoribus, vide, quae habeo vindictarum instrumenta. Quidquid apud judices vestros gladius, et ignis, et immersio in mare agunt, id apud me maximum judicem haec perficiunt. Vide, qualia habeo punitionum instrumenta. Ventus vehemens, qui non solum homines possit conterere, verum etiam montes confringere, et colles diminuere: non est tamen in vento Dominus; id est, nolo in asperitate cognosci, sed tranquillitate mirabilis esse. <quote>Ecce, inquit, ventus fortis</quote>, conterens montes, et diminuens colles; at non est in vento Dominus. Ecce et motus; et hoc indicat, quod possum etiam terraemotu deperdere. <quote>Ecce et ignis, sed non est in igne Dominus.</quote> Ostendens ostendit, et non ponit in operam.</p>
+               </div>
+               <div type="textpart" subtype="section" n="24">
+                  <p>Et huic vos ipsi testimonio estis: quoniam et motum ostendit, et ignem circa civitatem micare fecit. Terruit, non punivit; monstravit, et cohibuit. Micabat ignis circa urbem, pervenerunt minae, sed praevenit benignitas. Et erat, inquit (Scriptura), videre populum munitum et circumductum benignitate; et erat videre omnes auxilium invenisse a magnis intercessoribus, et protectos per intercessionem regni et sacerdotii. Siquidem piissimus rex cum sacerdotio junctus perorabat, et placabat Deum. Rex namque justus similiter rem peragere potest, sicut et sacerdotium: hoc per officium, et regnum per intercessionem persuadendo Deum. In mansuetudine demon<pb n="51" break="no"/>strata fuit glorificatio, una cum recto ordine: patet quod est filius magni regis. Ille enim tela Barbarorum impedivit, et iste sagittas ex nubibus pluentes precibus repulit.</p>
+               </div>
+               <div type="textpart" subtype="section" n="25">
+                  <p>Fuit tale quoddam et sub Beato David; quoniam ira a Deo mota in David, minatur Deus, et humanitatem ostendit. Vide quid facit humanissimus; misit ad David (prophetam Gad), dicens: <quote>Ecce tres plagas propono tibi seligendas; recipe unum quodvis, aut famem per tres annos, aut bellum per tres menses, vel mortem pestiferam per tres dies.</quote> Si (o Domine,) sicut judex judicas, cur electionem illi sinis; sed punito plane, quoniam magnam fecisti justitiam. In eo ponit sententiam: quicquid vis ait, id agam; cum iratus esset, morem gerere pollicetur. Beatus autem David haesitans valde de electione, <quote>angustum est, inquit, undique</quote>, nesciens quid eligeret, fames ne melior sit, an bellum, an mors. Necesse habuit recipere pestiferam mortem trium dierum. Hoc autem non inconsulto, sed ut manifesta fieret pietas regis. Si quaeram famem, in suspicionem venio, quod pro nihilo duxerim multorum interitum, quum multas annonas habere possim ego pro regia mea domu. Sin autem bellum quaeram, fieri potest, ut milites morti tradam, servem autem animam meam. Age itaque quaeram mortem, quae universos aeque pervadit : non opulentos veretur, nec vilium miseretur; non principes praehonorat, neque pauperes abhorret : ut palam fieret, quod una cum omnibus se quoque proposuit.</p>
+                  <p>Et congressus est, ait, <quote>Angelus Domini de mane usque ad horam sextam, et cecidit ex populo septuaginta millia virorum.</quote> Videns autem Deus, quod exacer<pb n="53" break="no"/>bata est plaga, et nemo erat qui se placaret precibus; non enim manifesta erat plaga; fecit ut videret David Angelum, qui gerebat gladium in manu, et volans stabat in aëre. Quum vidit David gladium nudatum, atque usque ad horam sextam tot millia prostrata, perpendit, quanta caedes fieret per tres dies. Fudit se aute Dominum, dicens: <quote>Ego pastor peccavi, oves istae quid peccarunt? Fiat manus tua in me, et in domum (vel, domo) patris mei.</quote> Attende, quaeso: <quote>Fiat manus tua in me, et in domum patris mei.</quote></p>
+               </div>
+               <div type="textpart" subtype="section" n="26">
+                  <p>Vox haec ejusdem vocis socia est, quae in Evangelio profertur: <quote>Ego sum pastor bonus: pastor bonus animam suam ponit super oves suas.</quote> Quando ergo proposuit seipsum, placavit Deum. <quote>Et dicit ad Angelum: reduc gladium in vaginam suam.</quote> Praevenit humilitas, et procidens persuasit magnum judicem. Quemadmodum ergo ibi rex proponens animam suam, expulit iram communem, similiter hic piissimus rex noster una cum omnibus vestitus humilitate, pro curribus equisque pedes currebat, et mitigavit mansuetudine poenas. Quoniam vero beneficium assequutus est, rependit benefico; et quia praemunitum fuit regnum, circummunivit Ecclesiam; et quia custodem habet imperium, munimen agit Ecclesiae. Ea propter sane dixit Deus ad Eliam, <quote>vadens unge mihi Eliseum prophetam pro te, et Jehu filium Amasiae in regem super Israel, et accipies vindictas de domo Achaab.</quote> At Dei, homo vindictas accipiet umquam? Sed ut manifestaret, quod pium imperium defensor est veritatis. Haec autem tantum.</p>
+               </div>
+               <div type="textpart" subtype="section" n="27">
+                  <p>Effugiamus itaque, fratres, damna haereticorum, undasque multiplices, et studeamus perducere navim in securum et tranquillum portum. Properemus, ne forte perveniens divina justitia obruat peccata. Quemadmodum lignum, foenum, calamus si jaceant in campo, dum sudum serenumque sit tempus, etsi di<pb n="55" break="no"/>spersa sint, vix dimoventur: quando vero inundatio ingens exurgat, protrudit simul lignum, et foenum, et calamum. Eodem modo quum venerit divinum judicium, et magnum tribunal manifestetur, obruit omnem errorem, et expurgat omnia peccata. Sicut Propheta testatur: <quote>Inundabit, ait, sicut aqua judicium, et irruet vehementer justitia sicut gurges.</quote></p>
+               </div>
+               <div type="textpart" subtype="section" n="28">
+                  <p>Verum hic cessare faciamus verba nostra, et invitemus patrem communem, tubam sonoram, et organum spirituale; invitemus occultum et manifestum in thesauris Aegyptiorum. Quoniam non est in Ecclesia unum alteri oppoui, sed se invicem protegere. Etsi linguae variae sint, sed unus ab omnibus linguis praedicatur. Non dividunt sermones, quos non dividit fides; non disjungunt verba, quos inter se mutuo conglutinant sapientes Ecclesiae. Loquamini omnes artes in Ecclesia. <quote>Benedicite Domino ex fontibus Israel.</quote> Fontes Israel sunt propheticae doctrinae una cum lege. Fontes salutis Apostoli sunt cum Evangelio salutis. Illi fontes Israel, et isti fontes salutis. Accedite omnes, et <quote>haurite aquam laetitiae de fontibus salutis.</quote></p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

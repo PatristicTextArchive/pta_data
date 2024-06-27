@@ -1,264 +1,371 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title xml:lang="deu">Homilie über den Glauben und das Naturgesetz</title>
-                <author>
-                    <persName key="pta0001">Severian von Gabala</persName>
-                </author>
-                <editor>
-                    <persName xml:id="AvS">Annette von Stockhausen</persName>
-                    <roleName>Translator</roleName>
-                    <orgName>Berlin-Brandenburgische Akademie der Wissenschaften</orgName>
-                </editor>
-            </titleStmt>
-            <editionStmt>
-                <p>New digital German translation from the Greek text.</p>
-            </editionStmt>
-            <publicationStmt>
-                <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
-                <distributor>Patristic Text Archive</distributor>
-                <availability>
-                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
-                </availability>
-                <date>2018</date>
-                <idno type="PTA">pta0001.pta001</idno>
-                <idno type="TLG">tlg4139.tlg001</idno>
-                <idno type="CPG">4185</idno>
-                <idno type="BHG"/>
-                <idno type="Aldama">399</idno>
-                <idno type="Pinakes-Oeuvre">2683</idno>
-            </publicationStmt>
-            <sourceDesc>
-                <p>Born digital</p>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <refsDecl n="CTS">
-                <cRefPattern n="section" matchPattern="(.+).(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='translation']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
-                <cRefPattern n="chapter" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='translation']/tei:div[@n='$1'])"/>
-            </refsDecl>
-            <refsDecl xml:id="biblical">
-                <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
-                    <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
-                    <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
-                    <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
-                </cRefPattern>
-                <cRefPattern matchPattern="(.+):(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
-                    <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
-                </cRefPattern>
-            </refsDecl>
-            <editorialDecl>
-                <interpretation>
-                    <p xml:id="biblical-quotations">Bibelzitate sind ausgezeichnet und nach den oben angeführten Grundsätzen nachgewiesen.</p>
-                </interpretation>
-            </editorialDecl>
-            <classDecl>
-                <taxonomy xml:id="comphistsem">
-                    <bibl>
-                        Text Type Classification by
-                        <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
-                    </bibl>
-                </taxonomy>
-            </classDecl>
-        </encodingDesc>
-        <profileDesc>
-            <creation>
-                <date notBefore="0401" notAfter="0404"/>
-                <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
-            </creation>
-            <textClass>
-                <keywords scheme="#comphistsem">
-                    <term>Paraenetic</term>
-                    <term>Sermon</term>
-                </keywords>
-            </textClass>
-        </profileDesc>
-        <revisionDesc status="preliminary-edition">
-            <change who="#AvS" when="2018-02-19">Erste Fassung in XML (mit eingearbeiteten Korrekturen)</change>
-        </revisionDesc>
-    </teiHeader>
-    <text>
-        <body>
-            <div type="translation" corresp="urn:cts:pta:pta0001.pta001.pta-grcBibex" xml:lang="deu" n="urn:cts:pta:pta0001.pta001.pta-deuBibex">
-                <div type="textpart" subtype="chapter" n="1">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>
-                            <quote>Alle Schrift ist von Gott inspiriert und nützlich<ref decls="#biblical" cRef="NA:2Tim:3:16"/>
-                            </quote>, sie hat als Anfang und Quelle der Frömmigkeit den
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="deu">Homilie über den Glauben und das Naturgesetz</title>
+            <author>
+               <persName key="pta0001">Severian von Gabala</persName>
+            </author>
+            <editor>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <roleName>Translator</roleName>
+               <orgName>Berlin-Brandenburgische Akademie der Wissenschaften</orgName>
+            </editor>
+         </titleStmt>
+         <editionStmt>
+            <p>New digital German translation from the Greek text.</p>
+         </editionStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2018</date>
+            <idno type="PTA">pta0001.pta001</idno>
+            <idno type="TLG">tlg4139.tlg001</idno>
+            <idno type="CPG">4185</idno>
+            <idno type="BHG"/>
+            <idno type="Aldama">399</idno>
+            <idno type="Pinakes-Oeuvre">2683</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born digital</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='translation']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern n="chapter"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='translation']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations"
+                  ana="fully-annotated fully-identified">
+            Biblical quotations are fully annotated and fully referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references"
+                  ana="fully-annotated fully-identified">
+            Other references are fully annotated and fully referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons"
+                  ana="fully-annotated fully-identified">
+            Persons are fully annotated and fully referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups"
+                  ana="fully-annotated fully-identified">
+            Groups of persons and organisations are fully annotated and fully referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places"
+                  ana="fully-annotated fully-identified">
+            Places are fully annotated and fully referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+            </interpretation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change who="#AvS" when="2018-02-19">Erste Fassung in XML (mit eingearbeiteten Korrekturen)</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="translation"
+              corresp="urn:cts:pta:pta0001.pta001.pta-grcBibex"
+              xml:lang="deu"
+              n="urn:cts:pta:pta0001.pta001.pta-deuBibex">
+            <div type="textpart" subtype="chapter" n="1">
+               <div type="textpart" subtype="section" n="1">
+                  <p>
+                     <quote>Alle Schrift ist von Gott inspiriert und nützlich<ref decls="#biblical" cRef="NA:2Tim:3:16"/>
+                     </quote>, sie hat als Anfang und Quelle der Frömmigkeit den
                             <quote>Geist der Wahrheit<ref decls="#biblical" cRef="NA:Jn:15:26"/>
-                            </quote>. Denn vom heiligen und verehrten Geist ergießt sich wie von einer ergiebigen und fruchtbaren Quelle alles göttliche Nass. Und wie viel das Gesetz gebietet, wie viel Propheten vorhersagen, wie viel Apostel verkündigen, all das gleicht wahrhaftig dem heiligen Geist und wird ihm zugeschrieben.
+                     </quote>. Denn vom heiligen und verehrten Geist ergießt sich wie von einer ergiebigen und fruchtbaren Quelle alles göttliche Nass. Und wie viel das Gesetz gebietet, wie viel Propheten vorhersagen, wie viel Apostel verkündigen, all das gleicht wahrhaftig dem heiligen Geist und wird ihm zugeschrieben.
                             <quote>Denn alles bewirkt der ein- und derselbe Geist, der einem jeden zuteilt, wie er will.<ref decls="#biblical" cRef="NA:1Cor:12:11"/>
-                            </quote>
+                     </quote>
                             Deswegen strahlt die Schönheit der Frömmigkeit alles an, und leuchten die Worte der Wahrheit, und sind die Schatzkammern der göttlichen Weisheit übervoll;
-                            <seg type="allusion">Schatzkammern, die nicht tief in der Erde verborgen sind<ref decls="biblical" cRef="NA:Mt:13:44"/>
-                            </seg>, sondern die in der Tiefe der Frömmigkeit gesehen werden; Schatzkammern, die Seelen froh machen, Gedanken erleuchten, die Welt zur Umkehr bringen, die Armut Adams in Gänze reich machen. Denn wie er in reiche Demut hinabgeführt wurde, nachdem er die ursprüngliche Schönheit der Frömmigkeit abgelegt hatte, so ist der, der mit der Frömmigkeit zusammenlebt und an den Tugenden blüht, reich und feiert. Und Paulus bezeugt das, indem er irgendwo so sagt:
+                            <seg type="allusion">Schatzkammern, die nicht tief in der Erde verborgen sind<ref decls="#biblical" cRef="NA:Mt:13:44"/>
+                     </seg>, sondern die in der Tiefe der Frömmigkeit gesehen werden; Schatzkammern, die Seelen froh machen, Gedanken erleuchten, die Welt zur Umkehr bringen, die Armut Adams in Gänze reich machen. Denn wie er in reiche Demut hinabgeführt wurde, nachdem er die ursprüngliche Schönheit der Frömmigkeit abgelegt hatte, so ist der, der mit der Frömmigkeit zusammenlebt und an den Tugenden blüht, reich und feiert. Und Paulus bezeugt das, indem er irgendwo so sagt:
                             <quote>Ich danke Gott, dass ihr an allem in ihm reich gemacht worden seid, an allem Wort und an aller Erkenntnis.<ref decls="#biblical" cRef="NA:1Cor:1:4-5"/>
-                            </quote>
+                     </quote>
                             Denn der, der das Wort Gottes annimmt, ist reich; der aber das Wort Gottes nicht annimmt, ist arm. Und Jesaja bezeugt das, indem er sagt:
                             <quote>Und ich sagte, wahrscheinlich sie sind Arme, deswegen können sie das Wort des Herrn nicht hören.<ref decls="#biblical" cRef="LXX:Jr:5:4"/>
-                            </quote>
+                     </quote>
                             Doch der Arme wird getadelt, der Reiche aber feiert, der Reiche im Wort der Wahrheit, der Stolze in den Tugenden der fruchttragenden Philosophie; ein solcher war David, der sagte:
                             <quote>Ich aber bin wie ein fruchtreicher Ölbaum in dem Haus Gottes;<ref decls="#biblical" cRef="LXX:Ps:51:10"/>
-                            </quote>
+                     </quote>
                             ein
                             <quote>fruchtreicher Ölbaum<ref decls="#biblical" cRef="LXX:Ps:51:10"/>
-                            </quote>, nicht reich an Blättern, sondern schwer an Früchten der Frömmigkeit. Denn es ist die Seele, die oftmals reich ist an Zweigen und Blättern, aber keine Frucht trägt, wie Jeremia über Israel sagte:
+                     </quote>, nicht reich an Blättern, sondern schwer an Früchten der Frömmigkeit. Denn es ist die Seele, die oftmals reich ist an Zweigen und Blättern, aber keine Frucht trägt, wie Jeremia über Israel sagte:
                             <quote>Ein Weinstock, der gute Ranken treibt, ist Israel.<ref decls="#biblical" cRef="LXX:Hos:10:1"/>
-                            </quote>
-                            <quote>Der gute Ranken treibt<ref decls="#biblical" cRef="LXX:Hos:10:1"/>
-                            </quote>, nicht der gute Frucht bringt. Jener Weinstock nun ist derartig beschaffen; der Prophet aber freut sich und sagt: »<quote>Ich bin wie ein fruchtreicher Ölbaum<ref decls="#biblical" cRef="LXX:Ps:51:10"/>
-                            </quote>, der nicht an äußerlichen Dingen reich ist, sondern in den innerlichen Dingen überströmt,
+                     </quote>
+                     <quote>Der gute Ranken treibt<ref decls="#biblical" cRef="LXX:Hos:10:1"/>
+                     </quote>, nicht der gute Frucht bringt. Jener Weinstock nun ist derartig beschaffen; der Prophet aber freut sich und sagt: <quote>Ich bin wie ein fruchtreicher Ölbaum<ref decls="#biblical" cRef="LXX:Ps:51:10"/>
+                     </quote>, der nicht an äußerlichen Dingen reich ist, sondern in den innerlichen Dingen überströmt,
                             <quote>ein fruchtreicher Ölbaum im Haus Gottes;<ref decls="#biblical" cRef="LXX:Ps:51:10"/>
-                            </quote>
+                     </quote>
                             denn es ist auch nicht gut, außerhalb des Hauses Gottes zu leben.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>Du wirst freilich viele finden, die auch außerhalb des Wortes der Wahrheit durch gute Taten dem Anschein nach hervorleuchten; du wirst mitfühlende, barmherzige und auf Gerechtigkeit achtende Männer finden; doch in ihren Werken ist keine Frucht, da sie ja das Werk der Wahrheit nicht kennen. Denn auch die Werke sind zwar schön, aber das oberste Werk muss den Weg weisen.
-                            <quote>Denn als die Juden einmal zum Herrn sagten: »Was sollen wir tun, damit wir die Werke Gottes tun?«, da antwortete er ihnen: »Das ist das Werk Gottes, dass ihr an den glaubt, den jener gesandt hat.«<ref decls="#biblical" cRef="NA:Jn:6:28-29"/>
-                            </quote>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>Du wirst freilich viele finden, die auch außerhalb des Wortes der Wahrheit durch gute Taten dem Anschein nach hervorleuchten; du wirst mitfühlende, barmherzige und auf Gerechtigkeit achtende Männer finden; doch in ihren Werken ist keine Frucht, da sie ja das Werk der Wahrheit nicht kennen. Denn auch die Werke sind zwar schön, aber das oberste Werk muss den Weg weisen.
+                            <quote>Denn als die Juden einmal zum Herrn sagten:  <said>Was sollen wir tun, damit wir die Werke Gottes tun?</said>, da antwortete er ihnen:  <said>Das ist das Werk Gottes, dass ihr an den glaubt, den jener gesandt hat.</said><ref decls="#biblical" cRef="NA:Jn:6:28-29"/>
+                     </quote>
                             Siehst du, wie er den Glauben ein Werk genannt hat? Glaubst du also nicht zugleich und bist zugleich reich an den Werken, nicht aber weil etwas zu den Werken fehlt, sondern weil der Glaube für sich selbst voll ist von guten Werken. Die Werke sind nämlich für Menschen und von Menschen, der Glaube aber ist von Menschen hin zu Gott; der Glaube ernennt den Bekehrten zum Bürger der Himmel; der Glaube macht den irdischen Menschen zu einem Genossen Gottes; außerhalb des Glaubens ist nichts Gutes. Es gleichen mir, Brüder, damit ich ein Bild für meine Worte verwende, es gleichen die, die an guten Werken reich sind und den Gott der Frömmigkeit nicht kennen, den Gebeinen Toter, die zwar schöne Dinge tragen, aber keine Wahrnehmung der schönen Dinge haben. Denn welchen Nutzen hat eine tote Seele, die dem Gott Logos gestorben ist, aber von guten Werken umgeben ist? Die Werke geschehen in der Hoffnung auf Belohnung und Kränze. Wenn du aber den Kampfrichter nicht kennst, wofür kämpfst du? Der Glaube darf nicht ohne die Werke sein, damit er sich nicht überhebt; er ist nur höher als die Werke, der Glaube. Denn wie die Menschen zuerst das Leben in Ehre höher schätzen mussten, und so das Sich ernähren – denn das, was unser Leben zusammen hält, ist die Nahrung –, so muss die Hoffnung auf Christus unserem Leben vorgezogen werden, aber auch durch die guten Werke genährt werden. Es ist oftmals möglich, dass der, der sich nicht an jedem Tag nährt, lebt, es ist aber nicht möglich, dass der, der nicht lebt, sich nährt.
-                            <seg type="allusion">Mose fastete vierzig Tage<ref decls="biblical" cRef="LXX:Dt:10:10"/>
-                            </seg>, aber da er in sich den lebendigen Logos hatte, fügte ihm die Not an den irdischen Dingen keinen Schaden zu. So ist es auch mit der seelischen Beschaffenheit: Sie muss sich an Werken nähren, sie muss aber vor den Werken den Glauben anziehen; ohne Glauben kannst du den, der Werke der Gerechtigkeit tut, nicht am Leben halten, aber ich kann zeigen, dass der Gläubige ohne Werke lebt und des Königreiches der Himmel für würdig gehalten wird. Keiner lebt ohne Glauben;
-                            <seg type="allusion">der Räuber aber wurde, nur weil er glaubte, beim menschenliebenden Gott gerecht gesprochen.<ref decls="biblical" cRef="NA:Lk:23:43"/>
-                            </seg>
-                            Und sage mir nicht: Er hatte nicht die Gelegenheit dafür, einen guten Lebenswandel zu haben; denn auch ich bin diesbezüglich nicht rechthaberisch, sondern stelle nur jenes daneben, dass der Glaube allein für sich selbst gerettet hat. Denn wenn er durch den Glauben überlebt und die Werke vernachlässigt hätte, würde er nicht aus dem Heil fallen. Das, was jetzt betrachtet und untersucht wird, ist, dass auch der Glaube für sich selbst rettet, Werke aber für sich selbst niemals ihre Täter gerecht machen. Und du willst es genau sehen, dass Werke ohne Glauben nicht lebendig machen?</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>
-                            <seg type="allusion">Cornelius ist bekannt für seine barmherzigen Taten und Gebete;<ref decls="#biblical" cRef="NA:Act:10"/>
-                            </seg>
+                            <seg type="allusion">Mose fastete vierzig Tage<ref decls="#biblical" cRef="LXX:Dt:10:10"/>
+                     </seg>, aber da er in sich den lebendigen Logos hatte, fügte ihm die Not an den irdischen Dingen keinen Schaden zu. So ist es auch mit der seelischen Beschaffenheit: Sie muss sich an Werken nähren, sie muss aber vor den Werken den Glauben anziehen; ohne Glauben kannst du den, der Werke der Gerechtigkeit tut, nicht am Leben halten, aber ich kann zeigen, dass der Gläubige ohne Werke lebt und des Königreiches der Himmel für würdig gehalten wird. Keiner lebt ohne Glauben;
+                            <seg type="allusion">der Räuber aber wurde, nur weil er glaubte, beim menschenliebenden Gott gerecht gesprochen.<ref decls="#biblical" cRef="NA:Lk:23:43"/>
+                     </seg>
+                            Und sage mir nicht: Er hatte nicht die Gelegenheit dafür, einen guten Lebenswandel zu haben; denn auch ich bin diesbezüglich nicht rechthaberisch, sondern stelle nur jenes daneben, dass der Glaube allein für sich selbst gerettet hat. Denn wenn er durch den Glauben überlebt und die Werke vernachlässigt hätte, würde er aus dem Heil fallen. Das, was jetzt betrachtet und untersucht wird, ist, dass auch der Glaube für sich selbst rettet, Werke aber für sich selbst niemals ihre Täter gerecht machen. Und du willst es genau sehen, dass Werke ohne Glauben nicht lebendig machen?</p>
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>
+                     <seg type="allusion">Cornelius ist bekannt für seine barmherzigen Taten und Gebete;<ref decls="#biblical" cRef="NA:Act:10"/>
+                     </seg>
                             aber Christus kennt er nicht, wobei er an Gott glaubt, den Logos Gottes aber noch nicht kennengelernt hat. Und da ja seine Werke gut und bewunderungswürdig waren, gefiel er Gott, dem Schiedsrichter und Liebhaber der Guten; aber da ja das große Auge der Gerechtigkeit und der Wahrheit, der unvoreingenommene und gerechte Richter, sah, dass seine Werke zwar gut, aber tot sind, da sie keinen Glauben haben, sendet er einen göttlichen Boten, der über die Werke urteilt, so dass er den, der gut kämpft, mit dem Glauben bekränzt; der sagt zu ihm:
                             <quote>Cornelius, deine Gebete und deine barmherzigen Taten sind zum Gedächtnis aufgestiegen im Angesicht Gottes.<ref decls="#biblical" cRef="NA:Act:10:4"/>
-                            </quote>
-                            »Wenn also die Bitte erhört wurde«, sagt er, »und die barmherzigen Taten angenommen wurden, was fehlt mir da noch zur Gerechtigkeit?« »Schicke also nach Joppe«, sagt er, »und lass Simon mit dem Beinamen ›Fels‹ kommen, der dir, wenn er kommt, Worte sagen wird, mit deren Hilfe du und dein ganzes Haus gerettet werden wirst.« Gewiss hatten die Werke keine Rettung. Denn wenn er aus dem, was Petrus verkündet, gerettet wird, sowohl er selbst als auch sein Haus, dann hatte Cornelius solange aus den Werken keine Rettung, bis ihn zusammen mit den Werkender Glaube richtete. Deswegen sagte auch Petrus, der selige und ehrwürdige Apostel Christi, als er aus Joppe kam und die Gnade Gottes sah, die unter den damals für fremdstämmig Gehaltenen ausgegossen war, und so einsichtig geworden war in das Urteil Gottes:
+                     </quote>
+                             <said>Wenn also die Bitte erhört wurde</said>, sagt er,  <said>und die barmherzigen Taten angenommen wurden, was fehlt mir da noch zur Gerechtigkeit?</said>  <said>Schicke also nach Joppe</said>, sagt er,  <said>und lass Simon mit dem Beinamen ›Fels‹ kommen, der dir, wenn er kommt, Worte sagen wird, mit deren Hilfe du und dein ganzes Haus gerettet werden wirst.</said> Gewiss hatten die Werke keine Rettung. Denn wenn er aus dem, was Petrus verkündet, gerettet wird, sowohl er selbst als auch sein Haus, dann hatte Cornelius solange aus den Werken keine Rettung, bis ihn zusammen mit den Werkender Glaube richtete. Deswegen sagte auch Petrus, der selige und ehrwürdige Apostel Christi, als er aus Joppe kam und die Gnade Gottes sah, die unter den damals für fremdstämmig Gehaltenen ausgegossen war, und so einsichtig geworden war in das Urteil Gottes:
                             <quote>Nun erfahre ich in Wahrheit, dass Gott niemand ist, der auf die Person schaut; sondern in jedem Volk ist bei ihm angenommen, wer Gerechtigkeit tut.<ref decls="#biblical" cRef="NA:Act:10:34"/>
-                            </quote>
-                            Er sagte nicht »In jedem Volk wird gerettet, wer Gerechtigkeit tut«, sondern: »Er ist angenommen«, das heißt, er wird würdig, angenommen zu werden. Man muss folglich den Glauben stärker als die Werke beleuchten und dem Glauben die Werke folgen lassen. Und keiner soll den Glauben durch Fruchtlosigkeit misshandeln, noch soll er die Werke misshandeln durch Unglauben! Werde ein fruchtreicher Ölbaum, aber im Haus Gottes! Denn ein fruchtreicher Ölbaum zu sein, legte er entsprechenden Werken aus; das im Haus Gottes aber zeigt den Glauben.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="4">
-                        <p>Welche sind aber die Werke Gottes? Wir alle kennen sie, wenn wir sie tun wollen; denn es ist nichts verborgen. Was nämlich die Lehre betrifft, ist umstritten; was aber die Werke betrifft, ist nicht verborgen; denn die Natur zeigt die Gesetze an. Wir wissen aus uns selbst heraus, was gut und was schlecht ist. Gott hat ein ungeschriebenes Gesetz in der Natur gegeben, das unsere Sinne erleuchtet. Keiner soll sagen: ›Ich habe das Gesetz nicht gelesen, ich weiß nicht, was zum Gesetz gehört.‹ Denn wenn du das gemeinsame Gesetz leugnest, dann widerlegt dich das Gesetz der Natur. Willst du lernen, dass Gott in der Natur die Gesetze festgesetzt hat, die unterscheiden, was gut und was schlecht ist? Befrage unser eigenes Verhalten, wie alle, die das Schlechte tun, die Benennung des Schlechten vermeiden wollen; und wie, das höre: Der Ehebrecher bricht die Ehe; er schämt sich aber, wenn er »Ehebrecher« hört. Sag dem eingestandenen Ehebrecher »Ehebrecher«; und der freut sich, wenn er es tut, aber schämt sich, wenn er es hört. Doch wenn du die Sünde für gut hältst, warum scheust du vor der Anrede zurück? Sag dem Meineidigen: »Meineidiger«; mit Entrüstung nimmt er die Bezeichnung der eigenen Werke auf; so ruft die Natur selbst, dass das Schlechte dem Werk Gottes fremd ist. Und
+                     </quote>
+                            Er sagte nicht  <said>In jedem Volk wird gerettet, wer Gerechtigkeit tut</said>, sondern:  <said>Er ist angenommen</said>, das heißt, er wird würdig, angenommen zu werden. Man muss folglich den Glauben stärker als die Werke beleuchten und dem Glauben die Werke folgen lassen. Und keiner soll den Glauben durch Fruchtlosigkeit misshandeln, noch soll er die Werke misshandeln durch Unglauben! Werde ein fruchtreicher Ölbaum, aber im Haus Gottes! Denn ein fruchtreicher Ölbaum zu sein, legte er entsprechenden Werken aus; das im Haus Gottes aber zeigt den Glauben.</p>
+               </div>
+               <div type="textpart" subtype="section" n="4">
+                  <p>Welche sind aber die Werke Gottes? Wir alle kennen sie, wenn wir sie tun wollen; denn es ist nichts verborgen. Was nämlich die Lehre betrifft, ist umstritten; was aber die Werke betrifft, ist nicht verborgen; denn die Natur zeigt die Gesetze an. Wir wissen aus uns selbst heraus, was gut und was schlecht ist. Gott hat ein ungeschriebenes Gesetz in der Natur gegeben, das unsere Sinne erleuchtet. Keiner soll sagen:  <said>Ich habe das Gesetz nicht gelesen, ich weiß nicht, was zum Gesetz gehört.</said> Denn wenn du das gemeinsame Gesetz leugnest, dann widerlegt dich das Gesetz der Natur. Willst du lernen, dass Gott in der Natur die Gesetze festgesetzt hat, die unterscheiden, was gut und was schlecht ist? Befrage unser eigenes Verhalten, wie alle, die das Schlechte tun, die Benennung des Schlechten vermeiden wollen; und wie, das höre: Der Ehebrecher bricht die Ehe; er schämt sich aber, wenn er »Ehebrecher« hört. Sag dem eingestandenen Ehebrecher »Ehebrecher«; und der freut sich, wenn er es tut, aber schämt sich, wenn er es hört. Doch wenn du die Sünde für gut hältst, warum scheust du vor der Anrede zurück? Sag dem Meineidigen: »Meineidiger«; mit Entrüstung nimmt er die Bezeichnung der eigenen Werke auf; so ruft die Natur selbst, dass das Schlechte dem Werk Gottes fremd ist. Und
                             <quote>was Gott gut gemacht hat, war gut und sehr gut<ref decls="#biblical" cRef="LXX:Gn:1:31"/>
-                            </quote>
+                     </quote>
                             und so gut, dass er durch das Böse verdorben wird und sich vor der Schlechtigkeit schämt. Sag dem Besonnenen »Besonnener«; und wer sich an dem Werk erfreut, der schämt sich auch nicht der Anrede. Nenne den Gerechten »Gerechter«, und er wird durch das Werk bekränzt und durch die Anrede gepriesen; denn wenn der Name auch durch gutes Benehmen gefordert wird, so empfängt er doch den guten Ruf in der Seele.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="5">
-                        <p>Bedenke, wie viel Schlechtigkeit in der Welt regiert und kein Angesicht hat. Und wie hat sie kein Angesicht? Wenn du akribisch forschst, wirst du keine Schlechtigkeit finden, die sich an einem eigenen Angesicht zeigt; sondern wenn sie nicht ein Angesicht der Tugend borgt, dann zeigt sie sich nicht; und wie, höre! Der, der lügt, lügt ohne die Lüge zu bekennen, sondern täuscht, indem er Wahrheit vorgaukelt; der, der lügt, verkündet nicht, was er ist, sondern spiegelt vor, was er nicht ist, und dann tut er seine Ungerechtigkeit. Gleichermaßen zeigt der Verschlagene nicht seine List, sondern gibt sich das Ansehen von Freundschaft und setzt die Schlechtigkeit ins Werk; der Ehebrecher bekennt seine gesetzlose Ehebrecherei nicht und springt dann ins Haus, sondern zieht sich ein Gebilde von Besonnenheit an und schmäht das Göttliche ins Gesicht. Du siehst, dass die Schlechtigkeit kein eigenes Angesicht hat. Gleichermaßen auch der Denunziant, wenn er ins Gericht hineingeht, bekennt er nicht das, was er ist, und geht hinein, sondern zeigt, indem er im Gewand der Wahrheit Zeugnis ablegt, durch die Lüge den Zeugen der Schlechtigkeit auf. So hat die Schlechtigkeit kein eigenes Angesicht, wenn sie sich nicht ein Angesicht der Tugend borgt. Deswegen sagte der Heiland:
+               </div>
+               <div type="textpart" subtype="section" n="5">
+                  <p>Bedenke, wie viel Schlechtigkeit in der Welt regiert und kein Angesicht hat. Und wie hat sie kein Angesicht? Wenn du akribisch forschst, wirst du keine Schlechtigkeit finden, die sich an einem eigenen Angesicht zeigt; sondern wenn sie nicht ein Angesicht der Tugend borgt, dann zeigt sie sich nicht; und wie, höre! Der, der lügt, lügt ohne die Lüge zu bekennen, sondern täuscht, indem er Wahrheit vorgaukelt; der, der lügt, verkündet nicht, was er ist, sondern spiegelt vor, was er nicht ist, und dann tut er seine Ungerechtigkeit. Gleichermaßen zeigt der Verschlagene nicht seine List, sondern gibt sich das Ansehen von Freundschaft und setzt die Schlechtigkeit ins Werk; der Ehebrecher bekennt seine gesetzlose Ehebrecherei nicht und springt dann ins Haus, sondern zieht sich ein Gebilde von Besonnenheit an und schmäht das Göttliche ins Gesicht. Du siehst, dass die Schlechtigkeit kein eigenes Angesicht hat. Gleichermaßen auch der Denunziant, wenn er ins Gericht hineingeht, bekennt er nicht das, was er ist, und geht hinein, sondern zeigt, indem er im Gewand der Wahrheit Zeugnis ablegt, durch die Lüge den Zeugen der Schlechtigkeit auf. So hat die Schlechtigkeit kein eigenes Angesicht, wenn sie sich nicht ein Angesicht der Tugend borgt. Deswegen sagte der Heiland:
                             <quote>Sie werden zu euch in Schafpelzen kommen, drinnen aber sind sie räuberische Wölfe.<ref decls="#biblical" cRef="NA:Mt:7:15"/>
-                            </quote>
-                        </p>
-                        <p>Doch lasst uns zum Thema zurückkehren!</p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="2">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Du willst sehen, Bruder, wie viel das angeborene Gesetz vermag? Auch unsere Seele, selbst wenn sie in Schlechtigkeiten verdorben wird, liebt den guten Namen. Obwohl viele Mächtige oftmals den Geruch von Habgier verströmen und nicht anderes im Sinne als Raub und Unrecht haben, werden sie von einigen beschämt, dass sie entweder dem Armen die drängende Not erlassen oder etwas vom Nötigen zugestehen oder etwa gar den Traurigen oder für traurig Gehaltenen beistehen. Und der, der kommt, um bei einem mächtigen und schlechten Mann gut zu unterhandeln, fängt nicht sofort mit der Wahrheit an; er sagt ihm nicht, was er ist, sondern gibt ihm einen ehrenhaften Namen. Oder weißt du nicht, wie sich die guten Unterhändler immer verstellen? ›Du bist‹, sagt er, ›ein guter Mann; dein Name ist in aller Munde, alle besingen deine guten Taten.‹ Und er fügt viel von dieser Art in seiner Anrede zusammen, damit er durch die guten Worte gerührt werde und die Schlechtigkeit meide. Sieh, wie die Schlechtigkeit besiegt wird durch die guten Worte der Tugend. Kein Schlechter will hören, er sei schlecht; denn die Natur begrüßt das eigene, wenn auch der Wille das Gegenteil wählt.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>Lasst uns also, Geliebte,
+                     </quote>
+                  </p>
+                  <p>Doch lasst uns zum Thema zurückkehren!</p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="2">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Du willst sehen, Bruder, wie viel das angeborene Gesetz vermag? Auch unsere Seele, selbst wenn sie in Schlechtigkeiten verdorben wird, liebt den guten Namen. Obwohl viele Mächtige oftmals den Geruch von Habgier verströmen und nicht anderes im Sinne als Raub und Unrecht haben, werden sie von einigen beschämt, dass sie entweder dem Armen die drängende Not erlassen oder etwas vom Nötigen zugestehen oder etwa gar den Traurigen oder für traurig Gehaltenen beistehen. Und der, der kommt, um bei einem mächtigen und schlechten Mann gut zu unterhandeln, fängt nicht sofort mit der Wahrheit an; er sagt ihm nicht, was er ist, sondern gibt ihm einen ehrenhaften Namen. Oder weißt du nicht, wie sich die guten Unterhändler immer verstellen?  <said>Du bist</said>, sagt er,  <said>ein guter Mann; dein Name ist in aller Munde, alle besingen deine guten Taten.</said> Und er fügt viel von dieser Art in seiner Anrede zusammen, damit er durch die guten Worte gerührt werde und die Schlechtigkeit meide. Sieh, wie die Schlechtigkeit besiegt wird durch die guten Worte der Tugend. Kein Schlechter will hören, er sei schlecht; denn die Natur begrüßt das eigene, wenn auch der Wille das Gegenteil wählt.</p>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>Lasst uns also, Geliebte,
                             <quote>ein fruchttragender Ölbaum werden<ref decls="#biblical" cRef="LXX:Ps:51:10"/>
-                            </quote>
+                     </quote>
                             und an Werken, Früchten und Blättern reich sein. Unsere Blätter sind die Worte, die Früchte die Lebensart. Dir soll die Rede ehrwürdig und die Lebensart fruchtbringend werden; denn beim Frommen ist nicht einmal das Blatt wegzuwerfen:
                             <quote>Denn sein Blatt, sagt David, wird nicht abfallen, und alles, was er tut, wird Fruchtbarkeit bringen.<ref decls="#biblical" cRef="LXX:Ps:1:3"/>
-                            </quote>
+                     </quote>
                             Doch was für ein Wunder! Ich bedenke, wie Adam nackt aus dem Paradies hinausging, und wie David im Haus Gottes reich ist. Der eine ging wegen der Übertretung nackt hinaus, der andere aber rief bekleidet mit Tugenden aus:
                             <quote>Ich aber bin wie ein fruchttragender Ölbaum.<ref decls="#biblical" cRef="LXX:Ps:51:10"/>
-                            </quote>
+                     </quote>
                             Nichts entkleidet uns so wie die Unfruchtbarkeit; und nichts bekleidet uns so wie das Fruchtbringen durch nützliche Werke. Adam wurde geschaffen; denn es ist nötig, auch jetzt das Gesagte zu wiederholen, da ja die Wiederholung der guten Dinge die Lehre in den Seelen bekräftigt. Denn wie die gefärbte Wolle fortwährend in Farbe hineingeworfen wird, damit die Farbe ihre eigene Kraft in die Tiefe übergebe, so müssen auch unsere Seelen fortwährend den göttlichen Worten ausgesetzt werden, damit der ursprüngliche Neid abgewaschen werde und wir die neue Schönheit anziehen. Denn auch jene Wolle, wenn sie die Farbe annimmt, legt ihren natürlichen Namen ab und nimmt die Bezeichnung der Farbe an; und nicht mehr nennst du sie wollen, sondern purpurn oder rot oder lauchgrün oder irgendwie so, wie die Farbe dem Gefärbten seine Schönheit gibt. Wenn also die Farbe den natürlichen Namen abändert, ändert da nicht die Natur Gottes den Menschen, so dass derselbe vor dem Färben ein irdisches Bild ist, nach dem Färben aber ein glänzendes himmlisches Bild? Adam wurde also arm aus Erde geschaffen; denn Gott nahm Erde und schuf ihn. Aber Adam wusste nicht, wie er geschaffen wurde, wie ich schon sagte: denn er durfte nicht als Zeuge der Ereignisse dabei sein, damit er sich nicht gegen Gott erhebe. Denn wenn er mit einer so großen Demut bekleidet sich erhebt, den Schöpfer nicht kennt und den Bildner leugnet, wer hätte dann die Maßlosigkeit seines Übermuts gehalten, wenn er das über die Natur Hinausgehende erhalten hätte? Deswegen hat Gott, als er den Menschen gebildet hatte, dem Gebilde auch große Kräfte eingegeben und viel Demut, damit die Anmut des Künstlers wegen der innewohnenden Kraft bewundert, durch die Demut aber der menschliche Stolz zurückgehalten wird. Er gab ihm eine laut redende Zunge, die Gott preist, das Göttliche besingt und die Schönheit der Schöpfung verkündigt. Über Himmel und Erde spricht ein kleines Stückchen Fleisch, die Zunge, die nicht einmal zwei Finger misst; Und was sage ich Finger? Nicht einmal eine Fingerspitze; aber jene kleine Spitze äußert sich sich leicht über Himmel und Erde. Und damit sie nicht meint, dass sie etwas großes ist und sich über ihre Natur erhebt, werden ihr oftmals Geschwulste und Verletzungen umgewickelt, damit sie lernt, dass sie, obwohl sie sterblich ist, über die ewigen und unsterblichen Dinge spricht und erkennen muss, was die Kraft des Verkündeten ist und was die Schwäche des Verkündenden. Er gab ihm ein Auge, jenes kleine Korn. Denn das in der Mitte ist es, was sieht, das ganz in der Mitte der Pupille; und dennoch sieht es durch jenes kleine Korn die ganze Schöpfung. Und damit es sich nicht, weil es mit dem Blick die gesamte Schöpfung umfasst, erhebt, werden dazu oftmals Augenkrankheiten, Entzündungen, Tränen, und was den Blick trübt geschaffen, damit es aus der Schwäche heraus sich selbst erkennt, aus der Schöpfung heraus aber den Künstler als Gott verehrt. Er gab ihm ein überlegendes Herz, eine Wurzel des Nachdenkens, eine Quelle der Überlegungen; aber an eben den Orten veranlasste er auch die Bildung der inneren Organe, die voller Schmutz und allen anderen unerfreulichen Dingen sind, durch die der Mensch isst, damit, wann immer das Herz sich erhebt, der Magen es zurückhält; dementsprechend sind auch der Magen und der Schmutz für die Erziehung notwendig. Denn wenn ein Mensch, der Schmutz herumträgt, es wagt sich zu erdreisten, und sich nicht einfach zu erdreisten, sondern sogar gegen Gott, wie ein barbarischer König zu sagen wagte:
                             <quote>Über die Sterne will ich meinen Thron stellen, und ich werde dem Höchsten gleich sein.<ref decls="#biblical" cRef="LXX:Is:14:13"/>
-                            </quote>
+                     </quote>
                             Wenn er, obwohl er so viel Schmutz und Unerfreuliches herumträgt, so spricht, wenn er sich gänzlich dieser Schwäche und Armseligkeit entledigt hat, wer würde es ertragen, dass er sich erhebt? Deswegen sagt der große Jesaja zu den Hochmütigen:
                             <quote>Was prahlen Erde und Asche falsch herum?<ref decls="#biblical" cRef="LXX:Sir:10:9"/>
-                            </quote>
-                        </p>
-                        <p>Doch lasst uns wieder zum Thema zurückkehren.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>Gott schuf den Menschen aus der Erde; doch der Mensch sah nicht, wie er wurde; deswegen kannte er auch seine Armseligkeit nicht; denn Gott schuf, wie ich bereits sagte, die Seele nicht vor dem Körper, damit sie die Schöpfung nicht sehe. Allerdings bringt er ihn, da er ja ganz und gar nicht wusste, aus welchem niedrigen Zustand er aufstand und dass der Schöpfer ihn aus Erde bildete, zur Erde zurück, aus der er empfangen wurde, damit er wiederum von seiner eigenen Schwäche überzeugt auch die ursprüngliche Wohltat und die kommende Menschenfreundlichkeit erkenne. Denn als er gebildet wurde, sah er nicht, dass er aus der Erde entstanden ist. Gib genau acht, dass dir der Gedanke nicht entgeht! Als Adam gebildet wurde, sah er nicht, dass er von der Erde aufstand; als er bei der Auferstehung dann aufgeweckt wird, weiß er, dass er die Erde abstreift und erweckt wird; denn wenn er auch sich selbst als Toten nicht sieht, so sieht er doch den vor sich. Wir sehen die Gestorbenen und in Erde Aufgelösten, und wodurch wir sehen werden wir erzogen. Siehst du nicht oft freche und hochmütige Männer, wie elend und niedergeschlagen sie unter den Toten sind? Ein Tod wird verkündet, und das Herz aller zuckt zusammen, der Sinn aller fällt danieder; und wir denken über die Gedenksteine nach, wann immer wir nackte Gebeine sehen und erkennen, dass die menschliche Natur zerfressen und aufgelöst ist, philosophieren wir sofort miteinander: ›Sieh, was wir werden und wohin wir weggehen!‹ Und wir schwätzen: ›Wir gehen aus den Gräbern hinaus und wir vergessen die Erniedrigung.‹ Im Grab spricht jeder zu seinem nächsten irgendwie so: ›Welch Elend! Welch Plage unseres Lebens! Sieh, was wir werden!‹ Und dennoch, wenn wir es ausrufen, dann ergreifen wir auch etwas und rufen und gedenken des Übels. Und ein jeder denkt einfach so darüber nach, wie er dem ganzen Übel entkommen kann. Und innerlich denkt er mit Worten nach, äußerlich aber kämpft er mit Taten gegen Gott. Deswegen hat es Gott eingerichtet, dass überall Gedenksteine aufgestellt werden, die uns an unsere eigene Schwäche erinnern; deswegen hat jede Stadt, jedes Dorf vor den Zugängen Gräber. Drängt es einen, eine königliche Stadt zu betreten, die sich mit Reichtum, Macht und den anderen Ehren schmückt; und ehe er sieht, was zur Schau gestellt wird, sieht er zuerst, was geschieht: Gräber vor den Toren, Gräber vor den Feldern; überall liegt die Schule unserer Erniedrigung, und wir werden zuerst darüber belehrt, wo wir enden, um dann auch die leeren Darbietungen drinnen zu sehen; und nicht nur dies, sondern auch, wenn wir oftmals in die Gemeinschaft des Lebens hineingehen wollen, werden wir in der höchsten Erniedrigung der Natur belehrt. Oftmals diktiert ein Mann, wenn er eine Frau nehmen will, dem Notar die Mitgift. Noch keine Verbindung und der Tod wird geradewegs niedergeschrieben; noch nicht hat er das Zusammenleben und die Ehe genossen, und geradewegs setzt er für sich den Tod fest; noch nicht sah er die Gattin, und nimmt schon das Todeslos gegen sich selbst und gegen jene gedanklich vorweg und schreibt solches: Wenn aber der Mann vor der Frau stirbt, wenn die Frau vor dem Mann, wird das und das festgelegt. So haben die altehrwürdigen Gesetze überall allen die Denkmäler für die Natur errichtet; und nicht nur über die Existierenden und die Lebenden werden die Todeslose gezogen, sondern auch gegen die, die noch nicht geworden sind. Denn was sagt er? Wenn aber das zu zeugende Kind stirbt. Noch keine Frucht, und das Urteil haben wir gefällt. Sodann erkennt er im Geschriebenen die Natur an; wenn er aber etwas Menschliches erleidet oder die Frau stirbt, vergisst er, was er geschrieben hat, und bringt andere, tragische Worte hervor: ›Und das‹, sagt er, ›musste ich leiden? Das erwartete ich zu erleiden und der Verbindung beraubt zu werden?‹ Was nun? Hast du vergessen, was du geschrieben hast? Als du außerhalb der Schwierigkeiten warst, erkanntest du die Grenzen der Natur; als du aber den Leiden anheimgefallen bist, hast du die Gesetze der Natur vergessen? Das wird zur Warnung aller gesagt, damit alle alles, was ihnen widerfährt, edel ertragen, damit sie nicht die Richtsprüche Gottes für eine Strafe halten. Denke nicht außerhalb der Leiden nach, sondern, wenn du in die Leiden hineingerätst, zeige deine Großherzigkeit; wenn du betrübt wirst, gedenke der Worte, durch die du den Betrübten tröstest. Welche Worte gebrauchen wir gegenüber den Betrübten? Lehren wir sie nicht dies? »Die Unglücksfälle sind menschlich; nicht allein du erduldest das Unglück, nicht allein du erträgst die Gewalt des Todes; das ertragen auch Könige, oftmals wurden Herrscher gestraft, auch Machthaber werden gestraft. Erkenne dein Los, du bist ein Mensch; mit allen erfreust du dich auch selbst an den gemeinsamen Gesetzen der Natur.</p>
-                    </div>
-                </div>
-                <div type="textpart" subtype="chapter" n="3">
-                    <div type="textpart" subtype="section" n="1">
-                        <p>Das und mehr als das sage, wenn du einen anderen tröstest. Sonst bist du nämlich zwar ein tüchtiger Lehrer anderer, bei dir selbst aber nicht einmal ein erbärmlicher Schüler. Es ist Zeichen für eine große und edle Seele in den höchsten Leiden zu lehren. Wenn einer zu jedem Unglück, jeder Betrübnis, jeder Strafe sagen kann
+                     </quote>
+                  </p>
+                  <p>Doch lasst uns wieder zum Thema zurückkehren.</p>
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>Gott schuf den Menschen aus der Erde; doch der Mensch sah nicht, wie er wurde; deswegen kannte er auch seine Armseligkeit nicht; denn Gott schuf, wie ich bereits sagte, die Seele nicht vor dem Körper, damit sie die Schöpfung nicht sehe. Allerdings bringt er ihn, da er ja ganz und gar nicht wusste, aus welchem niedrigen Zustand er aufstand und dass der Schöpfer ihn aus Erde bildete, zur Erde zurück, aus der er empfangen wurde, damit er wiederum von seiner eigenen Schwäche überzeugt auch die ursprüngliche Wohltat und die kommende Menschenfreundlichkeit erkenne. Denn als er gebildet wurde, sah er nicht, dass er aus der Erde entstanden ist. Gib genau acht, dass dir der Gedanke nicht entgeht! Als Adam gebildet wurde, sah er nicht, dass er von der Erde aufstand; als er bei der Auferstehung dann aufgeweckt wird, weiß er, dass er die Erde abstreift und erweckt wird; denn wenn er auch sich selbst als Toten nicht sieht, so sieht er doch den vor sich. Wir sehen die Gestorbenen und in Erde Aufgelösten, und wodurch wir sehen werden wir erzogen. Siehst du nicht oft freche und hochmütige Männer, wie elend und niedergeschlagen sie unter den Toten sind? Ein Tod wird verkündet, und das Herz aller zuckt zusammen, der Sinn aller fällt danieder; und wir denken über die Gedenksteine nach, wann immer wir nackte Gebeine sehen und erkennen, dass die menschliche Natur zerfressen und aufgelöst ist, philosophieren wir sofort miteinander:  <said>Sieh, was wir werden und wohin wir weggehen!</said> Und wir schwätzen:  <said>Wir gehen aus den Gräbern hinaus und wir vergessen die Erniedrigung.</said> Im Grab spricht jeder zu seinem nächsten irgendwie so:  <said>Welch Elend! Welch Plage unseres Lebens! Sieh, was wir werden!</said> Und dennoch, wenn wir es ausrufen, dann ergreifen wir auch etwas und rufen und gedenken des Übels. Und ein jeder denkt einfach so darüber nach, wie er dem ganzen Übel entkommen kann. Und innerlich denkt er mit Worten nach, äußerlich aber kämpft er mit Taten gegen Gott. Deswegen hat es Gott eingerichtet, dass überall Gedenksteine aufgestellt werden, die uns an unsere eigene Schwäche erinnern; deswegen hat jede Stadt, jedes Dorf vor den Zugängen Gräber. Drängt es einen, eine königliche Stadt zu betreten, die sich mit Reichtum, Macht und den anderen Ehren schmückt; und ehe er sieht, was zur Schau gestellt wird, sieht er zuerst, was geschieht: Gräber vor den Toren, Gräber vor den Feldern; überall liegt die Schule unserer Erniedrigung, und wir werden zuerst darüber belehrt, wo wir enden, um dann auch die leeren Darbietungen drinnen zu sehen; und nicht nur dies, sondern auch, wenn wir oftmals in die Gemeinschaft des Lebens hineingehen wollen, werden wir in der höchsten Erniedrigung der Natur belehrt. Oftmals diktiert ein Mann, wenn er eine Frau nehmen will, dem Notar die Mitgift. Noch keine Verbindung und der Tod wird geradewegs niedergeschrieben; noch nicht hat er das Zusammenleben und die Ehe genossen, und geradewegs setzt er für sich den Tod fest; noch nicht sah er die Gattin, und nimmt schon das Todeslos gegen sich selbst und gegen jene gedanklich vorweg und schreibt solches: Wenn aber der Mann vor der Frau stirbt, wenn die Frau vor dem Mann, wird das und das festgelegt. So haben die altehrwürdigen Gesetze überall allen die Denkmäler für die Natur errichtet; und nicht nur über die Existierenden und die Lebenden werden die Todeslose gezogen, sondern auch gegen die, die noch nicht geworden sind. Denn was sagt er? Wenn aber das zu zeugende Kind stirbt. Noch keine Frucht, und das Urteil haben wir gefällt. Sodann erkennt er im Geschriebenen die Natur an; wenn er aber etwas Menschliches erleidet oder die Frau stirbt, vergisst er, was er geschrieben hat, und bringt andere, tragische Worte hervor:  <said>Und das</said>, sagt er,  <said>musste ich leiden? Das erwartete ich zu erleiden und der Verbindung beraubt zu werden?</said> Was nun? Hast du vergessen, was du geschrieben hast? Als du außerhalb der Schwierigkeiten warst, erkanntest du die Grenzen der Natur; als du aber den Leiden anheimgefallen bist, hast du die Gesetze der Natur vergessen? Das wird zur Warnung aller gesagt, damit alle alles, was ihnen widerfährt, edel ertragen, damit sie nicht die Richtsprüche Gottes für eine Strafe halten. Denke nicht außerhalb der Leiden nach, sondern, wenn du in die Leiden hineingerätst, zeige deine Großherzigkeit; wenn du betrübt wirst, gedenke der Worte, durch die du den Betrübten tröstest. Welche Worte gebrauchen wir gegenüber den Betrübten? Lehren wir sie nicht dies? Die Unglücksfälle sind menschlich; nicht allein du erduldest das Unglück, nicht allein du erträgst die Gewalt des Todes; das ertragen auch Könige, oftmals wurden Herrscher gestraft, auch Machthaber werden gestraft. Erkenne dein Los, du bist ein Mensch; mit allen erfreust du dich auch selbst an den gemeinsamen Gesetzen der Natur.</p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="3">
+               <div type="textpart" subtype="section" n="1">
+                  <p>Das und mehr als das sage, wenn du einen anderen tröstest. Sonst bist du nämlich zwar ein tüchtiger Lehrer anderer, bei dir selbst aber nicht einmal ein erbärmlicher Schüler. Es ist Zeichen für eine große und edle Seele in den höchsten Leiden zu lehren. Wenn einer zu jedem Unglück, jeder Betrübnis, jeder Strafe sagen kann
                             <quote>Gerecht bist du, Herr, und aufrichtig sind deine Rechtssprüche.<ref decls="#biblical" cRef="LXX:Ps:118:137"/>
-                            </quote>, dann wird er wie ein Mensch bestraft, aber wie ein Gottesfreund bekränzt. Das Leben, Brüder, ist voller Verdruss, und man muss ganz und gar in Gerechtem und Ungerechtem, in Frommem und Gottlosem bedrückt werden. Aber groß ist der Unterschied! Denn es ist eines, wie ein Mitglied der Familie erzogen werden, und etwas anderes, wie ein Fremder gezüchtigt werden. Ein Sohn wird geschlagen, auch ein Diener wird geschlagen; und obwohl sich der eine als Diener verfehlt hat und der andere als Freier und wie ein Sohn, der der Umkehr bedarf, so machen die Schläge nicht den gleichen Rang. Wenn ein Frommer erduldet, was ein Frevler erduldet, dann wird er nicht gleich geschätzt wie der Frevler; sondern diesem wird die Erziehung zur Bedrängnis und Prüfung angerechnet, dem Gottlosen aber zu Peitschenhieben und Bestrafung. Deswegen sagt der selige David, weil er diese Schwierigkeiten kennt, über die Gerechten:
+                     </quote>, dann wird er wie ein Mensch bestraft, aber wie ein Gottesfreund bekränzt. Das Leben, Brüder, ist voller Verdruss, und man muss ganz und gar in Gerechtem und Ungerechtem, in Frommem und Gottlosem bedrückt werden. Aber groß ist der Unterschied! Denn es ist eines, wie ein Mitglied der Familie erzogen werden, und etwas anderes, wie ein Fremder gezüchtigt werden. Ein Sohn wird geschlagen, auch ein Diener wird geschlagen; und obwohl sich der eine als Diener verfehlt hat und der andere als Freier und wie ein Sohn, der der Umkehr bedarf, so machen die Schläge nicht den gleichen Rang. Wenn ein Frommer erduldet, was ein Frevler erduldet, dann wird er nicht gleich geschätzt wie der Frevler; sondern diesem wird die Erziehung zur Bedrängnis und Prüfung angerechnet, dem Gottlosen aber zu Peitschenhieben und Bestrafung. Deswegen sagt der selige David, weil er diese Schwierigkeiten kennt, über die Gerechten:
                             <quote>Viele sind die Bedrängnisse der Gerechten.<ref decls="#biblical" cRef="LXX:Ps:33:20"/>
-                            </quote>
+                     </quote>
                             Doch sieh, was danach kommt:
                             <quote>Und aus ihnen allen wird sie der Herr erretten.<ref decls="#biblical" cRef="LXX:Ps:33:20"/>
-                            </quote>
+                     </quote>
                             Noch nicht hat er die Bedrängnis genannt, da hat er auch schon die Heilung aufgezeigt. Über die Gegner aber:
                             <quote>Viele sind die Peitschenhiebe des Sünders.<ref decls="#biblical" cRef="LXX:Ps:31:10"/>
-                            </quote>
+                     </quote>
                             Und nichts, was danach kommt.
                             <quote>Es gibt für die Gerechten viele Bedrängnisse, aber aus ihnen allen wird sie der Herr erretten.<ref decls="#biblical" cRef="LXX:Ps:33:20"/>
-                            </quote>
-                            Wenn aber einer dies hört, soll er nicht an sich selbst verzweifeln und soll nicht sagen: ›Wenn ich nun wie ein Sünder ausgepeitscht werde und keine Hoffnung habe, so ist meine Erziehung ohne Frucht.‹ Denn die Schrift hat jetzt den ganz der Frömmigkeit Fremden einen Sünder genannt, aber nicht den Gerechten, den Bedrängten, der an der Frömmigkeit teil hat, aber durch menschliche Angelegenheiten ausgerutscht ist. Denn dass sich Gott über die Sünder erbarmt, davon ist die ganze Schrift voll von den Versicherungen der Menschenfreundlichkeit Gottes. Denn sie sagt:
+                     </quote>
+                            Wenn aber einer dies hört, soll er nicht an sich selbst verzweifeln und soll nicht sagen:  <said>Wenn ich nun wie ein Sünder ausgepeitscht werde und keine Hoffnung habe, so ist meine Erziehung ohne Frucht.</said> Denn die Schrift hat jetzt den ganz der Frömmigkeit Fremden einen Sünder genannt, aber nicht den Gerechten, den Bedrängten, der an der Frömmigkeit teil hat, aber durch menschliche Angelegenheiten ausgerutscht ist. Denn dass sich Gott über die Sünder erbarmt, davon ist die ganze Schrift voll von den Versicherungen der Menschenfreundlichkeit Gottes. Denn sie sagt:
                             <quote>Ich lebe, sagt der Herr, ich will nicht den Tod des Sünders, damit er umkehrt und lebt.<ref decls="#biblical" cRef="LXX:Hes:33:11"/>
-                            </quote>
+                     </quote>
                             Gott schwört, nicht, weil er sich selbst nicht glaubt, sondern weil er unseren Unglauben in Glauben zwingt. Es soll also ein jeder Mensch sagen, wenn er in Bedrängnissen geprüft wird:
                             <quote>Du bist gerecht, Herr, und deine Rechtssprüche sind aufrichtig.<ref decls="#biblical" cRef="LXX:Ps:118:137"/>
-                            </quote>
+                     </quote>
                             Und zugleich zeigt er die edle Seele und hat die Frömmigkeit nicht aufgelöst.</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="2">
-                        <p>Ein solcher war der selige Hiob, der gegen alle Leiden zu Felde gezogen ist, der alle Schreckmittel des Teufels besiegt hat, der seinen gesamten Wahnsinn zerstört hat, der durch die Festigkeit seiner Ansichten die Wogen des Teufels gebrochen hat, der zugleich von allem beraubt worden ist und dennoch den Herrn über alles nicht geleugnet hat. Doch dessen Feldherrenkünste werden ihre eigene Rede bekommen:<note>Verweis auf weitere Homilie.</note>
+               </div>
+               <div type="textpart" subtype="section" n="2">
+                  <p>Ein solcher war der selige Hiob, der gegen alle Leiden zu Felde gezogen ist, der alle Schreckmittel des Teufels besiegt hat, der seinen gesamten Wahnsinn zerstört hat, der durch die Festigkeit seiner Ansichten die Wogen des Teufels gebrochen hat, der zugleich von allem beraubt worden ist und dennoch den Herrn über alles nicht geleugnet hat. Doch dessen Feldherrenkünste werden ihre eigene Rede bekommen:<note>Verweis auf weitere Homilie.</note>
                             Denn es bedarf auch wirklich eines eigenen Zeitpunktes zur Prüfung; lasst uns nicht durch beiläufiges Bereden seine Kämpfe von oben herab behandeln. Lasst uns aber jenes vor Augen haben, was jener edle und große Kämpfer sagte; denn da er ja dem Gesagten danach ein Siegel aufdrückt. Von allem entblößt entkleidete er sich nicht der Frömmigkeit, sondern sagt:
-                            <quote>Der Herr hat gegeben, der Herr hat genommen: wie es dem Herrn gefallen hat, so geschah es auch.<ref decls="#biblical" cRef="Hiob 1,21"/>
-                            </quote>
+                            <quote>Der Herr hat gegeben, der Herr hat genommen: wie es dem Herrn gefallen hat, so geschah es auch.<ref decls="#biblical" cRef="LXX:Job:1:21"/>
+                     </quote>
                             Schön ist das
                             <quote>Es hat gefallen<ref decls="#biblical" cRef="LXX:Job:1:21"/>
-                            </quote>; er gibt der Autorität nach und kümmert sich nicht zu viel um die Haushaltung. Er sagte nicht wie wir: ›Weswegen sterben die Jungen und entkräftete Greise bleiben? Was ist das für eine Haushaltung? Ein Greis sehnt sich nach dem Tod, gelöst vom Fleisch, bedürftig des Geldes und allen anderen Trostes, und erhält nicht, was er ersehnt. Und ein Kind mit liebenswürdiger Schönheit, ersehnt von den Eltern, wird zur unrechten Zeit geraubt?‹ Lerne, nicht solches zu suchen, lerne zu sagen:
+                     </quote>; er gibt der Autorität nach und kümmert sich nicht zu viel um die Haushaltung. Er sagte nicht wie wir:  <said>Weswegen sterben die Jungen und entkräftete Greise bleiben? Was ist das für eine Haushaltung? Ein Greis sehnt sich nach dem Tod, gelöst vom Fleisch, bedürftig des Geldes und allen anderen Trostes, und erhält nicht, was er ersehnt. Und ein Kind mit liebenswürdiger Schönheit, ersehnt von den Eltern, wird zur unrechten Zeit geraubt?</said> Lerne, nicht solches zu suchen, lerne zu sagen:
                             <quote>Deine Urteilssprüche sind ein tiefer Abgrund.<ref decls="#biblical" cRef="LXX:Ps:35:7"/>
-                            </quote>
+                     </quote>
                             Lerne zu sagen:
                             <quote>Gerecht bist du, Herr, und aufrichtig sind deine Rechtssprüche.<ref decls="#biblical" cRef="LXX:Ps:118:137"/>
-                            </quote>
+                     </quote>
                             Lerne zu sagen:
                             <quote>Wie es dem Herrn gefallen hat, so ist es auch geschehen.<ref decls="#biblical" cRef="LXX:Job:1:21"/>
-                            </quote>
+                     </quote>
                             Erkenne die Autorität, damit du die Frömmigkeit erkennst!</p>
-                    </div>
-                    <div type="textpart" subtype="section" n="3">
-                        <p>Aber da ja die Rede zufällig auf die Herrlichkeit des heiligen Geistes gekommen ist, lasst uns zu unserer Versicherung und Bekräftigung auch etwas Lehrhaftes sagen! Denn wie Hiob gesagt hat:
+               </div>
+               <div type="textpart" subtype="section" n="3">
+                  <p>Aber da ja die Rede zufällig auf die Herrlichkeit des heiligen Geistes gekommen ist, lasst uns zu unserer Versicherung und Bekräftigung auch etwas Lehrhaftes sagen! Denn wie Hiob gesagt hat:
                             <quote>Wie es dem Herrn gefallen hat<ref decls="#biblical" cRef="LXX:Job:1:21"/>
-                            </quote>, und damit die Autorität und die Herrschaft zeigt, so sagen auch die Apostel, als sie die herrschaftliche Autorität des Geistes aufzeigten:
+                     </quote>, und damit die Autorität und die Herrschaft zeigt, so sagen auch die Apostel, als sie die herrschaftliche Autorität des Geistes aufzeigten:
                             <quote>Es gefiel dem heiligen Geist, euch nichts dazuzugeben, außer dem, was notwendig ist.<ref decls="#biblical" cRef="NA:Act:15:28"/>
-                            </quote>
-                            <quote>Es gefiel dem heiligen Geist.<ref decls="#biblical" cRef="NA:Act:15:28"/>
-                            </quote>
+                     </quote>
+                     <quote>Es gefiel dem heiligen Geist.<ref decls="#biblical" cRef="NA:Act:15:28"/>
+                     </quote>
                             Wenn er darunter steht, warum hat es ihm gefallen? Wenn der Geist unter dem Gesetz steht und dient, wie »gefiel es dem«, der einem untersteht? Nicht was dem König gefällt, das geschieht auch, (sondern) etwa das, was den Beherrschten in den Sinn kommt?
                             <quote>Wie es dem Herrn gefallen hat<ref decls="#biblical" cRef="LXX:Job:1:21"/>
-                            </quote>, sagt Hiob.
+                     </quote>, sagt Hiob.
                             <quote>Wie es dem heiligen Geist gefiel<ref decls="#biblical" cRef="NA:Act:15:28"/>
-                            </quote>, sagen die Apostel. Das Wort der Macht ist gleichwertig, da ja die Herrlichkeit der Königsherrschaft unteilbar ist. Aber die Schlechtigkeit der Häretiker findet wieder ein Schlupfloch. Sie sagen: ›Haben denn, da ja die Apostel sagten:
+                     </quote>, sagen die Apostel. Das Wort der Macht ist gleichwertig, da ja die Herrlichkeit der Königsherrschaft unteilbar ist. Aber die Schlechtigkeit der Häretiker findet wieder ein Schlupfloch. Sie sagen:  <said>Haben denn, da ja die Apostel sagten:
                             <quote>Es gefiel dem heiligen Geist<ref decls="#biblical" cRef="NA:Act:15:28"/>
-                            </quote>, und hinzufügten
-                            <quote>auch uns</quote>, die Apostel deswegen die Macht der Göttlichkeit?‹ Damit soll man sich beschäftigen, damit sie nicht in ungeübte Seelen ihr Gift des Unglaubens einflößen, damit sie nicht in das Gehör der Reinen häretische Gottlosigkeit hineingießen. Solches nämlich sagen sie oft in feierlichem Ton: ›Nichts,‹ sagt er, ›Bruder, möge dich von dem Gesagten entfremden.‹ Wie einen Bruder ruft er ihn und wie einen Feind tötet er ihn. ›Wundere dich nicht,‹ sagt er, ›wenn die Apostel über den heiligen Geist sagten:
+                     </quote>, und hinzufügten
+                            <quote>auch uns</quote>, die Apostel deswegen die Macht der Göttlichkeit?</said> Damit soll man sich beschäftigen, damit sie nicht in ungeübte Seelen ihr Gift des Unglaubens einflößen, damit sie nicht in das Gehör der Reinen häretische Gottlosigkeit hineingießen. Solches nämlich sagen sie oft in feierlichem Ton:  <said>Nichts,</said> sagt er,  <said>Bruder, möge dich von dem Gesagten entfremden.</said> Wie einen Bruder ruft er ihn und wie einen Feind tötet er ihn.  <said>Wundere dich nicht,</said> sagt er,  <said>wenn die Apostel über den heiligen Geist sagten:
                             <quote>Es gefiel dem heiligen Geist<ref decls="#biblical" cRef="NA:Act:15:28"/>
-                            </quote>, sondern sieh auch das Beigefügte:
+                     </quote>, sondern sieh auch das Beigefügte:
                             <quote>Es gefiel dem heiligen Geist; und uns<ref decls="#biblical" cRef="NA:Act:15:28"/>
-                            </quote>, es gefiel den Aposteln. Sind die Apostel also Götter? Haben sie also die Macht Gottes?‹ Wenn dies der Häretiker sagt, lasst uns aus der heiligen Schrift die Geschosse vorbringen.
+                     </quote>, es gefiel den Aposteln. Sind die Apostel also Götter? Haben sie also die Macht Gottes?</said> Wenn dies der Häretiker sagt, lasst uns aus der heiligen Schrift die Geschosse vorbringen.
                             <quote>Denn die Geschosse des Mächtigen sind geschärft im Herzen der Feinde des Königs gesandt.<ref decls="#biblical" cRef="LXX:Ps:119:4"/>
-                            </quote>
+                     </quote>
                             Was kann man also zu ihm sagen? Wenn das Zusammenfügen der Apostel mit dem heiligen Geist die Würde des Geistes vermindert, dann vermindert doch auch das Zusammenfügen des Mose mit Gott die Würde Gottes. Wie ich sage: Wenn du das »Es gefiel dem heiligen Geist« nicht für groß hältst, weil es mit den Aposteln zusammengefügt ist, dann kannst du auch den Glauben an Gott nicht groß nennen, weil auch Mose mit Gott zusammengefügt ist. Denn die Schrift sagt:
                             <quote>Das Volk glaubte an Gott und an Mose.<ref decls="#biblical" cRef="LXX:Ex:14:31"/>
-                            </quote>
+                     </quote>
                             Lasst uns aber noch ein weiteres Geschoss vorbringen! Wenn er die Würde des Geistes zerstört, weil sie mit der Ehre der Apostel verbunden ist, dann erhebt er sich gegen Gott und verringert seine Würde, weil Samuel dabei ist; denn es steht geschrieben:
                             <quote>Und das gesamte Volk fürchtete den Herrn und den Samuel.<ref decls="#biblical" cRef="LXX:1Sa:12:18"/>
-                            </quote>
+                     </quote>
                             Lasst uns wiederum auch ein weiteres, drittes Geschoss gegen die Gottlosigkeit vorbringen: Es könnte wohl die Würde des heiligen Geistes und die göttliche Macht verringern, dass die Apostel mit dem Geist verbunden sind, es könnte Gideon die Würde Gottes verringern dadurch, dass er bei ihm dabei ist in der Anrede. Es rief nämlich das ganze Volk, als es kämpfte:
                             <quote>Ein Schwert für Gott und Gideon!<ref decls="#biblical" cRef="LXX:Judg:7:20"/>
-                            </quote>
+                     </quote>
                             Wie also Mose mit Gott zusammengefügt ist, so ist er es nicht als Gott Ebenbürtiger, sondern als ein Diener Gottes, und (wie) Samuel mit Gott (zusammen ist), ist er es nicht als ein Ebenbürtiger, sondern als ein Prophet, und (wie) Gideon mit Gott (zusammen ist), ist er es nicht als ein Ebenbürtiger, sondern als ein Heerführer im Krieg, so sind auch die Apostel mit dem Geist (zusammengefügt) als Verkünder des Evangeliums. Erkenne also die Macht und erhebe dich nicht gegen die Würde des Geistes! Erkenne die göttliche Gottesrede der heiligen Dreiheit, des Vaters und des Sohnes und des heiligen Geistes! Diese ist die ungefertigte Natur, die wahrhaftige Würde, die unteilbare Königsherrschaft, die unzertrennliche Herrlichkeit, die ungeteilte Hoffnung, die unbegreifliche Ehre des Vaters und des Sohnes und des heiligen Geistes; ihr ziemt alle Herrlichkeit, Ehre und Anbetung in alle Ewigkeit.</p>
-                        <p>Amen.</p>
-                    </div>
-                </div>
+                  <p>Amen.</p>
+               </div>
             </div>
-        </body>
-    </text>
+         </div>
+      </body>
+   </text>
 </TEI>
