@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>De die dominica (Versio A)</title>
+            <author>
+               <persName key="pta0030">Eusebius (»Alexandrinus«)</persName>
+            </author>
+            <editor>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <roleName>Translator</roleName>
+            </editor>
+         </titleStmt>
+         <editionStmt>
+            <p>New digital English translation from the Greek text.</p>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Patristic Text Archive</publisher>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">Available under a
+                  Creative Commons Attribution 4.0 International License</licence>
+            </availability>
+            <date>2022</date>
+            <idno type="PTA">pta0030.pta016</idno>
+            <idno type="CPG">5525</idno>
+            <idno type="BHG">635c</idno>
+            <idno type="Pinakes-Oeuvre">12440</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born digital</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section" matchPattern="(.+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='translation']/tei:div[@n='$1'])"
+            />
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also
+                  possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not
+                  following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa,
+                  2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps,
+                  Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah,
+                  Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk,
+                  Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm,
+                  Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible:
+                  LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following
+                  each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+               replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p> This file is encoded according to the guidelines of the Patristic Text Archive
+                  (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines"
+                     >https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref
+                     target="https://doi.org/10.5281/zenodo.3737666"
+                     >https://doi.org/10.5281/zenodo.3737666</ref>. </p>
+               <p xml:id="biblical-quotations" ana="fully-annotated fully-identified"> Biblical
+                  quotations are fully annotated and fully referenced. References follow the scheme
+                  declared <ref target="#biblical">above</ref>. </p>
+               <p xml:id="other-references" ana="fully-annotated fully-identified"> Other references
+                  are fully annotated and fully referenced. References to texts in the PTA follow
+                  the scheme declared <ref target="#pta">above (pta)</ref>, references to texts
+                  available in the <ref target="https://scaife.perseus.org/">Perseus Digital
+                     Library</ref> follow the scheme declared <ref target="#perseus">above
+                     (perseus)</ref>. If the referenced text is not available in either repository,
+                  the reference for the referenced text is given in the attribute @source in the
+                  form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be
+                  referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek -
+                  English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek
+                  Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the
+                  Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus
+                  exempla afferuntur) should be used, with dots in the abbreviations deleted without
+                  replacement. </p>
+               <p xml:id="persons" ana="fully-annotated fully-identified"> Persons are fully
+                  annotated and fully referenced with IDs according to the <ref
+                     target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale
+                     Individualised Proper Names with all References</ref> list for biblical persons
+                  and IDs of <ref
+                     target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json"
+                     >PTA persons index</ref> for all other persons. </p>
+               <p xml:id="groups" ana="fully-annotated fully-identified"> Groups of persons and
+                  organisations are fully annotated and fully referenced with IDs according to the
+                  IDs of <ref
+                     target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json"
+                     >PTA groups index</ref> for all other groups. </p>
+               <p xml:id="places" ana="fully-annotated fully-identified"> Places are fully annotated
+                  and fully referenced with <ref target="https://pleiades.stoa.org/">Pleiades
+                     Gazetteer</ref> IDs. </p>
+            </interpretation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl> Text Type Classification by <ref target="https://www.comphistsem.org/46.html"
+                     >"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl> Patristic Text Archive Status of edition </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc> Critical edition in which the text-critical variants have been encoded.
+                  </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc> Critical edition in which the text-critical variants have not been
+                     encoded, e.g. because it is a retro-digitisation of a printed critical edition
+                     and for copyright reasons the apparatus cannot be included in the
+                     retro-digitisation. </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc> Edition which notes text-critical variants, but does not, for example,
+                     comprehensively include the manuscripts. </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc> Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+                  </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl> Patristic Text Archive Status of annotation </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc> All instances of a phenomenon (e.g. biblical quotations, persons,
+                     places) are encoded with the respective element. </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc> Some instances of a phenomenon (e.g. biblical quotations, persons,
+                     places) are encoded with the respective element. </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc> No instances of a phenomenon (e.g. biblical quotations, persons, places)
+                     are encoded with the respective element. </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc> All encoded instances of a phenomenon (e.g. biblical quotations,
+                     persons, places) are identified with the respective norm data. </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc> Some encoded instances of a phenomenon (e.g. biblical quotations,
+                     persons, places) are identified with the respective norm data </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc> No encoded instances of a phenomenon (e.g. biblical quotations, persons,
+                     places) are identified with the respective norm data. </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+            url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0030" notAfter="1500"/>
+            <placeName/>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2023-05-22" who="#AvS"> Updated file to comply with version 3.0 of <ref
+               target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change who="#AvS" when="2022-10-30">Translation</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="translation" xml:lang="eng" n="urn:cts:pta:pta0030.pta016.pta-eng1"
+            corresp="urn:cts:pta:pta0030.pta016.pta-grc2">
+            <head>
+               <title>Speech by the blessed bishop Eusebius (of Alexandria) on the day of the
+                  Lord.</title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p>After the release from church on the holy day of the Lord, while the blessed
+                  bishop Eusebius sat down, Alexander came forward and asked him: “I beg you, my
+                  Lord, why is it necessary to keep the day of the Lord and not to work? And what
+                  kind of gain do we have, if we do not work?” The blessed opened his mouth and
+                  said: “Hear, child, and I will tell you, why it is taught to us to keep the day of
+                  the Lord and not to work. <quote>When the Lord taught his disciples the mystery
+                     (of Eucharist), he took the bread, blessed it and breaking it gave it to his
+                     disciples and said: ‘Take, eat, this is my body, which is broken for you, for
+                     remission of sins.’ Likewise he also gave them the cup and said: ‘You all,
+                     drink from it, this is my blood of the new covenant, which is poured out for
+                     you, the many, for remission of sins. Do that for my remembrance,’ he says.<ref
+                        decls="#biblical" cRef="NA:1Cor:11:23-26"/><ref decls="#biblical"
+                        cRef="NA:Mt:26:26-29"/></quote> Therefore, the holy day of the Lord is
+                  remembrance. That’s why it is called day of the Lord, as it is lord over the days.
+                  For before the passion of the Lord, it was not called Lord’s day, but first day.
+                  On that day the Lord began the first-fruits of the creation. And on exactly that
+                  day he gave the world the first-fruit of the resurrection, on that day, as we
+                  said, he also ordered the holy mysteries to be performed. Now, we have the
+                  beginning of all goodness on such a day, the beginning of the creation of the
+                  world, the beginning of the resurrection, the beginning of the week. Three
+                  beginnings has that day, it dawns the beginning of the most-holy trinity.</p>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <p>Well, seven days has the week, God gave us six days to work, and he gave us one
+                  for prayer, rest, and deliverance from evil and that we may make atonement for
+                  them before God on the day of the Lord, if we did sinful actions during the six
+                  days. Get up before dawn in the church of God, come to the Lord, confess him your
+                  sins, repent in prayer and with a contrite heart, stay in the divine and holy
+                  liturgy, complete your prayer and never leave before the release! Look, how your
+                  Lord is cut in pieces and distributed and is not eaten up! And if you have a good
+                  conscience, come forward and take part in the body and the blood of the Lord! But
+                  if your conscience condemns you for bad and foul deeds, decline the community
+                  until you amend yourself in repentance, but stay for the prayer and do not leave
+                  the church, if you are not released. Remind yourself of <persName type="biblical"
+                     key="Judas_Mat.10.4">Judas</persName> the traitor! <seg type="allusion">The
+                     beginning of his destruction was that he did not stay with the others praying.
+                     When he (Jesus), it says, took the bread, he (Judas) as first of all left and
+                     at once Satan entered him, and he eagerly betrayed the Lord.<ref
+                        decls="#biblical" cRef="NA:Jn:13:26-30"/></seg> Now, if you leave before the
+                  release, you impersonate <persName type="biblical" key="Judas_Mat.10.4"
+                     >Judas</persName>. Certainly, you do not want to get judged with <persName
+                     type="biblical" key="Judas_Mat.10.4">Judas</persName> because of a little time!
+                  Staying doesn’t hurt you. The church has no snow inside, no fire, no other thing
+                  tormenting you, but only a small amount of patience is needed and your prayer is
+                  perfect.</p>
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <p>We keep the day of the Lord only to stay away from work and to have opportunity to
+                  pray. But if you stay away from work and do not go to church, you gain nothing. To
+                  the contrary, you hurt yourself greatly. Many wait for the day of the Lord, but
+                  not all for the same end. Those who have fear for God wait for the day of the
+                  Lord, that they may send their prayer to God and enjoy the dear body and blood.
+                  But the careless and the negligent wait for the day of the Lord that they may stay
+                  away from work and spend their time with bad people. And what happened gives
+                  evidence that I do not lie: Go to the main street on any day and you will find
+                  nobody. Go on the day of the Lord and you will find some playing the lyre, others
+                  beating and dancing, others sitting and joking with their neighbor and scolding,
+                  others wrestling, others wrangling with each other, others nodding to bad things,
+                  and if somewhere there is a lyre and a dance, then all run. The announcer calls to
+                  the church and all display hesitation and inability. A sound of the lyre or of the
+                  flute or a beat of dancing is produced, and all come there very fast as if they
+                  had wings. What do those who come to church look at? I say it to you: the Lord
+                  Christ offered on the holy table while the Seraphim sing the three-holy hymn, the
+                  Holy Spirit’s arrival and visit, the prophet and king <persName type="biblical"
+                     key="David_Rut.4.17">David</persName> celebrating, the praised apostle
+                     <persName type="biblical" key="Paul_Act.7.58">Paul</persName>, who resonates
+                  his teaching in the ears of everybody, the hymn of the angels, the never-ending
+                  hallelujah, the evangelical voices, the Lord’s commandments, the admonition and
+                  counsel of the holy bishops and presbyters, all spirituals, all heavenly things,
+                  all relief of salvation and kingdom. Who comes to the church hears that and sees
+                  that. What see those who run to the theater? Prostitutes, devilish songs, voices
+                  full of filth and anarchy, women dancing, or rather being possessed by a demon.
+                  For what does the female dancer? It’s nothing other than that she is voluntarily
+                  possessed by a demon. Equally the lyre-player assaults his wooden instrument like
+                  a demon. All those spectacles of the theater are demonic, all are causing
+                  destruction, all are amusements of demons. <seg type="allusion">That’s why their
+                     reward is good-for-nothing. Such was the banquet of <persName type="biblical"
+                        key="Herod_Mat.14.1">Herod</persName>. As <persName type="biblical"
+                        key="Herodias_Mat.14.3">Herodias</persName> entered, she danced and cut off
+                     the head of <persName type="biblical" key="John_Mat.3.1">John the
+                        Baptist</persName>,<ref decls="#biblical" cRef="NA:Mt:14:1-10"/></seg> and
+                  (then) she inherited the Hades under the earth. Now, those who loved her
+                  lascivious dance have their share and their condemnation with her.</p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
+               <p>Now, be content, my beloved, to work on six days for your business and to cease
+                  wrongdoings on the day of the Lord. I know many who have troubles with each other
+                  and are fighting and say: ‘The day of the Lord comes and we have a trial.’ Oh
+                  wretched and miserable man! You are ordered to pray on the day of the Lord, not to
+                  organize courts of justice! Now the day of the Lord comes and the one who has a
+                  trial premeditates the whole night what he has against his neighbor and when the
+                  sunrise comes he arms himself against him. This custom is custom with most people
+                  that they sit outside when they leave the church and often the presbyter acts like
+                  that in the first place, and then they throw affairs at each other, disputes,
+                  insolences, reproaches, and such things and even worse things than that. Then they
+                  reenter the church and look angrily on each other like wild animals that creak
+                  with their teeth. Woe to the presbyter who sets such things in motion or sits in
+                  judgment on the day of the Lord and does not give his prayers to the Lord at the
+                  set hour! But if someone tastes from the common things before the release, he is
+                  liable to great judgment and punishment. And if he had tasted and has communion in
+                  the mysteries, <seg type="allusion">then his part is that of the traitor <persName
+                        type="biblical" key="Judas_Mat.10.4">Judas</persName>.<ref decls="#biblical"
+                        cRef="NA:Mt:27:5"/><ref decls="#biblical" cRef="NA:Jn:17:12"/><ref
+                        decls="#biblical" cRef="NA:Act:1:18-20"/></seg> I know many who tasted and
+                  took part on the day of the holy Pascha and woe to their soul, even more, if they
+                  are in adult age, that they instead of releasing their sins load even more on
+                  themselves. But also who has acknowledged bad deeds to himself and has had
+                  communion before he wiped them off through repentance is liable to the same
+                  judgment. For the bigger the day the bigger the sin. And those who are not without
+                  blame need to be strong until the release and need to have communion in that way.
+                  Woe to those who play lyre on the day of the Lord or dance or get judged or sit as
+                  judges or work or take an oath or make one swear, that they will be condemned to
+                  inextinguishable fire and their part is with the hypocrites. For that day was
+                  given to us for prayer and for atonement of evil, for repentance and for
+                  salvation, for rest of hired laborers and of servants.</p>
+            </div>
+            <div type="textpart" subtype="section" n="5">
+               <p><quote>For that is the day that the Lord had made. Let us praise and rejoice in
+                        it!<ref decls="#biblical" cRef="LXX:Ps:117:24"/></quote> Let us rejoice not
+                  befuddled by intoxication and drunkenness, but delighted in the declamation of the
+                  divine scriptures! God gave us that day, on which he began to make the world, in
+                  which he destroyed the power of death, and he called it the day of the Lord, that
+                  beginning with the name of the day itself we respect and keep the commandments of
+                  the Lord. A hired laborer goes in his house and dedicates himself to his work and
+                  on six days he does not dare to look up and see the sun, where it comes from and
+                  where it goes to, but weary in your works the lamentable shatters and weeps, in
+                  sweat and in pains, and never is it granted to him to look up or to take a rest,
+                  as we said, but he only waits for the day of the Lord, that, if anything, the dirt
+                  is shaken off his body, and often you do not even concede him that. And which
+                  defense will you have, tell me! Of course, there are some who out of beneficence
+                  will say on the day of the Lord: Come here, today let’s help the poor in their
+                  work! And who do not know that since they want to do good they sin even more. If
+                  you want to help the poor, do not steal the day of God, but give your earnings to
+                  the poor, from which you have your revenue. When they are obliged to do your work,
+                  then give help to the poor! But when your slaves and your hired laborers and your
+                  cattle are obliged to rest, then you take away their rest and give it to the poor.
+                  God knows whose work it is! Do not transgress the commandment of the Lord, do not
+                  steal his day, do not deprive your slaves and your hired laborers from their rest,
+                  do not get separated from the prayer, do not stay away from the church! For
+                  nothing is higher than the church, the church is higher than the heaven and
+                  brighter than the sun and clearer than the moon and the stars and more valuable
+                  than the whole world. I know many who do not enter the church the whole week,
+                  often even entirely. And when something bad happens to them because of their
+                  ill-doing, they accuse God and not themselves and say: ‘Why has God allowed that
+                  to happen?’ And they do not know that as far as they put themselves away from the
+                  church as far away is also God from them, as also the prophet says: <quote>Those
+                     far away from you perish.<ref decls="#biblical" cRef="LXX:Ps:72:27"
+                  /></quote></p>
+            </div>
+            <div type="textpart" subtype="section" n="6">
+               <p>That probably will suffice, my brothers, as warning and for the fear of most
+                  people. For if that does not suffice and persuade those hearing, then they will
+                  also not hear which is greater than that. For it says: ‘For the sensible man one
+                  word is sufficient, but even if you explain at length to the foolish, you will not
+                  persuade his heart until death.’ You want no evil to come upon you? Do not abuse
+                  the day of the Lord, keep away from bad deeds, devote yourself to prayer, stop
+                  your mouth to use foul language, get together with pious men, and thank God
+                  together with them, and send up praise! For in many ways it is said that that day
+                  was given you for prayer and for rest. <quote>This, really, is the day that the
+                     Lord had made. Let us praise and rejoice in it!<ref decls="#biblical"
+                        cRef="LXX:Ps:117:24"/></quote> And let us send up honor to the one risen on
+                  it together with the Father and the Holy Spirit, now, ever and in all eternity!
+                  Amen.”</p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
