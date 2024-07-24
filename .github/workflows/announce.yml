@@ -1,9 +1,10 @@
 name: Announce publication
 on:
   release:
-    types: [released]
+    types: [published]
+  workflow_dispatch:
 jobs:
-  tweet:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Get latest release version number
@@ -20,6 +21,9 @@ jobs:
           sensitive: "false" 
           spoiler-text: "Latest Update" 
           language: "en" 
+  post:
+    runs-on: ubuntu-latest
+    steps:
       - uses: myConsciousness/bluesky-post@v5
         with:
           text: "PTA has released an update (${{ steps.get_version.outputs.version }}). Have a look at https://doi.org/10.5281/zenodo.4066796 for more info."
