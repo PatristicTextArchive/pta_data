@@ -76,10 +76,12 @@ jobs:
           DATE=`date +%Y-%m-%d`
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          lasttag=$(git describe --tags --abbrev=0)
+          history=$(git log $lasttag..HEAD --oneline)
           export GIT_TAG=$MAJOR_VERSION.$MINOR_VERSION.$GITHUB_RUN_ID
           git add -A
           git commit -m "Removed failing files" -m "Release $GIT_TAG"
-          git tag $GIT_TAG -a -m "$DATE" -m "PASSING FILES" -m "$results"
+          git tag $GIT_TAG -a -m "CHANGES" -m "$history" -m "$DATE" -m "PASSING FILES" -m "$results"
           git push -q origin "${GIT_TAG}"
           ls -R
       - name: Create release

@@ -1,32 +1,30 @@
-name: Announce publication
+name: Announce
 on:
   release:
-    types: [published]
+    types:
+      - edited
+      - released
+      - published
   workflow_dispatch:
 jobs:
-  build:
+  Announce:
     runs-on: ubuntu-latest
     steps:
-      - name: Get latest release version number
-        id: get_version
-        uses: battila7/get-version-action@v2
+      - id: get_version
+        name: Get version
+        uses: jannemattila/get-version-from-tag@v3
       - name: Send toot to Mastodon with additional options
         id: mastodon_toot
         uses: cbrgm/mastodon-github-action@v2
         with:
           access-token: ${{ secrets.MASTODON_ACCESS_TOKEN }} 
           url: ${{ secrets.MASTODON_URL }} 
-          message: "PTA has released an update (${{ steps.get_version.outputs.version }}). Have a look at https://doi.org/10.5281/zenodo.4066796 for more info or see it live at https://pta.bbaw.de." 
+          message: "The Patristic Text Archive (PTA) has been updated to version ${{ steps.get_version.outputs.version }}. Have a look at https://doi.org/10.5281/zenodo.4066796 for more info or see it live at https://pta.bbaw.de." 
           visibility: "public" 
-          sensitive: "false" 
-          spoiler-text: "Latest Update" 
           language: "en" 
-  post:
-    runs-on: ubuntu-latest
-    steps:
       - uses: myConsciousness/bluesky-post@v5
         with:
-          text: "PTA has released an update (${{ steps.get_version.outputs.version }}). Have a look at https://doi.org/10.5281/zenodo.4066796 for more info."
+          text: "The Patristic Text Archive (PTA) has been updated to version ${{ steps.get_version.outputs.version }}. Have a look at https://doi.org/10.5281/zenodo.4066796 for more info."
           link-preview-url: "https://pta.bbaw.de"
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
