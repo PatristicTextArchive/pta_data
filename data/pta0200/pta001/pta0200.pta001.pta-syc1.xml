@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0"
-     xmlns:telota="http://www.telota.de"
-     telota:doctype="edition">
+<?xml-stylesheet type="text/css" href="standard.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -13,24 +12,32 @@
             <editor>
                <persName ref="https://lobid.org/gnd/1102566705" xml:id="NK">Nikolai Kiel</persName>
                <roleName>Editor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
             </editor>
-            <editor>
+             <editor>
+                 <persName ref="https://lobid.org/gnd/1150408537" xml:id="SB">Simon Birol</persName>
+                 <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+             </editor>
+             <editor>
+                 <persName ref="https://lobid.org/gnd/1172839352" xml:id="PMF">Philip Michael Forness</persName>
+                 <roleName>Contributor</roleName>
+               <orgName>Katholieke Universiteit Leuven</orgName>
+             </editor>
+             <editor>
                <persName ref="https://lobid.org/gnd/120555240" xml:id="SR">Silvio Roggo</persName>
                <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
             </editor>
             <editor>
                <persName ref="https://lobid.org/gnd/122499425" xml:id="HL">Hartmut Leppin</persName>
                <roleName>Contributor</roleName>
-            </editor>
-            <editor>
-               <persName ref="https://lobid.org/gnd/1172839352" xml:id="PMF">Philip Michael Forness</persName>
-               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
             </editor>
             <funder ref="https://www.dfg.de">Deutsche Forschungsgemeinschaft (DFG)</funder>
          </titleStmt>
          <editionStmt>
-            <p>This is a new digital critical edition created within the context of the DFG Project "Commentary on John of Ephesus's Ecclesiastical History." The current version should be considered preliminary, as it will be updated throughout the duration of the project as the English translation and commentary on the text are created. Nikolai Kiel is responsible for the Syriac text based on the manuscript evidence under the advisement of Philip Forness. Silvio Roggo and Hartmut Leppin are responsible for identifying persons and places.  All four editors have contributed to presenting the edition in TEI XML.</p>
-         </editionStmt>
+             <p>This is a new digital critical edition created within the context of the DFG Project "Commentary on John of Ephesus's Ecclesiastical History." The current version should be considered preliminary, as it will be updated throughout the duration of the project as the English translation and commentary on the text are created. Nikolai Kiel initially edited the Syriac text under the advisement of Philip Michael Forness. Since October 2025, Simon Birol has taken over the main responsibility for the Syriac text and implemented several changes. Silvio Roggo and Hartmut Leppin contributed to the proofreading of the Syriac text. All five editors have contributed to discussions over text critical decisions.</p>         </editionStmt>
          <publicationStmt>
             <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
             <distributor>Patristic Text Archive</distributor>
@@ -115,6 +122,17 @@ EH3.6.5-7
               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
            </cRefPattern>
         </refsDecl>
+          <refsDecl xml:id="pta">
+              <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+                  <p>References to PTA-CTS-URNs</p>
+              </cRefPattern>
+          </refsDecl>
+          <refsDecl xml:id="perseus">
+              <cRefPattern matchPattern="(.+)"
+                  replacementPattern="https://scaife.perseus.org/reader/$1">
+                  <p>References to Perseus-CTS-URNs</p>
+              </cRefPattern>
+          </refsDecl>
          <editorialDecl>
             <interpretation>
                <p>
@@ -136,6 +154,7 @@ EH3.6.5-7
                   ana="partially-annotated partially-identified">
             Places are partially annotated and partially referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> or <ref target="https://syriaca.org">Syriaca.org</ref> IDs.
           </p>
+               <p xml:id="text-analysis" ana="not-tagged not-analyzed">Words are not tagged and not analyzed.</p>
             </interpretation>
             <normalization>
                 <p>The British Library manuscript occasionally adds a yoḏ to the end of third feminine singular perfect verbs. Following Brooks, this edition normalizes these verbs by removing the yoḏ.</p>
@@ -144,6 +163,96 @@ EH3.6.5-7
                 <p>The punctuation follows that found in the manuscript. The two-point graphemes ܆ and ܇ have been normalized to be in line with the text, including when one dot is written under the end of the word. The punctuation follows that found in the manuscript. The diacritical dot placed above the taw on third feminine singular perfect verbs has been indicated, although the dot does not appear different from other diacritical dots in the manuscript. This is also the case for nouns ending in taw in the construct state (such as ܥܠܬ) that make use of the same diacritical dot.</p>
             </punctuation>
          </editorialDecl>
+          <classDecl>
+              <taxonomy xml:id="comphistsem">
+                  <bibl>
+                      Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+                  </bibl>
+              </taxonomy>
+              <taxonomy xml:id="editionstatus">
+                  <bibl>
+                      Patristic Text Archive Status of edition
+                  </bibl>
+                  <category xml:id="critical-edition">
+                      <catDesc>
+                          Critical edition in which the text-critical variants have been encoded.
+                      </catDesc>
+                  </category>
+                  <category xml:id="critical-edition-no-app">
+                      <catDesc>
+                          Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+                      </catDesc>
+                  </category>
+                  <category xml:id="critical-edition-outdated">
+                      <catDesc>
+                          Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+                      </catDesc>
+                  </category>
+                  <category xml:id="pre-critical-edition">
+                      <catDesc>
+                          Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+                      </catDesc>
+                  </category>
+              </taxonomy>
+              <taxonomy xml:id="annotationstatus">
+                  <bibl>
+                      Patristic Text Archive Status of annotation
+                  </bibl>
+                  <category xml:id="fully-annotated">
+                      <catDesc>
+                          All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                      </catDesc>
+                  </category>
+                  <category xml:id="partially-annotated">
+                      <catDesc>
+                          Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                      </catDesc>
+                  </category>
+                  <category xml:id="not-annotated">
+                      <catDesc>
+                          No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                      </catDesc>
+                  </category>
+                  <category xml:id="fully-identified">
+                      <catDesc>
+                          All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+                      </catDesc>
+                  </category>
+                  <category xml:id="partially-identified">
+                      <catDesc>
+                          Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+                      </catDesc>
+                  </category>
+                  <category xml:id="not-identified">
+                      <catDesc>
+                          No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+                      </catDesc>
+                  </category>
+              </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+          </classDecl>
+          <schemaRef key="v3"
+              url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
       </encodingDesc>
       <profileDesc>
          <creation>
@@ -162,29 +271,75 @@ EH3.6.5-7
          </textClass>
       </profileDesc>
       <revisionDesc status="draft">
-        <change when="2024-07-10" who="#NK PMF">Revised dots over third person feminine singular perfect verbs. Added description of normalization and punctuation. Added zero-width joiner characters where necessary.</change>
          <change when="2023-05-22" who="#AvS">
           Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
          </change>
          <change when="2023-12-18" who="#NK">Preliminary edition</change>
+          <change when="2024-07-10" who="#NK PMF">Revised dots over third person feminine singular perfect verbs. Added description of normalization and punctuation. Added zero-width joiner characters where necessary.</change>
+          <change when="2025-02-13" who="#NK PMF">Updated version to comply with new TEI standards for PTA; integration of some new emendations.</change>
       </revisionDesc>
    </teiHeader>
    <text>
       <body>
         <div type="praefatio" xml:lang="eng">
-            <p>This is a new digital critical edition created within the context of the DFG Project "Commentary on John of Ephesus's Ecclesiastical History." The current version should be considered preliminary, as it will be updated throughout the duration of the project as the English translation and commentary on the text are created. Nikolai Kiel is responsible for the Syriac text based on the manuscript evidence under the advisement of Philip Forness. Silvio Roggo and Hartmut Leppin are responsible for identifying persons and places.  All four editors have contributed to presenting the edition in TEI XML.</p>
+            <div type="section"><p>This is a new digital critical edition created within the context of the DFG Project "Commentary on John of Ephesus's Ecclesiastical History." The current version should be considered preliminary, as it will be updated throughout the duration of the project as the English translation and commentary on the text are created. Nikolai Kiel produced a diplomatic edition of the text in the main manuscript which was then proofread by the other team members, including the research assistants, as well as  Sami Aydin. The most important text critical decisions have been discussed as a team with the other project members.</p></div>
         </div>
          <div type="edition"
               n="urn:cts:pta:pta0200.pta001.pta-syc1"
               xml:lang="syc">
             <div type="textpart" xml:lang="syc" subtype="part" n="3">
-                <!-- Book 1 -->
+                <!-- Part 3 -->
+                <div type="textpart"
+                    xml:lang="syc"
+                    subtype="chapter"
+                    n="0"
+                    xml:id="EH3.0.0">
+                <head>
+                    <app type="variants">
+                        <lem resp="#NK #PMF #SR #HL" type="addition">
+                            <supplied>
+                                <title>ܐܩܠܝܣܝܣܛܝܩܐ ܕܩܕܝܫܐ ܡܪܝ ܝܘܚܢܢ ܐܦܝܣܩܘܦܐ ܕܐܦܣܘܣ ܡܕܝܢܬܐ</title>
+                                <title>ܦܠܓܘܬܐ ܕܬܠܬ</title>
+                            </supplied>
+                        </lem>
+                    </app>
+                </head>
+                </div>
                 <div type="textpart" xml:lang="syc" subtype="book" n="1">
-                  <div type="textpart"
+                    <!-- Book 1 -->
+                    <div type="textpart"
+                        xml:lang="syc"
+                        subtype="chapter"
+                        n="0"
+                        xml:id="EH3.1.0">
+                    <head>
+                        <app type="variants">
+                            <lem resp="#NK #PMF #SR #HL" type="conjecture">
+                                <supplied>
+                                    <title>
+                                        <hi rend="rubricated">ܣ̣ܦܪܐ ܩܕܡܝܐ</hi>
+                                    </title>
+                                </supplied>
+                            </lem>
+                        </app>
+                    </head>
+                    </div>
+                    <div type="textpart"
                        xml:lang="syc"
                        subtype="chapter"
                        n="3"
                        xml:id="EH3.1.3">
+                        <head>
+                                <app type="variants">
+                                    <lem resp="#NK #PMF #SR #HL" type="conjecture">
+                                        <supplied>
+                                            <title>
+                                                <hi rend="rubricated">ܪܝܫܐ ܕܬܠܬܐ</hi>
+                                            </title>
+                                        </supplied>
+                                    </lem>
+                                </app>
+                        </head>
                      <p>
                          <app type="variants">
                                     <lem resp="Schönfelder" type="addition">
@@ -233,7 +388,7 @@ EH3.6.5-7
                                         ܒܬܪ̈ܬܝܢ </rdg>
                                 </app> ܦܠܓܘ̈ܢ܇ ܡܢ ܩܕܝܡ ܣܝܟ̣ܢܢ ܒܥ̣ܡܠܐ ܣܓܝܐܐ ܕܙܒܢܐ ܡܬܝ̣ܚܐ܇ ܬܫ̈ܥ̣ܝܬܐ
                                 ܕܥܕܬܐ ܐܝܟ ܡܐ ܕܐܬܡ̣ܨܝܢ ܒܣ̣ܦܪ̈ܐ ܬܪ̈ܥܣܪ܇ ܕܡܬ̇ܝܕܥܝܢ ܒܟܠܗܘܢ ܪ̈ܝܫܐ
-                                ܡܫ̣̈ܚܠܦܐ܀ ܟܕ ܡܢ ܙܒ̈ܢܘܗܝ :ܕܝܘܠܝܘܣ ܩܣܪ ܘܫܪܟܐ ܕܡ̈ܠ̇ܟܐ ܩܕ̈ܡܝܐ ܕܪ̈ܗܘܡܝܐ
+                                ܡܫ̣̈ܚܠܦܐ܀ ܟܕ ܡܢ ܙܒ̈ܢܘܗܝ ܕܝܘܠܝܘܣ ܩܣܪ: ܘܫܪܟܐ ܕܡ̈ܠ̇ܟܐ ܩܕ̈ܡܝܐ ܕܪ̈ܗܘܡܝܐ
                                 ܫ̇ܪܝܢܢ܆ ܘܗܝ̇ܕܝܢ ܒܬܪ ܒܬܪ ܟ̇ܢ̣ܫܢ ܘܣ̣ܕܪܢ ܐ̈ܢܝܢ ܠܬܫ̣ܥ̈ܝܬܐ ܥܕ̈ܬܢܝܬܐ܇ ܥܕܡܐ
                                 ܠܫܢܬ ܫ̣ܬ ܕܡ̇ܠܟܘܬܗ ܕ<persName ref="https://syriaca.org/person/3229"
                                     >ܝܘܣܛܝܢܐ</persName> ܗܢܐ ܐܚܪܝܐ ܒܪ <persName
@@ -376,12 +531,11 @@ EH3.6.5-7
                                 <app type="variants">
                            <lem>
                                 ܝܘܚܢܢ
-                                </lem>
-                        </app>
+                                </lem> 
                         <note place="intercolumn" hand="#m2">
                                         ܘܝ ܠܟ
                                     </note>
-                                
+                                </app>
                                 ܗ̇ܘ ܕܡܢ ܣ̣ܪܡܝܢ ܩܪܝܬܐ ܕܣܘܪܝܐ: ܘܡܐ̣ܟܠ ܩܪ̈ܨܘܗܝ ܣܓ̈ܝܐܐ ܕܥܠ ܟܠܗ ܓܒܐ ܕܬܪ̈ܝܨܝ ܫܘܒܚܐ: ܐܬܬ̣ܥܝܪ ܒܪܘܓܙܐ ܩܫ̣ܝܐ ܙܟ̇ܝܐ ܝܘܣܛܝܢܐ܆ ܘܒ̇ܓܙܡܐ ܕܚܡܬܐ ܪܒܬܐ܇ ܦܩ̣ܕ ܕܢܬ̇ܬܚܕܘܢ ܟܠܗܘܢ ܒܝܬ ܟܢܘ̣̈ܫܝܐ ܕܟܠܗܘܢ ܡܗ̈ܝܡܢܐ. ܘܢܬ̇ܥܩܪܘܢ ܟܠܗܘܢ ܡ̈ܕܒܚܐ ܕܒܟܠܗܘܢ܆ ܘܢܬܠܒ̣ܟܘܢ ܟܠܗܘܢ 
                                 
                                 <pb edRef="#Brooks" n="7"/>
@@ -426,21 +580,22 @@ EH3.6.5-7
                                 ܐܢܬ ܠܝ ܠܣܒܐ ܡܚ̣ܝܠܐ܇ ܘܐ̇ܟܠ ܐܢܬ ܠܝ ܒܛܘ̇ܝܐ.܀.܀. ܐ̣ܝܟܢܐ ܕܟܕ ܗܠܝܢ ܫܡ̣ܥ
                                 ܗܘܦܪܟܐ. ܘܙܥ̣ ܡܢ ܝܘܩܪܐ ܕܣܝܒܘܬܗ: ܘܦܩ̣ܕ ܘܐ̇ܦ̣ܩܘܗܝ ܡܢ ܩܕܡܘܗܝ: ܘܐ̇ܘܒ̣ܠܘܗܝ
                                 ܠܐܦܝܣܩܘܦܐ܆ ܘܗ̣ܘ ܡܢ <app type="variants">
-                                    <lem rend="erasure" hand="#m1"> ܡܢܝܐ </lem>
-                                    <rdg wit="#L"> ܡ<del rend="erasure" hand="#m1">ܢܝܐ</del>
+                                    <lem wit="#L" varSeq="1"> ܡܢܝܐ </lem>
+                                    <rdg wit="#L" varSeq="2"> ܡ‍<del rend="erasure" hand="#m1">ܢܝܐ</del>
+                                    <add place="margin" hand="#m1">
+                                        ܚܡܬܗ
+                                    </add>
                                     </rdg>
-                                </app>
-                                <note type="marginalia" place="margin_inner" hand="m1"> ܚܡܬܗ </note>
+                             </app>
                                 ܕܝܠܗ܆ ܫ̣ܕܪ ܚܒ̣ܫܗ ܒܗܪܩ̣ܠܝܐ̣ ܡܕܝܢܬܐ ܕܬܪܩ̣ܝܐ. ܘܗ̣ܘܐ ܬܡܢ ܙܒܢܐ ܕܬܪ̈ܬܝܢ
                                 ܫ̈ܢܝܢ ܟܕ ܠܐ ܡܫܬܒܩ ܕܢܚ̣ܙܐ ܐܢܫ ܡܢ ܝ̇ܕܘ̈ܥܘܗܝ. ܐ̣ܝܟܢܐ ܕܟܕ ܠܐ ܐܬ̣ܝܗܒ ܠܗ
                                 ܬܚܠܘܦܐ ܕܠܒܘ̣ܫܗ: ܘܪܦܝ̇ܬ ܗܘܐ ܒܩ̇ܠ̈ܡܐ ܕܠܐ ܣܟ̣ܐ܆ ܢܦ̣ܩ ܚܕ ܡܢ ܬܠܡ̈ܝܕܘܗܝ
                                 ܘܐܦ̣ܩ ܠܗ ܬ̇ܚ̣ܠܘܦܐ܆ ܘܠܐ ܐܫܬ̣ܒܩ ܬܘܒ ܕܐܦ ܒܝܕ ܐܚܪܢܐ ܢܬܝ̣ܗܒ ܠܗ. ܘܒܬܪܟܢ
                                 ܐܬܟܪܗ ܕܢܡ̣ܘܬ. ܘܐܚܪܡ ܕܐܢ ܢܬܩ̣ܒܪ ܡܢ ܣܘܢܗ̈ܕܝܛܐ܇ ܐ̇ܘ <cb edRef="#L"
-                                    n="3rb"/> ܕܐܢ ܚܕ ܡܢܗܘܢ ܢܫ̇ܡܫ ܐ̇ܘ ܢܥ̣ܒܕ ܨܠܘܬܐ ܥܠܘܗܝ. ܘܗܟܢܐ <gap
-                                    reason="damage" quantity="3" unit="character"/>
+                                    n="3rb"/> ܕܐܢ ܚܕ ܡܢܗܘܢ ܢܫ̇ܡܫ ܐ̇ܘ ܢܥ̣ܒܕ ܨܠܘܬܐ ܥܠܘܗܝ. ܘܗܟܢܐ 
                                 <app type="variants">
                                     <lem source="NK" type="conjecture">ܪ̈ܒܝ</lem>
-                                    <rdg source="#Brooks" type="proposition">ܒܢ̈ܝ</rdg>
+                                    <rdg source="#Brooks" type="proposition">ܒܢ̈ܝ <gap reason="damage" quantity="3" unit="character"/></rdg>
                                 </app> ܚ̇ܝܠܐ ܕܪ̈ܗܘܡܝܐ <app type="variants">
                                     <lem source="#Cureton" type="conjecture">ܐܪ̈ܬܕܟܣܘ</lem>
                                     <rdg wit="#L">
@@ -597,7 +752,7 @@ EH3.6.5-7
                                 <title>
                                     <hi rend="rubricated"> ܪܝܫܐ ܕܬܪ̈ܥܣܪ ܕܥܠ ܟܗܢܘܬܐ ܕܐܪ̈ܬ̇ܕܟܣܐ܇ ܕܫ̇ܪܐ
                                         ܗܘܐ ܗ̣ܘ ܝܘܚܢܢ܇ ܕܠܐ ܡ̇ܚܫܒܬܐ ܘܕܠܐ ܒܙܕܩ̣ܐ ܘܕܠܒܪ ܡܢ ܩ̈ܢܘܢܐ܇
-                                        ܘܥ̇ܒܕ ܠܗܘܢ ܡܢ ܕܪܝܫ ܒܟܗܢܘܬܐ ܕܣܘܢܗ̈ܕܝܛܐ܇ ܗ̇ܢܘ ܕܝܢ̣ ܕܬܪ̈ܝܝ
+                                        ܘܥ̇ܒܕ ܠܗܘܢ ܡܢ ܕܪܝܫ ܒܟܗܢܘܬܐ ܕܣܘܢܗ̈ܕܝܛܐ܇ ܗ̇ܢܘ ܕܝܢ ܕܬܪ̈ܝܝ
                                         ܟܝ̈ܢܐ. </hi>
                                 </title>
                                 <note place="intercolumn">
@@ -746,7 +901,7 @@ EH3.6.5-7
                                 ܫ̇ܪܝܐ ܕܟܪܛܘܢܝܐ܆ ܥܠ ܗܢܐ <cb edRef="#L" n="6vb"/> ܫ̣ܕܪ ܩܠ̣ܝܪ̈ܝܩܘ
                                 ܘܣܩ̣ܘܒܝܛܘܪ̈ܣ. ܘܦܩ̣ܕ ܠܗܘܢ܆ <app type="variants">
                                     <lem> ܕܐܣ̣ܦܪܣܬܝܢܐ </lem>
-                                    <note type="marginalia" place="top_inner" hand="m2"> α </note>
+                                    <note place="top_inner" hand="m2"> α </note>
                                 </app>
                                 <pb edRef="#Brooks" n="16"/> ܢܥܒ̣ܕܘܢܝܗܝ̣ ܥܕܡܐ ܕܓ̇ܣܐ ܕܡܐ܇ ܐܠܐ ܡܬ̣ܛܦܝܣ
                                 ܠܫܘܬ̇ܦܘܬܗܘܢ. ܘܗܟܢܐ ܡܢ ܬܪܥܣܪ̈ ܐܣܩ̣ܘܒܝܛܘܪ̈ܣ <app type="variants">
@@ -955,7 +1110,8 @@ EH3.6.5-7
                                     <app type="variants">
                                     <lem resp="#Brooks" type="correction"> ܗܕܐ </lem>
                                     <rdg wit="#L"> ܗܕܐ܆ </rdg>
-                                </app> ܕܐܢ ܐܪܐ ܗܟܢ ܫܦ̣ܪ ܠܟܘܢ: ܕܕܠܐ ܛܟ̣ܣܐ ܘܩ̈ܢܘܢܐ <app
+                                </app> ܕܐܢ ܐܪܐ ܗܟܢ ܫܦ̣ܪ ܠܟܘܢ: ܕܕܠܐ 
+                          ܛܟ̣ܣܐ ܘܩ̈ܢܘܢܐ <app
                                     type="variants">
                                     <lem resp="#Brooks" type="correction"> ܥܕ̈ܬܢܝܐ </lem>
                                     <rdg wit="#L"> ܥܕܬܢܝܐ </rdg>
@@ -995,8 +1151,8 @@ EH3.6.5-7
                                 ܐܢܫ ܣܘ̣ܦܣܛܐ ܘܐ̇ܪܟܝܛܪܣ ܕܦܠܛܝܢ܇ ܕܒܓܢܣ̣ܗ ܡܢ ܫܘ̣ܪܐ ܕܪ̈ܗܘܡܝܐ ܐ̣ܝܬܘܗܝ ܗܘܐ܇
                                 ܘܐܪܬܕܘܟܣܐ ܡܢ ܩܕܝܡ ܐܝܟ ܕܣ̣ܒܝܪ ܗܘܐ. ܗܢܐ ܗܟܝܠ ܡܢ ܡ̇ܠܟܐ ܠܘܬܗܘܢ ܐܫܬ̇ܕܪ܆
                                 ܥܡ ܨܚܚ̣ܐ ܗ̇ܘ ܕܐ̣ܝܕܝܩܛܘܢ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܕܐܨ̣ܚ. </lem>
-                                    <rdg wit="#L"> ܕܐܨ̣ܚܘ </rdg>
+                                    <lem wit="#L"> ܕܐܨ̣ܚܘ. </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܕܐܨ̣ܚ </rdg>
                                 </app> ܘܐܡ̣ܪ ܠܗܘܢ܆ ܕܗܢܐ ܐܝ̣ܕܝܩܛܘܢ ܫܠ̣ܚ ܠܟܘܢ ܡ̇ܪܚܡܢܐ ܡ̇ܠܟܐ܆ ܕܡܛܘܠܬܟܘܢ
                                 ܐ̇ܨ̣ܚܗ. ܕܒܗ ܐܦ ܐܢܬܘܢ ܥܡ <pb edRef="#Brooks" n="24"/> ܟܠܗܘܢ ܒ̈ܢܝ ܓ̇ܒܐ
                                 ܕܝܠܟܘܢ ܬܬ̇ܚܝܕܘܢ. ܘܐܦ̣ܣ ܠܟܘܢ ܘܦܩ̣ܕ ܘܐܦ ܗܕܐ܆ ܕܡܐ ܕܩܪܝܬܘܢܝܗܝ ܠܡ܆ ܟܠܡܕܡ
@@ -1044,10 +1200,7 @@ EH3.6.5-7
                                 ܗܝ̇ܕܝܢ ܦܩ̣ܕ ܠܩ̣ܣܛܘܪ̣ ܟܕ ܐܡ̇ܪ. ܕܐܢ ܠܐ ܬ̇ܝܬܐ ܠܝ ܡܚ̣ܕܐ ܡܢ ܪܡܫܐ ܥܣܪ̈ܝܢ
                                 ܐ̣ܝ̈ܣ̇ܐ ܕܐ̣ܝܕܝܩܛܘܢ: ܟܕ ܐܝܬ ܒܗܘܢ ܗܠܝܢ ܬ̇ܘܪ̈ܨܐ܆ ܩܪܩܦܬܟ ܡ̣ܪܝܡ ܐܢܐ.܀.
                                 ܘܗܟܢܐ ܟܠܗ̇ ܩܘ̣ܢܝܢ ܕܢܣܛܘܪ̈ܝܢܘ ܘܕܦ̣ܠܓܘܬ ܢܣܛܘܪ̈ܝܢܘ ܐܬ̣ܪܗܒܘ܆ ܘܐܝܟ
-                                ܕܒ̣ܘܪ̈ܐ <app type="variants">
-                                    <lem wit="#L"> ܡ̈ܬ̇ܚܐ </lem>
-                                    <rdg resp="#Brooks" type="proposition"> ܡ̈ܬ̇ܢܢܐ </rdg>
-                                </app> ܙܐ̇ܡܝܢ ܗܘܘ. ܘܗܟܢܐ ܐܬܡ̣ܨܝܘ ܕܢܬ̇ܟܫܦܘܢ ܠܗ ܘܢܕܚ̇ܠܘܢܝܗܝ ܡܢ ܕܠܘ̣ܚܝܐ
+                                ܕܒ̣ܘܪ̈ܐ ܡ̈ܬ̇ܢܢܐ ܙܐ̇ܡܝܢ ܗܘܘ. ܘܗܟܢܐ ܐܬܡ̣ܨܝܘ ܕܢܬ̇ܟܫܦܘܢ ܠܗ ܘܢܕܚ̇ܠܘܢܝܗܝ ܡܢ ܕܠܘ̣ܚܝܐ
                                 ܕܥܕܬܐ. ܘܟܕ ܣ̇ܓܝ ܐ̇ܠܙ̣ܘܢܝܗܝ܆ ܐܬܛܦܝܣ ܠܗܘܢ̣ ܘܫܒܩ̣ܗ ܠܣ̣ܘܥܪܢܐ ܠܨܒܝܢܗܘܢ.
                                 ܟܕ ܡܕܡ ܡܕܡ ܙܥܘܪ̈ܝܬܐ ܒܠܚܘܕ ܫܒܩ̣ܘܗܝ ܠܡ̣ܣܡ ܡܢ ܬ̇ܘܪ̈ܨܐ ܗܠܝܢ. ܟܕ ܗܪܛܝܩܐܝܬ
                                 ܗ̣ܢܘܢ ܡܢ ܕܝܠܗܘܢ ܣܡ̣ܘ ܒܫܘܠܡܗ ܕܐ̣ܝܕܝܩܛܘܢ܆ ܕܥ̇ܝ̈ܕܝܗ̇ ܠܡ <pb
@@ -1294,8 +1447,9 @@ EH3.6.5-7
                                 ܡܠܬܐ ܘܡ̈ܘ̇ܡܬܐ ܐܝܟ ܕܩܕܡ ܐܠܗܐ ܝܗ̇ܒܝܢ ܚܢܢ ܠܟܘܢ܆ ܕܒܡܬ̇ܚܝܕܢܘܬܟܘ̣ܢ ܡ̣ܚܕܐ
                                 ܡܬ̇ܒܛܠܐ ܣܘܢܗܕܘܣ. ܘܡܕܡ ܕܢ̇ܦܩ ܡܢ <pb edRef="#Brooks" n="33"/> ܣܦ̈ܘܬܢ̣
                                 ܠܐ ܢܫܬ̇ܚܠܦ.܀. ܐܦܝ̈ܣܩܘܦܐ ܐܡ̇ܪܝܢ. ܐܢ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܗܠܘܣ </lem>
+                                    <lem resp="#NK" type="correction"> ܗܘܠܣ </lem>
                                     <rdg wit="#L"> ܗܘ̈ܠܣ </rdg>
+                                    <rdg resp="#Brooks" type="proposition"> ܗܠܘܣ </rdg>
                                 </app> ܘܐܝܟ ܡ̇ܘܡ̈ܬܟܘܢ ܗܕܐ ܡ̇ܛܝ̣ܒܝܢ ܐܢܬܘܢ ܠܡܥ̣ܒܕ܆ ܠܡ̇ܢܐ ܡܕܝܢ ܡܚ̣ܕܐ ܠܐ
                                 ܥ̇ܒܕܝܢ ܐܢܬܘܢ ܠܗ̇܇ ܐ̣ܝܟܢܐ ܕܠܘ ܒܠܚܘܕ ܚܢ̣ܢ܇ ܐܠܐ ܘܟܠܢܫ ܕܠܐ ܟܫ̣ܠܐ <pb
                                     edRef="#L" n="15va"/> ܢܬ̇ܚܝܕ. ܐܠܐ ܡ̇ܠܘܢ ܨ̇ܒܝܢ ܐܢܬܘܢ ܕܒܢ ܒܢܟܠ̣ܐ
@@ -1680,7 +1834,12 @@ EH3.6.5-7
                                     <lem resp="#Brooks" type="correction"> ܒܪܝܫ̣ܝ ܕܝܠܝ. </lem>
                                     <rdg wit="#L"> ܒܪܝܫ̣ܗ ܕܝܠܗ </rdg>
                                 </app> ܗܘ̣ܘ ܠܗ ܕܝܢ ܥܡܗ ܣܝܥ̣ܬܐ ܕܕܝܪ̈ܝܐ ܕܠܗܠܝܢ ܚ̇ܫܚܝܢ ܗܘܘ. ܘܐܦ
-                                ܕܘ̈ܣ̣ܦܘܛܝܩܐ ܘܕܡ̣̈ܣܬܝܩܐ ܘܐܣ̣ܦܬܪ̈ܐ̣ ܘܐܦ ܚ̇ܝܠܐ ܕܪ̈ܗܘܡܝܐ. ܐ̣ܝܟܢܐ ܕܟܕ
+                         <app
+                             type="variants">
+                             <lem resp="#Brooks" type="correction"> ܕܣ̈ܦ̣ܘܛܝܩܐ </lem>
+                             <rdg wit="#L"> ܕܘ̈ܣ̣ܦܘܛܝܩܐ </rdg>
+                         </app>
+                                ܘܕܡ̣̈ܣܬܝܩܐ ܘܐܣ̣ܦܬܪ̈ܐ̣ ܘܐܦ ܚ̇ܝܠܐ ܕܪ̈ܗܘܡܝܐ. ܐ̣ܝܟܢܐ ܕܟܕ
                                 ܒܗܢܐ ܛܟ̣ܣܐ ܫܟ̣ܝܪܐ <pb edRef="#Brooks" n="44"/> ܕܐܒ̇ܕܢܐ: ܘܡ̇ܥܪܡܘܬܐ
                                 ܘܒܥ̇ܪܝܪܝܘܬܐ ܕܠܒܪ ܡܢ ܟܘܠܗ̇ ܕܚ̣ܠܬ ܐܠܗܐ: ܡ̇ܠ̣ܝ ܙܒܢܐ ܕܫ̈ܢܝܐ ܬܪ̈ܬܥܣܪܐ܆
                                 ܐܕܪܟ̣ܗ ܩ̣ܨܗ ܘܩ̇ܒ̣ܠ ܚܦ̣ܪܗ܆ ܒܚܪܬܐ ܒܝܫ̣ܬܐ̣ ܘܕܘܟܪܢܐ ܕܠܘܛܬܐ. ܘܩ̣ܡ ܡܢ ܒܬܪܗ
@@ -1756,8 +1915,8 @@ EH3.6.5-7
                                 </note>
                             </head>
                      <p> ܙܒ̈ܢܝܢ ܣܓ̈ܝܐܢ ܬܘܒ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܐܫܬ̇ܕܪ </lem>
-                                    <rdg wit="#L"> ܐܫܬ̇ܕܪܘ </rdg>
+                         <lem wit="#L"> ܐܫܬ̇ܕܪܘ </lem>
+                         <rdg resp="#Brooks" type="proposition"> ܐܫܬ̇ܕܪ </rdg>  
                                 </app> ܠܐܓ̣ܝܦܛܘܣ܆ ܘܐܬܩ̣ܪ̈ܝܘ ܘܐܬ̣ܘ ܝܚ̈ܝܕܝܐ ܣܓ̈ܝܐܐ ܗܠܝܢ ܕܣ̣ܒܝܪܝܢ ܗܘܘ܇
                                 ܕܝ̇ܕܥܝܢ ܟ̣ܣܝ̈ܬܐ܇ ܘܡܬ̇ܒܝܢܝܢ ܥܠ ܥܬ̣̈ܝܕܬܐ ܐܝܟ ܕܢܘ̇ܕܥܘܢ ܕܟܡܐ ܫ̈ܢܝܐ ܚ̇ܝܐ
                                 ܡ̇ܠܟܐ ܘܡ̇ܠܟܬܐ܇ ܘܡܢܐ ܥܬ̣ܝܕ ܕܢܗܘܐ ܒܡ̇ܠܟܘܬܗ܆ <cb edRef="#L" n="21rb"/>
@@ -1823,14 +1982,19 @@ EH3.6.5-7
                                 ܘܠܗ̣ܝܩ ܗܘܐ ܐܝܟ ܕܐܒ̣ܐ ܠܕܡܐ ܕܐܡ̣ܪ̈ܐ܆ ܥܠ ܗܘܐ ܠܘܬ ܡ̇ܫܝܢܐ ܘܒܗ̣ܝܠܐ ܩ̣ܣܪ
                                 ܛܒ̣ܪܝܣ. ܟܕ ܚܦ̣ܝܛ ܗܘܐ ܕܒܛܢ̣ܢܐ ܕܪܘܓܙܐ܆ ܘܐܦ ܠܗ̣ ܒܕܡ̣ܘܬܗ ܕܝܠܗ ܢܫ̣ܓܪܗ.
                                 ܘܟܕ ܒܣܓܝܐ̈ܬܐ ܐܬ̇ܚܫܚ ܠܘܬܗ ܥܠ ܡܗ̈ܝܡܢܐ܆ ܫܐ̇ܠܗ̣ ܟܕ ܐܡ̇ܪ. ܕܨ̇ܒܐ ܐܢܐ ܕܫܪܪܐ
-                                ܬ̇ܦܢܐ ܠܝ܇ ܥܠ ܐܝܠܝܢ ܕܡܫ̇ܐܠ ܐܢܐ ܠܟ. ܚ̈ܢܦܐ ܐܝܬܝܗܘܢ܆ <pb edRef="#L"
+                                ܬ̇ܦܢܐ ܠܝ܇ ܥܠ ܐܝܠܝܢ ܕܡܫ̇ܐܠ ܐܢܐ ܠܟ. ܚ̈ܢܦܐ ܐܝܬܝܗܘܢ݃ <pb edRef="#L"
                                     n="22ra"/> ܗܠܝܢ ܕܡ̇ܚܦܛ ܐܢܬ ܠܝ ܕܐ̇ܪܕܘܦ ܐܢܘܢ.܀.܀. ܗ̣ܘ ܕܝ̣ܢ ܠܐ
                                 ܐܫܟ̣ܚ ܕܢ̇ܕܓܠ. ܐܡ̇ܪ <pb edRef="#Brooks" n="47"/> ܠܗ. ܕܚ̈ܢܦܐ̣ ܠܐ
-                                ܐ̣ܝܬܝܗܘܢ. ܐܡ̇ܪ ܠܗ. ܘܐܠܐ݃ ܗܪ̈ܛܝܩܘ ܐ̣ܝܬܝܗܘܢ܆ ܐܡ̇ܪ ܠܗ. ܘܐܦܠܐ ܡܪܝ
+                         ܐ̣ܝܬܝܗܘܢ. ܐܡ̇ܪ ܠܗ. ܘܐܠܐ݃ ܗܪ̈ܛܝܩܘ ܐ̣ܝܬܝܗܘܢ܆ ܐܡ̇ܪ ܠܗ. ܘܐܦܠܐ ܡܪܝ
                                 ܗܪ̈ܛܝܩܐ ܐ̣ܝܬܝܗܘܢ. ܐܡ̇ܪ ܠܗ. ܗܐ ܡܕܝܢ ܐܝܟ ܕܐܢܬ ܣܗ̣ܕܬ ܥܠܝܗܘܢ̣ ܟܪ̈ܣܛܝܢܐ
                                 ܐ̣ܝܬܝܗܘܢ. ܗ̣ܘ ܬܘܒ̣ ܐܡ̣ܪ. ܟܪ̈ܣܛܝܢܐ ܡ̣̇ܢ ܟܪ̈ܣܛܝܢܐ ܐܢܘܢ. ܐܡ̇ܪ ܠܗ. ܘܐܢ
                                 ܐܝܟ ܣܗܕܘܬܟ ܟܪ̈ܣܛܝܢܐ ܐܢܘܢ܆ ܐ̇ܝܟܢܐ ܠܝ ܡ̇ܚܦܛ ܐܢܬ܇ ܕܪܕ̇ܘܦܐ ܐ̇ܗܘܐ
-                                ܕܟܪ̈ܣܛܝܢܐ܇ ܐܝܟ ܕܘܩܠ̣ܝܛܝܢܣ ܘܫܪܟܐ ܕܡ̈ܠܟܐ ܚ̈ܢܦܐ. ܙܠ ܬ̣ܒ ܒܥܕܬܟ̣ ܘܫܠ̣ܝ.
+                                ܕܟܪ̈ܣܛܝܢܐ܇ ܐܝܟ 
+                         <app type="variants">
+                             <lem resp="#NK" type="correction"> ܕܝܘܩܠ̣ܝܛܝܢܣ </lem>
+                             <rdg wit="#L"> ܕܘܩܠ̣ܝܛܝܢܣ </rdg>
+                         </app>                              
+                                ܘܫܪܟܐ ܕܡ̈ܠܟܐ ܚ̈ܢܦܐ. ܙܠ ܬ̣ܒ ܒܥܕܬܟ̣ ܘܫܠ̣ܝ.
                                 ܘܠܐ ܬܘܒ ܬ̇ܫܚܘܩ ܠܢ ܒܗܠܝܢ. ܘܗܟܢܐ ܐܫܬ̇ܗܝ ܚܐ̣ܦܐ ܕܒܥ̇ܪܝܪܝܘܬܗ܆ ܥܕܡܐ ܕܪܘܓܙܐ
                                 ܕܡܢ ܫܡܝܐ ܐܕܪܟ̣ܗ܇ ܐܝܟ ܕܡܢ ܠܥܠ ܐ̇ܘ̣ܕܥܢ܇ ܘܡܢ ܚ̈ܝܐ ܕܬܢܢ ܛܠ̣ܩ. ܘܒܬܪ ܗܢܐ
                                 ܬܘܒ ܐܝܟ ܕܡܢ ܠܥܠ ܐ̇ܘ̣ܕܥܢ܆ ܟܕ ܥ̣ܠ ܐ̣ܘܛܝܟ ܘܫ̇ܪܝܘ ܫ̇ܓܪܝܢ ܠܗ ܩܠ̣ܝܪ̈ܝܩܘ
@@ -1877,9 +2041,8 @@ EH3.6.5-7
                                     <lem resp="#Brooks" type="correction"> ܘܕܘ̣ܘܢܐ. </lem>
                                     <rdg wit="#L"> ܘܕܘܘܐ̣ܢܐ </rdg>
                                 </app> ܣ̇ܦ̈ܩܢ ܠܘ̈ܛܬܐ܇ ܗܠܝܢ ܕܪܘܓܙܐ ܕܡܢ ܫܡܝܐ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܐ̇ܥ̣ܝܪ ܐܢ̈ܝܢ ܘܐ̇ܝܬ̣ܝ
-                                        ܐ̈ܢܝܢ </lem>
-                                    <rdg wit="#L"> ܐ̇ܥ̣ܝܪܝܢ ܘܐ̇ܝܬ̣ܝܝܢ </rdg>
+                                    <lem wit="#L"> ܐ̇ܥ̣ܝܪܝܢ ܘܐ̇ܝܬ̣ܝܝܢ </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܐ̇ܥ̣ܝܪ ܐܢ̈ܝܢ ܘܐ̇ܝܬ̣ܝ ܐ̈ܢܝܢ </rdg>
                                 </app> ܥܠܝ. ܦܘ̣ܩܘܢ ܡܢ ܩܕܡܝ. ܘܠܐ ܬܘܒ ܐܢܫ ܗܢܐ ܫܪܒܐ ܢܝ̇ܬܐ ܩܕܡܝ. ܘܗܟܢܐ
                                 ܢܦ̇ܩܝܢ ܗܘܘ ܡܢ ܠܘܬܗ܆ ܟܕ ܡܪܟ̣ܢܝܢ. ܘܡܢ ܩܕܡ ܡ̇ܘܬܗ ܕܝܢ ܐܝܟ ܕܐܡ̣ܪܢ܆ ܘܬܘܒ
                                 ܡܢ <app type="variants">
@@ -1970,22 +2133,28 @@ EH3.6.5-7
                                     </rdg>
                                 </app> ܘܟܕ ܫ̇ܢܬܐ ܚܕܐ ܗܘ̣ܬ ܐܢܛܝܘܟܝܐ ܕܠܐ ܐܦܝܣܩܦܐ܆ ܒܚܪܬܐ̣ ܢܚ̣ܬ ܦܘܠܐ
                                 ܝܗܘܕܝܐ܇ ܕܐ̣ܝܬܘܗܝ ܗܘܐ ܦ̣ܪܡܘܢܪܐ ܕܛ̇ܘܒܢܝܬܐ ܐ̣ܘܦܡܝܐ ܒܟܠܩܕܘܢܐ. ܗܢܐ ܐܚ̣ܬ
-                                ܕܘܦ̣ܛܝܟܘܢ ܕܟܬ̣ܝܒܐ ܒܗ ܣܘܢܗܕܣ ܠܡܕܢܚܐ. ܘܟܕ ܐܝܟ ܫ̈ܢܝܐ ܬܪ̈ܬܝܢ ܠܒ̣ܟ܆
+                         <app
+                             type="variants">
+                             <lem wit="#L"> ܕܘܦ̣ܛܝܟܘܢ </lem>
+                             <rdg resp="#Brooks" type="proposition"> ܕܦ̣ܛܝܟܘܢ </rdg>
+                         </app>
+                                ܕܟܬ̣ܝܒܐ ܒܗ ܣܘܢܗܕܣ ܠܡܕܢܚܐ. ܘܟܕ ܐܝܟ ܫ̈ܢܝܐ ܬܪ̈ܬܝܢ ܠܒ̣ܟ܆
                                 ܐ̣ܬܝ̣ܕܥ ܕܐ̣ܝܬܘܗܝ ܢܣܛܘܪܝܢܐ܆ ܘܐܫ̣ܬܕܝ ܘܐܦ ܗ̣ܘ̣ ܘܢܦ̣ܩ.܀.܀. ܘܒܬܪ ܗܢܐ܆
                                 ܐ̣ܘܦܪܘܣ ܒܪ ܫܡ̇ܪ̈ܝܐ. ܘܒܫܢܬܐ ܫܒ̣ܝܥܝܬܐ ܕܝܠܗ̣ ܐܬܗܦ̣ܟܬ݀ ܐܢܛܝܘܟܝ ܒܙܘ̇ܥܐ̣
                                 ܘܡܝ̣ܬ ܒܗ̇.܀.܀. ܒܬܪ ܕܝܢ ܗܢܐ ܬܘܒ܆ ܗ̣ܘܐ ܐܦܪܝܡ ܐܡ̇ܕܝܐ ܒܪ ܐ̇ܦܝܢܐ ܪܕܘ̇ܦܐ
                                 ܒܝ̣ܫܐ ܝܬ̇ܝܪ ܡܢ ܦܘܠܐ ܘܐ̣ܘܦܪܘܣ. ܘܚ̣ܝܐ ܫ̈ܢܝܐ̣ ܘܡܝ̣ܬ.܀. ܘܒܬܪ ܗܢܐ ܗ̣ܘܐ
                                 ܕܘܡ̣ܢܝܢܐ ܪܗܘܡܝܐ̣ <cb edRef="#L" n="23vb"/>
                                 <app type="variants">
-                                    <lem wit="#L"> ܠ‍<gap reason="damage" quantity="4"
-                                            unit="character"/>
+                                    <lem wit="#L"> ܠ
                                     </lem>
+                                    <rdg wit="#L"> ܠ‍<gap reason="damage" quantity="4"
+                                        unit="character"/></rdg>
                                 </app> .܀. ܘܒܬܪ ܗܢܐ <app type="variants">
                                     <lem resp="#Brooks" type="proposition"> ܗܘ̣ܐ ܐܢܣܛܣ. </lem>
                                     <rdg wit="#L"> ܗ <gap reason="damage" quantity="5"
                                             unit="character"/> ‍ܣܛܣ </rdg>
                                 </app> ܕܐ̣ܝܬܘܗܝ <app type="variants">
-                                    <lem resp="#Brooks" type="proposition"> ܗܘܐ ܐܦܝܩܪܝܣܪܐ </lem>
+                                    <lem resp="#Brooks" type="proposition"> ܗܘܐ ܐܦܩܪܝܣܪܐ </lem>
                                     <rdg wit="#L"> ܗܘ <gap reason="damage" quantity="3"
                                             unit="character"/> ‍ܦܝܩܪܝܣܪܐ </rdg>
                                 </app>
@@ -2228,7 +2397,7 @@ EH3.6.5-7
                                 <note place="margin_inner">
                                     <num> ܏ܟܘ </num>
                                 </note> ܕܥܣܪ̈ܝܢ ܘܫܬܐ܆ ܕܥܠ ܫܘܦ̣ܠܐ ܘܫܘ̇ܢܩܐ ܕܕܝܢ̣ܐ ܟܐܢܐ ܕܐܕܪܟ̣ܗ ܠܝܘܚܢܢ
-                                ܣ̣ܪܡܝܐ܆ ܥܡ ܗܝ̇ ܕܡܢ ܫܐܕܐ ܡ̣ܬܪܕܦ. ܗܘܐ </p>
+                                ܣ̣ܪܡܝܐ܆ ܥܡ ܗܝ̇ ܕܡܢ ܫܐܕܐ ܡ̣ܬܪܕܦ ܗܘܐ. </p>
                      <p>
                                 <note place="margin_inner">
                                     <num> ܏ܟܙ </num>
@@ -2249,7 +2418,13 @@ EH3.6.5-7
                      <p>
                                 <note place="margin_inner">
                                     <num> ܏ܠ </num>
-                                </note> ܕܬܠܬܝܢ܆ ܕܥܠ ܗܝ̇ ܕܟܕ ܐܬ̇ܚܝܕܝܢ ܥܕܬ̈ܐ ܕܐܪ̈ܬܕܟܣܘ <cb edRef="#L"
+                                </note> ܕܬܠܬܝܢ܆ ܕܥܠ ܗܝ̇ ܕܟܕ 
+                         <app
+                             type="variants">
+                             <lem resp="#Brooks" type="correction"> ܐܬܬܚܕܝܢ </lem>
+                             <rdg wit="#L"> ܐܬ̇ܚܝܕܝܢ </rdg>
+                         </app>
+                         ܥܕܬ̈ܐ ܕܐܪ̈ܬܕܟܣܘ <cb edRef="#L"
                                     n="25rb"/> ܒܪܕܘܦ̣ܝܐ. </p>
                      <p>
                                 <note place="intercolumn">
@@ -2552,18 +2727,18 @@ EH3.6.5-7
                                 ܚܕܝܘܬܐ. ܐ̣ܝܟܢܐ ܕܗ̣ܘ ܝܘܚܢܢ ܡܢ ܐܘܠܨܢܐ ܘܐ̇ܢܢܩܐ ܕܚܒܘ̣ܫܝܐ ܩܫ̣ܝܐ: ܟܕ ܗܠܝܢ
                                 ܫܡܥ܆ ܐܬܬ̣ܥܝܪ ܒܛܢ̣ܢܐ ܕܢܦܓ̣ܥ ܒܗܠܝܢ ܕܐܬ̣ܘ ܠܘܬܗ ܙܥܝ̣ܦܐܢܬ ܘܩܫ̣ܝܐܝܬ:
                                 ܘܒܚ̣ܪ̈ܡܐ ܘܒܨ̇ܥܪ̈ܐ̣ ܘܠܘܛ̈ܬܐ܆ ܘܣܓܝܐ̈ܬܐ ܕܕܐܝܟ ܗܠܝܢ. ܐܝܠܝܢ ܕܐܬܚ̣ܙܝܬ܆
-                                ܕܝܬܝܪ̈ܬܐ ܐܢ̈ܝܢ ܕܒܟܬ̣̈ܝܒܬܐ ܢܬ̈ܬ̣ܣܝܡܢ. ܘܗܟܢܐ ܢܦ̣ܩܘ ܡܢ ܠܘܬܗ̣ ܟܕ ܡ̣ܪܪܝܢ̣
-                                ܘܫܚ̣ܝܩܝܢ ܥܠܘܗܝ.܀.܀. ܘܬܘܒ ܒܬܪ ܝܘܡܐ <pb edRef="#L" n="28ra"/> ܐܫܬ̇ܕܪܘ
-                                ܠܘܬܗ܆ ܟܕ ܡܦ̣ܝܣܝܢ ܠܗ ܒܦܪܨܘܦܐ ܡ̇ܫܝܢܐ ܡܢ ܡ̈ܠܟܐ ܘܦܛܪܝܪܟܐ̣ ܟܕ ܐܡ̇ܪܝܢ.
-                                ܕܡܛܠ ܚ̣ܘܝܕܐ ܕܥ̣ܕܬܐ܆ ܗ̣ܒ ܢܦܫܟ ܘܬܐ̣ ܘܢܡ̇ܠܠ. ܘܠܐ ܗܟܢܐ ܬܩ̣ܘܡ ܒܚ̣ܪܝܢܐ ܡܛܠ
-                                ܚܕܝܘܬܐ. ܟܕ ܬܘܒ ܘܕܡܢ ܗܠܝܢ ܩܕܡ̈ܝܬܐ ܩ̈ܫ̣ܝܢ ܗ̈ܘܝ ܫܡ̣ܥܘ ܡܢܗ ܟܕ ܐܡ̇ܪ܆
-                                ܕܡܠ̣ܬ ܠܗ ܠܐܠܗܐ ܘܠܒ̈ܢܝ ܐܢܫܐ ܡܢ ܗܝ̇ ܚܕܝܘܬܐ ܩܕܡܝܬܐ: ܕܐܬ̇ܡܠ̣ܠܬ݀ ܘܗ̣ܘܬ
-                                ܠܗܦ̣ܟܐ ܘܠܥܩ̣ܘܪܝܐ <pb edRef="#Brooks" n="59"/> ܘܠܡ̇ܦܘܠܬܐ܆ ܥܡ ܫܪܟܐ
-                                ܕܕܐܝܟ ܗܠܝܢ. ܘܟܕ ܙܒ̈ܢܝܢ ܣܓ̈ܝܐܢ ܐ̣ܙܠܘܢ ܘܐܬ̣ܘ ܘܠܐ ܐܬ̣ܪܡܝ ܐ̇ܘ ܐܬ̣ܛܦܝܣ
-                                ܠܗܘܢ܆ ܒܚܪܬܐ̣ ܐܡ̣ܪܘܢ ܠܗ. ܕܚ̣ܢ̣ܢ ܡܛܠ ܕܝ̇ܕܥܝܢܢ ܐܝܠܝܢ ܕܥ̣ܬ̈ܝܕܢ ܥܠܝܟ܇
-                                ܘܫܡ̇ܥܝܢܢ ܓ̇ܙܡ̈ܐ ܕܡ̇ܘܬܐ ܥܠܝܟ܇ ܕܠܘ ܒܡ̇ܘܬܐ ܫܚ̣ܝܡܐ ܥܬ̣ܝܕ ܐܢܬ ܠܡܬ̣ܛܠܩܘ.
-                                ܚ̣ܢܢ ܓܝܪ ܡܥ̣ܩܝܢܢ ܥܠܝܟ܆ ܐܡ̇ܪܝܢܢ܆ ܕܡ̇ܚܣܝܢܢ ܡܢ ܒܝ̣ܫ̈ܬܐ ܕܥܬ̣ܝܕ ܐܢܬ
-                                ܠܡܣ̣ܒܠ. ܐ̣ܝܟܢܐ ܕܟܕ ܗܠܝܢ ܫܡ̣ܥ܆ ܪܬ̣ܚ ܒܛܢ̣ܢܐ̣ ܘܠ̣ܛ <cb edRef="#L"
+                                ܕܝܬܝܪ̈ܬܐ ܐܢ̈ܝܢ ܕܒܟܬ̣̈ܝܒܬܐ ܢܬ̈ܬ̣ܣܝܡܢ. ܘܗܟܢܐ ܢܦ̣ܩܘ ܡܢ ܠܘܬܗ̣ ܟܕ
+                                ܡ̣ܪܝܪܝܢ̣ ܘܫܚ̣ܝܩܝܢ ܥܠܘܗܝ.܀.܀. ܘܬܘܒ ܒܬܪ ܝܘܡܐ <pb edRef="#L" n="28ra"/>
+                                ܐܫܬ̇ܕܪܘ ܠܘܬܗ܆ ܟܕ ܡܦ̣ܝܣܝܢ ܠܗ ܒܦܪܨܘܦܐ ܡ̇ܫܝܢܐ ܡܢ ܡ̈ܠܟܐ ܘܦܛܪܝܪܟܐ̣ ܟܕ
+                                ܐܡ̇ܪܝܢ. ܕܡܛܠ ܚ̣ܘܝܕܐ ܕܥ̣ܕܬܐ܆ ܗ̣ܒ ܢܦܫܟ ܘܬܐ̣ ܘܢܡ̇ܠܠ. ܘܠܐ ܗܟܢܐ ܬܩ̣ܘܡ
+                                ܒܚ̣ܪܝܢܐ ܡܛܠ ܚܕܝܘܬܐ. ܟܕ ܬܘܒ ܘܕܡܢ ܗܠܝܢ ܩܕܡ̈ܝܬܐ ܩ̈ܫ̣ܝܢ ܗ̈ܘܝ ܫܡ̣ܥܘ ܡܢܗ
+                                ܟܕ ܐܡ̇ܪ܆ ܕܡܠ̣ܬ ܠܗ ܠܐܠܗܐ ܘܠܒ̈ܢܝ ܐܢܫܐ ܡܢ ܗܝ̇ ܚܕܝܘܬܐ ܩܕܡܝܬܐ: ܕܐܬ̇ܡܠ̣ܠܬ݀
+                                ܘܗ̣ܘܬ ܠܗܦ̣ܟܐ ܘܠܥܩ̣ܘܪܝܐ <pb edRef="#Brooks" n="59"/> ܘܠܡ̇ܦܘܠܬܐ܆ ܥܡ
+                                ܫܪܟܐ ܕܕܐܝܟ ܗܠܝܢ. ܘܟܕ ܙܒ̈ܢܝܢ ܣܓ̈ܝܐܢ ܐ̣ܙܠܘܢ ܘܐܬ̣ܘ ܘܠܐ ܐܬ̣ܪܡܝ ܐ̇ܘ
+                                ܐܬ̣ܛܦܝܣ ܠܗܘܢ܆ ܒܚܪܬܐ̣ ܐܡ̣ܪܘܢ ܠܗ. ܕܚ̣ܢ̣ܢ ܡܛܠ ܕܝ̇ܕܥܝܢܢ ܐܝܠܝܢ ܕܥ̣ܬ̈ܝܕܢ
+                                ܥܠܝܟ܇ ܘܫܡ̇ܥܝܢܢ ܓ̇ܙܡ̈ܐ ܕܡ̇ܘܬܐ ܥܠܝܟ܇ ܕܠܘ ܒܡ̇ܘܬܐ ܫܚ̣ܝܡܐ ܥܬ̣ܝܕ ܐܢܬ
+                                ܠܡܬ̣ܛܠܩܘ. ܚ̣ܢܢ ܓܝܪ ܡܥ̣ܩܝܢܢ ܥܠܝܟ܆ ܐܡ̇ܪܝܢܢ܆ ܕܡ̇ܚܣܝܢܢ ܡܢ ܒܝ̣ܫ̈ܬܐ ܕܥܬ̣ܝܕ
+                                ܐܢܬ ܠܡܣ̣ܒܠ. ܐ̣ܝܟܢܐ ܕܟܕ ܗܠܝܢ ܫܡ̣ܥ܆ ܪܬ̣ܚ ܒܛܢ̣ܢܐ̣ ܘܠ̣ܛ <cb edRef="#L"
                                     n="28rb"/> ܐܢܘܢ. ܕܐܠܐ ܒܛܘ̇ܝܐ ܬܐܟ̣ܠܘܢܢܝ ܘܐ̇ܓܗܐ ܡܢ ܚܙܬܟܘܢ܇ ܘܟܢ
                                 ܠܡ̇ܘܬܐ ܡ̇ܪܝܪܐ ܐܫ̣ܬܠܡ. ܘܗܟܢܐ ܒܦܣ̇ܝ̈ܩܬܐ ܢܦ̣ܩܘ ܡܢ ܠܘܬܗ܆ ܟܕ ܗ̣ܘ ܐ̣ܣܛܦܢܐ
                                 ܒܛܘ̣ܫܝܐ ܠܚܘܕܐܝܬ ܐܬ̣ܐ ܠܘܬܗ܆ ܟܕ ܡ̇ܘܕܥ ܠܗ ܥܠ ܠܘܚ̈ܡܐ ܕܡ̇ܘܬܐ ܕܐܬ̣ܓܙܪ
@@ -2579,13 +2754,13 @@ EH3.6.5-7
                      <head>
                                 <title>
                                     <hi rend="rubricated"> ܪܝܫܐ ܕܚܡܫܐ܆ ܕܥܠ ܢܣ̈ܝ̣ܘܢܐ ܕܐܕܪܟ̣ܘܗܝ ܠܗ
-                                        ܠܝܘܚܢܢ. </hi></title>
+                                        ܠܝܘܚܢܢ.</hi> ܡܢ ܒܬܪ ܟܢ ܒܐܘܠܨܢܗ ܕܚܒ̣ܘܫܝܗ܆ ܘܥܠ ܪܚ̣ܫܐ ܡ̇ܫ̣ܚܠܦܐ
+                                        ܕܡ̇ܫܢܩ ܗܘܐ ܠܗ ܒܠܠܝܐ ܘܒܐܝܡܡܐ.܀. </title>
                                 <note place="intercolumn">
                                     <num> ܏ܗ </num>
                                 </note>
                             </head>
-                      <p> ܡܢ ܒܬܪ ܟܢ ܒܐܘܠܨܢܗ ܕܚܒ̣ܘܫܝܗ܆ ܘܥܠ ܪܚ̣ܫܐ ܡ̇ܫ̣ܚܠܦܐ
-                          ܕܡ̇ܫܢܩ ܗܘܐ ܠܗ ܒܠܠܝܐ ܘܒܐܝܡܡܐ.܀. ܟܕ ܓܝܪ ܗ̣ܘ ܝܘܚܢܢ ܥܒ̣ܝܕ ܗܘܐ ܒܐܘܠܨܢܐ ܩܫ̣ܝܐ ܘܡ̇ܪܝܪܐ ܕܚܒ̣ܘܫܝܐ܆ ܢܦ̣ܠ ܘܐܦ ܒܐܘܠܨܢܐ 
+                      <p> ܟܕ ܓܝܪ ܗ̣ܘ ܝܘܚܢܢ ܥܒ̣ܝܕ ܗܘܐ ܒܐܘܠܨܢܐ ܩܫ̣ܝܐ ܘܡ̇ܪܝܪܐ ܕܚܒ̣ܘܫܝܐ܆ ܢܦ̣ܠ ܘܐܦ ܒܐܘܠܨܢܐ 
                                 ܐܚܪܢܐ <pb edRef="#L" n="28va"/> ܕܟܐܒ̣ܐ ܡ̇ܪܝܪܐ ܕܪ̈ܓܠܐ ܘܕܐ̣ܝ̈ܕܐ ܕܡܢ
                                 ܦ̇ܛܓܪܐ. ܘܡܟܝܠ ܗܘ̣ܐ ܐܝܟ ܡܝ̣ܬܐ ܘܕܠܐ ܡ̣ܨܐ ܕܢܬܗ̇ܦܟ ܐ̇ܘ ܕܢ̇ܪܚܫ ܚܕܐ ܡܢ
                                 ܐ̣ܝ̈ܕܘܗܝ ܐܘ ܪ̈ܓܠܘܗܝ: ܘܓܠ̣ܝܙ ܡܢ ܒܛܝ̣ܠܘܬܐ ܐܢܫܝܬܐ ܝܬܝܪܐܝܬ ܕܝ̇ܕ̈ܘܥܘܗܝ:
@@ -2601,7 +2776,12 @@ EH3.6.5-7
                                 ܟܠܗܘܢ ܡ̇ܪܝܪ܆ ܕܒܠܠܝܐ ܡܬ̇ܬܘܣܦ ܗܘܐ ܠܗ܆ ܕܐ̣ܝܬܝܗܘܢ <cb edRef="#L"
                                     n="28vb"/> ܗܘܘ̣ ܦܫ̈ܦ̣ܫܐ. ܕܗܟܢܐ ܢܦ̇ܩܝܢ ܗܘܘ ܟܠܗ ܠܠܝܐ ܘܡ̇ܚܦܝܢ ܗܘܘ
                                 ܠܗ: ܘܠܟܠܗ̇ ܥܪܣܗ ܘܠܦܬ̇ܗ ܘܠܥܝ̈ܢܘܗܝ܆ ܥܕܡܐ ܕܡܬ̇ܪܒܠܐ ܗܘܬ ܦܐ̇ܬܗ ܘܥܝ̈ܢܘܗܝ܇
-                                ܘܥ̈ܒ̇ܝܢ ܘܠܐ ܡܫ̣ܟܚ ܗܘܐ ܕܢܟ̇ܦܪ ܐܢ̈ܝܢ ܡܢܗ. ܘܬܘܒ ܢܣ̣ܝܘܢܐ ܐܚܪܢܐ ܕܚܡܫܐ
+                                ܘܥ̈ܒ̇ܝܢ ܘܠܐ ܡܫ̣ܟܚ ܗܘܐ ܕܢܟ̇ܦܪ 
+                          <app type="variants">
+                              <lem resp="#PMF" type="correction"> ܐܢܘܢ </lem>
+                              <rdg wit="#L"> ܐܢ̈ܝܢ </rdg>
+                          </app>                                
+                                ܡܢܗ. ܘܬܘܒ ܢܣ̣ܝܘܢܐ ܐܚܪܢܐ ܕܚܡܫܐ
                                 ܕܒ̈ܩܐ܆ ܕܥܡ ܗܠܝܢ ܟܠܗ ܠܠܝܐ̣ ܐܝܟ ܢܘܪܐ ܡ̇ܘܚܕܝܢ ܗܘܘ ܒܗ: ܝܬܝܪܐܝܬ ܒܐ̈ܦܘܗܝ܇
                                 ܘܒܟܠ ܐ̣ܝܟܐ ܕܡܫ̣ܟܚܝܢ ܗܘܘ ܕܓܠ̣ܐ ܡܢ ܓܘܫܡܗ. ܟܕ ܒ̇ܟܐ ܘܡ̇ܝܠܠ ܡܢ ܐ̇ܢܢܩܐ ܗܕܐ
                                 ܟܠܗ̇. ܘܢܘܪܐ ܕܡܢ ܗܠܝܢ ܚܡܫ ܡܚ̣̈ܘܬܐ <app type="variants">
@@ -2612,7 +2792,12 @@ EH3.6.5-7
                                 ܗܠܝܢ ܬܘܒ܆ ܢܣ̣ܝܘܢܐ ܕܫܬܐ ܕܐ̇ܝܬܝ ܥܠܘܗܝ ܣܛܢܐ. ܕܐ̣ܝܬܝܗܘܢ ܗܘܘ ܥܘܩܒܪ̈ܐ܆
                                 ܕܣܠ̣ܩܘ ܥܒ̣ܕܘܢ ܠܗܘܢ ܩܢ̣ܐ܆ ܬܚ̣ܝܬ ܒܣ̣ܕܝܐ ܕܬܚ̣ܝܬ ܪܝܫܗ. ܘܟܠܗ ܠܠܝܐ ܚ̇ܦܪܝܢ
                                 ܗܘܘ̣ ܘܡ̇ܨܘܨܝܢ ܬܚ̣ܝܬ ܪܝܫܗ.܀. ܘܗܠܝܢ <pb edRef="#L" n="29ra"/> ܟܠܗܘܢ
-                                ܐܘ̈ܠܨܢܐ܆ ܥܠ ܚܒ̣ܘܫܝܗ ܘܟܘ̣ܪܗܢܗ ܐܬܬ̣ܘܣܦ ܠܗ̣ ܘܠܝܬ ܕܡ̇ܥܕܪ. ܓ̇ܕܫܐ ܕܝܢ ܕܐܦ
+                                ܐܘ̈ܠܨܢܐ܆ ܥܠ ܚܒ̣ܘܫܝܗ ܘܟܘ̣ܪܗܢܗ 
+                          <app type="variants">
+                              <lem resp="#NK" type="correction"> ܐܬܬ̣ܘܣܦܘ </lem>
+                              <rdg wit="#L"> ܐܬܬ̣ܘܣܦ </rdg>
+                          </app>   
+                                ܠܗ̣ ܘܠܝܬ ܕܡ̇ܥܕܪ. ܓ̇ܕܫܐ ܕܝܢ ܕܐܦ
                                 ܠܓܘܚܟܐ ܘܠܡ̇ܘܝܩܐ ܫܩ̇ܠܝܢ ܠܗ ܠܪܘܫ̣ܡܐ <app type="variants">
                                     <lem resp="#Brooks" type="correction"> ܕܥܘܗܕܢܗܝܢ </lem>
                                     <rdg wit="#L"> ܕܥܘܗ̈ܕܢܗܝܢ </rdg>
@@ -2892,7 +3077,7 @@ EH3.6.5-7
                                 ܒܗ: ܘܣܓ̈ܝܐܐ ܫ̇ܒܚܘ ܠܐܠܗܐ ܕܚ̇ܝܠܗ ܕܗܟܢܐ ܢܒ̇ܣܪ ܥܠ ܥܠܡܐ: ܘܐܫܬ̇ܪܪܘ
                                 ܒܗܝܡܢܘܬܐ ܣܓ̈ܝܐܐ: ܕܗܟܢܐ ܚ̇ܙܝܢ ܗܘܘ ܠܗ ܕܦ̣ܨܝܚ ܘܚ̇ܕܐ܆ ܘܡ̇ܫܒܚܝܢ ܠܐܠܗܐ.
                                 ܕܝܕ̈ܝܐ ܕܝܢ ܘܐܚܪ̈ܢܐ ܗ̇ܢܘܢ <cb edRef="#L" n="33vb"/> ܕܕܒܝ̣ܪܝܢ ܗܘܘ ܠܗ܆
-                                ܡܬܬ̣ܠܝܢ ܗܘܘ ܒܟ̣ܘܣܝܬܐ ܕܒܐ̣ܪܘܢܗ ܕܢܚ̇ܦܐ ܪܝܫܗ. ܘܗ̣ܘܓ̇ܠܐ ܗܘܐ ܠܗ̣̇ ܟܕ
+                                ܡܬܬ̣ܠܝܢ ܗܘܘ ܒܟ̣ܘܣܝܬܐ ܕܒܐ̣ܪܘܢܗ ܕܢܚ̇ܦܐ ܪܝܫܗ. ܘܗ̣ܘ ܓ̇ܠܐ ܗܘܐ ܠܗ̣̇ ܟܕ
                                 ܐܡ̇ܪ܆ ܕܠܝ ܫܘܒ̇ܗܪܐ ܗܘ ܪܒܐ܇ ܕܡܛܠ ܫܪܪܗ ܕܡܫܝܚܐ ܐ̇ܡܘܬ܆ ܘܕܠܐ ܐܢܫ ܫܘܒ̇ܗܪܝ
                                 ܢܣ̇ܪܩ. ܘܗܟܢܐ ܐ̣ܙܠ ܘܐܬܚܒ̣ܫ ܒܗ̇ ܒܕܝܪܐ̣ ܙܒܢܐ ܕܬܠܬ ܫ̈ܢܝܢ. ܘܗܟܢܐ ܒܚܪܬܐ
                                 ܒܬܪ ܡ̇ܪܕܘܬܐ܆ ܐܫܬܪܝ̣ ܘܐܫܬ̣ܒܩ ܠܒܪ ܡܢ ܦܠܛܝܢ. </p>
@@ -2993,8 +3178,8 @@ EH3.6.5-7
                                 ܦܘܠܝܛܝܐ ܕܪ̈ܗܘܡܝܐ ܥܡ ܦܪ̈ܣܝܐ. ܟܕ ܐ̇ܚ̣ܝܕܝܢ ܫܪܪܗܘܢ ܐܝܟ ܕܡܢ ܒܪܫܝܬ̣
                                 ܒܦܪܗܣܝܐ ܪܒܬܐ. ܝܘܚܢܢ ܕܝܢ ܦܛܪܝܪܟܐ ܫܩ̣ܠ ܗܘܐ ܫܡ̈ܗܝܗܘܢ ܡܢ <app
                                     type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܕܦ̣ܛܝܟܘܢ. </lem>
-                                    <rdg wit="#L"> ܕܘܦ̣ܛܝܟܘܢ </rdg>
+                                    <lem wit="#L"> ܕܘܦ̣ܛܝܟܘܢ. </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܕܦ̣ܛܝܟܘܢ </rdg>
                                 </app> ܘܗܝ̣ ܗܕܐ ܚ̇ܕܘܬܐ ܪܒܬܐ ܥܒ̣ܕܬ݀ ܠܗܘܢ ܟܕ ܐܡ̇ܪܝܢ܆ ܕܗܫܐ ܗܘ ܝ̣ܕܥܢ
                                 ܕܨܒ̣ܐ ܒܢ ܐܠܗܐ܇ ܘܚ̣ܪ ܒܢ ܕܠܐ ܢܬܕܟܪ ܥܠ ܩ̣ܘܪܒܢܐ ܕܗܠܝܢ ܕܡ̇ܦܠܓܝܢ ܠܡܫܝܚܐ
                                 ܠܬܪ̈ܝܢ܇ ܡܢ ܒܬܪ ܚܕܝܘܬܐ ܫܪܝܪܬܐ ܘܠܐ ܡܬ̇ܦܠܓܢܝܬܐ. </p>
@@ -3151,10 +3336,10 @@ EH3.6.5-7
                                 ܬܪ̈ܬܝܢ ܐ̣ܝܬܝܗܝܢ ܗ̈ܘܝ܇ ܕܝܩ̣̈ܘܢܝܣ ܕܪ̈ܘܪܒܢ ܘܝ̣̈ܕܝܥܢ. ܘܐ̣ܝܬܝܗܝܢ ܗ̈ܘܝ
                                 ܟܠܗܝ̣ܢ ܕܐܪ̈ܬܕܟܣܘ. ܚܕܐ ܩܕܡܝܬܐ ܘܪܒܬܐ܆ ܘܗܝ̇ ܕܐܬܩܝ̣ܡܬ݀ ܡܢ ܦܘܠܐ ܐܠܗܝܐ
                                 ܐܢܛܝܘܟܝܐ܇ ܗܢܐ ܕܒܛܢ̣ܢܐ ܪܒܐ ܘܐܦ ܒܡ̈ܕܝܢܬܐ ܪ̈ܘܪܒܬܐ ܘܝ̣ܕܝܥ̈ܬܐ ܕܒܡܕܢܚܐ
-                                ܘܒܡܥܪܒܐ܇ ܥܒ̣ܕ ܗܘܐ ܘܐ̇ܩ̣ܝܡ ܕܝܩ̣̈ܘܝܣ܇ ܗܠܝܢ ܕܒܗܝܢ ܡܬ̇ܚܙܝܐ ܘܡܫܬ̇ܡܠܝܐ
+                                ܘܒܡܥܪܒܐ܇ ܥܒ̣ܕ ܗܘܐ ܘܐ̇ܩ̣ܝܡ ܕܝܩ̣̈ܘܢܝܣ܇ ܗܠܝܢ ܕܒܗܝܢ ܡܬ̇ܚܙܝܐ ܘܡܫܬ̇ܡܠܝܐ
                                 ܡܠܬܗ ܕܡܪܢ܇ ܕܗܕܐ ܗܝ ܢܝ̣ܚܬܝ̣ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܕܐ̇ܢ̣ܝܚ </lem>
-                                    <rdg wit="#L"> ܕܐ̇ܢ̣ܝܚܘ </rdg>
+                                    <lem wit="#L"> ܕܐ̇ܢ̣ܝܚܘ </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܕܐ̇ܢ̣ܝܚ </rdg>
                                 </app> ܠܡ̇ܛܪ̈ܦܐ. ܕܣܟ ܠܓܡ̣ܪ̣ <app type="variants">
                                     <lem resp="#Brooks" type="addition"> ܚܕ ܡܢ </lem>
                                     <rdg wit="#L"/>
@@ -3592,7 +3777,7 @@ EH3.6.5-7
                                     <lem resp="#Brooks" type="correction"> ܐܦ </lem>
                                     <rdg wit="#L"> ܕܐܦ </rdg>
                                 </app> ܠܐ ܗ̣ܝ ܟܐܢܘܬܗ ܕܐܠܗܐ܇ ܛܥܢ̣ܬ݀ ܘܣܝܒ̣ܪܬ݀ ܐ̈ܢܝܢ. ܐܠܐ ܒܥܓܠ <pb
-                                    edRef="#L" n="43ra"/> ܘܡܣ̣ܪܗܒܐܝܬܓ̣ܙܪ ܕܝ̣ܢܐ ܘܪܘܓܙܐ ܕܡܢ ܫܡܝܐ ܥܠ
+                                    edRef="#L" n="43ra"/> ܘܡܣ̣ܪܗܒܐܝܬ ܓ̣ܙܪ ܕܝ̣ܢܐ ܘܪܘܓܙܐ ܕܡܢ ܫܡܝܐ ܥܠ
                                 ܗܕܐ ܟܠܗ̇ ܚ̇ܪܡܘܬܐ ܘܒܥ̇ܪܝܪܝܘܬܐ܇ ܗ̇ܢܘ ܕܝܢ ܥܠ ܗ̇ܢܘܢ ܕܕܠܐ ܦܓ̣ܘ̈ܕܐ ܕܕܚܠ̣ܬ
                                 ܐܠܗܐ ܒܗ̇ ܡܬ̇ܚܫܚܝܢ ܗܘܘ ܐܫܬ̇ܕܪ܇ ܗ̇ܢܘ ܕܝܢ ܥܠ ܝܘܚܢܢ ܦܛܪܝܪܟܐ܇ ܘܥܠ ܡ̇ܠܟܐ
                                 ܗ̇ܘ ܕܡܢܗ ܡܫ̣ܬܓܫ ܗܘܐ܇ ܘܠܗ ܦܩ̇ܕ ܗܘܐ ܕܒܗܠܝܢ ܢܬ̇ܚܫܚ. ܟܕ ܬܪ̈ܝܗܘܢ ܒܚܕ ܫܒܛܐ
@@ -3642,10 +3827,10 @@ EH3.6.5-7
                                 ܕܟܐܢܘܬܐ ܡܢ ܫܡܝܐ ܡܛܠ ܡ̇ܪܓܙܢܘܬܝ܇ ܐܫܬ̇ܕܪ ܥܠܝ ܗܠܝܢ ܟܠܗܝܢ ܡ̈ܚ̣ܘܬܐ.
                                 ܘܒ̈ܢܝܢܫܐ ܕܠܗܝܢ ܢܐ̇ܣܘܢ̣ ܠܐ ܡܨ̣ܝܢ. ܗܫܐ ܗܘ ܓܝܪ ܝܕܥ̇ܬ ܘܐܬ̇ܒܝܢܬ܇ ܕܐ̇ܝܟܢܐ
                                 ܕܕܠܐ ܪ̈ܚ̣ܡܐ ܐܢܐ ܡ̇ܚܝܬ  <pb edRef="#Brooks" n="91"/>  ܠܣܓ̈ܝܐܐ܇ ܗܟܢܐ
-                                ܐܢܐ ܒܠܚܘܕܝ ܗܫܐ ܡܢ ܗ̇ܘ ܚܕ  ܒ̇ܠܥܬ ܕܠܐ ܪ̈ܚ̣ܡܐ. ܩܕܡ ܕܝܢ ܙܒܢܐ ܦܣ̣ܩܘ ܗܘܘ
+                                ܐܢܐ ܒܠܚܘܕܝ ܗܫܐ ܡܢ ܗ̇ܘ ܚܕ ܒ̇ܠܥܬ ܕܠܐ ܪ̈ܚ̣ܡܐ. ܩܕܡ ܕܝܢ ܙܒܢܐ ܦܣ̣ܩܘ ܗܘܘ
                                 ܡܢܗ ܐ̇ܣܘ̈ܬܐ܆ ܐ̣ܝܟܢܐ ܕܐܦ <cb edRef="#L" n="43vb"/>  ܗ̣ܘ ܕܚ̇ܩ ܗܘܐ
                                 ܠܗܘܢ܇ ܟܕ ܡܟܝܠ̣ ܘܐܦܠܐ ܣܝ̇ܒܪܬܐ ܡܕܡ ܡܨ̣ܐ ܗܘܐ ܕܢܩ̇ܒܠ. ܘܐܦܢ ܡ̇ܡ̈ܙܓܐ ܢܫ̣ܬܐ
-                                ܗܘܐ̣ ܡ̇ܣܩ ܗܘܐ ܠܗܘܢ̣ ܒܥܓܠ. ܒܚܪܬܐ ܕܝܢ ܘܐܦ ܡܐ̈ܢܝ ܥܘܗ ܡܬ̇ܦܬܦܬܝܢ ܗܘܘ̣
+                                ܗܘܐ̣ ܡ̇ܣܩ ܗܘܐ ܠܗܘܢ̣ ܒܥܓܠ. ܒܚܪܬܐ ܕܝܢ ܘܐܦ ܡܐ̈ܢܝ ܓܘܗ ܡܬ̇ܦܬܦܬܝܢ ܗܘܘ̣
                                 ܘܢܚ̇ܬܝܢ. ܘܟܕ ܛܒ ܡ̇ܪܝܪ ܗܘܐ ܘܩܫ̣ܐ ܬܫܢܝ̣ܩܗ܆ ܐܦ ܢܓ̇ܝܪ ܗܘܐ. ܘܟܕ ܡܒ̇ܟܐ ܥܠ
                                 ܢܦܫܗ ܐܡ̇ܪ ܗܘܐ ܠܥ̣ܝܢ ܣܓ̈ܝܐܐ܆ ܕܝ̇ܕܥ ܐܢܐ ܠܡ ܡܪܝ ܕܒܝܫ̈ܬ̣ܐ ܩܕܡܝܟ ܥܒ̇ܕܬ܆
                                 ܘܠܘ̈ܛܬܐ ܕܥ̣ܒ̈ܕܝܟ ܐܢ̈ܫܐ ܣܒ̈ܐ ܘܝܩ̣ܝܪ̈ܐ ܐ̇ܕܪ̈ܟ̣ܢܢܝ ܘܐܥ̣ܝܪ̈ܝ ܪܘܓܙܟ ܥܠܝ܇
@@ -3654,10 +3839,10 @@ EH3.6.5-7
                                 ܐ̇ܦ̣ܝܫ ܡܢ ܩܫ̣ܝܘܬ ܨܢ̣ܥ̈ܬܗ܆ ܒܚܪܬܐ ܟܕ ܫܦ̣ܠܐ ܩܫ̣ܝܐ ܘܬܫ̣ܢܝܩܐ ܗܢܐ ܟܠܐ
                                 ܡ̇ܪܝܪܐ ܡ̇ܢܘܠ ܗܘܐ ܠܗ: ܐܝܟ ܙܒܢܐ ܕܬܪ̈ܬܝܢ ܫ̈ܢܝܢ܆ ܗܝ̇ ܕܝܢ ܡܢ ܚܝ̈ܐ ܕܬܢܢ
                                 ܛܠ̣ܩ܆ ܒܫܢܬ ܬܠܬܥܣܪ̈ܐ <pb edRef="#L" n="44ra"/> ܕܡ̇ܠܟܘܬܗ ܕܡ̇ܠܟܐ
-                                ܝܘܣܛܝܢܐ. ܟܕ. ܗ̣ܘ ܒܗܘܢ ܒܟܘܪ̈ܗܢܘܗܝ ܟܬ̇ܪ. <app type="variants">
+                                ܝܘܣܛܝܢܐ. ܟܕ ܗ̣ܘ ܒܗܘܢ ܒܟܘܪ̈ܗܢܘܗܝ ܟܬ̇ܪ. <app type="variants">
                                     <lem resp="#Brooks" type="correction"> ܘܟܕ </lem>
                                     <rdg wit="#L"> ܟܕ </rdg>
-                                </app> ܒܥܒܢ ܙܒܢ ܡܬ̇ܥܕܪ ܗܘܐ܆ ܬܘܒ ܒܟܠܙܒܢ ܡܬ̣ܪܕܐ̣ ܥܕܡܐ ܠܝܘܡܐ ܕܫܘܠܡܗ. </p>
+                                </app> ܒܙܒܢ ܙܒܢ ܡܬ̇ܥܕܪ ܗܘܐ܆ ܬܘܒ ܒܟܠܙܒܢ ܡܬ̣ܪܕܐ̣ ܥܕܡܐ ܠܝܘܡܐ ܕܫܘܠܡܗ. </p>
                   </div>
                   <div type="textpart"
                        xml:lang="syc"
@@ -3794,7 +3979,7 @@ EH3.6.5-7
                                 </app> ܐܝܬܘܗܝ ܗܘܐ ܡܢ ܩܕܝܡ̣ ܣܘ̣ܢܦܢܘܣ. ܘܒܟܠܗܝ̣ܢ ܒܥ̣ܩ̈ܒܬܗ ܕܗ̇ܘ ܚܦ̣ܝܛ
                                 ܗܘܐ ܠܡ̣ܪܕܐ.܀. ܟܕ ܠܐ ܬܘܒ <pb edRef="#Brooks" n="96"/>   <app
                                     type="variants">
-                                    <lem resp="#Brooks" type="correction">  ܛܥ̣ܢܬ </lem>
+                                    <lem resp="#Brooks" type="correction"> ܛܥ̣ܢܬ </lem>
                                     <rdg wit="#L"> ܛܥ̣ܢܬܝ </rdg>
                                 </app> ܟܐܢܘܬܐ̣ ܘܐܦܠܐ ܪܘܫ̣ܥܗ ܕܗܢܐ܇ ܕܟܕ ܟܪܣܛܝܢܐ ܢܦܫܗ ܡ̇ܚܘܐ ܗܘܐ܇ ܐܝܟ
                                 ܚ̈ܢܦܐ ܘܫܡ̇ܪ̈ܝܐ ܠܟܪ̈ܣܛܝܢܐ ܐܝܟ ܕܡܢ ܥ̣ܠܬ݀ ܫܘܠܛܢܐ܇ ܒܣ̣ܬܪܐ ܡ̇ܚܐ ܗܘܐ ܒܟܠ
@@ -3867,12 +4052,7 @@ EH3.6.5-7
                      <p> ܡܢ ܒܬܪ ܕܝܢ ܡ̇ܘܬܗ ܕܝܘܚܢܢ ܦܛܪܝܪܟܐ܆ ܐܬܩ̣ܪܝ ܐ̣ܘܛܘܟܐ ܗ̇ܘ ܕܐܝܬܘܗܝ ܗܘܐ ܡܢ ܩܕܡܘܗܝ܇
                                 ܡܢ ܕܝܪܗ <pb edRef="#Brooks" n="98"/> ܕܐ̣ܝܬܝܗ̇ ܒܐ̣ܡܣܝܐ ܐܬܪܐ ܕܓܪܒܝܐ.
                                 ܘܥ̣ܠ ܘܐܬ̇ܩܒܠ ܘܡܢ ܡ̈ܠܟܐ̣ ܘܡܢ ܟܠܗ̇ ܡܕܝܢܬܐ ܒܙܘ̇ܚܐ ܪܒܐ. ܟܕ ܐܦ ܡ̇ܛܒܝܢ
-                                    <app type="variants">
-                                    <lem rend="overwrite" hand="#m1"> ܥܠܘܗܝ ܪ̈ܘܪܒܬܐ܇ ܕܬܕܡ̣ܪ̈ܬܐ </lem>
-                                    <rdg wit="#L">
-                                        <del rend="erasure"/>
-                                    </rdg>
-                                </app> ܥ̇ܒܕ ܘܚ̇ܝ̈ܠܐ ܣ̇ܥܪ. ܚ̣ܕܝܬ݀ ܕܝܢ ܟܠܗ̇ ܡܕܝܢܬܐ ܒܡ̇ܥܠܬܗ܆ ܐܝܟ ܡ̇ܢ
+                                     ܥܠܘܗܝ ܪ̈ܘܪܒܬܐ܇ ܕܬܕܡ̣ܪ̈ܬܐ ܥ̇ܒܕ ܘܚ̇ܝ̈ܠܐ ܣ̇ܥܪ. ܚ̣ܕܝܬ݀ ܕܝܢ ܟܠܗ̇ ܡܕܝܢܬܐ ܒܡ̇ܥܠܬܗ܆ ܐܝܟ ܡ̇ܢ 
                                 ܕܐ̇ܓܗ̣ܝܘ ܡܢ ܟܘܠܗ̇ ܫ̇ܩܪܘܬܗ ܘܕ̈ܓ̇ܠܘܬܗ: ܘܐܦ̣ܝܬܝܛܘܬܗ ܕܝܘܚܢܢ܇ ܗܝ̇ ܕܕܠܐ
                                 ܛܟ̣ܣܐ ܐ̣ܝܬܝܗ̇ ܗܘܬ܇ ܐܝܟ ܡ̇ܢ ܕܛܠܝܐ ܐ̣ܝܬܘܗܝ ܗܘܐ܇ ܘܡܢ ܣܟ̣ܠܘܣ̈ܬܝܩܐ
                                 ܐ̣ܝܬܘܗܝ ܗܘܐ܇ ܘܡܢ ܩܕܡ ܩܠܝܠ ܙܒܢܐ ܐܣܬ̇ܦܪ ܘܗ̣ܘܐ ܩܠ̣ܝܪܝܩܐ܇ ܘܡܢ ܫܠ̣ܝ ܬܘܒ
@@ -3939,7 +4119,7 @@ EH3.6.5-7
                                 </note>
                             </head>
                      <p> ܟܕ ܓܝܪ ܠܟܠܢܫ ܐܣܬܒ̣ܪܬ݀: ܕܒܥ̇ܬܐ ܪܒܬܐ ܥܬܝܕ ܗܘܐ ܐ̣ܘܛܝܟ ܕܢܥ̣ܒܕ: ܟܕ ܐܬܩ̣ܪܝ ܘܥ̣ܠ܆
-                                ܣܠ̣ܩ <note place="bottom_center" hand="#m2"> ܥܠܘܗܘܢ ܒܪܝܫܗܘܢ ܣܠܩ
+                                ܣܠ̣ܩ <note place="bottom_center" hand="#m2"> ܥܘܠܗܘܢ ܒܪܝܫܗܘܢ ܣܠܩ
                                 </note> ܝܬ̣ܒ ܥܠ ܬ̣ܪܘܢܘܣ ܕܠܐ ܚ̣ܪܝܢ܆ ܟܕ ܬܛ̣ܪܐ ܕܠܝ̣ܚܐ ܕܚ̣ܪ̈ܡܝܗܘܢ ܕܠܘܬ
                                 ܚ̈ܕܕܐ܇ ܗ̇ܢܘ ܕܝܢ ܕܝܘܚܢܢ ܘܕܝܠܗ <pb edRef="#Brooks" n="100"/>  ܐܫ̣ܬܝܘ
                                 ܘܐ̇ܡ̣ܨܝܘ ܬܪ̈ܝܗܘܢ ܓ̇ܒ̈ܐ܇ ܥܡ ܐܝܠܝܢ ܕܡܫܬ̇ܘܬܦܝܢ ܠܗܘܢ܇ ܐ̣ܝܟܢܐ ܕܐܦ ܐܚ̣ܪܡܘ.
@@ -3961,7 +4141,7 @@ EH3.6.5-7
                             </head>
                      <p> ܟܕ ܗܟܝܠ ܥ̣ܠ ܘܠܒ̣ܟ ܐ̣ܘܛܝܟ: ܘܡܢ ܒܥ̇ܬܐ ܩܢܘܢܝܬܐ ܐ̇ܗ̣ܡܝ: ܟܕ ܕܚ̇ܠ ܕܕܡ̣ ܡܢ ܗܕܐ
                                 ܣܩ̣ܘܒܠܐ ܡܕܡ ܢܬܬܥܝܪ ܠܩ̣ܘܒܠܗ ܘܢܘ̇ܒܕ ܐ̣ܘܪܝܗ܆ ܗ̇ܝ ܕܝܢ ܣܢܐ̣ܬܗ ܘܛܢ̣ܢܗ
-                                ܕܠܘܬܗ ܚ̇ܘܝ: ܟܕ ܦܩ̣ܕ܆ ܕܝܘܩ̈ܢܘܗܝ ܟܠܗܘ  ܢ ܢܬ̇ܥܩܪܘܢ̣ ܘܢ̇ܦܩܘܢ ܡܢ ܒܝܬ
+                                ܕܠܘܬܗ ܚ̇ܘܝ: ܟܕ ܦܩ̣ܕ܆ ܕܝܘܩ̈ܢܘܗܝ ܟܠܗܘܢ ܢܬ̇ܥܩܪܘܢ̣ ܘܢ̇ܦܩܘܢ ܡܢ ܒܝܬ
                                 ܐܦܝܣܩܦܝܘܢ܇ ܗ̇ܘ ܕܗ̣ܘ ܝܘܚܢܢ ܒܬܪ ܝܩ̣ܕܢܗ ܒܢ̣ܝܗܝ ܗܘܐ ܪܘܪܒܐܝܬ. ܘܝܘܩ̈ܢܘܗܝ
                                 ܡܢܗ ܘܡܢ ܟܠܕܘܟ܆ ܡܬ̣ܠܚܝܢ ܗܘܘ̣ ܘܡܬܥ̇ܩܪܝܢ. ܘܫܡܗ ܡܢ ܕܢܬܟ̣ܪܙ ܡܫܬ̇ܠܐ ܗܘܐ܆
                                 ܥܕܡܐ ܕܗܕܐ ܥܠ ܡ̇ܠܟܐ ܠܐ ܫܦ̣ܪܬ݀ ܕܢܒ̣ܛܠ ܫܡܗ. ܘܠܟܠܗܘܢ ܐܢܫܐ ܩ̇ܪ̈ܝܒܘܗܝ ܕܗ̇ܘ
@@ -3981,7 +4161,12 @@ EH3.6.5-7
                      <head>
                                 <title>
                                     <hi rend="rubricated"> ܪܝܫܐ ܕܬܠܬܝܢ ܘܚܡܫܐ܆ ܕܥܠ ܟܬ̈ܒܐ ܕܪܒܝܥ̣ܝܘܬܐ܇
-                                        ܗ̇ܢܘ ܕܝܢ ܕܬܪ̈ܝܝ ܟܝ̈ܢܐ ܕܡܢ ܒܬܪ ܚܕܝܘܬܐ܇ ܕܥܒ̣ܕ ܗ̣ܘ ܐ̣ܘܛܝܟ ܟܕ
+                                        ܗ̇ܢܘ ܕܝܢ
+                                        <app type="variants">
+                                            <lem resp="#PMF" type="correction">ܕܬܪ̈ܝܢ ܟܝ̈ܢܝܢ</lem>
+                                            <rdg wit="#L">ܕܬܪ̈ܝܝ ܟܝ̈ܢܐ</rdg>
+                                        </app>
+                                        ܕܡܢ ܒܬܪ ܚܕܝܘܬܐ܇ ܕܥܒ̣ܕ ܗ̣ܘ ܐ̣ܘܛܝܟ ܟܕ
                                         ܐ̣ܝܬܘܗܝ ܒܐ̣ܟܣܘܪܝܐ. </hi>
                                 </title>
                                 <note place="intercolumn">
@@ -4139,7 +4324,7 @@ EH3.6.5-7
                                 ܐ̇ܠܨܝܢ ܗܘܘ ܠܟܠܗ̇ ܕܝܪܐ ܕܬܣ̣ܒ ܡܢܗܘܢ ܩ̣ܘܪܒܢܐ܆ ܠܒ̣ܟܘܢ ܡܢܗܝ̣ܢ ܘܦ̇ܠܓ̣ܘ
                                 ܐ̈ܢܝܢ ܒܕܝܪ̈ܬܐ ܒܡܕܝܢܬܐ. ܗܠܝܢ ܕܝܢ ܬܪ̈ܬܝܢ ܐܚ̈ܘܬܐ̣ ܐܝܟ ܐ̇ܕܡܘܣ ܩ̈ܝ̣ܡܢ
                                 ܗ̈ܘܝ. ܘܝܬܝܪܐܝܬ̣ ܗ̇ܝ ܩܫܝܫܬܐ. ܐ̣ܝܟܢܐ ܕܟܠ ܫ̈ܢ̣ܕܝܢ ܘܟܠ ܐܘ̈ܠܨܢܝܢ
-                                ܕܚܒ̣̈ܘܫܝܐ ܐ̈ܠܝ̣ܨܐ ܘܕܟܦ̣ܢܐ ܘܕܨܗ̣ܝܐ ܡ̇ܥܒܪܢ ܗܘܘ ܥܠܝܗ̇. ܟܕ ܗ̣ܝ ܝܬ̇ܝܪܐܝܬ
+                                ܕܚܒ̣̈ܘܫܝܐ ܐ̈ܠܝ̣ܨܐ ܘܕܟܦ̣ܢܐ ܘܕܨܗ̣ܝܐ ܡ̇ܥܒܪܝܢ ܗܘܘ ܥܠܝܗ̇. ܟܕ ܗ̣ܝ ܝܬ̇ܝܪܐܝܬ
                                 ܡܬ̇ܥܠܡܐ ܗܘܬ ܘܙܗ̇ܝܐ ܘܪܬ̇ܚܐ ܒܗܝܡܢܘܬܐ. ܘܡ̇ܟܣܐ ܘܡ̇ܚܣܕܐ̣ ܠܟܠܗܝܢ ܗܠܝܢ
                                 ܕܚܒܝ̣ܫܐ ܗܘܬ ܒܕܝܪܗܝܢ. ܘܐ̇ܡܪܐ܆ ܕܐ̣ܢܬܝܢ ܘܟܠܗܘܢ ܟܗ̈ܢܝܟܝܢ܆ ܘܟܠܗܘܢ ܒ̈ܢܝ
                                 ܨܒܝܢܟܝܢ܆ ܢܘܟܪ̈ܝܬܐ ܐ̣ܢܬܝܢ ܠܬܠܝܬܝܘܬܐ ﻿‏ <pb edRef="#Brooks" n="105"/>
@@ -4188,7 +4373,7 @@ EH3.6.5-7
                                 ܒܣܓܝܐ̈ܬܐ܆ ܥܕܡܐ ܕܟܠܗܘܢ ܒܟܠܕܘܟ ܐܙܕܟ̣ܝܘ ܡܢܗ̇. ܘܒܚܪܬܐ̣ ܫܪ̣ܐܘܗ̇ ܕܬܐ̣ܙܠ
                                 ܠܕܝܪܗ̇. ܐ̣ܝܟܢܐ̣ ܕܥܠ̣ܬܐ ܕܦܘ̇ܢܝܐ ܗ̣ܘܬ ܠܟܠܗ̇ ܕܝܪܗ̇܆ ܟܕ ܠܐ ܬܘܒ ܐܪܡ̣ܝܘ
                                 ܥܠܝܗܝܢ. ܟܕ ܡܢ ܐܓ̈ܘܢܝܗ̇ ܟ̇ܘܙܝܢ ܐܡ̇ܪܝܢ ܗܘܘ܆ ܕܐܢ ܠܡ ܚܕܐ ܚܬܐ ܡܢ ܗ̇ܝ
-                                ܕܝܪܐ: ܒܗܠܝܢ ܟܠܗܘܢ ܐܓ̈ܘܢܐ ܩܡ̣ܬ݀ ܘܠܐ ܐܬܪܦ̣ܝܬ݀܆ ܟܕ ܟܠܗܘܢ ܢܫ̇ܬ̈ܘܝܢ܆ ܡܢ̣ܘ
+                                ܕܝܪܐ: ܒܗܠܝܢ ܟܠܗܝܢ ܐܓ̈ܘܢܐ ܩܡ̣ܬ݀ ܘܠܐ ܐܬܪܦ̣ܝܬ݀܆ ܟܕ ܟܠܗܘܢ ܢܫ̇ܬ̈ܘܝܢ܆ ܡܢ̣ܘ
                                 ܡܨ̣ܐ ܚܝ̇ܠܗܝܢ. </p>
                   </div>
                   <div type="textpart"
@@ -4404,24 +4589,26 @@ EH3.6.5-7
                        xml:id="EH3.2.45">
                      <head>
                                 <title>
-                                    <hi rend="rubricated">  ܪܝܫܐ ܕܐܪ̈ܒܥܝܢ ܘܚܡܫܐ܆ ܕܥܠ ܣ̣ܕܩܐ ܕܗܠܝܢ  
+                                    <hi rend="rubricated"> ܪܝܫܐ ܕܐܪ̈ܒܥܝܢ ܘܚܡܫܐ܆ ܕܥܠ ܣ̣ܕܩܐ ܕܗܠܝܢ  
                                          ܕܡܬ̣ܩܪܝܢ ܥܠ ܫܡ ܕܪܬܐ ܕܟ̇ܢܫܝܢ ܗܘܘ ܒܗ̇܇ ܕܡܬ̇ܩܪܝܐ̣ <app
                                             type="variants">
-                                            <lem wit="#L"> ܩܘ̈ܢܕܘܒ̣ܘܕܝܛܐ.܀.܀. </lem>
-                                            <rdg resp="#Brooks" type="proposition"> ܩܘܢܕܘܒ̣ܘܕܘ
-                                            </rdg>
+                                            <lem resp="#Brooks" type="proposition"> ܩܘܢܕܘܒ̣ܘܕܘ
+                                            </lem>
+                                            <rdg wit="#L"> ܩܘ̈ܢܕܘܒ̣ܘܕܝܛܐ.܀.܀. </rdg>
                                         </app>
                                     </hi>
-                                </title>
-                                <note place="margin_outer">
-                                    <num> ܏ܡܗ </num>
-                                </note>
-                            </head>
-                     <p> ܩܘ̈ܢܕܘܒܘܕܝܛܐ ܗܠܝܢ ܕܐܦ ܡܢ ܩܕܝܡ ܐܬܥ̣ܗܕܢ ܐܢܘܢ: ܟܢܘ̣ܫܝܐ ܗܟܝܠ ܗܢܐ܆ ܗܠܝܢ ܐܢܘܢ
+                       ܩܘ̈ܢܕܘܒܘܕܝܛܐ ܗܠܝܢ ܕܐܦ ܡܢ ܩܕܝܡ ܐܬܥ̣ܗܕܢ ܐܢܘܢ܀
+                       </title>
+                      <note place="margin_outer">
+                          <num> ܏ܡܗ </num>
+                      </note>
+                      </head>  
+                      <p>
+                         ܟܢܘ̣ܫܝܐ ܗܟܝܠ ܗܢܐ܆ ܗܠܝܢ ܐܢܘܢ
                                 ܕܩܝ̣ܡܝܢ ܠܘܩܒܠ ܗ̇ܘ ܡܐܡܪܐ ܕܥܒ̣ܕ ܬܐܕܘܣܝܣ ܕܐ̣ܠܟܣܢܕܪܝܐ܇ ܟܕ <pb
                                     edRef="#Brooks" n="112"/> ܐ̣ܝܬܘܗܝ ܒܡܕܝܢܬ <cb edRef="#L" n="53vb"
                                 />  ܡܠܟܘܬܐ ܠܘܩܒܠ <app type="variants">
-                                    <lem resp="#Cureton" type="addition"> ܬܪ̈ܬܝܢ </lem>
+                                    <lem resp="#Cureton" type="proposition"> ܬܪ̈ܬܝܢ </lem>
                                     <rdg wit="#L">   ܬܪ̈ܬ <gap reason="damage" quantity="2"
                                             unit="character"/>
                                     </rdg>
@@ -4686,7 +4873,12 @@ EH3.6.5-7
                        n="contents"
                        xml:id="EH3.3.0">
                      <p>
-                                <hi rend="rubricated"> ܪܝܫܐ ܕܣܦ̣ܪܐ ܕܬܠܬܐ ܕܬܫ̈ܥ̣ܝܬܐ ܕܥܕܬܐ܆    <app
+                                <hi rend="rubricated">
+                                    <app type="variants">
+                                        <lem resp="#NK" type="correction"> ܪ̈ܝܫܐ </lem>
+                                        <rdg wit="#L"> ܪܝܫܐ </rdg>
+                                    </app>
+                                    ܕܣܦ̣ܪܐ ܕܬܠܬܐ ܕܬܫ̈ܥ̣ܝܬܐ ܕܥܕܬܐ܆ <app
                                         type="variants">
                                         <lem resp="#Brooks" type="addition"> ܕܐܝܬ ܒܗ ܪ̈ܝܫܐ ܚܡܫܝܢ
                                             ܘܫܬܐ܆ </lem>
@@ -4757,7 +4949,7 @@ EH3.6.5-7
                                 <hi rend="rubricated"> ܕܬܪ̈ܥܣܪ̈܆ ܕܥܠ ܗܝ̇ ܕܟܕ ܩܣܪ ܡܫ̣ܬܚܩ ܗܘܐ ܡܢ <pb
                                         edRef="#L" n="57ra"/>
                                     <app type="variants">
-                                        <lem resp="#Brooks" type="correction">  ܦܛܪܝܪܟܐ. </lem>
+                                        <lem resp="#Schönfelder" type="correction">  ܦܛܪܝܪܟܐ. </lem>
                                         <rdg wit="#L"> ܦܠܛܝܢ </rdg>
                                     </app>
                                 </hi>
@@ -4782,9 +4974,14 @@ EH3.6.5-7
                                     <num> ܏ܝܘ </num>
                                 </note>
                                 <hi rend="rubricated"> ܕܫܬܬܥܣܪ̈܆ ܕܥܠ <app type="variants">
-                                        <lem resp="#Brooks" type="correction"> ܥܩܘ̣ܪܝܗ  </lem>
+                                    <lem resp="#Schönfelder" type="correction"> ܥܩܘ̣ܪܝܗ  </lem>
                                         <rdg wit="#L"> ܥܪܘ̣ܩܝܗ </rdg>
-                                    </app> ܕܟܢܘ̣ܫܝܐ ܕܒܡ̣ܪܝܢܘܣ. </hi>
+                                    </app> ܕܟܢܘ̣ܫܝܐ 
+                                    <app type="variants">
+                                        <lem resp="#NK" type="correction"> ܕܒܡ̣ܪܝܢܣ. </lem>
+                                        <rdg wit="#L"> ܕܒܡ̣ܪܝܢܘܣ </rdg>
+                                    </app>
+                                </hi>
                             </p>
                      <p>
                                 <note place="margin_inner">
@@ -5057,7 +5254,7 @@ EH3.6.5-7
                                 ܕܠܐ ܢܣ̣ܬܒܪ܇ ܕܐܝܟ ܕܠܚ̣ܣܕܐ ܐ̇ܘ ܠܨ̇ܥܪܐ ܕܛܟ̣ܣܐ ܪܡ̇ܐ ܕܡ̇ܠܟܘܬܐ܇ ܓܠܝ̣ܐܝܬ
                                 ܐ̇ܡ̣ܪܚܢܢ ܠܡ̣ܪܫܡ܇ ܘܠܡ̇ܥܗܕܘ ܥܠ ܡ̣ܚܘܬܗ ܕܐܠܗܐ ܡܠ̣ܝܬ ܪ̈ܚ̣ܡܐ܇ <cb
                                     edRef="#L" n="58rb"/>  ܗܝ̇ ܕܟܐ̣ܢܐܝܬ ܥܠܘܗܝ ܐܫ̣ܬܕܪܬ݀܇ ܡܛܠ ܗܕܐ
-                                ܗܝܕܝܢ ܐܬܬ̣ܟܣܢ ܢܚܢ. ܗܫܐ ܕܝܢ ܡܛܠ ܕܚ̣ܠܬܐ ﻿‏ <pb edRef="#Brooks" n="121"
+                                ܗܝܕܝܢ ܐܬܬ̣ܟܣܢ ܚܢܢ. ܗܫܐ ܕܝܢ ܡܛܠ ܕܚ̣ܠܬܐ ﻿‏ <pb edRef="#Brooks" n="121"
                                 />  ܕܐܝܠܝܢ ܕܡܢ ܒܬܪܟܢ ܒܫ̈ܘܠܛܢܐ ܪ̈ܘܪܒܐ ܕܪ̈ܝܫ̣ܢܘܬܐ ܡܬ̇ܚܙܩܝܢ܆ ܘܕܢܗ̣ܘܐ
                                 ܨܝ̣ܪ ܕܝܢ̣ܐ ܕܚܝ̣ܠܐ ܕܐܠܗܐ ܗ̇ܘ ܕܐܕܪܟ̣ܗ ܠܡ̇ܠܟܐ ܝܘܣܛܝܢܐ: ܐܝܟ ܕܠܕܚܠ̣ܬܐ
                                 ܘܢܬ̣ܬܨܝܪ ܒܠܒܐ ܕܟܠܗܘܢ ܒ̈ܢܝܢܫܐ܆ ܐܬܚ̣ܙܝܬ݀ ܠܢ ܕܠܘܬ ܪܘܫ̣ܡܐ ܕܥܘܗ̈ܕܢܐ܆
@@ -5167,8 +5364,8 @@ EH3.6.5-7
                                 ܘܚ̣ܙܝܗܝ ܕܡ̣ܕܘ̣ܕ ܚܬ̣ܡܗ. ܗ̣ܘ ܕܝܢ ܬܠ̣ܐ ܐܝ̣ܕܗ ܘܡܚ̣ܝܗܝ ܒܩܕܠܐ̣ ܘܐ̣ܙܠ ܢܦ̣ܠ
                                 ܥܠ ܛ̇ܘܪܐ ܕܠܐ ܙܥܘܪ ܡܢܗ. ܟܕ ܐܡ̇ܪ <pb edRef="#L" n="60ra"/>  ܠܗ܆ ܚܪܬܐ
                                 ܒܝ̣ܫܬܐ܆ <app type="variants">
-                                    <lem resp="#Brooks" type="addition"> ܗܘ̇ܝܐ ܠܟ܆ ܐܢ </lem>
-                                    <rdg wit="#L"/>
+                                    <lem wit="#L"/>
+                                    <rdg resp="#Brooks" type="addition"> ܗܘ̇ܝܐ ܠܟ܆ ܐܢ </rdg>
                                 </app> ܠܐ ܐ̇ܙܠܬ ܚ̇ܬܡܬ ܢܦܫܟ: ܕܢܦ̣ܩܘܢ ܕܝ̈ܘܝܟ ܕܝܠܟ܆ ܘܗܟܢܐ ܟ̇ܢ̣ܫ ܢܦܫܗ܆
                                 ܟܕ ܐܚܪ̈ܢܐ ܠܒ̣ܟܘܗܝ̣ ܘܐ̇ܩܝ̣ܡܘܗܝ. ܘܗ̣ܘܐ ܙܒܢܐ̣ ܠܐ ܙܥܘܪ ܟܕ ܡܬ̇ܘܪ ܡܢ ܩܕܠܐ
                                 ܕܡ̣ܚܝܗܝ.܀.܀. ܒܚܪܬܐ ܕܝܢ ܬܘܒ ܐܝܟ ܕܥ̇ܝܕܐ ܐܝܬ ܘܠܐ ܡܨ̣ܐ ܦܛܪܝܪܟܐ ܕܠܐ ܢܥ̣ܘܠ
@@ -5591,7 +5788,7 @@ EH3.6.5-7
                                 </app> ܐܝܟ ܐ̣ܡܐ ܕܝܠܢ. ܘܟܠ ܡܕܡ ܕܦܩ̇ܕܬܝ̣ ܚ̣ܢܢ ܥ̇ܒܕܝܢ ܚܢܢ. ܘܗܟܢܐ ܝܬܒ̣ܬ݀
                                 ܒܦܠܛܝܢ܆ ܟܕ ܡ̣ܪܝܪܐ ܘܫܚ̣ܝܩܐ ܘܡ̇ܕܠܚܐ ܘܐ̇ܒܝ̣ܠܐ ܘܐ̇ܠܝܐ ܥܠ <app
                                     type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܚ̣ܝ̈ܝܗ:̇ </lem>
+                                    <lem resp="#Brooks" type="correction"> ܚ̣ܝ̈ܝܗ̇: </lem>
                                     <rdg wit="#L"> ܚ̣ܝ̈ܝܗ </rdg>
                                 </app> ܕܐܫܬܦ̣ܠܬ݀ ܘܐܬܬ̣ܫܝܛܬ݀ ܘܐܫܬ̣ܒܩܬ݀ ܡܢ ܟܠܗܘܢ ܒܢ̈ܝ ܐܢܫܐ܇ ܘܗ̣ܘܬ ܐܝܟ
                                 ܗ̇ܘ ܕܠܐ ܐ̣ܝܬܝܗ̇ ܟܕ ܗ̣ܝ ܚ̣ܝܐ. </p>
@@ -5664,7 +5861,12 @@ EH3.6.5-7
                                 ܗܪ̈ܛܝܩܘ̣ ܠܝܬ ܐܢܘܢ. ܘܡ̇ܗ̣ܝܡܢܘ̣ ܛ̇ܒܐܝܬ ܡ̇ܗܝܡܢܝܢ. <pb edRef="#Brooks"
                                     n="138"/>  ܐܠܐ ܗ̇ܝ ܕܥ̇ܪܩܝܢ ܡܢܢ ܘܡܢ ܥܕܬܐ ܘܠܐ ܨ̇ܒܝܢ ܠܡܫܬ̇ܘܬܦܘ
                                 ܠܢ.܀.܀. ܗܝ̇ܕܝܢ ܦ̇ܢܝ ܠܗ܆ ܕܐܢ ܐܢܬ ܣܗ̣ܕܬ ܥܠܝܗܘܢ: ܕܡܗ̈ܝܡܢܐ ܘܟܪ̈ܣܛܝܢܐ
-                                ܐܝܬܝܗܘܢ܆ ܠܡ̇ܢܐ ܐܪܐ ܠܝ ܐ̇ܠܨ ܐܢܬ ܠܝ ܕܐܝܟ ܕܘܩ̣ܠܝܛܝܢܘܣ܇ ܪܕܘ̇ܦܐ ܐ̇ܗܘܐ
+                                ܐܝܬܝܗܘܢ܆ ܠܡ̇ܢܐ ܐܪܐ ܠܝ ܐ̇ܠܨ ܐܢܬ ܠܝ ܕܐܝܟ 
+                         <app type="variants">
+                             <lem resp="#NK" type="correction"> ܕܝܩ̣ܠܝܛܝܢܘܣ܇ </lem>
+                             <rdg wit="#L"> ܕܘܩ̣ܠܝܛܝܢܘܣ </rdg>
+                         </app>                                
+                                ܪܕܘ̇ܦܐ ܐ̇ܗܘܐ
                                 ܕܟܪ̈ܣܛܝܢܐ.܀. ܙܠ̣ ܬ̣ܒ̣ ܘܫܠ̣ܝ. ܣ̇ܦܩܝܢ ܠܢ <pb edRef="#L" n="66va"/>
                                  ܩܪ̈ܒܐ ܕܒܪ̈ܒܪܝܐ܆ ܠܐ ܬ̇ܥܠ ܠܢ ܩܪ̈ܒܐ ܥܡ ܗܠܝܢ ܕܝܠܢ. </p>
                   </div>
@@ -5842,7 +6044,12 @@ EH3.6.5-7
                                 ܐ̇ܘ ܕܐܟܒ̣ܪ ܠܐ ܢܘܟܪܝܐ ܠܡܐ̣ܡܪ <app type="variants">
                                     <lem resp="#Brooks" type="correction"> ܣ̣ܝܥܬܐ </lem>
                                     <rdg wit="#L"> ܕܣ̣ܝܥܬܐ </rdg>
-                                </app> ܕܠܣ̈ܛܝܐ܇ ܠܥܕܬܐ ܕܐܪ̈ܬܕܟܣܘ ܕܒܒܝܬܐ ܪܒܐ ܕܡ̇ܠܟܘܬܐ ܕܡ̣ܪܝܢܘܣ ܟ̇ܢܫܐ
+                                </app> ܕܠܣ̈ܛܝܐ܇ ܠܥܕܬܐ ܕܐܪ̈ܬܕܟܣܘ ܕܒܒܝܬܐ ܪܒܐ ܕܡ̇ܠܟܘܬܐ 
+                         <app type="variants">
+                             <lem resp="#NK" type="correction"> ܕܡ̣ܪܝܢܣ </lem>
+                             <rdg wit="#L"> ܕܡ̣ܪܝܢܘܣ </rdg>
+                         </app>
+                         ܟ̇ܢܫܐ
                                 ܗܘܬ ܒܝܘܡܐ ܕܚܕ ܒܫܒܐ. ܘܟܕ ܟܢܝ̣ܫܐ ܟܠܗ̇ ܥܕܬܐ܆ ܥ̣ܠܘܢ ܘܢܦ̣ܠܘܢ ܥܠܝܗܘܢ̣
                                 ܘܠܒ̣ܟܘܢ ܠܣܓ̈ܝܐܐ. ܘܥ̣ܠܘܢ ܐܝܟ ܚ̈ܢܦܐ܆ ܘܐܬܬ̣ܠܝܘ ܒܡܕܒܚܐ܆ ܘܗܦ̣ܟܘܗܝ̣
                                 ܘܬܒ̣ܪܘܗܝ. ܘܐܫ̣ܕܘ ܩܘܕܫܐ ܕܥܠܘܗܝ. ܘܙܪܩ̣ܘ ܘܒ̇ܕܪܘ ܩܘ̣ܪܒܢܐ. ܘܓ̇ܪܘܢ ܐܢܘܢ
@@ -6036,9 +6243,14 @@ EH3.6.5-7
                                 ܟܠܗ ܕܡܗ̈ܝܡܢܐ ܒܝ̣ܫܐܝܬ܆ ܕܠܐ ܦܓ̣ܘ̈ܕܐ ܕܕܚܠ̣ܬ ܐܠܗܐ. ܘܟܕ ܟܠܗܝܢ ܗܪ̈ܣܝܣ
                                 ܕܐ̇ܪ̈ܝܢܐ ܘܕܡ̈ܩ̇ܕܘܢܝܢܐ ܘܕܣ̇ܡ̈ܒܛܝܢܘ <pb edRef="#L" n="71va"/>  ܗ̇ܢܘܢ
                                 ܕܝܠܗ: ܘܕܡ̈ܢܝܢܝܐ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܘܡܪ̈ܩܝܘܢܝܐ ܘܡ̈ܢ̣ܛܢܘ </lem>
-                                    <rdg wit="#L"> ܘܡܪ̈ܩܝܘܢܐ ܘܡ̣̈ܢܛܝܘ </rdg>
-                                </app> ܝܬ̇ܒܝܢ ܗܘܘ ܟܘܠܗܘܢ ܒܫ̣ܠܝܐ: ܟܕ ܠܝܬ ܡ̇ܢ ܕܡ̇ܗܪ ܠܗܘܢ܆ ܒܠܚܘܕ
+                                    <lem wit="#L"> ܘܡܪ̈ܩܝܘܢܐ </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܘܡܪ̈ܩܝܘܢܝܐ </rdg>
+                                </app>
+                         <app type="variants">
+                             <lem resp="#Brooks" type="correction"> ܘܡ̈ܢ̣ܛܢܘ </lem>
+                             <rdg wit="#L"> ܘܡ̣̈ܢܛܝܘ </rdg>
+                         </app>
+                         ܝܬ̇ܒܝܢ ܗܘܘ ܟܘܠܗܘܢ ܒܫ̣ܠܝܐ: ܟܕ ܠܝܬ ܡ̇ܢ ܕܡ̇ܗܪ ܠܗܘܢ܆ ܒܠܚܘܕ
                                 ܡܗ̈ܝܡܢܐ  <pb edRef="#Brooks" n="148"/> ܫܪ̈ܝܪܐ ܡܬ̇ܪܕܦܝܢ ܗܘܘ ܘܡ̇ܬܒܙܙܝܢ
                                 ܗܘܘ܆ ܘܡܫܬ̇ܕܪܝܢ ܗܘܘ ܠܐܟ̣ܣܘܪ̈ܝܣ ܡ̈ܫܚ̣ܠܦܬܐ ܕܠܡ̈ܕܝܢܬܐ ܪ̈ܚ̇ܝܩܬܐ܇
                                 ܘܠܓ̇ܙܪ̈ܬܐ ܡ̇ܫ̈ܚ̣ܠܦܬܐ ܕܒܓܘ ܝܡܐ܇ ܟܕ ܡܫܬ̇ܠܡܝܢ ܗܘܘ ܠܟܠ ܐܘ̈ܠܨܢܝܢ ܕܐ̇ܣܘܪ̈ܐ
@@ -7236,35 +7448,46 @@ EH3.6.5-7
                        </rdg>
                    </app>
                    </div>
-                  <div type="textpart"
+                   <div type="textpart"
                        xml:lang="syc"
                        subtype="chapter"
-                       n="5"
-                       xml:id="EH3.4.5">
-                     <app type="variants">
-                        <lem resp="#NK" type="conjecture">
-                           <title>
-                              <hi rend="rubricated">
-                                        ܪܝܫܐ ܕܚܡܫܐ
-                                        ‬‬‬‬‬</hi>
-                           </title>
-                        </lem>
-                     </app>
-                      <app type="witnesses">
-                          <rdg wit="#L">
-                              <lacunaEnd/>
-                          </rdg> 
-                      </app>
-                     <pb edRef="#Brooks" n="182"/>
-                     <pb edRef="#L" n="84ra"/>
-                     <p>    ܘܐܢ ܕܟܝܪ̈ܛܘܢܝܣ܆ ܗ̣ܘ ܡ̇ܦܪܢܣ ܗܘܐ. ܘܐܦ ܬܘܒ ܒܚܪܬܐ ܟܕ ܦܘܠܐ ܐܬ̣ܐ ܗܘܐ ܗ̇ܘ ܕܗ̣ܘܐ
-                                ܦܛܪܝܪܟܐ ܕܐܢܛܝܟܝܐ܆ ܐܟܚܕܐ ܡ̇ܦܪܢܣܝܢ ܗܘܘ.܀. ܐ̣ܝܟܢܐ ܕܐܦ ܟܕ ܣܐ̣ܒ ܗܘܐ
-                                ܬܐܕܣܝܣ ܘܝܩ̣ܪ ܣ̇ܓܝ: ܘܠܐ ܡܨ̣ܐ ܗܘܐ ܕܢܩ̣ܘܡ ܘܢܩ̇ܪܒ܆ ܠܗ ܠܠܘܢܓܝܢܐ ܟܕ ܥܕܟܝܠ
-                                ܩܫܝܫܐ ܐܝܬܘܗܝ ܗܘܐ܇ ܦܩ̣ܕ ܘܐ̇ܦ̣ܣ ܕܢܩ̣ܘܡ ܒܕܘܟܬܗ. ܘܗ̣ܘ ܡܩ̇ܪܒ ܗܘܐ ܚܠܦܘܗܝ̣
-                                ܟܘܠܗ ܙܒܢܐ ܕܚܝ̈ܘܗܝ. ܦܩ̣̇ܕ ܕܝܢ ܥܠܘܗܝ܆ ܕܗ̣ܘ ܢܗܘܐ ܐܦܝܣܩܘܦܐ ܠܥܡܐ
+                       n="0"
+                       xml:id="EH3.4.0">
+                       <head>
+                           <app type="variants">
+                               <lem resp="#NK PMF SR HL" type="conjecture">
+                                   <supplied>
+                                       <title>
+                                           <hi rend="rubricated">ܣܦ̣ܪܐ ܕܐܪ̈ܒܥܐ</hi>
+                                       </title>
+                                   </supplied>
+                               </lem>
+                           </app>
+                       </head>
+                       </div>
+                  <div type="textpart" xml:lang="syc" subtype="chapter" n="5" xml:id="EH3.4.5">
+                            <app type="variants">
+                                <lem resp="#NK" type="conjecture">
+                                    <title>
+                                        <hi rend="rubricated"> .ܪܝܫܐ ܕܚܡܫܐ ‬‬‬‬‬</hi>
+                                    </title>
+                                </lem>
+                            </app>
+                            <app type="witnesses">
+                                <rdg wit="#L">
+                                    <lacunaEnd/>
+                                </rdg>
+                            </app>
+                            <pb edRef="#Brooks" n="182"/>
+                            <pb edRef="#L" n="84ra"/>
+                            <p>    ܘܐܢ ܕܟܝܪ̈ܛܘܢܝܣ܆ ܗ̣ܘ ܡ̇ܦܪܢܣ ܗܘܐ. ܘܐܦ ܬܘܒ ܒܚܪܬܐ ܟܕ ܦܘܠܐ ܐܬ̣ܐ ܗܘܐ
+                                ܗ̇ܘ ܕܗ̣ܘܐ ܦܛܪܝܪܟܐ ܕܐܢܛܝܟܝܐ܆ ܐܟܚܕܐ ܡ̇ܦܪܢܣܝܢ ܗܘܘ.܀. ܐ̣ܝܟܢܐ ܕܐܦ ܟܕ ܣܐ̣ܒ
+                                ܗܘܐ ܬܐܕܣܝܣ ܘܝܩ̣ܪ ܣ̇ܓܝ: ܘܠܐ ܡܨ̣ܐ ܗܘܐ ܕܢܩ̣ܘܡ ܘܢܩ̇ܪܒ܆ ܠܗ ܠܠܘܢܓܝܢܐ ܟܕ
+                                ܥܕܟܝܠ ܩܫܝܫܐ ܐܝܬܘܗܝ ܗܘܐ܇ ܦܩ̣ܕ ܘܐ̇ܦ̣ܣ ܕܢܩ̣ܘܡ ܒܕܘܟܬܗ. ܘܗ̣ܘ ܡܩ̇ܪܒ ܗܘܐ
+                                ܚܠܦܘܗܝ̣ ܟܘܠܗ ܙܒܢܐ ܕܚܝ̈ܘܗܝ. ܦܩ̣̇ܕ ܕܝܢ ܥܠܘܗܝ܆ ܕܗ̣ܘ ܢܗܘܐ ܐܦܝܣܩܘܦܐ ܠܥܡܐ
                                 ܕܐܬ̇ܬܠܡܕܘ ܘܡܬܩ̣ܪܝܢ ܢܐ̣ܒܕܘܣ. ܗܠܝܢ ܕܒܐܝܠܝܢ ܕܒܬܪܟܢ ܘܐܦ ܠܬܫ̣ܥܝܬܐ
                                 ܕܥܠܝܗܘ̣ܢ ܠܘܬ ܥܘܗܕܢܐ ܡ̇ܝܬܝܢܢ. </p>
-                  </div>
+                        </div>
                   <pb edRef="#Brooks" n="183"/>
                   <div type="textpart"
                        xml:lang="syc"
@@ -7979,8 +8202,10 @@ EH3.6.5-7
                                     <app type="variants">
                                     <lem resp="#Brooks" type="correction"> ܫܡ̣ܥܘܗ̇܆ </lem>
                                     <rdg wit="#L"> ܫܡ̣ܥܘܗ̇ܝ </rdg>
-                                </app> ܗ̣ܢܐ <note type="marginalia" place="intercolumn" hand="m1">
-                                    ܡܢ ܗܢܝܐܘܬܐ </note> ܠܗܘܢ̣ ܘܐܬ̣ܪܘܚ ܚܫܐ ܕܣܢܐܬܗܘܢ ܕܢܦ̣ܩܬ݀ ܠܥܒ̇ܕܐ܆
+                                </app> ܗ̣ܢܐ 
+                           <app type="variants">
+                           <note place="intercolumn" hand="m1">
+                                    ܡܢ ܗܢܝܐܘܬܐ </note></app> ܠܗܘܢ̣ ܘܐܬ̣ܪܘܚ ܚܫܐ ܕܣܢܐܬܗܘܢ ܕܢܦ̣ܩܬ݀ ܠܥܒ̇ܕܐ܆
                                     <app type="variants">
                                     <lem resp="#Brooks" type="correction"> ܘܐܦ </lem>
                                     <rdg wit="#L"> ܐܦ </rdg>
@@ -8534,8 +8759,8 @@ EH3.6.5-7
                                 ܨܒܝܢܗ ܕܐܠܗܐ: ܘܐܓ̣ܗܝ ܡܢ ܚ̈ܝܐ ܗܠܝܢ ܠ̣ܙܝ̈ܙܐ ܘܡ̈ܕ̣ܘܕܐ ܘܢܦ̣ܩ ܡܢ ܥܠܡܐ܆
                                 ܗ̣̈ܢܝܢ ܟܕ ܗ̣̈ܢܝܢ ܒܬܘ̈ܣ̇ܦܬܐ ܘܒܚ̣ܪ̈ܡܐ <pb edRef="#L" n="100va"/>  ܕܠܘܬ
                                 ܚ̈ܕܕܐ܇ <app type="variants">
-                                    <lem wit="#L" type="correction" hand="#m1"> ܡܬܥܬܕܝܢ </lem>
-                                    <rdg wit="#L"> ܡܬܬ̇ܥ̣ܝܪܝܢ </rdg>
+                                    <lem wit="#L"> ܡܬܬ̇ܥ̣ܝܪܝܢ </lem>
+                                    <rdg wit="#L" type="correction" hand="#m1"> ܡܬܥܬܕܝܢ </rdg> 
                                 </app> ܗܘܘ ܕܝܢ ܒ̇ܥܪܝܪܐܝܬ ܒܟܠ ܐܬܪ ܘܒܟܠ ܦܢ̣̈ܝܢ ܘܒܟܠ ܗܘܦܪܟܝܐ ܒܡܕܢܚܐ
                                 ܘܒܡܥܪܒܐ܆ ܥܕܡܐ ܠܐ̣ܝܟܐ ܕܐܝܟ ܕܟܬ̣ܝܒ ܕܗ̣ܘܝܢ ܚ̣ܣܕܐ ܠܫ̈ܒ̇ܒܝܢ܇ ܘܡ̇ܘܝܩܐ
                                 ܘܒ̇ܘܙܚܐ ܠܐܝܠܝܢ ܕܒܚ̣ܕܪ̈ܝܢ ܐܢܘܢ. ܡܛܘܠ ܕܟܕ ܡ̇ܫܒܚܐ ܡ̣ܢܕܪ ܦܛܪܝܩܝܣ ܐܬ̣ܩܪܝ
@@ -9086,7 +9311,7 @@ EH3.6.5-7
                                     <lem wit="#L"> ܕܝܠ̣ܦܢ ܕܠܠܘܢܓܝܢܐ </lem>
                                     <rdg wit="#L" type="transposition"> ܕܠܠܘܢܓܝܢܐ ܕܝܠ̣ܦܢ </rdg>
                                 </app> ܗ̇ܘ ܕܐܝܬ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܒܢܒ̣ܕܘܣ </lem>
+                                    <lem resp="#Brooks" type="correction"> ܒܢ̈ܒ̣ܕܘܣ </lem>
                                     <rdg wit="#L"> ܒܢܒ̣ܘܣ </rdg>
                                 </app> ܫܐ̣ܠܬܘܢ ܕܢܫܬ̇ܕܪ ܠܟܘܢ ܕܢܥ̇ܡܕܟܘܢ܆ ܡܛܠ ܗܢܐ ܫ̣ܕܪܢ ܬܪ̈ܝܢ ܐܦܝ̈ܣܩܘܦܐ
                                 ܘܫܪܟܐ ܕܢܘ̇ܕܥܟܘܢ܆ ܕܡܢ ܗ̇ܘ̣ ܠܐ ܬܥ̣ܡܕܘܢ. ܕܗܪܛܝܩܐ ܗܘ̣ ܘܥܒ̣ܝܕܐ ܩܬܪܣܝܣ
@@ -9315,8 +9540,8 @@ EH3.6.5-7
                                 ܚ̇ܣܝܪ ܐܢܐ ܘܛ̣ܪܦܐ ܕܝܪܩܐ ܘܐܦ ܡܬܪܓܪܓ ܐܢܐ ܐ̇ܚܙܐ ܒܥ̈ܝܢܝ܆ ܘܣ̇ܦܩ ܠܝ ܕܥܕܡܐ
                                 ܠܗܠܝܢ ܐ̇ܘ̣ܕܥ.܀. ܘܗܠܝܢ ܡ̣̇ܢ ܡܢܗ ܕܚܣ̣ܝܐ ܠܘܢܓܝܢܐ ܐܬܟ̣ܬܒ.܀. ܦ̇ܣ̈ܘܩܐ ܕܝܢ
                                 ܡܢܗܝ̣ܢ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܪܫܡܬ </lem>
-                                    <rdg wit="#L"> ܪܫ̣ܡ </rdg>
+                                    <lem wit="#L"> ܪܫ̣ܡ  </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܪܫܡܬ </rdg>
                                 </app> ܘܫ̣ܕܪ ܡܢ ܐܬܪܐ ܕܐ̈ܠ̣ܘܕܐܘܣ ܠܘܬ ܡ̇ܠܟܐ ܕܢܐ̣ܒܐ̈ܕܘܣ܇ ܟܕ ܟܬ̇ܒ ܠܗ
                                 ܕܗ̣ܘ ܢܫ̇ܕܪ ܐ̈ܢܝܢ ܠܐܠ̣ܟܣܢܕܪܝܐ. ܗ̇ܘ ܕܟܕ ܒܚܪܬܐ ܩ̇ܒܠ ܘܫ̇ܕܪ ܐܓܪ̈ܬܗ
                                 ܠܐܠܟܠܣܢܕܪܝܐ: ܠܘܬ ܬܐܕܘܪܐ ܦܛܪܝܪܟܐ ܗ̇ܘ ܕܥ̣ܒܕ ܗܘܐ ܠܘܢܓܝܢܐ: ܟܕ ܟܬ̣ܒ ܠܘܬܗ̣
@@ -9427,8 +9652,8 @@ EH3.6.5-7
                                 ܙܒ̈ܢܝܢ ܣܓܝܐ̈ܢ ܟܬ̣ܒ ܠܗ. ܘܐܦ ܠܐ ܥܢ̣ܝܢ ܟܬܝܒ̣̈ܬܗ ܩ̇ܒܠ ܡܢܗ. ܘܬܘܒ ܠܘܢܓܝܢܐ̣
                                 ܥ̣ܠ ܗܘܐ ܠܗ ܠܗܠܝܢ ܥܡ̈ܡܐ ܕܗ̣ܘܘ ܟܪ̈ܣܛܝܢܐ ܒܟ̣ܘܫ ܓܘ̇ܝܬܐ. ܘܐܫ̣ܬܒܩ ܬܐܕܘܪܐ
                                 ܕܠܐ ܒܘ̇ܝܐܐ ܡܢ ܟܠ ܓ̇ܒ̈ܝܢ܆ ܥܕܡܐ ܠܐ̣ܝܟܐ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܕܢܬ̇ܚܫܒ </lem>
-                                    <rdg wit="#L"> ܕܢܬ̇ܚܫܚ </rdg>
+                                    <lem wit="#L"> ܕܢܬ̇ܚܫܚ </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܕܢܬ̇ܚܫܒ </rdg>
                                 </app>
                                 <pb edRef="#Brooks" n="244"/> ܘܐܓܪܬܐ ܡܬ̇ܟܪܟܢܝܬܐ ܠܘܬ ܟܠܗ ܓ̇ܒܐ ܕܒܝܬ
                                 ܦܘܠܐ ܢܥ̣ܒܕ. ܟܕ ܩ̇ܒܠ ܘܡ̇ܪܛܢ ܥܠܘܗ̣ܝ ܕܗܟܢܐ ܐ̇ܗ̣ܡܝ ܒܗ ܘܒ̇ܣܪ ܥܠܘܗܝ. ܘܫ̣ܕܪ
@@ -9489,8 +9714,8 @@ EH3.6.5-7
                                 ܐܬ̇ܦܪܣܘ ܗܠܝܢ ܕܝܨ̇ܦܝܢ ܕܝܠܗ ܕܢܚ̇ܦܘܢܝܗܝ܆ ܘܕܠܐ ܢܬܝ̣ܕܥ ܐܦܢ ܕܡ̇ܝܘܬܐ
                                 ܐ̣ܝܬܘܗܝ. ܟܕ ܓܝܪ ܐܝܟ ܕܐܬܐܡ̣ܪܬ݀ ܐܦ ܐܬܝ̣ܕܥܬ݀܆ ܒܝ̣ܕܥܬܐ ܕܐ̈ܢܫܝܢ ܡܢ ܗܠܝܢ
                                 ܕܝܠܗ ܣܠܩ̣ ܠܗ̇ ܠܡܕܝܢܬܐ: ܘܠܘܬ ܐܢܫ̈ܝܢ ܡܢܗܘܢ <app type="variants">
-                                    <lem resp="#Brooks" type="deletion"> ܟܠܗ </lem>
-                                    <rdg wit="#L"> ܗܢܐ ܟܠܗ </rdg>
+                                    <lem wit="#L"> ܗܢܐ ܟܠܗ </lem>
+                                    <rdg resp="#Brooks" type="deletion"> ܟܠܗ </rdg>
                                 </app> ܙܒܢܐ ܕܐܬܐܡ̣ܪ ܡ̇ܛ̣ܫܝ ܗܘܐ܆ ܡܢ ܫܠ̣ܝ ܢܦ̣ܠ̣ ܒܟ̣ܘܪܗܢܐ ܩܫ̣ܝܐ. ܘܒܬܪ
                                 ܩܠ̇ܝܠ̣ ܡܝ̣ܬ. <cb edRef="#L" n="113rb"/>  ܘܬܘ̇ܗܬܐ ܪܒܬܐ ܘܙܘܥ̇ܬܐ
                                 ܪܗ̣ܝܒܬܐ ܘܣܓܝܐܬܐ ܢܦ̣ܠܬ݀ ܥܠ ܗܠܝܢ܇ ܕܐ̇ܘ ܠܘܬܗܘܢ ܐ̇ܘ ܒܝ̣ܕܥܬܗܘܢ ܡ̇ܛܫܝ ܗܘܐ܇
@@ -10287,8 +10512,8 @@ EH3.6.5-7
                                 ܘܒܬܪ ܕܐܬܚ̣ܙܝ ܐܘ̣ܛܩܪܛܘܪ ܬܘܒ ܫ̈ܢܝܐ ܐܪ̈ܒܥ ܒ̣ܨܝܪ ܝܘܡ̈ܬܐ ܬܠܬܝܢ ܘܚܕ܆
                                 ܐܬ̣ܟܪܗ̣ ܟܘ̣ܪܗܢܐ ܩܫ̣ܝܐ ܕܡ̇ܘܬܐ. ܘܟܕ ܐܬܐ̣ܠܨ ܐ̇ܘܬ̣ܒ ܘܐܦ ܗ̣ܘ ܩ̣ܣܪ̣
                                 ܠܩ̣ܘܡܝܣ ܡ̇ܘܪܝܩܝܣ ܩܦܘܕܩܝܐ܇ ܒܝܘܡ ܐܝܪܚ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܐܒ </lem>
-                                    <rdg wit="#L"> ܐܒܝ </rdg>
+                                    <lem wit="#L"> ܐܒܝ </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܐܒ </rdg>
                                 </app> ܒܚܡܫܐ ܒܗ ܕܫܢܬ ܬܡܢܡܐܐ ܘܬܫܥܝܢ ܘܬܠܬ. ܟܕ ܩܕܡ ܩܠܝܠ ܝܘܡ̈ܬܐ܆ ܐܬ̣ܐ
                                 ܗܘܐ ܡܢ ܐܬܪܐ ܕܡܕܢܚܐ ܕܬܡܢ ܥ̣ܒܝܕ ܗܘܐ ܪܝܫܐ ܘܦܩ̇ܘܕܐ܇ ܥܠ ܟܠܗܘܢ ܪ̈ܝܫܝ
                                 ܚܝ̈ܠܘܬܐ ܕܪ̈ܗܘܡܝܐ܇ ܐ̣ܝܟܢܐ ܕܒܪ̈ܝ̣ܫܐ ܕܡܢ ܩܕܝܡ ܥܠ ܗܠܝܢ ܡ̇ܘܕܥ ܠܢ. ܫܡ̇ܗܗ
@@ -10325,8 +10550,8 @@ EH3.6.5-7
                                 ܗܟܝܠ ܫܘܠܡܗ̇ ܕܡ̣ܫܬܘܬܐ ܕܡ̇ܠܟܘܬܐ: ܗܝ̇ ܡܦ̣ܪܓܬ݀ ܒܕܫ̈ܢ̣ܐ ܣܓ̈ܝܐܐ ܘܗ̈ܓ̇ܓܘܬܐ
                                 ܡ̈ܠܟܝܬܐ: ܘܒܬܪܟܢ ܗ̣ܘܐ ܒܛܢ̣ܐ: ܘܒܙܒܢܗ ܐܬܝ̣ܠܕ ܠܗܘܢ ܒܪܐ ܥܠ ܐ̇ܪ̈ܓܘܢܐ܆ ܒܝܘܡ
                                 ܐܝܪܚ <app type="variants">
-                                    <lem resp="#Brooks" type="correction"> ܐܒ </lem>
-                                    <rdg wit="#L"> ܐܒܝ </rdg>
+                                    <lem wit="#L"> ܐܒܝ </lem>
+                                    <rdg resp="#Brooks" type="proposition"> ܐܒ </rdg>
                                 </app> ܒܐܪ̈ܒܥܐ ܒܗ: ܕܫܢܬ ܬܡܢܡܐܐ ܘܬܫܥܝܢ ܘܐܪ̈ܒܥ܆ ܘܩ̣ܪܘ ܫܡܗ̣ ܬܐܕܘܣܝܣ.
                                 ܐܝܟ ܕܡܛܠ ܢܝ̣ܫܐ ܕܬܐܕܘܣܝܣ ܙܥܘܪܐ܇ ܗ̇ܘ ܕܡܢ ܒܝܬ ܩܘܣܛܢܛܝܢܘܣ ܘܠܬܚ̣ܬ܇ ܗ̣ܘ
                                 ܒܠܚܘܕܘܗܝ ܐܬܝ̣ܠܕ ܥܠ ܐ̇ܪ̈ܓܘܢܐ. ܟܕ ܐܦܠܐ ܗ̣ܘ ܐ̇ܘ̣ܠܕ ܐܚܪܢܐ ܥܠ ܐ̇ܪ̈ܓܘܢܐ܆
@@ -10677,7 +10902,7 @@ EH3.6.5-7
                                 ܐ̇ܦܠܓ ܠܗܘܢ. ܘܗܫܐ ܟܕ ܡ̈ܕܝܢܬܐ ܬ̇ܩ̈ܝܦܬܐ ܕܒܡܕܢܚܐ ܘܒܡܥܪܒܐ ܕܣܓ̈ܝܐܢ ܗܫܐ
                                 ܐܬܟ̣ܒܫ ܘܐܬܚ̣ܪܒ ܡܢ ܒܪ̈ܒ̣ܪܝܐ: ܘܩ̇ܥܐ ܕܠܝܬ̣ ܕܗܒܐ ܕܐ̇ܬܠ܆ ܐ̇ܝܟܢܐ ܩ̇ܢܛܝܢܪ̈ܐ
                                 ܙܦܠܢ܇ ܕܣܓܝܐ̈ܝ ܒܡܢܝܢܐ ܡ̇ܡܠܠܝܢ ܠܗܘܢ܇ ܗܕܐ ܕܚ̣ܢܢ ܗܫܐ ܟܕ ܚ̇ܬܝܬܐܝܬ ܠܐ
-                                ܝ̣ܕܥܢ <pb edRef="#L" n="127ra"/>  ܐܝܟ ܕܒܡܡܠܠܐ ܕܣܓ̈ܝܐܐ ܡܬ̇ܐܡܪ̈ܢ܆ ܠܐ
+                                ܝ̣ܕܥܢ <pb edRef="#L" n="127rb"/>  ܐܝܟ ܕܒܡܡܠܠܐ ܕܣܓ̈ܝܐܐ ܡܬ̇ܐܡܪ̈ܢ܆ ܠܐ
                                 ܣܗ̇ܕܝܢ ܚܢܢ ܘܣܝ̇ܡܝܢܢ ܒܥܘܗ̈ܕܢܐ ܕܬ̣ܫ̈ܥܝܬܢ. ܕܐܡ̇ܪܝܢ ܗܘܘ̣ ܕܗܠܝܢ ܠܡ ܟܠܗܘܢ
                                 ܩ̇ܢܛܝܢܪ̈ܐ ܫܕܪ ܕܢܒܢ̣ܐ ܘܢܩ̣ܝܡ ܡܕܝܢܬܐ܇ ܕܠܐ ܡ̣ܡܬܘܡ ܐܬܝ̣ܕܥܬ݀ ܐ̇ܘ ܐ̇ܘܬ̣ܪܬ݀
                                 ܡܕܡ ܠܦܘ̇ܠܝܛܝܐ ܕܪ̈ܗܘܡܝܐ. </p>
@@ -13025,7 +13250,7 @@ EH3.6.5-7
                      <p> ܕܡ̇ܘܪܝܩ ܗܟܝܠ ܗܢܐ ܐܦܢ ܡܢ ܠܥܠ ܥܘܗܕܢܗ ܥܒ̣ܕܬ݀ ܡܠܬܐ: ܗܢܐ ܕܟܕ <app
                                     type="variants">
                                     <lem resp="#PayneSmith" type="correction"> ܝܘܣܛܢܝܢܐ </lem>
-                                    <rdg wit="#L"> ܩܘܣܛܢܝܢܐ </rdg>
+                                    <rdg wit="#L"> ܩܘܣܛܢܛܝܢܐ </rdg>
                                 </app> ܦܛܪܝܩܝܘܣ ܒܪ ܓܪܡ̇ܢܐ: ܗ̇ܘ ܕܠܥܠ ܡܢ ܟܠܗܘܢ ܪ̈ܝܫ̣ܢܐ ܘܚܝ̈ܠܘܬܐ ܥܒ̣ܝܕ
                                 ܗܘܐ ܒܡܕܢܚܐ ܢܦ̣ܩ ܡܢ ܥܠܡܐ: ܘܪ̈ܝܫ̣ܢܐ ܕܚ̈ܝܠܘܬܐ ܠܚ̈ܕܕܐ ܠܐ ܡܬ̣ܕܢܝܢ ܗܘܘ܆
                                 ܗܝ̇ ܕܝܢ ܡ̇ܪܚܡܢܐ ܛܝܒ̣ܪܝܘܣ ܡ̇ܠܟܐ܆ ܡܛܘܠ ܕܢܘܛ̇ܪܐ ܥܡܗ <app

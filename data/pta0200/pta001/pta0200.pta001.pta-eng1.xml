@@ -1,0 +1,2564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"
+        ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la"><persName ref="http://syriaca.org/person/74">John of Ephesus</persName>: <bibl>Ecclesiastical History</bibl></title>
+            <author>
+               <persName ref="https://lobid.org/gnd/1172839352" xml:id="PMF">Philip Michael Forness</persName>
+               <roleName>Translator</roleName>
+               <orgName>Katholieke Universiteit Leuven</orgName>
+            </author>
+            <author>
+               <persName ref="https://lobid.org/gnd/120555240" xml:id="SR">Silvio Roggo</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </author>      
+            <author>
+               <persName ref="https://lobid.org/gnd/122499425" xml:id="HL">Hartmut Leppin</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </author>
+            <author>
+               <persName ref="https://lobid.org/gnd/1102566705" xml:id="NK">Nikolai Kiel</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </author>
+            <funder ref="https://www.dfg.de">Deutsche Forschungsgemeinschaft (DFG)</funder>
+         </titleStmt>
+         <editionStmt>
+            <p>This new digital translation of John of Ephesus’s <bibl>Ecclesiastical History</bibl>, Part 3 has been created within the context of the DFG Project "Commentary on John of Ephesus's <bibl>Ecclesiastical History</bibl>." The current version (Book 1) should be considered preliminary, as it will be updated throughout the duration of the project. Philip Michael Forness translated the text from the new edition of the <bibl>Ecclesiastical History</bibl> produced within the context of the project. The translation benefitted enormously from the help of Silvio Roggo, Hartmut Leppin, and Nikolai Kiel who offered feedback, suggestions, and corrections as the commentary was produced. Persons, places, and bible passages have been tagged by Philip Michael Forness, Silvio Roggo, and the project's student assistants (Katharina Koch, Marie Skubowius, and Eliano Veronesi).</p>
+         </editionStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2025</date>
+            <idno type="PTA">pta0200.pta001</idno>
+            <idno type="TLG"/>
+            <idno type="CPG"/>
+            <idno type="BHG"/>
+            <idno type="Aldama"/>
+            <idno type="Pinakes-Oeuvre"/>
+            <idno type="CHAP">202</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born digital</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="chapter"
+               matchPattern="(.+).(.+).(.+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])"/>
+            <cRefPattern n="book"
+               matchPattern="(.+).(.+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern n="part"
+               matchPattern="(.+)"
+               replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>For references to the Peshitta Old and New Testaments, PES is used as the abbreviation.</p>
+               <p>Noted are references to a biblical book, chapter, verse, sc. Peshitta:Gn:1:1; also possible: Peshitta:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. Peshitta:Gn:1; also possible: Peshitta:Gn:1-3 for a sequence of chapters or Peshitta:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+               replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. Peshitta:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+               replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+                  This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+               </p>
+               <p xml:id="biblical-quotations"
+                  ana="fully-annotated">
+                  Biblical quotations are annotated and referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+               </p>
+               <p xml:id="persons"
+                  ana="fully-annotated">
+                  Persons are annotated and referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> or of <ref target="https://syriaca.org">Syriaca.org</ref> for all other persons.
+               </p>
+               <p xml:id="groups"
+                  ana="not-annotated not-identified">
+                  Groups of persons and organisations are not annotated.
+               </p>
+               <p xml:id="places"
+                  ana="fully-annotated">
+                  Places are annotated and referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> or <ref target="https://syriaca.org">Syriaca.org</ref> IDs.
+               </p>
+            </interpretation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+                  Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+                  Patristic Text Archive Status of edition
+               </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+                     Critical edition in which the text-critical variants have been encoded.
+                  </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+                     Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+                  </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+                     Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+                  </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+                     Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+                  </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+                  Patristic Text Archive Status of annotation
+               </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+                     All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+                     Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+                     No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+                     All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+                  </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+                     Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+                  </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+                     No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+                  </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+            url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language
+               ident="eng">English</language>
+         </langUsage>
+         <creation>
+            <date
+               notAfter="0588"
+               notBefore="0571"></date>
+            <placeName
+               ref="https://pleiades.stoa.org/places/520998">Constantinople</placeName>
+         </creation>
+         <textClass>
+            <keywords
+               scheme="#comphistsem">
+               <term>Historiography</term>
+               <term>Thematic Historiography</term>
+               <term>Church History</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2025-10-15" who="#PMF">Preparation of initial publication of Book 1.</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div n="urn:cts:pta:pta0200.pta001.pta-eng1"
+              type="translation"
+              xml:lang="eng" corresp="urn:cts:pta:pta0200.pta001.pta-syc1">
+            <div n="3" subtype="part" type="textpart" xml:lang="eng">
+               <head><title>
+                  <seg corresp="#EH3.0.0.a #COM.EH3.0.0.a" xml:id="TR.EH3.0.0.a">
+                     <supplied>The <bibl>Ecclesiastical History</bibl> of Holy
+<persName ref="https://syriaca.org/person/74">Mar John</persName>, the Bishop of the City of
+<placeName ref="https://pleiades.stoa.org/places/599612">Ephesus</placeName>: Part 3
+                     </supplied>
+                  </seg>
+               </title></head>
+               <div type="textpart"
+                    xml:lang="eng"
+                    subtype="book"
+                    xml:id="TR.EH3.1.0"
+                    corresp="#EH3.1.0 #COM.EH3.1.0"
+                    n="1">
+                  <head>
+                     <title><seg corresp="#EH3.1.0.a #COM.EH3.1.0.a" xml:id="TR.EH3.1.0.a">
+                           <supplied>Volume
+1</supplied>
+                     </seg></title>
+                  </head>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.3"
+                       corresp="#EH3.1.3 #COM.EH3.1.3"
+                       n="3">
+                     <head>
+                        <title><seg corresp="#EH3.1.3.a #COM.EH3.1.3.a" xml:id="TR.EH3.1.3.a">
+                           <supplied>Chapter
+3</supplied>
+                        </seg></title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.3.b #COM.EH3.1.3.b" xml:id="TR.EH3.1.3.b">
+                           <supplied>the anger</supplied> of God has been
+awakened</seg>. That is, all these <seg corresp="#EH3.1.3.c #COM.EH3.1.3.c" xml:id="TR.EH3.1.3.c">schisms,
+quarrels, divisions</seg>, and along with these the frequent, bitter
+<seg corresp="#EH3.1.3.d #COM.EH3.1.3.d" xml:id="TR.EH3.1.3.d">persecutions and the harsh imprisonments and
+bonds</seg> 
+                        <note type="explanation">which</note> we see – all of these are among
+<seg corresp="#EH3.1.3.e #COM.EH3.1.3.e" xml:id="TR.EH3.1.3.e">the final birth pangs</seg>.
+<cit>
+                           <ref decls="#biblical" cRef="Peshitta:Mt:4:17">For, indeed, already at that
+time our <persName type="biblical" key="Jesus_Mat.1.1">Savior</persName> also
+proclaimed and said:</ref>
+                           <quote type="marked">
+                              <seg corresp="#EH3.1.3.f #COM.EH3.1.3.f" xml:id="TR.EH3.1.3.f">Repent! The kingdom
+of heaven has drawn near to you!</seg>
+                           </quote>
+                        </cit>
+                        <cit>
+                           <ref decls="#biblical" cRef="Peshitta:Mt:24:33">He also brought forth lucid
+evidence, saying clearly:</ref>
+                           <quote type="marked">
+                              <seg corresp="#EH3.1.3.g #COM.EH3.1.3.g" xml:id="TR.EH3.1.3.g">When you have seen
+all these things coming to pass, know that it has arrived at the
+door.</seg>
+                           </quote>
+                        </cit>
+                        <cit>
+                           <ref decls="#biblical" cRef="Peshitta:Mt:10:17-22">Moreover, about these things
+which are happening now among us, he also taught and made known to his
+disciples beforehand – not only to <seg corresp="#EH3.1.3.h #COM.EH3.1.3.h" xml:id="TR.EH3.1.3.h">the great
+company of the apostles</seg> but also to all the disciples after them
+and until today – speaking in this way:</ref>
+                           <quote type="marked">
+                              <seg corresp="#EH3.1.3.i #COM.EH3.1.3.i" xml:id="TR.EH3.1.3.i">Beware of people, for
+they will hand you over to the courts and flog you in their synagogues.
+They will lead you before governors and kings for my sake as a testimony
+for them and for the nations. But when they hand you over, do not worry
+how or what you will say, for what you will say will be given to you at
+that hour. For it is not you speaking, but the spirit of our Father will
+be speaking in you. A brother will hand over his brother to death, and a
+father his child. Children will rise against their parents and kill
+them. You will be hated by everyone for my name’s
+sake.</seg>
+                           </quote>
+                        </cit> 
+                        <seg corresp="#EH3.1.3.j #COM.EH3.1.3.j" xml:id="TR.EH3.1.3.j">These are the things
+that we now see clearly, which have come even now in this time to all
+the members of the church and have been fulfilled.</seg>
+                        <seg corresp="#EH3.1.3.k #COM.EH3.1.3.k" xml:id="TR.EH3.1.3.k">We are enduring these attacks and wickedness
+not from outsiders and pagans</seg> but even from those who are counted
+as Christians but in fact freely carry out pagan acts against their
+fellow Christians without the bridles of the fear of God,
+<seg corresp="#EH3.1.3.l #COM.EH3.1.3.l" xml:id="TR.EH3.1.3.l">without mercy, in a cruel and savage
+manner</seg>, without any hindrance. <note type="explanation">So far</note> concerning all
+these things. <seg corresp="#EH3.1.3.m #COM.EH3.1.3.m" xml:id="TR.EH3.1.3.m">In the original composition, we
+previously, in two parts, with much effort, over an extended period of
+time told the stories of the church insofar as we were able within
+twelve volumes</seg> 
+                        <seg corresp="#EH3.1.3.n #COM.EH3.1.3.n" xml:id="TR.EH3.1.3.n">in which all the different
+chapters are indicated</seg>. We began <seg corresp="#EH3.1.3.o #COM.EH3.1.3.o" xml:id="TR.EH3.1.3.o">from the
+time of <persName ref="https://syriaca.org/person/5117">Julius Caesar</persName>
+                        </seg> and the rest
+of the early Roman emperors and <seg corresp="#EH3.1.3.p #COM.EH3.1.3.p" xml:id="TR.EH3.1.3.p">then
+sequentially assembled and set in order the stories of the church</seg>
+                        <seg corresp="#EH3.1.3.q #COM.EH3.1.3.q" xml:id="TR.EH3.1.3.q">until the sixth year of the reign of
+<persName ref="https://syriaca.org/person/3229">Justin II</persName>, the son of
+<persName ref="https://syriaca.org/person/2284">Justinian</persName>’s
+<rs type="person" ref="https://syriaca.org/person/3770">sister</rs>
+                        </seg>. <seg corresp="#EH3.1.3.r #COM.EH3.1.3.r" xml:id="TR.EH3.1.3.r">As
+for the same emperor <persName ref="https://syriaca.org/person/3229">Justin</persName>’s diligence
+and concern for the unity of the church</seg> from the beginning of his
+reign until his sixth year, <seg corresp="#EH3.1.3.s #COM.EH3.1.3.s" xml:id="TR.EH3.1.3.s">we also carefully
+and diligently testified to this while clinging to the truth in the
+accounts that we previously related</seg>. But now because we see that
+<seg corresp="#EH3.1.3.t #COM.EH3.1.3.t" xml:id="TR.EH3.1.3.t">a harsh storm has suddenly, vehemently, and
+intensely swelled up, thundering on account of our sins, with the
+intensity of its frequent and numerous waves, against the firm ship of
+the whole church of the orthodox</seg> – it is for this reason that we
+also have been moved <seg corresp="#EH3.1.3.u #COM.EH3.1.3.u" xml:id="TR.EH3.1.3.u">to commit the records,
+even if only a few, to writing</seg>, <seg corresp="#EH3.1.3.v #COM.EH3.1.3.v" xml:id="TR.EH3.1.3.v">though
+time on all sides would hold us back and impede us from great length and
+prevent <note type="explanation">us</note> from relating insofar as possible even briefly
+the narrative of the ecclesiastical stories, which even now are taking
+place once again</seg>. Although we are setting down just a few of them
+from many in the records, we will bring them to the knowledge of those
+after us <seg corresp="#EH3.1.3.x #COM.EH3.1.3.x" xml:id="TR.EH3.1.3.x">through this third composition</seg>
+so that they might also be clearly and precisely known to all posterity,
+<seg corresp="#EH3.1.3.y #COM.EH3.1.3.y" xml:id="TR.EH3.1.3.y">even if it has not escaped me that the times of
+the world have already been drawing to a close and passing away. Even if
+this should <note type="explanation">only</note> happen in the short time that remains for
+this turbulent world</seg>, <seg corresp="#EH3.1.3.z #COM.EH3.1.3.z" xml:id="TR.EH3.1.3.z">we have committed
+<note type="explanation">them</note> to writing in brief records for the knowledge of
+posterity</seg>.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.4"
+                       corresp="#EH3.1.4 #COM.EH3.1.4 #EH3.1.4.MS  #TR.EH3.1.4.MS "
+                       n="4">
+                     <head>
+                        <title>Chapter 4:
+<seg corresp="#EH3.1.4.a #COM.EH3.1.4.a" xml:id="TR.EH3.1.4.a">From the books of the prophets</seg> on the
+sign of tribulation that happened in the church of God at this
+time.</title>
+                     </head>
+                     <p>
+So now, at the beginning of the stories in this book,
+<seg corresp="#EH3.1.4.b #COM.EH3.1.4.b" xml:id="TR.EH3.1.4.b">the groans of the suffering prophet
+<persName type="biblical" key="Jeremiah_2Ch.35.25">Jeremiah</persName>’s
+<bibl>Lamentations<ref decls="#biblical" cRef="Peshitta:Lam"/>
+                           </bibl>
+                        </seg> would
+be suitable, which he at that time voiced and cried out in regard to
+<placeName ref="https://pleiades.stoa.org/places/687928">Jerusalem</placeName> and its people which had
+fallen by the sword. As a result, we might also lament and cry out in
+the same way <seg corresp="#EH3.1.4.d #COM.EH3.1.4.d" xml:id="TR.EH3.1.4.d">regarding those things which have
+happened at this time in the church of God</seg> because of our
+iniquities and many sins.
+<cit>
+                           <ref decls="#biblical" cRef="Peshitta:Is:1:5-6">
+                              <seg corresp="#EH3.1.4.e #COM.EH3.1.4.e" xml:id="TR.EH3.1.4.e">So
+also would <persName type="biblical" key="Isaiah_2Ki.19.2">Isaiah</persName>,
+illustrious among the prophets, shout at the top of his lungs without
+holding back and raise his voice like a trumpet upon seeing the harsh
+chastisement that has come upon the church of God. He would also add and
+recount</seg>, saying:</ref>
+                           <quote type="marked">
+                              <seg corresp="#EH3.1.4.g #COM.EH3.1.4.g" xml:id="TR.EH3.1.4.g">The whole head in
+pain, the whole heart in sadness, from the sole of the foot to the
+brain, there is no place that is sound in it, but rather bruises, sores,
+and swollen wounds that cannot be bound up, bandaged, nor soothed with
+oil.</seg>
+                           </quote>
+                        </cit>
+                        <cit>
+                           <ref decls="#biblical" cRef="Peshitta:Is:24:4-5">Then, he would recount with
+suffering and say:</ref>
+                           <quote type="marked">
+                              <seg corresp="#EH3.1.4.h #COM.EH3.1.4.h" xml:id="TR.EH3.1.4.h">The earth lamented,
+it dwelt in mourning, the inhabited world lamented, dwelt, and mourned.
+The height
+<note>
+Or: “the pride.”
+</note>
+of the earth lamented. The earth has become like its
+inhabitants.</seg>
+                           </quote>
+                        </cit> Therefore, it would be fitting for the
+holy ones such as these to suffer with us with groaning
+<seg corresp="#EH3.1.4.i #COM.EH3.1.4.i" xml:id="TR.EH3.1.4.i">regarding the great anger which on account of
+our sins has been sent upon the church of God all of a sudden</seg>,
+just as at that time <note type="explanation">it was sent</note> upon
+<placeName ref="https://pleiades.stoa.org/places/687928">Jerusalem</placeName>. In regard to the
+fear-inducing terrors that suddenly roared, shaking and disturbing
+<seg corresp="#EH3.1.4.j #COM.EH3.1.4.j" xml:id="TR.EH3.1.4.j">all the faithful people</seg>
+                        <seg corresp="#EH3.1.4.k #COM.EH3.1.4.k" xml:id="TR.EH3.1.4.k">who had been living in and enjoying peace and
+tranquility for an extended period of time in the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs> and in all its suburbs
+until the sixth year of the reign of the victorious
+<persName ref="https://syriaca.org/person/3229">Justin</persName>
+                        </seg>, and the sudden snare of
+anger <note type="explanation">that</note> sprung on all the communities of the church of
+the orthodox, casting <note type="explanation">them</note> down and scattering them to each
+of the winds – I have little time to write and tell about these at
+length.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.5"
+                       corresp="#EH3.1.5 #COM.EH3.1.5 #EH3.1.5.MS  #TR.EH3.1.5.MS "
+                       n="5">
+                     <head>
+                        <title>Chapter 5: About the bitter suffering
+of the sudden flight of all the communities of the church of the
+faithful in the <rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial
+city</rs>.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.5.a #COM.EH3.1.5.a" xml:id="TR.EH3.1.5.a">For an extended period of time of more than
+forty years all the communities of the whole church of the orthodox had
+lived in tranquility and harmony in this great
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs>
+                        </seg> and in all its
+suburbs. In great <seg corresp="#EH3.1.5.b #COM.EH3.1.5.b" xml:id="TR.EH3.1.5.b">freedom of assembly</seg>,
+openly, in great numbers, and without fear, all the communities of the
+faithful would gather together in every place and would carry out
+<seg corresp="#EH3.1.5.c #COM.EH3.1.5.c" xml:id="TR.EH3.1.5.c">all the ecclesiastical mysteries and
+liturgies.</seg> Then suddenly <seg corresp="#EH3.1.5.d #COM.EH3.1.5.d" xml:id="TR.EH3.1.5.d">during the holy
+days of the fast of forty <note type="explanation">days</note>,
+<quote type="unmarked">on Saturday when the Sunday of Hosannas was
+beginning to dawn,<ref decls="#biblical" cRef="Peshitta:Mt:28:1"/>
+                           </quote>
+                        </seg>
+                        <seg corresp="#EH3.1.5.e #COM.EH3.1.5.e" xml:id="TR.EH3.1.5.e">at the insistence and wicked vehemence of the
+one who was in charge of the church in the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs>, namely,
+<persName ref="https://syriaca.org/person/5103">John</persName>
+                           <note>
+Marginal note by a later hand: “Woe to him!”
+</note>
+from the village of <placeName ref="https://pleiades.stoa.org/places/668366">Sirmin</placeName> in
+<placeName ref="https://pleiades.stoa.org/places/1306">Syria</placeName>, who repeatedly slandered the
+whole side of the orthodox</seg>, the victorious
+<persName ref="https://syriaca.org/person/3229">Justin</persName> was awakened with severe anger.
+With a threat of great rage, <seg corresp="#EH3.1.5.h #COM.EH3.1.5.h" xml:id="TR.EH3.1.5.h">he ordered all the
+gathering places of all the faithful to be seized, all the altars in all
+of them to be torn out, all the priests and their bishops to be
+apprehended and cast into prison, and all those gathered in them to be
+expelled and driven out so that they might not gather together
+again.</seg> 
+                        <note type="explanation">There were</note> other such things that were ordered
+and decreed out of great anger. While previously up to that point […]
+<seg corresp="#EH3.1.5.i #COM.EH3.1.5.i" xml:id="TR.EH3.1.5.i">harmoniously and quietly in the whole</seg>
+                        <supplied>city</supplied>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.9"
+                       corresp="#EH3.1.9 #COM.EH3.1.9 #EH3.1.9.MS  #TR.EH3.1.9.MS "
+                       n="9">
+                     <head>
+                        <seg corresp="#EH3.1.9.a #COM.EH3.1.9.a" xml:id="TR.EH3.1.9.a">
+                           <title>
+                              <supplied>Chapter
+9</supplied>
+                           </title>
+                        </seg>
+                     </head>
+                     <p>
+“[…] <seg corresp="#EH3.1.9.c #COM.EH3.1.9.c" xml:id="TR.EH3.1.9.c">why do you sit as a Christian
+<supplied>alongside</supplied> those who sent me to you and judge in a
+pagan way the servants of God?</seg> 
+                        <seg corresp="#EH3.1.9.d #COM.EH3.1.9.d" xml:id="TR.EH3.1.9.d">You are
+not among the living, unless you immediately set me, a weak old man, on
+fire and eat me roasted.”</seg> As soon as <seg corresp="#EH3.1.9.e #COM.EH3.1.9.e" xml:id="TR.EH3.1.9.e">the
+<rs type="person" ref="https://syriaca.org/person/5188">prefect</rs>
+                        </seg> heard these things and was
+shaken by the weight of his old age, he issued an order and
+<note type="explanation">he</note> was brought out of his presence and taken to
+<seg corresp="#EH3.1.9.f #COM.EH3.1.9.f" xml:id="TR.EH3.1.9.f">the
+<rs type="person" ref="https://syriaca.org/person/5103">bishop</rs>.</seg>
+                        <seg corresp="#EH3.1.9.g #COM.EH3.1.9.g" xml:id="TR.EH3.1.9.g">Out of his madness</seg>,
+<note>
+“Madness” is crossed out in the manuscript with a sign that points
+towards a marginal reading that has “his rage.”
+</note>
+                        <note type="explanation">the bishop</note> sent to have him imprisoned
+<seg corresp="#EH3.1.9.h #COM.EH3.1.9.h" xml:id="TR.EH3.1.9.h">in the city of
+<placeName ref="https://pleiades.stoa.org/places/511357">Heraclea</placeName> in
+<placeName ref="https://pleiades.stoa.org/places/501638">Thrace</placeName>.</seg>
+                        <seg corresp="#EH3.1.9.i #COM.EH3.1.9.i" xml:id="TR.EH3.1.9.i">He was there for a period of two years</seg>
+                        <seg corresp="#EH3.1.9.j #COM.EH3.1.9.j" xml:id="TR.EH3.1.9.j">without being allowed to see any of his
+acquaintances.</seg> As he was not given a change of clothes and
+<seg corresp="#EH3.1.9.k #COM.EH3.1.9.k" xml:id="TR.EH3.1.9.k">was covered with innumerable lice</seg>, one of
+his disciples came and brought a change <note type="explanation">of clothes</note> for him.
+But it was not again permitted for <note type="explanation">a change of clothes</note> to
+be given to him, even through another.
+<note>
+Or: “But then it was not permitted for <note type="explanation">the change of
+clothes</note> to be given to him, even by another.”
+</note>
+                        <seg corresp="#EH3.1.9.l #COM.EH3.1.9.l" xml:id="TR.EH3.1.9.l">Afterwards, he grew ill to the point of
+death.</seg> He pronounced a curse in case he should be buried by the
+synodites or in case one of them should preside over or should offer a
+prayer for him. <seg corresp="#EH3.1.9.m #COM.EH3.1.9.m" xml:id="TR.EH3.1.9.m">Thus, orthodox
+<note type="explanation">officers</note> of the Romans, who happened to be there</seg>,
+brought him out to bury him with many candles and sweet spices.
+<seg corresp="#EH3.1.9.n #COM.EH3.1.9.n" xml:id="TR.EH3.1.9.n">While they were enshrouding and processing his
+body like a great martyr</seg>, they condemned and reviled the
+persecution of such people. Then <seg corresp="#EH3.1.9.o #COM.EH3.1.9.o" xml:id="TR.EH3.1.9.o">some of the
+faithful in the <rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs> determined to go
+retrieve the body of the holy one.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.10"
+                       corresp="#EH3.1.10 #COM.EH3.1.10"
+                       n="10">
+                     <head>
+                        <title>Chapter 10: On those things that happened in the monasteries of
+men and women through the savage violence of the
+persecution.</title>
+                     </head>
+                     <p>
+As for <seg corresp="#EH3.1.10.a #COM.EH3.1.10.a" xml:id="TR.EH3.1.10.a">the monasteries of men and women which
+were in the <rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs>, in all its
+suburbs and its districts</seg>, some of which had a copious number of
+inhabitants, especially <seg corresp="#EH3.1.10.b #COM.EH3.1.10.b" xml:id="TR.EH3.1.10.b">those of women which
+at the beginning were driven out of
+<placeName ref="https://pleiades.stoa.org/places/897709">Antioch</placeName>,
+<placeName ref="https://pleiades.stoa.org/places/648653">Isauria</placeName>,
+<placeName ref="https://pleiades.stoa.org/places/422893">Cilicia</placeName>,
+<placeName ref="https://pleiades.stoa.org/places/628949">Cappadocia</placeName>, and the rest of the
+regions, having been assembled by the deceased empress
+<persName ref="https://syriaca.org/person/779">Theodora</persName>, with some of the convents
+exceeding three hundred sisters in number</seg> – the torrent and squall
+of persecution also suddenly came upon them and the tempestuous cloud
+and turbulent fog of persecution engulfed them,
+<seg corresp="#EH3.1.10.d #COM.EH3.1.10.d" xml:id="TR.EH3.1.10.d">that is, of the clergy together with the
+secular <note type="explanation">functionaries, namely,</note> the
+<emph>komentaresioi</emph> and the <emph>taxeotai</emph> accompanying
+the <emph>domestikoi</emph> of the <persName ref="https://syriaca.org/person/5188">urban
+prefect</persName>
+                        </seg>, who were sent against them. With savage violence
+they encircled the monasteries. <seg corresp="#EH3.1.10.e #COM.EH3.1.10.e" xml:id="TR.EH3.1.10.e">As a pack of
+wolves that enters and falls upon a fold of lambs</seg>, so did they
+spring up and enter each of the convents ravenously, against the young
+sheep of <persName type="biblical" key="Jesus_Mat.1.1">Christ</persName>.
+<seg corresp="#EH3.1.10.f #COM.EH3.1.10.f" xml:id="TR.EH3.1.10.f">While the clergy were carrying their
+Eucharistic offerings, they dragged them along and violently compelled
+them to come receive communion from them.</seg> But all of them fled
+like sparrows before hawks and took shelter in nooks and crannies,
+wailing and saying: “We are not able to receive communion from
+<seg corresp="#EH3.1.10.g #COM.EH3.1.10.g" xml:id="TR.EH3.1.10.g">the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName> which divides
+<persName type="biblical" key="Jesus_Mat.1.1">Christ</persName>, our God, into two
+natures after the union, and teaches a quaternity in place of the Holy
+Trinity.”</seg> In this way, through their intimidation and compulsion,
+they were dragged along to receive communion with their hands above
+their heads. While uttering laments, they were yanked along by their
+hands, shouting out wailing noises and sounds of weeping,
+<note type="explanation">with</note> a raised voice, while trying to flee.
+<seg corresp="#EH3.1.10.h #COM.EH3.1.10.h" xml:id="TR.EH3.1.10.h">Thus, by force the Eucharistic offering was
+set in their mouths</seg>, while they were uttering many things in
+wailing noises, with some of them casting themselves on their faces to
+the ground, condemning everyone who demanded that they receive communion
+by force. They subjugated some of them in this way. But everyone who
+resisted them and did not obey, they separated, dragged along, and
+expelled from their convents, and <seg corresp="#EH3.1.10.i #COM.EH3.1.10.i" xml:id="TR.EH3.1.10.i">she was
+<note type="explanation">then</note> handed over to the Roman <emph>taxeotai</emph>.</seg>
+As they were compelled and tugged along by them,
+<seg corresp="#EH3.1.10.j #COM.EH3.1.10.j" xml:id="TR.EH3.1.10.j">they were led to the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs> and scattered there in different
+houses and places of confinement</seg>, in which, according to what was
+being said, <seg corresp="#EH3.1.10.k #COM.EH3.1.10.k" xml:id="TR.EH3.1.10.k">such things were carried out by
+many as though by lustful stallions</seg>. As for our part, these will
+be passed over in silence, <seg corresp="#EH3.1.10.l #COM.EH3.1.10.l" xml:id="TR.EH3.1.10.l">as the verdict on
+them is reserved for the righteous judge who will pass judgment on them
+and will demand vengeance for them</seg>. Thus, in this savage and
+barbarous manner <note type="explanation">such things</note> happened in all the convents
+of men along with those of women.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.11"
+                       corresp="#EH3.1.11 #COM.EH3.1.11"
+                       n="11">
+                     <head>
+                        <title>Chapter 11: On <persName ref="https://syriaca.org/person/5103">John</persName>, the bishop
+of the <rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs>, and on those things that
+were carried out at his wicked instigation.</title>
+                     </head>
+                     <p>
+Now, <seg corresp="#EH3.1.11.a #COM.EH3.1.11.a" xml:id="TR.EH3.1.11.a">the one who instigated, fostered, and
+carried out all these wicked things was
+<persName ref="https://syriaca.org/person/5103">John</persName> who, <note type="explanation">as</note> has been said,
+was the head of the church of the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs>
+                        </seg>, the very one who out of
+the abundant bile of his wickedness came to make accusations before and
+to inflame the emperor in anger against the whole side of the faithful
+and departed after receiving free rein in regard to them. Through his
+partisans, he poured out the whole venom of his wickedness on all the
+ranks of the faithful in every place. <note type="explanation">He did this</note>
+                        <seg corresp="#EH3.1.11.b #COM.EH3.1.11.b" xml:id="TR.EH3.1.11.b">not only in his
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs> and his diocese, but he also
+wrote to other regions</seg>, causing trouble and stirring up conflicts,
+persecutions, and wickedness. <seg corresp="#EH3.1.11.c #COM.EH3.1.11.c" xml:id="TR.EH3.1.11.c">From that time
+on he personally went out and toured all the monasteries – as well as
+the houses – of men and of women, compelling and constraining
+<note type="explanation">them</note> to come commune with him</seg>. But in his cruel anger
+he mercilessly gave an order to send and confine in monasteries all
+those who resisted him, one after another, whether men or women, whether
+monks, clergy, or cloistered women. <seg corresp="#EH3.1.11.d #COM.EH3.1.11.d" xml:id="TR.EH3.1.11.d">He passed
+harsh death sentences against them.</seg> 
+                        <seg corresp="#EH3.1.11.e #COM.EH3.1.11.e" xml:id="TR.EH3.1.11.e">He
+managed to deceive, stir up, and force even the victorious
+<rs type="person"
+                               ref="https://syriaca.org/person/3229 https://syriaca.org/person/5155 ">emperors</rs>
+                        </seg> to yield to him and
+tour the monasteries one after another. First, he personally went with
+his clergy and <seg corresp="#EH3.1.11.f #COM.EH3.1.11.f" xml:id="TR.EH3.1.11.f">held assemblies and performed
+consecrations in the monasteries, proclaiming the divisive synod in them
+and affixing images of himself in them. He appointed clergy to make the
+Eucharistic offering in them every Sunday and every feast and
+commemoration.</seg> Then, on the following day,
+<seg corresp="#EH3.1.11.g #COM.EH3.1.11.g" xml:id="TR.EH3.1.11.g">the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>
+personally toured the monasteries</seg>. <seg corresp="#EH3.1.11.h #COM.EH3.1.11.h" xml:id="TR.EH3.1.11.h">The
+day after that, the <rs type="person" ref="https://syriaca.org/person/5155">empress</rs>
+                           <note type="explanation">did</note> the same.</seg> 
+                        <seg corresp="#EH3.1.11.i #COM.EH3.1.11.i" xml:id="TR.EH3.1.11.i">They gave
+gifts to and established stipends for those who had obeyed or would obey
+them.</seg> 
+                        <seg corresp="#EH3.1.11.j #COM.EH3.1.11.j" xml:id="TR.EH3.1.11.j">But they sent those who resisted
+into banishment and oppressive places of confinement or handed them over
+to torments in the <emph>praetoria</emph> without mercy.</seg> They were
+given over to bitter and harsh floggings and tribulations in a rage and
+with bitter wrath.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.12"
+                       corresp="#EH3.1.12 #COM.EH3.1.12"
+                       n="12">
+                     <head>
+                        <title>Chapter 12: On the priesthood of the orthodox whom
+<persName ref="https://syriaca.org/person/5103">John</persName> thoughtlessly, lawlessly, and
+uncanonically deposed, reordaining them to the priesthood of the
+synodites, that is, of the dyophysites.</title>
+                     </head>
+                     <p>
+Then, when that <rs type="person" ref="https://syriaca.org/person/5103">bishop</rs> was filled with a
+spirit of zealous opposition and led by violence and rage, as though
+blind in the eyes, so also did he become blind through the hostile
+passion within him. He became as audacious as a drunkard.
+<seg corresp="#EH3.1.12.a #COM.EH3.1.12.a" xml:id="TR.EH3.1.12.a">With all manner of savage tyranny and
+compulsion, he had managed to subjugate many priests of the orthodox and
+to lead them by force to commune with him.</seg> After they had received
+communion, <seg corresp="#EH3.1.12.b #COM.EH3.1.12.b" xml:id="TR.EH3.1.12.b">they were admitted by him into
+their priestly order, with the presbyters being admitted as presbyters
+by him</seg>, receiving communion while fully vested alongside his
+presbyters, <seg corresp="#EH3.1.12.c #COM.EH3.1.12.c" xml:id="TR.EH3.1.12.c">and sitting with them in a row in
+the <emph>hierateion</emph>
+                        </seg>. In the same way the deacons also
+carried out the entire task of the diaconate along with his own
+<note type="explanation">deacons</note>, <seg corresp="#EH3.1.12.d #COM.EH3.1.12.d" xml:id="TR.EH3.1.12.d">not only once or twice,
+but up to thirty-six times in all the festal
+<emph>synaxeis</emph>
+                        </seg>. And so they presided alongside him in their
+priestly vestments and carried out the entire task of the priesthood.
+Then, after this, a savage thought occurred to him,
+<seg corresp="#EH3.1.12.e #COM.EH3.1.12.e" xml:id="TR.EH3.1.12.e">as though he were a young boy pompously elated
+in his pride and drunk on power and conceit</seg>.
+<seg corresp="#EH3.1.12.f #COM.EH3.1.12.f" xml:id="TR.EH3.1.12.f">He issued an order, saying: “All of those who
+were opposed to us who have <note type="explanation">now</note> acquiesced to us are
+ordered to be deposed from their original priestly rank and to become
+priests again through us.”</seg> Thus, after a time, he deposed all of
+them after they had officiated as a priest alongside him and in his
+presence thirty-six times on the basis of their former priestly rank
+which was from the orthodox. <seg corresp="#EH3.1.12.g #COM.EH3.1.12.g" xml:id="TR.EH3.1.12.g">He reordained all
+those who had communed with him, even as they, agitated and troubled,
+condemned and reviled him and his lawless priestly ordination.</seg> He
+appointed some of them as the clergy of the same church,
+<seg corresp="#EH3.1.12.h #COM.EH3.1.12.h" xml:id="TR.EH3.1.12.h">while many – even some of his partisans –
+condemned the transgression of the law and that which had happened
+wickedly and savagely through him against the canonical order.</seg>
+But, since the wicked deed that he had personally done and carried out
+was not enough for him, <seg corresp="#EH3.1.12.i #COM.EH3.1.12.i" xml:id="TR.EH3.1.12.i">he also wrote to
+<note type="explanation">other</note> regions and exhorted the bishops to behave like and
+as him</seg>, conspiring and scheming that he might not be condemned and
+censured alone because of the things which had come to pass through him
+against the law and the order but so that others might be found to be
+counted along with him as under condemnation and censure.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.13"
+                       corresp="#EH3.1.13 #COM.EH3.1.13"
+                       n="13">
+                     <head>
+                        <title>
+                           <seg corresp="#EH3.1.13.a #COM.EH3.1.13.a" xml:id="TR.EH3.1.13.a">Chapter 13</seg>: On the nocturnal
+vision that like a revelation came to a certain blessed and excellent
+<rs type="person" ref="https://syriaca.org/person/5189">person</rs> concerning the things that
+immediately came to pass in the open.</title>
+                     </head>
+                     <p>
+Now, <seg corresp="#EH3.1.13.b #COM.EH3.1.13.b" xml:id="TR.EH3.1.13.b">a certain blessed and excellent
+<rs type="person" ref="https://syriaca.org/person/5189">person</rs>
+                        </seg> had previously received a
+revelation in a nocturnal vision about those things which immediately,
+without delay in fact happened in the church of God.
+<seg corresp="#EH3.1.13.c #COM.EH3.1.13.c" xml:id="TR.EH3.1.13.c">This is what he saw: There was a single large
+mountain which was very broad. On the southern side of this
+<note type="explanation">mountain</note>, there was a large grove of many churches</seg>,
+which had been built in a row, one after another, over a very broad
+area. They were densely populated, beautiful, fair, and numerous.
+<seg corresp="#EH3.1.13.d #COM.EH3.1.13.d" xml:id="TR.EH3.1.13.d">He saw <persName ref="https://syriaca.org/person/5103">John</persName>,
+bishop of the <rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs>, suddenly
+come along with his clergy and a multitude of people alongside
+him.</seg> 
+                        <note type="explanation">John</note> ran violently against them, and
+<seg corresp="#EH3.1.13.e #COM.EH3.1.13.e" xml:id="TR.EH3.1.13.e">he began uprooting and demolishing all the
+churches. He tore out and cast down all of their altars until he had
+obliterated <note type="explanation">the churches</note>
+                        </seg>. Almost immediately after
+this vision, a few days later, this very thing was in fact fulfilled, as
+he came out, uprooted, and cast down <seg corresp="#EH3.1.13.f #COM.EH3.1.13.f" xml:id="TR.EH3.1.13.f">all the
+densely populated communities of the churches of the faithful which were
+in the <rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs> and all its suburbs</seg>.
+Just as the revelation and the vision that had previously been revealed,
+so did it transpire in the open immediately.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.14"
+                       corresp="#EH3.1.14 #COM.EH3.1.14 #EH3.1.14.MS  #TR.EH3.1.14.MS "
+                       n="14">
+                     <head>
+                        <title>
+                           <seg corresp="#EH3.1.14.a #COM.EH3.1.14.a" xml:id="TR.EH3.1.14.a">Chapter
+14</seg>: On <persName ref="https://syriaca.org/person/3240">Paul</persName>, a bishop from
+<placeName ref="https://pleiades.stoa.org/places/837">Asia</placeName>.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.14.b #COM.EH3.1.14.b" xml:id="TR.EH3.1.14.b">Now, as for this
+<persName ref="https://syriaca.org/person/3240">Paul</persName>, whom we mentioned above a little
+earlier</seg>, <seg corresp="#EH3.1.14.c #COM.EH3.1.14.c" xml:id="TR.EH3.1.14.c">who was from the region of
+<placeName ref="https://pleiades.stoa.org/places/1001916">Caria</placeName> and had been ordained and named
+the bishop of <placeName ref="https://pleiades.stoa.org/places/638753">Aphrodisias</placeName>, the
+metropolis of <placeName ref="https://pleiades.stoa.org/places/1001916">Caria</placeName>
+                        </seg>, a modest
+and simple old man – <seg corresp="#EH3.1.14.d #COM.EH3.1.14.d" xml:id="TR.EH3.1.14.d">while this one was
+quietly dwelling in his monastery, as we previously related</seg>,
+<seg corresp="#EH3.1.14.e #COM.EH3.1.14.e" xml:id="TR.EH3.1.14.e">the patriarch
+<persName ref="https://syriaca.org/person/5103">John</persName> sent to have him apprehended and led
+away in fetters and to be imprisoned in his
+<rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal palace</rs>
+                        </seg>. While
+constraining him bitterly, he subjected him to communing with him.
+<seg corresp="#EH3.1.14.f #COM.EH3.1.14.f" xml:id="TR.EH3.1.14.f">Then he sent him out to the same region. He
+wrote and ordered someone in the <rs type="place" ref="https://pleiades.stoa.org/places/638753">same
+city</rs>
+                           <note>
+Namely, the Chalcedonian metropolitan of Aphrodisias.
+</note>
+to depose him from his episcopal rank and to reordain him bishop in the
+city of <placeName ref="https://pleiades.stoa.org/places/638748">Antioch</placeName> in
+<placeName ref="https://pleiades.stoa.org/places/1001916">Caria</placeName>
+                        </seg>. This in fact came to
+fruition. <seg corresp="#EH3.1.14.g #COM.EH3.1.14.g" xml:id="TR.EH3.1.14.g">They deposed him</seg>, and, as
+though they thought they had defrocked him of his priestly rank, they
+then ordained him again as if <note type="explanation">he were</note> a lay person. In this
+way, derision and mockery came from them and even from his own
+<note type="explanation">people</note>, as <seg corresp="#EH3.1.14.h #COM.EH3.1.14.h" xml:id="TR.EH3.1.14.h">his clerics called him
+“the twice-dipped.”</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.15"
+                       corresp="#EH3.1.15 #COM.EH3.1.15 #EH3.1.15.MS  #TR.EH3.1.15.MS "
+                       n="15">
+                     <head>
+                        <title>
+                           <seg corresp="#EH3.1.15.a #COM.EH3.1.15.a" xml:id="TR.EH3.1.15.a">Chapter
+15</seg>: On the bishop
+<persName ref="https://syriaca.org/person/5081">Elisha</persName>.</title>
+                     </head>
+                     <p>
+                        <note type="explanation">John</note> then sent to have <seg corresp="#EH3.1.15.b #COM.EH3.1.15.b" xml:id="TR.EH3.1.15.b">the old
+man <persName ref="https://syriaca.org/person/5081">Elisha</persName>, the bishop</seg>, led from
+<seg corresp="#EH3.1.15.c #COM.EH3.1.15.c" xml:id="TR.EH3.1.15.c">the monastery called Beth Dios in which he was
+imprisoned</seg> so that he might be imprisoned
+<seg corresp="#EH3.1.15.d #COM.EH3.1.15.d" xml:id="TR.EH3.1.15.d">in his
+<rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal palace</rs>
+                        </seg>. Out of
+great tribulation, <note type="explanation">Elisha</note> was compelled to yield to taking
+communion with him. At that time, <note type="explanation">Elisha</note> was scheming
+<seg corresp="#EH3.1.15.e #COM.EH3.1.15.e" xml:id="TR.EH3.1.15.e">if it might in some way be possible to escape
+his hands</seg>. But <seg corresp="#EH3.1.15.f #COM.EH3.1.15.f" xml:id="TR.EH3.1.15.f">
+                           <note type="explanation">John</note> wanted
+to send him to <placeName ref="https://pleiades.stoa.org/places/550867">Sardis</placeName>, the metropolis
+of <placeName ref="https://pleiades.stoa.org/places/1001909">Lydia</placeName>
+                        </seg>. Since
+<note type="explanation">John</note> wanted to depose him from his episcopal rank and then
+to reordain him, <note type="explanation">Elisha</note> resisted him, saying:
+<seg corresp="#EH3.1.15.g #COM.EH3.1.15.g" xml:id="TR.EH3.1.15.g">“As for me, even though I am not worthy, I
+have been ordained a bishop by the orthodox. But as for you, you are not
+going to reordain me in any way. But if you still deem it orderly to
+depose and reordain me, then depose me first of the baptism I received
+and then do it a second time.”</seg> 
+                        <note type="explanation">John</note> said to him
+cunningly: <seg corresp="#EH3.1.15.h #COM.EH3.1.15.h" xml:id="TR.EH3.1.15.h">“I am only placing the cloak on
+you.”</seg> But <note type="explanation">Elisha</note> was not at all persuaded to yield to
+him, nor did he accept his words. <note type="explanation">John</note> became angry at him
+and sent to have him imprisoned <seg corresp="#EH3.1.15.i #COM.EH3.1.15.i" xml:id="TR.EH3.1.15.i">in another
+monastery called Beth Abraham</seg>. A harsh punishment was imposed on
+<note type="explanation">Elisha</note>. <seg corresp="#EH3.1.15.j #COM.EH3.1.15.j" xml:id="TR.EH3.1.15.j">He was in tribulation
+there for a long time</seg> and thus fell severely ill. He asked to go
+<seg corresp="#EH3.1.15.k #COM.EH3.1.15.k" xml:id="TR.EH3.1.15.k">to a thermal bath</seg>,
+<seg corresp="#EH3.1.15.l #COM.EH3.1.15.l" xml:id="TR.EH3.1.15.l">and he was released to <note type="explanation">do
+so</note>
+                        </seg> with some guards.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.16"
+                       corresp="#EH3.1.16 #COM.EH3.1.16 #EH3.1.16.MS  #TR.EH3.1.16.MS "
+                       n="16">
+                     <head>
+                        <title>
+                           <seg corresp="#EH3.1.16.a #COM.EH3.1.16.a" xml:id="TR.EH3.1.16.a">Chapter
+16</seg>: On the bishop <persName ref="https://syriaca.org/person/5157">Stephen</persName> whom
+<persName ref="https://syriaca.org/person/5103">John</persName> also wanted to depose and then
+reordain.</title>
+                     </head>
+                     <p>
+So, when the mighty <persName ref="https://syriaca.org/person/5103">John</persName> was conceitedly
+lifted up so as to violate and transgress all the ecclesiastical
+ordinances, he sent <seg corresp="#EH3.1.16.b #COM.EH3.1.16.b" xml:id="TR.EH3.1.16.b">to the island called
+<placeName ref="https://pleiades.stoa.org/places/521138">Plateia</placeName>
+                        </seg>, where
+<seg corresp="#EH3.1.16.c #COM.EH3.1.16.c" xml:id="TR.EH3.1.16.c">the bishop
+<persName ref="https://syriaca.org/person/5157">Stephen</persName>
+                        </seg> had been banished by him,
+<seg corresp="#EH3.1.16.d #COM.EH3.1.16.d" xml:id="TR.EH3.1.16.d">one of those who had a little earlier firmly
+rebuked him for abolishing the ordination</seg>.
+<seg corresp="#EH3.1.16.e #COM.EH3.1.16.e" xml:id="TR.EH3.1.16.e">He sent clergy and <emph>excubitores</emph>
+against him</seg> and ordered them <seg corresp="#EH3.1.16.f #COM.EH3.1.16.f" xml:id="TR.EH3.1.16.f">to have him
+tormented with lead balls</seg> until blood gushed forth, unless he
+should be persuaded to commune with them. Thus he was tormented with
+lead balls by twelve <emph>excubitores</emph> until he fell down between
+them, became silent, and was just about dead. Upon seeing that he had
+fallen down, become silent, and was approaching death, they ran and
+brought four pitchers of water and emptied <note type="explanation">them</note> on him.
+Then, after a long period of time, life returned to him and it was as
+though he came back to life from the dead. <seg corresp="#EH3.1.16.g #COM.EH3.1.16.g" xml:id="TR.EH3.1.16.g">In
+this way, he yielded to communing with them out of compulsion,
+especially since it became known <note type="explanation">that</note> some of the faithful
+who were sending him what he needed had been both apprehended and
+imprisoned because of him</seg> and <note type="explanation">his opponents</note> were
+preparing to fall upon them and despoil them. In this way, they took him
+and entered the <rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs>; many things were
+set in motion among them; and he communed with them out of compulsion.
+Afterwards,<seg corresp="#EH3.1.16.h #COM.EH3.1.16.h" xml:id="TR.EH3.1.16.h"> 
+                           <persName ref="https://syriaca.org/person/5103">John</persName>
+demanded of him that he depose him and then reordain him as bishop for
+the island of <placeName ref="https://pleiades.stoa.org/places/707498">Cyprus</placeName>
+                        </seg>. But
+<note type="explanation">Stephen</note>, striving against him and resisting him, created a
+commotion and began shouting <seg corresp="#EH3.1.16.i #COM.EH3.1.16.i" xml:id="TR.EH3.1.16.i">“<emph>O
+bia</emph>!</seg>
+                        <note>
+The Syriac word is a transliteration of the Greek exclamation ὦ βία.
+</note>
+                        <seg corresp="#EH3.1.16.j #COM.EH3.1.16.j" xml:id="TR.EH3.1.16.j">If you want to depose me from the priesthood
+of the orthodox and reordain me, also depose me of baptism first</seg>.
+First rebaptize me, then depose me from the priesthood, and then
+reordain me as a priest! For as the Lord God lives, unless you have
+rebaptized me, I will not ever accept <note type="explanation">it</note>!” Thus, when there
+was a great commotion in the church between them and many had gathered,
+<seg corresp="#EH3.1.16.k #COM.EH3.1.16.k" xml:id="TR.EH3.1.16.k">
+                           <persName ref="https://syriaca.org/person/5157">Stephen</persName> promptly
+ran and went to the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>
+                        </seg>,
+agitating him as well and shouting <seg corresp="#EH3.1.16.l #COM.EH3.1.16.l" xml:id="TR.EH3.1.16.l">“<emph>O
+bia</emph>!”</seg>
+                        <note>
+The Syriac word is a transliteration of the Greek exclamation ὦ βία.
+</note>
+while saying: “<seg corresp="#EH3.1.16.m #COM.EH3.1.16.m" xml:id="TR.EH3.1.16.m">Christianity has been lost! The
+ordinances of the Christian church have been corrupted! All the
+ordinances and canons of the church of God have been marred, violated,
+and destroyed</seg>! What lawless evil is this that the priesthood of
+the orthodox Christians is being stripped from those who now possess it
+and in its place a second one is being remade?
+<seg corresp="#EH3.1.16.n #COM.EH3.1.16.n" xml:id="TR.EH3.1.16.n">Look, twenty years ago I, though unworthy, was
+canonically ordained as bishop by the orthodox at the order of
+<persName ref="https://syriaca.org/person/5169">Theodosius</persName>, patriarch of
+<placeName ref="https://pleiades.stoa.org/places/727070">Alexandria</placeName>
+                        </seg>. But now that I have
+given myself over and yielded to all of you, this one – committing a
+wicked act – wants to depose me from the priesthood of the orthodox,
+just as he has also done to many, and reordain me as one of his own. Let
+him reveal from which canons he learned this! Either he was not aware of
+and did not know the ecclesiastical canons, or
+<supplied>although</supplied> he knew them, he disregarded them and
+violated them in his conceit, pride, and deceptiveness. If the order was
+from you and he is doing these things with your knowledge, everyone will
+know! But you should know that he is seeking to cast the blame and
+censure of the canons on your <rs type="person" ref="https://syriaca.org/person/3229">your
+majesty</rs>, <seg corresp="#EH3.1.16.o #COM.EH3.1.16.o" xml:id="TR.EH3.1.16.o">and he is conspiring to count
+you with him in the transgression of the ecclesiastical laws</seg>. If
+he with your knowledge and at your order is abolishing the priesthood
+and remaking a second one, then order him to abolish the baptism as
+well, to rebaptize, and then to reordain the priests. For
+<seg corresp="#EH3.1.16.p #COM.EH3.1.16.p" xml:id="TR.EH3.1.16.p">the nineteenth canon of the 318 fathers,
+concerning the corrupt heresy of the followers of
+<persName ref="https://syriaca.org/person/2469">Paul of Samosata</persName> and others like
+him</seg>, orders them to be rebaptized and then those who are worthy
+among them to become priests again – this because of the wickedness of
+their heresy. So now, let this one first reveal for what reason he came
+to this and became so puffed up in his conceit as to depose and reordain
+us!” As the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> heard these things
+and realized that <persName ref="https://syriaca.org/person/5157">Stephen</persName> was rightfully
+censuring and contending against him canonically, he was startled as
+though from a deep sleep. He condemned and even despised this deed,
+saying: “It is truly wicked, lawless, and against the whole
+ecclesiastical order for the priesthood to be abolished and be
+<note type="explanation">made</note> again. It is detestable and quite foreign to all the
+ordinances of the church.” <seg corresp="#EH3.1.16.q #COM.EH3.1.16.q" xml:id="TR.EH3.1.16.q">He then ordered
+that this not take place in the church of God in any way and immediately
+made a <emph>typos pragmatikos</emph> that it was not permitted for
+anyone to venture to abolish the priesthood again, unless it should
+happen in regard to heresies concerning which the canons give an order.
+If bishops happen to be doing this, their deposition would take place
+and they would be cast into banishment.</seg> When this had taken place
+and upon learning that a severe order had been issued,
+<seg corresp="#EH3.1.16.r #COM.EH3.1.16.r" xml:id="TR.EH3.1.16.r">John and his advisors schemed to make a
+bribe</seg> so that the <emph>typos</emph>, which concerned this matter,
+might be taken from <note type="explanation">their</note> midst and not be seen again.
+There was great enmity between <persName ref="https://syriaca.org/person/5103">John</persName> and
+<persName ref="https://syriaca.org/person/5157">Stephen</persName> because of this for all of their
+days.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.17"
+                       corresp="#EH3.1.17 #COM.EH3.1.17"
+                       n="17">
+                     <head>
+                        <title>Chapter 17: On the bishops being sent for and summoned from the
+monasteries and places where they were imprisoned.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.17.a #COM.EH3.1.17.a" xml:id="TR.EH3.1.17.a">Hence, with a cunning thought and misleading
+duplicity – as the event itself imparted at the end</seg> –
+<seg corresp="#EH3.1.17.b #COM.EH3.1.17.b" xml:id="TR.EH3.1.17.b">
+                           <persName ref="https://syriaca.org/person/5103">John</persName> along with
+his advisors sent for and had the bishops brought whom he had cast into
+banishment in monasteries and other places</seg>, misleading them about
+having them brought to speak with them <seg corresp="#EH3.1.17.c #COM.EH3.1.17.c" xml:id="TR.EH3.1.17.c">about
+the union</seg>. After first sending for <note type="explanation">and</note> taking
+<seg corresp="#EH3.1.17.d #COM.EH3.1.17.d" xml:id="TR.EH3.1.17.d">Paul, the patriarch</seg>, from
+<seg corresp="#EH3.1.17.e #COM.EH3.1.17.e" xml:id="TR.EH3.1.17.e">the monastery of the
+<emph>Akoimetoi</emph>
+                        </seg>, and imprisoning him in his episcopal
+palace, <seg corresp="#EH3.1.17.f #COM.EH3.1.17.f" xml:id="TR.EH3.1.17.f">he brought and imprisoned the rest of
+them, one after another with him: that is,
+<persName ref="https://syriaca.org/person/72">Paul</persName>, <persName ref="https://syriaca.org/person/74">John</persName>,
+<persName ref="https://syriaca.org/person/5157">Stephen</persName>, and
+<persName ref="https://syriaca.org/person/5081">Elisha</persName>
+                        </seg>. After first plotting and
+deliberating, <seg corresp="#EH3.1.17.g #COM.EH3.1.17.g" xml:id="TR.EH3.1.17.g">they sent them a sheet on which
+<note type="explanation">something</note> was written about the union that took place
+between <persName ref="https://syriaca.org/person/430">Cyril of Alexandria</persName> and
+<persName ref="https://syriaca.org/person/2449">John of Antioch</persName>
+                        </seg>, having sent them a
+message in their place of confinement: “According to this union that
+took place between <persName ref="https://syriaca.org/person/430">Cyril</persName> and
+<persName ref="https://syriaca.org/person/2449">John</persName>, you are also compelled to enter into
+a union with us.” <seg corresp="#EH3.1.17.h #COM.EH3.1.17.h" xml:id="TR.EH3.1.17.h">Upon receiving these things,
+they consulted with one another and mocked their mischievousness.</seg>
+They sent them a message: “You have deliberated well. So, as for us,
+that which we have done and carried out <note type="explanation">is</note> according to
+what <persName ref="https://syriaca.org/person/430">Cyril</persName> did.
+<seg corresp="#EH3.1.17.i #COM.EH3.1.17.i" xml:id="TR.EH3.1.17.i">We condemned, expelled, and cast it out from
+the church of God, <note type="explanation">that is,</note> the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>, just as
+<persName ref="https://syriaca.org/person/430">Cyril</persName> 
+                           <note type="explanation">did</note> the evil
+<persName ref="https://syriaca.org/person/655">Nestorius</persName>.</seg>
+                        <seg corresp="#EH3.1.17.j #COM.EH3.1.17.j" xml:id="TR.EH3.1.17.j">Concerning the remaining things that happened
+between us,
+<note>
+Literally: “between you and us.”
+</note>
+we do not quarrel with you. Rather, we are united with you without any
+hindrance.</seg> But if it does not please you that that which
+<persName ref="https://syriaca.org/person/430">Cyril</persName> did is also executed by us, how and
+in what way are you then conspiring to demand from us
+<seg corresp="#EH3.1.17.k #COM.EH3.1.17.k" xml:id="TR.EH3.1.17.k">the union between him and
+<persName ref="https://syriaca.org/person/2449">John</persName> that came at the end, as though the
+earlier <note type="explanation">union</note> of <persName ref="https://syriaca.org/person/430">Cyril</persName> had not
+come to pass</seg>.”
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.18"
+                       corresp="#EH3.1.18 #COM.EH3.1.18"
+                       n="18">
+                     <head>
+                        <title>
+                           <seg corresp="#EH3.1.18.a #COM.EH3.1.18.a" xml:id="TR.EH3.1.18.a">Chapter 18</seg>: On the reprimand
+and censure that <persName ref="https://syriaca.org/person/5103">John</persName> received from the
+bishops that he had gathered and imprisoned in regard to the deposition
+and reinstatement of the ordination <note type="explanation">which was</note> lawless and
+against all regulations and ordinances of the church of
+God.</title>
+                     </head>
+                     <p>
+After these things, <note type="explanation">
+                           <rs type="person" ref="https://syriaca.org/person/74">John</rs>
+                        </note> was
+censured by the bishops who were imprisoned by
+<persName ref="https://syriaca.org/person/5103">John</persName> in his
+<rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal palace</rs>.
+<seg corresp="#EH3.1.18.b #COM.EH3.1.18.b" xml:id="TR.EH3.1.18.b">They entered into a debate with him everyday
+concerning the faith, the corruption of the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>, and the things carried out
+by it.</seg> They would begin by firmly censuring him, debating him, and
+rebuking him powerfully, saying to him as though he were being
+interrogated: “<seg corresp="#EH3.1.18.c #COM.EH3.1.18.c" xml:id="TR.EH3.1.18.c">Reveal to us, O great one
+<note>
+Or: “teacher.”
+</note>
+and wielder of the ecclesiastical primacy</seg>,
+<seg corresp="#EH3.1.18.d #COM.EH3.1.18.d" xml:id="TR.EH3.1.18.d">from which canon and ecclesiastical ordinance
+you have learned and received to abolish the priesthood of the orthodox
+bishops and the rest of the priests</seg> 
+                        <seg corresp="#EH3.1.18.e #COM.EH3.1.18.e" xml:id="TR.EH3.1.18.e">who
+are even senior to your <rs type="person" ref="https://syriaca.org/person/5190">father</rs> in the
+days of their priesthood</seg> 
+                        <note type="explanation">so that</note> you might abolish
+<note type="explanation">it</note> and reordain them <seg corresp="#EH3.1.18.f #COM.EH3.1.18.f" xml:id="TR.EH3.1.18.f">into the
+priesthood of the dyophysites who proclaim and teach a quaternity
+instead of the hidden and holy Trinity</seg>? In which ecclesiastical
+ordinance did you find this and follow it so that you might abolish the
+priesthood of the true orthodox and reordain <note type="explanation">them</note> in its
+place with another <note type="explanation">priesthood</note> of the synodites? On what
+occasion, in relation to which censure, in the case of which heresies,
+or according to what that is ordered in the canons, have you received
+<note type="explanation">this</note> and did you depose those who are censuring you and
+fleeing from communing with you, because of the heresy of the
+dyophysites and because of <seg corresp="#EH3.1.18.g #COM.EH3.1.18.g" xml:id="TR.EH3.1.18.g">the blasphemies of
+the synod and the <emph>Tome</emph> of
+<persName ref="https://syriaca.org/person/2299">Leo</persName>
+                        </seg> which proclaim and teach a
+quaternity in place of the holy Trinity? As for you, you cannot in any
+way censure and condemn them for heresy and then carry out the
+deposition of their priesthood. If then you do have something against
+those whom you lawlessly deposed from the priesthood, make it known to
+us now, and we will desist from the judgment and the censure in regard
+to these things! For if you granted yourself leave, against the
+ordinances and canons of the church, to make use of these
+<note type="explanation">measures</note> and depose the true priests and reordain them,
+then this would also have been appropriate:
+<seg corresp="#EH3.1.18.h #COM.EH3.1.18.h" xml:id="TR.EH3.1.18.h">that you also would have abolished their
+baptism and rebaptized them according to the force of the canonical
+commands</seg>. Indeed, <seg corresp="#EH3.1.18.i #COM.EH3.1.18.i" xml:id="TR.EH3.1.18.i">the nineteenth
+<note>
+The manuscript has “sixteenth.”
+</note>
+canon of the 318 about the condemned heresy of the followers of
+<persName ref="https://syriaca.org/person/2469">Paul of Samosata</persName>
+                        </seg> ordered first that
+they be rebaptized and then that those who seem worthy become priests
+again. So, as for you, if you are now thinking to yourself that you have
+received from heresy those whom you led by force as captives and
+reordained as priests by yourself, how do you carry out the one when you
+have ignored the former?” As for <persName ref="https://syriaca.org/person/5103">John</persName>,
+<seg corresp="#EH3.1.18.j #COM.EH3.1.18.j" xml:id="TR.EH3.1.18.j">he listened to all these things in silence and
+recognized that they were condemnable, since he did not have any way of
+putting up a defense concerning them</seg>. Eventually, he gave an
+answer, saying: “Since I, having listened to all these things from you
+silently, see that you are troubled and offended by the matter of the
+ordination, if the matter concerning the ordination is rectified and
+removed, will this suffice for you and will you enter into a union with
+us?” They said to him: “What rectification can you make, then, after all
+this damage and harm and the lawless deed that you have done? For, it
+was not only here that you carried this out and <note type="explanation">did not</note>
+hinder the violence of your rage and hatred, but
+<seg corresp="#EH3.1.18.k #COM.EH3.1.18.k" xml:id="TR.EH3.1.18.k">you also extended this transgression of the
+law to other regions along with the opposition to all ordinances and all
+ecclesiastical canons</seg> which either since they were not known to
+you, you broke and rejected, violated and transgressed, or granting
+yourself leeway in regard to them, you treated them with contempt and
+disparaged them, slipping into this whole transgression of the law and
+rejecting <note type="explanation">it</note>. Let it not escape you that
+<seg corresp="#EH3.1.18.l #COM.EH3.1.18.l" xml:id="TR.EH3.1.18.l">at whatever time it is that it
+<note>
+Or: “he.” That is, “time” or “God” summons, as suggested by Brooks.
+</note>
+summons, either during your life or, should it happen, after your death,
+all of these things will need to come to an orderly inquiry and a
+canonical investigation</seg>, so long as the world remains and the
+church of God exists! Now, as for the other thing you did at the end:
+<seg corresp="#EH3.1.18.m #COM.EH3.1.18.m" xml:id="TR.EH3.1.18.m">it is fit for wonder, a fable, and a
+perplexing
+<note>
+Or: “astonishing.”
+</note>
+tale</seg>, whether you carried this out in the violence of rage and
+hatred, in the conceit of power, or for whatever reason. Now, you judge
+in your mind and consider whether you carried this out rightfully and
+with a rigorous examination, after you fell upon those in captivity whom
+you had rapaciously taken captive, pressing and subjugating them to
+commune with you. <seg corresp="#EH3.1.18.n #COM.EH3.1.18.n" xml:id="TR.EH3.1.18.n"> They carried out with you
+thirty-six Eucharistic anaphoras and the liturgies through the entire
+feast of unleavened bread
+<note>
+That is, Easter
+</note>
+and afterwards, as you accepted their original priestly rank and had
+them sit as priests in the <emph>hierateion</emph> with your priests for
+all the days with a sanctification, which have been mentioned.</seg> You
+also accepted the deacons in their diaconal task along with the rest of
+the deacons and established them on their step. Then, finally, after all
+these things, you in a certain foreign impudence acquiesced without
+consideration to abolishing their former priestly rank. That which we
+have now left for you to consider in your judgment and the examination
+in your mind is: Why depose them from the priesthood and reordain them?
+If it then seemed good to you so to act against the order and
+ecclesiastical canons before you had accepted them alongside you during
+the service of the Eucharistic anaphora, you could have done so. But not
+after all the liturgies in which they engaged and communed alongside you
+in their original priestly rank, <note type="explanation">can you</note> go back, depose
+them and reordain them!” After many such things had been said by both
+sides –<seg corresp="#EH3.1.18.o #COM.EH3.1.18.o" xml:id="TR.EH3.1.18.o"> which we omit because of their
+copiousness and the length of the story about them</seg> – the censured
+one recognized in himself that he was approaching blame and was not free
+from censure, if he examined what he had done and especially what had
+been done by him at the end: deposing them after having accepted them in
+the service and then going back <note type="explanation">and</note> deposing them. Because
+of these things, it was apparent through his silence that he found
+himself condemnable, as he conducted himself in a disorderly fashion
+through <note type="explanation">his</note> base and empty language against them.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.19"
+                       corresp="#EH3.1.19 #COM.EH3.1.19"
+                       n="19">
+                     <head>
+                        <title>
+                           <seg corresp="#EH3.1.19.a #COM.EH3.1.19.a" xml:id="TR.EH3.1.19.a">Chapter 19</seg>: On the edict that
+the emperor, the victorious <persName ref="https://syriaca.org/person/3229">Justin</persName>,
+crafted.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.19.b #COM.EH3.1.19.b" xml:id="TR.EH3.1.19.b">When the partisans of the synod saw that some
+of those who had been seduced had then come over to them</seg>,
+<seg corresp="#EH3.1.19.c #COM.EH3.1.19.c" xml:id="TR.EH3.1.19.c">the victorious emperor
+<persName ref="https://syriaca.org/person/3229">Justin</persName> came to craft an edict thinking he
+would create a union through it</seg>. After having it diligently
+drafted, he immediately sent it to the bishops who were imprisoned in
+the <rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal palace</rs>
+                        <seg corresp="#EH3.1.19.d #COM.EH3.1.19.d" xml:id="TR.EH3.1.19.d">through a certain sophist
+<persName ref="https://syriaca.org/person/5178">Zacharias</persName>, the <emph>archiatrus
+palatii</emph>,
+<note>
+That is, <emph>archiatrus sacri palatii</emph>.
+</note>
+who was, in regard to his family, from
+<placeName ref="https://pleiades.stoa.org/places/668376">Shura</placeName> of the Romans</seg> and, as it
+was thought, formerly orthodox. This one, sent by the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> to them
+<seg corresp="#EH3.1.19.e #COM.EH3.1.19.e" xml:id="TR.EH3.1.19.e">with a draft of the edict that they arranged
+to have drafted</seg>, then said to them: “<seg corresp="#EH3.1.19.f #COM.EH3.1.19.f" xml:id="TR.EH3.1.19.f">The
+merciful <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>
+                        </seg> has sent you this
+edict which he arranged to have drafted for your sake so that through it
+you <note type="explanation">and</note> all your followers might enter into a union. He has
+granted you leave and also ordered this: when you have read it, you
+should rectify in it everything that you see as lacking in it and in
+need of correction. If something is lacking that is fit for a correct
+confession, which you want to have retained, you should add
+<note type="explanation">it</note> to <note type="explanation">the edict</note> without hesitation.”
+<seg corresp="#EH3.1.19.g #COM.EH3.1.19.g" xml:id="TR.EH3.1.19.g">When the bishops received this order, they
+took <note type="explanation">the draft</note>, read it, and saw that it was incomplete.
+Even if there was something in it opposed to the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>, there was also something
+found in <note type="explanation">the draft</note> from <note type="explanation">the council</note> and in
+favor of it. Since they had been ordered, they made a set of chapters,
+that is, amendments.</seg> If <note type="explanation">their</note> opponents had permitted
+these to be inserted into <note type="explanation">the edict</note>, it would have
+undoubtedly created a union. <seg corresp="#EH3.1.19.h #COM.EH3.1.19.h" xml:id="TR.EH3.1.19.h">The one who had
+brought <note type="explanation">the draft</note> took the amendments, presenting
+<note type="explanation">and</note> showing them to his confidant and advisor
+<persName ref="https://syriaca.org/person/5103">John</persName> and all the rest of those in their
+council</seg>, who when they heard the amendments were alarmed and
+terrified, as great fear fell upon them that if the
+<note type="explanation">amendments</note> were retained, they would tear out the whole
+heresy of the dyophysites at its roots. Even more than
+<seg corresp="#EH3.1.19.i #COM.EH3.1.19.i" xml:id="TR.EH3.1.19.i">the semi-Nestorians, the proper
+Nestorians</seg> were also alarmed and troubled, and they stirred up
+trouble and caused an uproar in the whole church, by running around and
+troubling the clergy and the people, saying: “If these additions are
+kept, the whole church is going to be disrupted and devastated.” Thus,
+they eventually gathered together their whole faction and went to the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> to petition him that the
+amendments not be inserted into his edict,
+<seg corresp="#EH3.1.19.j #COM.EH3.1.19.j" xml:id="TR.EH3.1.19.j">since they also troubled those belonging to
+the palace many of whom were not orthodox in regard to Christianity and
+especially the <emph>quaestor</emph> who in addition to being a pagan
+was a Samaritan, whose name was <persName ref="https://syriaca.org/person/5045">Anastasius of
+Palestine</persName>
+                        </seg>. When they came before the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> and these amendments were read to
+him, he was pleased with them, praised them very much, and ordered that
+they be inserted into the edict and <seg corresp="#EH3.1.19.k #COM.EH3.1.19.k" xml:id="TR.EH3.1.19.k">written on
+clean copy</seg>. But then all those who had come, the clergy, the
+secular <note type="explanation">functionaries</note>, and the rest of the senators,
+opposed him, saying: “If you, my lord, insert the chapters into your
+edict and they enter the church, it will immediately be overturned and
+devastated. Although you want to bring in and retain a few
+<note type="explanation">people</note>, masses are going to leave the church.” With some of
+them agitated at him, he was enraged and turned his face to them,
+saying: “<seg corresp="#EH3.1.19.l #COM.EH3.1.19.l" xml:id="TR.EH3.1.19.l">These chapters are correct.</seg>
+                        <seg corresp="#EH3.1.19.m #COM.EH3.1.19.m" xml:id="TR.EH3.1.19.m">But I know that all of you are Nestorians and
+sick in your mind, and you do not rejoice in the correct
+<note>
+Or: “orthodox.”
+</note>
+faith.</seg> 
+                        <seg corresp="#EH3.1.19.n #COM.EH3.1.19.n" xml:id="TR.EH3.1.19.n">Unless you keep silent, I am
+going to release and send the bishops out, dispatching them against you
+like wolves falling upon you and tearing you in bits and you will not be
+able to stand before them.</seg>” Then he ordered the
+<emph>quaestor</emph>, saying: “Unless you immediately bring me twenty
+copies of the edict before the evening, which have these amendments in
+them, I am going to remove your head!” Thus, the whole faction of the
+Nestorians and semi-Nestorians was alarmed, and they were buzzing about
+as wasps driven out by smoke. In this way, they were able to implore
+<note type="explanation">the emperor</note> and terrify him about troubling the church.
+When they had pestered him enough, he submitted to them and left the
+matter according to their will. <seg corresp="#EH3.1.19.o #COM.EH3.1.19.o" xml:id="TR.EH3.1.19.o">Only allowing
+a certain few amendments to be inserted, they heretically inserted on
+their own at the end of the edict, “Let the customs of the church be
+retained for <note type="explanation">the church</note>,” so that, in regard to the synod,
+they might proclaim it as their custom.</seg> They conspired together
+and deviously inserted this so that there might not be a union and
+<seg corresp="#EH3.1.19.p #COM.EH3.1.19.p" xml:id="TR.EH3.1.19.p">the wheel turn against them</seg> as
+Nestorians.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.20"
+                       corresp="#EH3.1.20 #COM.EH3.1.20"
+                       n="20">
+                     <head>
+                        <title>
+                           <seg corresp="#EH3.1.20.a #COM.EH3.1.20.a" xml:id="TR.EH3.1.20.a">Chapter 20</seg>: After the edict had
+been written on twenty clean copies its first subscriber sent
+<note type="explanation">it</note> to those who were imprisoned.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.20.b #COM.EH3.1.20.b" xml:id="TR.EH3.1.20.b">After, as the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> had ordered, the edict was
+written on clean copy, he immediately subscribed it</seg> and sent it to
+the bishops who were in the <rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal
+palace</rs>, sending a message to them: “<seg corresp="#EH3.1.20.c #COM.EH3.1.20.c" xml:id="TR.EH3.1.20.c">Now
+we have created <note type="explanation">the conditions for</note> a union, exactly as you
+want.</seg> We have sent you the edict, and henceforth you have no
+reason to resist entering into the union with us. For I even made this
+edict on your behalf.” But when <seg corresp="#EH3.1.20.d #COM.EH3.1.20.d" xml:id="TR.EH3.1.20.d">the bishops
+read the edict and saw that the amendments they had made were not in it
+but only bits of them had been inserted</seg> according to the will of
+those who tore it up, they disregarded it because <note type="explanation">their</note>
+opponents had marred and muddled it according to their will but, out of
+fear of the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>, did not venture to
+remove those things opposed to the dyophysites from it. They rather
+schemed insofar as they were able to insert their own <note type="explanation">views</note>
+into it, <seg corresp="#EH3.1.20.e #COM.EH3.1.20.e" xml:id="TR.EH3.1.20.e">with <note type="explanation">the edict</note> appearing
+to oppose the synod and also to fight on its behalf</seg>, as some
+things from <note type="explanation">the council</note> and from its adherents appeared in
+it. The bishops gave an answer to those who brought it, saying:
+“<seg corresp="#EH3.1.20.f #COM.EH3.1.20.f" xml:id="TR.EH3.1.20.f">If then the cause of offense and disturbance
+of the whole church, that is, the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>, is removed from the midst,
+the church will also not need this.</seg> But if <note type="explanation">the synod</note>
+is proclaimed in the church, not even from a thousand
+<note type="explanation">edicts</note> like this one, affixed in all places and corners,
+will a union arise. But a schism will persist in its place. For this
+<note type="explanation">edict</note> seems to be against the synod and to fight on its
+behalf, and both can be recognized in it by those who understand.”
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.21"
+                       corresp="#EH3.1.21 #COM.EH3.1.21"
+                       n="21">
+                     <head>
+                        <title>Chapter 21: On <persName ref="https://syriaca.org/person/5103">John</persName> testifying
+against the bishops, saying: “See now, you are the ones obstructing the
+union in the church!”</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.21.a #COM.EH3.1.21.a" xml:id="TR.EH3.1.21.a">
+                           <persName ref="https://syriaca.org/person/5103">John</persName> testified
+every day against the bishops alongside those sent to them in the name
+of the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>
+                        </seg>, saying: “See now,
+you are the ones obstructing and preventing the union in the church of
+God. <seg corresp="#EH3.1.21.b #COM.EH3.1.21.b" xml:id="TR.EH3.1.21.b">
+                           <note type="explanation">The union</note> already came about
+fifty years ago</seg>, but now you are driving it out, hindering it, and
+holding it back, as you do not want to enter into a union.” But
+<note type="explanation">the bishops</note> replied to them, saying:
+“<seg corresp="#EH3.1.21.c #COM.EH3.1.21.c" xml:id="TR.EH3.1.21.c">How are we the ones obstructing the union to
+which <quote type="unmarked">you draw near not with any of your
+fingers<ref decls="#biblical" cRef="Peshitta:Lk:11:46"/>
+                           </quote> but rather with
+exterior words and deviousness</seg> so that you might seem and be
+perceived by people to be ‘the ones who truly care about the union,’
+even as you conspire to cast the entire blame from everyone on us? What
+then is the union that you are taking care to create? Or in what way are
+you demanding that we enter into a union with you, when you are the ones
+holding onto the synod which has uprooted and caused trouble for the
+whole church of God, as you proclaim and cherish it?
+<seg corresp="#EH3.1.21.d #COM.EH3.1.21.d" xml:id="TR.EH3.1.21.d">If then you truly are taking care to create
+the union as you say, remove the stumbling block and cause of the
+offense from the clear path of the faith</seg> and bring it away from
+the church of God, so that in this way not only we
+<note type="explanation">ourselves</note> but also all the faithful, rejoicing and being
+free from the offense, will enter into a union with you” –
+<seg corresp="#EH3.1.21.e #COM.EH3.1.21.e" xml:id="TR.EH3.1.21.e">along with many other such things which we
+would not be able to relate in full even on a thick stack of sheets, we
+have left out and omitted those things which were said between them
+concerning these matters every day in the various exchanges of the
+debate because of the copiousness of the words and the thickness of the
+texts, lest they be thought an irritation by those who chance upon
+them</seg>.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.22"
+                       corresp="#EH3.1.22 #COM.EH3.1.22"
+                       n="22">
+                     <head>
+                        <title>Chapter 22: On the bishops being censured and blamed even by
+the leaders of the orthodox because of their obstinacy and inflexibility
+concerning the union.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.22.a #COM.EH3.1.22.a" xml:id="TR.EH3.1.22.a">Before the time of this persecution and in
+addition to the trials, torments, and imprisonments from their
+persecutors, the bishops had been harshly censured by the rest of the
+orthodox</seg>, who strove against them, saying: “Why do you keep on
+quarreling and being so obstinate and do not show prudence and
+flexibility so that there might be a union in the church of God? You
+rather keep on being so stiff-necked and quarreling with those in power
+<seg corresp="#EH3.1.22.b #COM.EH3.1.22.b" xml:id="TR.EH3.1.22.b">without being concerned about the fact that
+you are going to lose us, our houses, our children, and our property.
+What does it concern you that we are going to lose our assets and become
+beggars</seg>?” Since they had previously been told such things in the
+harsh censures of the orthodox out of anxiousness regarding their wealth
+and <seg corresp="#EH3.1.22.c #COM.EH3.1.22.c" xml:id="TR.EH3.1.22.c">in addition to them the synodites were
+testifying about them every day – “Now, you are obstructing the union
+from coming about</seg>” – they fell day and night into suffering and
+bitter crying as they sat crying and wailing with groans to each other.
+With wailing sounds, they were saying: “What will we do from this point
+forward? For now we are being censured by both sides. They are
+testifying against us and blaming <note type="explanation">us</note>, and
+<seg corresp="#EH3.1.22.d #COM.EH3.1.22.d" xml:id="TR.EH3.1.22.d">we, imprisoned in torment, are not even
+allowed to see any of our acquaintances</seg>. Our opponents especially
+say these things <seg corresp="#EH3.1.22.e #COM.EH3.1.22.e" xml:id="TR.EH3.1.22.e">to the leaders and the
+noteworthy among us</seg>. They cunningly say and profess to everyone to
+be the ones who care about the union, and then
+<seg corresp="#EH3.1.22.f #COM.EH3.1.22.f" xml:id="TR.EH3.1.22.f">with everyone thinking their words are true
+they cast the entire allegation of obstructing the union on us</seg>.
+Now, we have found ourselves in the middle of the two sides. We know
+that the truth is not in them so that we might give ourselves over and
+trust the cunning promises and duplicitous oaths of <note type="explanation">our</note>
+opponents, and <note type="explanation">we know</note> that they are not at all worthy so
+that the union might be effected through them. Since we keep resisting
+them, we are going to be condemned by both sides through the generations
+of the world as those who obstructed and held back the union in the
+church of God, while they deem as true their cunning promises and their
+duplicitous words as though they were prepared to create a union but we
+kept the union from the church.” Along with the many other such things
+that were said between them with grief-stricken tears over many days to
+whose truth we testify before God, as those who were nearby and
+eyewitnesses of all of them.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.23"
+                       corresp="#EH3.1.23 #COM.EH3.1.23"
+                       n="23">
+                     <head>
+                        <title>Chapter 23: On the debate and the torment of the bishops and
+their retinue.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.23.a #COM.EH3.1.23.a" xml:id="TR.EH3.1.23.a">For thirty-three days they ardently engaged in
+a debate with each other</seg> – the partisans of the synod who wielded
+power and the opponents of the synod who were being imprisoned and
+bitterly tormented by them. Everytime <note type="explanation">the opponents of the
+synod</note> would be sent for, be released, and come out of the place
+of confinement, they would come <seg corresp="#EH3.1.23.b #COM.EH3.1.23.b" xml:id="TR.EH3.1.23.b">to the
+patriarchal <emph>sekreton</emph>
+                        </seg>, sit down, and debate as much as
+those in power wanted. <seg corresp="#EH3.1.23.c #COM.EH3.1.23.c" xml:id="TR.EH3.1.23.c">Whenever <note type="explanation">the
+partisans of the synod</note> had either been defeated by them</seg> or
+when it pleased <note type="explanation">the partisans of the synod</note>, the bishops
+would go out alongside their guards, going <note type="explanation">back</note> into
+<note type="explanation">and</note> 
+                        <seg corresp="#EH3.1.23.d #COM.EH3.1.23.d" xml:id="TR.EH3.1.23.d">being imprisoned within the
+three guard posts: that of the bishop’s attendants, that of the
+<emph>excubitores</emph>, and an external one of the doorkeepers</seg>.
+<seg corresp="#EH3.1.23.e #COM.EH3.1.23.e" xml:id="TR.EH3.1.23.e">The retinue of each <note type="explanation">of the
+bishops</note> from everywhere – not only clerics, monks, and the
+remaining free persons with them, but also all their servants</seg> –
+<seg corresp="#EH3.1.23.f #COM.EH3.1.23.f" xml:id="TR.EH3.1.23.f">were imprisoned in dark and bitter places of
+confinement all over the <rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal
+palace</rs>
+                        </seg>. All of them were under guard, and not only that, but
+they were stripped down – as though by robbers –
+<seg corresp="#EH3.1.23.g #COM.EH3.1.23.g" xml:id="TR.EH3.1.23.g">by the <rs type="person" ref="https://syriaca.org/person/5103">bishop</rs>’s
+attendants and the <emph>dekanoi</emph>
+                        </seg>. If they had any clothes
+on, they were stripped down even to a rag that they could not use. If a
+shoe, belt, strap,
+<note>
+Literally: “belts, straps.”
+</note>
+or money was found on any of them or anything else whatsoever, they
+would be stripped down. <seg corresp="#EH3.1.23.h #COM.EH3.1.23.h" xml:id="TR.EH3.1.23.h">Everything that was
+found on them was removed, and they were cast on the ground being
+stripped down and tormented, even in regard to their provisions.</seg>
+Those who would see them or offer them something, either to them or to
+the bishops, would not be allowed <note type="explanation">to do so</note> in any way at
+all. Instead of the promise of the union, they and all those with them
+endured and underwent this wickedness, this adversity, and these trials,
+especially because they were openly rebuking those torturing them.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.24"
+                       corresp="#EH3.1.24 #COM.EH3.1.24"
+                       n="24">
+                     <head>
+                        <title>Chapter 24: On the final debate and the cunning and duplicitous
+oaths.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.24.a #COM.EH3.1.24.a" xml:id="TR.EH3.1.24.a">So, after all these things, the bishops were
+again finally sent out of and led away from their place of
+confinement.</seg> 
+                        <seg corresp="#EH3.1.24.b #COM.EH3.1.24.b" xml:id="TR.EH3.1.24.b">Then the leader of the
+session, <persName ref="https://syriaca.org/person/5103">John</persName>, and even more than him
+those sent by the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> and doing so
+with his authority, set themselves harshly and shamelessly against
+<note type="explanation">the bishops</note>
+                        </seg>, saying: “How long are you going
+<seg corresp="#EH3.1.24.c #COM.EH3.1.24.c" xml:id="TR.EH3.1.24.c">to cast away</seg>
+                        <note>
+A marginal note suggests reading this word as “neglect.”
+</note>
+and obstruct the union in the church of God which our lord the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> and we are taking care to create?
+Day by day you hold back and cast away this good thing, yet you do not
+openly expose to everyone that you yourselves are the ones who are
+obstructing <note type="explanation">it</note> and no one else. Now then, in short: either
+enter into the union or reveal yourselves as the ones causing trouble
+for, assailing, and obstructing the union in the church!”
+<seg corresp="#EH3.1.24.d #COM.EH3.1.24.d" xml:id="TR.EH3.1.24.d">But the bishops, who were mourning and
+suffering, said: “If these matters are adjudicated justly and with
+honest intentions, it is not we who are holding back the union but
+you.</seg> For even though your innermost heart is filled with the venom
+of opposition and the divisiveness of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>, you want to reveal us as
+the ones holding <note type="explanation">it</note> back, even though you have neither put
+forth nor showed in any way in yourselves even the shadow of a union.
+<seg corresp="#EH3.1.24.e #COM.EH3.1.24.e" xml:id="TR.EH3.1.24.e">Rather, you are cunningly demanding that we
+enter into a union with the duplicity of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>.</seg> You are not taking
+care to create a true union in the church in a just and correct manner!
+Now, <seg corresp="#EH3.1.24.f #COM.EH3.1.24.f" xml:id="TR.EH3.1.24.f">just as we have said from the beginning:
+if</seg> you truly want a union and are not intent on carrying out a
+cunning act of deceit and a wicked plot, first remove the cause of the
+divisiveness from the midst and then the union will rise in its place.
+We are not the ones whom you should cunningly accuse <note type="explanation">of
+this</note>! But now, since this has not at all occurred to you,
+<note>
+Literally: “to your mind.”
+</note>
+why are you swindling and slandering us everyday? And increasing our
+pain with torments and the tribulation of imprisonment along with the
+rest of the irreverent tribulations that we endure from you everyday?
+And torturing us every day with your words and beating our sores with
+thorns? And showing no fear of God for you see that our lives are
+already coming to an end? They are passing away and reaching their
+completion through the tribulations by which we are surrounded on all
+sides. If then you are set on creating a union in accordance with your
+external words, expel the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName> which has caused trouble,
+which has divided, and which has caused a schism in the church, as you
+also cannot deny, and in this way a union without division will arise in
+the whole church of God.” Then <persName ref="https://syriaca.org/person/5103">John</persName> and
+those with him said: “It is this very thing – that the synod be expelled
+as you are saying – which you are obstructing!<seg corresp="#EH3.1.24.g #COM.EH3.1.24.g" xml:id="TR.EH3.1.24.g">
+For if you enter into a union, the synod will immediately be expelled
+and there will be complete unity.”</seg> The bishops said: “It seems to
+us that you are taking care to make us enter into a union with your
+synod. It should not escape you or anyone else that until the breath of
+the nostrils ceases in each of us, <seg corresp="#EH3.1.24.h #COM.EH3.1.24.h" xml:id="TR.EH3.1.24.h">the
+condemnation of the synod and the <emph>Tome</emph> of
+<persName ref="https://syriaca.org/person/2299">Leo</persName> which as one divide our Lord, our God,
+and our savior <persName type="biblical" key="Jesus_Mat.1.1">Jesus
+Christ</persName> into two natures after the union will not cease from
+our mouths.”</seg> 
+                        <persName ref="https://syriaca.org/person/5103">John</persName> and those with him
+said: “Just as we have said to you many times, we and our lords, the
+<rs type="person"
+                            ref="https://syriaca.org/person/3229 https://syriaca.org/person/5155 ">emperors</rs> are giving you
+<note type="explanation">our</note> word and making oaths as though before God that the
+synod will immediately be removed when you enter into a union and that
+which goes out of our lips will not be changed.” The bishops said:
+“<seg corresp="#EH3.1.24.h.2 #COM.EH3.1.24.h.2" xml:id="TR.EH3.1.24.h.2">If you really are prepared to do this in
+accordance with your oaths</seg>, why then do you not do it immediately
+so that not only we but also everyone might enter into a union without
+an offense? But you rather want to deceive us cunningly, have us enter
+into a union with the <seg corresp="#EH3.1.24.i #COM.EH3.1.24.i" xml:id="TR.EH3.1.24.i">heresy of the
+dyophysites</seg>, and afterwards mock us again. It should be known to
+you that you are mocking and deceiving yourselves.
+<seg corresp="#EH3.1.24.j #COM.EH3.1.24.j" xml:id="TR.EH3.1.24.j">For we know that your will and your thoughts
+are not of the union, since you do not even seem to be speaking the
+truth even if in words you are prepared to create <note type="explanation">it</note>, so
+that it might be known to everyone that we have obstructed the union
+with the result that we might be condemned, by everyone just as by you,
+as those who are obstructing <note type="explanation">it</note>.</seg>
+                        <seg corresp="#EH3.1.24.j.2 #COM.EH3.1.24.j.2" xml:id="TR.EH3.1.24.j.2">We are even sacrificing ourselves for the
+union as we, trusting in your words and your promises</seg> that the
+synod will from this point forward be condemned and expelled, are going
+to commune with you, be it once or, should it happen, twice, while
+unceasingly <note type="explanation">having</note> the condemnation of the synod on our
+mouth. But we will never have any part or share in communion with you
+for a third time before the synod has been condemned and expelled. We
+know that you are not upholding the truth in your words! In order that
+it might become clear and be known to everyone that you are not prepared
+to create the union but rather to think that you will deceive us and
+everyone, we are now going to hand ourselves over to forming a union
+with you, be it up to two times.” <seg corresp="#EH3.1.24.j.3 #COM.EH3.1.24.j.3" xml:id="TR.EH3.1.24.j.3">Such
+things and many <note type="explanation">others</note> which are innumerable were spoken
+and testified to between them.</seg> The bishops concluded in this way,
+saying: “As for us, due to the slanders against us from the synodites,
+we are now handing ourselves over so that it might be known that we are
+not obstructing <note type="explanation">the union</note>.” <seg corresp="#EH3.1.24.k #COM.EH3.1.24.k" xml:id="TR.EH3.1.24.k">For
+everyone from both sides reviled them, saying: “The
+<rs type="person"
+                               ref="https://syriaca.org/person/3229 https://syriaca.org/person/5155 ">emperors</rs> and patriarch are taking
+care to, intend to, and are preparing to create a union. But those who
+are imprisoned are hindering and holding them back.”</seg> Wherefore,
+because of these things, they handed themselves over with great
+suffering. <seg corresp="#EH3.1.24.l #COM.EH3.1.24.l" xml:id="TR.EH3.1.24.l">While condemning the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName> with a raised voice, they
+acquiesced to commune with them two times as they had promised and to
+which they had conceded</seg>, after they had been boldly demanding
+<seg corresp="#EH3.1.24.m #COM.EH3.1.24.m" xml:id="TR.EH3.1.24.m">for all thirty-three days</seg> from the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> and the patriarch the
+condemnation and the expulsion of the synod by those who had pronounced
+many oaths. But then <note type="explanation">the Chalcedonians</note> began to go back on
+their words and were giving <note type="explanation">the bishops</note> various excuses,
+saying: <seg corresp="#EH3.1.24.n #COM.EH3.1.24.n" xml:id="TR.EH3.1.24.n">“We are going to write to the
+<rs type="person" ref="https://syriaca.org/person/5104">pope</rs> in
+<placeName ref="https://pleiades.stoa.org/places/423025">Rome</placeName> and then, if he accepts
+<note type="explanation">it</note>, we are going to expel the synod. For we cannot cause a
+schism with <placeName ref="https://pleiades.stoa.org/places/423025">Rome</placeName> on your
+behalf.”</seg> 
+                        <seg corresp="#EH3.1.24.o #COM.EH3.1.24.o" xml:id="TR.EH3.1.24.o">Then <note type="explanation">the bishops</note>
+replied to them, saying: “Now it is also the time for us to recount
+<cit>
+                              <ref decls="#biblical" cRef="Peshitta:Jon:4:2">the word of the prophet
+<persName type="biblical" key="Jonah_2Ki.14.25">Jonah</persName>:</ref>
+                              <quote type="marked">Is this not what I said when I was in my
+land?</quote>
+                           </cit>
+                        </seg>” In this way, it became known and clear to
+everyone that it was not those who were imprisoned and enduring bitter
+tribulations who were the ones obstructing the union, who had in fact
+handed themselves over for its sake. Rather those who were in power and
+who were slandering them violated their promises and their oaths to
+them, as they wanted to have the entire scandal pinned on the bishops
+not only by <note type="explanation">their</note> contemporaries but also by generations to
+come, as if <note type="explanation">the bishops</note> had prevented and obstructed the
+union in the church of God <note type="explanation">and</note> had not sacrificed
+themselves on its behalf even though <note type="explanation">the bishops</note> suspected
+<note type="explanation">those in power</note> of deceit.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.25"
+                       corresp="#EH3.1.25 #COM.EH3.1.25"
+                       n="25">
+                     <head><title>Chapter 25: On the mourning and brokenness of
+spirit that came upon the bishops because they had yielded and entered
+into a union through taking part in communion
+<note>
+Literally: “communions.”
+</note>
+with <persName ref="https://syriaca.org/person/5103">John</persName> and his fellow
+dyophysites.</title></head>
+                     <p>
+                        <seg corresp="#EH3.1.25.a #COM.EH3.1.25.a" xml:id="TR.EH3.1.25.a">Who is able to write about and recount the
+adversities, mourning, lamentation, and brokenheartedness that came upon
+those who had succumbed to communing with the ones who had tricked them
+and entered into a union with them without being united at all?</seg>
+How from that point on they were perishing and coming to an end, with
+their eyes swelling up and growing dark from crying and lamenting night
+and day to each other,
+<seg corresp="#EH3.1.25.b #COM.EH3.1.25.b" xml:id="TR.EH3.1.25.b">
+                           <seg type="allusion">the
+example of a woman mourning for the husband of her youth being small in
+comparison to their mourning?<ref decls="#biblical" cRef="Peshitta:Joel:1:8"/>
+                           </seg>
+                        </seg>
+                        <seg corresp="#EH3.1.25.c #COM.EH3.1.25.c" xml:id="TR.EH3.1.25.c">How from that point on they also cut
+themselves off from regular food and would wait without provisions and
+without consolation</seg>, having no pause or respite from tears, while
+everyone with his face covered would turn away from the
+<note type="explanation">others</note>, as they sat from that time on and lamented with
+bitter sounds of groaning, one to another, especially in regard to
+themselves, who after all the struggles, imprisonments, and
+tribulations, had been seized, dragged down and succumbed in this way to
+<note type="explanation">their</note> duplicitous cunning, while the union remained far off
+and had not materialized as promised? <seg corresp="#EH3.1.25.d #COM.EH3.1.25.d" xml:id="TR.EH3.1.25.d">How from
+that point on those who had tricked them, having seen that they had
+already perished and been ruined, would say to them: “To what end are
+you killing your soul along with your body in this way as if you were
+making a sacrifice to idols?</seg> Why have you imposed
+<note type="explanation">this</note> upon yourselves and have you persisted in all this
+crying and lamentation, continually choking yourselves <note type="explanation">with
+crying</note>? Take food and be consoled! Live and do not die!” – along
+with the many <note type="explanation">other</note> things said to them by their opponents,
+<seg corresp="#EH3.1.25.e #COM.EH3.1.25.e" xml:id="TR.EH3.1.25.e">
+                           <supplied>as</supplied> they remained
+inconsolable</seg>? Thus they sat all the more lamenting and crying and
+<seg corresp="#EH3.1.25.f #COM.EH3.1.25.f" xml:id="TR.EH3.1.25.f">were embittered for many days even after they
+had been released and gone forth from the place of confinement</seg>.
+They then returned and stood their ground valiantly, as <note type="explanation">the
+bishops</note> all the more openly rebuked <note type="explanation">the
+Chalcedonians</note> and strove against them from that time forward,
+deriding them as liars and tricksters. <seg corresp="#EH3.1.25.g #COM.EH3.1.25.g" xml:id="TR.EH3.1.25.g">They
+were thus handed back over to their prison cells and to torments harsher
+than the former ones, and each one of them was cast into different
+places of banishment in a bitter wrath.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.26"
+                       corresp="#EH3.1.26 #COM.EH3.1.26"
+                       n="26">
+                     <head>
+                        <title>Chapter 26: On the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>,
+having learned about these things, sending for <note type="explanation">and</note> having
+them led to the <rs type="place" ref="https://pleiades.stoa.org/places/177059114">palace</rs> and
+consoling them.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.26.a #COM.EH3.1.26.a" xml:id="TR.EH3.1.26.a">When the
+<rs type="person"
+                               ref="https://syriaca.org/person/3229 https://syriaca.org/person/5155 ">emperors</rs> learned about all the
+severe mourning and the bitter suffering, they sent for <note type="explanation">and</note>
+had the bishops led to the palace.</seg> They consoled them, saying:
+“Why has such mourning become necessary for you so that you have become
+so weak that it is as though you are dead? Be encouraged and consoled,
+for <seg corresp="#EH3.1.26.b #COM.EH3.1.26.b" xml:id="TR.EH3.1.26.b">we hope in God that we can satisfy you and
+enter into a full union with you</seg>. Do not be distressed!” But since
+<seg corresp="#EH3.1.26.c #COM.EH3.1.26.c" xml:id="TR.EH3.1.26.c">they were censuring <note type="explanation">the emperor</note>
+at length about the things discussed between them <note type="explanation">which</note> had
+been violated and had not come to pass</seg>, he said to them:
+“<seg corresp="#EH3.1.26.d #COM.EH3.1.26.d" xml:id="TR.EH3.1.26.d">Since we are preparing to go to the thermal
+bath, wait for me for twenty or thirty days</seg> and know that we will
+immediately come back for your sake. We are ready to discuss the matter
+and to satisfy you. <seg corresp="#EH3.1.26.e #COM.EH3.1.26.e" xml:id="TR.EH3.1.26.e">The whole church will be
+one, and we will all rejoice!</seg>” And so they were dismissed by him,
+having expressed their many rebukes in his presence.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.27"
+                       corresp="#EH3.1.27 #COM.EH3.1.27"
+                       n="27">
+                     <head>
+                        <title>Chapter 27: On that which <note type="explanation">happened</note> after the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> returned from the thermal bath,
+the register being sent out, and so forth.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.27.a #COM.EH3.1.27.a" xml:id="TR.EH3.1.27.a">After thirty days the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> returned from the thermal bath as
+he had promised.</seg> As he had not yet entered the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs>, but was rather on the opposite
+bank in <placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>, <note type="explanation">the
+patriarch</note>
+                        <seg corresp="#EH3.1.27.b #COM.EH3.1.27.b" xml:id="TR.EH3.1.27.b">
+                           <persName ref="https://syriaca.org/person/5103">John</persName> led his
+advisors and went out to him</seg>, as later became apparent, to bring
+additional accusations against those who had been imprisoned, saying:
+<seg corresp="#EH3.1.27.c #COM.EH3.1.27.c" xml:id="TR.EH3.1.27.c">“They have cut themselves off from us and have
+entirely turned away from the church.”</seg> Then they deliberated how
+to take hold of their will and also deceive them.
+<seg corresp="#EH3.1.27.d #COM.EH3.1.27.d" xml:id="TR.EH3.1.27.d">They made a register of all the large cities
+and sent to them through the
+<rs type="person" ref="https://syriaca.org/person/5045">
+                              <emph>quaestor</emph>
+                           </rs>
+                        </seg> who brought a
+message to them: “Since we are concerned about satisfying you, we care
+about your honor, and <seg corresp="#EH3.1.27.e #COM.EH3.1.27.e" xml:id="TR.EH3.1.27.e">we want to offer you our
+steadfast support</seg>, we have now sent you this register of all the
+noteworthy cities. We did not designate by ourselves over which city
+each of you should be, but we left this to your will so that each of you
+might choose for yourself a pleasing city.” But when the illustrious
+<rs type="person" ref="https://syriaca.org/person/5045">
+                           <emph>quaestor</emph>
+                        </rs> took the register
+and entered the <rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs>, he sent for
+<note type="explanation">and</note> summoned the bishops so that he might give the register
+to them, while saying all these things along with many other things to
+them as <note type="explanation">one sent</note> in the name of the emperor. But they did
+not look at the register, nor did they want to receive it from him,
+saying: “<seg corresp="#EH3.1.27.f #COM.EH3.1.27.f" xml:id="TR.EH3.1.27.f">As for us, we are not sacrificing
+ourselves so that we might be bishops over cities – tell the victorious
+emperor <note type="explanation">this</note>! – but rather in the hope of the promises of
+the union</seg> – for though we are bishops, we are unworthy ones –
+<seg corresp="#EH3.1.27.g #COM.EH3.1.27.g" xml:id="TR.EH3.1.27.g">unless the promises of the union are
+fulfilled</seg>
+                        <note>
+The translation “unless the promises of the union are fulfilled”
+reflects the main text in the manuscript. But a marginal note changes
+the phrase to read “but so that the promises of the union might be
+fulfilled.”
+</note>
+along with the oaths made to us over the length of many days. For the
+sake of these things and so that the slanders against us might not be
+confirmed – that we are obstructing the union – we gave ourselves over
+to communing with those who tricked us and thought they had deceived us
+but did not know that they had deceived themselves and not us. So now,
+if the synod is not expelled and a union does not come into being
+according to the promises and the oaths, far be it that we ever again
+have communion with those who commemorate the name <note type="explanation">of the
+synod</note>! As they decidedly cut themselves off and did not want to
+receive <note type="explanation">it</note>, the
+<rs type="person" ref="https://syriaca.org/person/5045">
+                           <emph>quaestor</emph>
+                        </rs> grew angry and went
+to tell these things to the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>.
+<seg corresp="#EH3.1.27.h #COM.EH3.1.27.h" xml:id="TR.EH3.1.27.h">This one also became angry and was awakened in
+a great rage, intimidating them and making harsh threats, which he
+eventually carried out.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.28"
+                       corresp="#EH3.1.28 #COM.EH3.1.28"
+                       n="28">
+                     <head>
+                        <title>Chapter 28: <seg corresp="#EH3.1.28.a #COM.EH3.1.28.a" xml:id="TR.EH3.1.28.a">On the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> – having come to know these
+things and having become enraged – commanding all the high-ranking men
+to enter and the bishops to be judged in the
+<rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal
+palace</rs>
+                           </seg>.</title>
+                     </head>
+                     <p>
+Then, since the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> was filled with
+rage, <seg corresp="#EH3.1.28.b #COM.EH3.1.28.b" xml:id="TR.EH3.1.28.b">he sent for <note type="explanation">and</note> summoned
+the <rs type="person" ref="https://syriaca.org/person/5103">patriarch</rs> of the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs> and met him harshly with harsh
+words of contempt</seg>, saying: “You have turned away the bishops who
+through much sweat <note type="explanation">and</note> with difficulty
+<seg corresp="#EH3.1.28.c #COM.EH3.1.28.c" xml:id="TR.EH3.1.28.c">promised to commune with us.</seg> But now you
+have turned them away from us!” Being troubled in this way,
+<seg corresp="#EH3.1.28.d #COM.EH3.1.28.d" xml:id="TR.EH3.1.28.d">he ordered that the senators enter the
+<rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal palace</rs> so that the
+matters that had come between them would be adjudicated with <note type="explanation">the
+patriarch</note> also being judged and, if they found him culpable,
+condemned as well</seg>.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.29"
+                       corresp="#EH3.1.29 #COM.EH3.1.29"
+                       n="29">
+                     <head>
+                        <title>Chapter 29: On them gathering, as they had been ordered, at the
+<rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal palace</rs> and the bishops
+being summoned to trial.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.29.a #COM.EH3.1.29.a" xml:id="TR.EH3.1.29.a">For when, in accordance with the order, on the
+next day some senators along with the
+<rs type="person" ref="https://syriaca.org/person/5045">
+                              <emph>quaestor</emph>
+                           </rs> entered the
+<rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal palace</rs> and the bishops
+were summoned to trial</seg>, and <seg corresp="#EH3.1.29.b #COM.EH3.1.29.b" xml:id="TR.EH3.1.29.b">when they
+were required by order to remain in communion with the synodites,
+keeping silence and without making any further request</seg>,
+<seg corresp="#EH3.1.29.c #COM.EH3.1.29.c" xml:id="TR.EH3.1.29.c">at that time they arose and fought powerfully
+and valiantly in the struggle: Without any fear they openly decried all
+the deceitful promises, all the oaths that had been violated, the truth
+that had been rejected and trampled upon, and other similar
+things.</seg> In addition to this, <seg corresp="#EH3.1.29.d #COM.EH3.1.29.d" xml:id="TR.EH3.1.29.d">by
+anathematizing the entire heresy of the dyophysites openly to the
+senate, they employed great boldness. Just as they acted in a firm
+manner at the beginning, the middle, and then at the end, so <note type="explanation">did
+they</note> again</seg> when they pronounced definitively
+<note type="explanation">and</note> forever that they cut themselves off from and had put
+an end to communion with them. There were many other things that
+happened and were spoken there in the contest of the valiant fight,
+<seg corresp="#EH3.1.29.e #COM.EH3.1.29.e" xml:id="TR.EH3.1.29.e">until the point that the anger of the senators
+and the <rs type="person" ref="https://syriaca.org/person/5103">patriarch</rs> grew hot against the
+bishops and they issued an order that they be expelled and dragged away
+from their presence</seg>, that they be separated from each other, and
+that they be cast into exile. This happened at once:
+<seg corresp="#EH3.1.29.f #COM.EH3.1.29.f" xml:id="TR.EH3.1.29.f">they were expelled and were separated, and
+they did not see each other again. They were sent into exile, some to
+monasteries, some to islands of the sea, some to oppressive and bitter
+cells in hospices</seg>, since it had been decreed against them that
+they be imprisoned and <seg corresp="#EH3.1.29.g #COM.EH3.1.29.g" xml:id="TR.EH3.1.29.g">that it be granted
+neither to one of their own nor to anyone else to see one of them</seg>.
+Many other things were decreed against them cruelly, harshly, and
+mercilessly in bitter wrath and <seg corresp="#EH3.1.29.h #COM.EH3.1.29.h" xml:id="TR.EH3.1.29.h">with the
+fetters of iniquity, as though against murderers</seg>.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.30"
+                       corresp="#EH3.1.30 #COM.EH3.1.30"
+                       n="30">
+                     <head>
+                        <title>
+                           <seg corresp="#EH3.1.30.a #COM.EH3.1.30.a" xml:id="TR.EH3.1.30.a">Chapter 30:</seg> On the defense of
+the <rs type="person" ref="https://syriaca.org/person/74">author</rs> himself to those who succumb to
+a vain opinion of him.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.30.b #COM.EH3.1.30.b" xml:id="TR.EH3.1.30.b">Perhaps all the things that have been said and
+written will be deemed by those well-trained in lofty knowledge and
+swift-of-mind who judge such words sharply to be things said and written
+by the <rs type="person" ref="https://syriaca.org/person/74">author</rs> superfluously and as the
+<rs type="person" ref="https://syriaca.org/person/74">author</rs>’s exercise of the literary craft, as
+though it was in an embellished style that they were written by
+him.</seg> But if <note type="explanation">this is</note> not <note type="explanation">the case</note>, from
+where did he thus know how to relate and write in an orderly manner all
+the things that happened and were spoken between the two sides and to
+transmit all these things in writing? As it seems, he is orderly in his
+discourse with one side, shoots <note type="explanation">arrows</note> against the other
+side, and <note type="explanation">only</note> fights on behalf of the one
+<note type="explanation">side</note>. <seg corresp="#EH3.1.30.c #COM.EH3.1.30.c" xml:id="TR.EH3.1.30.c">But it should now be known
+to those who hold to such an opinion that the author of all these things
+was not an outsider to the struggle and was not far from the
+battle</seg> so that he <note type="explanation">only</note> received this things by
+hearsay from a distance and from others and wrote and passed them down
+in his book. Rather he was one of those who was engaged in the struggle,
+<seg corresp="#EH3.1.30.d #COM.EH3.1.30.d" xml:id="TR.EH3.1.30.d">and in the great battle along with the others
+he valiantly endured the sufferings even more and underwent the
+tribulations of persecutions and imprisonments</seg>.
+<seg corresp="#EH3.1.30.e #COM.EH3.1.30.e" xml:id="TR.EH3.1.30.e">It was not only the few records that he
+transmitted in this book that were said and uttered in the debate with
+the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> and to the
+<rs type="person" ref="https://syriaca.org/person/5103">patriarch</rs>, but a hundred times more.
+Omitting an abundance of these things due to the great length of the
+story and the density of the innumerable words, he only made use of a
+few of them.</seg> Although he was on the anti-dyophysite side which was
+arrayed against <note type="explanation">the dyophysites</note>, as his discourse itself –
+that is, the order of the composition – shows,
+<seg corresp="#EH3.1.30.f #COM.EH3.1.30.f" xml:id="TR.EH3.1.30.f">he maintains neutrality, without defaming and
+slandering the one side that was against him so as to establish his own
+side</seg>. <seg corresp="#EH3.1.30.g #COM.EH3.1.30.g" xml:id="TR.EH3.1.30.g">Rather as at the beginning of this
+volume of his composition or as he previously said and promised</seg>,
+so was he an advocate for the truth and preserved the seal of truth for
+the two sides in regard to those things that were said, set down, and
+debated. Even if he <note type="explanation">only</note> made use of a few of them, it
+sufficed to commit to writing less than one percent of the things that
+were spoken and took place.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.31"
+                       corresp="#EH3.1.31 #COM.EH3.1.31"
+                       n="31">
+                     <head>
+                        <title>Chapter 31: On
+<seg corresp="#EH3.1.31.a #COM.EH3.1.31.a" xml:id="TR.EH3.1.31.a">
+                              <persName ref="https://syriaca.org/person/5070">Conon</persName>, the head
+of the heresy</seg> of the tritheists.</title>
+                     </head>
+                     <p>
+At that time <persName ref="https://syriaca.org/person/5070">Conon</persName> was also apprehended,
+who was the head of the heresy of those <seg corresp="#EH3.1.31.b #COM.EH3.1.31.b" xml:id="TR.EH3.1.31.b">who
+venture to enumerate the natures, substances, divinities, and gods in
+the holy and consubstantial Trinity</seg>.
+<seg corresp="#EH3.1.31.c #COM.EH3.1.31.c" xml:id="TR.EH3.1.31.c">This one was likewise apprehended and
+imprisoned in the <rs type="place" ref="https://pleiades.stoa.org/places/307220778">episcopal palace</rs>
+for a time with all the others.</seg> 
+                        <seg corresp="#EH3.1.31.d #COM.EH3.1.31.d" xml:id="TR.EH3.1.31.d">They
+demanded that he produce a <emph>libellus</emph> as a heretic.</seg> But
+he resisted this and did not do <note type="explanation">it</note>.
+<seg corresp="#EH3.1.31.e #COM.EH3.1.31.e" xml:id="TR.EH3.1.31.e">As soon as the victorious
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> learned this, he swore by the
+God-bearer</seg>, saying: “Even if he makes a petition and comes to
+receive communion in the church, unless he produces a
+<emph>libellus</emph> of repentance, I am not going to enter <note type="explanation">the
+church</note> and receive communion in it.” Thus, because he was a
+heretic and a blasphemer, when
+<seg corresp="#EH3.1.31.f #COM.EH3.1.31.f" xml:id="TR.EH3.1.31.f">
+                           <persName ref="https://syriaca.org/person/5139">Photius</persName> the son
+of <persName ref="https://syriaca.org/person/5061">Belisarius</persName>’s wife</seg> came to the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs> at that time,
+<persName ref="https://syriaca.org/person/5070">Conon</persName> was given to him.
+<note type="explanation">Photius</note> 
+                        <seg corresp="#EH3.1.31.g #COM.EH3.1.31.g" xml:id="TR.EH3.1.31.g">took him along to
+<placeName ref="https://pleiades.stoa.org/places/687995">Palestine</placeName> and imprisoned him in the
+monastery called the “Nea.”</seg> 
+                        <seg corresp="#EH3.1.31.h #COM.EH3.1.31.h" xml:id="TR.EH3.1.31.h">He was there
+for a period of three years, and he was thus released and went to the
+region of <placeName ref="https://pleiades.stoa.org/places/981514">Cilicia</placeName>.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.32"
+                       corresp="#EH3.1.32 #COM.EH3.1.32"
+                       n="32">
+                     <head>
+                        <title>Chapter 32: On <persName ref="https://syriaca.org/person/5139">Photius</persName> and the
+things carried out by him.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.32.a #COM.EH3.1.32.a" xml:id="TR.EH3.1.32.a">This <persName ref="https://syriaca.org/person/5139">Photius</persName> was
+the son of the wife of the <emph>patrikios</emph>
+                           <persName ref="https://syriaca.org/person/5061">Belisarius</persName>whose name was
+<persName ref="https://syriaca.org/person/5052">Antonina</persName>.</seg> Then,
+<seg corresp="#EH3.1.32.b #COM.EH3.1.32.b" xml:id="TR.EH3.1.32.b">when this one was in the army and had been
+sent out to war with <persName ref="https://syriaca.org/person/5061">Belisarius</persName>, he
+eventually for some reason went to cut off his hair and take on the
+monastic habit</seg>, although he did not at all draw near to a
+<note type="explanation">monastic</note> life <seg corresp="#EH3.1.32.c #COM.EH3.1.32.c" xml:id="TR.EH3.1.32.c">but took on the
+habit of a monk as
+<note>
+Or: “under.”
+</note>
+an assumed name</seg>. After a little time, when he was not able to
+subdue his savageness through the fear of God, this one ran to the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>. Then he, wearing a monastic
+vestment in outward appearance, <seg corresp="#EH3.1.32.d #COM.EH3.1.32.d" xml:id="TR.EH3.1.32.d">was sent to
+the regions of <placeName ref="https://pleiades.stoa.org/places/1306">Syria</placeName> because of the
+Samaritans who had rebelled</seg>. Since he wanted to please people and
+to anger God his maker and was also running after profane gains on
+various pretexts, he gave himself over to despoiling, plundering, and
+swindling people as well as to uprooting and destroying, as though by
+barbarian captors, all the regions great and small of the east,
+<seg corresp="#EH3.1.32.e #COM.EH3.1.32.e" xml:id="TR.EH3.1.32.e">to the point that even the bishops and clerics
+of all the cities fled before him</seg>. Indeed, anyone whether in the
+city or in the country whom he knew to have a surplus of daily rations,
+he would apprehend, despoil, imprison, hang up, and torment and would
+impose on them a fine of pounds of gold – on anyone, whether he
+possessed <note type="explanation">it</note> or not. Even if he would sell himself, his
+children, his house, and his possessions, there was no way for someone
+to change the word of his mouth. For when he apprehended anyone, he
+would say: <seg corresp="#EH3.1.32.f #COM.EH3.1.32.f" xml:id="TR.EH3.1.32.f">“Give so many pounds, for the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> is in need of gold for going out
+to war.”</seg> 
+                        <seg corresp="#EH3.1.32.g #COM.EH3.1.32.g" xml:id="TR.EH3.1.32.g">In this way he would gather
+hundreds of pounds</seg> and send <note type="explanation">them</note> so that by this the
+authority would be given to him to do whatever he wanted to whomever he
+wanted and people would not rise against him. For he also made great
+demands even of bishops in the same way. <seg corresp="#EH3.1.32.g.2 #COM.EH3.1.32.g.2" xml:id="TR.EH3.1.32.g.2">If
+anyone challenged him, he would immediately without delay be raised up
+on a noose, either behind his head, or on his shoulders, or on one of
+his arms.</seg> So it is said that he imposed <note type="explanation">a fine of</note>
+three hundred pounds <seg corresp="#EH3.1.32.h #COM.EH3.1.32.h" xml:id="TR.EH3.1.32.h">on the
+<persName ref="https://syriaca.org/person/5191">bishop of Ascalon</persName>
+                        </seg>, and when he was
+wailing and cursing the fact that he did not have <note type="explanation">it</note>, he
+gave an order and <note type="explanation">the bishop</note> was hung by a noose. He left
+him hanging and went away, giving an order that should he hang there for
+three days, he would not come down from there until the hundreds of
+pounds came. Thus he did not come down from the noose until the three
+hundred pounds came. He did the same to many others
+<seg corresp="#EH3.1.32.i #COM.EH3.1.32.i" xml:id="TR.EH3.1.32.i">until the earth shook before him along with
+the magistrates, governors, and the rest of the dignitaries</seg>. Since
+many were making appeals to the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>,
+<note type="explanation">the emperor</note> wrote to him: “It is a sin for you to send to
+us from what has been despoiled!” Then, he wrote to <note type="explanation">the
+emperor</note>: “You, my lord, should not fear sin because of the gold
+that I am sending. <seg corresp="#EH3.1.32.j #COM.EH3.1.32.j" xml:id="TR.EH3.1.32.j">This sin <note type="explanation">be</note> on
+my own head.</seg>” <seg corresp="#EH3.1.32.k #COM.EH3.1.32.k" xml:id="TR.EH3.1.32.k">He had a troop of monks
+with him who were suitable for these things, along with
+<emph>despotikoi</emph>, <emph>domestikoi</emph>, and
+<emph>spatharioi</emph> as well as an army of Roman
+<note type="explanation">soldiers</note>.</seg> When he had completed a
+<seg corresp="#EH3.1.32.l #COM.EH3.1.32.l" xml:id="TR.EH3.1.32.l">period of twelve years</seg> in this
+detestable manner of destruction, impudence, and savageness, contrary to
+the whole fear of God, his end came upon him and he was buried with a
+wicked end and a cursed memory. <seg corresp="#EH3.1.32.m #COM.EH3.1.32.m" xml:id="TR.EH3.1.32.m">He was
+succeeded by another abbot of the monastery called the “Nea” in
+<placeName ref="https://pleiades.stoa.org/places/687928">Jerusalem</placeName> whose name was
+<persName ref="https://syriaca.org/person/5039">Abraham</persName>.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.33"
+                       corresp="#EH3.1.33 #COM.EH3.1.33"
+                       n="33">
+                     <head>
+                        <title>Chapter 33: On the sophists, <emph>scholastikoi</emph>,
+<emph>naukleroi</emph>, and the rest of those who in the middle of the
+persecution were summoned and went up from
+<placeName ref="https://pleiades.stoa.org/places/876562">Alexandria</placeName>.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.33.a #COM.EH3.1.33.a" xml:id="TR.EH3.1.33.a">Then in the middle of the persecution
+<note type="explanation">the Chalcedonians</note> wrote to and sent to
+<note>
+Literally: “it was written and sent to.”
+</note>
+                           <placeName ref="https://pleiades.stoa.org/places/876562">Alexandria</placeName>
+                        </seg> –
+<seg corresp="#EH3.1.33.b #COM.EH3.1.33.b" xml:id="TR.EH3.1.33.b">sophists, <emph>scholastikoi</emph>,
+<emph>naukleroi</emph>, and many others went up</seg> –
+<seg corresp="#EH3.1.33.c #COM.EH3.1.33.c" xml:id="TR.EH3.1.33.c">with on the one hand the hidden intention of
+demanding that they receive communion with the synod, but on the other
+hand with the outward appearance of <note type="explanation">having done this</note> for
+the sake of the union, while having in fact both of these
+<note type="explanation">intentions</note> in regard to them</seg>.
+<seg corresp="#EH3.1.33.d #COM.EH3.1.33.d" xml:id="TR.EH3.1.33.d">When <note type="explanation">the Chalcedonians</note> ultimately
+demanded that they receive communion, they resisted and debated
+valiantly for many days, about one year, without growing timid or
+yielding at all.</seg> 
+                        <seg corresp="#EH3.1.33.e #COM.EH3.1.33.e" xml:id="TR.EH3.1.33.e">But eventually some of
+them were released because those who were capable of doing
+<note type="explanation">this</note> by force feared for the shipment of wheat which was
+sent from there to the <rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial
+city</rs>
+                        </seg>. <seg corresp="#EH3.1.33.f #COM.EH3.1.33.f" xml:id="TR.EH3.1.33.f">Some of them were apprehended
+for as long as three years, but nothing happened. In this way everyone
+was released.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.34"
+                       corresp="#EH3.1.34 #COM.EH3.1.34"
+                       n="34">
+                     <head>
+                        <title>Chapter 34: On all the chief clerics of the orthodox who were
+apprehended after these things and sent to the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs>.</title>
+                     </head>
+                     <p>
+After these things, <seg corresp="#EH3.1.34.a #COM.EH3.1.34.a" xml:id="TR.EH3.1.34.a">it was written to the
+<rs type="person" ref="https://syriaca.org/person/3229">emperor</rs>
+                        </seg>
+                        <seg corresp="#EH3.1.34.b #COM.EH3.1.34.b" xml:id="TR.EH3.1.34.b">that the orthodox bishops had ordained not
+only one bishop but two as the successor of the blessed
+<persName ref="https://syriaca.org/person/5169">Theodosius</persName>
+                        </seg>. He became severely
+enraged and gave an order that all the chief clerics be apprehended and
+sent off, which is what came to pass. <seg corresp="#EH3.1.34.c #COM.EH3.1.34.c" xml:id="TR.EH3.1.34.c">They
+were apprehended and went up until after the death of the patriarch
+<persName ref="https://syriaca.org/person/5103">John</persName>.</seg> 
+                        <seg corresp="#EH3.1.34.d #COM.EH3.1.34.d" xml:id="TR.EH3.1.34.d">Then
+came <persName ref="https://syriaca.org/person/5087">Eutychius</persName>, who had been
+<note type="explanation">patriarch</note> before him.</seg> 
+                        <seg corresp="#EH3.1.34.e #COM.EH3.1.34.e" xml:id="TR.EH3.1.34.e">He
+arrived after <note type="explanation">John’s</note> death and released <note type="explanation">the
+bishops</note> after one year.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.35"
+                       corresp="#EH3.1.35 #COM.EH3.1.35"
+                       n="35">
+                     <head>
+                        <title>Chapter 35: About the blessed Egyptians who also had been
+summoned to the <rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs> to make
+predictions about the things to come.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.35.a #COM.EH3.1.35.a" xml:id="TR.EH3.1.35.a">Now, many times <note type="explanation">envoys</note> would be
+sent to <placeName ref="https://pleiades.stoa.org/places/981503">Egypt</placeName>.</seg>
+                        <seg corresp="#EH3.1.35.b #COM.EH3.1.35.b" xml:id="TR.EH3.1.35.b">Many solitaries would then be summoned and
+come <note type="explanation">to the imperial city</note> who were thought to know hidden
+things and to have an understanding of things to come</seg>
+                        <seg corresp="#EH3.1.35.c #COM.EH3.1.35.c" xml:id="TR.EH3.1.35.c">in order that they might make known how many
+years the <rs type="person" ref="https://syriaca.org/person/3229">emperor</rs> and
+<rs type="person" ref="https://syriaca.org/person/5155">empress</rs> would live, what was going to
+happen during his reign, and other such things</seg>. When some of them
+were asked about these things, they would recuse themselves, confessing
+ignorance. <seg corresp="#EH3.1.35.d #COM.EH3.1.35.d" xml:id="TR.EH3.1.35.d">They would rather speak about
+admonition, judgment, and righteousness: that should these come about,
+they would please God and be as offerings brought before him.</seg> In
+light of the fact that they were rejected for not acquiescing to give a
+flattering answer as had been asked of them, they were immediately
+dismissed and driven out of the <rs type="place" ref="https://pleiades.stoa.org/places/520998">city</rs>
+to go to their own region. <seg corresp="#EH3.1.35.e #COM.EH3.1.35.e" xml:id="TR.EH3.1.35.e">But others, who
+were people-pleasers, acquiesced to weakness in this matter, which
+eventually would be rebuked.</seg> But they were held in honor, and were
+<note type="explanation">doted</note> with pleasures and gifts of food for a long period of
+time. This happened many times.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.36"
+                       corresp="#EH3.1.36 #COM.EH3.1.36"
+                       n="36">
+                     <head>
+                        <title>Chapter 36: On the monasteries of men and women where a few,
+after being treated violently, assented <note type="explanation">to the synod</note> but
+came back at the end.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.36.a #COM.EH3.1.36.a" xml:id="TR.EH3.1.36.a">When all the monasteries mentioned above were
+being treated violently and lawlessly</seg>, <seg corresp="#EH3.1.36.b #COM.EH3.1.36.b" xml:id="TR.EH3.1.36.b">a
+few of those in them took communion; the rest were cast into other
+monasteries. Clerics were appointed in all the districts so that they
+might bring Eucharistic offerings into each and every one of the
+<note type="explanation">monasteries</note> and distribute <note type="explanation">them</note> to those who
+assented. The name of the synod was recorded within <note type="explanation">the
+monasteries</note> and proclaimed.</seg>
+                        <seg corresp="#EH3.1.36.c #COM.EH3.1.36.c" xml:id="TR.EH3.1.36.c">
+                           <persName ref="https://syriaca.org/person/5103">John</persName> took down
+the images of all the orthodox fathers and affixed images of himself
+everywhere.</seg> 
+                        <seg corresp="#EH3.1.36.d #COM.EH3.1.36.d" xml:id="TR.EH3.1.36.d">That which he did was
+avenged by God</seg>, <seg corresp="#EH3.1.36.e #COM.EH3.1.36.e" xml:id="TR.EH3.1.36.e">for after his bitter and
+tortuous death and the arrival of
+<persName ref="https://syriaca.org/person/5087">Eutychius</persName> who had been <note type="explanation">bishop</note>
+before him <note type="explanation">and</note> who came again after his death, the images
+of him were torn out and those of
+<persName ref="https://syriaca.org/person/5087">Eutychius</persName> were affixed in the churches in
+their place</seg>. <seg corresp="#EH3.1.36.f #COM.EH3.1.36.f" xml:id="TR.EH3.1.36.f">All the monasteries of
+women came back for the most part and became orthodox.</seg>
+                        <seg corresp="#EH3.1.36.g #COM.EH3.1.36.g" xml:id="TR.EH3.1.36.g">But from the <note type="explanation">women</note>, a few girls
+stayed behind and entered every day to receive communion with the synod.
+They took on the monastic habit and received communion from the
+clerics.</seg> 
+                        <seg corresp="#EH3.1.36.h #COM.EH3.1.36.h" xml:id="TR.EH3.1.36.h">But they cut themselves off
+openly and not a single one of them received communion, especially after
+the death of John.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.37"
+                       corresp="#EH3.1.37 #COM.EH3.1.37 #EH3.1.37.MS  #TR.EH3.1.37.MS "
+                       n="37">
+                     <head>
+                        <title>Chapter 37: On
+<persName ref="https://syriaca.org/person/5103">John</persName> being asked before his death by the
+Christ-loving <rs type="person" ref="https://syriaca.org/person/3268">Caesar</rs>about the
+orthodox.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.37.a #COM.EH3.1.37.a" xml:id="TR.EH3.1.37.a">Now, before
+<persName ref="https://syriaca.org/person/5103">John</persName>’s death, when he was drunk on the
+zeal of anger for the persecution of the Christians and thirsting like a
+wolf for the blood of lambs</seg>, <seg corresp="#EH3.1.37.b #COM.EH3.1.37.b" xml:id="TR.EH3.1.37.b">he went to
+the peaceable and serene <persName ref="https://syriaca.org/person/3268">Caesar
+Tiberius</persName>
+                        </seg>, intent on also inflaming him with the zeal of
+anger like his own. After <note type="explanation">John</note> had said many
+<note type="explanation">words</note> to him against the believers, <note type="explanation">Tiberius</note>
+asked him, saying: “<seg corresp="#EH3.1.37.c #COM.EH3.1.37.c" xml:id="TR.EH3.1.37.c">I want you to answer me
+truthfully concerning those about whom I am asking you.</seg> Are the
+ones whom you are intent on having me persecute
+<seg corresp="#EH3.1.37.d #COM.EH3.1.37.d" xml:id="TR.EH3.1.37.d">pagans</seg>?” Not being able to lie, he said
+to him: “They are not pagans.” He said to him:
+<seg corresp="#EH3.1.37.e #COM.EH3.1.37.e" xml:id="TR.EH3.1.37.e">“If this is not the case, are they
+heretics?”</seg> He said to him: “They are not heretics, my lord.” He
+said to him: “Then, as you have testified about them, they are
+Christians.” Then, he said: “Christians, indeed. They are Christians.”
+He said to him: “If according to your testimony they are Christians, how
+are you intent on me becoming a persecutor of Christians
+<seg corresp="#EH3.1.37.f #COM.EH3.1.37.f" xml:id="TR.EH3.1.37.f">as <persName ref="https://syriaca.org/person/2261">Diocletian</persName>
+and the other pagan emperors</seg>? <seg corresp="#EH3.1.37.g #COM.EH3.1.37.g" xml:id="TR.EH3.1.37.g">Go sit in
+your church and be silent! Do not burden us with these matters.</seg>”
+In this way, his savage rage cooled <seg corresp="#EH3.1.37.h #COM.EH3.1.37.h" xml:id="TR.EH3.1.37.h">until
+anger from heaven overtook him, as we have related above, and he passed
+away from life here</seg>. <seg corresp="#EH3.1.37.i #COM.EH3.1.37.i" xml:id="TR.EH3.1.37.i">Then after this
+one, as we related above, when <persName ref="https://syriaca.org/person/5087">Eutychius</persName>
+had come and the clerics who were accustomed to despoiling and
+plundering had begun inflaming him</seg>, <note type="explanation">Eutychius</note> also
+left and went to the conciliatory <persName ref="https://syriaca.org/person/3268">Tiberius
+Constantine</persName>, the Caesar, saying many things to him about the
+whole side of the believers. <seg corresp="#EH3.1.37.j #COM.EH3.1.37.j" xml:id="TR.EH3.1.37.j">But he also
+replied to him, saying: “The wars of the barbarians which surround us on
+all sides are enough for us.</seg> We cannot again stir up another war
+against the Christians. Go sit and be silent! If then you are able to
+persuade with a word or an admonition… But, if not, leave them alone! Do
+not persecute them, and do not burden us who have been cast into the
+trials of wars on all sides!” <seg corresp="#EH3.1.37.k #COM.EH3.1.37.k" xml:id="TR.EH3.1.37.k">In this way,
+<note type="explanation">Eutychius</note> also receded and has been silent for a
+time.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.38"
+                       corresp="#EH3.1.38 #COM.EH3.1.38"
+                       n="38">
+                     <head>
+                        <title>Chapter 38: On the orthodox communities enduring in the end and
+persisting, even at the time <persName ref="https://syriaca.org/person/5103">John</persName> was
+alive.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.38.a #COM.EH3.1.38.a" xml:id="TR.EH3.1.38.a">So, as for all the communities of the orthodox
+which had been uprooted and closed by <persName ref="https://syriaca.org/person/5103">John of
+Sirmin</persName>
+                        </seg>, <seg corresp="#EH3.1.38.b #COM.EH3.1.38.b" xml:id="TR.EH3.1.38.b">after God sent a
+chastisement of harsh anger from heaven upon him, they all grew
+emboldened and reopened</seg>. Even beforehand they had expanded and
+grown in fear, in silence, and gradually while he was alive – all the
+more so after he had been struck by an angry blow.
+<seg corresp="#EH3.1.38.c #COM.EH3.1.38.c" xml:id="TR.EH3.1.38.c">From that time forward, his mind was engrossed
+in the deadly fire which had taken hold in his heart and burned in his
+innards.</seg> 
+                        <seg corresp="#EH3.1.38.d #COM.EH3.1.38.d" xml:id="TR.EH3.1.38.d">Accordingly, at the end his
+partisans and the servants of his wickedness who knew his will would
+enter and tell him:</seg> “Look! The enemies of the church and the synod
+have opened their gathering places, and they have spread out even more
+than before. They rejoice in your illness and are praying for your
+death. If you order us, we are going to torment them more than before
+and make them endure wicked things.” <seg corresp="#EH3.1.38.e #COM.EH3.1.38.e" xml:id="TR.EH3.1.38.e">Then,
+enraged and with a raised voice, he strove against them</seg>, saying:
+“Go from me, murderers! Take satisfaction in my humiliation! For it was
+largely you who brought me to this humiliation and misery.
+<seg corresp="#EH3.1.38.f #COM.EH3.1.38.f" xml:id="TR.EH3.1.38.f">These curses suffice, which have awakened the
+wrath of heaven and brought <note type="explanation">it</note> upon me.</seg> Leave my
+presence! Let no one bring this matter before me again!” In this way,
+they departed from him dejected. <seg corresp="#EH3.1.38.g #COM.EH3.1.38.g" xml:id="TR.EH3.1.38.g">But before
+his death, as we have said, and also after his death which soon came,
+they assembled in the gathering places of the faithful in full freedom
+<note type="explanation">of assembly</note>, without fear.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.39"
+                       corresp="#EH3.1.39 #COM.EH3.1.39"
+                       n="39">
+                     <head>
+                        <title>Chapter 39: On the monastery called Kathara in the region of
+<placeName ref="https://pleiades.stoa.org/places/511189">Bithynia</placeName>.</title>
+                     </head>
+                     <p>
+Now, <seg corresp="#EH3.1.39.a #COM.EH3.1.39.a" xml:id="TR.EH3.1.39.a">the monastery of Kathara</seg> was built
+<seg corresp="#EH3.1.39.b #COM.EH3.1.39.b" xml:id="TR.EH3.1.39.b">by <persName ref="https://syriaca.org/person/5125">Narses</persName> when
+he was the <emph>chartularios</emph> of the
+<rs type="person" ref="https://syriaca.org/person/2284">emperor</rs> in the
+<rs type="place" ref="https://pleiades.stoa.org/places/177059114">palace</rs>
+                        </seg> before he went to
+<placeName ref="https://pleiades.stoa.org/places/423025">Rome</placeName>, while he was preparing to go
+forth from the <rs type="place" ref="https://pleiades.stoa.org/places/177059114">palace</rs>, to shave his
+head, and to dwell in it. He settled <seg corresp="#EH3.1.39.c #COM.EH3.1.39.c" xml:id="TR.EH3.1.39.c">monks in
+it who had been driven out of
+<placeName ref="https://pleiades.stoa.org/places/628949">Cappadocia</placeName>
+                        </seg>,
+<seg corresp="#EH3.1.39.d #COM.EH3.1.39.d" xml:id="TR.EH3.1.39.d">after buying not a few villages for it,
+building a wondrous church in it, establishing a hospice in it, and
+allocating it no small amount of revenue</seg>. In this way, he was sent
+to <placeName ref="https://pleiades.stoa.org/places/423025">Rome</placeName>. Then,
+<seg corresp="#EH3.1.39.e #COM.EH3.1.39.e" xml:id="TR.EH3.1.39.e">through the help of God who accompanied him,
+he was celebrated for great victories in many wars</seg>. There, in
+these regions, <seg corresp="#EH3.1.39.f #COM.EH3.1.39.f" xml:id="TR.EH3.1.39.f">he departed from the
+world</seg> and his bones came to and were placed in the monastery
+<seg corresp="#EH3.1.39.g #COM.EH3.1.39.g" xml:id="TR.EH3.1.39.g">with the emperors
+<note>
+That is, <rs type="person" ref="https://syriaca.org/person/3229">Justin II</rs> and either
+<rs type="person" ref="https://syriaca.org/person/3268">Tiberius</rs> or
+<rs type="person" ref="https://syriaca.org/person/5155">Sophia</rs>.
+</note>
+carrying <note type="explanation">and</note> placing him in it and consecrating him</seg>.
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.40"
+                       corresp="#EH3.1.40 #COM.EH3.1.40"
+                       n="40">
+                     <head>
+                        <title>Chapter 40: On the synodite bishops who were in
+<placeName ref="https://pleiades.stoa.org/places/876562">Alexandria</placeName>.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.40.a #COM.EH3.1.40.a" xml:id="TR.EH3.1.40.a">After completing some years in the episcopate
+of <placeName ref="https://pleiades.stoa.org/places/876562">Alexandria</placeName>
+                           <persName ref="https://syriaca.org/person/5106">John</persName>, who had been a
+<emph>patrikios</emph> in the <rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial
+city</rs> and had been sent there, died.</seg>
+                        <seg corresp="#EH3.1.40.b #COM.EH3.1.40.b" xml:id="TR.EH3.1.40.b">A certain person named
+<persName ref="https://syriaca.org/person/5085">Eulogius</persName> who had been in charge of a
+hospice in <placeName ref="https://pleiades.stoa.org/places/897709">Antioch</placeName> was called in his
+place. He became pope there in the third year of the victorious
+<persName ref="https://syriaca.org/person/3268">Tiberius</persName>.</seg>
+                        <seg corresp="#EH3.1.40.c #COM.EH3.1.40.c" xml:id="TR.EH3.1.40.c">But of the faction of the Julianists it was
+<persName ref="https://syriaca.org/person/5078">Dorotheus</persName> who had been ordained and had
+resided there for many years.</seg> 
+                        <seg corresp="#EH3.1.40.d #COM.EH3.1.40.d" xml:id="TR.EH3.1.40.d">And of the
+faction of the followers of <persName ref="https://syriaca.org/person/5169">Theodosius</persName>
+some time after his death it was first a certain person named
+<persName ref="https://syriaca.org/person/784">Theodore</persName>, a <note type="explanation">monastic</note> superior
+from <placeName ref="https://pleiades.stoa.org/places/1306">Syria</placeName>.</seg>
+                        <seg corresp="#EH3.1.40.e #COM.EH3.1.40.e" xml:id="TR.EH3.1.40.e">When the clerics and others learned
+<note type="explanation">this</note>, they turned from him. Since they did not receive him
+against the canonical order, they brashly ordained another above him
+whose name was <persName ref="https://syriaca.org/person/5132">Peter</persName>. When this one had
+completed <note type="explanation">his time</note> and ordained more than eighty bishops,
+he died.</seg> 
+                        <seg corresp="#EH3.1.40.f #COM.EH3.1.40.f" xml:id="TR.EH3.1.40.f">They ordained some Syrian whose
+name was <persName ref="https://syriaca.org/person/1196">Damian</persName>, and they persisted in
+causing a schism.</seg>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.41"
+                       corresp="#EH3.1.41 #COM.EH3.1.41"
+                       n="41">
+                     <head>
+                        <title>Chapter 41: On the bishops who were in
+<placeName ref="https://pleiades.stoa.org/places/897709">Antioch</placeName> since
+<persName ref="https://syriaca.org/person/2530">Flavian</persName> and
+<persName ref="https://syriaca.org/person/51">Severus</persName>.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.41.a #COM.EH3.1.41.a" xml:id="TR.EH3.1.41.a">Now, in the great
+<placeName ref="https://pleiades.stoa.org/places/897709">Antioch</placeName> of
+<placeName ref="https://pleiades.stoa.org/places/1306">Syria</placeName> in the days of the emperor
+<persName ref="https://syriaca.org/person/2265">Anastasius</persName> was
+<persName ref="https://syriaca.org/person/2530">Flavian</persName> who was culpable of the heresy of
+the dyophysites. He was banished from his see when he had been there
+some years.</seg> 
+                        <seg corresp="#EH3.1.41.b #COM.EH3.1.41.b" xml:id="TR.EH3.1.41.b">After him was the orthodox
+<persName ref="https://syriaca.org/person/51">Severus</persName>, and he held <note type="explanation">the see</note>
+for six years. But at the beginning of the reign of
+<persName ref="https://syriaca.org/person/2268">Justin I</persName>, the elder, he was expelled from
+his see. After some years being in the desert of
+<placeName ref="https://pleiades.stoa.org/places/981503">Egypt</placeName>, he died there.</seg>
+                        <seg corresp="#EH3.1.41.c #COM.EH3.1.41.c" xml:id="TR.EH3.1.41.c">When <placeName ref="https://pleiades.stoa.org/places/897709">Antioch</placeName>
+had been without a bishop for one year, <persName ref="https://syriaca.org/person/5129">Paul the
+Jew</persName> eventually went down.</seg> 
+                        <seg corresp="#EH3.1.41.d #COM.EH3.1.41.d" xml:id="TR.EH3.1.41.d">He had
+been the <emph>paramonarios</emph> in the <note type="explanation">church of</note> the
+blessed Euphemia in <placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>.</seg>
+                        <seg corresp="#EH3.1.41.e #COM.EH3.1.41.e" xml:id="TR.EH3.1.41.e">He took down the diptych on which the synod
+for the east was written.</seg> 
+                        <seg corresp="#EH3.1.41.f #COM.EH3.1.41.f" xml:id="TR.EH3.1.41.f">After he held
+<note type="explanation">the position</note> for about two years, it became known that he
+was a Nestorian. He was banished, and he was also expelled.</seg>
+                        <seg corresp="#EH3.1.41.g #COM.EH3.1.41.g" xml:id="TR.EH3.1.41.g">After him was
+<persName ref="https://syriaca.org/person/2278">Euphrasius</persName>, a Samaritan. In his seventh
+year, <placeName ref="https://pleiades.stoa.org/places/897709">Antioch</placeName> was overthrown by an
+earthquake, and he died in it.</seg> 
+                        <seg corresp="#EH3.1.41.h #COM.EH3.1.41.h" xml:id="TR.EH3.1.41.h">Then
+after him was <persName ref="https://syriaca.org/person/2274">Ephrem of Amida</persName>, the son of
+<persName ref="https://syriaca.org/person/5055">Appianus</persName>, a persecutor more wicked than
+<persName ref="https://syriaca.org/person/5129">Paul</persName> and
+<persName ref="https://syriaca.org/person/2278">Euphrasius</persName>. He lived for some years, and
+he died.</seg> 
+                        <seg corresp="#EH3.1.41.i #COM.EH3.1.41.i" xml:id="TR.EH3.1.41.i">After him was
+<persName ref="https://syriaca.org/person/5077">Domninius</persName>, a Roman […].</seg>
+                        <seg corresp="#EH3.1.41.j #COM.EH3.1.41.j" xml:id="TR.EH3.1.41.j">After him was
+<persName ref="https://syriaca.org/person/5044">Anastasios</persName> who had been the
+<emph>apokrisiarios</emph> of
+<placeName ref="https://pleiades.stoa.org/places/876562">Alexandria</placeName>.
+<persName ref="https://syriaca.org/person/3229">Justin II</persName> formulated various accusations
+against him and expelled him.</seg> 
+                        <seg corresp="#EH3.1.41.k #COM.EH3.1.41.k" xml:id="TR.EH3.1.41.k">There was
+sent as his successor a certain abbot of <placeName ref="https://pleiades.stoa.org/places/746815">Mount
+Sinai</placeName> named <persName ref="https://syriaca.org/person/5094">Gregory</persName>.</seg>
+                        <seg corresp="#EH3.1.41.l #COM.EH3.1.41.l" xml:id="TR.EH3.1.41.l">Now, those opposed to the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName>, after a long period of
+time, first ordained in <persName ref="https://syriaca.org/person/51">Severus</persName>’s place
+<persName ref="https://syriaca.org/person/1463">Sergius</persName>, a person from
+<placeName ref="https://pleiades.stoa.org/places/874324">Tella</placeName> in regard to his family. When he
+had completed about three years, he died in the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs> where he had also
+been.</seg> 
+                        <seg corresp="#EH3.1.41.m #COM.EH3.1.41.m" xml:id="TR.EH3.1.41.m">Then, after some time, there came
+in his place <persName ref="https://syriaca.org/person/72">Paul</persName>, a certain Alexandrian,
+the <emph>synkellos</emph> of <persName ref="https://syriaca.org/person/5169">Theodosius of
+Alexandria</persName>, who at <note type="explanation">Theodosius’s</note> order and with his
+knowledge became <note type="explanation">bishop</note> in the wicked days.</seg>
+                        <seg corresp="#EH3.1.41.n #COM.EH3.1.41.n" xml:id="TR.EH3.1.41.n">A schism arose between him and the blessed
+<persName ref="https://syriaca.org/person/69">Jacob</persName>, the church of the faithful was
+ruptured, and it was <note type="explanation">split</note> into two divisions. With
+grueling conflicts and battles, the two sides fell upon each
+other.</seg> 
+                        <seg corresp="#EH3.1.41.o #COM.EH3.1.41.o" xml:id="TR.EH3.1.41.o">Then, those opposed to
+<persName ref="https://syriaca.org/person/72">Paul</persName> after the death of
+<persName ref="https://syriaca.org/person/69">Jacob</persName> lawlessly appointed a certain person
+named <persName ref="https://syriaca.org/person/75">Peter</persName>, who was from the city of
+<placeName ref="https://pleiades.stoa.org/places/668318">Callinicum</placeName>, as another patriarch in
+<placeName ref="https://pleiades.stoa.org/places/897709">Antioch</placeName>.</seg>
+                        <seg corresp="#EH3.1.41.p #COM.EH3.1.41.p" xml:id="TR.EH3.1.41.p">Such were the things that gradually unfolded
+up to the present time in which they are being written which is the year
+892.</seg>
+                        <note>
+892 of the Seleucid Era, which is 580/581 CE.
+</note>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="eng"
+                       subtype="chapter"
+                       xml:id="TR.EH3.1.42"
+                       corresp="#EH3.1.42 #COM.EH3.1.42"
+                       n="42">
+                     <head>
+                        <title>Chapter 42: On the bishops who were in
+<placeName ref="https://pleiades.stoa.org/places/520998">Constantinople</placeName> in the days of the
+reign of <persName ref="https://syriaca.org/person/2284">Justinian</persName>.</title>
+                     </head>
+                     <p>
+                        <seg corresp="#EH3.1.42.a #COM.EH3.1.42.a" xml:id="TR.EH3.1.42.a">In
+<placeName ref="https://pleiades.stoa.org/places/520998">Constantinople</placeName>
+                        </seg>
+                        <seg corresp="#EH3.1.42.b #COM.EH3.1.42.b" xml:id="TR.EH3.1.42.b">after
+<persName ref="https://syriaca.org/person/5082">Epiphanius</persName>,
+<persName ref="https://syriaca.org/person/1592">Anthimus</persName> was brought to the episcopate. He
+had previously been bishop of the city of
+<placeName ref="https://pleiades.stoa.org/places/857359">Trapezus</placeName>, and he was summoned to the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs>.</seg>
+                        <seg corresp="#EH3.1.42.c #COM.EH3.1.42.c" xml:id="TR.EH3.1.42.c">After he had been in <note type="explanation">the imperial
+city</note> for a period of several years, when
+<persName ref="https://syriaca.org/person/51">Severus of Antioch</persName> was summoned from
+<placeName ref="https://pleiades.stoa.org/places/981503">Egypt</placeName> by order of
+<persName ref="https://syriaca.org/person/2284">Justinian</persName> so that might they talk about
+the union</seg> and <persName ref="https://syriaca.org/person/1592">Anthimus</persName> learned
+through his debate with <persName ref="https://syriaca.org/person/51">Severus</persName> about the
+maliciousness and perversity of the synod of
+<placeName ref="https://pleiades.stoa.org/places/520988">Chalcedon</placeName> and about the blasphemies of
+<persName ref="https://syriaca.org/person/2299">Leo</persName> in his <emph>Tome</emph>,
+<seg corresp="#EH3.1.42.d #COM.EH3.1.42.d" xml:id="TR.EH3.1.42.d">he left the throne of the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs>. He was expelled and
+entered into a union with <persName ref="https://syriaca.org/person/51">Severus</persName> and
+<persName ref="https://syriaca.org/person/5169">Theodosius of Alexandria</persName>.</seg>
+                        <seg corresp="#EH3.1.42.e #COM.EH3.1.42.e" xml:id="TR.EH3.1.42.e">Then after this one, a certain
+<persName ref="https://syriaca.org/person/3238">Menas</persName> from
+<placeName ref="https://pleiades.stoa.org/places/876562">Alexandria</placeName> who had been in charge of
+the hospice of Samson sat on the throne of the
+<rs type="place" ref="https://pleiades.stoa.org/places/520998">imperial city</rs>. When he had completed
+some years, he left the world</seg> 
+                        <seg corresp="#EH3.1.42.f #COM.EH3.1.42.f" xml:id="TR.EH3.1.42.f">and was
+succeeded by a certain young monk, the <emph>apokrisiarios</emph> of
+<placeName ref="https://pleiades.stoa.org/places/857018">Amasia</placeName>, whose name was
+<persName ref="https://syriaca.org/person/5087">Eutychius</persName>
+                        </seg>.
+<seg corresp="#EH3.1.42.g #COM.EH3.1.42.g" xml:id="TR.EH3.1.42.g">When he had held <note type="explanation">the see</note> for
+about twelve years, he was banished and expelled from his see.</seg>
+                        <seg corresp="#EH3.1.42.h #COM.EH3.1.42.h" xml:id="TR.EH3.1.42.h">After him came
+<persName ref="https://syriaca.org/person/5103">John</persName>, a certain Syrian from the village of
+<placeName ref="https://pleiades.stoa.org/places/668366">Sirmin</placeName> in the region of the
+Antiochians. When he was <note type="explanation">bishop</note>, he deposed
+<persName ref="https://syriaca.org/person/5087">Eutychius</persName> and
+<persName ref="https://syriaca.org/person/5087">Eutychius</persName> 
+                           <note type="explanation">did the same to</note>
+him.</seg> 
+                        <seg corresp="#EH3.1.42.i #COM.EH3.1.42.i" xml:id="TR.EH3.1.42.i">When
+<persName ref="https://syriaca.org/person/5103">John</persName> had completed twelve and a half
+years, he died. Then <persName ref="https://syriaca.org/person/5087">Eutychius</persName> was
+summoned, and he returned to his see.</seg>
+                     </p>
+                     <p>
+                        <title>Ended is the first volume of the stories of the church in which
+forty-two chapters are included.</title>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
