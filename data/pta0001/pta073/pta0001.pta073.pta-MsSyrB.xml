@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en" xmlns:telota="http://www.telota.de" telota:doctype="edition">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">Homilia de nativitate (Ms B)</title>
+            <author>
+               <persName key="pta0001">Severianus Gabalensis</persName>
+            </author>
+            <respStmt>
+               <resp>transkribiert von</resp>
+               <persName xml:id="NK">Nikolai Kiel</persName>
+            </respStmt>
+         </titleStmt>
+         <editionStmt>
+            <p>New transcription.</p>
+         </editionStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons
+                        Attribution ShareAlike 4.0 International
+                        License</licence>
+            </availability>
+            <date>2025</date>
+            <idno type="PTA">pta0001.pta073</idno>
+            <idno type="CPG">4260</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier xml:id="Syr-B" corresp="PTAMS00630">
+                  <settlement>Vatican City</settlement>
+                  <repository>Biblioteca Apostolica Vaticana</repository>
+                  <idno>Sir. 369</idno>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl><refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab,
+                                          Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations"
+                  ana="fully-annotated fully-identified">
+            Biblical quotations are fully annotated and fully referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references"
+                  ana="fully-annotated fully-identified">
+            Other references are fully annotated and fully referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons"
+                  ana="not-annotated not-identified">
+            Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups"
+                  ana="not-annotated not-identified">
+            Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places"
+                  ana="not-annotated not-identified">
+            Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+            </interpretation>
+            <normalization>
+               <p><!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...--></p>
+            </normalization>
+            <punctuation>
+               <p><!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis--></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)section
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>critical-edition</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2025-05-28" who="#NK">Draft</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="transcription"
+              xml:lang="syc"
+              n="urn:cts:pta:pta0001.pta073.pta-MsSyrB">
+            <head>
+               <title>
+            <pb n="15va"/>
+                  <hi rend="rubricated">
+                  :ܬܘܒ ܡܐܡܪܐ: ܕܩܕܝܫܐ ܣܘܪܝܢܐ: ܐܦܝܣܩܘܦܐ ܕܓܐܒܠܐ: ܥܠ ܝܠܕܗ ܕܡܪܢ܆ ܘܠܘܩܒܠ ܗܪ̈ܝܣܝܘܛܐ: ܕܐܬܛܥܝ ܡܢ ܕܘܟܬܗ 
+                  </hi>  
+               </title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p>
+                  .ܒܚܕ ܒܫܒܐ ܩܕܡܝܐ ܕܥܒ̣ܪ. ܐܝܟ ܚܝܠܢ ܡ̇ܚܝܢܢ ܩܪܒܐ̇ ܠܘܩܒܠ ܝܗ̈ܘܕܝܐ. ܟܕ ܡܥܕܪ ܗܘܐ ܠ̣ܢ ܟܠܗ ܟܢܫܐ ܕܢܒ̈ܝܐ. ܘܚܘܝܢܢ ܒܡܠܬܢ ܕܡܫܝܚܐ ܐܬ̣ܐ ܐܝܟ ܕܐ̇ܡܪ̈ܝܢ ܢܒ̈ܝܐ. ܘܐܬܝ̣ܠܕ ܡܢ ܒܬܘܠܬܐ. ܘܡ̇ܠܝ ܟܠܗܝܢ ܕܟܬ̈ܝܒܢ ܘܚ̣ܫ ܘܐܙܕܩܦ ܘܡܝ̣ܬ. ܘܩ̣ܡ̣ ܠܬ̈ܠܬܐ ܝܘܡ̈ܝܢ܆ ܘܫܪܪ ܐܠܗܘܬܗ ܒܩܝܡܬܐ ܕܦܓܪܗ. ܘܗܘ̣ܐ ܪܝܫܝܬܐ ܠܚ̈ܝܐ ܕܠܐ ܡ̇ܝܬܝܢ
+                  <note place="intercolumn">
+                     ܩܝܡܬܐ ܕܦܓܪܐ
+                  </note>
+                  :ܝܘܡܢ ܕܝܢ ܙܕ̇ܩ ܠܢ ܕܢܦܘܩ ܪܘܚܐ ܠܡ̈ܗܝܡܢܐ ܘܢܐ̇ܡܪ܆ ܕܡܛܠ ܡܢܐ ܒܦܓܪ ܐܬ̣ܐ ܡܫܝܚܐ ܠܥܠܡܐ܆ ܡܛܠ ܡܢܐ ܟܕ ܡܫܟܚ ܗܘܐ ܕܢܦܪܘܩ ܠܢ ܕܠܐ ܦܓܪܐ܇ ܒܚ̇ܙܬܐ ܫܝܛܬܐ ܕܒܪ ܐܢܫܐ ܐܬ̣ܐ ܨܐܕܝܢ. ܘܥܠ ܡܢܐ ܠܐ ܢܣ̣ܒ ܕܡܘܬܐ ܕܡ̈ܠܐܟܐ
+                  <note place="margin_outer">
+                     ܐܘ ܕܪ̈ܒܝ ܡ̈ܠܐܟܐ
+                  </note>
+                  .ܐܠܐ ܕܡܘܬܐ ܕܥܒܕܐ ܫܩ̣ܠ
+                  <note place="intercolumn">
+                     ܕܡܘܬܐ ܕܥܒܕܐ ܫܩ̣ܠ
+                  </note>
+                  .ܙܕܩ ܠܢ ܕܝܢ ܕܢܕܥ܆ ܐܦ ܥܠ̣ܬܗ̇ ܕܗܕܐ ܡܢܐ ܗ̣ܝ. ܡܛܠ ܗܕܐ ܓܝܪ ܡܒ̈ܙܚܝܢ ܒܢ ܚ̈ܢܦܐ ܘܝ̈ܘܕܝܐ ܘܐܡܪ̈ܝܢ܆ ܕܠܒܪܢܫܐ ܕܐܙܕܩܦ ܣܓܕܝܢ܆ ܥܠ ܕܠܐ ܝܕܥܝܢ ܥܠ̣ܬܐ ܕܦܓܪܢܘܬܗ ܕܦܪܘܩܢ ܡܢܐ ܗܝ. ܐܝܟ ܕܐܡ̣ܪ ܛܘܒܢܐ ܦܘܠܘܣ
+                  <cb n="15vb"/>
+                  ܕܡܠܬܗ ܕܙܩܝܦܐ ܠܐܒ̈ܝܕܐ ܫܛܝܘܬܐ ܗܝ. ܠܢ ܕܝܢ ܠܐܝܠܝܢ ܕܚܝܝܢ̣ܢ ܚܝܠܐ ܗܝ ܕܐܠܗܐ܆ ܘܚܟܡܬܐ ܕܐܠܗܐ܀ 
+                  </p>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <p>
+                  .ܡܛܠ ܗܟܝܠ ܕܚܝܠܐ ܕܚܟܡܬܐ ܐܝܬܘܗܝ ܠܢ ܗܢܐ ܝܠܕܐ. ܢܒ̇ܥܐ ܡܗܝܡܢܐܝܬ ܥܠܬܐ ܕܡܐܬܝܬܗ. ܘܐܢ ܚ̇ܝܒܐ ܡܠܬܢ ܡܢ ܫܪ̈ܒܘܗܝ܆ ܠܝܬ ܠܢ ܟܘ̇ܚܕܐ ܒܗܕܐ. ܟܠܗܘܢ ܓܝܪ ܚܟܝ̈ܡܐ ܘܡ̈ܦܫܩܢܐ ܕܗܘܘ ܒܥܠܡܐ: ܡܢ ܡܐܬܝܬܗ ܕܡܪܢ ܘܥܕܡܐ ܠܝܘܡܢ܆ ܐܝܟ ܚܝܠܗܘܢ ܐܫܟܚܘ ܕܢܐܡܪ̈ܘܢ܆ ܘܠܘ ܐܝܟ ܕܐܝܬܘܗܝ. ܘܒܗܕܐ ܡܬܝܕܥܐ ܪܒܘܬܗ ܕܫܪܪܢ܆ ܕܚܝ̇ܒܐ ܡܠܬܢ ܡܢ ܫܪ̈ܒܘܗܝ. ܘܫܘܒܗܪܢ ܕܝܠܢ ܗܢܐ ܗܘ܆ ܕܡܠܬܢ ܥܠ ܗ̇ܘ ܕܠܐ ܡܬ̣ܕܪܟ ܐܝܬܝܗ̇. ܐܝ̇ܟܢ ܓܝܪ ܡܫܟܚ ܥܒܝܕܐ ܕܢܐܡܪ ܥܠ ܥܒ̇ܘܕܗ܀ ܘܛܘܒܢܐ ܦܘܠܘܣ ܗ̇ܘ ܕܐܝܬܘܗܝ ܡܐܢܐ ܓܒ̣ܝܐ: ܘܣܠ̣ܩ ܥܕܡܐ ܠܫܡ̈ܝܐ ܕܬܠܬܐ: ܘܫܡ̣ܥ ܡ̈ܠܐ ܕܠܐ ܡܬ̈ܡܠܠܢ: ܟܕ ܚ̣ܪ ܒܪܒܘܬܗ ܕܫܪܪܐ ܕܠܐ ܡܣܬܝܟ ܒܦܘܡܐ ܕܥܒ̈ܝܕܐ܆ ܐܡ̣ܪ. ܕܩܠܝܠ ܡܢ ܣ̇ܓܝ ܝܕܥ̇ܝܢܢ. ܘܟܕ ܩܠܝܠ ܡܢ ܣܓܝ ܝܕܥ̇ ܗܘܐ܆ ܠܐ ܡܬܟܠܐ ܗܘܐ ܡܢ ܕܢܐܡܪ ܥܠܘܗܝ ܕܫܪܪܐ.܀ 
+                  <note place="margin_inner">
+                     ܥܠ ܝܠܕܐ ܕܐܠܗܘܬܗ
+                  </note>
+                  .ܟܠܗܘܢ ܓܝܪ ܐ̈ܬܠܝܛܐ ܕܥܠܡܐ܆ ܒܗܬܬܐ ܗܝ ܠܗܘܢ܇ ܕܡܢ ܒܬܪ ܚܘܒܬܐ܇ ܢܠܒܟܘܢ ܕܪܐ ܥܡ ܗܘ ܕܚܒ̣ܘ ܡܢܗ. ܐܡܘܪ̈ܐ ܕܝܢ ܕܒܥܕܬܐ܆ ܗܕܐ ܗܝ ܙܟܘܬܗܘܢ܆ ܡܐ ܕܡ̇ܫܪ̈ܝܢ ܕܢܐܡܪ̈ܘܢ ܥܠ ܗ̇ܘ ܕܐܙܕܟܝ̣ܘ ܡܢܗ
+               </p>
+            </div>  
+            <div type="textpart" subtype="section" n="3">
+               <p>
+                  :ܘܐܢ ܟܕ ܥܠ ܝܠܕܐ ܕܐܢܫܘܬܗ ܐܡܪ̈ܝܢ ܗܘܝܢ
+                  <pb n="16ra"/>
+                  ܐܙܕܟܝܬ ܡܠܬܢ ܡܢ ܪܒܘܬܗ: ܝܘܡܢ ܕܥܠ ܝܠܕܐ ܕܐܠܗܘܬܗ ܡܡܠܠܝܢܢ܆ ܟܡܐ ܝܬܝܪܐܝܬ܀
+                  <note place="margin_inner">
+                     ܬܪ̈ܝܢ ܝ̈ܠܕܝܢ ܕܦܪܘܩܢ  
+                  </note>
+                  .ܬܪ̈ܝܢ ܗܟܝܠ ܝ̈ܠܕܝܢ ܡܣܬ̇ܟܠܝܢܢ ܡܢ ܟܬܒܐ ܐܠܗܝܐ ܥܠ ܦܪܘܩܢ. ܚܕ ܕܐܠܗܘܬܗ ܕܡܢ ܐܒܐ܆ ܘܐܚܪܢܐ ܕܐܢܫܘܬܗ ܕܡܢ ܡܪܝܡ. ܥܠ ܗ̇ܘ ܕܐܠܗܘܬܗ ܩ̇ܥܐ ܢܒܝܐ̣܀ ܕܕܪܗ ܡ̣ܢܘ ܢܫ̇ܬܥܐ. ܘܥܠ ܗ̇ܘ ܕܐܢܫܘܬܗ ܐܡ̣ܪ ܢܒܝܐ ܐܚܪܢܐ܆ ܕܝܡ̣ܐ ܡܪܝܐ ܠܕܘܝܕ ܒܫܪܪܐ̣ ܘܠܐ ܢܗܦܘܟ ܡܢܗ. ܕܡܢ ܦܐܪ̈ܝ ܟܪܣܟ ܐܘܬܒ ܥܠ ܟܘܪܣܝܟ.܀ ܛܘܒܢܐ ܕܝܢ ܡܬܝ ܐܘܢܓܠܣܛܐ: ܟܕ ܥܠ ܝܠܕܐ ܕܐܢܫܘܬܗ ܕܡܪܢ ܡܡܠܠ ܗܘܐ܆ ܒܬܡܗܐ ܪܒܐ ܐܝܬܘܗܝ܇ ܕܚ̣ܙܐ ܝܠܕܐ ܕܐܠܗܘܬܗ܇ ܕܐܝܬܘܗܝ ܗܘܐ ܡܢ ܩܕܡ ܥ̈ܠܡܐ. ܘܡܛܘܠ ܕܐ̇ܠܨܐ ܗܘܬ̣ ܕܝܠܕܐ ܕܐܢܫܘܬܗ ܕܒܪܐ. ܩܕܡܐܝܬ ܢܫܬܪܪ ܠܒܢ̈ܝܢܫܐ: ܕܢܬܒ̣ܠܡ ܦܘܡܐ ܕܗܪ̈ܣܝܘܛܐ ܕܛܠܡ̇ܝܢ ܠܦܓܪܢܘܬܗ ܕܡܪܢ. ܣ̇ܕܪ ܡܬܝ ܫܪ̈ܒܬܐ ܕܝܠܝܕܘܬܗ ܟܕ ܐܡ̇ܪ. ܟܬܒܐ ܕܝܠܝܕܘܬܗ ܕܝܫܘܥ ܡܫܝܚܐ. ܘܡܛܠ ܕܩ̣ܪܝܒ ܗܘܐ ܫܡܐ ܕܕܘܝܕ ܠܝܠܕܗ ܕܡܪܢ ܝܬܝܪ ܡܢ ܐܒܪܗܡ: ܘܐܝܬܘܗܝ ܗܘܐ ܡ̇ܠܟܐ ܘܟܗܢܐ܆ ܐܡ̣ܪ ܒܪܗ ܕܕܘܝܕ ܒܪܗ ܕܐܒܪܗܡ. ܘܡ̇ܕܪܓ ܠܗ̇ ܠܡܠܬܗ܆ ܥܕܡܐ ܠܝܘܣܦ ܓܒܪܗ̇ ܕܡܪܝܡ. ܕܡܢܗ̇ ܐܬ̣ܝܠܕ ܡܫܝܚܐ
+               </p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
+               <p>
+                  .ܘܡܛܠ ܡܢܐ ܟܕ ܠܘ ܒܪ ܝܘܣܦ ܗ̣ܘ ܐܠܐ ܒܪ ܡܪܝܡ. ܐܪܦܝ ܐܘܢܓܠܣܛܐ ܫܡܐ ܕܡܪܝܡ. ܘܐܥ̣ܠ ܫܡܐ ܕܝܘܣܦ ܒܡܟܬܒܢܘܬܐ
+                  <cb n="16rb"/>
+                  .ܝܘܣܦ ܓܝܪ ܡܕܡ ܠܐ ܩܪܝܒ ܠܡܪܢ܇ ܐܠܐ ܐܢ ܘ̇ܠܐ ܕܢܐ̇ܡܪ ܡ̇ܪܒܝܢܐ. ܡܛܠ ܕܡܢ ܒܬܪ ܕܝܠ̣ܕܬܗ ܡܪܝܡ ܠܝܫܘܥ܆ ܝܘܣܦ ܥܡ ܡܪܝܡ ܡ̇ܪܒܐ ܗܘܐ ܠܗ. ܥܠܬܐ ܕܝܢ ܗܕܐ ܗܝ܆ ܡܛܠ ܕܟܠܗܘܢ ܒ̈ܢܝܐ ܕܡ̈ܬܝܠܕܝܢ ܒܥܠܡܐ: ܡܢ ܙܘܘܓܐ ܗ̇ܘܝܢ ܐܝܟ ܕܒܥܝܕܐ: ܡܫܝܚܐ ܕܝܢ ܒܠܚܘܕ ܐܬܝ̣ܠܕ ܕܠܐ ܙܘܘܓܐ܆ ܠܒܪ ܡܢ ܥܝܕܐ: ܕܠܐ ܟܕ ܣ̇ܕܪ ܟܬܒܐ ܫܪ̈ܒܬܐ ܕܢ̈ܫܐ ܘܐܬ̇ܐ ܥܕܡܐ ܠܡܪܝܡ: ܬܣ̣ܬܒܪ ܐܦ ܡܪܝܡ ܕܒܛܟܣܐ ܕܢ̈ܫܐ ܝܠܕܬ ܠܡܪܢ ܡܢ ܙܘܘܓܐ܆ ܡܪܦ̣ܐ ܫܪܒܗ̇ ܕܡܪܝܡ. ܘܡ̇ܥܠ ܫܡܗ ܕܝܘܣܦ ܕܠܐ ܩܪܝܒ ܠܡܪܢ. ܐܝܟ ܕܬܬܝܕܥ ܕܗܢܐ ܝܠ̣ܕܐ ܡ̇ܫܓܢܝ ܗ̣ܘ ܡܢ ܟܠܗܘܢ ܝ̈ܠܕܐ. ܘܬܘܒ ܡܛܠ ܕܒܥܠܡܐ ܫܪ̈ܒܬܐ ܕܓܒܪ̈ܐ ܐܝܬ ܥܝܕܐ ܕܡܬܡ̈ܢܝܢ: ܕܠܐ ܟܕ ܡ̣ܪܦܐ ܗܘܐ ܟܬܒܐ ܫܪ̈ܒܬܗ ܕܝܘܣܦ ܘܬ̇ܢܐ ܗܘܐ ܫܪ̈ܒܬܗ̇ ܕܡܪܝܡ܆ ܢܐܡܪ̈ܘܢ ܝܗ̈ܘܕܝܐ ܕܠܘ ܡܢ ܒܝܬ ܕܘܝܕ ܗ̣ܘ ܡܫܝܚܐ: ܒܗ̇ܝ ܕܠܐ ܝܕܝ̈ܥܢ ܫܪ̈ܒܬܗ̇ ܕܡܪܝܡ. ܡܪܦܐ ܟܬܒܐ ܫܡܐ ܕܡܪܝܡ. ܘܣܐ̇ܡ ܫܡܐ ܕܝܘܣܦ. ܟܕ ܐܦ ܡܪܝܡ ܡܢ ܒܝܬ ܕܘܝܕ ܗܝ܆ ܐܡ̣ܪ ܓܝܪ ܐܘܢܓܠܣܛܐ܆ ܕܬܪ̈ܝܗܘܢ ܡܢ ܒܝܬܗ ܐܢܘܢ ܕܕܘܝܕ
+                </p>
+            </div>
+            <div type="textpart" subtype="section" n="5">
+               <p>
+                  ܐܠܐ ܢܦ̣ܢܐ ܠܢ ܠܫܪܒܢ. ܡܠܬܢ ܓܝܪ ܗܕܐ ܗܝ܆ ܕܡܛܠ ܡܢܐ ܡܫܝܚܐ ܒܦ̣ܓܪ ܐܬ̣ܐ ܠܥܠܡܐ.܀.܀. ܐܠܗܢ ܛ̇ܒܐ ܚܒ̈ܝܒܝ ܡܢ ܒܪܫܝܬ ܠܒܪ ܐܢܫܐ ܩܕܡܝܐ ܪܝܫ ܓܢܣܢ ܐܕܡ܆ ܨܒ̣ܐ ܕܢܝܩܪ ܡܢ ܟܠܗܝܢ ܒܪ̈ܝܬܐ. ܘܟܕ ܠܝܬ ܨܠܡܐ
+                  <pb n="16va"/>
+                  .ܘܕܡ̣ܘܬܐ ܠܐܠܗܐ܆ ܡܛܠ ܐܝܩܪܗ ܕܒܪ ܐܢܫܐ܆ ܫܡ̇ܗ ܠܗ ܨܠ̣ܡܐ ܘܕܡ̣ܘܬܐ. ܟܕ ܐܡ̇ܪ. ܕܢܥ̇ܒܕ ܒܪ ܐܢܫܐ ܒܨܠܡܢ ܘܒܕܡܘܬܢ. ܘܡܛܠ ܕܐ̇ܬܩܪܝ ܨܠܡܐ ܕܗ̇ܘ ܕܠܐ ܡܬ̇ܚ̣ܙܐ܆ ܐܬ̇ܝܗܒ ܠܗ ܫܘܠܛܢܐ ܥܠ ܟܠܗܝܢ ܒܪ̈ܝܬܐ ܕܡܬ̈ܚܙܝܢ. ܐܝܟ ܕܐܡ̣ܪ ܕܘܝܕ ܕܟܘܠ ܣ̣ܡܬ ܬܚܝܬ ܪ̈ܓܠܘܗܝ. ܥܢܐ̇ ܘܒܩܪ̈ܐ̣ ܟܘܠܗܝܢ. ܘܚܝܘܬܐ ܕܕܒܪܐ̣ ܘܨܦܪ̈ܐ ܕܒܫܡܝܐ. ܘܢܘ̈ܢܐ ܕܝܡܐ ܕܥܒܪ̈ܝܢ ܒܫܒܝܠܐ ܕܝܡ̈ܡܐ. ܘܟܕ ܒܐܪܥܐ ܐܝܬܘܗܝ ܗܘܐ: ܘܟܝ̈ܢܐ ܕܡ̈ܠܐܟܐ ܒܫܡܝܐ ܠܥܠ ܡܢܗ ܡܕܝܪ̈ܝܢ ܗܘܘ. ܩܕܡܝܬ̣ ܥܡ ܐܕܡ ܡܠܠ ܒܦܪܕܝܣܐ. ܘܢܡܘܣܐ ܕܚܫ̇ܚ ܠܒܪܝܬܗ ܝܗ̣ܒ ܠܗ
+                </p>
+            </div>
+            <div type="textpart" subtype="section" n="6">
+               <p>
+                  ܗ̣ܘ ܕܝܢ ܐܫܬ̣ܡܥ ܠܡܠ̣ܟܗ ܕܣܛܢܐ. ܘܫ̣ܛ ܠܦܘܩܕܢܐ ܕܡܪܗ. ܘܚܠܦ ܚܐܪܘܬܐ ܒܥܒ̣ܕܘܬܐ܆ ܘܫܥ̣ܒܕ ܢܦܫܗ ܠܡܘܬܐ. ܘܒܥ̣ܠܬܗ܆ ܓܢܣܐ ܟܠܗ ܕܒܢ̈ܝܢܫܐ ܐܫܬ̇ܥܒܕ ܠܡܘܬܐ. ܘܒܥܠܕܒܒܐ ܣܛܢܐ ܒܐܬܪܐ ܕܐܫܟܚ ܠܗ. ܒܡܪ̈ܓܐ ܕܐܒܕܢܐ ܪܥ̇ܐ ܗܘܐ. ܠܗ̇ ܠܐܢܫܘܬܐ. ܘܕܝ̈ܘܐ ܒܝ̈ܫ̣ܐ ܕܠܐ ܚܘܣܢ ܡܣܚܦܝܢ ܗܘܘ ܠܟܠ ܐܢܫ ܠܕܒ̇ܚܐ ܘܢܘ̈ܩܝܐ. ܟܕ ܟܠ ܐܢܫ ܠܡܕܡ ܕܣ̣ܒܪ ܐܠܗܐ ܡܫ̇ܡܗ ܗܘܐ. ܘܗ̇ܘ ܕܥܒ̇ܝܕ ܗܘܐ ܡܪܐ ܥܠ ܟܠ ܕܡܬܚܙܐ܆ ܐܝܟ ܥ̣ܒܕܐ ܩܕܡ ܦܬܟܪ̈ܐ ܡ̈ܝܬܐ ܡܬܓܪܓܚ ܗܘܐ. ܐܝܟ ܕܐܡ̣ܪ ܛܘܒܢܐ ܦܘܠܘܣ: ܘܕܚ̣ܠܘ ܘܫܡܫܘ ܠܒܪ̈ܝܬܐ ܛܒ ܡܢ ܕܠܒܪ̈ܘܝܗܝܢ܀ ܘܗܢܘܢ ܕܝ̈ܘܐ ܟܕ ܡ̇ܛܥܝܢ ܗܘܘ ܒܪ̈ܢܝܢܫܐ܆ ܟܠܚܕ ܚܕ ܡܢܗܘܢ ܠܢܦܫܗ̣
+                  <cb n="16vb"/>
+                  .ܐܠܗܐ ܪܒܐ ܡܫ̇ܡܗ ܗܘܐ. ܘܡܢ ܗܕܐ ܥܠܬܐ ܩܪ̈ܒܐ ܣ̈ܓܝܐܐ ܘܬܟ̈ܬܘܫܐ ܐܝܬ ܗܘܐ ܒܥܠܡܐ܆ ܘܟܠ ܐܢܫ ܠܐܠܗܗ ܥܠ ܐ̈ܦܝ ܙܟܘܬܐ ܒܕܡܐ ܕܒ̈ܢܘܗܝ ܡ̇ܝܩ̣ܪ ܗܘܐ. ܐܝܟ ܕܐܡ̣ܪ ܕܘܝܕ. ܕܕܒܚܘ ܒܢ̈ܝܗܘܢ ܘܒܢ̈ܬܗܘܢ ܠܫܐ̈ܕܐ. ܘܩܪܝܒ ܗܘܐ ܟܠܗ ܓܢܣܐ ܕܒ̈ܢܝܢܫܐ ܕܢܐ̇ܒܕ܇ ܚܕ ܡܢ ܚܕ. ܟܡܐ ܓܝܪ ܕܚܛܝ̣ܬܐ ܥܫ̇ܢܐ ܗܘܬ܆ ܒܥܠܕܒܒܘܬܐ ܘܣܢܐܬܐ ܣܓܝܐ ܗܘܬ. ܘܡܢܗ̇ ܕܣܢܐܬܐ̣ ܓܘܪܣܗ ܕܓ̣ܢܣܢ ܗ̇ܘܐ ܗܘܐ. ܘܐܠܗܐ ܡܣ̣ܡ ܒܪ̈ܝܫܐ ܩ̈ܫܝܐ ܒܕܪ ܕܪ ܡ̇ܝܬܐ ܗܘܐ. ܐܝܟ ܕܠܟܘܘܢܐ. ܘܐܢܫ ܡܢ ܒܝܫ̣ܬܗ ܠܐ ܬܐܟ ܗܘܐ
+               </p>
+            </div>
+            <div type="textpart" subtype="section" n="7">
+               <p>
+                  ܡܢ ܒܬܪ ܕܝܢ ܕܚܒܠܘܗܝ ܠܢܡܘܣܐ ܕܟܝܢܐ܆ ܢܡܘܣܐ ܟܬܝܒܐ̣ ܒܝܕ ܡܘܫܐ ܐܬܝܗܒ. ܘܟܕ ܐܦ ܠܐ ܗ̣ܘ ܢܡܘܣܐ ܘܢ̈ܒܝܐ ܐܫܟܚܘ ܕܢܬܪ̈ܨܘܢ ܠܣܟ̈ܠܘܬܐ܆ ܗ̇ܝܕܝܢ ܡܐܬܝܬܗ ܕܡܫܝܚܐ ܐܠܨܐܝܬ ܐܬܒ̣ܥܝܬ. ܘܠܗ̇ܘ ܦܓܪܐ ܕܒܠ̣ܝ ܗܘܐ ܒܚ̈ܛܗܐ܆ ܙܩܪܗ ܚܕܬܐܝܬ ܒܒܬܘܠܬܐ. ܘܠܒܫܗ
+                  <note place="intercolumn">
+                     ܠܦܓܪܐ ܕܒܠܝ ܚܕܬ ܘܠܒܫ
+                  </note>
+                  .ܘܢܦ̣ܩ ܠܥܠܡܐ܇ ܒܬܪ ܐܕܡ ܐܣܘܛܐ ܕܦܪܚ ܢܟ̈ܣܘܗܝ. ܐܝܟ ܙܢܐ ܓܝܪ ܕܦܪܚܬܐ ܒܦܪܚܬ ܚܒܪܬܗ̇ ܡܬܬܨܝܕܐ܆ ܗܟܢ ܡܫܝܚܐ ܒܦܓܪܗ ܕܐܕܡ܇ ܨܕܗ ܠܐܕܡ ܕܚܛܐ. ܘܕܢ̇ܚܘܐ ܟܡܐ ܪܚ̇ܡ. ܗܘܐ ܠܗ܆ ܐܦ ܟܘܬܝܢ ܦܓܪܗ ܐܫܠܡ ܠܒܥܠܕܒ̈ܒܐ܇ ܟܕ ܡܫܝܢ ܗܘܐ ܠܗ ܠܥܠܡܐ
+                  <note place="intercolumn">
+                     ܟܘܬܝܢ ܦܓܪܗ ܐܫܠܡ 
+                  </note>
+                  ܘܕܢܘܕܥ ܕܠܬܪ̈ܝܗܘܢ ܓ̈ܒܐ ܨܒ̣ܐ ܕܢܫ̇ܝܢ: ܒܥܘܬܐ ܒܙܩܝܦܐ ܥܠ ܩ̈ܛܘܠܘܗܝ ܫܐ̇ܠ ܗ̣ܘܐ ܟܕ
+                  <pb n="17ra"/>
+                  ܐܡ̇ܪ. ܐܒ̣ܝ ܫܒܘܩ ܠܗܘܢ. ܐܠܘ ܓܝܪ ܒܟܝܢܐ ܕܐܠܗܘܬܗ ܐܬܚ̣ܙܝ. ܠܐ ܡܣܝܒܪ̈ܢ ܗ̈ܘܝ ܠܗ ܒܪ̈ܝܬܐ. ܘܠܐ ܚܢܢ ܡܫܟܚܝܢ ܗܘܝܢ̇ ܕܢܚܘܪ ܒܗ. ܐܢ ܓܝܪ ܒܚܙܬܐ ܕܐ̈ܦܘܗܝ ܕܡܘܫܐ ܟܕ ܐܙܕܗܝ: ܠܐ ܐܫܟܚܘ ܒ̈ܢܝ ܐܝܣܪܐܝܠ ܕܢܚܘܪ̈ܘܢ: ܥܕܡܐ ܕܡܚܦܐ ܗܘܐ ܐ̈ܦܘܗܝ ܒܫܘܫܦܐ: ܠܐܠܗܐ ܗ̇ܘ ܕܐܦ ܠܐ ܡܘܫܐ ܐܫܟܚ ܕܢܚܙܐ: ܐܝܟ ܕܐܡ̣ܪ ܠܗ: ܕܠܐ ܚ̇ܙܐ ܠܝ ܒܪܢܫܐ ܘܚ̇ܝܐ܆ ܡ̇ܢܘ ܡܫܟܚ ܗܘܐ ܕܢܚܙܐ. ܘܐܢ ܚܙܬܐ ܕܡܠܐܟܐ ܠܐ ܐܫܟܚ ܕܢܝܐܝܠ ܕܢܣܝܒܪ: ܐܠܐ ܒܕܚܠܬܐ ܐܣܬ̣ܚܦ ܥܠ ܐ̈ܦܘܗܝ. ܗ̇ܘ ܕܐܦܠܐ ܡ̈ܠܐܟܐ ܡܫܟܚܝܢ ܕܢܚܙܘܢܝܗܝ܆ ܐܝܟܢ ܡܫ̇ܟܚܐ ܗܘܬ ܐܢܫܘܬܐ ܕܬܚ̣ܙܐ.܀ ܡܛܠ ܗܕܐ ܓܝܪ ܚܦܝ ܐܠܗܘܬܗ ܒܫܘܫܦܐ ܕܦܓܪܗ ܒܕܡ̣ܘܬ ܡܘܫܐ܆ ܕܚܢܢ ܢܫܟܚ ܢܡܠܠ ܥܡܗ. ܘܐܠܘ ܕܡ̣ܘܬܐ ܕܡ̈ܠܐܟܐ ܫܩ̣ܠ܆ ܒ̈ܢܝܢܫܐ̣ ܠܐ ܡܬ̇ܦܪ̈ܩܝܢ ܗܘܘ. ܐܠܐ ܗܕܐ ܚ̣ܙܐ ܕܟܐܢܐ ܘܦܐܝܐ. ܕܐ̇ܝܟܐ ܕܣܓܝܬ ܚܛܝ̣ܬܐ܆ ܬܡ̇ܢ ܬܬܝܬܪ ܛܝܒܘܬܐ܀
+               </p>
+            </div>
+            <div type="textpart" subtype="section" n="8">
+               <p>
+                  ܙܕܩ̇ ܠܢ ܕܝܢ ܠܡܕܥ܆ ܕܡܛܠ ܡܢܐ ܐܕܡ ܐܬܩܪܝ ܡܫܝܚܐ܇ ܒܫܡ ܐܕܡ ܩܕܡܝܐ. ܕܪ̈ܐ ܣ̈ܓܝܐܐ ܗܘ̣ܘ. ܡܢ ܐܕܡ ܥܕܡܐ ܠܡܪܢ܆ ܘܠܐ ܐܬܩܪܝ ܐܢܫ ܡܢܗܘܢ ܐܕܡ܇ ܐܠܐ ܐܢ ܡܫܝܚܐ ܒܠܚܘܕ܀ ܐܡ̣ܪ ܓܝܪ ܛܘܒܢܐ ܦܘܠܘܣ܆ ܕܗܘ̣ܐ ܐܕܡ ܩܕܡܝܐ̣ ܠܢܦܫ ܚ̈ܝܐ. ܘܐܕܡ
+                  <cb n="17rb"/>
+                  ܐܚܪܝܐ ܠܪܘܚܐ ܡܚ̇ܝܢܝܬܐ܀ ܘܬܘܒ ܡܫ̇ܡܗ ܠܐܕܡ ܩܕܡܝܐ ܒܪ ܐܢܫܐ܆ ܘܠܡܫܝܚܐ ܒܪ ܐܢܫܐ܇ ܟܕ ܐ̇ܡܪ. ܒܪ ܐܢܫܐ ܩܕܡܝܐ̣ ܥܦܪܢܐ ܕܡܢ ܐܪܥܐ. ܒܪ ܐܢܫܐ ܕܬܪ̈ܝ̣ܢ ܡܪܝܐ ܡܢ ܫܡܝܐ܀ ܡ̇ܢܐ ܐܡ̇ܪ ܐܢܬ ܦܘܠܘܣ. ܩ̇ܪܐ ܐܢܬ ܠܗ ܡܪܝܐ ܡܢ ܫܡܝܐ: ܘܡܫܡܗ ܐܢܬ ܠܗ ܒܪ ܐܢܫܐ܆ ܐܡ̇ܪ ܐܝܢ܀ ܡܪܝܐ̇ ܡܛܠ ܐܠܗܘܬܗ܀ ܒܪ ܐܢܫܐ̣ ܡܛܠ ܐܢܫܘܬܗ܀
+                  <note place="intercolumn">
+                     ܚ̇ܦܝ ܐܠܗܘܬܗ ܒܫܘܫܦܐ ܕܦܓܪܗ 
+                  </note>
+                  .ܘܐܕܡ ܡܛܠ ܡܢܐ ܡܫܡܗ ܐܢܬ ܠܗ܆ ܐܡ̣ܪ. ܐܝܟ ܙܢܐ ܓܝܪ ܕܗܘ ܐܕܡ ܩܕܡܝܐ: ܗܘ̣ܐ ܥܠ̣ܬܐ ܠܡ̇ܘܬܐ ܡܛܠ ܚܛܝܬܗ܆ ܗܟܢܐ ܡܫܝܚܐ ܗܘ̣ܐ ܥܠ̣ܬܐ ܠܚ̈ܝܐ ܕܠܐ ܡ̈ܝܬܝܢ܇ ܡܛܠ ܙܕܝܩܘܬܗ
+               </p>
+            </div>
+            <div type="textpart" subtype="section" n="9">
+               <p>
+                  ܬܘܒ ܙܕܩ̇ ܠܢ ܠܡ̇ܕܥ܆ ܕܡܛܠ ܡܢܐ ܐܕܡ ܩܕܡܝܐ ܡܫ̇ܠܡܢܐ ܐܬܒܪܝ܇ ܘܠܐ ܐܣ̣ܬܢܩ ܥܠ ܬܪܒܝܬܐ܇ ܘܡܫܝܚܐ ܕܐܝܬܘܗܝ ܐܕܡ ܕܬܪ̈ܝܢ܇ ܝܠܘܕܐ ܐܬܝ̇ܠܕ. ܟܕ ܟܪܝܟ ܒܥܙܪ̈ܘܪܐ܇ ܘܝܢ̣ܩ ܚܠܒܐ ܘܐܬ̣ܐ ܠܬܪܒܝ̣ܬܐ܀ ܙܕܩ̇ ܠܢ ܓܝ̣ܪ ܕܐܦ ܗܕܐ ܥܠ̣ܬܐ ܢܕܥ܇ ܡܛܠ ܓܝܪ ܕܝܘ̈ܠܦܢܐ ܣ̈ܓܝܐܐ ܗܘ̣ܘ ܒܥܠܡܐ: ܘܛܠܡ̇ܝܢ ܦܓܪܢܘܬܗ ܕܡܪܢ: ܘܐܡܪ̈ܝܢ ܕܠܐ ܐܬܝ̣ܠܕ ܡܢ ܐܢܬܬܐ. ܐܠܐ ܕܡ̣ܘܬܐ ܕܛܠܢܝܬܐ ܫܩ̣ܠ܆ ܕܠܐ ܢܗܘܐ ܐܬܪܐ ܠܓܘܕܦܗܘܢ܆ ܐܬܝ̣ܠܕ ܒܛܟܣܐ ܕܟܝܢܐ̣ ܐܝܟ ܟܠ ܐܢܫ. ܘܟܕ ܚ̇ܙܝܢ ܕܝ̇ܢܩ ܚܠܒܐ ܕܐܬ̇ܐ ܠܬܪܒܝܬܐ: ܒܙܒܢܐ ܣܓܝܐܐ ܕܗܘ̇ܐ ܒܡܨܥܬܐ܆ ܬܬܗܝܡܢ ܛܒ ܠܟܠ ܐܢܫ: ܕܫܪܝܪܐܝܬ̣ ܦܓܪܐ܇
+                  <pb n="17va"/>
+                  ܫܩ̣ܠ. ܐܢ ܓܝܪ ܟܕ ܗܟܢ
+                  <note place="margin_outer">
+                     ܦܓܪܐ ܫܩ̣ܠ 
+                  </note>
+                  .ܐܬܝܠܕ: ܐܡ̇ܪ ܡܪܩܝܘܢ ܘܡܐܢܝ: ܕܠܐ ܫܩ̣ܠ ܦܓܪܐ ܐܠܐ ܕܡ̣ܘܬܐ. ܐܠܘ ܐܝܟ ܐܕܡ ܡܫ̇ܠܡܢܐ ܗܘܐ܆ ܟܡܐ ܝܬܝܪܐܝܬ ܡܬܦ̣ܬܚ ܗܘܐ ܦܘܡܗܘܢ ܕܛܠܘ̈ܡܐ ܠܓܘܕܦܐ
+               </p>
+            </div>
+            <div type="textpart" subtype="section" n="10">
+               <p>
+                  .ܚܢܢ ܕܝܢ ܢܒ̇ܣܘܪ ܐܢܘܢ ܠܛܥ̈ܝܐ܆ ܘܢܠܒܘܟ ܗܝܡܢܘܬܐ ܫܪܝܪܬܐ. ܟܕ ܡܗܝܡܢܝܢܢ: ܕܡܫܝܚܐ ܐܦ ܐܠܗܐ ܐܝܬܘܗܝ܆ ܐܦ ܒܪ ܐܢܫܐ
+                  <note place="margin_outer">
+                     ܡܫܝܚܐ ܐܠܗܐ ܘܒܪ ܐܢܫܐ
+                  </note>
+                  .ܘܠܘ ܡܛܠ ܕܐ̇ܡܪ̈ܝܢ ܚܢܢ ܐܠܗܐ ܘܒܪ ܐܢܫܐ: ܡܦܪܫܝܢܢ ܐܠܗܘܬܗ ܡܢ ܐܢܫܘܬܗ. ܚܕ ܗ̣ܘ ܒܪܐ ܝܕܥܝܢ ܚܢܢ ܕܐܬ̣ܐ ܠܝܠܕܐ ܡܛܘܠ ܦܘܪܩܢܢ ܘܚܕ ܐܒܐ ܘܚܕ ܪܘܚܐ. ܒܬܠܬܐ ܩ̈ܢܘܡܝܢ ܡܗܝܡܢܝܢܢ܆ ܘܠܘ ܒܐܪ̈ܒܥܐ. ܠܘ ܓܝܪ ܡܬܬܘܣܦܘ ܐܬܬܘ̣ܣܦܬ ܐܢܫܘܬܗ ܕܡܪܢ ܠܐܠܗܘܬܗ: ܗ̇ܘ ܓܝܪ ܟܝܢܐ ܠܐ ܡܩܒܠ ܬܘܣܦܬܐ. ܘܠܐ ܪܒ̇ܐ ܘܠܐ ܒ̇ܨܪ ܡܢ ܡܕܡ ܕܐܝܬܘܗܝ. ܐܠܐ ܐܝܟ ܕܐܝܬܘܗܝ ܡܩ̇ܘܐ܆ ܡܫܡܠܝܐܝܬ ܘܠܘ ܡܛܘܠ ܕܐܣ̣ܬܢܩ ܫܩ̣ܠ ܦܓܪܐ܆ ܐܠܐ̣ ܡܛܠ ܕܐܚܒ. ܗ̇ܘ ܕܫܩ̣ܠ ܘܗ̇ܘ ܕܐܫ̣ܬܩܠ ܚܕ ܐܢܘܢ ܩܢܘܡܐ
+                  <note place="margin_outer">
+                     ܗ̇ܘ ܕܫܩ̣ܠ ܘܗ̇ܘ ܕܐܫ̣ܬܩܠ ܚܕ ܐܢܘܢ ܩܢܘܡܐ 
+                  </note>
+                  ܐܟܙܢܐ ܓܝܪ ܕܡܐ ܕܐܡ̇ܪܝܢ ܚܢܢ ܐܒܐ ܘܒܪܐ ܘܪܘܚܐ: ܬܠܬ̈ܐ ܩܢ̈ܘܡܝܢ ܡ̇ܟܪܙܝܢܢ ܘܚܕ ܟܝܢܐ ܐܡܪܝܢܢ ܗܟܢ ܡܐ ܕܐܡܪܝܢ ܚܢܢ ܐܠܗܘܬܐ ܘܐܢܫܘܬܐ 
+                  <app type="variants">
+                     <lem wit="#Syr-B" varSeq="1">
+                        ܬܪ̈ܝܢ ܟܝ̈ܢܐ  
+                     </lem>
+                     <rdg wit="#Syr-B" varSeq="2">
+                         ܟܝܢܐ
+                        <del>ܬܪ̈ܝܢ ܟܝ̈ܢܐ</del>
+                        <add place="margin" hand="#m1">
+                           ܚܕ ܩܢܘܡܐ
+                        </add>
+                     </rdg>
+                  </app>
+                  ܡܟܪܙܝܢܢ. ܘܚܕ ܩܢܘܡܐ ܡ̇ܘܕܝܢܢ܇ ܚܕ ܒܪܐ ܘܚܕ ܨܒܝܢܐ܆ ܘܚܕ ܫܘܠܛܢܐ̣ ܘܚܕ ܚܝܠܐ. ܘܚܕܐ ܡܕܒܪܢܘܬܐ ܚܕܐ
+                  <cb n="17vb"/>
+                  ܣܓܕܬܐ. ܡܐ ܕܣ̇ܓܕܝܢ ܚܢܢ ܠܐܒܐ܆ ܒܪܐ ܥܡܗ ܡܣ̣ܬܓܕ ܘܡܐ ܕܡܫ̇ܒܚܝܢ ܚܢܢ ܠܒܪܐ ܪܘܚܐ ܥܡܗ ܡܬܬܘܕܐ. ܗܟܢ ܐܦ ܒܥܒܘܕܘܬܐ. ܐܒܐ ܨ̇ܒܐ. ܒܪܐ ܣ̇ܥܪ. ܪܘܚܐ ܡܫ̇ܟܠܠ. ܒܟܠ ܡܕܡ ܚܕ ܐܢܘܢ. ܡܛܘܠ ܕܟܝܢܗܘܢ ܚܕ ܗ̣ܘ. ܟܕ ܢܛܝܪܐ ܬܠܝܬܝܘܬܐ̣ ܒܫܠܡܘܬܐ ܕܩ̈ܢܘܡܐ. ܗܕܐ ܗܝ ܗܝܡܢܘܬܐ ܕܡ̇ܟܪܙܝܢܢ܀ ܢܥܒ̣ܕ ܕܝܢ ܡܪܢ ܕܗܝܡܢܘܬܢ ܠܘܬܗ ܬܫܬܪܪ ܘܪ̈ܚ̣ܡܘܗܝ ܥܠ ܟܠ̣ܢ ܠܥܠܡܝܢ ܐܡܝܢ܀
+                  <hi rend="rubricated">
+                     ܫܠܡ ܕܥܠ ܝܠܕܐ 
+                  </hi>
+               </p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
