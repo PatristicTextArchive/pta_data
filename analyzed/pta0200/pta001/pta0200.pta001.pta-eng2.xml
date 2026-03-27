@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"
+        ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:m="https://pta.bbaw.de/ns">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">Testimonies to John of Ephesus's Ecclesiastical History, Part 3 from the Chronicle of Michael the Syrian</title>
+            <author>
+               <persName ref="https://lobid.org/gnd/1172839352" xml:id="PMF">Philip Michael Forness</persName>
+               <roleName>Translator</roleName>
+               <orgName>Katholieke Universiteit Leuven</orgName>
+            </author>
+            <author>
+               <persName ref="https://lobid.org/gnd/120555240" xml:id="SR">Silvio Roggo</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </author>
+            <author>
+               <persName ref="https://lobid.org/gnd/122499425" xml:id="HL">Hartmut Leppin</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </author>
+            <author>
+               <persName ref="https://lobid.org/gnd/1102566705" xml:id="NK">Nikolai Kiel</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </author>
+            <funder ref="https://www.dfg.de">Deutsche Forschungsgemeinschaft (DFG)</funder>
+            <respStmt>
+               <persName xml:id="JK" ref="https://orcid.org/0000-0003-2713-5207">Jan Köster</persName>
+               <resp>Word-tagging-pipeline</resp>
+            </respStmt>
+         </titleStmt>
+         <editionStmt>
+            <p>This is a new translation of all passages in the <bibl>Chronicle</bibl> of Michael the Syrian which either 1) are introduced as quotations of the third part of the <bibl>Ecclesiastical History</bibl> (henceforth <bibl>EH</bibl>) of John of Ephesus, or 2) bear a close resemblance to passages found in the <bibl>EH</bibl>, or 3) can serve to close gaps in the sole manuscript of the <bibl>EH</bibl>.  For the production of the edition on which this translation is based, Silvio Roggo identified the passages through a comparison of the <bibl>Chronicle</bibl> to the <bibl>EH</bibl> and transcribed them from the manuscript.</p>
+            <p>This new digital translation has been created within the context of the DFG Project "Commentary on John of Ephesus's <bibl>Ecclesiastical History</bibl>." The current version contains passages from the <bibl>Chronicle</bibl> of Michael the Syrian related to Book 1 of the <bibl>EH</bibl>. It should be considered preliminary, as it will be updated throughout the duration of the project. Philip Michael Forness translated the text from the Silvio Roggo's new edition of the relevant passages from Michael the Great's <bibl>Chronicle</bibl> produced within the context of the project. The translation benefitted enormously from the help of Silvio Roggo, Hartmut Leppin, and Nikolai Kiel who offered feedback, suggestions, and corrections as the translation was produced. Persons, places, and bible passages have been tagged by Philip Michael Forness, Silvio Roggo, and the project's student assistants (Katharina Koch, Marie Skubowius, and Eliano Veronesi).</p>
+         </editionStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2025</date>
+            <idno type="PTA">pta0200.pta001</idno>
+            <idno type="TLG"/>
+            <idno type="CPG"/>
+            <idno type="BHG"/>
+            <idno type="Aldama"/>
+            <idno type="Pinakes-Oeuvre"/>
+            <idno type="CHAP">202</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born digital</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="chapter"
+                         matchPattern="(.+).(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])"/>
+            <cRefPattern n="book"
+                         matchPattern="(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern n="part"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>For references to the Peshitta Old and New Testaments, PES is used as the abbreviation.</p>
+               <p>Noted are references to a biblical book, chapter, verse, sc. PES:Gn:1:1; also possible: PES:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. PES:Gn:1; also possible: PES:Gn:1-3 for a sequence of chapters or PES:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. PES:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+                  This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+               </p>
+               <p xml:id="biblical-quotations" ana="fully-annotated">
+                  Biblical quotations are annotated and referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+               </p>
+               <p xml:id="persons" ana="fully-annotated">
+                  Persons are annotated and referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> or of <ref target="https://syriaca.org">Syriaca.org</ref> for all other persons.
+               </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+                  Groups of persons and organisations are not annotated.
+                    </p>
+               <p xml:id="places" ana="fully-annotated">
+                  Places are annotated and referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> or <ref target="https://syriaca.org">Syriaca.org</ref> IDs.
+               </p>
+               <p xml:id="text-analysis" ana="automatically-tagged not-analyzed">
+                  Words are automatically tagged, but text is not analyzed.
+               </p>
+            </interpretation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+                  Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+                  Patristic Text Archive Status of edition
+               </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+                     Critical edition in which the text-critical variants have been encoded.
+                  </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+                     Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+                  </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+                     Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+                  </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+                     Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+                  </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+                  Patristic Text Archive Status of annotation
+               </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+                     All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+                     Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+                     No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+                     All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+                  </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+                     Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+                  </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+                     No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+                  </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="eng">English</language>
+         </langUsage>
+         <creation>
+            <date notAfter="0588" notBefore="0571"/>
+            <placeName ref="https://pleiades.stoa.org/places/520998">Constantinople</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Historiography</term>
+               <term>Thematic Historiography</term>
+               <term>Church History</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2026-03-31" who="#JK">Words tagged</change>
+         <change when="2025-04-25" who="#PMF">Preparation of header.</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div n="urn:cts:pta:pta0200.pta001.pta-eng2"
+              type="translation"
+              xml:lang="eng"
+              corresp="urn:cts:pta:pta0200.pta001.pta-syc2">
+            <div type="textpart" xml:lang="syc" subtype="book" n="10">
+               <div type="textpart" xml:lang="syc" subtype="chapter" n="3">
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="1"
+                       xml:id="TR.EH3.1.4.MS"
+                       corresp="EH3.1.4.MS EH3.1.4 TR.EH3.1.4">
+                     <p>
+<w xml:id="w1">At</w> <w xml:id="w2">the</w> <w xml:id="w3">beginning</w> <w xml:id="w4">of</w> <w xml:id="w5">the</w> <w xml:id="w6">third</w> <w xml:id="w7">book</w> <w xml:id="w8">of</w> <w xml:id="w9">the</w> <bibl><w xml:id="w10">Ecclesiastical</w>
+<w xml:id="w11">History</w></bibl> <w xml:id="w12">of</w> <persName ref="https://syriaca.org/person/74"><w xml:id="w13">John</w> <w xml:id="w14">of</w> <w xml:id="w15">Asia</w></persName><w xml:id="w16">,</w> <w xml:id="w17">he</w> <w xml:id="w18">speaks</w> <w xml:id="w19">in</w>
+<w xml:id="w20">this</w> <w xml:id="w21">way</w><w xml:id="w22">:</w> <w xml:id="w23">“</w><w xml:id="w24">At</w> <w xml:id="w25">the</w> <w xml:id="w26">beginning</w> <w xml:id="w27">of</w> <w xml:id="w28">the</w> <w xml:id="w29">narrative</w> <w xml:id="w30">of</w> <w xml:id="w31">this</w> <w xml:id="w32">book</w><w xml:id="w33">,</w> <w xml:id="w34">the</w> <w xml:id="w35">groans</w> <w xml:id="w36">of</w>
+<persName type="biblical" key="Jeremiah_2Ch.35.25"><w xml:id="w37">Jeremiah</w></persName><w xml:id="w38">’s</w>
+                           <bibl><w xml:id="w39">Lamentations</w><ref decls="#biblical" cRef="Peshitta:Lam"/>
+                        </bibl> <w xml:id="w40">are</w>
+<w xml:id="w41">needed</w><w xml:id="w42">,</w> <w xml:id="w43">which</w> <w xml:id="w44">he</w> <w xml:id="w45">voiced</w> <w xml:id="w46">in</w> <w xml:id="w47">regard</w> <w xml:id="w48">to</w>
+<placeName ref="https://pleiades.stoa.org/places/687928"><w xml:id="w49">Jerusalem</w></placeName> <w xml:id="w50">so</w> <w xml:id="w51">that</w> <w xml:id="w52">we</w> <w xml:id="w53">might</w> <w xml:id="w54">also</w> <w xml:id="w55">cry</w>
+<w xml:id="w56">out</w> <w xml:id="w57">in</w> <w xml:id="w58">the</w> <w xml:id="w59">same</w> <w xml:id="w60">way</w> <w xml:id="w61">regarding</w> <w xml:id="w62">those</w> <w xml:id="w63">things</w> <w xml:id="w64">which</w> <w xml:id="w65">have</w> <w xml:id="w66">happened</w> <w xml:id="w67">in</w> <w xml:id="w68">the</w>
+<w xml:id="w69">church</w> <w xml:id="w70">of</w> <w xml:id="w71">God</w> <w xml:id="w72">and</w> <w xml:id="w73">regarding</w> <w xml:id="w74">the</w> <w xml:id="w75">terrors</w> <w xml:id="w76">that</w> <w xml:id="w77">suddenly</w> <w xml:id="w78">sprung</w> <w xml:id="w79">on</w> <w xml:id="w80">all</w> <w xml:id="w81">the</w>
+<w xml:id="w82">faithful</w> <w xml:id="w83">in</w> <w xml:id="w84">the</w> <w xml:id="w85">sixth</w> <w xml:id="w86">year</w> <w xml:id="w87">of</w> <persName ref="https://syriaca.org/person/3229"><w xml:id="w88">Justin</w> <w xml:id="w89">III</w></persName><w xml:id="w90">.</w><w xml:id="w91">”</w>
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="2"
+                       xml:id="TR.EH3.1.5.MS"
+                       corresp="EH3.1.5.MS EH3.1.5 TR.EH3.1.5">
+                     <p>
+<w xml:id="w92">For</w> <w xml:id="w93">a</w> <w xml:id="w94">time</w> <w xml:id="w95">of</w> <w xml:id="w96">forty</w> <w xml:id="w97">years</w> <w xml:id="w98">the</w> <w xml:id="w99">orthodox</w> <w xml:id="w100">were</w> <w xml:id="w101">in</w> <w xml:id="w102">serenity</w><w xml:id="w103">,</w> <w xml:id="w104">including</w> <w xml:id="w105">in</w>
+<w xml:id="w106">the</w> <rs type="place" ref="https://pleiades.stoa.org/places/520998"><w xml:id="w107">imperial</w> <w xml:id="w108">city</w></rs><w xml:id="w109">,</w> <w xml:id="w110">and</w> <w xml:id="w111">their</w>
+<w xml:id="w112">communities</w> <w xml:id="w113">gathered</w> <w xml:id="w114">in</w> <w xml:id="w115">freedom</w> <w xml:id="w116">of</w> <w xml:id="w117">assembly</w><w xml:id="w118">.</w> <w xml:id="w119">Then</w> <w xml:id="w120">during</w> <w xml:id="w121">the</w> <w xml:id="w122">days</w> <w xml:id="w123">of</w> <w xml:id="w124">the</w>
+<w xml:id="w125">fast</w><w xml:id="w126">,</w> <persName ref="https://syriaca.org/person/5103"><w xml:id="w127">John</w> <w xml:id="w128">of</w> <w xml:id="w129">Sirmin</w></persName> <w xml:id="w130">through</w> <w xml:id="w131">his</w> <w xml:id="w132">cruelty</w>
+<w xml:id="w133">awakened</w> <w xml:id="w134">the</w> <rs type="person" ref="https://syriaca.org/person/3229"><w xml:id="w135">emperor</w></rs> <w xml:id="w136">in</w> <w xml:id="w137">a</w> <w xml:id="w138">rage</w>
+<w xml:id="w139">against</w> <w xml:id="w140">them</w><w xml:id="w141">.</w> <w xml:id="w142">He</w> <w xml:id="w143">ordered</w> <w xml:id="w144">their</w> <w xml:id="w145">gathering</w> <w xml:id="w146">places</w> <w xml:id="w147">to</w> <w xml:id="w148">be</w> <w xml:id="w149">seized</w><w xml:id="w150">,</w> <w xml:id="w151">the</w> <w xml:id="w152">altars</w>
+<w xml:id="w153">to</w> <w xml:id="w154">be</w> <w xml:id="w155">torn</w> <w xml:id="w156">out</w><w xml:id="w157">,</w> <w xml:id="w158">the</w> <w xml:id="w159">priests</w> <w xml:id="w160">and</w> <w xml:id="w161">their</w> <w xml:id="w162">bishops</w> <w xml:id="w163">to</w> <w xml:id="w164">be</w> <w xml:id="w165">apprehended</w> <w xml:id="w166">and</w> <w xml:id="w167">cast</w>
+<w xml:id="w168">into</w> <w xml:id="w169">prison</w><w xml:id="w170">.</w>
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="3"
+                       xml:id="TR.EH3.1.5-8.MS"
+                       corresp="EH3.1.5-8.MS EH3.1.5-8 TR.EH3.1.5-8">
+                     <p>
+<w xml:id="w171">From</w> <w xml:id="w172">that</w> <w xml:id="w173">moment</w> <w xml:id="w174">on</w><w xml:id="w175">,</w> <w xml:id="w176">as</w> <w xml:id="w177">so</w> <w xml:id="w178">to</w> <w xml:id="w179">speak</w> <seg corresp="#EH3.1.5-8.a #COM.EH3.1.5-8.a" xml:id="TR.EH3.1.5-8.a"><w xml:id="w180">a</w>
+<w xml:id="w181">vehement</w> <w xml:id="w182">storm</w> <w xml:id="w183">and</w> <w xml:id="w184">tempest</w> <w xml:id="w185">with</w> <w xml:id="w186">dense</w> <w xml:id="w187">dark</w> <w xml:id="w188">clouds</w> <w xml:id="w189">battering</w> <w xml:id="w190">down</w> <w xml:id="w191">hail</w><w xml:id="w192">,</w>
+<w xml:id="w193">so</w> <w xml:id="w194">did</w> <w xml:id="w195">a</w> <w xml:id="w196">storm</w> <w xml:id="w197">swell</w> <w xml:id="w198">up</w> <w xml:id="w199">and</w> <w xml:id="w200">arise</w> <w xml:id="w201">against</w> <w xml:id="w202">the</w> <w xml:id="w203">calm</w> <w xml:id="w204">ship</w> <w xml:id="w205">of</w> <w xml:id="w206">the</w> <w xml:id="w207">holy</w>
+<w xml:id="w208">church</w> <w xml:id="w209">of</w> <w xml:id="w210">the</w> <w xml:id="w211">orthodox</w></seg><w xml:id="w212">,</w> <seg corresp="#EH3.1.5-8.b #COM.EH3.1.5-8.b" xml:id="TR.EH3.1.5-8.b"><w xml:id="w213">and</w> <w xml:id="w214">they</w> <w xml:id="w215">were</w>
+<w xml:id="w216">cast</w> <w xml:id="w217">into</w> <w xml:id="w218">different</w> <w xml:id="w219">places</w> <w xml:id="w220">of</w> <w xml:id="w221">confinement</w><w xml:id="w222">.</w> <w xml:id="w223">Some</w> <w xml:id="w224">were</w> <w xml:id="w225">in</w> <w xml:id="w226">prison</w> <w xml:id="w227">with</w>
+<w xml:id="w228">murderers</w></seg><w xml:id="w229">,</w> <seg corresp="#EH3.1.5-8.c #COM.EH3.1.5-8.c" xml:id="TR.EH3.1.5-8.c"><w xml:id="w230">others</w> <w xml:id="w231">in</w>
+<emph><w xml:id="w232">praetoria</w></emph>
+                        </seg><w xml:id="w233">,</w> <seg corresp="#EH3.1.5-8.d #COM.EH3.1.5-8.d" xml:id="TR.EH3.1.5-8.d"><w xml:id="w234">others</w> <w xml:id="w235">in</w> <w xml:id="w236">a</w>
+<emph><w xml:id="w237">dekanikon</w></emph>
+                        </seg><w xml:id="w238">,</w> <seg corresp="#EH3.1.5-8.e #COM.EH3.1.5-8.e" xml:id="TR.EH3.1.5-8.e"><w xml:id="w239">still</w> <w xml:id="w240">others</w> <w xml:id="w241">in</w>
+<w xml:id="w242">prison</w> <w xml:id="w243">cells</w> <w xml:id="w244">under</w> <w xml:id="w245">the</w> <w xml:id="w246">episcopal</w> <w xml:id="w247">palace</w></seg><w xml:id="w248">,</w>
+<seg corresp="#EH3.1.5-8.f #COM.EH3.1.5-8.f" xml:id="TR.EH3.1.5-8.f"><w xml:id="w249">others</w> <w xml:id="w250">in</w> <w xml:id="w251">other</w> <w xml:id="w252">places</w> <w xml:id="w253">of</w> <w xml:id="w254">banishment</w> <w xml:id="w255">within</w>
+<w xml:id="w256">the</w> <w xml:id="w257">churches</w></seg><w xml:id="w258">.</w> <seg corresp="#EH3.1.5-8.g #COM.EH3.1.5-8.g" xml:id="TR.EH3.1.5-8.g"><w xml:id="w259">Many</w> <w xml:id="w260">fled</w> <w xml:id="w261">and</w> <w xml:id="w262">were</w>
+<w xml:id="w263">scattered</w> <w xml:id="w264">about</w> <w xml:id="w265">in</w> <w xml:id="w266">all</w> <w xml:id="w267">manner</w> <w xml:id="w268">of</w> <w xml:id="w269">places</w></seg><w xml:id="w270">.</w>
+<seg corresp="#EH3.1.5-8.h #COM.EH3.1.5-8.h" xml:id="TR.EH3.1.5-8.h"><w xml:id="w271">What</w> <w xml:id="w272">is</w> <w xml:id="w273">more</w> <w xml:id="w274">grievous</w> <w xml:id="w275">is</w> <w xml:id="w276">that</w> <w xml:id="w277">they</w> <w xml:id="w278">ordained</w>
+<w xml:id="w279">the</w> <w xml:id="w280">devout</w> <w xml:id="w281">bishops</w> <w xml:id="w282">once</w> <w xml:id="w283">again</w></seg>
+                        <seg corresp="#EH3.1.5-8.i #COM.EH3.1.5-8.i" xml:id="TR.EH3.1.5-8.i"><w xml:id="w284">and</w>
+<w xml:id="w285">demanded</w> <w xml:id="w286">that</w> <w xml:id="w287">they</w> <w xml:id="w288">produce</w> <w xml:id="w289">a</w> <emph><w xml:id="w290">libellus</w></emph>
+                        </seg><w xml:id="w291">.</w> <w xml:id="w292">Words</w> <w xml:id="w293">do</w> <w xml:id="w294">not</w>
+<w xml:id="w295">suffice</w> <w xml:id="w296">to</w> <w xml:id="w297">speak</w> <w xml:id="w298">about</w> <w xml:id="w299">those</w> <w xml:id="w300">things</w> <w xml:id="w301">that</w> <w xml:id="w302">Christians</w> <w xml:id="w303">endured</w> <w xml:id="w304">in</w> <w xml:id="w305">places</w> <w xml:id="w306">of</w>
+<w xml:id="w307">confinement</w><w xml:id="w308">.</w> <w xml:id="w309">What</w> <w xml:id="w310">is</w> <w xml:id="w311">more</w> <w xml:id="w312">grievous</w> <w xml:id="w313">is</w> <w xml:id="w314">that</w>
+<seg corresp="#EH3.1.5-8.j #COM.EH3.1.5-8.j" xml:id="TR.EH3.1.5-8.j"><w xml:id="w315">they</w> <w xml:id="w316">did</w> <w xml:id="w317">not</w> <w xml:id="w318">allow</w> <w xml:id="w319">anyone</w> <w xml:id="w320">the</w> <w xml:id="w321">imprisoned</w>
+<w xml:id="w322">bishops</w> <w xml:id="w323">knew</w> <w xml:id="w324">to</w> <w xml:id="w325">come</w> <w xml:id="w326">to</w> <w xml:id="w327">them</w> <w xml:id="w328">or</w> <w xml:id="w329">to</w> <w xml:id="w330">speak</w> <w xml:id="w331">with</w> <w xml:id="w332">them</w> <w xml:id="w333">at</w> <w xml:id="w334">all</w></seg><w xml:id="w335">.</w> <w xml:id="w336">Food</w>
+<w xml:id="w337">was</w> <w xml:id="w338">given</w>
+<note>
+The Syriac word for “food” is taken as masculine in this passage
+</note>
+<w xml:id="w339">to</w> <w xml:id="w340">them</w><w xml:id="w341">,</w> <w xml:id="w342">preserving</w> <w xml:id="w343">life</w><w xml:id="w344">.</w> <seg corresp="#EH3.1.5-8.k #COM.EH3.1.5-8.k" xml:id="TR.EH3.1.5-8.k"><w xml:id="w345">They</w> <w xml:id="w346">made</w> <w xml:id="w347">those</w> <w xml:id="w348">who</w>
+<w xml:id="w349">were</w> <w xml:id="w350">confined</w> <w xml:id="w351">in</w> <w xml:id="w352">monasteries</w> <w xml:id="w353">-</w> <w xml:id="w354">if</w> <w xml:id="w355">it</w> <w xml:id="w356">is</w> <w xml:id="w357">right</w> <w xml:id="w358">for</w> <w xml:id="w359">them</w> <w xml:id="w360">to</w> <w xml:id="w361">be</w> <w xml:id="w362">called</w>
+<w xml:id="w363">monasteries</w> <w xml:id="w364">-</w> <w xml:id="w365">endure</w> <w xml:id="w366">more</w> <w xml:id="w367">tribulations</w></seg><w xml:id="w368">,</w> <w xml:id="w369">looking</w> <w xml:id="w370">at</w> <w xml:id="w371">them</w> <w xml:id="w372">with</w> <w xml:id="w373">ire</w><w xml:id="w374">,</w>
+<seg corresp="#EH3.1.5-8.l #COM.EH3.1.5-8.l" xml:id="TR.EH3.1.5-8.l"><w xml:id="w375">casting</w> <w xml:id="w376">the</w> <w xml:id="w377">rinsing</w> <w xml:id="w378">liquid</w> <w xml:id="w379">from</w> <w xml:id="w380">their</w> <w xml:id="w381">basins</w>
+<w xml:id="w382">at</w> <w xml:id="w383">them</w><w xml:id="w384">,</w> <w xml:id="w385">giving</w> <w xml:id="w386">them</w> <w xml:id="w387">instead</w> <w xml:id="w388">of</w> <w xml:id="w389">wine</w> <w xml:id="w390">some</w> <w xml:id="w391">vinegar</w> <w xml:id="w392">to</w> <w xml:id="w393">drink</w></seg><w xml:id="w394">,</w>
+<w xml:id="w395">spoiled</w> <w xml:id="w396">wine</w><w xml:id="w397">,</w> <w xml:id="w398">or</w> <w xml:id="w399">the</w> <w xml:id="w400">putrid</w> <w xml:id="w401">sediment</w> <w xml:id="w402">from</w> <w xml:id="w403">foul</w> <w xml:id="w404">dregs</w><w xml:id="w405">,</w> <w xml:id="w406">so</w> <w xml:id="w407">that</w> <w xml:id="w408">they</w> <w xml:id="w409">could</w>
+<w xml:id="w410">not</w> <w xml:id="w411">live</w><w xml:id="w412">.</w>
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="4"
+                       xml:id="TR.EH3.1.9.MS"
+                       corresp="EH3.1.9.MS EH3.1.9 TR.EH3.1.9">
+                     <p>
+<w xml:id="w413">As</w> <w xml:id="w414">for</w> <seg corresp="#EH3.1.9.b #COM.EH3.1.9.b" xml:id="TR.EH3.1.9.b"><w xml:id="w415">the</w> <w xml:id="w416">old</w> <w xml:id="w417">man</w>
+<persName ref="https://syriaca.org/person/5156"><w xml:id="w418">Stephen</w></persName><w xml:id="w419">,</w> <w xml:id="w420">a</w> <w xml:id="w421">presbyter</w> <note type="explanation">and</note> <w xml:id="w422">man</w>
+<w xml:id="w423">who</w> <w xml:id="w424">was</w> <w xml:id="w425">adorned</w> <w xml:id="w426">with</w> <w xml:id="w427">divine</w> <w xml:id="w428">zeal</w></seg><w xml:id="w429">,</w> <w xml:id="w430">when</w> <w xml:id="w431">they</w> <w xml:id="w432">had</w> <w xml:id="w433">confined</w> <w xml:id="w434">him</w><w xml:id="w435">,</w> <w xml:id="w436">he</w>
+<w xml:id="w437">outright</w> <w xml:id="w438">pronounced</w> <w xml:id="w439">a</w> <w xml:id="w440">curse</w> <w xml:id="w441">against</w> <w xml:id="w442">them</w> <w xml:id="w443">to</w> <w xml:id="w444">their</w> <w xml:id="w445">face</w><w xml:id="w446">.</w> <w xml:id="w447">In</w> <w xml:id="w448">their</w> <w xml:id="w449">fury</w><w xml:id="w450">,</w>
+<w xml:id="w451">they</w> <w xml:id="w452">handed</w> <w xml:id="w453">him</w> <w xml:id="w454">over</w> <w xml:id="w455">to</w> <w xml:id="w456">the</w> <rs type="person" ref="https://syriaca.org/person/5188"><w xml:id="w457">prefect</w></rs> <w xml:id="w458">and</w>
+<w xml:id="w459">he</w> <w xml:id="w460">said</w> <w xml:id="w461">to</w> <w xml:id="w462">the</w> <rs type="person" ref="https://syriaca.org/person/5188"><w xml:id="w463">prefect</w></rs><w xml:id="w464">:</w> <w xml:id="w465">“</w><w xml:id="w466">Evil</w>
+<note type="explanation">and</note> <w xml:id="w467">wicked</w> <w xml:id="w468">one</w><w xml:id="w469">,</w> <w xml:id="w470">why</w> <w xml:id="w471">do</w> <w xml:id="w472">you</w> <w xml:id="w473">keep</w> <w xml:id="w474">as</w> <w xml:id="w475">a</w> <w xml:id="w476">Christian</w> <w xml:id="w477">alongside</w>
+<w xml:id="w478">those</w> <w xml:id="w479">who</w> <w xml:id="w480">sent</w> <w xml:id="w481">me</w> <w xml:id="w482">to</w> <w xml:id="w483">you</w><w xml:id="w484">,</w> <w xml:id="w485">judging</w> <w xml:id="w486">the</w> <w xml:id="w487">Christians</w> <w xml:id="w488">as</w> <w xml:id="w489">a</w> <w xml:id="w490">pagan</w><w xml:id="w491">?</w> <w xml:id="w492">You</w> <w xml:id="w493">are</w> <w xml:id="w494">not</w>
+<w xml:id="w495">among</w> <w xml:id="w496">the</w> <w xml:id="w497">living</w><w xml:id="w498">,</w> <w xml:id="w499">unless</w> <w xml:id="w500">you</w> <w xml:id="w501">immediately</w> <w xml:id="w502">set</w> <w xml:id="w503">me</w> <w xml:id="w504">on</w> <w xml:id="w505">fire</w><w xml:id="w506">,</w> <w xml:id="w507">a</w> <w xml:id="w508">Christian</w> <w xml:id="w509">old</w>
+<w xml:id="w510">man</w><w xml:id="w511">,</w> <w xml:id="w512">and</w> <w xml:id="w513">eat</w> <w xml:id="w514">me</w> <w xml:id="w515">when</w> <w xml:id="w516">I</w> <w xml:id="w517">have</w> <w xml:id="w518">been</w> <w xml:id="w519">roasted</w><w xml:id="w520">.</w><w xml:id="w521">”</w> <w xml:id="w522">When</w> <w xml:id="w523">the</w>
+<rs type="person" ref="https://syriaca.org/person/5188"><w xml:id="w524">prefect</w></rs> <w xml:id="w525">heard</w> <w xml:id="w526">these</w> <w xml:id="w527">things</w><w xml:id="w528">,</w> <w xml:id="w529">he</w> <w xml:id="w530">was</w> <w xml:id="w531">shaken</w>
+<w xml:id="w532">and</w> <w xml:id="w533">sent</w> <w xml:id="w534">him</w> <w xml:id="w535">to</w> <w xml:id="w536">the</w> <rs type="person" ref="https://syriaca.org/person/5103"><w xml:id="w537">bishop</w></rs><w xml:id="w538">.</w> <w xml:id="w539">That</w> <w xml:id="w540">one</w> <w xml:id="w541">in</w> <w xml:id="w542">a</w>
+<w xml:id="w543">rage</w> <w xml:id="w544">sent</w> <w xml:id="w545">him</w> <w xml:id="w546">into</w> <w xml:id="w547">imprisonment</w> <w xml:id="w548">in</w>
+<placeName ref="https://pleiades.stoa.org/places/511357"><w xml:id="w549">Heraclea</w></placeName> <w xml:id="w550">in</w>
+<placeName ref="https://pleiades.stoa.org/places/501638"><w xml:id="w551">Thrace</w></placeName><w xml:id="w552">.</w> <w xml:id="w553">He</w> <w xml:id="w554">was</w> <w xml:id="w555">imprisoned</w> <w xml:id="w556">for</w> <w xml:id="w557">two</w>
+<w xml:id="w558">years</w> <w xml:id="w559">without</w> <w xml:id="w560">anyone</w> <w xml:id="w561">at</w> <w xml:id="w562">all</w> <w xml:id="w563">of</w> <w xml:id="w564">those</w> <w xml:id="w565">who</w> <w xml:id="w566">knew</w> <w xml:id="w567">him</w> <w xml:id="w568">being</w> <w xml:id="w569">allowed</w> <w xml:id="w570">to</w> <w xml:id="w571">be</w>
+<w xml:id="w572">seen</w> <w xml:id="w573">by</w> <w xml:id="w574">him</w><w xml:id="w575">.</w> <w xml:id="w576">As</w> <w xml:id="w577">he</w> <w xml:id="w578">was</w> <w xml:id="w579">not</w> <w xml:id="w580">given</w> <w xml:id="w581">a</w> <w xml:id="w582">garment</w> <w xml:id="w583">to</w> <w xml:id="w584">change</w> <w xml:id="w585">into</w><w xml:id="w586">,</w> <w xml:id="w587">he</w> <w xml:id="w588">was</w>
+<w xml:id="w589">tormented</w> <w xml:id="w590">by</w> <w xml:id="w591">lice</w> <w xml:id="w592">and</w> <w xml:id="w593">grew</w> <w xml:id="w594">ill</w> <w xml:id="w595">to</w> <w xml:id="w596">the</w> <w xml:id="w597">point</w> <w xml:id="w598">of</w> <w xml:id="w599">death</w><w xml:id="w600">.</w> <w xml:id="w601">He</w> <w xml:id="w602">pronounced</w> <w xml:id="w603">a</w>
+<w xml:id="w604">curse</w> <w xml:id="w605">so</w> <w xml:id="w606">that</w> <w xml:id="w607">the</w> <w xml:id="w608">synodites</w> <w xml:id="w609">would</w> <w xml:id="w610">not</w> <w xml:id="w611">bury</w> <w xml:id="w612">him</w> <w xml:id="w613">and</w> <w xml:id="w614">so</w> <w xml:id="w615">that</w> <w xml:id="w616">none</w> <w xml:id="w617">of</w> <w xml:id="w618">them</w>
+<w xml:id="w619">would</w> <w xml:id="w620">offer</w> <w xml:id="w621">a</w> <w xml:id="w622">prayer</w> <w xml:id="w623">for</w> <w xml:id="w624">him</w><w xml:id="w625">.</w> <w xml:id="w626">God</w> <w xml:id="w627">prepared</w> <w xml:id="w628">some</w> <w xml:id="w629">Romans</w> <w xml:id="w630">who</w> <w xml:id="w631">were</w>
+<w xml:id="w632">orthodox</w><w xml:id="w633">,</w> <w xml:id="w634">and</w> <w xml:id="w635">they</w> <w xml:id="w636">buried</w> <w xml:id="w637">him</w><w xml:id="w638">.</w>
+</p>
+                  </div>
+               </div>
+               <div type="textpart" xml:lang="syc" subtype="chapter" n="5">
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="1"
+                       xml:id="TR.EH3.1.14.MS"
+                       corresp="EH3.1.14.MS EH3.1.14 TR.EH3.1.14">
+                     <p>
+                        <persName ref="https://syriaca.org/person/5103"><w xml:id="w639">John</w></persName> <w xml:id="w640">sent</w> <w xml:id="w641">for</w> <w xml:id="w642">and</w> <w xml:id="w643">had</w> <w xml:id="w644">brought</w> <note type="explanation">to
+him</note> <w xml:id="w645">a</w> <w xml:id="w646">certain</w> <w xml:id="w647">bishop</w><w xml:id="w648">,</w> <w xml:id="w649">a</w> <w xml:id="w650">simple</w> <w xml:id="w651">old</w> <w xml:id="w652">man</w><w xml:id="w653">,</w> <w xml:id="w654">whose</w> <w xml:id="w655">name</w> <w xml:id="w656">was</w>
+<persName ref="https://syriaca.org/person/3240"><w xml:id="w657">Paul</w></persName><w xml:id="w658">,</w> <w xml:id="w659">and</w> <w xml:id="w660">he</w> <w xml:id="w661">cast</w> <w xml:id="w662">him</w> <w xml:id="w663">in</w> <w xml:id="w664">fetters</w><w xml:id="w665">.</w> <w xml:id="w666">While</w>
+<w xml:id="w667">subjecting</w> <w xml:id="w668">him</w> <w xml:id="w669">by</w> <w xml:id="w670">force</w><w xml:id="w671">,</w> <w xml:id="w672">he</w> <w xml:id="w673">issued</w> <w xml:id="w674">an</w> <w xml:id="w675">order</w> <w xml:id="w676">that</w> <w xml:id="w677">he</w> <w xml:id="w678">be</w> <w xml:id="w679">reappointed</w>
+<note type="explanation">as bishop</note> <w xml:id="w680">of</w> <placeName ref="https://pleiades.stoa.org/places/638748"><w xml:id="w681">Antioch</w></placeName> <w xml:id="w682">in</w>
+<placeName ref="https://pleiades.stoa.org/places/1001916"><w xml:id="w683">Caria</w></placeName><w xml:id="w684">.</w> <w xml:id="w685">As</w> <w xml:id="w686">though</w> <w xml:id="w687">they</w> <w xml:id="w688">thought</w> <w xml:id="w689">they</w>
+<w xml:id="w690">had</w> <w xml:id="w691">defrocked</w> <w xml:id="w692">him</w> <w xml:id="w693">of</w> <w xml:id="w694">the</w> <w xml:id="w695">original</w> <w xml:id="w696">priestly</w> <w xml:id="w697">rank</w><w xml:id="w698">,</w> <w xml:id="w699">they</w> <w xml:id="w700">reappointed</w> <w xml:id="w701">him</w> <w xml:id="w702">as</w>
+<w xml:id="w703">if</w> <note type="explanation">he were</note> <w xml:id="w704">a</w> <w xml:id="w705">lay</w> <w xml:id="w706">person</w><w xml:id="w707">.</w> <w xml:id="w708">Such</w> <w xml:id="w709">disgrace</w> <w xml:id="w710">even</w>
+<note type="explanation">came</note> <w xml:id="w711">from</w> <w xml:id="w712">his</w> <w xml:id="w713">own</w> <note type="explanation">people</note><w xml:id="w714">,</w> <w xml:id="w715">and</w> <w xml:id="w716">they</w> <w xml:id="w717">called</w> <w xml:id="w718">him</w>
+<w xml:id="w719">“</w><w xml:id="w720">the</w> <w xml:id="w721">twice</w><w xml:id="w722">-</w><w xml:id="w723">dipped</w><w xml:id="w724">.</w><w xml:id="w725">”</w> <w xml:id="w726">He</w> <w xml:id="w727">died</w> <w xml:id="w728">from</w> <w xml:id="w729">his</w> <w xml:id="w730">grief</w><w xml:id="w731">.</w>
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="2"
+                       xml:id="TR.EH3.1.15.MS"
+                       corresp="EH3.1.15.MS EH3.1.15 TR.EH3.1.15">
+                     <p>
+<w xml:id="w732">While</w> <note type="explanation">
+                           <persName ref="https://syriaca.org/person/5103">John of Sirmin</persName>
+                        </note> <w xml:id="w733">was</w>
+<w xml:id="w734">constraining</w> <persName ref="https://syriaca.org/person/5081"><w xml:id="w735">Elisha</w></persName><w xml:id="w736">,</w> <note type="explanation">Elisha</note>
+<w xml:id="w737">said</w><w xml:id="w738">:</w> <w xml:id="w739">“</w><w xml:id="w740">As</w> <w xml:id="w741">for</w> <w xml:id="w742">me</w><w xml:id="w743">,</w> <w xml:id="w744">since</w> <w xml:id="w745">I</w> <w xml:id="w746">am</w> <w xml:id="w747">worthy</w><w xml:id="w748">,</w> <w xml:id="w749">I</w> <w xml:id="w750">have</w> <w xml:id="w751">been</w> <w xml:id="w752">ordained</w> <w xml:id="w753">bishop</w><w xml:id="w754">.</w> <w xml:id="w755">But</w> <w xml:id="w756">as</w>
+<w xml:id="w757">for</w> <w xml:id="w758">you</w><w xml:id="w759">,</w> <w xml:id="w760">you</w> <w xml:id="w761">are</w> <w xml:id="w762">not</w> <w xml:id="w763">going</w> <w xml:id="w764">to</w> <w xml:id="w765">ordain</w> <w xml:id="w766">me</w> <w xml:id="w767">in</w> <w xml:id="w768">any</w> <w xml:id="w769">way</w><w xml:id="w770">.</w> <w xml:id="w771">But</w> <w xml:id="w772">if</w> <w xml:id="w773">you</w> <w xml:id="w774">still</w>
+<w xml:id="w775">deem</w> <w xml:id="w776">it</w> <w xml:id="w777">orderly</w> <w xml:id="w778">to</w> <w xml:id="w779">depose</w> <w xml:id="w780">me</w> <w xml:id="w781">from</w> <w xml:id="w782">the</w> <w xml:id="w783">priesthood</w> <w xml:id="w784">or</w> <w xml:id="w785">to</w> <w xml:id="w786">reordain</w> <w xml:id="w787">me</w><w xml:id="w788">,</w> <w xml:id="w789">then</w>
+<w xml:id="w790">depose</w> <w xml:id="w791">me</w> <w xml:id="w792">also</w> <w xml:id="w793">of</w> <w xml:id="w794">baptism</w><w xml:id="w795">.</w><w xml:id="w796">”</w> <note type="explanation">
+                           <persName ref="https://syriaca.org/person/5103">John of
+Sirmin</persName>
+                        </note> <w xml:id="w797">said</w> <w xml:id="w798">to</w> <w xml:id="w799">him</w> <w xml:id="w800">deceitfully</w><w xml:id="w801">:</w> <w xml:id="w802">“</w><w xml:id="w803">I</w> <w xml:id="w804">am</w> <w xml:id="w805">only</w> <w xml:id="w806">placing</w> <w xml:id="w807">the</w>
+<w xml:id="w808">cloak</w> <w xml:id="w809">on</w> <w xml:id="w810">you</w><w xml:id="w811">.</w><w xml:id="w812">”</w> <w xml:id="w813">Since</w> <w xml:id="w814">he</w> <w xml:id="w815">was</w> <w xml:id="w816">not</w> <w xml:id="w817">persuaded</w><w xml:id="w818">,</w> <w xml:id="w819">he</w> <w xml:id="w820">sent</w> <w xml:id="w821">him</w> <w xml:id="w822">to</w> <w xml:id="w823">a</w> <w xml:id="w824">place</w> <w xml:id="w825">of</w>
+<w xml:id="w826">banishment</w><w xml:id="w827">.</w>
+</p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="3"
+                       xml:id="TR.EH3.1.16.MS"
+                       corresp="EH3.1.16.MS EH3.1.16 TR.EH3.1.16">
+                     <p>
+                        <note type="explanation">
+                           <persName ref="https://syriaca.org/person/5103">John</persName>
+                        </note> <w xml:id="w828">then</w> <w xml:id="w829">brought</w>
+<persName ref="https://syriaca.org/person/5157"><w xml:id="w830">Stephen</w></persName> <w xml:id="w831">out</w> <w xml:id="w832">of</w> <w xml:id="w833">prison</w> <w xml:id="w834">after</w>
+<note type="explanation">
+                           <persName ref="https://syriaca.org/person/5157">Stephen</persName>
+                        </note> <w xml:id="w835">had</w> <w xml:id="w836">endured</w> <w xml:id="w837">many</w>
+<w xml:id="w838">torments</w> <w xml:id="w839">from</w> <w xml:id="w840">him</w><w xml:id="w841">.</w> <note type="explanation">
+                           <persName ref="https://syriaca.org/person/5157">Stephen</persName>
+                        </note>
+<w xml:id="w842">strongly</w> <w xml:id="w843">rebuked</w> <w xml:id="w844">him</w> <w xml:id="w845">regarding</w> <w xml:id="w846">the</w> <w xml:id="w847">second</w> <w xml:id="w848">ordination</w><w xml:id="w849">.</w> <w xml:id="w850">For</w> <w xml:id="w851">this</w> <w xml:id="w852">reason</w><w xml:id="w853">,</w>
+<note type="explanation">
+                           <persName ref="https://syriaca.org/person/5103">John</persName>
+                        </note> <w xml:id="w854">then</w> <w xml:id="w855">cast</w> <w xml:id="w856">him</w> <w xml:id="w857">in</w> <w xml:id="w858">prison</w>
+<w xml:id="w859">and</w> <w xml:id="w860">sent</w> <w xml:id="w861">the</w> <emph><w xml:id="w862">quaestionarii</w></emph><w xml:id="w863">.</w> <w xml:id="w864">They</w> <w xml:id="w865">beat</w> <w xml:id="w866">him</w> <w xml:id="w867">with</w> <w xml:id="w868">harsh</w> <w xml:id="w869">blows</w>
+<w xml:id="w870">until</w> <w xml:id="w871">blood</w> <w xml:id="w872">gushed</w> <w xml:id="w873">forth</w><w xml:id="w874">.</w> <w xml:id="w875">After</w> <w xml:id="w876">these</w> <w xml:id="w877">things</w><w xml:id="w878">,</w>
+<note type="explanation">
+                           <persName ref="https://syriaca.org/person/5103">John</persName>
+                        </note> <w xml:id="w879">then</w> <w xml:id="w880">brought</w> <w xml:id="w881">him</w> <w xml:id="w882">and</w>
+<w xml:id="w883">tormented</w> <w xml:id="w884">him</w> <w xml:id="w885">so</w> <w xml:id="w886">that</w> <w xml:id="w887">he</w> <w xml:id="w888">might</w> <w xml:id="w889">accept</w> <w xml:id="w890">the</w> <w xml:id="w891">second</w> <w xml:id="w892">ordination</w><w xml:id="w893">.</w> <w xml:id="w894">But</w> <w xml:id="w895">he</w>
+<w xml:id="w896">shouted</w> <w xml:id="w897">and</w> <w xml:id="w898">said</w><w xml:id="w899">:</w> <w xml:id="w900">“</w><emph><w xml:id="w901">O</w> <w xml:id="w902">bia</w><w xml:id="w903">!</w></emph>
+                        <note>
+The Syriac word is a transliteration of the Greek exclamation ὦ βία.
+</note>
+<w xml:id="w904">I</w> <w xml:id="w905">will</w> <w xml:id="w906">never</w> <w xml:id="w907">accept</w> <w xml:id="w908">to</w> <w xml:id="w909">be</w> <w xml:id="w910">stripped</w> <w xml:id="w911">of</w> <w xml:id="w912">the</w> <w xml:id="w913">priesthood</w><w xml:id="w914">,</w> <w xml:id="w915">unless</w> <w xml:id="w916">you</w> <w xml:id="w917">first</w>
+<w xml:id="w918">also</w> <w xml:id="w919">strip</w> <w xml:id="w920">me</w> <w xml:id="w921">of</w> <w xml:id="w922">baptism</w><w xml:id="w923">.</w><w xml:id="w924">”</w> <w xml:id="w925">Then</w> <w xml:id="w926">there</w> <w xml:id="w927">was</w> <w xml:id="w928">a</w> <w xml:id="w929">great</w> <w xml:id="w930">commotion</w><w xml:id="w931">,</w> <w xml:id="w932">and</w>
+<persName ref="https://syriaca.org/person/5157"><w xml:id="w933">Stephen</w></persName> <w xml:id="w934">was</w> <w xml:id="w935">able</w> <w xml:id="w936">to</w> <w xml:id="w937">go</w> <w xml:id="w938">to</w> <w xml:id="w939">the</w>
+<rs type="person" ref="https://syriaca.org/person/3229"><w xml:id="w940">emperor</w></rs><w xml:id="w941">.</w> <w xml:id="w942">He</w> <w xml:id="w943">cried</w> <w xml:id="w944">out</w><w xml:id="w945">:</w> <w xml:id="w946">“</w><w xml:id="w947">Christianity</w> <w xml:id="w948">has</w>
+<w xml:id="w949">been</w> <w xml:id="w950">lost</w><w xml:id="w951">!</w> <w xml:id="w952">It</w> <w xml:id="w953">has</w> <w xml:id="w954">been</w> <w xml:id="w955">lost</w><w xml:id="w956">!</w> <w xml:id="w957">The</w> <w xml:id="w958">ordinances</w> <w xml:id="w959">and</w> <w xml:id="w960">canons</w> <w xml:id="w961">have</w> <w xml:id="w962">been</w>
+<w xml:id="w963">corrupted</w><w xml:id="w964">!</w> <w xml:id="w965">Look</w><w xml:id="w966">,</w> <w xml:id="w967">I</w> <w xml:id="w968">have</w> <w xml:id="w969">been</w> <w xml:id="w970">a</w> <w xml:id="w971">bishop</w> <w xml:id="w972">for</w> <w xml:id="w973">twenty</w> <w xml:id="w974">years</w><w xml:id="w975">.</w> <w xml:id="w976">But</w> <w xml:id="w977">now</w> <w xml:id="w978">that</w> <w xml:id="w979">I</w>
+<w xml:id="w980">have</w> <w xml:id="w981">given</w> <w xml:id="w982">myself</w> <w xml:id="w983">over</w> <w xml:id="w984">to</w> <w xml:id="w985">acquiesce</w> <w xml:id="w986">to</w> <w xml:id="w987">your</w> <w xml:id="w988">command</w><w xml:id="w989">,</w> <w xml:id="w990">becoming</w>
+<w xml:id="w991">blameworthy</w><w xml:id="w992">,</w> <w xml:id="w993">he</w> <w xml:id="w994">wants</w> <w xml:id="w995">to</w> <w xml:id="w996">depose</w> <w xml:id="w997">me</w> <w xml:id="w998">from</w> <w xml:id="w999">the</w> <w xml:id="w1000">orthodox</w> <w xml:id="w1001">priesthood</w> <w xml:id="w1002">and</w>
+<w xml:id="w1003">reordain</w> <w xml:id="w1004">me</w> <w xml:id="w1005">as</w> <w xml:id="w1006">one</w> <w xml:id="w1007">of</w> <w xml:id="w1008">his</w> <w xml:id="w1009">own</w><w xml:id="w1010">.</w> <w xml:id="w1011">Let</w> <w xml:id="w1012">him</w> <w xml:id="w1013">reveal</w> <w xml:id="w1014">from</w> <w xml:id="w1015">which</w> <w xml:id="w1016">canons</w> <w xml:id="w1017">he</w> <w xml:id="w1018">has</w>
+<w xml:id="w1019">it</w><w xml:id="w1020">!</w> <w xml:id="w1021">Either</w> <w xml:id="w1022">he</w> <w xml:id="w1023">was</w> <w xml:id="w1024">not</w> <w xml:id="w1025">aware</w> <w xml:id="w1026">of</w> <w xml:id="w1027">and</w> <w xml:id="w1028">did</w> <w xml:id="w1029">not</w> <w xml:id="w1030">know</w> <w xml:id="w1031">the</w> <w xml:id="w1032">ecclesiastical</w>
+<w xml:id="w1033">canons</w><w xml:id="w1034">,</w> <w xml:id="w1035">or</w> <w xml:id="w1036">although</w> <w xml:id="w1037">he</w> <w xml:id="w1038">knew</w> <w xml:id="w1039">them</w><w xml:id="w1040">,</w> <w xml:id="w1041">he</w> <w xml:id="w1042">is</w> <w xml:id="w1043">disregarding</w> <w xml:id="w1044">them</w> <w xml:id="w1045">in</w> <w xml:id="w1046">his</w>
+<w xml:id="w1047">tyranny</w><w xml:id="w1048">.</w> <w xml:id="w1049">Look</w><w xml:id="w1050">,</w> <w xml:id="w1051">he</w> <w xml:id="w1052">is</w> <w xml:id="w1053">casting</w> <w xml:id="w1054">the</w> <w xml:id="w1055">blame</w> <w xml:id="w1056">on</w> <w xml:id="w1057">your</w> <w xml:id="w1058">majesty</w><w xml:id="w1059">.</w> <w xml:id="w1060">If</w> <w xml:id="w1061">he</w> <w xml:id="w1062">at</w> <w xml:id="w1063">your</w>
+<w xml:id="w1064">order</w> <w xml:id="w1065">is</w> <w xml:id="w1066">doing</w> <w xml:id="w1067">these</w> <w xml:id="w1068">things</w><w xml:id="w1069">,</w> <w xml:id="w1070">then</w> <w xml:id="w1071">order</w> <w xml:id="w1072">him</w> <w xml:id="w1073">to</w> <w xml:id="w1074">abolish</w> <w xml:id="w1075">the</w> <w xml:id="w1076">baptism</w> <w xml:id="w1077">as</w>
+<w xml:id="w1078">well</w> <w xml:id="w1079">and</w> <w xml:id="w1080">to</w> <w xml:id="w1081">baptize</w> <w xml:id="w1082">again</w><w xml:id="w1083">.</w> <w xml:id="w1084">The</w> <w xml:id="w1085">nineteenth</w> <w xml:id="w1086">canon</w> <w xml:id="w1087">of</w> <w xml:id="w1088">the</w> <w xml:id="w1089">318</w> <w xml:id="w1090">fathers</w><w xml:id="w1091">,</w>
+<w xml:id="w1092">concerning</w> <w xml:id="w1093">the</w> <w xml:id="w1094">heresy</w> <w xml:id="w1095">of</w> <persName ref="https://syriaca.org/person/2469"><w xml:id="w1096">Paul</w> <w xml:id="w1097">of</w> <w xml:id="w1098">Samosata</w></persName>
+<w xml:id="w1099">and</w> <w xml:id="w1100">those</w> <w xml:id="w1101">like</w> <w xml:id="w1102">him</w><w xml:id="w1103">,</w> <w xml:id="w1104">orders</w> <w xml:id="w1105">them</w> <w xml:id="w1106">to</w> <w xml:id="w1107">be</w> <w xml:id="w1108">rebaptized</w> <w xml:id="w1109">and</w> <w xml:id="w1110">then</w> <w xml:id="w1111">to</w> <w xml:id="w1112">become</w>
+<w xml:id="w1113">priests</w><w xml:id="w1114">.</w> <w xml:id="w1115">Let</w> <w xml:id="w1116">him</w> <w xml:id="w1117">reveal</w> <w xml:id="w1118">from</w> <w xml:id="w1119">where</w> <w xml:id="w1120">he</w> <w xml:id="w1121">came</w> <w xml:id="w1122">to</w> <w xml:id="w1123">depose</w> <w xml:id="w1124">us</w> <w xml:id="w1125">so</w> <w xml:id="w1126">that</w> <w xml:id="w1127">he</w> <w xml:id="w1128">might</w>
+<w xml:id="w1129">reappoint</w> <note type="explanation">us</note><w xml:id="w1130">.</w><w xml:id="w1131">”</w> <w xml:id="w1132">The</w> <rs type="person" ref="https://syriaca.org/person/3229"><w xml:id="w1133">emperor</w></rs>
+<w xml:id="w1134">was</w> <w xml:id="w1135">startled</w> <w xml:id="w1136">as</w> <w xml:id="w1137">though</w> <w xml:id="w1138">from</w> <w xml:id="w1139">sleep</w><w xml:id="w1140">.</w> <w xml:id="w1141">He</w> <w xml:id="w1142">despised</w> <w xml:id="w1143">this</w> <w xml:id="w1144">deed</w><w xml:id="w1145">,</w> <w xml:id="w1146">ordered</w> <w xml:id="w1147">that</w>
+<w xml:id="w1148">it</w> <w xml:id="w1149">not</w> <w xml:id="w1150">come</w> <w xml:id="w1151">to</w> <w xml:id="w1152">pass</w><w xml:id="w1153">,</w> <w xml:id="w1154">and</w> <w xml:id="w1155">immediately</w> <w xml:id="w1156">made</w> <w xml:id="w1157">a</w> <emph><w xml:id="w1158">typos</w>
+<w xml:id="w1159">pragmatikos</w></emph> <w xml:id="w1160">so</w> <w xml:id="w1161">that</w> <w xml:id="w1162">no</w> <w xml:id="w1163">one</w> <w xml:id="w1164">might</w> <w xml:id="w1165">venture</w> <w xml:id="w1166">to</w> <w xml:id="w1167">abolish</w> <w xml:id="w1168">the</w>
+<w xml:id="w1169">priesthood</w><w xml:id="w1170">,</w> <w xml:id="w1171">except</w> <w xml:id="w1172">for</w> <w xml:id="w1173">heresies</w> <w xml:id="w1174">concerning</w> <w xml:id="w1175">which</w> <w xml:id="w1176">the</w> <w xml:id="w1177">canons</w> <w xml:id="w1178">give</w> <w xml:id="w1179">an</w>
+<w xml:id="w1180">order</w><w xml:id="w1181">.</w>
+</p>
+                  </div>
+               </div>
+               <div type="textpart" xml:lang="syc" subtype="chapter" n="7">
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="1"
+                       xml:id="TR.EH3.1.37.MS"
+                       corresp="EH3.1.37.MS EH3.1.37 TR.EH3.1.37">
+                     <p>
+<w xml:id="w1182">Then</w><w xml:id="w1183">,</w> <w xml:id="w1184">when</w> <persName ref="https://syriaca.org/person/5103"><w xml:id="w1185">John</w> <w xml:id="w1186">of</w> <w xml:id="w1187">Sirmin</w></persName> <w xml:id="w1188">saw</w> <w xml:id="w1189">that</w> <w xml:id="w1190">his</w>
+<rs type="person" ref="https://syriaca.org/person/5139"><w xml:id="w1191">servant</w></rs><w xml:id="w1192">,</w> <w xml:id="w1193">the</w> <w xml:id="w1194">persecutor</w> <w xml:id="w1195">of</w> <w xml:id="w1196">the</w> <w xml:id="w1197">orthodox</w><w xml:id="w1198">,</w>
+<w xml:id="w1199">had</w> <w xml:id="w1200">perished</w><w xml:id="w1201">,</w> <w xml:id="w1202">he</w> <w xml:id="w1203">again</w> <w xml:id="w1204">went</w> <w xml:id="w1205">to</w> <w xml:id="w1206">the</w>
+<rs type="person" ref="https://syriaca.org/person/3229"><w xml:id="w1207">emperor</w></rs> <w xml:id="w1208">and</w> <w xml:id="w1209">began</w> <w xml:id="w1210">inflaming</w> <w xml:id="w1211">him</w> <w xml:id="w1212">even</w> <w xml:id="w1213">more</w>
+<w xml:id="w1214">against</w> <w xml:id="w1215">the</w> <w xml:id="w1216">orthodox</w><w xml:id="w1217">.</w> <w xml:id="w1218">But</w> <w xml:id="w1219">the</w> <rs type="person" ref="https://syriaca.org/person/3229"><w xml:id="w1220">emperor</w></rs><w xml:id="w1221">,</w> <w xml:id="w1222">in</w>
+<w xml:id="w1223">a</w> <w xml:id="w1224">rage</w><w xml:id="w1225">,</w> <w xml:id="w1226">said</w> <w xml:id="w1227">to</w> <w xml:id="w1228">him</w><w xml:id="w1229">:</w> <w xml:id="w1230">“</w><w xml:id="w1231">Are</w> <w xml:id="w1232">the</w> <w xml:id="w1233">ones</w> <w xml:id="w1234">whom</w> <w xml:id="w1235">you</w> <w xml:id="w1236">are</w> <w xml:id="w1237">intent</w> <w xml:id="w1238">on</w> <w xml:id="w1239">having</w> <w xml:id="w1240">me</w>
+<w xml:id="w1241">persecute</w> <w xml:id="w1242">pagans</w><w xml:id="w1243">?</w><w xml:id="w1244">”</w> <w xml:id="w1245">He</w> <w xml:id="w1246">said</w> <w xml:id="w1247">to</w> <w xml:id="w1248">him</w><w xml:id="w1249">:</w> <w xml:id="w1250">“</w><w xml:id="w1251">No</w><w xml:id="w1252">.</w><w xml:id="w1253">”</w> <w xml:id="w1254">Then</w> <w xml:id="w1255">he</w> <w xml:id="w1256">said</w> <w xml:id="w1257">to</w> <w xml:id="w1258">him</w><w xml:id="w1259">:</w> <w xml:id="w1260">“</w><w xml:id="w1261">Are</w> <w xml:id="w1262">they</w>
+<w xml:id="w1263">heretics</w><w xml:id="w1264">?</w><w xml:id="w1265">”</w> <w xml:id="w1266">He</w> <w xml:id="w1267">said</w><w xml:id="w1268">:</w> <w xml:id="w1269">“</w><w xml:id="w1270">This</w> <w xml:id="w1271">is</w> <w xml:id="w1272">not</w> <w xml:id="w1273">the</w> <w xml:id="w1274">case</w><w xml:id="w1275">,</w> <w xml:id="w1276">my</w> <w xml:id="w1277">lord</w><w xml:id="w1278">.</w><w xml:id="w1279">”</w> <w xml:id="w1280">The</w>
+<rs type="person" ref="https://syriaca.org/person/3229"><w xml:id="w1281">emperor</w></rs> <w xml:id="w1282">said</w><w xml:id="w1283">:</w> <w xml:id="w1284">“</w><w xml:id="w1285">So</w><w xml:id="w1286">,</w> <w xml:id="w1287">you</w> <w xml:id="w1288">have</w> <w xml:id="w1289">just</w>
+<w xml:id="w1290">testified</w> <w xml:id="w1291">yourself</w> <w xml:id="w1292">that</w> <w xml:id="w1293">they</w> <w xml:id="w1294">are</w> <w xml:id="w1295">Christians</w><w xml:id="w1296">.</w> <w xml:id="w1297">How</w> <w xml:id="w1298">then</w> <w xml:id="w1299">are</w> <w xml:id="w1300">you</w> <w xml:id="w1301">going</w> <w xml:id="w1302">to</w>
+<w xml:id="w1303">persuade</w> <w xml:id="w1304">me</w> <w xml:id="w1305">to</w> <w xml:id="w1306">become</w> <w xml:id="w1307">a</w> <w xml:id="w1308">persecutor</w> <w xml:id="w1309">of</w> <w xml:id="w1310">Christians</w> <w xml:id="w1311">as</w>
+<persName ref="https://syriaca.org/person/2261"><w xml:id="w1312">Diocletian</w></persName> <w xml:id="w1313">and</w> <w xml:id="w1314">the</w> <w xml:id="w1315">others</w><w xml:id="w1316">?</w> <w xml:id="w1317">Go</w> <w xml:id="w1318">sit</w> <w xml:id="w1319">in</w> <w xml:id="w1320">your</w>
+<w xml:id="w1321">church</w> <w xml:id="w1322">and</w> <w xml:id="w1323">be</w> <w xml:id="w1324">silent</w><w xml:id="w1325">!</w> <w xml:id="w1326">Do</w> <w xml:id="w1327">not</w> <w xml:id="w1328">burden</w> <w xml:id="w1329">us</w><w xml:id="w1330">.</w><w xml:id="w1331">”</w>
+</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

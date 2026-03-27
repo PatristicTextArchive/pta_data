@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en" xmlns:m="https://pta.bbaw.de/ns">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>De aduentu domini super pullum</title>
+            <author>
+               <persName key="pta0001">Severianus Gabalensis</persName>
+            </author>
+            <respStmt>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <resp>Conversion of the online text to CTS-compliant PTA TEI; added paragraph numbering</resp>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="JK" ref="https://orcid.org/0000-0003-2713-5207">Jan Köster</persName>
+               <resp>Word-tagging-pipeline</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Patristic Text Archive</publisher>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">Available under a Creative Commons Attribution 4.0 International License</licence>
+            </availability>
+            <date>2023</date>
+            <idno type="PTA">pta0001.pta069</idno>
+            <idno type="CPG">4246</idno>
+            <idno type="BHG"/>
+            <idno type="Aldama"/>
+            <idno type="Pinakes-Oeuvre"/>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <biblStruct type="book" xml:id="awgerean_1830">
+                  <monogr>
+                     <title level="m">Սեբերիանոսի Եմեսացւոյ Գաբաղացւոց ճառք ԺԵ</title>
+                     <author>
+                        <forename>Mkrtič'</forename>
+                        <surname>Awgerean</surname>
+                     </author>
+                     <imprint>
+                        <pubPlace>Venedig</pubPlace>
+                        <publisher>Tparani Srboy Ġazarow</publisher>
+                        <biblScope unit="page"/>
+                        <date>1830</date>
+                        <note>Online at the <ref target="https://digilib.aua.am/book/3450/4000/25010/%D5%83%D5%A1%D5%BC%D6%84">Digital Library of Armenian Literature</ref>
+                        </note>
+                     </imprint>
+                  </monogr>
+               </biblStruct>
+               <listBibl>
+                  <head>Earlier, Armenian–Latin edition</head>
+                  <biblStruct type="book" xml:id="aucher_1827">
+                     <monogr>
+                        <title level="m">Սեբերիանոսի կամ Սեւերիանոսի Եմեսացւոյ Գաբաղացւոց եպիսկոպոսի ճառք. Severiani sive Seberiani Gabalorum episcopi Emesensis Homiliae</title>
+                        <author>
+                           <forename>Johannes Baptista</forename>
+                           <surname>Aucher</surname>
+                        </author>
+                        <imprint>
+                           <pubPlace>Venedig</pubPlace>
+                           <publisher>I Vans Srboyn Ghazaru</publisher>
+                           <biblScope unit="page">402-409</biblScope>
+                           <date>1827</date>
+                        </imprint>
+                     </monogr>
+                  </biblStruct>
+               </listBibl>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations" ana="not-annotated not-identified">
+            Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references" ana="not-annotated not-identified">
+            Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+            Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+            Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+            Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+               <p xml:id="text-analysis" ana="automatically-tagged not-analyzed">
+                  Words are automatically tagged, but text is not analyzed.
+               </p>
+            </interpretation>
+            <normalization>
+               <p></p>
+            </normalization>
+            <punctuation>
+               <p></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>pre-critical-edition</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2026-03-31" who="#JK">Words tagged</change>
+         <change when="2024-06-19" who="#AvS">Converted to PTA/CapiTainS</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              xml:lang="xcl"
+              n="urn:cts:pta:pta0001.pta069.pta-xcl1">
+            <head>
+               <title><w xml:id="w1">Սբյն</w> <w xml:id="w2">Սեւերիանոսի</w> <w xml:id="w3">Եմեսու</w> <w xml:id="w4">եպիսկոպոսի</w> <w xml:id="w5">'ի</w> <w xml:id="w6">գալուստ</w> <w xml:id="w7">տն</w> <w xml:id="w8">յովանակաւ</w> <w xml:id="w9">յԵրուսաղէմ</w><w xml:id="w10">:</w></title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p> <w xml:id="w11">ԵՏԵՍ</w> <w xml:id="w12">զտէր</w> <w xml:id="w13">փրկիչ</w> <w xml:id="w14">եւ</w> <w xml:id="w15">զաստուած</w> <w xml:id="w16">կենարար</w> <w xml:id="w17">թշնամին</w> <w xml:id="w18">ճշմարտութեան</w><w xml:id="w19">`</w> <w xml:id="w20">քարոզեալ</w><w xml:id="w21">,</w> <w xml:id="w22">եւ</w> <w xml:id="w23">խռովեցաւ</w><w xml:id="w24">.</w> <w xml:id="w25">ետես</w> <w xml:id="w26">զտէրունական</w> <w xml:id="w27">գալուստն</w> <w xml:id="w28">յաւանակաւ</w><w xml:id="w29">,</w> <w xml:id="w30">փառաւորեալ</w> <w xml:id="w31">'ի</w> <w xml:id="w32">մէնջ</w> <w xml:id="w33">իբրեւ</w> <w xml:id="w34">յառաջինն</w><w xml:id="w35">,</w> <w xml:id="w36">եւ</w> <w xml:id="w37">ջանացաւ</w> <w xml:id="w38">'ի</w> <w xml:id="w39">խռովել</w> <w xml:id="w40">'ի</w> <w xml:id="w41">շաչիւն</w> <w xml:id="w42">կառաց</w> <w xml:id="w43">թրթրականաց</w><w xml:id="w44">`</w> <w xml:id="w45">առ</w> <w xml:id="w46">'ի</w> <w xml:id="w47">խափանել</w> <w xml:id="w48">զարշաւանս</w> <w xml:id="w49">յաւանակին</w><w xml:id="w50">,</w> <w xml:id="w51">որ</w> <w xml:id="w52">մեղմագնաց</w><w xml:id="w53">,</w> <w xml:id="w54">եւ</w> <w xml:id="w55">հանդարտագնաց</w> <w xml:id="w56">ոտիւք</w> <w xml:id="w57">խափանեաց</w> <w xml:id="w58">զկառամարտիկ</w> <w xml:id="w59">զերիվարս</w> <w xml:id="w60">պատերազմողաց</w><w xml:id="w61">.</w> <w xml:id="w62">քանզի</w> <w xml:id="w63">գիտէր</w><w xml:id="w64">,</w> <w xml:id="w65">եթէ</w> <w xml:id="w66">յովանակն</w> <w xml:id="w67">առ</w> <w xml:id="w68">'ի</w> <w xml:id="w69">պարտումն</w> <w xml:id="w70">կառաց</w> <w xml:id="w71">երիվարաց</w> <w xml:id="w72">պատրաստեցաւ</w><w xml:id="w73">.</w> <w xml:id="w74">քանզի</w> <w xml:id="w75">եկն</w> <w xml:id="w76">ձրկչին</w> <w xml:id="w77">յուանակաւ</w> <w xml:id="w78">ո'չ</w> <w xml:id="w79">եթէ</w> <w xml:id="w80">զտկարութիւն</w> <w xml:id="w81">ինչ</w> <w xml:id="w82">ցուցանէր</w><w xml:id="w83">,</w> <w xml:id="w84">այլ</w> <w xml:id="w85">զհեզութիւն</w> <w xml:id="w86">խոնարհութեան</w><w xml:id="w87">,</w> <w xml:id="w88">զի</w> <w xml:id="w89">զամբարտաւանութիւն</w> <w xml:id="w90">շիջուսցէ</w><w xml:id="w91">:</w> <w xml:id="w92">Եւ</w> <w xml:id="w93">քանզի</w> <w xml:id="w94">գիտէր</w> <w xml:id="w95">թշնամին</w><w xml:id="w96">,</w> <w xml:id="w97">եթէ</w> <w xml:id="w98">որ</w> <w xml:id="w99">ինչ</w> <w xml:id="w100">լինելոյ</w> <w xml:id="w101">են</w> <w xml:id="w102">իրք</w> <w xml:id="w103">ըստ</w> <w xml:id="w104">արգարէական</w> <w xml:id="w105">բարբառոյն</w><w xml:id="w106">,</w> <w xml:id="w107">նախանձեալ</w> <w xml:id="w108">քինացաւ</w> <w xml:id="w109">ընդ</w> <w xml:id="w110">յաւանակին</w><w xml:id="w111">.</w> <w xml:id="w112">այլ</w> <w xml:id="w113">զի</w> <w xml:id="w114">զհպարտութիւն</w> <w xml:id="w115">հպարտացելոյն</w> <w xml:id="w116">շիջուսցէ</w><w xml:id="w117">,</w> <w xml:id="w118">եւ</w> <w xml:id="w119">զմեծամեծ</w> <w xml:id="w120">ամբարտաւանութիւն</w> <w xml:id="w121">մեծամտեելոյ</w> <w xml:id="w122">'ի</w> <w xml:id="w123">կառս</w> <w xml:id="w124">եւ</w> <w xml:id="w125">յերիվարս</w> <w xml:id="w126">խոնարհեցուցէ</w><w xml:id="w127">:</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <p><w xml:id="w128">Զոր</w> <w xml:id="w129">բարւոք</w> <w xml:id="w130">յառաջագոյն</w> <w xml:id="w131">երանելի</w> <w xml:id="w132">մարգարէն</w> <w xml:id="w133">ազգ</w> <w xml:id="w134">արարեալ</w><w xml:id="w135">`</w> <w xml:id="w136">քաջալերէր</w> <w xml:id="w137">ասելով</w><w xml:id="w138">:</w> <w xml:id="w139">Մի'</w> <w xml:id="w140">երկնչիր</w><w xml:id="w141">,</w> <w xml:id="w142">դուստր</w> <w xml:id="w143">Սիովնի</w><w xml:id="w144">,</w> <w xml:id="w145">քարոզեա'</w> <w xml:id="w146">եւ</w> <w xml:id="w147">ուրա'խ</w> <w xml:id="w148">լեր</w><w xml:id="w149">,</w> <w xml:id="w150">դուստր</w> <w xml:id="w151">Երուսաղեմի</w><w xml:id="w152">.</w> <w xml:id="w153">զի</w> <w xml:id="w154">ահա</w> <w xml:id="w155">թագաւոր</w> <w xml:id="w156">քո</w> <w xml:id="w157">գայ</w> <w xml:id="w158">հեծեալ</w> <w xml:id="w159">'ի</w> <w xml:id="w160">յաւանակ</w> <w xml:id="w161">իշոյ</w><w xml:id="w162">,</w> <w xml:id="w163">զի</w> <w xml:id="w164">սատակեսցէ</w> <w xml:id="w165">զկառս</w> <w xml:id="w166">յԵփրեմայ</w><w xml:id="w167">,</w> <w xml:id="w168">եւ</w> <w xml:id="w169">զերիվարս</w> <w xml:id="w170">յԵրուսաղեմէ</w><w xml:id="w171">:</w> <w xml:id="w172">Տեսանե՞ս</w><w xml:id="w173">,</w> <w xml:id="w174">զի</w> <w xml:id="w175">զճօճեմական</w> <w xml:id="w176">ամպարհաւաճութիւնն</w> <w xml:id="w177">մեղկոյր</w> <w xml:id="w178">հեզութեամբն</w> <w xml:id="w179">եւ</w> <w xml:id="w180">ցածուցանէր</w><w xml:id="w181">.</w> <w xml:id="w182">զոր</w> <w xml:id="w183">օրինակ</w> <w xml:id="w184">չարչարանպք</w> <w xml:id="w185">զչարչարանս</w> <w xml:id="w186">եբարձ</w><w xml:id="w187">,</w> <w xml:id="w188">եւ</w> <w xml:id="w189">մահուամբ</w> <w xml:id="w190">զմահ</w> <w xml:id="w191">կապեաց</w><w xml:id="w192">,</w> <w xml:id="w193">եւ</w> <w xml:id="w194">փայըիւ</w> <w xml:id="w195">սուրբ</w> <w xml:id="w196">խաչին</w> <w xml:id="w197">զհակառակամարտին</w> <w xml:id="w198">զօրութիւնն</w> <w xml:id="w199">խայտառակեաց</w><w xml:id="w200">,</w> <w xml:id="w201">նոյնպէս</w> <w xml:id="w202">եւ</w> <w xml:id="w203">յաւանակաւն</w> <w xml:id="w204">զձիամարտիկ</w> <w xml:id="w205">գոռոզութիւն</w> <w xml:id="w206">խրոխտացելոյն</w> <w xml:id="w207">քակեաց</w><w xml:id="w208">:</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <p><w xml:id="w209">Ուրա'խ</w> <w xml:id="w210">լեր</w><w xml:id="w211">,</w> <w xml:id="w212">ասէ</w> <w xml:id="w213">մարգրէն</w><w xml:id="w214">,</w> <w xml:id="w215">դուստր</w> <w xml:id="w216">Սիովնի</w><w xml:id="w217">,</w> <w xml:id="w218">ցնծա'</w> <w xml:id="w219">եւ</w> <w xml:id="w220">քարոզեա'</w><w xml:id="w221">,</w> <w xml:id="w222">դուստր</w> <w xml:id="w223">Երուսաղէմի</w><w xml:id="w224">:</w> <w xml:id="w225">Զի</w> <w xml:id="w226">պարտ</w> <w xml:id="w227">եւ</w> <w xml:id="w228">պատշաճ</w> <w xml:id="w229">է</w> <w xml:id="w230">աստուածապաշտից</w><w xml:id="w231">`</w> <w xml:id="w232">ոչ</w> <w xml:id="w233">միայն</w> <w xml:id="w234">յանձին</w> <w xml:id="w235">ունել</w> <w xml:id="w236">զաստուածական</w> <w xml:id="w237">պարգեւս</w><w xml:id="w238">,</w> <w xml:id="w239">այլ</w> <w xml:id="w240">եւ</w> <w xml:id="w241">յայլս</w> <w xml:id="w242">սփռել</w> <w xml:id="w243">զբարերարութեանն</w> <w xml:id="w244">զքարոզութիւն</w><w xml:id="w245">:</w> <w xml:id="w246">Զի</w> <w xml:id="w247">ահաւասիկ</w> <w xml:id="w248">թագւոր</w> <w xml:id="w249">քո</w> <w xml:id="w250">գայ</w> <w xml:id="w251">հեղ</w><w xml:id="w252">,</w> <w xml:id="w253">եւ</w> <w xml:id="w254">խոնարհ</w><w xml:id="w255">,</w> <w xml:id="w256">եւ</w> <w xml:id="w257">նստեալ</w> <w xml:id="w258">յովանակի</w><w xml:id="w259">:</w> <w xml:id="w260">Բարւոք</w> <w xml:id="w261">զհեզն</w> <w xml:id="w262">եւ</w> <w xml:id="w263">զխոնարհն</w> <w xml:id="w264">յառաջադիր</w> <w xml:id="w265">հաստատեաց</w><w xml:id="w266">.</w> <w xml:id="w267">զի</w> <w xml:id="w268">յայտ</w> <w xml:id="w269">արասցէ</w><w xml:id="w270">,</w> <w xml:id="w271">թէ</w> <w xml:id="w272">ո'չ</w> <w xml:id="w273">չքաւորութեան</w> <w xml:id="w274">ինչ</w> <w xml:id="w275">պատճառք</w> <w xml:id="w276">էին</w><w xml:id="w277">,</w> <w xml:id="w278">այլ</w> <w xml:id="w279">հեզութեան</w> <w xml:id="w280">եւ</w> <w xml:id="w281">խոնարհութեան</w> <w xml:id="w282">աւետիք</w><w xml:id="w283">.</w> <w xml:id="w284">զի</w> <w xml:id="w285">եթէ</w> <w xml:id="w286">ոք</w> <w xml:id="w287">առ</w> <w xml:id="w288">աղքատութեան</w> <w xml:id="w289">ինչից</w><w xml:id="w290">,</w> <w xml:id="w291">եւ</w> <w xml:id="w292">չքաւորութեան</w> <w xml:id="w293">երիվարաց</w><w xml:id="w294">`</w> <w xml:id="w295">հեծանիցի</w> <w xml:id="w296">յիշամտրուկ</w> <w xml:id="w297">յովանակի</w><w xml:id="w298">,</w> <w xml:id="w299">չէ</w> <w xml:id="w300">ինչ</w> <w xml:id="w301">'ի</w> <w xml:id="w302">լաւութիւն</w> <w xml:id="w303">եւ</w> <w xml:id="w304">խոնարհութիւն</w> <w xml:id="w305">համարեալ</w><w xml:id="w306">.</w> <w xml:id="w307">քանզի</w> <w xml:id="w308">հարկ</w> <w xml:id="w309">տնանկութեանն</w> <w xml:id="w310">ածէ</w> <w xml:id="w311">զնա</w> <w xml:id="w312">յայն</w><w xml:id="w313">.</w> <w xml:id="w314">իսկ</w> <w xml:id="w315">եթէ</w> <w xml:id="w316">ոք</w> <w xml:id="w317">կառաւէտ</w> <w xml:id="w318">երիվարաշատ</w><w xml:id="w319">`</w> <w xml:id="w320">առ</w> <w xml:id="w321">հեզութեան</w> <w xml:id="w322">նստիցի</w> <w xml:id="w323">'ի</w> <w xml:id="w324">մտրկի</w> <w xml:id="w325">իշոյ</w><w xml:id="w326">,</w> <w xml:id="w327">զարդարէ</w> <w xml:id="w328">խոնարհութեամբ</w> <w xml:id="w329">զկարգ</w> <w xml:id="w330">հեզութեանն</w><w xml:id="w331">:</w> <w xml:id="w332">Չէր</w> <w xml:id="w333">աղքատ</w> <w xml:id="w334">'ի</w> <w xml:id="w335">կառաց</w> <w xml:id="w336">թագաւորն</w> <w xml:id="w337">զօրութեանց</w><w xml:id="w338">.</w> <w xml:id="w339">չէր</w> <w xml:id="w340">չքաւոր</w> <w xml:id="w341">'ի</w> <w xml:id="w342">կառաց</w> <w xml:id="w343">եւ</w> <w xml:id="w344">յերիվարաց</w> <w xml:id="w345">միածինն</w><w xml:id="w346">.</w> <w xml:id="w347">զորմէ</w> <w xml:id="w348">մարգարէն</w> <w xml:id="w349">ասէ</w><w xml:id="w350">,</w> <w xml:id="w351">թէ</w> <w xml:id="w352">կառք</w> <w xml:id="w353">աստուծոյ</w> <w xml:id="w354">բիւրապատիկք</w> <w xml:id="w355">են</w><w xml:id="w356">,</w> <w xml:id="w357">եւ</w> <w xml:id="w358">հաղարք</w> <w xml:id="w359">ուղղիչք</w><w xml:id="w360">.</w> <w xml:id="w361">չէր</w> <w xml:id="w362">աղքատ</w> <w xml:id="w363">'ի</w> <w xml:id="w364">կառաց</w><w xml:id="w365">,</w> <w xml:id="w366">որ</w> <w xml:id="w367">զհողմս</w> <w xml:id="w368">լծեալ</w> <w xml:id="w369">արշաւէ</w><w xml:id="w370">`</w> <w xml:id="w371">սքանչելի</w> <w xml:id="w372">եւ</w> <w xml:id="w373">նորանշան</w> <w xml:id="w374">երասանակօք</w><w xml:id="w375">:</w> <w xml:id="w376">Կամ</w> <w xml:id="w377">թէ</w> <w xml:id="w378">ո՞չ</w> <w xml:id="w379">գիտիցես</w><w xml:id="w380">,</w> <w xml:id="w381">թէ</w> <w xml:id="w382">որպէս</w> <w xml:id="w383">մեզ</w> <w xml:id="w384">ձիք</w> <w xml:id="w385">են</w> <w xml:id="w386">յերիվարս</w><w xml:id="w387">.</w> <w xml:id="w388">ըստ</w> <w xml:id="w389">այնմ</w> <w xml:id="w390">որ</w> <w xml:id="w391">Դաւիթն</w> <w xml:id="w392">ասէ</w><w xml:id="w393">,</w> <w xml:id="w394">թէ</w> <w xml:id="w395">որ</w> <w xml:id="w396">շրջի</w> <w xml:id="w397">'ի</w> <w xml:id="w398">վերայ</w> <w xml:id="w399">թեւոց</w> <w xml:id="w400">հողմոց</w><w xml:id="w401">:</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
+               <p><w xml:id="w402">Արդ</w> <w xml:id="w403">եկն</w> <w xml:id="w404">յովանակաւ</w> <w xml:id="w405">միանգամայն</w> <w xml:id="w406">քակել</w> <w xml:id="w407">զամբարտաւանութիւն</w> <w xml:id="w408">խոնարհութեամբ</w><w xml:id="w409">,</w> <w xml:id="w410">զի</w> <w xml:id="w411">եւ</w> <w xml:id="w412">զօրինակ</w> <w xml:id="w413">մտին</w> <w xml:id="w414">հեթանոսաց</w> <w xml:id="w415">կատարեալ</w> <w xml:id="w416">աւետարանեսցէ</w><w xml:id="w417">:</w> <w xml:id="w418">Քանզի</w> <w xml:id="w419">յաւանակն</w> <w xml:id="w420">ընդ</w> <w xml:id="w421">պիղծ</w> <w xml:id="w422">անասունս</w> <w xml:id="w423">համարեալ</w> <w xml:id="w424">է</w><w xml:id="w425">.</w> <w xml:id="w426">զի</w> <w xml:id="w427">ամենայն</w> <w xml:id="w428">որ</w> <w xml:id="w429">ոչ</w> <w xml:id="w430">կճղակահերձ</w> <w xml:id="w431">իցէ</w><w xml:id="w432">,</w> <w xml:id="w433">եւ</w> <w xml:id="w434">ոչ</w> <w xml:id="w435">որոճիցէ</w><w xml:id="w436">,</w> <w xml:id="w437">ընդ</w> <w xml:id="w438">պիղծ</w> <w xml:id="w439">անասունս</w> <w xml:id="w440">զատեալ</w> <w xml:id="w441">որոշեաց</w> <w xml:id="w442">Մովսէս</w><w xml:id="w443">.</w> <w xml:id="w444">եւ</w> <w xml:id="w445">էշ</w><w xml:id="w446">,</w> <w xml:id="w447">քանզի</w> <w xml:id="w448">ոչ</w> <w xml:id="w449">որոճայ</w> <w xml:id="w450">եւ</w> <w xml:id="w451">ոչ</w> <w xml:id="w452">կճղակահերձ</w> <w xml:id="w453">է</w><w xml:id="w454">,</w> <w xml:id="w455">ընդ</w> <w xml:id="w456">պիղծ</w> <w xml:id="w457">անասունս</w> <w xml:id="w458">համարեալ</w> <w xml:id="w459">է</w><w xml:id="w460">:</w> <w xml:id="w461">Յառաջագոյն</w> <w xml:id="w462">կատարէր</w> <w xml:id="w463">զկերպարանս</w> <w xml:id="w464">մրդախնդիր</w> <w xml:id="w465">տեսչութեանն</w><w xml:id="w466">.</w> <w xml:id="w467">քանզի</w> <w xml:id="w468">հանդերձեալ</w> <w xml:id="w469">էր</w> <w xml:id="w470">անուանել</w> <w xml:id="w471">երիվար</w>  <w xml:id="w472">աստուածազան</w> <w xml:id="w473">սրբական</w> <w xml:id="w474">ժողովուրդն</w><w xml:id="w475">.</w> <w xml:id="w476">զի</w> <w xml:id="w477">որպէս</w> <w xml:id="w478">ձիք</w> <w xml:id="w479">երիվարք</w> <w xml:id="w480">են</w> <w xml:id="w481">հեծելոյ</w><w xml:id="w482">,</w> <w xml:id="w483">այնպէս</w> <w xml:id="w484">եւ</w> <w xml:id="w485">հոգիք</w> <w xml:id="w486">սրբոց</w> <w xml:id="w487">երիվարք</w> <w xml:id="w488">են</w> <w xml:id="w489">հեծելոց</w><w xml:id="w490">,</w> <w xml:id="w491">այնպէս</w> <w xml:id="w492">եւ</w> <w xml:id="w493">հոգիք</w> <w xml:id="w494">սրբոց</w> <w xml:id="w495">երիվարք</w> <w xml:id="w496">են</w> <w xml:id="w497">աստուծոյ</w> <w xml:id="w498">առ</w> <w xml:id="w499">'ի</w> <w xml:id="w500">վարս</w> <w xml:id="w501">եւ</w> <w xml:id="w502">'ի</w> <w xml:id="w503">հրամանս</w> <w xml:id="w504">խրատականս</w><w xml:id="w505">.</w> <w xml:id="w506">ըստ</w> <w xml:id="w507">այնմ</w> <w xml:id="w508">զոր</w> <w xml:id="w509">մարգարէն</w> <w xml:id="w510">ասէ</w><w xml:id="w511">,</w> <w xml:id="w512">եթէ</w> <w xml:id="w513">ելանիցես</w> <w xml:id="w514">յերիվարս</w><w xml:id="w515">,</w> <w xml:id="w516">եւ</w> <w xml:id="w517">հեծելութիւն</w> <w xml:id="w518">քո</w> <w xml:id="w519">փրկութիւն</w> <w xml:id="w520">է</w><w xml:id="w521">:</w> <w xml:id="w522">Այսպիսի</w> <w xml:id="w523">ինչ</w> <w xml:id="w524">երիվար</w> <w xml:id="w525">տրմուղ</w> <w xml:id="w526">աներասանակ</w> <w xml:id="w527">էր</w> <w xml:id="w528">պաւողս</w><w xml:id="w529">,</w> <w xml:id="w530">չանսական</w> <w xml:id="w531">աստուածային</w> <w xml:id="w532">օրինացն</w><w xml:id="w533">:</w> <w xml:id="w534">Որ</w> <w xml:id="w535">'ի</w> <w xml:id="w536">ճարակս</w> <w xml:id="w537">օրինացն</w> <w xml:id="w538">արածէր</w><w xml:id="w539">,</w> <w xml:id="w540">եւ</w> <w xml:id="w541">աւետարանական</w> <w xml:id="w542">շնորհացն</w> <w xml:id="w543">կիցս</w> <w xml:id="w544">ընկենոյր</w><w xml:id="w545">.</w> <w xml:id="w546">յորժամ</w> <w xml:id="w547">եդ</w> <w xml:id="w548">նմա</w> <w xml:id="w549">սանձս</w><w xml:id="w550">,</w> <w xml:id="w551">նստեալ</w> <w xml:id="w552">'ի</w> <w xml:id="w553">վերայ</w> <w xml:id="w554">նորա</w> <w xml:id="w555">որդին</w> <w xml:id="w556">ամենատէրն</w><w xml:id="w557">,</w> <w xml:id="w558">ասէր</w><w xml:id="w559">.</w> <w xml:id="w560">Սաւուղ</w> <w xml:id="w561">Սաւուղ</w><w xml:id="w562">,</w> <w xml:id="w563">զի՞</w> <w xml:id="w564">հալածես</w> <w xml:id="w565">զիս</w><w xml:id="w566">.</w> <w xml:id="w567">խիստ</w> <w xml:id="w568">է</w> <w xml:id="w569">քեզ</w> <w xml:id="w570">ընդդէմ</w> <w xml:id="w571">խթանի</w> <w xml:id="w572">աքացել</w><w xml:id="w573">,</w> <w xml:id="w574">եւ</w> <w xml:id="w575">ընդդէմ</w> <w xml:id="w576">սուսերի</w> <w xml:id="w577">կիցս</w> <w xml:id="w578">ընկենուլ</w><w xml:id="w579">:</w> <w xml:id="w580">Եւ</w> <w xml:id="w581">քանզի</w> <w xml:id="w582">ել</w> <w xml:id="w583">փախեաւ</w> <w xml:id="w584">'ի</w> <w xml:id="w585">կարգէ</w> <w xml:id="w586">ճառիս</w> <w xml:id="w587">յովանակն</w><w xml:id="w588">,</w> <w xml:id="w589">աղաչեսցո՛ւք</w> <w xml:id="w590">զտէր</w> <w xml:id="w591">յովանակին</w><w xml:id="w592">,</w> <w xml:id="w593">որ</w> <w xml:id="w594">կարողն</w> <w xml:id="w595">է</w> <w xml:id="w596">ունել</w> <w xml:id="w597">եւ</w> <w xml:id="w598">ածել</w><w xml:id="w599">,</w> <w xml:id="w600">եւ</w> <w xml:id="w601">հաստատել</w> <w xml:id="w602">ընդ</w> <w xml:id="w603">ճառս</w> <w xml:id="w604">զյովանակն</w><w xml:id="w605">.</w> <w xml:id="w606">քանզի</w> <w xml:id="w607">ինքն</w> <w xml:id="w608">է</w><w xml:id="w609">`</w> <w xml:id="w610">զորմէ</w> <w xml:id="w611">ասէ</w> <w xml:id="w612">մարգարէութիւնն</w><w xml:id="w613">,</w> <w xml:id="w614">կապեսցէ</w> <w xml:id="w615">զորթոյ</w> <w xml:id="w616">զյաւանկ</w> <w xml:id="w617">իւր</w><w xml:id="w618">:</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="5">
+               <p><w xml:id="w619">Նստաւ</w> <w xml:id="w620">Յիսուս</w> <w xml:id="w621">'ի</w> <w xml:id="w622">յաւանակի</w><w xml:id="w623">,</w> <w xml:id="w624">որ</w> <w xml:id="w625">նստին</w> <w xml:id="w626">'ի</w> <w xml:id="w627">քերովբէս</w><w xml:id="w628">.</w> <w xml:id="w629">որ</w> <w xml:id="w630">'ի</w> <w xml:id="w631">վեր</w> <w xml:id="w632">ահաւորն</w> <w xml:id="w633">է</w> <w xml:id="w634">վասն</w> <w xml:id="w635">աստուածական</w> <w xml:id="w636">բնութեանն</w><w xml:id="w637">,</w> <w xml:id="w638">եւ</w> <w xml:id="w639">'ի</w> <w xml:id="w640">խոնարհ</w> <w xml:id="w641">տենչեցեալ</w> <w xml:id="w642">վասն</w> <w xml:id="w643">մարդասէր</w> <w xml:id="w644">շնորհացն</w><w xml:id="w645">.</w> <w xml:id="w646">որում</w> <w xml:id="w647">'ի</w> <w xml:id="w648">բարձունս</w> <w xml:id="w649">դողութեամբ</w> <w xml:id="w650">երկիր</w> <w xml:id="w651">պագանեն</w> <w xml:id="w652">սերովբէք</w><w xml:id="w653">,</w> <w xml:id="w654">եւ</w> <w xml:id="w655">յերկրի</w> <w xml:id="w656">համարձակութեամբ</w> <w xml:id="w657">քարոզի</w> <w xml:id="w658">'ի</w> <w xml:id="w659">մարմնականացս</w><w xml:id="w660">:</w> <w xml:id="w661">Զի</w> <w xml:id="w662">որչափ</w> <w xml:id="w663">'ի</w> <w xml:id="w664">վեր</w> <w xml:id="w665">է</w> <w xml:id="w666">ահագին</w> <w xml:id="w667">ծնունդն</w><w xml:id="w668">,</w> <w xml:id="w669">նոյնպէս</w> <w xml:id="w670">եւ</w> <w xml:id="w671">'ի</w> <w xml:id="w672">խոնարհ</w> <w xml:id="w673">փափագանաց</w> <w xml:id="w674">ինքնարձակեցիկն</w> <w xml:id="w675">շառաւիղի</w><w xml:id="w676">:</w> <w xml:id="w677">Նստաւ</w> <w xml:id="w678">Յիսուս</w> <w xml:id="w679">'ի</w> <w xml:id="w680">յաւանակի</w><w xml:id="w681">,</w> <w xml:id="w682">եւ</w> <w xml:id="w683">տարածանէին</w> <w xml:id="w684">ժողովուրդքն</w> <w xml:id="w685">զհանդերձսն</w> <w xml:id="w686">առաջի</w><w xml:id="w687">:</w> <w xml:id="w688">Բրւոք</w> <w xml:id="w689">էր</w> <w xml:id="w690">պատիւն</w><w xml:id="w691">,</w> <w xml:id="w692">այլ</w> <w xml:id="w693">ոչ</w> <w xml:id="w694">ինչ</w> <w xml:id="w695">արժանի</w> <w xml:id="w696">ըստ</w> <w xml:id="w697">պատուիրանին</w> <w xml:id="w698">պատուչացն</w> <w xml:id="w699">պատիւն</w><w xml:id="w700">.</w> <w xml:id="w701">քանզի</w> <w xml:id="w702">ոչ</w> <w xml:id="w703">եթէ</w> <w xml:id="w704">ըստ</w> <w xml:id="w705">իւրում</w> <w xml:id="w706">արժանաւոեւութեանն</w> <w xml:id="w707">խնդրե</w> <w xml:id="w708">աստուած</w> <w xml:id="w709">պարգեւս</w> <w xml:id="w710">'ի</w> <w xml:id="w711">մարդկանէ</w><w xml:id="w712">,</w> <w xml:id="w713">այլ</w> <w xml:id="w714">ըստ</w> <w xml:id="w715">բաւականի</w> <w xml:id="w716">պատուողացն</w><w xml:id="w717">.</w> <w xml:id="w718">նա</w> <w xml:id="w719">եւ</w> <w xml:id="w720">չիք</w> <w xml:id="w721">իսկ</w> <w xml:id="w722">այնպիսի</w> <w xml:id="w723">ինչ</w><w xml:id="w724">`</w> <w xml:id="w725">որ</w> <w xml:id="w726">զաստուած</w> <w xml:id="w727">ըստ</w> <w xml:id="w728">իւրում</w> <w xml:id="w729">արժանաւորութեանն</w> <w xml:id="w730">պատուել</w> <w xml:id="w731">կարեսցէ</w><w xml:id="w732">:</w> <w xml:id="w733">Ո'չ</w> <w xml:id="w734">երկիր</w> <w xml:id="w735">ամենայն</w><w xml:id="w736">,</w> <w xml:id="w737">եւ</w> <w xml:id="w738">ոչ</w> <w xml:id="w739">բնաւ</w> <w xml:id="w740">երկինք</w> <w xml:id="w741">բարբռս</w> <w xml:id="w742">ձուլեալ</w><w xml:id="w743">,</w> <w xml:id="w744">եւ</w> <w xml:id="w745">ամենայն</w> <w xml:id="w746">բարբառք</w> <w xml:id="w747">հրեշտակաց</w> <w xml:id="w748">եւ</w> <w xml:id="w749">հրեշտակապետաց</w><w xml:id="w750">,</w> <w xml:id="w751">երեւելեաց</w> <w xml:id="w752">եւ</w> <w xml:id="w753">աներեւութից</w> <w xml:id="w754">լիեալ</w> <w xml:id="w755">լեզուք</w><w xml:id="w756">`</w> <w xml:id="w757">բաւական</w> <w xml:id="w758">են</w> <w xml:id="w759">ըստ</w> <w xml:id="w760">իւրում</w> <w xml:id="w761">արժանաւորութեանն</w> <w xml:id="w762">փառաւորել</w> <w xml:id="w763">զնա</w><w xml:id="w764">:</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="6">
+               <p><w xml:id="w765">Հեծաւ</w> <w xml:id="w766">յաւանակի</w><w xml:id="w767">,</w> <w xml:id="w768">որ</w> <w xml:id="w769">յերկնականսն</w> <w xml:id="w770">նստի</w> <w xml:id="w771">մշտնջենաւորական</w><w xml:id="w772">:</w> <w xml:id="w773">Տարածանէին</w> <w xml:id="w774">մարդիկն</w> <w xml:id="w775">զհանդերձսն</w> <w xml:id="w776">առաջի</w><w xml:id="w777">,</w> <w xml:id="w778">որոց</w> <w xml:id="w779">օրէն</w> <w xml:id="w780">նախ</w> <w xml:id="w781">քան</w> <w xml:id="w782">զհանդերձսն</w> <w xml:id="w783">զհոգիսն</w> <w xml:id="w784">տարածանել</w><w xml:id="w785">:</w> <w xml:id="w786">Ո'վ</w> <w xml:id="w787">որ</w> <w xml:id="w788">տարածանես</w> <w xml:id="w789">զհանդերձսդ</w> <w xml:id="w790">'ի</w> <w xml:id="w791">կոխումն</w> <w xml:id="w792">յաւանակին</w><w xml:id="w793">,</w> <w xml:id="w794">տարածեա'</w> <w xml:id="w795">զհոգիդ</w> <w xml:id="w796">աստուծոյ</w> <w xml:id="w797">'ի</w> <w xml:id="w798">բնակութիւն</w><w xml:id="w799">.</w> <w xml:id="w800">զոր</w> <w xml:id="w801">եւ</w> <w xml:id="w802">մկրտիչն</w> <w xml:id="w803">յովաննէս</w> <w xml:id="w804">քարոզէր</w><w xml:id="w805">,</w> <w xml:id="w806">պատրա'ստ</w> <w xml:id="w807">արարէք</w> <w xml:id="w808">զճանապարհս</w> <w xml:id="w809">տն</w><w xml:id="w810">,</w> <w xml:id="w811">եւ</w> <w xml:id="w812">ուղի'ղ</w> <w xml:id="w813">արարէք</w> <w xml:id="w814">զշաւիղս</w> <w xml:id="w815">հորդեալս</w><w xml:id="w816">.</w> <w xml:id="w817">այս</w> <w xml:id="w818">է</w><w xml:id="w819">`</w> <w xml:id="w820">զհոգիսն</w> <w xml:id="w821">առնել</w> <w xml:id="w822">պատրաստական</w><w xml:id="w823">,</w> <w xml:id="w824">յորում</w> <w xml:id="w825">մտանէ</w> <w xml:id="w826">եւ</w> <w xml:id="w827">բնակեսցէ</w> <w xml:id="w828">աստուածն</w> <w xml:id="w829">եւ</w> <w xml:id="w830">տեառնորդին</w><w xml:id="w831">:</w> <w xml:id="w832">Եւ</w> <w xml:id="w833">ոստս</w> <w xml:id="w834">արմաւենեաց</w> <w xml:id="w835">առեալ</w><w xml:id="w836">`</w> <w xml:id="w837">ելանէին</w> <w xml:id="w838">ընդ</w> <w xml:id="w839">առաջ</w><w xml:id="w840">.</w> <w xml:id="w841">եւ</w> <w xml:id="w842">զոր</w> <w xml:id="w843">հրեշտակք</w> <w xml:id="w844">փառաւորեն</w> <w xml:id="w845">յերկինս</w> <w xml:id="w846">ահիւ</w><w xml:id="w847">,</w> <w xml:id="w848">օրհնէին</w> <w xml:id="w849">եւ</w> <w xml:id="w850">մանկտին</w><w xml:id="w851">`</w> <w xml:id="w852">ցնծալով</w> <w xml:id="w853">յերկրի</w><w xml:id="w854">,</w> <w xml:id="w855">ասելով</w><w xml:id="w856">`</w> <w xml:id="w857">ովսաննա</w><w xml:id="w858">,</w> <w xml:id="w859">այս</w> <w xml:id="w860">է</w> <w xml:id="w861">ըստ</w> <w xml:id="w862">եբրայեցւոց</w> <w xml:id="w863">բարբառոյն</w><w xml:id="w864">`</w> <w xml:id="w865">փաառաբանութիւն</w> <w xml:id="w866">իսկ</w> <w xml:id="w867">նշանակեալ</w> <w xml:id="w868">եւ</w> <w xml:id="w869">մեծ</w> <w xml:id="w870">գովութիւն</w><w xml:id="w871">:</w></p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en" xmlns:m="https://pta.bbaw.de/ns">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">Homilia de dominica die (versio
+                    A)</title>
+            <author>
+               <persName key="pta0039">Anonymus (Ps.-Johannes
+                        Chrysostomus)</persName>
+            </author>
+            <editor>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <roleName>Translator</roleName>
+            </editor>
+            <respStmt>
+               <persName xml:id="JK" ref="https://orcid.org/0000-0003-2713-5207">Jan Köster</persName>
+               <resp>Word-tagging-pipeline</resp>
+            </respStmt>
+         </titleStmt>
+         <editionStmt>
+            <p>New digital English translation from the Greek text.</p>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Patristic Text Archive</publisher>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">Available under a Creative Commons
+                        Attribution 4.0 International
+                        License</licence>
+            </availability>
+            <date>2022</date>
+            <idno type="PTA">pta0039.pta001</idno>
+            <idno type="CPG">4848</idno>
+            <idno type="BHG">881u</idno>
+            <idno type="Pinakes-Oeuvre">2438</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born digital</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='translation']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations" ana="fully-annotated not-identified">
+            Biblical quotations are not annotated and/but not fully/partially referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references" ana="not-annotated not-identified">
+            Other references are not annotated and/but not fully/partially referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+            Persons are not annotated and/but not fully/partially referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+            Groups of persons and organisations are not annotated and/but not fully/partially referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+            Places are not annotated and/but not fully/partially referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+               <p xml:id="text-analysis" ana="automatically-tagged not-analyzed">
+                  Words are automatically tagged, but text is not analyzed.
+               </p>
+            </interpretation>
+            <normalization>
+               <p></p>
+            </normalization>
+            <punctuation>
+               <p></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0030" notAfter="1500"/>
+            <placeName/>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2026-03-31" who="#JK">Words tagged</change>
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change who="#AvS" when="2022-10-30">Translation</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="translation"
+              xml:lang="eng"
+              n="urn:cts:pta:pta0039.pta001.pta-eng1"
+              corresp="urn:cts:pta:pta0039.pta001.pta-grc1">
+            <head>
+               <title><w xml:id="w1">Paraenetic</w> <w xml:id="w2">sermon</w> <w xml:id="w3">by</w> <w xml:id="w4">our</w> <w xml:id="w5">holy</w> <w xml:id="w6">father</w> <w xml:id="w7">John</w> <w xml:id="w8">Chrysostom</w><w xml:id="w9">,</w> <w xml:id="w10">archbishop</w> <w xml:id="w11">of</w> <w xml:id="w12">Constantinople</w><w xml:id="w13">,</w> <w xml:id="w14">on</w> <w xml:id="w15">the</w> <w xml:id="w16">holy</w> <w xml:id="w17">day</w> <w xml:id="w18">of</w> <w xml:id="w19">the</w> <w xml:id="w20">Lord</w><w xml:id="w21">.</w> <w xml:id="w22">Father</w><w xml:id="w23">,</w> <w xml:id="w24">be</w> <w xml:id="w25">praised</w><w xml:id="w26">!</w></title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p><w xml:id="w27">Hear</w><w xml:id="w28">,</w> <w xml:id="w29">all</w> <w xml:id="w30">brother</w> <w xml:id="w31">Christians</w><w xml:id="w32">,</w> <w xml:id="w33">what</w> <w xml:id="w34">the</w> <w xml:id="w35">prophets</w> <w xml:id="w36">say</w><w xml:id="w37">:</w> <quote><w xml:id="w38">Study</w> <w xml:id="w39">and</w> <w xml:id="w40">learn</w> <w xml:id="w41">that</w> <w xml:id="w42">I</w> <w xml:id="w43">am</w> <w xml:id="w44">God</w><ref decls="#biblical" cRef="LXX:Ps:45:11"/>
+                  </quote><w xml:id="w45">,</w> <w xml:id="w46">and</w> <w xml:id="w47">again</w> <w xml:id="w48">it</w> <w xml:id="w49">says</w><w xml:id="w50">:</w> <quote><w xml:id="w51">This</w> <w xml:id="w52">is</w> <w xml:id="w53">the</w> <w xml:id="w54">day</w> <w xml:id="w55">the</w> <w xml:id="w56">Lord</w> <w xml:id="w57">made</w><w xml:id="w58">.</w> <w xml:id="w59">Let</w> <w xml:id="w60">us</w> <w xml:id="w61">praise</w> <w xml:id="w62">and</w> <w xml:id="w63">rejoice</w> <w xml:id="w64">in</w> <w xml:id="w65">it</w><w xml:id="w66">.</w><ref decls="#biblical" cRef="LXX:Ps:117:24"/>
+                  </quote><w xml:id="w67">.</w> <w xml:id="w68">Because</w> <w xml:id="w69">on</w> <w xml:id="w70">the</w> <w xml:id="w71">holy</w> <w xml:id="w72">day</w> <w xml:id="w73">of</w> <w xml:id="w74">the</w> <w xml:id="w75">Lord</w> <seg type="allusion"><w xml:id="w76">the</w> <w xml:id="w77">archangel</w> <w xml:id="w78">Gabrial</w> <w xml:id="w79">announced</w> <w xml:id="w80">to</w> <w xml:id="w81">the</w> <w xml:id="w82">Mother</w> <w xml:id="w83">of</w> <w xml:id="w84">God</w> <w xml:id="w85">the</w> <w xml:id="w86">conception</w><ref decls="#biblical" cRef="NA:Lk:1:26-33"/>
+                  </seg><w xml:id="w87">.</w> <w xml:id="w88">Because</w> <w xml:id="w89">on</w> <w xml:id="w90">the</w> <w xml:id="w91">holy</w> <w xml:id="w92">day</w> <w xml:id="w93">of</w> <w xml:id="w94">the</w> <w xml:id="w95">Lord</w> <seg type="allusion"><w xml:id="w96">God</w> <w xml:id="w97">appeared</w> <w xml:id="w98">to</w> <w xml:id="w99">Mose</w> <w xml:id="w100">in</w> <w xml:id="w101">the</w> <w xml:id="w102">bush</w><ref decls="#biblical" cRef="LXX:Ex:3:2"/>
+                  </seg><w xml:id="w103">.</w> <w xml:id="w104">And</w> <w xml:id="w105">on</w> <w xml:id="w106">the</w> <w xml:id="w107">holy</w> <w xml:id="w108">day</w> <w xml:id="w109">of</w> <w xml:id="w110">the</w> <w xml:id="w111">Lord</w> <seg type="allusion"><w xml:id="w112">he</w> <w xml:id="w113">received</w> <w xml:id="w114">the</w> <w xml:id="w115">baptism</w> <w xml:id="w116">from</w> <w xml:id="w117">the</w> <w xml:id="w118">hand</w> <w xml:id="w119">of</w> <w xml:id="w120">the</w> <w xml:id="w121">forerunner</w><ref decls="#biblical" cRef="NA:Lk:3:21"/>
+                  </seg> <w xml:id="w122">and</w> <w xml:id="w123">on</w> <w xml:id="w124">the</w> <w xml:id="w125">holy</w> <w xml:id="w126">day</w> <w xml:id="w127">of</w> <w xml:id="w128">the</w> <w xml:id="w129">Lord</w> <seg type="allusion"><w xml:id="w130">the</w> <w xml:id="w131">Lord</w> <w xml:id="w132">made</w> <w xml:id="w133">the</w> <w xml:id="w134">ressurection</w><ref decls="#biblical" cRef="NA:Mt:28:1.6"/>
+                  </seg> <w xml:id="w135">and</w> <w xml:id="w136">on</w> <w xml:id="w137">the</w> <w xml:id="w138">holy</w> <w xml:id="w139">day</w> <w xml:id="w140">of</w> <w xml:id="w141">the</w> <w xml:id="w142">Lord</w> <seg type="allusion"><w xml:id="w143">the</w> <w xml:id="w144">Lord</w> <w xml:id="w145">will</w> <w xml:id="w146">judge</w> <w xml:id="w147">the</w> <w xml:id="w148">whole</w> <w xml:id="w149">world</w><ref decls="#biblical" cRef="NA:Mt:25:31-46"/>
+                  </seg><w xml:id="w150">.</w> 
+                                <w xml:id="w151">And</w> <w xml:id="w152">before</w> <w xml:id="w153">the</w> <w xml:id="w154">Lord</w> <w xml:id="w155">went</w> <w xml:id="w156">down</w> <w xml:id="w157">to</w> <w xml:id="w158">earth</w><w xml:id="w159">,</w> <w xml:id="w160">the</w> <w xml:id="w161">holy</w> <w xml:id="w162">day</w> <w xml:id="w163">of</w> <w xml:id="w164">the</w> <w xml:id="w165">Lord</w> <w xml:id="w166">was</w> <w xml:id="w167">called</w> <w xml:id="w168">first</w> <w xml:id="w169">day</w><w xml:id="w170">.</w> <w xml:id="w171">Moses</w> <w xml:id="w172">gave</w> <w xml:id="w173">the</w> <w xml:id="w174">Hebrews</w> <w xml:id="w175">the</w> <w xml:id="w176">sabbath</w> <w xml:id="w177">and</w> <w xml:id="w178">they</w> <w xml:id="w179">keep</w> <w xml:id="w180">it</w> <w xml:id="w181">and</w> <w xml:id="w182">do</w> <w xml:id="w183">not</w> <w xml:id="w184">transgress</w> <w xml:id="w185">it</w><w xml:id="w186">.</w> <w xml:id="w187">But</w> <w xml:id="w188">since</w> <w xml:id="w189">the</w> <w xml:id="w190">Lord</w> <w xml:id="w191">came</w> <w xml:id="w192">down</w> <w xml:id="w193">to</w> <w xml:id="w194">earth</w><w xml:id="w195">,</w> <w xml:id="w196">he</w> <w xml:id="w197">fulfilled</w> <w xml:id="w198">the</w> <w xml:id="w199">old</w> <w xml:id="w200">law</w> <w xml:id="w201">and</w> <w xml:id="w202">gave</w> <w xml:id="w203">us</w> <w xml:id="w204">the</w> <w xml:id="w205">new</w> <w xml:id="w206">testament</w> <w xml:id="w207">that</w> <w xml:id="w208">we</w> <w xml:id="w209">keep</w> <w xml:id="w210">it</w><w xml:id="w211">;</w> <w xml:id="w212">therefore</w><w xml:id="w213">,</w> <w xml:id="w214">just</w> <w xml:id="w215">as</w> <w xml:id="w216">the</w> <w xml:id="w217">Lord</w> <w xml:id="w218">is</w> <w xml:id="w219">in</w> <w xml:id="w220">regard</w> <w xml:id="w221">to</w> <w xml:id="w222">the</w> <w xml:id="w223">world</w><w xml:id="w224">,</w> <w xml:id="w225">likewise</w> <w xml:id="w226">is</w> <w xml:id="w227">the</w> <w xml:id="w228">holy</w> <w xml:id="w229">day</w> <w xml:id="w230">of</w> <w xml:id="w231">the</w> <w xml:id="w232">Lord</w> <w xml:id="w233">in</w> <w xml:id="w234">regard</w> <w xml:id="w235">to</w> <w xml:id="w236">all</w> <w xml:id="w237">days</w> <w xml:id="w238">of</w> <w xml:id="w239">the</w> <w xml:id="w240">week</w><w xml:id="w241">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <p><w xml:id="w242">And</w> <w xml:id="w243">whoever</w> <w xml:id="w244">honours</w> <w xml:id="w245">the</w> <w xml:id="w246">holy</w> <w xml:id="w247">day</w> <w xml:id="w248">of</w> <w xml:id="w249">the</w> <w xml:id="w250">Lord</w><w xml:id="w251">,</w> <w xml:id="w252">honours</w> <w xml:id="w253">God</w><w xml:id="w254">,</w> <w xml:id="w255">as</w> <w xml:id="w256">the</w> <w xml:id="w257">Lord</w> <w xml:id="w258">is</w> <w xml:id="w259">the</w> <w xml:id="w260">day</w> <w xml:id="w261">of</w> <w xml:id="w262">the</w> <w xml:id="w263">Lord</w><w xml:id="w264">.</w> <w xml:id="w265">Who</w> <w xml:id="w266">honours</w> <w xml:id="w267">the</w> <w xml:id="w268">holy</w> <w xml:id="w269">day</w> <w xml:id="w270">of</w> <w xml:id="w271">the</w> <w xml:id="w272">Lord</w> <w xml:id="w273">becomes</w> <w xml:id="w274">an</w> <w xml:id="w275">inhabitant</w> <w xml:id="w276">of</w> <w xml:id="w277">the</w> <w xml:id="w278">paradise</w><w xml:id="w279">.</w> <w xml:id="w280">Who</w> <w xml:id="w281">honours</w> <w xml:id="w282">the</w> <w xml:id="w283">holy</w> <w xml:id="w284">day</w> <w xml:id="w285">of</w> <w xml:id="w286">the</w> <w xml:id="w287">Lord</w> <w xml:id="w288">lives</w> <w xml:id="w289">with</w> <w xml:id="w290">the</w> <w xml:id="w291">angels</w><w xml:id="w292">.</w> <w xml:id="w293">Who</w> <w xml:id="w294">honours</w> <w xml:id="w295">it</w><w xml:id="w296">,</w> <w xml:id="w297">is</w> <w xml:id="w298">glorified</w> <w xml:id="w299">together</w> <w xml:id="w300">with</w> <w xml:id="w301">the</w> <w xml:id="w302">martyrs</w><w xml:id="w303">.</w> <w xml:id="w304">Who</w> <w xml:id="w305">honours</w> <w xml:id="w306">it</w><w xml:id="w307">,</w> <w xml:id="w308">his</w> <w xml:id="w309">house</w> <w xml:id="w310">and</w> <w xml:id="w311">all</w> <w xml:id="w312">his</w> <w xml:id="w313">actions</w> <w xml:id="w314">are</w> <w xml:id="w315">praised</w><w xml:id="w316">.</w> <w xml:id="w317">Who</w> <w xml:id="w318">honours</w> <w xml:id="w319">it</w> <w xml:id="w320">becomes</w> <w xml:id="w321">a</w> <w xml:id="w322">friend</w> <w xml:id="w323">of</w> <w xml:id="w324">god</w><w xml:id="w325">.</w> <w xml:id="w326">Who</w> <w xml:id="w327">honours</w> <w xml:id="w328">it</w><w xml:id="w329">,</w> <w xml:id="w330">the</w> <w xml:id="w331">Lord</w> <w xml:id="w332">honours</w> <w xml:id="w333">him</w> <w xml:id="w334">and</w> <w xml:id="w335">god</w> <w xml:id="w336">gives</w> <w xml:id="w337">him</w> <w xml:id="w338">a</w> <w xml:id="w339">great</w> <w xml:id="w340">amount</w> <w xml:id="w341">of</w> <w xml:id="w342">grain</w> <w xml:id="w343">and</w> <w xml:id="w344">of</w> <w xml:id="w345">wine</w> <w xml:id="w346">and</w> <w xml:id="w347">of</w> <w xml:id="w348">oil</w><w xml:id="w349">.</w> <w xml:id="w350">And</w> <w xml:id="w351">that</w> <w xml:id="w352">man</w> <w xml:id="w353">is</w> <w xml:id="w354">praised</w> <w xml:id="w355">who</w> <w xml:id="w356">honours</w> <w xml:id="w357">the</w> <w xml:id="w358">holy</w> <w xml:id="w359">day</w> <w xml:id="w360">of</w> <w xml:id="w361">the</w> <w xml:id="w362">Lord</w><w xml:id="w363">,</w> <w xml:id="w364">and</w> <w xml:id="w365">all</w> <w xml:id="w366">his</w> <w xml:id="w367">belongings</w> <w xml:id="w368">are</w> <w xml:id="w369">praised</w><w xml:id="w370">.</w> <w xml:id="w371">Who</w> <w xml:id="w372">honours</w> <w xml:id="w373">it</w> <w xml:id="w374">has</w> <w xml:id="w375">god</w> <w xml:id="w376">as</w> <w xml:id="w377">a</w> <w xml:id="w378">mighty</w> <w xml:id="w379">friend</w><w xml:id="w380">.</w> <w xml:id="w381">And</w> <w xml:id="w382">who</w> <w xml:id="w383">honours</w> <w xml:id="w384">it</w> <w xml:id="w385">becomes</w> <w xml:id="w386">heir</w> <w xml:id="w387">to</w> <w xml:id="w388">the</w> <w xml:id="w389">kingdom</w> <w xml:id="w390">of</w> <w xml:id="w391">heavens</w><w xml:id="w392">.</w> <w xml:id="w393">And</w> <w xml:id="w394">what</w> <w xml:id="w395">should</w> <w xml:id="w396">I</w> <w xml:id="w397">say</w><w xml:id="w398">?</w> <w xml:id="w399">There</w> <w xml:id="w400">is</w> <w xml:id="w401">no</w> <w xml:id="w402">other</w> <w xml:id="w403">day</w> <w xml:id="w404">of</w> <w xml:id="w405">greater</w> <w xml:id="w406">meaning</w> <w xml:id="w407">and</w> <w xml:id="w408">honour</w> <w xml:id="w409">than</w> <w xml:id="w410">the</w> <w xml:id="w411">day</w> <w xml:id="w412">of</w> <w xml:id="w413">the</w> <w xml:id="w414">Lord</w><w xml:id="w415">,</w> <w xml:id="w416">as</w> <w xml:id="w417">it</w> <w xml:id="w418">is</w> <w xml:id="w419">higher</w> <w xml:id="w420">and</w> <w xml:id="w421">of</w> <w xml:id="w422">more</w> <w xml:id="w423">honour</w> <w xml:id="w424">and</w> <w xml:id="w425">greater</w> <w xml:id="w426">than</w> <w xml:id="w427">the</w> <w xml:id="w428">heavens</w><w xml:id="w429">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <p><w xml:id="w430">Hear</w><w xml:id="w431">,</w> <w xml:id="w432">brothers</w><w xml:id="w433">,</w> <w xml:id="w434">what</w> <w xml:id="w435">good</w> <w xml:id="w436">has</w> <w xml:id="w437">who</w> <w xml:id="w438">honours</w> <w xml:id="w439">it</w><w xml:id="w440">.</w> <w xml:id="w441">Who</w> <w xml:id="w442">does</w> <w xml:id="w443">not</w> <w xml:id="w444">honour</w> <w xml:id="w445">the</w> <w xml:id="w446">holy</w> <w xml:id="w447">day</w> <w xml:id="w448">of</w> <w xml:id="w449">the</w> <w xml:id="w450">Lord</w> <w xml:id="w451">is</w> <w xml:id="w452">found</w> <w xml:id="w453">as</w> <w xml:id="w454">enemy</w> <w xml:id="w455">of</w> <w xml:id="w456">god</w><w xml:id="w457">.</w> <w xml:id="w458">Who</w> <w xml:id="w459">does</w> <w xml:id="w460">not</w> <w xml:id="w461">honour</w> <w xml:id="w462">it</w> <w xml:id="w463">has</w> <w xml:id="w464">no</w> <w xml:id="w465">part</w> <w xml:id="w466">in</w> <w xml:id="w467">paradise</w><w xml:id="w468">.</w> <w xml:id="w469">Who</w> <w xml:id="w470">does</w> <w xml:id="w471">not</w> <w xml:id="w472">honour</w> <w xml:id="w473">it</w> <w xml:id="w474">is</w> <w xml:id="w475">no</w> <w xml:id="w476">friend</w> <w xml:id="w477">of</w> <w xml:id="w478">the</w> <w xml:id="w479">saints</w><w xml:id="w480">.</w> <w xml:id="w481">Who</w> <w xml:id="w482">does</w> <w xml:id="w483">not</w> <w xml:id="w484">honour</w> <w xml:id="w485">it</w> <w xml:id="w486">is</w> <w xml:id="w487">not</w> <w xml:id="w488">fed</w> <w xml:id="w489">by</w> <w xml:id="w490">god</w> <w xml:id="w491">and</w> <w xml:id="w492">man</w><w xml:id="w493">.</w> <w xml:id="w494">Who</w> <w xml:id="w495">does</w> <w xml:id="w496">not</w> <w xml:id="w497">honour</w> <w xml:id="w498">it</w> <w xml:id="w499">has</w> <w xml:id="w500">the</w> <w xml:id="w501">devil</w> <w xml:id="w502">himself</w> <w xml:id="w503">as</w> <w xml:id="w504">friend</w> <w xml:id="w505">and</w> <w xml:id="w506">god</w> <w xml:id="w507">as</w> <w xml:id="w508">adversary</w><w xml:id="w509">.</w> <w xml:id="w510">Who</w> <w xml:id="w511">does</w> <w xml:id="w512">not</w> <w xml:id="w513">honour</w> <w xml:id="w514">it</w> <w xml:id="w515">is</w> <w xml:id="w516">friend</w> <w xml:id="w517">of</w> <w xml:id="w518">daemons</w><w xml:id="w519">.</w>  <w xml:id="w520">Who</w> <w xml:id="w521">does</w> <w xml:id="w522">not</w> <w xml:id="w523">honour</w> <w xml:id="w524">it</w> <w xml:id="w525">has</w> <w xml:id="w526">no</w> <w xml:id="w527">part</w> <w xml:id="w528">in</w> <w xml:id="w529">the</w> <w xml:id="w530">church</w><w xml:id="w531">.</w> <w xml:id="w532">Who</w> <w xml:id="w533">does</w> <w xml:id="w534">not</w> <w xml:id="w535">honour</w> <w xml:id="w536">it</w> <w xml:id="w537">is</w> <w xml:id="w538">cursed</w><w xml:id="w539">,</w> <w xml:id="w540">his</w> <w xml:id="w541">house</w> <w xml:id="w542">and</w> <w xml:id="w543">his</w> <w xml:id="w544">works</w><w xml:id="w545">.</w> <w xml:id="w546">Who</w> <w xml:id="w547">does</w> <w xml:id="w548">not</w> <w xml:id="w549">honour</w> <w xml:id="w550">it</w><w xml:id="w551">,</w> <w xml:id="w552">much</w> <w xml:id="w553">will</w> <w xml:id="w554">be</w> <w xml:id="w555">in</w> <w xml:id="w556">his</w> <w xml:id="w557">way</w><w xml:id="w558">.</w> <w xml:id="w559">Who</w> <w xml:id="w560">does</w> <w xml:id="w561">not</w> <w xml:id="w562">honour</w> <w xml:id="w563">it</w> <w xml:id="w564">has</w> <w xml:id="w565">no</w> <w xml:id="w566">good</w> <w xml:id="w567">for</w> <w xml:id="w568">his</w> <w xml:id="w569">soul</w><w xml:id="w570">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
+               <p><w xml:id="w571">And</w> <w xml:id="w572">if</w> <w xml:id="w573">someone</w> <w xml:id="w574">hears</w> <w xml:id="w575">the</w> <w xml:id="w576">semantron</w> <w xml:id="w577">on</w> <w xml:id="w578">saturday</w> <w xml:id="w579">or</w> <w xml:id="w580">on</w> <w xml:id="w581">the</w> <w xml:id="w582">day</w> <w xml:id="w583">of</w> <w xml:id="w584">the</w> <w xml:id="w585">Lord</w> <w xml:id="w586">and</w> <w xml:id="w587">does</w> <w xml:id="w588">not</w> <w xml:id="w589">go</w> <w xml:id="w590">to</w> <w xml:id="w591">church</w> <w xml:id="w592">–</w> <w xml:id="w593">unless</w> <w xml:id="w594">he</w> <w xml:id="w595">has</w> <w xml:id="w596">a</w> <w xml:id="w597">severe</w> <w xml:id="w598">disease</w> <w xml:id="w599">–</w><w xml:id="w600">,</w> <w xml:id="w601">whatever</w> <w xml:id="w602">work</w> <w xml:id="w603">he</w> <w xml:id="w604">does</w><w xml:id="w605">,</w> <w xml:id="w606">it</w> <w xml:id="w607">is</w> <w xml:id="w608">cursed</w><w xml:id="w609">.</w> <w xml:id="w610">On</w> <w xml:id="w611">the</w> <w xml:id="w612">holy</w> <w xml:id="w613">day</w> <w xml:id="w614">of</w> <w xml:id="w615">the</w> <w xml:id="w616">Lord</w> <w xml:id="w617">man</w> <w xml:id="w618">has</w> <w xml:id="w619">no</w> <w xml:id="w620">permission</w><w xml:id="w621">,</w> <w xml:id="w622">not</w> <w xml:id="w623">even</w> <w xml:id="w624">to</w> <w xml:id="w625">go</w> <w xml:id="w626">for</w> <w xml:id="w627">a</w> <w xml:id="w628">walk</w><w xml:id="w629">,</w> <w xml:id="w630">as</w> <w xml:id="w631">the</w> <w xml:id="w632">apostle</w> <w xml:id="w633">says</w><w xml:id="w634">:</w> <w xml:id="w635">nobody</w> <w xml:id="w636">should</w> <w xml:id="w637">walk</w> <w xml:id="w638">around</w> <w xml:id="w639">cunningly</w><w xml:id="w640">,</w> <w xml:id="w641">nobody</w> <w xml:id="w642">should</w> <w xml:id="w643">go</w> <w xml:id="w644">to</w> <w xml:id="w645">law</w><w xml:id="w646">,</w> <w xml:id="w647">nobody</w> <w xml:id="w648">should</w> <w xml:id="w649">bear</w> <w xml:id="w650">malice</w><w xml:id="w651">,</w> <w xml:id="w652">but</w> <w xml:id="w653">go</w> <w xml:id="w654">to</w> <w xml:id="w655">church</w> <w xml:id="w656">with</w> <w xml:id="w657">a</w> <w xml:id="w658">clean</w> <w xml:id="w659">conscience</w><w xml:id="w660">,</w> <w xml:id="w661">so</w> <w xml:id="w662">that</w> <w xml:id="w663">he</w> <w xml:id="w664">may</w> <w xml:id="w665">receive</w> <w xml:id="w666">reward</w> <w xml:id="w667">by</w> <w xml:id="w668">god</w> <w xml:id="w669">and</w> <w xml:id="w670">eternal</w> <w xml:id="w671">life</w><w xml:id="w672">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="5">
+               <p><w xml:id="w673">Who</w> <w xml:id="w674">does</w> <w xml:id="w675">not</w> <w xml:id="w676">honour</w> <w xml:id="w677">the</w> <w xml:id="w678">holy</w> <w xml:id="w679">day</w> <w xml:id="w680">of</w> <w xml:id="w681">the</w> <w xml:id="w682">Lord</w> <w xml:id="w683">has</w> <w xml:id="w684">no</w> <w xml:id="w685">part</w> <w xml:id="w686">with</w> <w xml:id="w687">the</w> <w xml:id="w688">apostles</w><w xml:id="w689">,</w> <w xml:id="w690">has</w> <w xml:id="w691">no</w> <w xml:id="w692">part</w> <w xml:id="w693">with</w> <w xml:id="w694">the</w> <w xml:id="w695">pious</w><w xml:id="w696">.</w> <w xml:id="w697">Who</w> <w xml:id="w698">does</w> <w xml:id="w699">not</w> <w xml:id="w700">honour</w> <w xml:id="w701">it</w> <w xml:id="w702">can</w> <w xml:id="w703">never</w> <w xml:id="w704">do</w> <w xml:id="w705">any</w> <w xml:id="w706">good</w> <w xml:id="w707">in</w> <w xml:id="w708">his</w> <w xml:id="w709">heart</w><w xml:id="w710">.</w> <w xml:id="w711">Who</w> <w xml:id="w712">does</w> <w xml:id="w713">not</w> <w xml:id="w714">honour</w> <w xml:id="w715">it</w> <w xml:id="w716">has</w> <w xml:id="w717">the</w> <w xml:id="w718">Jews</w> <w xml:id="w719">as</w> <w xml:id="w720">friends</w><w xml:id="w721">,</w> <w xml:id="w722">because</w> <w xml:id="w723">they</w> <w xml:id="w724">do</w> <w xml:id="w725">not</w> <w xml:id="w726">even</w> <w xml:id="w727">know</w> <w xml:id="w728">the</w> <w xml:id="w729">holy</w> <w xml:id="w730">day</w> <w xml:id="w731">of</w> <w xml:id="w732">the</w> <w xml:id="w733">Lord</w><w xml:id="w734">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="6">
+               <p><w xml:id="w735">If</w> <w xml:id="w736">somebody</w> <w xml:id="w737">enters</w> <w xml:id="w738">the</w> <w xml:id="w739">church</w> <w xml:id="w740">on</w> <w xml:id="w741">the</w> <w xml:id="w742">holy</w> <w xml:id="w743">day</w> <w xml:id="w744">of</w> <w xml:id="w745">the</w> <w xml:id="w746">Lord</w> <w xml:id="w747">and</w> <w xml:id="w748">has</w> <w xml:id="w749">a</w> <w xml:id="w750">grudge</w> <w xml:id="w751">with</w> <w xml:id="w752">his</w> <w xml:id="w753">fellow</w> <w xml:id="w754">child</w> <w xml:id="w755">or</w> <w xml:id="w756">with</w> <w xml:id="w757">another</w> <w xml:id="w758">Christian</w><w xml:id="w759">,</w> <w xml:id="w760">then</w> <w xml:id="w761">he</w> <w xml:id="w762">is</w> <w xml:id="w763">cursed</w><w xml:id="w764">.</w> <w xml:id="w765">And</w> <w xml:id="w766">should</w> <w xml:id="w767">he</w> <w xml:id="w768">take</w> <w xml:id="w769">a</w> <w xml:id="w770">gratitude</w> <w xml:id="w771">or</w> <w xml:id="w772">a</w> <w xml:id="w773">holy</w> <w xml:id="w774">gift</w><w xml:id="w775">:</w> <w xml:id="w776">as</w> <w xml:id="w777">if</w> <w xml:id="w778">someone</w> <w xml:id="w779">takes</w> <w xml:id="w780">fire</w> <w xml:id="w781">and</w> <w xml:id="w782">throws</w> <w xml:id="w783">it</w> <w xml:id="w784">in</w> <w xml:id="w785">his</w> <w xml:id="w786">barn</w><w xml:id="w787">,</w> <w xml:id="w788">while</w> <w xml:id="w789">it</w> <w xml:id="w790">is</w> <w xml:id="w791">filled</w> <w xml:id="w792">with</w> <w xml:id="w793">all</w> <w xml:id="w794">his</w> <w xml:id="w795">agricultural</w> <w xml:id="w796">products</w><w xml:id="w797">,</w> <w xml:id="w798">and</w> <w xml:id="w799">burns</w> <w xml:id="w800">it</w> <w xml:id="w801">down</w> <w xml:id="w802">and</w> <w xml:id="w803">destroys</w> <w xml:id="w804">it</w><w xml:id="w805">,</w> <w xml:id="w806">so</w> <w xml:id="w807">he</w> <w xml:id="w808">sets</w> <w xml:id="w809">his</w> <w xml:id="w810">soul</w> <w xml:id="w811">and</w> <w xml:id="w812">his</w> <w xml:id="w813">body</w> <w xml:id="w814">on</w> <w xml:id="w815">fire</w> <w xml:id="w816">who</w> <w xml:id="w817">takes</w> <w xml:id="w818">the</w> <w xml:id="w819">holy</w> <w xml:id="w820">gift</w> <w xml:id="w821">unworthy</w><w xml:id="w822">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="7">
+               <p><w xml:id="w823">And</w> <w xml:id="w824">if</w> <w xml:id="w825">somebody</w> <w xml:id="w826">does</w> <w xml:id="w827">not</w> <w xml:id="w828">enter</w> <w xml:id="w829">the</w> <w xml:id="w830">church</w> <w xml:id="w831">on</w> <w xml:id="w832">the</w> <w xml:id="w833">holy</w> <w xml:id="w834">day</w> <w xml:id="w835">of</w> <w xml:id="w836">the</w> <w xml:id="w837">Lord</w><w xml:id="w838">,</w> <w xml:id="w839">men</w> <w xml:id="w840">and</w> <w xml:id="w841">women</w><w xml:id="w842">,</w> <w xml:id="w843">priests</w><w xml:id="w844">,</w> <w xml:id="w845">monks</w><w xml:id="w846">,</w> <w xml:id="w847">deacons</w><w xml:id="w848">,</w> <w xml:id="w849">small</w> <w xml:id="w850">and</w> <w xml:id="w851">great</w><w xml:id="w852">,</w> <w xml:id="w853">they</w> <w xml:id="w854">have</w> <w xml:id="w855">their</w> <w xml:id="w856">part</w> <w xml:id="w857">with</w> <w xml:id="w858">the</w> <w xml:id="w859">adversary</w><w xml:id="w860">,</w> <w xml:id="w861">because</w> <w xml:id="w862">their</w> <w xml:id="w863">dances</w> <w xml:id="w864">and</w> <w xml:id="w865">their</w> <w xml:id="w866">cooperation</w> <w xml:id="w867">is</w> <w xml:id="w868">of</w> <w xml:id="w869">the</w> <w xml:id="w870">devil</w><w xml:id="w871">.</w> <w xml:id="w872">If</w> <w xml:id="w873">one</w> <w xml:id="w874">stands</w> <w xml:id="w875">in</w> <w xml:id="w876">the</w> <w xml:id="w877">church</w> <w xml:id="w878">and</w> <w xml:id="w879">talks</w> <w xml:id="w880">or</w> <w xml:id="w881">gossips</w> <w xml:id="w882">things</w> <w xml:id="w883">not</w> <w xml:id="w884">needed</w><w xml:id="w885">,</w> <w xml:id="w886">they</w> <w xml:id="w887">should</w> <w xml:id="w888">expel</w> <w xml:id="w889">him</w> <w xml:id="w890">from</w> <w xml:id="w891">church</w><w xml:id="w892">,</w> <w xml:id="w893">so</w> <w xml:id="w894">that</w> <w xml:id="w895">he</w> <w xml:id="w896">may</w> <w xml:id="w897">repent</w> <w xml:id="w898">a</w> <w xml:id="w899">hundred</w> <w xml:id="w900">times</w><w xml:id="w901">.</w> <w xml:id="w902">Why</w> <w xml:id="w903">is</w> <w xml:id="w904">it</w> <w xml:id="w905">called</w> <w xml:id="w906">church</w><w xml:id="w907">?</w> <w xml:id="w908">Because</w> <w xml:id="w909">it</w> <w xml:id="w910">calls</w> <w xml:id="w911">the</w> <w xml:id="w912">sins</w> <w xml:id="w913">of</w> <w xml:id="w914">man</w><w xml:id="w915">.</w> <w xml:id="w916">You</w> <w xml:id="w917">have</w> <w xml:id="w918">heard</w> <w xml:id="w919">that</w> <w xml:id="w920">two</w> <w xml:id="w921">people</w> <w xml:id="w922">went</w> <w xml:id="w923">to</w> <w xml:id="w924">church</w> <w xml:id="w925">to</w> <w xml:id="w926">pray</w><w xml:id="w927">.</w> <w xml:id="w928">One</w> <w xml:id="w929">had</w> <w xml:id="w930">a</w> <w xml:id="w931">clean</w> <w xml:id="w932">heart</w> <w xml:id="w933">and</w> <w xml:id="w934">the</w> <w xml:id="w935">other</w> <w xml:id="w936">an</w> <w xml:id="w937">evil</w> <w xml:id="w938">one</w><w xml:id="w939">.</w> <w xml:id="w940">The</w> <w xml:id="w941">prayer</w> <w xml:id="w942">of</w> <w xml:id="w943">the</w> <w xml:id="w944">one</w> <w xml:id="w945">ascended</w> <w xml:id="w946">to</w> <w xml:id="w947">god</w> <w xml:id="w948">and</w> <w xml:id="w949">he</w> <w xml:id="w950">gave</w> <w xml:id="w951">his</w> <w xml:id="w952">ear</w> <w xml:id="w953">to</w> <w xml:id="w954">him</w><w xml:id="w955">,</w> <w xml:id="w956">also</w> <w xml:id="w957">the</w> <w xml:id="w958">prayer</w> <w xml:id="w959">of</w> <w xml:id="w960">the</w> <w xml:id="w961">fighting</w> <w xml:id="w962">one</w> <w xml:id="w963">ascended</w> <w xml:id="w964">to</w> <w xml:id="w965">god</w> <w xml:id="w966">and</w> <w xml:id="w967">god</w> <w xml:id="w968">did</w> <w xml:id="w969">not</w> <w xml:id="w970">accept</w> <w xml:id="w971">it</w><w xml:id="w972">,</w> <w xml:id="w973">but</w> <w xml:id="w974">sent</w> <w xml:id="w975">a</w> <w xml:id="w976">merciless</w> <w xml:id="w977">angel</w> <w xml:id="w978">and</w> <w xml:id="w979">struck</w> <w xml:id="w980">that</w> <w xml:id="w981">man</w> <w xml:id="w982">and</w> <w xml:id="w983">his</w> <w xml:id="w984">house</w> <w xml:id="w985">and</w> <w xml:id="w986">burnt</w> <w xml:id="w987">everything</w> <w xml:id="w988">he</w> <w xml:id="w989">had</w><w xml:id="w990">.</w> <w xml:id="w991">And</w> <w xml:id="w992">the</w> <w xml:id="w993">angel</w> <w xml:id="w994">said</w> <w xml:id="w995">to</w> <w xml:id="w996">him</w><w xml:id="w997">:</w> <w xml:id="w998">Why</w> <w xml:id="w999">didn't</w> <w xml:id="w1000">you</w> <w xml:id="w1001">have</w> <w xml:id="w1002">a</w> <w xml:id="w1003">clean</w> <w xml:id="w1004">heart</w> <w xml:id="w1005">and</w> <w xml:id="w1006">conscience</w><w xml:id="w1007">?</w> <w xml:id="w1008">Off</w> <w xml:id="w1009">with</w> <w xml:id="w1010">you</w><w xml:id="w1011">,</w> <w xml:id="w1012">as</w> <w xml:id="w1013">you</w> <w xml:id="w1014">did</w><w xml:id="w1015">,</w> <w xml:id="w1016">you</w> <w xml:id="w1017">receive</w><w xml:id="w1018">!</w> <w xml:id="w1019">Don't</w> <w xml:id="w1020">you</w> <w xml:id="w1021">know</w><w xml:id="w1022">,</w> <w xml:id="w1023">wretched</w> <w xml:id="w1024">man</w><w xml:id="w1025">,</w> <w xml:id="w1026">that</w> <w xml:id="w1027">who</w> <w xml:id="w1028">has</w> <w xml:id="w1029">an</w> <w xml:id="w1030">evil</w> <w xml:id="w1031">against</w> <w xml:id="w1032">someone</w> <w xml:id="w1033">and</w> <w xml:id="w1034">was</w> <w xml:id="w1035">not</w> <w xml:id="w1036">reconciled</w><w xml:id="w1037">,</w> <w xml:id="w1038">is</w> <w xml:id="w1039">an</w> <w xml:id="w1040">enemy</w> <w xml:id="w1041">of</w> <w xml:id="w1042">god</w><w xml:id="w1043">?</w> <w xml:id="w1044">If</w> <w xml:id="w1045">someone</w> <w xml:id="w1046">throws</w> <w xml:id="w1047">fire</w> <w xml:id="w1048">in</w> <w xml:id="w1049">his</w> <w xml:id="w1050">lap</w> <w xml:id="w1051">and</w> <w xml:id="w1052">does</w> <w xml:id="w1053">not</w> <w xml:id="w1054">burn</w> <w xml:id="w1055">his</w> <w xml:id="w1056">clothes</w><w xml:id="w1057">,</w> <w xml:id="w1058">so</w> <w xml:id="w1059">also</w> <w xml:id="w1060">who</w> <w xml:id="w1061">has</w> <w xml:id="w1062">an</w> <w xml:id="w1063">evil</w> <w xml:id="w1064">and</w> <w xml:id="w1065">takes</w> <w xml:id="w1066">a</w> <w xml:id="w1067">gift</w> <w xml:id="w1068">burns</w> <w xml:id="w1069">his</w> <w xml:id="w1070">whole</w> <w xml:id="w1071">body</w><w xml:id="w1072">.</w><note type="commentary">This makes no sense. Version B has: "What good has the man, if he throws fire in his lap? Will he not burn his clothes? Such a good he has, if someone goes to the eucharist..." (the following is also difficult to understand).</note> <w xml:id="w1073">Glory</w> <w xml:id="w1074">be</w> <w xml:id="w1075">to</w> <w xml:id="w1076">our</w> <w xml:id="w1077">god</w> <w xml:id="w1078">in</w> <w xml:id="w1079">all</w> <w xml:id="w1080">eternities</w><w xml:id="w1081">,</w> <w xml:id="w1082">Amen</w><w xml:id="w1083">.</w></p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

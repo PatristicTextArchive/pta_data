@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:m="https://pta.bbaw.de/ns">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Esther</title>
+            <author>Peshitta (ETCBC)</author>
+            <respStmt>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <resp>Conversion to CTS-compliant PTA TEI</resp>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="JK" ref="https://orcid.org/0000-0003-2713-5207">Jan Köster</persName>
+               <resp>Word-tagging-pipeline</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Eep Talstra for Bible and Computer (ETCBC)</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-nc/4.0/">Available under a Creative Commons Attribution NonCommercial 4.0 International License</licence>
+            </availability>
+            <date>2018</date>
+            <idno type="PTA">pta9999.pta020</idno>
+            <idno type="TLG">tlg0527.tlg020</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <bibl type="data">
+                  <editor>
+                     <forename>Willem Th.</forename>
+                     <surname>van Peursen</surname>
+                  </editor>
+                  <editor>
+                     <forename>Geert Jan</forename>
+                     <surname>Veldman</surname>
+                  </editor>
+                  <editor>
+                     <forename>Constantijn</forename>
+                     <surname>Sikkel</surname>
+                  </editor>
+                  <editor>
+                     <forename>Hannes</forename>
+                     <surname>Vlaardingerbroek</surname>
+                  </editor>
+                  <editor>
+                     <forename>Dirk</forename>
+                     <surname>Roorda</surname>
+                  </editor>
+                  <title>ETCBC/peshitta: (Version 0.5)</title>
+                  <publisher ref="https://zenodo.org/records/4596838">Zenodo</publisher>
+                  <date>2018</date>
+               </bibl>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="verse"
+                         matchPattern="(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern n="chapter"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>For references to the Septuagint LXX is used as abbreviation, for references to the New Testament NA is used as abbreviation for the version, for references to the Vulgata Vg is used as abbrevation, for references to the Peshitta PES is used as abbrevation, for references to the Hexapla Hexapla is used as abbreviation.</p>
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+        This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+    </p>
+               <p xml:id="biblical-quotations" ana="not-annotated not-identified">
+        Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+    </p>
+               <p xml:id="other-references" ana="not-annotated not-identified">
+        Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+    </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+        Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+    </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+        Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+    </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+        Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+    </p>
+               <p xml:id="text-analysis" ana="automatically-tagged not-analyzed">
+                  Words are automatically tagged, but text is not analyzed.
+               </p>
+            </interpretation>
+            <normalization>
+               <p></p>
+            </normalization>
+            <punctuation>
+               <p></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+        Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+        Patristic Text Archive Status of edition
+    </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+        Critical edition in which the text-critical variants have been encoded.
+        </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+        Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+        </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+            Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+        </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+            Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+        </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+        Patristic Text Archive Status of annotation
+    </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+        All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+        Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+        No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+        </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+        All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+        </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+        Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+        </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+        No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+        </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Biblical</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>critical-edition-no-app</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2026-03-31" who="#JK">Words tagged</change>
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2024-03-06" who="#AvS">Converted to PTA/CapiTainS</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              xml:lang="syc"
+              n="urn:cts:pta:pta9999.pta020.pta-syc1">
+            <div type="textpart" subtype="chapter" n="1">
+               <div type="textpart" subtype="verse" n="0">
+                  <p><w xml:id="w1">܀</w><w xml:id="w2">܀</w><w xml:id="w3">܀</w><w xml:id="w4">ܟܬܒܐ</w> <w xml:id="w5">ܕܐܣܬܝܪ</w><w xml:id="w6">܀</w><w xml:id="w7">.</w><w xml:id="w8">܀</w><w xml:id="w9">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w10">ܘܗܘܐ</w> <w xml:id="w11">ܒܝܘ̈ܡܘܗܝ</w> <w xml:id="w12">ܕܐܚܫܝܪܫ</w><w xml:id="w13">܆</w> <w xml:id="w14">ܗ̇ܘ</w> <w xml:id="w15">ܐܚܫܝܪܝܫ</w> <w xml:id="w16">ܕܐܡܠܟ</w> <w xml:id="w17">ܡܢ</w> <w xml:id="w18">ܗܘܕ</w> <w xml:id="w19">ܘܥܕܡܐ</w> <w xml:id="w20">ܠܟܘܫ</w><w xml:id="w21">܆</w> <w xml:id="w22">ܥܠ</w> <w xml:id="w23">ܡܐܐܘܥܣܪܝܢ</w> <w xml:id="w24">ܡܕ̈ܝܢܢ</w><w xml:id="w25">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w26">ܒܝܘܡ̈ܬܐ</w> <w xml:id="w27">ܗ̇ܢܘܢ</w><w xml:id="w28">.</w> <w xml:id="w29">ܟܕ</w> <w xml:id="w30">ܝܬ̇ܒ</w> <w xml:id="w31">ܗܘܐ</w> <w xml:id="w32">ܡ̇ܠܟܐ</w> <w xml:id="w33">ܐܚܫܝܪܝܫ̣</w> <w xml:id="w34">ܥܠ</w> <w xml:id="w35">ܟܘܪܣܝܐ</w> <w xml:id="w36">ܕܡܠܟܘܬܗ̇</w> <w xml:id="w37">ܕܫܘܫܢܒܝܪܬܐ</w><w xml:id="w38">.</w> <w xml:id="w39">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w40">ܒܫܢܬ</w> <w xml:id="w41">ܬܠܬ</w> <w xml:id="w42">ܕܡܠܟܘܬܗ</w><w xml:id="w43">܆</w> <w xml:id="w44">ܥ̣ܒܕ</w> <w xml:id="w45">ܡܫܬܝܐ</w> <w xml:id="w46">ܪܒܐ</w> <w xml:id="w47">ܠܟܘܠܗܘܢ</w> <w xml:id="w48">ܪ̈ܘܪܒܢܘܗܝ</w> <w xml:id="w49" norm="ܘܥܒ̣̈ܕܘܗܝ">ܘܥܒ̣̈ܕܘܗܝ</w><w xml:id="w50">.</w> <w xml:id="w51">ܚܝܠܦܪ̈ܣܝܐ</w> <w xml:id="w52">ܘܡܕ̈ܝܐ</w> <w xml:id="w53">ܘܦܪ̈ܬܘܝܐ</w><w xml:id="w54">.</w><w xml:id="w55">.</w> <w xml:id="w56">ܘܪ̈ܘܪܒܢܘܗܝ</w> <w xml:id="w57">ܕܡ̇ܠܟܐ</w> <w xml:id="w58">ܩܕܡܘܗܝ</w><w xml:id="w59">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w60">ܘܪ̈ܘܪܒܢܐ</w> <w xml:id="w61">ܕܡܕܝܢܬܐ</w><w xml:id="w62">.</w> <w xml:id="w63">ܟܕ</w> <w xml:id="w64">ܚܘ̇ܝ</w> <w xml:id="w65">ܥܘܬܪܐ</w> <w xml:id="w66">ܘܐܝܩܪܐ</w> <w xml:id="w67">ܕܡܠܟܘܬܗ</w><w xml:id="w68">.</w> <w xml:id="w69">ܘܐܝܩܪܐ</w> <w xml:id="w70">ܕܬܫܒܘܚܬܐܕܪܒܘܬܗ</w> <w xml:id="w71">ܝܘܡ̇ܬܐ</w> <w xml:id="w72">ܣܓܝܐܐ</w><w xml:id="w73">.</w> <w xml:id="w74">ܡܐܐ</w> <w xml:id="w75">ܘܬܡܢܐܝܢ</w> <w xml:id="w76">ܝܘܡ̈ܝܢ</w><w xml:id="w77">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w78">ܘܟܕ</w> <w xml:id="w79">ܫܠ̣ܡܘ</w> <w xml:id="w80">ܝܘܡ̈ܬܐ</w> <w xml:id="w81">ܗ̇ܢܘܢ</w><w xml:id="w82">܆</w> <w xml:id="w83">ܥ̣ܒܕ</w> <w xml:id="w84">ܡ̇ܠܟܐ</w> <w xml:id="w85">ܠܟܠ</w> <w xml:id="w86">ܥܡܐ</w> <w xml:id="w87">ܕܐܫܬܚܪ</w> <w xml:id="w88">ܒܫܘܫܢ</w> <w xml:id="w89">ܒܝܪܬܐ</w> <w xml:id="w90">ܡܢܙܥܘܪܐ</w> <w xml:id="w91">ܘܥܕܡܐ</w> <w xml:id="w92">ܠܪܒܐ</w><w xml:id="w93">.</w> <w xml:id="w94">ܡܫܬܝܐ</w> <w xml:id="w95">ܫܒܥܐ</w> <w xml:id="w96">ܝܘܡ̈ܝܢ</w><w xml:id="w97">.</w> <w xml:id="w98">ܒܕܪܬ</w> <w xml:id="w99">ܓܢܬ</w> <w xml:id="w100">ܒܝܬܘܢܐ</w> <w xml:id="w101">ܕܡ̇ܠܟܐ</w><w xml:id="w102">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w103">ܘܢܓ̈ܝܕܢ</w> <w xml:id="w104">ܐܘ̇ܠܐ</w> <w xml:id="w105">ܕܥܡܪ</w> <w xml:id="w106">ܟܘܒܐ</w> <w xml:id="w107">ܘܬܟܠܬܐ</w><w xml:id="w108">.</w> <w xml:id="w109">ܘܡ̈ܬܝܚܢ</w> <w xml:id="w110">ܒܚ̣ܒ̈ܠܐ</w> <w xml:id="w111">ܕܒܘܨܐ</w> <w xml:id="w112">ܘܕܐܪ̈ܓܘܢܐ</w><w xml:id="w113">.</w> <w xml:id="w114">ܥܠܓܝܓ̈ܠܐ</w> <w xml:id="w115">ܕܟܣܦܐ</w><w xml:id="w116">܆</w> <w xml:id="w117">ܘܥܠ</w> <w xml:id="w118">ܥܡܘ̈ܕܐ</w> <w xml:id="w119">ܕܐܫܟܪܥܐ</w><w xml:id="w120">.</w> <w xml:id="w121">ܘܥܪ̈ܣܬܐ</w> <w xml:id="w122">ܕܕܗܒܐ</w> <w xml:id="w123">ܘܕܟܣܦܐ</w><w xml:id="w124">.</w> <w xml:id="w125">ܪܡ̣ܝܢ</w> <w xml:id="w126">ܥܠܐܪ̈ܨܝܦܬܐ</w> <w xml:id="w127">ܕܫܝܫܐ</w><w xml:id="w128">.</w> <w xml:id="w129">ܘܬܫܘܝܬܐ</w> <w xml:id="w130">ܕܒܘܨܐ</w> <w xml:id="w131">ܘܕܫܪܝܐ</w><w xml:id="w132">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w133">ܘܡܫ̈ܩܝܢ</w> <w xml:id="w134">ܒܡܐ̈ܢܐ</w> <w xml:id="w135">ܕܕܗܒܐ</w><w xml:id="w136">.</w> <w xml:id="w137">ܘܡܐ̈ܢܐ</w> <w xml:id="w138">ܡܢ</w> <w xml:id="w139">ܡܐ̈ܢܐ</w> <w xml:id="w140">ܦܪܝܫܝܢ</w><w xml:id="w141">.</w> <w xml:id="w142">ܘܚܡ̣ܪܐ</w> <w xml:id="w143">ܕܡܠܟܘܬܐ</w> <w xml:id="w144">ܣܓܝ̣ܐܝܟ</w> <w xml:id="w145">ܐܝ̣ܕܐ</w> <w xml:id="w146">ܕܡ̇ܠܟܐ</w><w xml:id="w147">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w148">ܘܡܫܬܝܐ</w> <w xml:id="w149">ܒܢܡܘܣܐ</w> <w xml:id="w150">ܘܠܝܬ</w> <w xml:id="w151">ܕܐ̇ܠܝܨ</w><w xml:id="w152">.</w> <w xml:id="w153">ܡܛܠ</w> <w xml:id="w154">ܕܗܟܢܐ</w> <w xml:id="w155">ܦܩ̇ܕ</w> <w xml:id="w156">ܡ̇ܠܟܐ</w><w xml:id="w157">.</w> <w xml:id="w158">ܠܟܠ</w> <w xml:id="w159">ܕܪܒ</w> <w xml:id="w160">ܒܒܝܬܗܕܢܥܒܕܘܢ</w> <w xml:id="w161">ܨܒܝܢܐ</w> <w xml:id="w162">ܠܟܠܢܫ</w> <w xml:id="w163">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w164">ܘܘܫܬܝ</w> <w xml:id="w165">ܡܠܟܬܐ</w> <w xml:id="w166">ܥܒ̣ܕܬ</w> <w xml:id="w167">ܡܫܬܝܐ</w> <w xml:id="w168">ܪܒܐ</w> <w xml:id="w169">ܠܟܠܗܝܢ</w> <w xml:id="w170">ܢܫ̈ܐ</w><w xml:id="w171">.</w> <w xml:id="w172">ܒܝܬ</w> <w xml:id="w173">ܡܠܟܘܬܗ</w> <w xml:id="w174">ܕܡ̇ܠܟܐ</w> <w xml:id="w175">ܚܫܝܪܝܫ</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w176">ܘܒܝܘܡܐ</w> <w xml:id="w177">ܫܒܝܥܝܐ</w><w xml:id="w178">܆</w> <w xml:id="w179">ܟܕ</w> <w xml:id="w180">ܫܦ̣ܪ</w> <w xml:id="w181">ܠܒܗ</w> <w xml:id="w182">ܕܡ̇ܠܟܐ</w> <w xml:id="w183">ܒܚܡ̣ܪܐ</w><w xml:id="w184">܆</w> <w xml:id="w185">ܐܡ̣ܪ</w> <w xml:id="w186">ܠܡܗ̈ܝܡܢܐ</w><w xml:id="w187">.</w> <w xml:id="w188">ܠܒܙܬܐܘܠܪܚܒܘܢܐ</w><w xml:id="w189">.</w> <w xml:id="w190">ܘܠܒܓܬܐ</w><w xml:id="w191">.</w> <w xml:id="w192">ܘܠܐܒܘܓܬܐ</w><w xml:id="w193">.</w> <w xml:id="w194">ܘܠܬܪܫ</w> <w xml:id="w195">ܘܠܙܬܪ</w> <w xml:id="w196">ܘܠܟܪܟܫ</w><w xml:id="w197">.</w> <w xml:id="w198">ܫܒܥ̈ܐ</w> <w xml:id="w199">ܡܗܝܡ̈ܢܐܕܡܫܡܫܝܢ</w> <w xml:id="w200">ܩܕܡ</w> <w xml:id="w201">ܡ̇ܠܟܐ</w> <w xml:id="w202">ܐܚܫܝܪܝܫ</w><w xml:id="w203">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p><w xml:id="w204">ܠܡܥܠܘ</w> <w xml:id="w205">ܠܘܫܬܝ</w> <w xml:id="w206">ܡܠܟܬܐ</w> <w xml:id="w207">ܩܕܡ</w> <w xml:id="w208">ܡ̇ܠܟܐ</w><w xml:id="w209">.</w> <w xml:id="w210">ܒܬܓܐ</w> <w xml:id="w211">ܕܡܠܟܘܬܗ̇</w><w xml:id="w212">.</w> <w xml:id="w213">ܠܡܚܘܝܘ</w> <w xml:id="w214">ܠܥܡܡ̈ܐ</w> <w xml:id="w215">ܘܠܪ̈ܘܪܒܢܐܫܘܦܪܗ̇</w><w xml:id="w216">.</w> <w xml:id="w217">ܡܛܠ</w> <w xml:id="w218">ܕܫܦܝܪ</w> <w xml:id="w219">ܗܘܐ</w> <w xml:id="w220">ܚܙܘܗ̇</w><w xml:id="w221">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p><w xml:id="w222">ܘܠܐ</w> <w xml:id="w223">ܨܒܬ̣</w> <w xml:id="w224">ܘܫܬܝ</w> <w xml:id="w225">ܡ̇ܠܟܬܐ</w> <w xml:id="w226">ܠܡܥܠ</w><w xml:id="w227">܇</w> <w xml:id="w228">ܒܦܬܓܡܐ</w> <w xml:id="w229">ܕܫ̇ܕܪ</w> <w xml:id="w230">ܥܠܝܗ̇</w> <w xml:id="w231">ܒܐܝ̣ܕܐ</w> <w xml:id="w232">ܕܡܗܝ̈ܡܢܐ</w><w xml:id="w233">.</w><w xml:id="w234">ܘܪܓ̣ܙ</w> <w xml:id="w235">ܡ̇ܠܟܐ</w> <w xml:id="w236">ܛܒ</w><w xml:id="w237">.</w> <w xml:id="w238">ܘܚܡܬܗ</w> <w xml:id="w239">ܡܬܓܘܙܠܐ</w> <w xml:id="w240">ܗܘܬ</w><w xml:id="w241">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p><w xml:id="w242">ܘܐܡ̣ܪ</w> <w xml:id="w243">ܡ̇ܠܟܐ</w> <w xml:id="w244">ܠܚܟܝ̈ܡܐ</w> <w xml:id="w245">ܝܕ̈ܥܝ</w> <w xml:id="w246">ܙܒ̈ܢܐ</w><w xml:id="w247">.</w> <w xml:id="w248">ܡܛܠ</w> <w xml:id="w249">ܕܗܟܢܐ</w> <w xml:id="w250">ܗ̣ܘܐ</w> <w xml:id="w251">ܢܡܘܣܗ</w> <w xml:id="w252">ܕܡ̇ܠܟܐ</w><w xml:id="w253">.</w> <w xml:id="w254">ܐܡ̣ܪܗܘܐ</w> <w xml:id="w255">ܩܕܡ</w> <w xml:id="w256">ܟܠ</w> <w xml:id="w257">ܕܝ̇ܕܥܝܢ</w> <w xml:id="w258">ܢܡܘ̈ܣܐ</w> <w xml:id="w259">ܘܕ̈ܝ̣ܢܐ</w><w xml:id="w260">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p><w xml:id="w261">ܘܠܕܩܪܝܒܝܢ</w> <w xml:id="w262">ܠܗ</w><w xml:id="w263">.</w> <w xml:id="w264">ܒܪܫܝ</w> <w xml:id="w265">ܘܫܬܪ</w><w xml:id="w266">.</w> <w xml:id="w267">ܘܐܪܡܬ</w> <w xml:id="w268">ܘܡܘܣ</w><w xml:id="w269">.</w> <w xml:id="w270">ܘܬܪܫܝܫ</w> <w xml:id="w271">ܘܡܪܣܝܐ</w><w xml:id="w272">.</w> <w xml:id="w273">ܘܡܥܘܟܢ</w><w xml:id="w274">.</w> <w xml:id="w275">ܫܒܥܐܪ̈ܘܪܒܢܐ</w> <w xml:id="w276">ܕܦܪܣ</w> <w xml:id="w277">ܘܕܡܕܝ</w><w xml:id="w278">.</w> <w xml:id="w279">ܕܝܬ̇ܒܝܢ</w> <w xml:id="w280">ܩܕܡ</w> <w xml:id="w281">ܡ̇ܠܟܐ</w> <w xml:id="w282">ܘܡܬܚܙܝܢ</w> <w xml:id="w283">ܩܕܡܘܗܝ</w> <w xml:id="w284">ܒܬܪܥܐ</w> <w xml:id="w285">ܕܡܠܟܘܬܐ</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p><w xml:id="w286">ܐܡ̇ܪ</w><w xml:id="w287">.</w> <w xml:id="w288">ܡܢܐ</w> <w xml:id="w289">ܘ̇ܠܐ</w> <w xml:id="w290">ܠܡܥܒܕ</w> <w xml:id="w291">ܠܗ̇</w><w xml:id="w292">.</w> <w xml:id="w293">ܠܡܠܟܬܐ</w> <w xml:id="w294">ܘܫܬܝ̇</w><w xml:id="w295">.</w> <w xml:id="w296">ܥܠ</w> <w xml:id="w297">ܕܠܐ</w> <w xml:id="w298">ܥ̣ܒܕܬ</w> <w xml:id="w299">ܡܠܬܗ</w> <w xml:id="w300">ܕܡ̇ܠܟܐܐܚܫܝܪܝܫ</w> <w xml:id="w301">ܕܫܠ̣ܚ</w> <w xml:id="w302">ܒܐܝ̣ܕܐ</w> <w xml:id="w303">ܕܡܗܝܡ̈ܢܐ</w><w xml:id="w304">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <p><w xml:id="w305">ܘܐܡ̣ܪ</w> <w xml:id="w306">ܡܢܘܟܢ</w> <w xml:id="w307">ܩܕܡ</w> <w xml:id="w308">ܡ̇ܠܟܐ</w> <w xml:id="w309">ܘܩܕܡ</w> <w xml:id="w310">ܪ̈ܘܪܒܢܐ</w><w xml:id="w311">.</w> <w xml:id="w312">ܠܐ</w> <w xml:id="w313">ܗܘܐ</w> <w xml:id="w314">ܥܠ</w> <w xml:id="w315">ܡ̇ܠܟܐ</w> <w xml:id="w316">ܒܠܚܘܕ</w> <w xml:id="w317">ܒܣ̣ܪܬ</w> <w xml:id="w318">ܘܫܬܝܡ̇ܠܟܬܐ</w><w xml:id="w319">܆</w> <w xml:id="w320">ܐܠܐ</w> <w xml:id="w321">ܥܠ</w> <w xml:id="w322">ܟܠܗܘܢ</w> <w xml:id="w323">ܪ̈ܘܪܒܢܐ</w><w xml:id="w324">.</w> <w xml:id="w325">ܘܥܠ</w> <w xml:id="w326">ܟܘܠܗܘܢ</w> <w xml:id="w327">ܥܡܡ̈ܐ</w> <w xml:id="w328">ܕܒܟܠܗܝܢ</w> <w xml:id="w329">ܡܕ̈ܝܢܬܗ</w><w xml:id="w330">.</w><w xml:id="w331">ܕܡ̇ܠܟܐ</w> <w xml:id="w332">ܐܚܫܝܪܫ</w><w xml:id="w333">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="17">
+                  <p><w xml:id="w334">ܘܟܕ</w> <w xml:id="w335">ܢܦ̇ܩ</w> <w xml:id="w336">ܛܒܐ</w> <w xml:id="w337">ܕܡܠܬܐ</w> <w xml:id="w338">ܥܠ</w> <w xml:id="w339">ܟܠܗܝܢ</w> <w xml:id="w340">ܢܫ̈ܐ</w><w xml:id="w341">܆</w> <w xml:id="w342">ܢܗ̈ܘܝܢ</w> <w xml:id="w343">ܫܝ̈ܛܢ</w> <w xml:id="w344">ܘܒܣܪ̈ܢ</w> <w xml:id="w345">ܓܒܪ̈ܝܗܝܢܒܥܝܢ̈ܝܗܝܢ</w><w xml:id="w346">.</w> <w xml:id="w347" norm="ܘܢܗ̣̈ܘܝܢ">ܘܢܗ̣̈ܘܝܢ</w> <w xml:id="w348">ܐܡܪ̈ܢ</w> <w xml:id="w349">ܕܡ̇ܠܟܐ</w> <w xml:id="w350">ܐܚܫܝܪܝܫ</w> <w xml:id="w351">ܦܩܕ</w> <w xml:id="w352">ܠܡܥܠܘ</w> <w xml:id="w353">ܠܘܫܬܝ</w> <w xml:id="w354">ܡܠܟܬܐ</w><w xml:id="w355">܇</w><w xml:id="w356">ܩܕܡܘܗܝ̣</w> <w xml:id="w357">ܘܠܐ</w> <w xml:id="w358">ܥ̣ܠܬ</w><w xml:id="w359">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="18">
+                  <p><w xml:id="w360">ܝܘܡܢܐ</w> <w xml:id="w361">ܢܐܡܪܘܢ</w> <w xml:id="w362">ܪ̈ܘܪܒܢܐ</w> <w xml:id="w363">ܕܦܪܣ</w> <w xml:id="w364">ܘܕܡܕܝ</w><w xml:id="w365">܆</w> <w xml:id="w366">ܕܫܡܥܘ</w> <w xml:id="w367">ܦܬܓܡܗ̇</w> <w xml:id="w368">ܕܡܠܟ̣ܬܐ</w><w xml:id="w369">.</w> <w xml:id="w370">ܡܢ</w> <w xml:id="w371">ܟܘܠܗܘܢܪ̈ܘ̇ܪܒܢܐ</w> <w xml:id="w372">ܕܡ̇ܠܟܐ</w><w xml:id="w373">.</w> <w xml:id="w374">ܘܟܠܗ</w> <w xml:id="w375">ܒܣܝܪܘܬܐ</w> <w xml:id="w376">ܘܪܘܓܙܐ</w><w xml:id="w377">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="19">
+                  <p><w xml:id="w378">ܐܢ</w> <w xml:id="w379">ܥܠ</w> <w xml:id="w380">ܡ̇ܠܟܐ</w> <w xml:id="w381">ܫܦܝܪ</w><w xml:id="w382">.</w> <w xml:id="w383">ܢܦܘܩ</w> <w xml:id="w384">ܦܬܓܡܐ</w> <w xml:id="w385">ܕܡܠܟܘܬܐ</w> <w xml:id="w386">ܡܢ</w> <w xml:id="w387">ܩܕܡܘܗܝ</w><w xml:id="w388">.</w> <w xml:id="w389">ܘܢܬܟܬܒ</w> <w xml:id="w390">ܒܢܡܘܣ</w> <w xml:id="w391">ܡܕܝܘܦܪܣ</w> <w xml:id="w392">ܕܠܐ</w> <w xml:id="w393">ܥܒ̣ܪ</w><w xml:id="w394">.</w> <w xml:id="w395">ܘܬܘܒ</w> <w xml:id="w396">ܠܐ</w> <w xml:id="w397">ܬܥܘܠ</w> <w xml:id="w398">ܘܫܬܝ</w> <w xml:id="w399">ܡ̇ܠܟܬܐ</w> <w xml:id="w400">ܠܘܬ</w> <w xml:id="w401">ܡ̇ܠܟܐ</w> <w xml:id="w402">ܐܚܫܝܪܝܫ</w><w xml:id="w403">.</w> <w xml:id="w404">ܘܡܠܟܘܬܐ</w><w xml:id="w405">܆</w><w xml:id="w406">ܢܬܠ</w> <w xml:id="w407">ܡ̇ܠܟܐ</w> <w xml:id="w408">ܠܚܒܪܬܗ̇</w> <w xml:id="w409">ܕ̇ܛܒܐ</w> <w xml:id="w410">ܡܢܗ̇</w><w xml:id="w411">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="20">
+                  <p><w xml:id="w412">ܘܢܫܬܡܥ</w> <w xml:id="w413">ܦܬܓܡܐ</w> <w xml:id="w414">ܕܡ̇ܠܟܐ</w><w xml:id="w415">.</w> <w xml:id="w416">ܘܢܥܒܪ</w><w xml:id="w417">܆</w> <w xml:id="w418">ܒܟܘܠܗ̇</w> <w xml:id="w419">ܡܠܟܘܬܐ</w><w xml:id="w420">.</w> <w xml:id="w421">ܡܛܠ</w> <w xml:id="w422">ܕܪܒܐ</w> <w xml:id="w423">ܗܝ</w><w xml:id="w424">.</w> <w xml:id="w425">ܘܟܘܠܗܝܢܢܫ̈ܐ</w> <w xml:id="w426">ܢܥ̈ܒܕܢ</w> <w xml:id="w427">ܐܝܩܪܐ</w> <w xml:id="w428">ܠܓܒܪ̈ܝܗܝܢ</w><w xml:id="w429">܆</w> <w xml:id="w430">ܡܢ</w> <w xml:id="w431">ܪܒܐ</w> <w xml:id="w432">ܘܥܕܡܐ</w> <w xml:id="w433">ܠܙܥܘܪܐ</w><w xml:id="w434">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="21">
+                  <p><w xml:id="w435">ܘܫ̣ܦܪ</w> <w xml:id="w436">ܦܬܓܡܐ</w> <w xml:id="w437">ܗܢܐ</w> <w xml:id="w438">ܒܥ̈ܝܢܘܗܝ</w> <w xml:id="w439">ܕܡ̇ܠܟܐ</w><w xml:id="w440">.</w> <w xml:id="w441">ܘܕܪ̈ܘܪܒܢܘܗܝ</w><w xml:id="w442">.</w> <w xml:id="w443">ܘܥܒ̣ܕ</w> <w xml:id="w444">ܡ̇ܠܟܐ</w> <w xml:id="w445">ܐܝܟ</w> <w xml:id="w446">ܦܬܓܡܗܕܡܢܘܟܢ</w><w xml:id="w447">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="22">
+                  <p><w xml:id="w448">ܘܫ̇ܕܪ</w> <w xml:id="w449">ܐܓܪ̈ܬܐ</w> <w xml:id="w450">ܠܟܘܠܗܝܢ</w> <w xml:id="w451">ܡܕܝܢ̈ܬܗ</w> <w xml:id="w452">ܕܡ̇ܠܟܐ</w><w xml:id="w453">.</w> <w xml:id="w454">ܠܡܕܝܢܬܐ</w> <w xml:id="w455">ܐܝܟ</w> <w xml:id="w456">ܟܬܒܗ̇</w><w xml:id="w457">.</w> <w xml:id="w458">ܘܠܥܡܐ</w> <w xml:id="w459">ܐܝܟܠܫܢܗ</w><w xml:id="w460">.</w> <w xml:id="w461">ܠܡܗܘܐ</w> <w xml:id="w462">ܟܠ</w> <w xml:id="w463">ܓܒܪ</w> <w xml:id="w464">ܫܠܝܛ</w> <w xml:id="w465">ܒܒܝܬܗ</w><w xml:id="w466">.</w> <w xml:id="w467">ܘܡ̇ܡܠܠ</w> <w xml:id="w468">ܐܝܟ</w> <w xml:id="w469">ܠܫܢ</w> <w xml:id="w470">ܥܡܗ</w><w xml:id="w471">.</w> <w xml:id="w472">.</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="2">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w473">ܘܒܬܪ</w> <w xml:id="w474">ܡ̈ܠܐ</w> <w xml:id="w475">ܗܠܝ̣ܢ</w><w xml:id="w476">.</w> <w xml:id="w477">ܟܕ</w> <w xml:id="w478">ܐܬܬܢ̣ܝܚܬ</w> <w xml:id="w479">ܪܘܚܗ</w> <w xml:id="w480">ܕܡ̇ܠܟܐ</w> <w xml:id="w481">ܐܚܫܝܪܝܫ</w><w xml:id="w482">܆</w> <w xml:id="w483">ܐܬܕܟܪܗ</w> <w xml:id="w484">ܠܘܫܬܝܡ̇ܠܟܬܐ</w> <w xml:id="w485">ܘܠܟܠܡܕܡ</w> <w xml:id="w486">ܕܥ̣ܒܕܬ</w><w xml:id="w487">.</w> <w xml:id="w488">ܘܠܟܠܡܕܡ</w> <w xml:id="w489">ܕܦܣ̣ܩܘ</w> <w xml:id="w490">ܥܠܝܗ</w><w xml:id="w491">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w492">ܘܐܡܪܘ</w> <w xml:id="w493">ܠܗ</w> <w xml:id="w494">ܥܠܝܡ̈ܘܗܝ</w> <w xml:id="w495">ܠܡ̇ܠܟܐ</w> <w xml:id="w496">ܘܡܫ̈ܡܫܢܘܗܝ</w><w xml:id="w497">܆</w> <w xml:id="w498">ܢܒܥܘܢ</w> <w xml:id="w499">ܠܡ̇ܠܟܐ</w> <w xml:id="w500">ܥܠܝܡ̈ܬܐ</w> <w xml:id="w501">ܕܫܦܝ̣ܪ̈ܢܒܚܙܘܗܝܢ</w><w xml:id="w502">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w503">ܘܢܦܩܘܕ</w> <w xml:id="w504">ܡ̇ܠܟܐ</w><w xml:id="w505">.</w> <w xml:id="w506">ܦܘܩܕܢܐ</w> <w xml:id="w507">ܒܟܠܗܝܢ</w> <w xml:id="w508">ܡ̈ܕܝܢܬܐ</w><w xml:id="w509">܆</w> <w xml:id="w510">ܘܢܟ̇ܢܫܘܢ</w> <w xml:id="w511">ܟܠܗܝܢ</w> <w xml:id="w512">ܥܠܝܡ̈ܬܐ</w> <w xml:id="w513">ܒܬܘ̈ܠܬܐܕܫܦܝܪ̈ܢ</w> <w xml:id="w514">ܒܚܙܘܗܝܢ</w><w xml:id="w515">.</w> <w xml:id="w516">ܠܒܝܬ</w> <w xml:id="w517">ܢܫ̈ܐ</w><w xml:id="w518">܇</w> <w xml:id="w519">ܠܘܬ</w> <w xml:id="w520">ܗܓܝ</w> <w xml:id="w521">ܡܗܝܡܢܬܐ</w> <w xml:id="w522">ܢܛܪ</w> <w xml:id="w523">ܢܫ̈ܐ</w><w xml:id="w524">.</w> <w xml:id="w525">ܘܢܛܠ</w> <w xml:id="w526">ܬܨܒܝܬܗܝܢ</w><w xml:id="w527">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w528">ܘܥܠܝܡܬܐ</w> <w xml:id="w529">ܕܬܫܦܪ</w> <w xml:id="w530">ܩܕܡ</w> <w xml:id="w531">ܡ̇ܠܟܐ</w><w xml:id="w532">܆</w> <w xml:id="w533">ܬܡܠܟ</w> <w xml:id="w534">ܚܠܦ</w> <w xml:id="w535">ܘܫܬܝ</w><w xml:id="w536">.</w> <w xml:id="w537">ܘܫܦ̣ܪܬ</w> <w xml:id="w538">ܡܠܬܐ</w> <w xml:id="w539">ܒܥ̈ܝܢܝ</w> <w xml:id="w540">ܡ̇ܠܟܐ</w><w xml:id="w541">.</w><w xml:id="w542">ܘܥ̣ܒܕ</w> <w xml:id="w543">ܗܟܢܐ</w><w xml:id="w544">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w545">ܘܓܒܪܐ</w> <w xml:id="w546">ܝܗܘܕܝܐ</w> <w xml:id="w547">ܐܝܬ</w> <w xml:id="w548">ܗܘܐ</w> <w xml:id="w549">ܒܫܘܫܢ</w> <w xml:id="w550">ܒܝܪܬܐ</w><w xml:id="w551">܆</w> <w xml:id="w552">ܘܫܡܗ</w> <w xml:id="w553">ܡܘܪܕܟܝ</w> <w xml:id="w554">ܒܪ</w> <w xml:id="w555">ܝܐܝܪ</w><w xml:id="w556">.</w> <w xml:id="w557">ܒܪ</w> <w xml:id="w558">ܫܡܥܝ</w> <w xml:id="w559">ܒܪܩܝܫ</w><w xml:id="w560">.</w> <w xml:id="w561">ܡܢ</w> <w xml:id="w562">ܫܒܛܐ</w> <w xml:id="w563">ܕܒܢܝܡܝܢ</w><w xml:id="w564">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w565">ܕܓܠܝ</w> <w xml:id="w566">ܡܢ</w> <w xml:id="w567">ܐܘܪܫܠܡ</w><w xml:id="w568">.</w> <w xml:id="w569">ܥܠ</w> <w xml:id="w570">ܓܠܘܬܐ</w> <w xml:id="w571">ܕܓܠܝܬ</w> <w xml:id="w572">ܥܡ</w> <w xml:id="w573">ܝܘܟܢܝܐ</w> <w xml:id="w574">ܡ̇ܠܟܐ</w> <w xml:id="w575">ܕܝܗܘܕܐ</w><w xml:id="w576">.</w> <w xml:id="w577">ܕܓܠܝ</w> <w xml:id="w578">ܢܒܘ</w> <w xml:id="w579">ܟܕܢܨ̇ܪ</w> <w xml:id="w580">ܡ̇ܠܟܐ</w> <w xml:id="w581">ܕܒ̇ܒܠ</w><w xml:id="w582">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w583">ܘܗ̣ܘܐ</w> <w xml:id="w584">ܡܪܒܐ</w> <w xml:id="w585">ܠܗܕܣ</w> <w xml:id="w586">ܕܗܝ</w> <w xml:id="w587">ܐܣܬܝܪ</w> <w xml:id="w588">ܒܪܬ</w> <w xml:id="w589">ܕܕܗ</w><w xml:id="w590">.</w> <w xml:id="w591">ܡܛܠ</w> <w xml:id="w592">ܕܠܝܬ</w> <w xml:id="w593">ܗܘܐ</w> <w xml:id="w594">ܠܗ̇</w> <w xml:id="w595">ܐܒܐ</w> <w xml:id="w596">ܘܐܡܐ</w><w xml:id="w597">.</w><w xml:id="w598">ܘܥܠܝܡܬܐ</w> <w xml:id="w599">ܫܦܝܪ</w> <w xml:id="w600">ܗܘܐ</w> <w xml:id="w601">ܩܘܒܠܠܗ̇</w><w xml:id="w602">.</w> <w xml:id="w603">ܘܫܦܝܪ</w> <w xml:id="w604">ܗܘܐ</w> <w xml:id="w605">ܚܙܘܗ̇</w><w xml:id="w606">.</w> <w xml:id="w607">ܘܟܕ</w> <w xml:id="w608">ܡ̣ܝܬ</w> <w xml:id="w609">ܐܒܘܗ̇</w> <w xml:id="w610">ܘܐܡܗ̇</w><w xml:id="w611">܆</w><w xml:id="w612">ܢܣܒܗ̇</w> <w xml:id="w613">ܠܗ</w> <w xml:id="w614">ܡܘܪܕܟܝ</w> <w xml:id="w615">ܒܪܬܐ</w><w xml:id="w616">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w617">ܘܟܕ</w> <w xml:id="w618">ܐܫܬܡܥ</w> <w xml:id="w619">ܦܬܓܡܐ</w> <w xml:id="w620">ܕܡ̇ܠܟܐ</w> <w xml:id="w621">ܘܦܘܩܕܢܗ</w><w xml:id="w622">܆</w> <w xml:id="w623">ܘܟܕ</w> <w xml:id="w624">ܡܬ̈ܟܢܫܢ</w> <w xml:id="w625">ܦܬܘ̈ܠܬܐ</w> <w xml:id="w626">ܣܓܝܐ̈ܬܐ</w> <w xml:id="w627">ܠܫܘܫܢܒܝܪܬܐ</w><w xml:id="w628">܆</w> <w xml:id="w629">ܠܘܬ</w> <w xml:id="w630">ܗ̇ܓܝ</w> <w xml:id="w631">ܡܗܝܡܢܐ</w><w xml:id="w632">܆</w> <w xml:id="w633">ܐܬܕܒ̣ܪܬ</w> <w xml:id="w634">ܐܦ</w> <w xml:id="w635">ܐܣܬܝܪ</w> <w xml:id="w636">ܠܒܝܬ</w> <w xml:id="w637">ܡ̇ܠܟܐ</w><w xml:id="w638">.</w> <w xml:id="w639">ܠܘܬ</w> <w xml:id="w640">ܗܓܝ</w> <w xml:id="w641">ܢܛ̇ܪܢܫ̈ܐ</w><w xml:id="w642">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w643">ܘܫܦܪܬ</w> <w xml:id="w644">ܥܠܝܡܬܐ</w> <w xml:id="w645">ܒܥܝܢ̈ܘܗܝ</w><w xml:id="w646">.</w> <w xml:id="w647">ܘܫܩܠܬ</w> <w xml:id="w648">ܚܣܕܐ</w> <w xml:id="w649">ܩܕܡܘܗܝ</w><w xml:id="w650">.</w> <w xml:id="w651">ܘܣܪܗܒ</w> <w xml:id="w652">ܥܠ</w> <w xml:id="w653">ܬܨܒܝܬܗ̇</w><w xml:id="w654">.</w> <w xml:id="w655">ܘܥܠܡܢܘ̈ܬܗ̇</w> <w xml:id="w656">ܠܡܬܠ</w> <w xml:id="w657">ܠܗ̇</w> <w xml:id="w658">ܘܠܫܒܥ</w> <w xml:id="w659">ܥܠܝܡܬܗ</w> <w xml:id="w660">ܕܙܕܝܩܢ</w> <w xml:id="w661">ܗ̈ܘܝ</w> <w xml:id="w662">ܠܡܬܠ</w> <w xml:id="w663">ܠܗ̇</w> <w xml:id="w664">ܡܢ</w> <w xml:id="w665">ܒܝܬ</w> <w xml:id="w666">ܡ̇ܠܟܐ</w><w xml:id="w667">.</w> <w xml:id="w668">ܘܦ̣ܪܫܠܗ̇</w> <w xml:id="w669">ܘܠܥܠܝܡܬܗ̇</w> <w xml:id="w670">ܛܒ</w> <w xml:id="w671">ܡܢ</w> <w xml:id="w672">ܟܠܗܝܢ</w> <w xml:id="w673">ܢܫ̈ܐ</w><w xml:id="w674">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w675">ܘܠܐ</w> <w xml:id="w676">ܚܘܝܬ</w> <w xml:id="w677">ܐܣܬܝܪ</w> <w xml:id="w678">ܥܡܗ̇</w> <w xml:id="w679">ܘܫܪܒܬܗ̇</w><w xml:id="w680">.</w> <w xml:id="w681">ܡܛܠ</w> <w xml:id="w682">ܕܡܘܪܕܟܝ</w> <w xml:id="w683">ܦܩܕܗ̇</w> <w xml:id="w684">ܗܘܐ̣</w> <w xml:id="w685">ܕܠܐ</w> <w xml:id="w686">ܬܚܘܝܢ</w><w xml:id="w687">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p><w xml:id="w688">ܘܟܠ</w> <w xml:id="w689">ܝܘܡ</w> <w xml:id="w690">ܝܘܡ</w> <w xml:id="w691">ܡ̇ܘܪܕܟܝ</w> <w xml:id="w692">ܡܗܠܟ</w> <w xml:id="w693">ܗܘܐ</w> <w xml:id="w694">ܩܕܡ</w> <w xml:id="w695">ܕܪܬ</w> <w xml:id="w696">ܢܫ̈ܐ</w><w xml:id="w697">.</w> <w xml:id="w698">ܠܡܕܥ</w> <w xml:id="w699">ܫܪܒܐ</w> <w xml:id="w700">ܕܐܣܬܝܪ</w><w xml:id="w701">.</w> <w xml:id="w702">ܘܡܢܐܡܬܥܒܕ</w> <w xml:id="w703">ܠܗ̇</w><w xml:id="w704">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p><w xml:id="w705">ܘܡܐ</w> <w xml:id="w706">ܕܡ̇ܛܐ</w> <w xml:id="w707">ܗܘܐ</w> <w xml:id="w708">ܙܒܢܐ</w> <w xml:id="w709">ܕܚܕܐ</w> <w xml:id="w710">ܡܢ</w> <w xml:id="w711">ܥܠܝܡ̈ܬܐ</w> <w xml:id="w712">ܠܡܥܠ</w> <w xml:id="w713">ܩܕܡ</w> <w xml:id="w714">ܡܠܟܐ</w> <w xml:id="w715">ܐܚܫܝܪܝܫ</w><w xml:id="w716">.</w> <w xml:id="w717">ܡܐ</w> <w xml:id="w718">ܕܫ̇ܠܡܘܠܗ̇</w> <w xml:id="w719">ܬܪ̈ܥܣܪ</w> <w xml:id="w720">ܝܘ̈ܡܝܢ</w> <w xml:id="w721">ܐܝܟ</w> <w xml:id="w722">ܢܡܘܣܐ</w> <w xml:id="w723">ܕܢ̣ܫ̈ܐ</w><w xml:id="w724">܆</w> <w xml:id="w725">ܡܛܘܠ</w> <w xml:id="w726">ܕܗܟܢܐ</w> <w xml:id="w727">ܫ̇ܠ̣ܡܝܢ</w> <w xml:id="w728">ܝܘ̈ܡܝ</w> <w xml:id="w729">ܬܨܒܝܬܗܝܢ</w><w xml:id="w730">.</w><w xml:id="w731">ܫܬܐ</w> <w xml:id="w732">ܝܘ̈ܡܝܢ</w> <w xml:id="w733">ܒܡܫܚܐ</w> <w xml:id="w734">ܕܡܘܪܐ</w><w xml:id="w735">.</w> <w xml:id="w736">ܘܫܬܐ</w> <w xml:id="w737">ܝܘ̈ܡܝܢ</w> <w xml:id="w738">ܒܒܣܡܐ</w> <w xml:id="w739">ܘܒܬܨܒܝܬܐ</w> <w xml:id="w740">ܕܢܫ̈ܐ</w><w xml:id="w741">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p><w xml:id="w742">ܘܗܟܢܐ</w> <w xml:id="w743">ܥܐ̇ܠܐ</w> <w xml:id="w744">ܥܠܝܡܬܐ</w> <w xml:id="w745">ܩܕܡ</w> <w xml:id="w746">ܡ̇ܠܟܐ</w> <w xml:id="w747">ܘܟܠ</w> <w xml:id="w748">ܡܕܡ</w> <w xml:id="w749">ܕܐܡ̇ܪܐ</w> <w xml:id="w750">ܡܬܝܗܒ</w> <w xml:id="w751">ܠܗ̇</w> <w xml:id="w752">ܠܡܥܠ</w> <w xml:id="w753">ܥܡܗ̇</w><w xml:id="w754">.</w> <w xml:id="w755">ܡܢܒܝܬ</w> <w xml:id="w756">ܢܫ̈ܐ</w> <w xml:id="w757">ܘܥܕܡܐ</w> <w xml:id="w758">ܠܒܝܬ</w> <w xml:id="w759">ܡ̇ܠܟܐ</w><w xml:id="w760">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p><w xml:id="w761">ܒܪܡܫܐ</w> <w xml:id="w762">ܥ̇ܐܠܐ</w><w xml:id="w763">.</w> <w xml:id="w764">ܘܒܨܦܪܐ</w> <w xml:id="w765">ܗܦ̇ܟܐ</w> <w xml:id="w766">ܠܒܝܬ</w> <w xml:id="w767">ܢܫ̈ܐ</w><w xml:id="w768">.</w> <w xml:id="w769">ܥܠ</w> <w xml:id="w770">ܝܕ</w> <w xml:id="w771">ܫܢܓܫܓܫܝܪ</w> <w xml:id="w772">ܡܗܝܡܢܐ</w> <w xml:id="w773">ܕܡ̇ܠܟܐܢܛ̇ܪ</w> <w xml:id="w774">ܕܪ̈ܘܟܬܐ</w><w xml:id="w775">.</w> <w xml:id="w776">ܘܬܘܒ</w> <w xml:id="w777">ܠܐ</w> <w xml:id="w778">ܥܐ̇ܠܐ</w> <w xml:id="w779">ܩܕܡ</w> <w xml:id="w780">ܡܠܟܐ</w><w xml:id="w781">.</w> <w xml:id="w782">ܐܠܐ</w> <w xml:id="w783">ܐܢ</w> <w xml:id="w784">ܨܒ̣ܐ</w> <w xml:id="w785">ܒܗ̇</w> <w xml:id="w786">ܡ̇ܠܟܐ</w> <w xml:id="w787">ܘܩܪܗ̇ܒܫܡܗ̇</w><w xml:id="w788">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p><w xml:id="w789">ܘܟܕ</w> <w xml:id="w790">ܡܛ̣ܐ</w> <w xml:id="w791">ܕܝܢ</w> <w xml:id="w792">ܙܒܢܗ̇</w> <w xml:id="w793">ܕܐܣܬܝܪ</w> <w xml:id="w794">ܒܪܬ</w> <w xml:id="w795">ܐܒܢܚܝܠ</w> <w xml:id="w796">ܕܕܗ</w> <w xml:id="w797">ܕܡܘܪܕܟܝ</w> <w xml:id="w798">ܕܢܣܒܗ̇</w> <w xml:id="w799">ܠܗ</w> <w xml:id="w800">ܒܪܬܐ</w><w xml:id="w801">܆</w><w xml:id="w802">ܠܡܥܠ</w> <w xml:id="w803">ܩܕܡ</w> <w xml:id="w804">ܡ̇ܠܟܐ</w><w xml:id="w805">܆</w> <w xml:id="w806">ܠܐ</w> <w xml:id="w807">ܒܥܬ</w> <w xml:id="w808">ܡܕܡ</w><w xml:id="w809">.</w> <w xml:id="w810">ܐܠܐ</w> <w xml:id="w811">ܡܕܡ</w> <w xml:id="w812">ܕܐܡ̣ܪ</w> <w xml:id="w813">ܗܓܝ</w> <w xml:id="w814">ܡܗܝܡܢܐ</w> <w xml:id="w815">ܕܡ̇ܠܟܐ</w> <w xml:id="w816">ܢ̇ܛܪܢܫ̈ܐ</w><w xml:id="w817">.</w> <w xml:id="w818">ܘܗܘܬ</w> <w xml:id="w819">ܐܣܬܝܪ</w> <w xml:id="w820">ܫܩܝܠܐ</w> <w xml:id="w821">ܚܣܕܐ</w> <w xml:id="w822">ܒܥ̈ܝܢܝ</w> <w xml:id="w823">ܟܠ</w> <w xml:id="w824">ܚܙ̈ܘܗ̇</w><w xml:id="w825">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <p><w xml:id="w826">ܘܥܠܬ</w> <w xml:id="w827">ܐܣܬܝܪ</w> <w xml:id="w828">ܩܕܡ</w> <w xml:id="w829">ܡ̇ܠܟܐ</w> <w xml:id="w830">ܐܚܫܝܪܝܫ</w> <w xml:id="w831">ܠܒܝܬ</w> <w xml:id="w832">ܡ̇ܠܟܐ</w> <w xml:id="w833">܀</w> <w xml:id="w834">ܒܝܪܚܐ</w> <w xml:id="w835">ܕܥܣܪܐ</w> <w xml:id="w836">ܕܗ̣ܘ</w> <w xml:id="w837">ܟܢܘܢܐܚܪܝ</w><w xml:id="w838">.</w> <w xml:id="w839">ܒܫܢܬ</w> <w xml:id="w840">ܐܪܒܥ</w> <w xml:id="w841">ܠܡܠܟܘܬܗ</w><w xml:id="w842">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="17">
+                  <p><w xml:id="w843">ܘܪܚܡܗ̇</w> <w xml:id="w844">ܡ̇ܠܟܐ</w> <w xml:id="w845">ܠܐܣܬܝܪ</w> <w xml:id="w846">ܛܒ</w> <w xml:id="w847">ܡܢ</w> <w xml:id="w848">ܟܘܠܗܝܢ</w> <w xml:id="w849">ܢܫ̈ܐ</w><w xml:id="w850">܆</w> <w xml:id="w851">ܘܫ̣ܩܠܬ</w> <w xml:id="w852">ܚܣܕܐ</w> <w xml:id="w853">ܡܢ</w> <w xml:id="w854">ܩܕܡܘܗܝ̣</w><w xml:id="w855">.</w> <w xml:id="w856">ܡܢܟܘܠܗܝܢ</w> <w xml:id="w857">ܒܬܘܠܬܐ</w><w xml:id="w858">.</w> <w xml:id="w859">ܘܩܒ̣ܠܬ</w> <w xml:id="w860">ܬܓܐ</w> <w xml:id="w861">ܕܡܠܟܘܬܐ</w> <w xml:id="w862">ܒܪܫܗ̇</w><w xml:id="w863">.</w> <w xml:id="w864">ܘܐ̣ܡܠܟܬ</w> <w xml:id="w865">ܚܠ̇ܦ</w> <w xml:id="w866">ܘܫܬܝ</w><w xml:id="w867">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="18">
+                  <p><w xml:id="w868">ܘܥ̣ܒܕ</w> <w xml:id="w869">ܡ̇ܠܟܐ</w> <w xml:id="w870">ܡܫܬ̇ܝܐ</w> <w xml:id="w871">ܪܒܐ</w> <w xml:id="w872">ܠܟܘܠܗܘܢ</w> <w xml:id="w873">ܪ̈ܘܪܒܢܘܗܝ</w><w xml:id="w874">.</w> <w xml:id="w875">ܘܥ̣ܒܕ</w> <w xml:id="w876">ܡ̇ܫܬܝܐ</w> <w xml:id="w877">ܠܐܣܬܝܪ</w><w xml:id="w878">.</w><w xml:id="w879">ܘܢܝ̇ܚܐ</w> <w xml:id="w880">ܠܡܕܝܢ̈ܬܐ</w> <w xml:id="w881">ܥ̣ܒܕ</w><w xml:id="w882">.</w> <w xml:id="w883">ܘܝܗ̣ܒ</w> <w xml:id="w884">ܡܘܗ̈ܒܬܐ</w> <w xml:id="w885">ܐܝܟ</w> <w xml:id="w886">ܐܝ̣ܕܐ</w> <w xml:id="w887">ܕܡ̇ܠܟܐ</w> <w xml:id="w888">܀</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="19">
+                  <p><w xml:id="w889">ܘܟܕ</w> <w xml:id="w890">ܡܬ̈ܟܢܫܢ</w> <w xml:id="w891">ܒܬܘ̈ܠܬܐ</w> <w xml:id="w892">ܕܬܪܬܝܢ</w> <w xml:id="w893">ܙܒ̈ܢܝܢ</w><w xml:id="w894">܆</w> <w xml:id="w895">ܡܘܪܕܟܝ</w> <w xml:id="w896">ܝ̇ܬܒ</w> <w xml:id="w897">ܗܘܐ</w> <w xml:id="w898">ܒܬܪܥܐ</w> <w xml:id="w899">ܕܡ̇ܠܟܐ</w><w xml:id="w900">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="20">
+                  <p><w xml:id="w901">ܘܠܐ</w> <w xml:id="w902">ܡܚܘܝܐ</w> <w xml:id="w903">ܗܘܬ</w> <w xml:id="w904">ܐܣܬܝܪ</w> <w xml:id="w905">ܫܪܒܬܗ̇</w> <w xml:id="w906">ܘܥܡܗ̇</w><w xml:id="w907">.</w> <w xml:id="w908">ܐܝܟ</w> <w xml:id="w909">ܕܦܩܕܗ̇</w> <w xml:id="w910">ܡܘܪܕܟܝ</w><w xml:id="w911">.</w>   <w xml:id="w912">ܘܦܘܩܕܢܗܕܡܘܪܕܟܝ̣</w> <w xml:id="w913">ܐܣܬܝܪ</w> <w xml:id="w914">ܥ̇ܒܕܐ</w> <w xml:id="w915">ܗܘ̇ܬ</w><w xml:id="w916">.</w> <w xml:id="w917">ܐܝܟ</w> <w xml:id="w918">ܕܗܘܬ</w> <w xml:id="w919">ܒܗ̣ܝ̇ܡܢܘܬܐ</w> <w xml:id="w920">ܥܡܗ</w><w xml:id="w921">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="21">
+                  <p><w xml:id="w922">ܘܩܘ̈ܡܬܐ</w> <w xml:id="w923">ܗܢܘܢ</w> <w xml:id="w924">ܡܘܪܕܟܝ</w> <w xml:id="w925">ܝܬ̇ܒ</w> <w xml:id="w926">ܗܘܐ</w> <w xml:id="w927">ܒܬܪܥ̇ܐ</w> <w xml:id="w928">ܕܡ̇ܠܟܐ</w><w xml:id="w929">.</w> <w xml:id="w930">ܘܪܓܙܘ</w> <w xml:id="w931">ܒܓܬܢ</w> <w xml:id="w932">ܘܬܪܫ</w> <w xml:id="w933">ܬܪ̈ܝܢܡܗ̈ܝܡܢܘܗܝ</w> <w xml:id="w934">ܕܡ̇ܠܟܐ</w> <w xml:id="w935">ܢܛܪ̈ܝ</w> <w xml:id="w936">ܬܪܥܐ</w><w xml:id="w937">.</w> <w xml:id="w938">ܘܒܥܘ</w> <w xml:id="w939">ܠܡܘܫܛܘ</w> <w xml:id="w940">ܐܝ̈ܕܝܐ</w> <w xml:id="w941">ܥܠ</w> <w xml:id="w942">ܡ̇ܠܟܐ</w> <w xml:id="w943">ܐܚܫܝܪܝܫ</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="22">
+                  <p><w xml:id="w944">ܘܐܬܓܠ̣ܝܬ</w> <w xml:id="w945">ܡܠܬܐ</w> <w xml:id="w946">ܠܡܘܪܕܟܝ</w><w xml:id="w947">܆</w> <w xml:id="w948">ܘܓܠܗ̇</w> <w xml:id="w949">ܠܐܣܬܝܪ</w> <w xml:id="w950">ܡܠܟܬܐ</w><w xml:id="w951">.</w> <w xml:id="w952">ܘܐܡ̣ܪܬ</w> <w xml:id="w953">ܐܣܬܝܪ</w> <w xml:id="w954">ܠܡ̇ܠܟܐ</w> <w xml:id="w955">ܒܫܡܡܘܪܕܟܝ</w><w xml:id="w956">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="23">
+                  <p><w xml:id="w957">ܘܐܬܥܩ̣ܒܬ</w> <w xml:id="w958">ܡܠܬܐ</w> <w xml:id="w959">ܘܐܫܬܟ̣ܚܬ</w><w xml:id="w960">.</w> <w xml:id="w961">ܘܐܙܕܩܦܘ</w> <w xml:id="w962">ܬܪ̈ܝܗܘܢ</w> <w xml:id="w963">ܥܠ</w> <w xml:id="w964">ܙܩ̈ܝܦܐ</w><w xml:id="w965">.</w> <w xml:id="w966">ܘܐܬܟܬܒ</w> <w xml:id="w967">ܒܣܦܪܝܘܡ̈ܬܐ</w> <w xml:id="w968">ܩܕܡ</w> <w xml:id="w969">ܡ̇ܠܟܐ</w><w xml:id="w970">.</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="3">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w971">ܘܒܬܪ</w> <w xml:id="w972">ܡ̈ܠܐ</w> <w xml:id="w973">ܗܠܝ̣ܢ</w><w xml:id="w974">.</w> <w xml:id="w975">ܐܘܪܒ</w> <w xml:id="w976">ܡ̇ܠܟܐ</w> <w xml:id="w977">ܐܚܫܝܪܝܫ</w> <w xml:id="w978">ܠܗܡ̣ܢ</w> <w xml:id="w979">ܒܪܗܡܕܬ</w> <w xml:id="w980">ܐܓܓܝܐ</w> <w xml:id="w981">ܘܐܪܝܡܗ</w><w xml:id="w982">.</w><w xml:id="w983">ܘܐܪܝܡ</w> <w xml:id="w984">ܟܘܪܣܝܗ</w> <w xml:id="w985">ܠܥܠ</w> <w xml:id="w986">ܡܢ</w> <w xml:id="w987">ܟܘܠܗܘܢ</w> <w xml:id="w988">ܪ̈ܘܪܒܢܐ</w> <w xml:id="w989">ܕܥܡܗ</w><w xml:id="w990">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w991">ܘܟܠܗܘܢ</w> <w xml:id="w992" norm="ܥܒ̣̈ܕܐ">ܥܒ̣̈ܕܐ</w> <w xml:id="w993">ܕܡ̇ܠܟܐ</w> <w xml:id="w994">ܕܒܬܪܥܐ</w> <w xml:id="w995">ܕܡ̇ܠܟܐ</w><w xml:id="w996">.</w> <w xml:id="w997">ܒ̇ܪܟܝܢ</w> <w xml:id="w998">ܗܘܘ</w> <w xml:id="w999">ܘܣܓܕܝܢ</w> <w xml:id="w1000">ܠܗܡܢ</w><w xml:id="w1001">.</w> <w xml:id="w1002">ܡܛܠܕܗܟܢܐ</w> <w xml:id="w1003">ܦܩ̣ܕ</w> <w xml:id="w1004">ܥܠܘܗܝ</w> <w xml:id="w1005">ܡ̇ܠܟܐ</w><w xml:id="w1006">.</w> <w xml:id="w1007">ܘܡܘܪܕܟܝ̣</w> <w xml:id="w1008">ܠܐ</w> <w xml:id="w1009">ܒ̇ܪܟ</w> <w xml:id="w1010">ܗܘܐ</w> <w xml:id="w1011">ܘܣ̇ܓܕ</w><w xml:id="w1012">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w1013">ܘܐܡ̇ܪܝܢ</w> <w xml:id="w1014">ܥ̈ܒ̣ܕܐ</w> <w xml:id="w1015">ܕܡ̇ܠܟܐ</w> <w xml:id="w1016">ܕܒܬܪܥܐ</w> <w xml:id="w1017">ܕܡ̇ܠܟܐ</w> <w xml:id="w1018">ܠܡܘܪܕܟܝ</w><w xml:id="w1019">.</w> <w xml:id="w1020">ܠܡܢܐ</w> <w xml:id="w1021">ܥ̇ܒܪ</w> <w xml:id="w1022">ܐܢܬ</w> <w xml:id="w1023">ܥܠ</w> <w xml:id="w1024">ܦܘܩܕܢܐܕܡ̇ܠܟܐ</w><w xml:id="w1025">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w1026">ܘܟܕ</w> <w xml:id="w1027">ܐܡ̇ܪܝܢ</w> <w xml:id="w1028">ܗܘܘ</w> <w xml:id="w1029">ܟܠܝܘܡ</w> <w xml:id="w1030">ܘܠܐ</w> <w xml:id="w1031">ܫܡ̇ܥ</w> <w xml:id="w1032">ܗܘܐ</w> <w xml:id="w1033">ܠܗܘܢ</w><w xml:id="w1034">܆</w> <w xml:id="w1035">ܚܘ̇ܝܘ</w> <w xml:id="w1036">ܠܗܡܢ</w> <w xml:id="w1037">ܕܢܕܥܘܢ</w> <w xml:id="w1038">ܐܢ</w> <w xml:id="w1039">ܫܪ̈ܝܪܢܡ̈ܠܘܗܝ</w> <w xml:id="w1040">ܕܡܘܪܕܟܝ</w><w xml:id="w1041">.</w> <w xml:id="w1042">ܡܛܠ</w> <w xml:id="w1043">ܕܚ̇ܘܝ</w> <w xml:id="w1044">ܐܢܘܢ</w> <w xml:id="w1045">ܕܝܗܘܕܝܐ</w> <w xml:id="w1046">ܗܘ</w><w xml:id="w1047">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w1048">ܘܚ̣ܙܐ</w> <w xml:id="w1049">ܗܡܢ</w> <w xml:id="w1050">ܕܡܘܪܕܟܝ</w> <w xml:id="w1051">ܠܐ</w> <w xml:id="w1052">ܒ̇ܪܟ</w> <w xml:id="w1053">ܗܘܐ</w> <w xml:id="w1054">ܘܣ̇ܓܕ</w> <w xml:id="w1055">ܠܗ</w><w xml:id="w1056">܆</w> <w xml:id="w1057">ܘܐܬܡܠܝ</w> <w xml:id="w1058">ܗܡܢ</w> <w xml:id="w1059">ܚܡܬܐ</w> <w xml:id="w1060">ܥܠ</w> <w xml:id="w1061">ܡܘܪܕܟܝ</w><w xml:id="w1062">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w1063">ܘܒܨܝܪܐ</w> <w xml:id="w1064">ܗܘܬ</w> <w xml:id="w1065">ܥܒܝܕܬܐ</w> <w xml:id="w1066">ܕܢܘܫܛ</w> <w xml:id="w1067">ܐܝܕ̣ܗ</w> <w xml:id="w1068">ܥܠ</w> <w xml:id="w1069">ܡܘܪܕܟܝ</w> <w xml:id="w1070">ܒܠܚܘܕܘܗܝ</w><w xml:id="w1071">.</w> <w xml:id="w1072">ܡܛܠ</w> <w xml:id="w1073">ܕܚܘ̇ܝܘܗܝ</w> <w xml:id="w1074">ܥܡܗܕܡܘܪܕܟܝ</w><w xml:id="w1075">.</w> <w xml:id="w1076">ܘܒܥ̣ܐ</w> <w xml:id="w1077">ܗܡܢ</w> <w xml:id="w1078">ܠܟܠܗܘܢ</w> <w xml:id="w1079">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w1080">ܕܒܟܘܠܗ̇</w> <w xml:id="w1081">ܡܠܟܘܬܗ</w> <w xml:id="w1082">ܕܐܚܫܝܪܝܫ</w> <w xml:id="w1083">ܥܡܗ</w> <w xml:id="w1084">ܕܡܘܪܕܟܝ</w> <w xml:id="w1085">܀</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w1086">ܒܝܪܚܐ</w> <w xml:id="w1087">ܩܕܡܝܐ</w> <w xml:id="w1088">ܕܗ̣ܘ</w> <w xml:id="w1089">ܢܝܣܢ</w><w xml:id="w1090">.</w> <w xml:id="w1091">ܒܫܢܬ</w> <w xml:id="w1092">ܬܪ̈ܬܥܣܪܐ</w> <w xml:id="w1093">ܕܡ̇ܠܟܐ</w> <w xml:id="w1094">ܐܚܫܝܪܝܫ</w><w xml:id="w1095">.</w> <w xml:id="w1096">ܐܪܡܝܘ</w> <w xml:id="w1097">ܦ̈ܨܐ</w><w xml:id="w1098">.</w><w xml:id="w1099">ܘܗ̈ܘܝ</w> <w xml:id="w1100">ܦܨ̈ܐ</w> <w xml:id="w1101">ܩܕܡ</w> <w xml:id="w1102">ܗܡܢ</w><w xml:id="w1103">.</w> <w xml:id="w1104">ܡܢ</w> <w xml:id="w1105">ܝܘܡ</w> <w xml:id="w1106">ܠܝܘܡ</w><w xml:id="w1107">.</w> <w xml:id="w1108">ܘܡܢ</w> <w xml:id="w1109">ܐܝܪܚ</w> <w xml:id="w1110">ܠܐܝܪܚ</w><w xml:id="w1111">.</w> <w xml:id="w1112">.</w> <w xml:id="w1113">ܒܝܪܚܐ</w> <w xml:id="w1114">ܕܬܪܥܣܪ</w> <w xml:id="w1115">ܕܗ̣ܘܐܕܪ</w><w xml:id="w1116">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w1117">ܐܡ̣ܪ</w> <w xml:id="w1118">ܗܡܢ</w> <w xml:id="w1119">ܠܡ̇ܠܟܐ</w> <w xml:id="w1120">ܐܚܫܝܪܝܫ</w><w xml:id="w1121">.</w> <w xml:id="w1122">ܐܝܬ</w> <w xml:id="w1123">ܥܡܐ</w> <w xml:id="w1124">ܚܕ</w> <w xml:id="w1125">ܡ̇ܒܕܪ</w> <w xml:id="w1126">ܘܡ̇ܒܙܩ̣</w> <w xml:id="w1127">ܒܟܠܗܝܢ</w> <w xml:id="w1128">ܡܕܝ̈ܢܬܗܕܡ̇ܠܟܐ</w> <w xml:id="w1129">ܐܚܫܝܪܝܫ</w><w xml:id="w1130">.</w> <w xml:id="w1131">ܢܡܘ̈ܣܝܗܘܢ</w> <w xml:id="w1132">ܦܪܝܫܝܢ</w> <w xml:id="w1133">ܡܢ</w> <w xml:id="w1134">ܟܠ</w> <w xml:id="w1135">ܥܡ</w><w xml:id="w1136">.</w> <w xml:id="w1137">ܘܢܡܘܣܐ</w> <w xml:id="w1138">ܕܡ̇ܠܟܐ</w><w xml:id="w1139">.</w> <w xml:id="w1140">ܠܐ</w> <w xml:id="w1141">ܥ̇ܒܕܝܢ</w><w xml:id="w1142">.</w><w xml:id="w1143">ܘܠܡ̇ܠܟܐ</w> <w xml:id="w1144">ܠܐ</w> <w xml:id="w1145">ܘ̇ܠܐ</w> <w xml:id="w1146">ܠܡܫܒܩ</w> <w xml:id="w1147">ܐܢܘܢ</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w1148">ܐܢ</w> <w xml:id="w1149">ܥܠ</w> <w xml:id="w1150">ܡ̇ܠܟܐ</w> <w xml:id="w1151">ܫܦܝܪ</w><w xml:id="w1152">܆</w> <w xml:id="w1153">ܢ̇ܟܬܘܒ̣</w> <w xml:id="w1154">ܕܢܐܒܕܘܢ</w><w xml:id="w1155">܆</w> <w xml:id="w1156">ܘܥܣܪ̈ܐ</w> <w xml:id="w1157">ܐ̈ܠܦܝܢ</w> <w xml:id="w1158">ܟܟܪ̈ܐ</w> <w xml:id="w1159">ܕܟܣܦܐ</w><w xml:id="w1160">܆</w><w xml:id="w1161">ܐܬܩܘܠ</w> <w xml:id="w1162">ܥܠ</w> <w xml:id="w1163">ܐܝ̣ܕܐ</w> <w xml:id="w1164">ܕ̇ܥܒ̈ܕܝ</w> <w xml:id="w1165">ܥ̇ܒܕܐ</w><w xml:id="w1166">܇</w> <w xml:id="w1167">ܠܡܥܠܘ</w> <w xml:id="w1168">ܠܓܙܐ</w> <w xml:id="w1169">ܕܡ̇ܠܟܐ</w><w xml:id="w1170">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w1171">ܘܫܩ̣ܠ</w> <w xml:id="w1172">ܡ̇ܠܟܐ</w> <w xml:id="w1173">ܥܙܩܬܐ</w> <w xml:id="w1174">ܡܢ</w> <w xml:id="w1175">ܐܝܕܗ̣</w><w xml:id="w1176">.</w> <w xml:id="w1177">ܘܝܗ̣ܒ</w> <w xml:id="w1178">ܠܗܡܢ</w> <w xml:id="w1179">ܒܪ</w> <w xml:id="w1180">ܗܡܕ̣ܬ</w> <w xml:id="w1181">ܐܓܓܝܐ</w> <w xml:id="w1182">ܒܥܠܕܒܒܐܕܝܗܘܕ̈ܝܐ</w><w xml:id="w1183">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p><w xml:id="w1184">ܘܐܡ̣ܪ</w> <w xml:id="w1185">ܡ̇ܠܟܐ</w><w xml:id="w1186">.</w> <w xml:id="w1187">ܟܣܦܟ</w> <w xml:id="w1188">ܝܗܝܒ</w> <w xml:id="w1189">ܠܟ</w><w xml:id="w1190">.</w> <w xml:id="w1191">ܘܥܡܐ</w> <w xml:id="w1192">ܠܡܥܒܕ</w> <w xml:id="w1193">ܠܗ</w> <w xml:id="w1194">ܟܘܠ</w> <w xml:id="w1195">ܡܕܡ</w> <w xml:id="w1196">ܕܫܦܝܪ</w> <w xml:id="w1197">ܒܥ̈ܝܢܝܟ</w> <w xml:id="w1198">܀</w><w xml:id="w1199">܀</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p><w xml:id="w1200">ܘܐܬܩܪܝܘ</w> <w xml:id="w1201">ܣ̇ܦܪ̈ܐ</w> <w xml:id="w1202">ܕܡ̇ܠܟܐ</w> <w xml:id="w1203">ܒܙܒܢܐ</w> <w xml:id="w1204">ܗ̇ܘ</w><w xml:id="w1205">.</w> <w xml:id="w1206">ܒܝܪܚܐ</w> <w xml:id="w1207">ܩܕܡܝܐ</w> <w xml:id="w1208">ܒܬܠܬܥܣܪܐ</w> <w xml:id="w1209">ܒܗ</w> <w xml:id="w1210">ܒܝܪܚܐ</w><w xml:id="w1211">܆</w><w xml:id="w1212">ܐܬܟܬܒ</w> <w xml:id="w1213">ܟܠܡܕܡ</w> <w xml:id="w1214">ܕܦ̇ܩܕ</w> <w xml:id="w1215">ܗܡܢ</w> <w xml:id="w1216">ܠܪ̈ܒܝ</w> <w xml:id="w1217">ܚ̈ܝܠܐ</w> <w xml:id="w1218">ܕܡ̇ܠܟܐ</w><w xml:id="w1219">܇</w> <w xml:id="w1220">ܘܠܡܪ̈ܘܬܐ</w> <w xml:id="w1221">ܕܒܟܠ</w> <w xml:id="w1222">ܡܕܝܢܐ</w> <w xml:id="w1223">ܘܡܕܝܢܐ</w><w xml:id="w1224">.</w><w xml:id="w1225">ܘܠܪ̈ܘܪܒܢܝ</w> <w xml:id="w1226">ܥܡ̈ܡܐ</w><w xml:id="w1227">.</w> <w xml:id="w1228">ܠܡܕܝܢܬܐ</w> <w xml:id="w1229">ܐܝܟ</w> <w xml:id="w1230">ܟܬܒܗ̇</w><w xml:id="w1231">܆</w> <w xml:id="w1232">ܘܠܥܡܐ</w> <w xml:id="w1233">ܐܝܟ</w> <w xml:id="w1234">ܠܫܢܗ</w><w xml:id="w1235">.</w> <w xml:id="w1236">ܒܫܡ</w> <w xml:id="w1237">ܡ̇ܠܟܐ</w> <w xml:id="w1238">ܐܚܫܝܪܝܫܐܬܟܬܒ</w><w xml:id="w1239">.</w> <w xml:id="w1240">ܘܐܬܚܬܡ</w> <w xml:id="w1241">ܒܥܙܩܬܐ</w> <w xml:id="w1242">ܕܡ̇ܠܟܐ</w><w xml:id="w1243">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p><w xml:id="w1244">ܘܐܫܬܕܪ</w> <w xml:id="w1245">ܐܓܪ̈ܬܐ</w> <w xml:id="w1246">ܒܝܕ</w> <w xml:id="w1247">ܪ̈ܗܛܐ</w><w xml:id="w1248">܇</w> <w xml:id="w1249">ܠܟܠܗܝܢ</w> <w xml:id="w1250">ܡܕܝܢ̈ܬܗ</w> <w xml:id="w1251">ܕܡ̇ܠܟܐ</w><w xml:id="w1252">܇</w> <w xml:id="w1253">ܠܡܚܪܒ</w> <w xml:id="w1254">ܘܠܡܩܛܠ</w><w xml:id="w1255">܇</w><w xml:id="w1256">ܘܠܡܘܒܕܘ</w> <w xml:id="w1257">ܠܟܠܗܘܢ</w> <w xml:id="w1258">ܝܗܘ̈ܕܝܐ</w><w xml:id="w1259">.</w> <w xml:id="w1260">ܡܢ</w> <w xml:id="w1261">ܥܠܝܡ̈ܐ</w><w xml:id="w1262">܆</w> <w xml:id="w1263">ܘܥܕܡܐ</w> <w xml:id="w1264">ܠܣܒ̈ܐ</w><w xml:id="w1265">.</w> <w xml:id="w1266">ܘ̈ܛܠܝܐ</w> <w xml:id="w1267">ܘܢܫ̈ܐ</w> <w xml:id="w1268">ܒܚܕܝܘܡ</w><w xml:id="w1269">.</w> <w xml:id="w1270">ܒܬ̇ܠܬܥܣܪܐ</w> <w xml:id="w1271">ܒܐܝܪܚ</w> <w xml:id="w1272">ܐܕܪ</w><w xml:id="w1273">.</w> <w xml:id="w1274">ܘܢܟܣܝܗܘܢ</w> <w xml:id="w1275">ܠܒܙܬܐ</w> <w xml:id="w1276">ܒܚܕ</w> <w xml:id="w1277">ܝܘܡ</w><w xml:id="w1278">.</w> <w xml:id="w1279">ܒܐܝܪܚ</w> <w xml:id="w1280">ܐܕܪ</w> <w xml:id="w1281">ܒܬܠܬܥܣܪܐܐܬܟܬܒ</w><w xml:id="w1282">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p><w xml:id="w1283">ܘܦܪܫܓܢܗ</w> <w xml:id="w1284">ܕܟܬܒܐ</w><w xml:id="w1285">܆</w> <w xml:id="w1286">ܐܬܝܗܒ</w> <w xml:id="w1287">ܒܟܠ</w> <w xml:id="w1288">ܡܕܝܢܐ</w> <w xml:id="w1289">ܘܡܕܝܢܐ</w><w xml:id="w1290">.</w> <w xml:id="w1291">ܘܦ̇ܩܕ</w> <w xml:id="w1292">ܠܟ̇ܠܗܘܢ</w> <w xml:id="w1293">ܥܡ̈ܡܐ</w> <w xml:id="w1294">ܕܢܗܘܘܢܡܛܝܒܝܢ</w> <w xml:id="w1295">ܠܝܘܡܐ</w> <w xml:id="w1296">ܗܢܐ</w><w xml:id="w1297">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p><w xml:id="w1298">ܘܪ̈ܗܛܐ</w> <w xml:id="w1299">ܢܦ̣ܩܘ</w> <w xml:id="w1300">ܟܕ</w> <w xml:id="w1301">ܡܣܪܗܒܝܢ</w> <w xml:id="w1302">ܒܦܘܩܕܢܐ</w> <w xml:id="w1303">ܕܡ̇ܠܟܐ</w><w xml:id="w1304">.</w> <w xml:id="w1305">ܘܦܬܓܡܐ</w> <w xml:id="w1306">ܐܬܦܩܕ</w> <w xml:id="w1307">ܒܫܘܫܢ</w> <w xml:id="w1308">ܒܝܪܬܐ</w><w xml:id="w1309">.</w><w xml:id="w1310">ܘܡ̇ܠܟܐ</w> <w xml:id="w1311">ܘܗܡܢ</w> <w xml:id="w1312">ܐܣܬܡܟܘ</w> <w xml:id="w1313">ܠܡܫܬܐ</w> <w xml:id="w1314">ܐܟܚܕܐ</w><w xml:id="w1315">.</w> <w xml:id="w1316">ܘܡܕܝܢܬܐ</w> <w xml:id="w1317">ܫܘܫܢ</w> <w xml:id="w1318">ܐܫܬܓ̣ܫܬ</w><w xml:id="w1319">.</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="4">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w1320">ܘܡܘܪܕܟܝ</w> <w xml:id="w1321">ܝܕܥ</w> <w xml:id="w1322">ܟܠܡܕܡ</w> <w xml:id="w1323">ܕܐܬܥܒܕ</w><w xml:id="w1324">.</w> <w xml:id="w1325">ܘܨ̇ܪܝ</w> <w xml:id="w1326">ܡܘܪܕܟܝ</w> <w xml:id="w1327">ܠܒܘܫܘ̈ܗܝ</w><w xml:id="w1328">.</w> <w xml:id="w1329">ܘܐܬܟܒܢ</w> <w xml:id="w1330">ܣܩܐ</w> <w xml:id="w1331">ܘܐܬܦܝܠܒܩܛܡܐ</w><w xml:id="w1332">.</w> <w xml:id="w1333">ܘܢܦܩ</w> <w xml:id="w1334">ܡ̇ܝܠܠ</w> <w xml:id="w1335">ܒܓܘ</w> <w xml:id="w1336">ܡܕܝܢܬܐ</w><w xml:id="w1337">.</w> <w xml:id="w1338">ܝܠܠܬܐ</w> <w xml:id="w1339">ܪܒܬܐ</w> <w xml:id="w1340">ܘܡܪܝܪܬܐ</w><w xml:id="w1341">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w1342">ܘܐ̣ܬܐ</w> <w xml:id="w1343">ܥܕܡܐ</w> <w xml:id="w1344">ܠܬܪܥܐ</w> <w xml:id="w1345">ܕܡ̇ܠܟܐ</w><w xml:id="w1346">.</w> <w xml:id="w1347">ܘܠܝܬ</w> <w xml:id="w1348">ܗܘܐ</w> <w xml:id="w1349">ܢܡܘܣܐ</w> <w xml:id="w1350">ܕܐܢܫ</w> <w xml:id="w1351">ܢܠܒܫ</w> <w xml:id="w1352">ܣܩܐ</w> <w xml:id="w1353">ܘܢܐܬܐ</w> <w xml:id="w1354">ܠܬܪܥܐܕܡ̇ܠܟܐ</w><w xml:id="w1355">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w1356">ܘܒܟܠ</w> <w xml:id="w1357">ܡܕܝܢܐ</w> <w xml:id="w1358">ܟܪ</w> <w xml:id="w1359">ܕܡ̇ܛܝ</w> <w xml:id="w1360">ܦܬܓܡܐ</w> <w xml:id="w1361">ܕܡ̇ܠܟܐ</w><w xml:id="w1362">܆</w> <w xml:id="w1363">ܗ̣ܘܐ</w> <w xml:id="w1364">ܐܒܠܐ</w> <w xml:id="w1365">ܪܒܐ</w><w xml:id="w1366">.</w> <w xml:id="w1367">ܠܝܗܘܕ̈ܝܐ</w><w xml:id="w1368">.</w> <w xml:id="w1369">ܘܨܘܡܐܘܒܟܬܐ</w> <w xml:id="w1370">ܘܡܪ̈ܩܕ̇ܬܐ</w><w xml:id="w1371">.</w> <w xml:id="w1372">ܘܣܩܐ</w> <w xml:id="w1373">ܘܩܛܡܐ</w> <w xml:id="w1374">ܡܟܝܟ</w> <w xml:id="w1375">ܠܣܓܝܐ̈ܐ</w><w xml:id="w1376">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w1377">ܘܥܠܘ</w> <w xml:id="w1378">ܡܗ̈ܝܡܢܝܗ̇</w> <w xml:id="w1379">ܘܐ̇ܡܗܬܗ̇</w> <w xml:id="w1380">ܕܐܣܬܝܪ</w> <w xml:id="w1381">ܘܚܘܝܘܗ̇</w><w xml:id="w1382">.</w> <w xml:id="w1383">ܘܐܬܬܙ̣ܝܥܬ</w> <w xml:id="w1384">ܡ̇ܠܟܐ</w> <w xml:id="w1385">ܛܒ</w><w xml:id="w1386">.</w> <w xml:id="w1387">ܘܫܕ̣ܪܬܡܐ̈ܢܐ</w> <w xml:id="w1388">ܠܡܠܒܫܘܬܗ</w> <w xml:id="w1389">ܠܡܘܪܕܟܝ</w><w xml:id="w1390">.</w> <w xml:id="w1391">ܘܠܡܫܠܚ̇ܘ</w> <w xml:id="w1392">ܣܩܐ</w> <w xml:id="w1393">ܡܢܗ</w><w xml:id="w1394">܆</w> <w xml:id="w1395">ܘܠܐ</w> <w xml:id="w1396">ܩ̇ܒܠ</w><w xml:id="w1397">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w1398">ܘܩܪ̣ܬ</w> <w xml:id="w1399">ܐܣܬܝܪ</w> <w xml:id="w1400">ܠܗܬܢ</w> <w xml:id="w1401">ܡܢ</w> <w xml:id="w1402">ܡܗܝ̈ܡܢܐ</w> <w xml:id="w1403">ܕܡ̇ܠܟܐ</w> <w xml:id="w1404">ܕܩܐ̇ܡ</w> <w xml:id="w1405">ܩܕܡܝܗ</w><w xml:id="w1406">܇</w> <w xml:id="w1407">ܘܦܩܕܬܗ</w> <w xml:id="w1408">ܠܘܬ</w> <w xml:id="w1409">ܡܘܪܕܟܝ</w><w xml:id="w1410">܇</w><w xml:id="w1411">ܕܬܕܥ</w> <w xml:id="w1412">ܡܢܐ</w> <w xml:id="w1413">ܗܝ</w> <w xml:id="w1414">ܗܕܐ</w> <w xml:id="w1415">ܘܥܠ</w> <w xml:id="w1416">ܡܢܐ</w><w xml:id="w1417">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w1418">ܘܢ̇ܦ̣ܩ</w> <w xml:id="w1419">ܗܬܢ</w> <w xml:id="w1420">ܠܘܬ</w> <w xml:id="w1421">ܡܘܪܕܟܝ</w> <w xml:id="w1422">ܠܫܘܩܐ</w> <w xml:id="w1423">ܕܡܕܝܢܬܐ</w><w xml:id="w1424">܇</w> <w xml:id="w1425">ܩܕܡ</w> <w xml:id="w1426">ܬܪܥܐ</w> <w xml:id="w1427">ܕܡ̇ܠܟܐ</w><w xml:id="w1428">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w1429">ܘܚܘܝܗ</w> <w xml:id="w1430">ܡܘܪܕܟܝ</w> <w xml:id="w1431">ܥܠ</w> <w xml:id="w1432">ܡܕܡ</w> <w xml:id="w1433">ܕܓ̣ܕܫ</w> <w xml:id="w1434">ܠܗ</w><w xml:id="w1435">.</w><w xml:id="w1436">.</w> <w xml:id="w1437">ܘܚܘܫܒܢܐ</w> <w xml:id="w1438">ܕܟܣܦܐ</w> <w xml:id="w1439">ܕܐܡ̣ܪ</w> <w xml:id="w1440">ܗܡܢ</w> <w xml:id="w1441">ܠܡܬܩܠ</w> <w xml:id="w1442">ܠܡܥܠܘܠܒܝܬ</w> <w xml:id="w1443">ܓܙܐ</w> <w xml:id="w1444">ܥܠ</w> <w xml:id="w1445">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w1446">ܕܢܐܒܕܘܢ</w><w xml:id="w1447">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w1448">ܘܦܪܫܓܢܐ</w> <w xml:id="w1449">ܕܣܝ̣ܡ</w> <w xml:id="w1450">ܒܫܘܫܢ</w> <w xml:id="w1451">ܒܝܪܬܐ</w><w xml:id="w1452">܆</w> <w xml:id="w1453">ܝܗܒܗ</w> <w xml:id="w1454">ܠܗ</w> <w xml:id="w1455">ܕܢܚ̇ܘܐ</w> <w xml:id="w1456">ܠܐܣܬܝܪ</w><w xml:id="w1457">.</w> <w xml:id="w1458">ܘܢܦܩܕܝܗ̇</w> <w xml:id="w1459">ܕܬܥܘܠܠܘܬ</w> <w xml:id="w1460">ܡ̇ܠܟܐ</w><w xml:id="w1461">.</w> <w xml:id="w1462">ܘܬܒܥܐ</w> <w xml:id="w1463">ܡܢܗ</w> <w xml:id="w1464">ܘܬܬܟܫܦ</w> <w xml:id="w1465">ܠܗ</w> <w xml:id="w1466">ܥܠ</w> <w xml:id="w1467">ܥܡܐ</w><w xml:id="w1468">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w1469">ܘܥܠ</w> <w xml:id="w1470">ܗܬܢ̇</w> <w xml:id="w1471">ܘܐܡ̣ܪ</w> <w xml:id="w1472">ܠܐܣܬܝܪ</w> <w xml:id="w1473">ܡ̈ܠܘܗܝ</w> <w xml:id="w1474">ܕܡܘܪܕܟܝ</w><w xml:id="w1475">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w1476">ܘܐܡ̣ܪܬ</w> <w xml:id="w1477">ܐܣܬܝܪ</w> <w xml:id="w1478">ܠܗܬܢ̇</w> <w xml:id="w1479">ܘܦܩܕܬܗ</w> <w xml:id="w1480">ܠܘܬ</w> <w xml:id="w1481">ܡܘܪܕܟܝ</w> <w xml:id="w1482">ܠܡܐܡܪ</w><w xml:id="w1483">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p><w xml:id="w1484">ܟܠܗܘܢ</w> <w xml:id="w1485">ܥ̈ܒܕܐ</w> <w xml:id="w1486">ܕܡܠܟܐ</w> <w xml:id="w1487">ܝ̇ܕܥܝܢ</w><w xml:id="w1488">.</w> <w xml:id="w1489">ܕܟܠ</w> <w xml:id="w1490">ܓܒܪܐ</w> <w xml:id="w1491">ܐܘ</w> <w xml:id="w1492">ܐܢܬܬܐ</w> <w xml:id="w1493">ܕܥܐ̇ܠ</w> <w xml:id="w1494">ܩܕܡ</w> <w xml:id="w1495">ܡ̇ܠܟܐ</w> <w xml:id="w1496">ܠܕܪܬܐܓ̇ܘܝܬܐ</w> <w xml:id="w1497">ܐܝ̇ܢܐ</w> <w xml:id="w1498">ܕܠܐ</w> <w xml:id="w1499">ܡܬܦܩܕ</w><w xml:id="w1500">.</w> <w xml:id="w1501">ܚܕܐ</w> <w xml:id="w1502">ܗܝ</w> <w xml:id="w1503">ܐ̇ܬܐ</w> <w xml:id="w1504">ܕܐ̇ܬܐ</w> <w xml:id="w1505">ܠܡܬܩܛܠܘ</w> <w xml:id="w1506">ܠܒܪ</w> <w xml:id="w1507">ܡܢ</w> <w xml:id="w1508">ܡ̇ܢ</w> <w xml:id="w1509">ܕܡܘܫܛ</w> <w xml:id="w1510">ܠܗܡ̇ܠܟܐ</w> <w xml:id="w1511">ܫ̇ܒܛܐ</w> <w xml:id="w1512">ܕܕܗܒܐ</w> <w xml:id="w1513">ܘܚ̇ܝܐ</w><w xml:id="w1514">.</w> <w xml:id="w1515">ܘܐܢܐ</w> <w xml:id="w1516">ܠܐ</w> <w xml:id="w1517">ܐܬܩ̇ܪܝܬ</w> <w xml:id="w1518">ܠܡܥܠ</w> <w xml:id="w1519">ܩܕܡ</w> <w xml:id="w1520">ܡ̇ܠܟܐ</w><w xml:id="w1521">܆</w> <w xml:id="w1522">ܗܐ</w> <w xml:id="w1523">ܬܠܬܐܝܘܡ̈ܝܢ</w><w xml:id="w1524">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p><w xml:id="w1525">ܘܚܘܝ</w> <w xml:id="w1526">ܠܡܘܪܕܟܝ</w> <w xml:id="w1527">ܡ̈ܠܝܗ̇</w> <w xml:id="w1528">ܕܐܣܬܝܪ</w><w xml:id="w1529">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p><w xml:id="w1530">ܘܐܡ̣ܪ</w> <w xml:id="w1531">ܡܘܪܕܟܝ</w><w xml:id="w1532">.</w> <w xml:id="w1533">ܐܡ̣ܪ</w> <w xml:id="w1534">ܠܗ̇</w> <w xml:id="w1535">ܠܐܣܬܝܪ</w><w xml:id="w1536">܆</w> <w xml:id="w1537">ܠܐ</w> <w xml:id="w1538">ܬܣ̣ܒܪܝܢ</w> <w xml:id="w1539">ܒܢܦܫܟܝ</w> <w xml:id="w1540">ܕܟܕ</w> <w xml:id="w1541">ܒܝܬ</w> <w xml:id="w1542">ܡ̇ܠܟܐ</w> <w xml:id="w1543">ܐܢܬܝܡܬܦܠܛܐ</w> <w xml:id="w1544">ܐܢܬܝ</w> <w xml:id="w1545">ܡܢ</w> <w xml:id="w1546">ܟܠܗܘܢ</w> <w xml:id="w1547">ܝܗܘܕ̈ܝܐ</w><w xml:id="w1548">܇</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p><w xml:id="w1549">ܐܢ</w> <w xml:id="w1550">ܬܫܬܩܝܢ</w> <w xml:id="w1551">ܒܙܒܢܐ</w> <w xml:id="w1552">ܗܢܐ</w><w xml:id="w1553">܇</w> <w xml:id="w1554">ܪܘܚܬܐ</w> <w xml:id="w1555">ܘܦܘܪܩܢܐ</w> <w xml:id="w1556">ܗ̇ܘܐ</w>   <w xml:id="w1557">ܠܝܗܘ̈ܕܝܐ</w> <w xml:id="w1558">ܡܢ</w> <w xml:id="w1559">ܕܘܟܐ</w> <w xml:id="w1560">ܐܚܪܢܝܐ</w><w xml:id="w1561">.</w><w xml:id="w1562">ܘܐܢܬܝ</w> <w xml:id="w1563">ܘܒܝܬ</w> <w xml:id="w1564">ܐܒܘܟܝ</w> <w xml:id="w1565">ܐܒ̇ܕܐ</w> <w xml:id="w1566">ܐܢܬ</w><w xml:id="w1567">.</w> <w xml:id="w1568">ܘܡ̣ܢܘ</w> <w xml:id="w1569">ܝܕ̇ܥ</w><w xml:id="w1570">܇</w> <w xml:id="w1571">ܐܢ</w> <w xml:id="w1572">ܡܛܠ</w> <w xml:id="w1573">ܗܢܐ</w> <w xml:id="w1574">ܗܘ</w> <w xml:id="w1575">ܙܒܢܐ</w> <w xml:id="w1576">ܐܬܩ̣ܪܝܬܘܐܬܩܪܒܬ</w> <w xml:id="w1577">ܠܡܠܟܘܬܐ</w><w xml:id="w1578">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p><w xml:id="w1579">ܘܐܡܪܬ</w> <w xml:id="w1580">ܐܣܬܝܪ</w> <w xml:id="w1581">ܐܡ̣ܪ</w> <w xml:id="w1582">ܠܡܘܪܕܟܝ</w><w xml:id="w1583">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <p><w xml:id="w1584">ܙܠ</w> <w xml:id="w1585">ܟܢ̇ܫ</w> <w xml:id="w1586">ܠܟܠܗܘܢ</w> <w xml:id="w1587">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w1588">ܕܐܝܬ</w> <w xml:id="w1589">ܒܫܘܫܢ</w> <w xml:id="w1590">ܒܝܪܬܐ</w><w xml:id="w1591">܆</w> <w xml:id="w1592">ܘܨܘܡܘ</w> <w xml:id="w1593">ܥܠܝ</w> <w xml:id="w1594">ܘܠܐ</w> <w xml:id="w1595">ܬܐܟܠܘܢ</w> <w xml:id="w1596">ܘܠܐܬܫܬܘܢ</w> <w xml:id="w1597">ܬܠܬܐ</w> <w xml:id="w1598">ܝܘܡ̈ܝܢ</w><w xml:id="w1599">.</w> <w xml:id="w1600">ܠܠܝܐ</w> <w xml:id="w1601">ܘܐܝܡܡܐ</w><w xml:id="w1602">.</w> <w xml:id="w1603">ܘܐܦ</w> <w xml:id="w1604">ܐܢܐ</w> <w xml:id="w1605">ܘܥܠܝ̈ܡܬܝ</w> <w xml:id="w1606">ܐܨܘܡ</w> <w xml:id="w1607">ܗ̇ܟܢܐ</w><w xml:id="w1608">.</w> <w xml:id="w1609">ܘܗܝ̇ܕܝܢܐ̣ܥܘܠ</w> <w xml:id="w1610">ܩܕܡ</w> <w xml:id="w1611">ܡ̇ܠܟܐ</w> <w xml:id="w1612">ܕܠܐ</w> <w xml:id="w1613">ܒܢܡܘܣܝ</w><w xml:id="w1614">.</w> <w xml:id="w1615">ܐܢ</w> <w xml:id="w1616">ܥ̇ܒܕܬ</w> <w xml:id="w1617">ܥ̇ܒܕܬ</w><w xml:id="w1618">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="17">
+                  <p><w xml:id="w1619">ܘܐ̣ܙܠ</w> <w xml:id="w1620">ܡܘܪܕܟܝ</w> <w xml:id="w1621">ܘܥ̣ܒܕ</w> <w xml:id="w1622">ܟܠ</w> <w xml:id="w1623">ܡܕܡ</w> <w xml:id="w1624">ܕܫ̣ܠܚܬ̇</w> <w xml:id="w1625">ܠܗ</w> <w xml:id="w1626">ܐܣܬܝܪ</w> <w xml:id="w1627">܀</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="5">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w1628">ܘܒܝܘܡܐ</w> <w xml:id="w1629">ܬܠܝܬܝܐ</w><w xml:id="w1630">܆</w> <w xml:id="w1631">ܠܒ̣ܫܬ</w> <w xml:id="w1632">ܐܣܬܝܪ</w> <w xml:id="w1633">ܠܒܘܫܐ</w> <w xml:id="w1634">ܕܡܠܟܘܬܐ</w><w xml:id="w1635">܆</w> <w xml:id="w1636">ܘܩ̇ܡܬ</w> <w xml:id="w1637">ܒܕܪܬܐ</w> <w xml:id="w1638">ܓܘܝܬܐ</w> <w xml:id="w1639">ܕܒܝܬܡ̇ܠܟܐ</w><w xml:id="w1640">܇</w> <w xml:id="w1641">ܠܘܩ̣ܒܠ</w> <w xml:id="w1642">ܒܝܬ</w> <w xml:id="w1643">ܡ̇ܠܟܐ</w><w xml:id="w1644">.</w> <w xml:id="w1645">ܘܡ̇ܠܟܐ</w> <w xml:id="w1646">ܝܬ̇ܒ</w> <w xml:id="w1647">ܗܘܐ</w> <w xml:id="w1648">ܥܠ</w> <w xml:id="w1649">ܟܘܪܣܝܐ</w> <w xml:id="w1650">ܕܡܠܟܘܬܐ</w> <w xml:id="w1651">ܠܘܩܒܠ</w> <w xml:id="w1652">ܬܪܥܐܕܒܝܬܐ</w><w xml:id="w1653">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w1654">ܘܟܕ</w> <w xml:id="w1655">ܚܙܗ̇</w> <w xml:id="w1656">ܡ̇ܠܟܐ</w> <w xml:id="w1657">ܠܐܣܬܝܪ</w> <w xml:id="w1658">ܡܠܟܬܐ</w> <w xml:id="w1659">ܕܩܝܡܐ</w> <w xml:id="w1660">ܒܕܪܬܐ</w><w xml:id="w1661">܆</w><w xml:id="w1662">ܫܩ̣ܠܬ</w> <w xml:id="w1663">ܚܣܕܐ</w> <w xml:id="w1664">ܩܕܡܘܗܝ</w><w xml:id="w1665">.</w> <w xml:id="w1666">ܘܐܘܫܛܡ̇ܠܟܐ</w> <w xml:id="w1667">ܥܠ</w> <w xml:id="w1668">ܐܣܬܝܪ</w> <w xml:id="w1669">ܫܒܛܐ</w> <w xml:id="w1670">ܕܕܗܒܐ</w> <w xml:id="w1671">ܕܒܐܝܕܗ</w><w xml:id="w1672">.</w> <w xml:id="w1673">ܘܩܪ̣ܒܬ</w> <w xml:id="w1674">ܐܣܬܝܪ</w><w xml:id="w1675">܆</w> <w xml:id="w1676">ܘܐܚܕܬ</w> <w xml:id="w1677">ܒܪܝܫܗ</w> <w xml:id="w1678">ܕܫܒܛܐܕܕܗܒܐ</w><w xml:id="w1679">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w1680">ܘܐܡ̣ܪ</w> <w xml:id="w1681">ܠܗ̇</w> <w xml:id="w1682">ܡ̇ܠܟܐ</w><w xml:id="w1683">.</w> <w xml:id="w1684">ܡܐ</w> <w xml:id="w1685">ܠܟܝ</w> <w xml:id="w1686">ܐܣܬܝܪ</w> <w xml:id="w1687">ܡܠܟܬܐ</w><w xml:id="w1688">.</w> <w xml:id="w1689">ܘܡܢܐ</w> <w xml:id="w1690">ܗܝ</w> <w xml:id="w1691">ܒܥܘܬܟܝ</w><w xml:id="w1692">.</w> <w xml:id="w1693">ܥܕܡܐ</w> <w xml:id="w1694">ܠܦܠܓܗ̇ܕܡܠܟܘܬܐ</w> <w xml:id="w1695">ܬܬܝܗܒ</w> <w xml:id="w1696">ܠܟܝ</w><w xml:id="w1697">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w1698">ܘܐܡ̣ܪܬ</w> <w xml:id="w1699">ܐܣܬܝܪ</w><w xml:id="w1700">.</w> <w xml:id="w1701">ܐܢ</w> <w xml:id="w1702">ܥܠ</w> <w xml:id="w1703">ܡ̇ܠܟܐ</w> <w xml:id="w1704">ܫܦܝܪ</w><w xml:id="w1705">܆</w> <w xml:id="w1706">ܢܐܬܐ</w> <w xml:id="w1707">ܡ̇ܠܟܐ</w> <w xml:id="w1708">ܘܗ̇ܡܢ</w><w xml:id="w1709">܆</w> <w xml:id="w1710">ܠܡܫ̣ܬܝܐ</w> <w xml:id="w1711">ܕܥ̇ܒܕ̣ܬܠܗ</w><w xml:id="w1712">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w1713">ܘܐܡ̣ܪ</w> <w xml:id="w1714">ܡ̇ܠܟܐ</w> <w xml:id="w1715">ܒܥܓܠ</w> <w xml:id="w1716">ܚܙܘ</w> <w xml:id="w1717">ܠܗܡܢ</w><w xml:id="w1718">܆</w> <w xml:id="w1719">ܢܥܒܕ</w> <w xml:id="w1720">ܐܝܟ</w> <w xml:id="w1721">ܕܐܡܪܐ</w> <w xml:id="w1722">ܐܣܬܝܪ</w><w xml:id="w1723">.</w> <w xml:id="w1724">ܘܐ̣ܬܐ</w> <w xml:id="w1725">ܡ̇ܠܟܐ</w> <w xml:id="w1726">ܘܗ̇ܡܢܠܡܫܬܝܐ</w><w xml:id="w1727">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w1728">ܘܐܡ̣ܪ</w> <w xml:id="w1729">ܡ̇ܠܟܐ</w> <w xml:id="w1730">ܠܐܣܬܝܪ̣</w> <w xml:id="w1731">ܒܡܫܬܝܐ</w> <w xml:id="w1732">ܕܚܡܪܐ</w><w xml:id="w1733">.</w> <w xml:id="w1734">ܡܢܐ</w> <w xml:id="w1735">ܗܝ</w> <w xml:id="w1736">ܫܐܠܬܟܝ</w> <w xml:id="w1737">ܬܬܝܗܒ</w> <w xml:id="w1738">ܠܟܝ</w><w xml:id="w1739">.</w> <w xml:id="w1740">ܘܡܢܐ</w> <w xml:id="w1741">ܗܝܒܥܘܬܟܝ</w> <w xml:id="w1742">ܥܕܡܐ</w> <w xml:id="w1743">ܠܦܠܓܗ̇</w> <w xml:id="w1744">ܕܡܠܟܘܬܐ</w> <w xml:id="w1745">ܬܬܝܗܒ</w> <w xml:id="w1746">ܠܟܝ</w><w xml:id="w1747">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w1748">ܘܥܢܬ</w> <w xml:id="w1749">ܐܣܬܝܪ̣</w> <w xml:id="w1750">ܘܐܡ̣ܪܬ</w><w xml:id="w1751">.</w> <w xml:id="w1752">ܫܐܠܬܝ</w> <w xml:id="w1753">ܘܒܥܘܬܝ</w><w xml:id="w1754">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w1755">ܐܢ</w> <w xml:id="w1756">ܐܫ̇ܟܚܬ</w> <w xml:id="w1757">ܪ̈ܚ̣ܡܐ</w> <w xml:id="w1758">ܒܥܝ̈ܢܝܟ</w> <w xml:id="w1759">ܡ̇ܠܟܐ</w><w xml:id="w1760">܆</w> <w xml:id="w1761">ܘܐܢ</w> <w xml:id="w1762">ܥܠܝܟ</w> <w xml:id="w1763">ܡ̇ܠܟܐ</w> <w xml:id="w1764">ܫܦܝܪ</w><w xml:id="w1765">܆</w> <w xml:id="w1766">ܕܬܬܠ</w> <w xml:id="w1767">ܠܝܫܐܠܬܝ</w><w xml:id="w1768">.</w> <w xml:id="w1769">ܘܬܥܒܕ</w> <w xml:id="w1770">ܠܝ</w> <w xml:id="w1771">ܒܥܘܬܝ̣</w> <w xml:id="w1772">ܢܐ̇ܬܐ</w> <w xml:id="w1773">ܡ̇ܠܟܐ</w> <w xml:id="w1774">ܘܗܡܢ</w> <w xml:id="w1775">ܠܡܫܬܝܐ</w><w xml:id="w1776">܆</w> <w xml:id="w1777">ܕܐܥܒܕ</w> <w xml:id="w1778">ܠܗܘܢ</w> <w xml:id="w1779">ܡܚ̣ܪ</w> <w xml:id="w1780">ܐܝܟܦܬܓܡܐ</w> <w xml:id="w1781">ܕܡܠܟܐ</w><w xml:id="w1782">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w1783">ܘܢܦ̣ܩ</w> <w xml:id="w1784">ܗܡܢ</w> <w xml:id="w1785">ܒܝܘܡܐ</w> <w xml:id="w1786">ܗ̇ܘ</w> <w xml:id="w1787">ܚܕܐ</w> <w xml:id="w1788">ܘܦܨܝܚ</w> <w xml:id="w1789">ܒܠܒܗ</w><w xml:id="w1790">.</w> <w xml:id="w1791">ܘܟܕ</w> <w xml:id="w1792">ܚܙܝ</w> <w xml:id="w1793">ܗܡܢ</w> <w xml:id="w1794">ܠܡ̇ܘܪܕܟܝ</w> <w xml:id="w1795">ܕܝ̇ܬܒ</w> <w xml:id="w1796">ܒܬܪܥܐܕܡܠܟܐ̣</w><w xml:id="w1797">:</w> <w xml:id="w1798">ܘܠܐ</w> <w xml:id="w1799">ܩܡ</w> <w xml:id="w1800">ܘܠܐ</w> <w xml:id="w1801">ܐܬܬܙܝܥ</w> <w xml:id="w1802">ܡܢܗ</w><w xml:id="w1803">܆</w> <w xml:id="w1804">ܐܬܡܠܝ</w> <w xml:id="w1805">ܗܡܢ</w> <w xml:id="w1806">ܚܡܬܐ</w> <w xml:id="w1807">ܥܠ</w> <w xml:id="w1808">ܡܘܪܕܟܝ</w><w xml:id="w1809">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w1810">ܘܐܬܬܦܝܪ</w> <w xml:id="w1811">ܗܡ̣ܢ</w> <w xml:id="w1812">ܘܐ̣ܙܠ</w> <w xml:id="w1813">ܠܒܝܬܗ</w><w xml:id="w1814">.</w> <w xml:id="w1815">ܘܫ̇ܕܪ</w> <w xml:id="w1816">ܐܢܬܝ</w> <w xml:id="w1817">ܠܟܠܗܘܢ</w> <w xml:id="w1818">ܪ̈ܚ̇ܡܘܗܝ</w><w xml:id="w1819">.</w> <w xml:id="w1820">ܘܠܙܪܫ</w> <w xml:id="w1821">ܐܢܬܬܗ</w><w xml:id="w1822">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p><w xml:id="w1823">ܘܐܫܬܥܝ</w> <w xml:id="w1824">ܠܗܘܢ</w> <w xml:id="w1825">ܗܡܢ</w> <w xml:id="w1826">ܐܝܩܪܐ</w> <w xml:id="w1827">ܕܥܘܬܪܗ</w> <w xml:id="w1828">ܘܣܘܓܐܐ</w> <w xml:id="w1829">ܕܒܢܘ̈ܗܝ</w><w xml:id="w1830">.</w> <w xml:id="w1831">ܘܐܘܪܒܗ</w> <w xml:id="w1832">ܡ̇ܠܟܐ</w> <w xml:id="w1833">ܘܐܪܝܡܗ</w> <w xml:id="w1834">ܥܠܪ̈ܘܪܒܢܐ</w> <w xml:id="w1835">ܘܥܠ</w> <w xml:id="w1836">ܥܒ̈ܕܝ</w> <w xml:id="w1837">ܡ̇ܠܟܐ</w><w xml:id="w1838">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p><w xml:id="w1839">ܘܐܡ̣ܪ</w> <w xml:id="w1840">ܗܡܢ</w><w xml:id="w1841">.</w> <w xml:id="w1842">ܘܐܦܠܐ</w> <w xml:id="w1843">ܠܐܢܫ</w> <w xml:id="w1844">ܐܥ̣ܠܬ</w> <w xml:id="w1845">ܐܣܬܝܪ</w> <w xml:id="w1846">ܠܡܫܬܝܐ</w> <w xml:id="w1847">ܥܡ</w> <w xml:id="w1848">ܡ̇ܠܟܐ</w><w xml:id="w1849">܆</w> <w xml:id="w1850">ܐܠܐ</w> <w xml:id="w1851">ܐܢ</w> <w xml:id="w1852">ܠܝ</w><w xml:id="w1853">.</w> <w xml:id="w1854">ܘܐܦܡܚܪ</w> <w xml:id="w1855">ܡ̇ܙܡܢ</w> <w xml:id="w1856">ܐܢܐ</w> <w xml:id="w1857">ܠܗ̇</w> <w xml:id="w1858">ܥܡ</w> <w xml:id="w1859">ܡ̇ܠܟܐ</w><w xml:id="w1860">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p><w xml:id="w1861">ܘܗܢܐ</w> <w xml:id="w1862">ܟܘܠܗ</w> <w xml:id="w1863">ܠܐ</w> <w xml:id="w1864">ܫ̇ܘܐ</w> <w xml:id="w1865">ܠܝ</w><w xml:id="w1866">܇</w> <w xml:id="w1867">ܒܟܠ</w> <w xml:id="w1868">ܫܥܬܐ</w> <w xml:id="w1869">ܕܚ̇ܙܐ</w> <w xml:id="w1870">ܐܢܐ</w> <w xml:id="w1871">ܠܗ</w> <w xml:id="w1872">ܠܡܘܪܕܟܝ</w> <w xml:id="w1873">ܝܗܘܕܝܐ</w> <w xml:id="w1874">ܕܝܬ̇ܒܒܬܪܥܐ</w> <w xml:id="w1875">ܕܡ̇ܠܟܐ</w>   <w xml:id="w1876">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p><w xml:id="w1877">ܘܐܡ̣ܪܬ</w> <w xml:id="w1878">ܠܗ</w> <w xml:id="w1879">ܙܪܫ</w> <w xml:id="w1880">ܐܢܬܬܗ</w><w xml:id="w1881">.</w> <w xml:id="w1882">ܘܟܘܠܗܘܢ</w> <w xml:id="w1883">ܪ̈ܚ̇ܡܘܗܝ</w><w xml:id="w1884">.</w> <w xml:id="w1885">ܢܥܒܕܘܢ</w> <w xml:id="w1886">ܩܝܣܐ</w><w xml:id="w1887">.</w> <w xml:id="w1888">ܕܪܘ̣ܡܗ</w> <w xml:id="w1889">ܚܡܫܝܢܐܡ̈ܝܢ</w><w xml:id="w1890">܆</w> <w xml:id="w1891">ܘܒܨܦܪܐ</w> <w xml:id="w1892">ܐܡ̣ܪ</w> <w xml:id="w1893">ܠܡ̇ܠܟܐ</w><w xml:id="w1894">܆</w> <w xml:id="w1895">ܘܢܬܠܘܢܝܗܝ</w> <w xml:id="w1896">ܠܡܘܪܕܟܝ</w> <w xml:id="w1897">ܥܠܘܗܝ</w><w xml:id="w1898">.</w> <w xml:id="w1899">ܘܥܘܠ</w> <w xml:id="w1900">ܠܡܫܬܝܐ</w> <w xml:id="w1901">ܥܡܡ̇ܠܟܐ</w> <w xml:id="w1902">ܟܕ</w> <w xml:id="w1903">ܚ̇ܕܐ</w> <w xml:id="w1904">ܐܢܬ</w><w xml:id="w1905">.</w> <w xml:id="w1906">ܘܫܦ̣ܪܬ</w> <w xml:id="w1907">ܡܠܬܐ</w> <w xml:id="w1908">ܒܥܝܢܘ̈ܗܝ</w> <w xml:id="w1909">ܕܗܡܢ</w> <w xml:id="w1910">ܛܒ</w><w xml:id="w1911">.</w> <w xml:id="w1912">ܘܥ̣ܒܕ</w> <w xml:id="w1913">ܩܝܣܐ</w><w xml:id="w1914">.</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="6">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w1915">ܘܒܠܠܝܐ</w> <w xml:id="w1916">ܗ̇ܘ</w> <w xml:id="w1917">ܦܪ̣ܕܬ</w> <w xml:id="w1918">ܫܢܬܗ</w> <w xml:id="w1919">ܕܡ̇ܠܟܐ</w><w xml:id="w1920">܆</w> <w xml:id="w1921">ܘܐܡ̣ܪ</w> <w xml:id="w1922">ܠܡܥܠܘ</w> <w xml:id="w1923">ܣ̣ܦܪ</w> <w xml:id="w1924">ܥܘܗ̈ܕܢܐ</w> <w xml:id="w1925" norm="ܕܡ̣̈ܠܐܕܝܘܡ̈ܬܐ">ܕܡ̣̈ܠܐܕܝܘܡ̈ܬܐ</w><w xml:id="w1926">.</w> <w xml:id="w1927">ܘܗܘܘ</w> <w xml:id="w1928">ܩ̇ܪܝܢ</w> <w xml:id="w1929">ܩܕܡ</w> <w xml:id="w1930">ܡ̇ܠܟܐ</w><w xml:id="w1931">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w1932">ܘܐܫܬܟܚ</w> <w xml:id="w1933">ܕܟܬܝܒ</w><w xml:id="w1934">܆</w> <w xml:id="w1935">ܕܚ̇ܘܝ</w> <w xml:id="w1936">ܡܘܪܕܟܝ</w> <w xml:id="w1937">ܥܠ</w> <w xml:id="w1938">ܒܓܬܢ</w> <w xml:id="w1939">ܘܬܪܫ</w><w xml:id="w1940">.</w> <w xml:id="w1941">ܬܪ̈ܝܢ</w> <w xml:id="w1942">ܡܗ̈ܝܡܢܐ</w> <w xml:id="w1943">ܕܡ̇ܠܟܐܢ̇ܛܪ̈ܝ</w> <w xml:id="w1944">ܬܪܥܐ</w><w xml:id="w1945">܆</w> <w xml:id="w1946">ܕܒܥܘ</w> <w xml:id="w1947">ܕܢܘܫܛܘܢ</w> <w xml:id="w1948">ܐܝ̈ܕܝܗܘܢ</w> <w xml:id="w1949">ܥܠ</w> <w xml:id="w1950">ܡ̇ܠܟܐ</w> <w xml:id="w1951">ܐܚܫܝܪܝܫ</w><w xml:id="w1952">.</w> <w xml:id="w1953">܀</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w1954">ܘܐܡ̣ܪ</w> <w xml:id="w1955">ܡ̇ܠܟܐ</w><w xml:id="w1956">.</w> <w xml:id="w1957">ܡܢܐ</w> <w xml:id="w1958">ܐܬܥܒܕ</w> <w xml:id="w1959">ܐܝܩܪܐ</w> <w xml:id="w1960">ܘܪܒܘܬܐ</w> <w xml:id="w1961">ܠܡܘܪܕܟܝ</w> <w xml:id="w1962">ܥܠ</w> <w xml:id="w1963">ܗܕܐ</w> <w xml:id="w1964">ܐܡ̇ܪܝܢ</w> <w xml:id="w1965">ܠܗܥܠܝܡ̈ܘܗܝ</w> <w xml:id="w1966">ܠܡ̇ܠܟܐ</w> <w xml:id="w1967">ܘܡܫ̈ܡܫܢܘܗܝ</w><w xml:id="w1968">.</w> <w xml:id="w1969">ܠܐ</w> <w xml:id="w1970">ܐܬܥܒܕ</w> <w xml:id="w1971">ܠܗ</w> <w xml:id="w1972">ܡܕܡ</w> <w xml:id="w1973">܀</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w1974">ܘܐܡ̣ܪ</w> <w xml:id="w1975">ܡ̇ܠܟܐ</w> <w xml:id="w1976">ܡܢܘ</w> <w xml:id="w1977">ܒܕܪܬܐ</w><w xml:id="w1978">.</w> <w xml:id="w1979">ܘܗܡܢ</w> <w xml:id="w1980">ܐܬ̣ܐ</w> <w xml:id="w1981">ܠܒܝܬ</w> <w xml:id="w1982">ܡ̇ܠܟܐ</w> <w xml:id="w1983">ܠܕܪܬܐ</w> <w xml:id="w1984">ܒܪܝܬܐ</w><w xml:id="w1985">܇</w> <w xml:id="w1986">ܕܢܐܡܪܠܡ̇ܠܟܐ</w> <w xml:id="w1987">ܕܢܬ̣ܠܐ</w> <w xml:id="w1988">ܠܡܘܪܕܟܝ</w><w xml:id="w1989">.</w> <w xml:id="w1990">ܥܠ</w> <w xml:id="w1991">ܩܝܣܐ</w> <w xml:id="w1992">ܕܬܩܢ</w> <w xml:id="w1993">ܠܗ</w><w xml:id="w1994">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w1995">ܐܡ̇ܪܝܢ</w> <w xml:id="w1996">ܠܗ</w> <w xml:id="w1997">ܥܠܝܡ̈ܘܗܝ</w> <w xml:id="w1998">ܠܡ̇ܠܟܐ</w><w xml:id="w1999">.</w> <w xml:id="w2000">ܗܐ</w> <w xml:id="w2001">ܗܡܢ</w> <w xml:id="w2002">ܩܐ̇ܡ</w> <w xml:id="w2003">ܒܕܪܬܐ</w><w xml:id="w2004">.</w> <w xml:id="w2005">ܘܐܡ̣ܪ</w> <w xml:id="w2006">ܡ̇ܠܟܐ</w> <w xml:id="w2007">ܢ̇ܥܘܠ</w><w xml:id="w2008">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w2009">ܘܥܠ</w> <w xml:id="w2010">ܗ̇ܡܢ̣</w> <w xml:id="w2011">ܘܐܡ̣ܪ</w> <w xml:id="w2012">ܠܗ</w> <w xml:id="w2013">ܡ̇ܠܟܐ</w><w xml:id="w2014">.</w> <w xml:id="w2015">ܡܢܐ</w> <w xml:id="w2016">ܘ̇ܠܐ</w> <w xml:id="w2017">ܠܡܥܒܕ</w> <w xml:id="w2018">ܠܓܒܪܐ</w> <w xml:id="w2019">ܕܡ̇ܠܟܐ</w> <w xml:id="w2020">ܨ̇ܒܐ</w> <w xml:id="w2021">ܒܐܝܩܪܗ</w><w xml:id="w2022">.</w><w xml:id="w2023">ܘܐܡ̣ܪ</w> <w xml:id="w2024">ܗܡܢ</w> <w xml:id="w2025">ܒܠܒܗ</w><w xml:id="w2026">.</w> <w xml:id="w2027">ܠܡܢ̣ܘ</w> <w xml:id="w2028">ܨ̇ܒܐ</w> <w xml:id="w2029">ܡ̇ܠܟܐ</w> <w xml:id="w2030">ܠܡܥܒܕ</w> <w xml:id="w2031">ܐܝܩܪܐ</w> <w xml:id="w2032">ܝܬܝܪ</w> <w xml:id="w2033">ܡܢ</w> <w xml:id="w2034">ܕܠܝ</w><w xml:id="w2035">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w2036">ܘܐܡ̣ܪ</w> <w xml:id="w2037">ܗܡܢ</w> <w xml:id="w2038">ܠܡܠܟܐ</w><w xml:id="w2039">.</w> <w xml:id="w2040">ܠܓܒܪܐ</w> <w xml:id="w2041">ܕܡ̇ܠܟܐ</w> <w xml:id="w2042">ܨ̇ܒܐ</w> <w xml:id="w2043">ܒܐܝܩܪܗ</w><w xml:id="w2044">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w2045">ܢܝܬܘܢ</w> <w xml:id="w2046">ܠܒܘܫܐ</w> <w xml:id="w2047">ܕܡܠܟܘܬܐ</w> <w xml:id="w2048">ܕܠܒ̇ܫ</w> <w xml:id="w2049">ܡܠܟܐ</w><w xml:id="w2050">܆</w> <w xml:id="w2051">ܘܣܘܣܝܐ</w> <w xml:id="w2052">ܕܪܟ̇ܒ</w> <w xml:id="w2053">ܥܠܘܗܝ</w> <w xml:id="w2054">ܡ̇ܠܟܐ</w><w xml:id="w2055">܆</w> <w xml:id="w2056">ܟܕ</w> <w xml:id="w2057">ܐܢܬܬܣܝܡ</w> <w xml:id="w2058">ܬܓܐ</w> <w xml:id="w2059">ܕܡܠܟܘܬܐ</w> <w xml:id="w2060">ܒܪܝܫܗ</w><w xml:id="w2061">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w2062">ܘܢܬܝܗܒ</w> <w xml:id="w2063">ܠܒܘܫܐ</w> <w xml:id="w2064">ܘܣܘܣܝܐ</w> <w xml:id="w2065">ܠܚܕ</w> <w xml:id="w2066">ܡܢ</w> <w xml:id="w2067">ܚܐܪ̈ܐ</w> <w xml:id="w2068">ܕܡ̇ܠܟܐ</w> <w xml:id="w2069">ܦܪ̈ܬܘܝܐ</w> <w xml:id="w2070">ܘܢܠܒܫܝܘܗܝ</w> <w xml:id="w2071">ܠܓܒܪܐܕܡ̇ܠܟܐ</w> <w xml:id="w2072">ܨ̇ܒܐ</w> <w xml:id="w2073">ܒܐܝܩܪܗ</w><w xml:id="w2074">.</w> <w xml:id="w2075">ܘܢܪܟܒܘܢܗ</w> <w xml:id="w2076">ܥܠ</w> <w xml:id="w2077">ܣܘܣܝܐ</w><w xml:id="w2078">.</w> <w xml:id="w2079">ܘܢܚܕܪܘܢܗ</w> <w xml:id="w2080">ܒܫܘ̈ܩܐ</w> <w xml:id="w2081">ܕܡܕܝܢܬܐ</w><w xml:id="w2082">.</w><w xml:id="w2083">ܘܢܩܪܘܢ</w> <w xml:id="w2084">ܩܕܡܘܗ̣ܝ</w><w xml:id="w2085">.</w> <w xml:id="w2086">ܗܟܢܐ</w> <w xml:id="w2087">ܢܬܥܒܕ</w> <w xml:id="w2088">ܠܓܒܪܐ</w> <w xml:id="w2089">ܕܡ̇ܠܟܐ</w> <w xml:id="w2090">ܨ̇ܒܐ</w> <w xml:id="w2091">ܒܐܝܩܪܗ</w><w xml:id="w2092">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w2093">ܘܐܡ̣ܪ</w> <w xml:id="w2094">ܡ̇ܠܟܐ</w> <w xml:id="w2095">ܠܗܡܢ</w><w xml:id="w2096">.</w> <w xml:id="w2097">ܒܥܓܠ</w> <w xml:id="w2098">ܣܒ̣</w> <w xml:id="w2099">ܠܒܘܫܐ</w><w xml:id="w2100">܆</w> <w xml:id="w2101">ܘܕ̣ܒܪ</w> <w xml:id="w2102">ܣܘܣܝܐ</w> <w xml:id="w2103">ܐܝܟ</w> <w xml:id="w2104">ܕܐܡ̣ܪܬ</w><w xml:id="w2105">.</w> <w xml:id="w2106">ܘܥ̣ܒܕܗܟܢܐ</w> <w xml:id="w2107">ܠܡܘܪܕܟܝ</w> <w xml:id="w2108">ܝܗܘܕܝܐ</w><w xml:id="w2109">܇</w> <w xml:id="w2110">ܕܝܬܒ</w> <w xml:id="w2111">ܒܬܪܥܐ</w> <w xml:id="w2112">ܕܡ̇ܠܟܐ</w><w xml:id="w2113">.</w> <w xml:id="w2114">ܕܠܐ</w> <w xml:id="w2115">ܬ̇ܒܨܪ</w> <w xml:id="w2116">ܡܠܬܐ</w> <w xml:id="w2117">ܡܢ</w> <w xml:id="w2118">ܟܠܡܕܡܕܐܡ̣ܪܬ</w><w xml:id="w2119">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p><w xml:id="w2120">ܘܢܣ̣ܒ</w> <w xml:id="w2121">ܗܡܢ</w> <w xml:id="w2122">ܠܒܘܫܐ</w><w xml:id="w2123">.</w> <w xml:id="w2124">ܘܢܣ̣ܒ</w> <w xml:id="w2125">ܣܘܣܝܐ</w> <w xml:id="w2126">ܘܐܠܒܫܗ</w> <w xml:id="w2127">ܠܡܘܪܕܟܝ</w><w xml:id="w2128">.</w> <w xml:id="w2129">ܘܐܟܪܟܗ</w> <w xml:id="w2130">ܒܫܘܩܐ</w> <w xml:id="w2131">ܕܡܕܝܢܬܐ</w><w xml:id="w2132">.</w><w xml:id="w2133">ܘܩ̣ܪܐ</w> <w xml:id="w2134">ܩܕܡܘܗܝ</w><w xml:id="w2135">.</w> <w xml:id="w2136">ܗܟܢܐ</w> <w xml:id="w2137">ܢܬܥܒܕ</w> <w xml:id="w2138">ܠܓܒܪܐ</w> <w xml:id="w2139">ܕܡ̇ܠܟܐ</w> <w xml:id="w2140">ܨ̣ܒ̇ܐ</w> <w xml:id="w2141">ܒܐܝܩܪܗ</w><w xml:id="w2142">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p><w xml:id="w2143">ܘܐܬ̣ܐ</w> <w xml:id="w2144">ܡܘܪܕܟܝ</w> <w xml:id="w2145">ܠܬ̇ܪܥܐ</w> <w xml:id="w2146">ܕܡ̇ܠܟ̇ܐ</w><w xml:id="w2147">.</w> <w xml:id="w2148">ܘܗܡܢ</w> <w xml:id="w2149">ܐ̣ܙܠ</w> <w xml:id="w2150">ܠܒܝܬܗ</w> <w xml:id="w2151">ܟܕ</w> <w xml:id="w2152">ܐܒܝܠ</w> <w xml:id="w2153">ܘܡ̇ܚܦܝ</w> <w xml:id="w2154">ܪ̣ܫܗ</w><w xml:id="w2155">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p><w xml:id="w2156">ܘܐܫܬܥܝ</w> <w xml:id="w2157">ܗܡܢ</w> <w xml:id="w2158">ܠܙܪܫ</w> <w xml:id="w2159">ܐܢܬܬܗ</w><w xml:id="w2160">܆</w> <w xml:id="w2161">ܟܠܡܕܡ</w> <w xml:id="w2162">ܕܓ̣ܕܫ</w> <w xml:id="w2163">ܠܗ</w><w xml:id="w2164">.</w> <w xml:id="w2165">ܘܐܡ̇ܪܝܢ</w> <w xml:id="w2166">ܠܗ</w> <w xml:id="w2167">ܪ̈ܚ̇ܡܘܗܝ</w> <w xml:id="w2168">ܘܙܪܫܐܢܬܬܗ</w><w xml:id="w2169">.</w> <w xml:id="w2170">ܐܢ</w> <w xml:id="w2171">ܡܢ</w> <w xml:id="w2172">ܙܪܥܐ</w> <w xml:id="w2173">ܗܘ</w> <w xml:id="w2174">ܕܝܗ̇ܘܕ̈ܝܐ</w> <w xml:id="w2175">ܡܘܪܕܟܝ̣</w><w xml:id="w2176">.</w> <w xml:id="w2177">ܘܫܪܝܬ</w> <w xml:id="w2178">ܠܡܦܠ</w> <w xml:id="w2179">ܩܕܡܘܗܝ</w><w xml:id="w2180">܆</w> <w xml:id="w2181">ܠܐ</w> <w xml:id="w2182">ܡܨ̣ܐܐܢܬ</w> <w xml:id="w2183">ܚܝܠܗ</w><w xml:id="w2184">.</w> <w xml:id="w2185">ܐܠܐ</w> <w xml:id="w2186">ܬܘܒ̣</w> <w xml:id="w2187">ܢ̇ܦܠ</w> <w xml:id="w2188">ܐܢܬ</w> <w xml:id="w2189">ܩܕܡܘܗܝ</w><w xml:id="w2190">.</w> <w xml:id="w2191">܀</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p><w xml:id="w2192">ܘܥܕ</w> <w xml:id="w2193">ܗ̣ܘ</w> <w xml:id="w2194">ܡܡܠܠ</w> <w xml:id="w2195">ܥܡܗܘܢ</w><w xml:id="w2196">܆</w> <w xml:id="w2197">ܡ̇ܛܝܘ</w> <w xml:id="w2198">ܡܗ̈ܝܡܢܐ</w> <w xml:id="w2199">ܕܡ̇ܠܟܐ</w><w xml:id="w2200">.</w> <w xml:id="w2201">ܘܣܪܗܒܘܗܝ</w> <w xml:id="w2202">ܠܗ</w> <w xml:id="w2203">ܡ̇ܢ</w> <w xml:id="w2204">ܠܡܫܬܝܐܕܥܒ̣ܕܬ</w> <w xml:id="w2205">ܐܣܬܝܪ</w><w xml:id="w2206">.</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="7">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w2207">ܘܥܠ</w> <w xml:id="w2208">ܡ̇ܠܟܐ</w> <w xml:id="w2209">ܘܗܡܢ</w> <w xml:id="w2210">ܠܡܫܬܝܐ</w> <w xml:id="w2211">ܕܥܒ̣ܕܬ</w> <w xml:id="w2212">ܐܣܬܝܪ</w> <w xml:id="w2213">ܡ̇ܠܟܬܐ</w><w xml:id="w2214">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w2215">ܘܐܡ̣ܪ</w> <w xml:id="w2216">ܠܗ̇</w> <w xml:id="w2217">ܡ̇ܠܟܐ</w> <w xml:id="w2218">ܠܐܣܬܝܪ</w><w xml:id="w2219">܇</w> <w xml:id="w2220">ܐܦ</w> <w xml:id="w2221">ܒܗ</w> <w xml:id="w2222">ܒܝܘܡܐ</w> <w xml:id="w2223">ܗ̇ܘ</w> <w xml:id="w2224">ܕܡܫܬܝܐ</w> <w xml:id="w2225">ܕܚ̣ܡܪܐ</w><w xml:id="w2226">.</w> <w xml:id="w2227">ܡܢܐ</w> <w xml:id="w2228">ܗܝܫܐܠܬܟܝ</w><w xml:id="w2229">.</w> <w xml:id="w2230">ܘܡܢܐ</w> <w xml:id="w2231">ܗܝ</w> <w xml:id="w2232">ܒܥܘܬܟܝ</w><w xml:id="w2233">.</w> <w xml:id="w2234">ܥܕܡܐ</w> <w xml:id="w2235">ܠܦܠܓܗ̇</w> <w xml:id="w2236">ܕܡܠܟܘܬܐ</w> <w xml:id="w2237">ܢܬܥܒܕ</w> <w xml:id="w2238">ܠܟܝ</w><w xml:id="w2239">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w2240">ܘܥ̣ܢܬ</w> <w xml:id="w2241">ܐܣܬܝܪ</w> <w xml:id="w2242">ܡܠܟܬܐ</w> <w xml:id="w2243">ܘܐ̇ܡܪܬ</w><w xml:id="w2244">.</w> <w xml:id="w2245">ܐܢ</w> <w xml:id="w2246">ܐ̇ܫܟܚܬ</w> <w xml:id="w2247">ܪ̈ܚܡ̣ܐ</w> <w xml:id="w2248">ܒܥ̈ܝܢܝܟ</w> <w xml:id="w2249">ܡ̇ܠܟܐ</w><w xml:id="w2250">.</w> <w xml:id="w2251">ܘܐܢ</w> <w xml:id="w2252">ܥܠܡ̇ܠܟܐ</w> <w xml:id="w2253">ܫܦܝܪ</w><w xml:id="w2254">܆</w> <w xml:id="w2255">ܬܬܝܗܒ</w> <w xml:id="w2256">ܢܦܫܝ</w> <w xml:id="w2257">ܒܫܐܠܬܝ</w><w xml:id="w2258">܆</w> <w xml:id="w2259">ܘܥܡܝ</w> <w xml:id="w2260">ܒܒܥܘܬܝ</w><w xml:id="w2261">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w2262">ܡܛܠ</w> <w xml:id="w2263">ܕܐܙܕܒܢ</w> <w xml:id="w2264">ܐܢܐ</w> <w xml:id="w2265">ܘܥܡܝ</w> <w xml:id="w2266">ܠܩܛܠܐ</w><w xml:id="w2267">.</w> <w xml:id="w2268">ܘܠܚܪܒܐ</w> <w xml:id="w2269">ܘܠܐܒܕܢܐ</w><w xml:id="w2270">.</w> <w xml:id="w2271">ܘܐܠܘ</w> <w xml:id="w2272">ܕܢܬܩܢܐ</w> <w xml:id="w2273" norm="ܥܒ̣̈ܕܐܘܐܡܗ̈ܬܐ">ܥܒ̣̈ܕܐܘܐܡܗ̈ܬܐ</w> <w xml:id="w2274">ܐܙܕܒܢܢ</w> <w xml:id="w2275">ܫ̇ܬܩܐ</w> <w xml:id="w2276">ܗ̇ܘܝܬ</w><w xml:id="w2277">.</w> <w xml:id="w2278">ܠܐ</w> <w xml:id="w2279">ܓܝܪ</w> <w xml:id="w2280">ܫ̇ܠܐ</w> <w xml:id="w2281">ܒܥܠܕܒܒܐ</w> <w xml:id="w2282">ܕܢܗܪ</w> <w xml:id="w2283">ܠܡ̇ܠܟܐ</w><w xml:id="w2284">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w2285">ܘܥ̣ܢܐ</w> <w xml:id="w2286">ܡ̇ܠܟܐ</w> <w xml:id="w2287">ܐܚܫܝܪܝܫ</w><w xml:id="w2288">.</w> <w xml:id="w2289">ܘܐܡ̣ܪ</w><w xml:id="w2290">.</w> <w xml:id="w2291">ܠܐܣܬܝܪ</w> <w xml:id="w2292">ܡܠܟܬܐ</w><w xml:id="w2293">.</w> <w xml:id="w2294">ܡܢ̣ܘ</w> <w xml:id="w2295">ܗܢܐ</w><w xml:id="w2296">.</w> <w xml:id="w2297">ܐܘ</w> <w xml:id="w2298">ܐ̇ܝܢܘܕܐܬܬܪܝܡ</w> <w xml:id="w2299">ܠܒܗ</w> <w xml:id="w2300">ܠܡܥܒܕ</w> <w xml:id="w2301">ܗܟܢܐ</w><w xml:id="w2302">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w2303">ܘܐܡ̣ܪܬ</w> <w xml:id="w2304">ܐܣܬܝܪ</w><w xml:id="w2305">.</w> <w xml:id="w2306">ܓܒܪܐ</w> <w xml:id="w2307">ܐܠܘܨܐ</w> <w xml:id="w2308">ܘܒܥܠܕܒܒܐ</w><w xml:id="w2309">.</w> <w xml:id="w2310">ܗܡܢ</w> <w xml:id="w2311">ܗܘ</w> <w xml:id="w2312">ܗܢܐ</w> <w xml:id="w2313">ܒܝܫ̣ܐ</w><w xml:id="w2314">.</w> <w xml:id="w2315">ܘܗܡܢ</w> <w xml:id="w2316">ܐܬܬܙܝܥܡܢ</w> <w xml:id="w2317">ܩܕܡ</w> <w xml:id="w2318">ܡ̇ܠܟܐ</w> <w xml:id="w2319">ܘܡܠܟܬܐ</w><w xml:id="w2320">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w2321">ܘܡ̇ܠܟܐ</w> <w xml:id="w2322">ܩܡ</w> <w xml:id="w2323">ܒܚܡܬܗ</w> <w xml:id="w2324">ܡܢ</w> <w xml:id="w2325">ܡܫܬܝܐ</w> <w xml:id="w2326">ܕܚܡ̣ܪܐ</w><w xml:id="w2327">܇</w> <w xml:id="w2328">ܠܡܦܩ</w> <w xml:id="w2329">ܠܓܢܬ</w> <w xml:id="w2330">ܒܝܬܘܢܐ</w><w xml:id="w2331">.</w> <w xml:id="w2332">ܘܗܡܢ</w> <w xml:id="w2333">ܩܡ</w> <w xml:id="w2334">ܕܢܒܥܐ</w> <w xml:id="w2335">ܥܠܢܦܫܗ</w> <w xml:id="w2336">ܡܢ</w> <w xml:id="w2337">ܐܣܬܝܪ</w> <w xml:id="w2338">ܡܠܟܬܐ</w><w xml:id="w2339">܆</w> <w xml:id="w2340">ܡܛܠ</w> <w xml:id="w2341">ܕܚ̣ܙܐ</w> <w xml:id="w2342">ܕܓܪܡܬ</w> <w xml:id="w2343">ܠܗ̇</w> <w xml:id="w2344">ܥܠܘܗܝ</w> <w xml:id="w2345">ܒܝܫ̣ܬܐ</w> <w xml:id="w2346">ܡܢ</w> <w xml:id="w2347">ܩܕܡ</w> <w xml:id="w2348">ܡ̇ܠܟܐ</w><w xml:id="w2349">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w2350">ܘܡ̇ܠܟܐ</w> <w xml:id="w2351">ܗܦ̣ܟ</w> <w xml:id="w2352">ܡܢ</w> <w xml:id="w2353">ܓܢܬ</w> <w xml:id="w2354">ܒܝܬܘܢܐ</w><w xml:id="w2355">.</w> <w xml:id="w2356">ܠܒܝܬ</w> <w xml:id="w2357">ܡܫܬܝܐ</w> <w xml:id="w2358">ܕܚܡ̣ܪܐ</w><w xml:id="w2359">.</w> <w xml:id="w2360">ܘܗܡܢ</w> <w xml:id="w2361">ܐܪܡܐ</w> <w xml:id="w2362">ܥܠ</w> <w xml:id="w2363">ܥܪܣܐܕܐܣܬܝܪ</w> <w xml:id="w2364">ܝܬܝܒܐ</w> <w xml:id="w2365">ܥܠܝܗ</w><w xml:id="w2366">܇</w> <w xml:id="w2367">ܘܐܡ̣ܪ</w> <w xml:id="w2368">ܡ̇ܠܟܐ</w><w xml:id="w2369">.</w> <w xml:id="w2370">ܘܐܦ</w> <w xml:id="w2371">ܠܡܨܥܪܘ</w> <w xml:id="w2372">ܠܡܠܟܬܐ</w> <w xml:id="w2373">ܥܡܝ</w> <w xml:id="w2374">ܒܓܘ</w> <w xml:id="w2375">ܒܝܬܐ</w><w xml:id="w2376">܆</w> <w xml:id="w2377">ܘܡܠܬܐܢܦ̣ܩܬ</w> <w xml:id="w2378">ܡܢ</w> <w xml:id="w2379">ܦܘܡܗ</w> <w xml:id="w2380">ܕܡ̇ܠܟܐ</w><w xml:id="w2381">.</w> <w xml:id="w2382">ܘܐܦ̈ܘܗܝ</w> <w xml:id="w2383">ܕܗܡܢ̣</w> <w xml:id="w2384">ܐܬܚܦܝ</w><w xml:id="w2385">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w2386">ܘܥ̣ܢܐ</w> <w xml:id="w2387">ܪܚܒܘܢܐ</w> <w xml:id="w2388">ܚܕ</w> <w xml:id="w2389">ܡ̇ܢ</w> <w xml:id="w2390">ܡܗܝ̈ܡܢܐ</w> <w xml:id="w2391">ܘܐܡ̣ܪ</w> <w xml:id="w2392">ܩܕܡ</w> <w xml:id="w2393">ܡ̇ܠܟܐ</w><w xml:id="w2394">.</w> <w xml:id="w2395">ܗܐ</w> <w xml:id="w2396">ܐܦ</w> <w xml:id="w2397">ܩܝܣܐ</w> <w xml:id="w2398">ܬ̇ܩܢ</w> <w xml:id="w2399">ܗܘܐ</w> <w xml:id="w2400">ܗܡܢܠܡܬܠܐ</w> <w xml:id="w2401">ܠܡܘܪܕܟܝ</w> <w xml:id="w2402">ܥܠܘܗܝ</w><w xml:id="w2403">.</w> <w xml:id="w2404">ܥܠ</w> <w xml:id="w2405">ܕܐܡ̣ܪ</w> <w xml:id="w2406">ܫܦܝܪܬܐ</w> <w xml:id="w2407">ܥܠ</w> <w xml:id="w2408">ܡ̇ܠܟܐ</w><w xml:id="w2409">.</w> <w xml:id="w2410">ܘܕܩܐ̇ܡ</w> <w xml:id="w2411">ܒܒܝܬܗ</w> <w xml:id="w2412">ܕܗܡܢ</w><w xml:id="w2413">.</w><w xml:id="w2414">ܪܘܡܗ</w> <w xml:id="w2415">ܚܡܫܝܢ</w> <w xml:id="w2416">ܐܡ̈ܝܢ</w><w xml:id="w2417">.</w> <w xml:id="w2418">ܘܐܡ̣ܪ</w> <w xml:id="w2419">ܡܠܟܐ</w> <w xml:id="w2420">ܬܠܐܘܗܝ</w> <w xml:id="w2421">ܥܠܘܗܝ</w><w xml:id="w2422">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w2423">ܘܬܠܐܘܗܝ</w> <w xml:id="w2424">ܠܗܡܢ</w><w xml:id="w2425">.</w> <w xml:id="w2426">ܥܠ</w> <w xml:id="w2427">ܩܝܣܐ</w> <w xml:id="w2428">ܕܬ̇ܩܢ</w> <w xml:id="w2429">ܠܗ</w> <w xml:id="w2430">ܠܡܘܪܕܟܝ</w><w xml:id="w2431">܆</w> <w xml:id="w2432">ܘܚܡܬܗ</w> <w xml:id="w2433">ܕܡ̇ܠܟܐ</w> <w xml:id="w2434">ܐܬܬ̣ܢܝܚܬ</w><w xml:id="w2435">.</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="8">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w2436">ܘܒܝܘܡܐ</w> <w xml:id="w2437">ܗ̇ܘ</w> <w xml:id="w2438">ܝܗ̣ܒ</w> <w xml:id="w2439">ܡ̇ܠܟܐ</w> <w xml:id="w2440">ܐܚܫܝܪܝܫ</w> <w xml:id="w2441">ܠܐܣܬܝܪ</w> <w xml:id="w2442">ܡܠܟܬܐ</w><w xml:id="w2443">܇</w> <w xml:id="w2444">ܒܝܬܗ</w> <w xml:id="w2445">ܕܗܡܢ</w> <w xml:id="w2446">ܒܥܠܕܒܒܐܕܝܗܘ̈ܕܝܐ</w><w xml:id="w2447">.</w> <w xml:id="w2448">ܘܡܘܪܕܟܝ</w> <w xml:id="w2449">ܥܠ</w> <w xml:id="w2450">ܩܕܡ</w> <w xml:id="w2451">ܡ̇ܠܟܐ</w><w xml:id="w2452">.</w> <w xml:id="w2453">ܡܛܠ</w> <w xml:id="w2454">ܕܓܠܬ</w> <w xml:id="w2455">ܐܣܬܝܪ</w> <w xml:id="w2456">ܡܢܐ</w> <w xml:id="w2457">ܗ̣ܘܐ</w> <w xml:id="w2458">ܠܗ̇</w><w xml:id="w2459">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w2460">ܘܫ̣ܩܠ</w> <w xml:id="w2461">ܡ̇ܠܟܐ</w> <w xml:id="w2462">ܥܙܩܬܐ</w> <w xml:id="w2463">ܕܫ̣ܩܠ</w> <w xml:id="w2464">ܡܢ</w> <w xml:id="w2465">ܗܡܢ</w><w xml:id="w2466">.</w> <w xml:id="w2467">ܘܝܗܒܗ̇</w> <w xml:id="w2468">ܠܡܘܪܕܟܝ</w><w xml:id="w2469">.</w> <w xml:id="w2470">ܘܐܩܝܡܬܗ</w> <w xml:id="w2471">ܐܣܬܝܪܠܡܘܪܕܟܝ</w> <w xml:id="w2472">ܥܠ</w> <w xml:id="w2473">ܒܝܬܗ</w> <w xml:id="w2474">ܕ̣ܗܡܢ̇</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w2475">ܘܗܦܟܬ</w> <w xml:id="w2476">ܐܣܬܝܪ</w> <w xml:id="w2477">ܘܡܠ̣ܠܬ</w> <w xml:id="w2478">ܩܕܡ</w> <w xml:id="w2479">ܡ̇ܠܟܐ̣</w><w xml:id="w2480">.</w> <w xml:id="w2481">ܘܢܦ̣ܠܬ</w> <w xml:id="w2482">ܥܠ</w> <w xml:id="w2483">ܪ̈ܓܠܘܗܝ</w><w xml:id="w2484">.</w> <w xml:id="w2485">ܘܒ̇ܥܝܐ</w> <w xml:id="w2486">ܘܡܬܟܫܦܐܠܗ</w><w xml:id="w2487">.</w> <w xml:id="w2488">ܕܢܥܒܪ</w> <w xml:id="w2489">ܒܝܫ̣ܬܐ</w> <w xml:id="w2490">ܕܗܡܢ</w> <w xml:id="w2491">ܐܓܓܝܐ</w> <w xml:id="w2492">ܘܡܚܫܒܬܐ</w> <w xml:id="w2493">ܕܐܬܚܫܒ</w> <w xml:id="w2494">ܥܠ</w> <w xml:id="w2495">ܝܗܘ̈ܕܝܐ</w><w xml:id="w2496">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w2497">ܘܐܘܫܛ</w> <w xml:id="w2498">ܡ̇ܠܟܐ</w> <w xml:id="w2499">ܠܐܣܬܝܪ</w> <w xml:id="w2500">ܫܒܛܐ</w> <w xml:id="w2501">ܕܕܗܒܐ</w><w xml:id="w2502">.</w> <w xml:id="w2503">ܘܩܪܒܬ</w> <w xml:id="w2504">ܠܗ</w> <w xml:id="w2505">ܐܣܬܝܪ</w><w xml:id="w2506">܆</w> <w xml:id="w2507">ܘܩܡ̣ܬ</w> <w xml:id="w2508">ܩܕܡ</w> <w xml:id="w2509">ܡ̇ܠܟܐܘܐܡ̣ܪܬ</w><w xml:id="w2510">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w2511">ܐܢ</w> <w xml:id="w2512">ܥܠ</w> <w xml:id="w2513">ܡ̇ܠܟܐ</w> <w xml:id="w2514">ܫܦܝܪ</w><w xml:id="w2515">܆</w> <w xml:id="w2516">ܘܐܢ</w> <w xml:id="w2517">ܐ̇ܫܟܚܬ</w> <w xml:id="w2518">ܪ̈ܚܡܐ</w> <w xml:id="w2519">ܒܥ̈ܝܢܘܗܝ</w><w xml:id="w2520">܆</w> <w xml:id="w2521">ܘܫܦܪ</w> <w xml:id="w2522">ܦܬܓܡܐ</w> <w xml:id="w2523">ܩܕܡ</w> <w xml:id="w2524">ܡ̇ܠܟܐ</w><w xml:id="w2525">.</w><w xml:id="w2526">ܢܟܬܘܒ̣</w> <w xml:id="w2527">ܘܢܗܦܟ</w> <w xml:id="w2528">ܐܓܪ̈ܬܐ</w><w xml:id="w2529">܆</w> <w xml:id="w2530">ܘܡܚ̈ܫܒܬܐ</w> <w xml:id="w2531">ܕܗܡܢ</w> <w xml:id="w2532">ܐܓܓܝܐ</w><w xml:id="w2533">܇</w> <w xml:id="w2534">ܕܟܬ̣ܒ</w> <w xml:id="w2535">ܠܡܘܒܕܘ</w> <w xml:id="w2536">ܠܟܠܗܘܢ</w> <w xml:id="w2537">ܝܗܘ̈ܕܝܐܕܒܟܠ</w> <w xml:id="w2538">ܡܕܝܢܬܗ̇</w> <w xml:id="w2539">ܕܡ̇ܠܟܐ</w><w xml:id="w2540">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w2541">ܐܝܟܢܐ</w> <w xml:id="w2542">ܓܝܪ</w> <w xml:id="w2543">ܡܨ̇ܝܐ</w> <w xml:id="w2544">ܐܢܐ</w> <w xml:id="w2545">ܕܐ̇ܚܙܐ</w><w xml:id="w2546">.</w> <w xml:id="w2547">ܒܒܝܫ̣ܬܐ</w> <w xml:id="w2548">ܕܬܓܕܫ</w> <w xml:id="w2549">ܠܥܡܝ</w><w xml:id="w2550">.</w> <w xml:id="w2551">ܘܐܝܟܢܐ</w> <w xml:id="w2552">ܡܫܟܚܐ</w> <w xml:id="w2553">ܐܢܐܕܐ̇ܚܙܐ</w> <w xml:id="w2554">ܒܐܒܕܢܐ</w> <w xml:id="w2555">ܕܫܪܒܬܝ</w><w xml:id="w2556">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w2557">ܘܐܡ̣ܪ</w> <w xml:id="w2558">ܡ̇ܠܟܐ</w> <w xml:id="w2559">ܐܚܫܝܪܝܫ</w> <w xml:id="w2560">ܠܐܣܬܝܪ</w> <w xml:id="w2561">ܡ̇ܠܟܬܐ</w><w xml:id="w2562">.</w> <w xml:id="w2563">ܗܐ</w> <w xml:id="w2564">ܒܝܬܗ</w> <w xml:id="w2565">ܕܗܡ̇ܢ</w> <w xml:id="w2566">ܝܗ̇ܒܬ</w> <w xml:id="w2567">ܠܟܝ</w><w xml:id="w2568">.</w> <w xml:id="w2569">ܘܠܗ</w> <w xml:id="w2570">ܬܠܘܥܠ</w> <w xml:id="w2571">ܩܝܣܐ</w><w xml:id="w2572">.</w> <w xml:id="w2573">ܥܠ</w> <w xml:id="w2574">ܕܐܘܫܛ</w> <w xml:id="w2575">ܐܝ̣ܕܐ</w> <w xml:id="w2576">ܒܝܗܘܕ̈ܝܐ</w><w xml:id="w2577">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w2578">ܘܐܢܬܘܢ</w> <w xml:id="w2579">ܥܠ</w> <w xml:id="w2580">ܝܗܘܕ̈ܝܐ</w> <w xml:id="w2581">ܐܝܟ</w> <w xml:id="w2582">ܕܫܦܝܪ</w> <w xml:id="w2583">ܒܥܝ̈ܢܝܟܘܢ̣</w><w xml:id="w2584">.</w> <w xml:id="w2585">ܒܫܡܐ</w> <w xml:id="w2586">ܕܡ̇ܠܟܐ</w> <w xml:id="w2587">ܚܬܘܡܘ</w> <w xml:id="w2588">ܒܥܙܩܬܐܕܡ̇ܠܟܐ</w><w xml:id="w2589">܇</w> <w xml:id="w2590">ܒܟܬܒܐ</w> <w xml:id="w2591">ܕܡܬܟܬܒ</w> <w xml:id="w2592">ܒܫܡ</w> <w xml:id="w2593">ܡ̇ܠܟܐ</w><w xml:id="w2594">܇</w> <w xml:id="w2595">ܘܡܬܚܬܡ</w> <w xml:id="w2596">ܒܥܙܩܬܗ</w> <w xml:id="w2597">ܕܡ̇ܠܟܐ</w> <w xml:id="w2598">ܕܡ̇ܠܟܐ</w> <w xml:id="w2599">ܕܠܐ</w> <w xml:id="w2600">ܗ̇ܦܟ</w><w xml:id="w2601">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w2602">ܘܐܬܩܪܝܘ</w> <w xml:id="w2603">ܣ̇ܦ̈ܪܐ</w> <w xml:id="w2604">ܕܡ̇ܠܟܐ</w> <w xml:id="w2605">ܒܙܒܢܐ</w> <w xml:id="w2606">ܗ̇ܘ</w><w xml:id="w2607">܆</w> <w xml:id="w2608">ܒܝܪܚܐ</w> <w xml:id="w2609">ܬܠܝܬܝܐ</w> <w xml:id="w2610">ܕܗ̣ܘ</w> <w xml:id="w2611">ܚܙܝܪ̈ܢ</w> <w xml:id="w2612">ܒܬܠܬܐܘܥܣܪ̈ܝܢ</w> <w xml:id="w2613">ܒܗ</w> <w xml:id="w2614">ܒܝܪܚܐ</w><w xml:id="w2615">.</w> <w xml:id="w2616">ܘܐܬܟܬܒ</w> <w xml:id="w2617">ܟܠܡܕܡ</w> <w xml:id="w2618">ܕܟܬܒ</w> <w xml:id="w2619">ܡܘܪܕܟܝ</w><w xml:id="w2620">܇</w> <w xml:id="w2621">ܥܠ</w> <w xml:id="w2622">ܝܗܘܕ̈ܝܐ</w> <w xml:id="w2623">ܠܪ̈ܒܝ</w> <w xml:id="w2624">ܚܝ̈ܠܐ</w><w xml:id="w2625">.</w><w xml:id="w2626">ܘܠܡܪ̈ܘܬܐ</w> <w xml:id="w2627">ܘܠܪ̈ܘܪܒܢܐ</w> <w xml:id="w2628">ܕܡܕ̈ܝܢܬܐ</w><w xml:id="w2629">.</w> <w xml:id="w2630">ܡܢ</w> <w xml:id="w2631">ܝܗܘܕ̣</w> <w xml:id="w2632">ܘܥܕܡܐ</w> <w xml:id="w2633">ܠܟܘܫ</w><w xml:id="w2634">.</w> <w xml:id="w2635">ܡܐܐ</w> <w xml:id="w2636">ܘܥܣܪ̈ܝܢ</w> <w xml:id="w2637">ܘܫܒܥܡܕ̈ܝܢܢ</w><w xml:id="w2638">.</w> <w xml:id="w2639">ܡܕܝܢܬܐ</w><w xml:id="w2640">܆</w> <w xml:id="w2641">ܐܝܟ</w> <w xml:id="w2642">ܟܬܒܗ̇</w><w xml:id="w2643">.</w> <w xml:id="w2644">ܘܠܥܡܐ̣</w> <w xml:id="w2645">ܐܝܟ</w> <w xml:id="w2646">ܠܫܢܗ</w> <w xml:id="w2647">ܘܠܝܗܘ̈ܕܝܐ̣</w> <w xml:id="w2648">ܐܝܟ</w> <w xml:id="w2649">ܟܬܒܗܘܢ</w><w xml:id="w2650">܆</w><w xml:id="w2651">ܘܐܝܟ</w> <w xml:id="w2652">ܠܫܢܗܘܢ</w><w xml:id="w2653">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w2654">ܘܐܬܟܬܒ</w> <w xml:id="w2655">ܒܫܡ</w> <w xml:id="w2656">ܡܠܟܐ</w> <w xml:id="w2657">ܐܚܫܝܪܝܫ</w><w xml:id="w2658">.</w> <w xml:id="w2659">ܘܐܬܚ̣ܬܡ</w><w xml:id="w2660">.</w> <w xml:id="w2661">ܒܥܙܩܬܐ</w> <w xml:id="w2662">ܕܡ̇ܠܟܐ</w><w xml:id="w2663">.</w> <w xml:id="w2664">ܘܫܕܪ</w> <w xml:id="w2665">ܐܓܪ̈ܬܐ</w> <w xml:id="w2666">ܒܝܕܪ̈ܗܛܐ</w><w xml:id="w2667">.</w> <w xml:id="w2668">ܘܒܝܕ</w> <w xml:id="w2669">ܐܣܦܘܟܐ</w> <w xml:id="w2670">ܪ̈ܟܒܝ</w> <w xml:id="w2671">ܪ̈ܟܫܐ</w> <w xml:id="w2672">ܒ̈ܢܝ</w> <w xml:id="w2673">ܪ̈ܡܟܐ</w><w xml:id="w2674">܇</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p><w xml:id="w2675">ܐܓܪ̈ܬܐ</w> <w xml:id="w2676">ܕܟܬ̣ܒ</w> <w xml:id="w2677">ܡ̇ܠܟܐ</w> <w xml:id="w2678">ܥܠ</w> <w xml:id="w2679">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w2680">ܕܒܟܠ</w> <w xml:id="w2681">ܡܕܝ̈ܢܬܐ</w><w xml:id="w2682">.</w> <w xml:id="w2683">ܠܡܬܟܢܫܘ</w> <w xml:id="w2684">ܘܠܡܩܡ</w> <w xml:id="w2685">ܠܢܦܫܗܘܢܘܠܡܚ̇ܪܒ</w> <w xml:id="w2686">ܘܠܡܩܛܠ</w> <w xml:id="w2687">ܘܠܡܘܒܕܘ</w> <w xml:id="w2688">ܠܟܠܢܫ</w> <w xml:id="w2689">ܕܡܥܝܩ</w> <w xml:id="w2690">ܠܗܘܢ</w> <w xml:id="w2691">ܘܛ̈ܠܝܐ</w> <w xml:id="w2692">ܘܢܫ̈ܐ</w><w xml:id="w2693">.</w> <w xml:id="w2694">ܘܩܢܝܢܗܘܢ</w> <w xml:id="w2695">ܠܒܙܬܐ̣</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p><w xml:id="w2696">ܒܚܕ</w> <w xml:id="w2697">ܝܘܡ</w><w xml:id="w2698">.</w> <w xml:id="w2699">ܕܒܟܠܗܝܢ</w> <w xml:id="w2700">ܡܕܝ̈ܢܬܗ</w> <w xml:id="w2701">ܕܡ̇ܠܟܐ</w> <w xml:id="w2702">ܐܚܫܝܪܝܫ</w><w xml:id="w2703">.</w> <w xml:id="w2704">ܒܬܠܬܥܣܪܐ</w> <w xml:id="w2705">ܒܝܪܚܐ</w> <w xml:id="w2706">ܕܬܪܥܣܪ</w> <w xml:id="w2707">ܕܗ̣ܘܐܕܪ̣</w><w xml:id="w2708">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p><w xml:id="w2709">ܘܦܘܪܫܓܢܗ</w> <w xml:id="w2710">ܕܟܬܒܐ</w> <w xml:id="w2711">ܐܬܝܗܒ</w><w xml:id="w2712">.</w> <w xml:id="w2713">ܒܟܠ</w> <w xml:id="w2714">ܡܕܝܢܐ</w><w xml:id="w2715">.</w> <w xml:id="w2716">ܘܦܩܕ</w> <w xml:id="w2717">ܠܟܠܗܘܢ</w> <w xml:id="w2718">ܥܡܡ̈ܐ</w> <w xml:id="w2719">ܕܢܗܘܘܢ</w> <w xml:id="w2720">ܝܗܘܕ̈ܝܐܡܛܝܒܝܢ</w> <w xml:id="w2721">ܠܝܘܡܐ</w> <w xml:id="w2722">ܗܢܐ</w> <w xml:id="w2723">ܕܢܬܦܪܥܘܢ</w> <w xml:id="w2724">ܡܢ</w> <w xml:id="w2725">ܒܥܠܕܒ̈ܒܝܗܘܢ</w><w xml:id="w2726">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p><w xml:id="w2727">ܘܐ̣ܙܠܘ</w> <w xml:id="w2728">ܪ̈ܗܛܐ</w> <w xml:id="w2729">ܘܐܣܦܘ̈ܟܐ</w> <w xml:id="w2730">ܪ̈ܟܒܝ</w> <w xml:id="w2731">ܪ̈ܟܫܐ</w> <w xml:id="w2732">ܘܢܦܩܘ</w> <w xml:id="w2733">ܡܣܪ̈ܗܒܐܝܬ</w><w xml:id="w2734">.</w> <w xml:id="w2735">ܒܦܬܓܡܐ</w> <w xml:id="w2736">ܘܒܦܘܩܕܢܐܕܐܬܦܩܕ</w> <w xml:id="w2737">ܒܫܘܫܢ</w> <w xml:id="w2738">ܒܝܪܬܐ</w><w xml:id="w2739">.</w> <w xml:id="w2740">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p><w xml:id="w2741">ܘܡܘܪܕܟܝ</w> <w xml:id="w2742">ܢܦ̣ܩ</w> <w xml:id="w2743">ܡܢ</w> <w xml:id="w2744">ܩܕܡ</w> <w xml:id="w2745">ܡ̇ܠܟܐ</w><w xml:id="w2746">.</w> <w xml:id="w2747">ܒܠܒܘܫܐ</w> <w xml:id="w2748">ܕܡܠܟܘܬܐ</w> <w xml:id="w2749">ܕܬܟܠܬܐ</w> <w xml:id="w2750">ܘܕܒܘܨܐ</w><w xml:id="w2751">.</w> <w xml:id="w2752">ܘܒܟܠܝܠܐܕܕܗܒܐ</w><w xml:id="w2753">.</w> <w xml:id="w2754">ܘܟܪܝܟ</w> <w xml:id="w2755">ܒܒܘܨܐ</w> <w xml:id="w2756">ܘܒܐܪܓܘܢܐ</w><w xml:id="w2757">.</w> <w xml:id="w2758">ܘܡܕܝܢܬܐ</w> <w xml:id="w2759">ܫܘܫܢ</w> <w xml:id="w2760">ܕܨ̣ܬ</w> <w xml:id="w2761">ܘܚܕ̣ܝܬ</w><w xml:id="w2762">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <p><w xml:id="w2763">ܘܥܠ</w> <w xml:id="w2764">ܝܗܘܕ̈ܝܐ</w> <w xml:id="w2765">ܗ̣ܘܐ</w> <w xml:id="w2766">ܢܘܗܪܐ</w> <w xml:id="w2767">ܘܚܕܘܬܐ</w><w xml:id="w2768">.</w> <w xml:id="w2769">ܘܐܝܩܪܐ</w> <w xml:id="w2770">ܘܕܝܨܐ</w><w xml:id="w2771">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="17">
+                  <p><w xml:id="w2772">ܒܟܘܠ</w> <w xml:id="w2773">ܡܕܝܢ̈ܬܐ</w> <w xml:id="w2774">ܘܒܟܠ</w> <w xml:id="w2775">ܩܘܪ̈ܝܐ</w><w xml:id="w2776">.</w> <w xml:id="w2777">ܐܬܪ</w> <w xml:id="w2778">ܕܡ̇ܛܝ</w> <w xml:id="w2779">ܦܬܓܡܐ</w> <w xml:id="w2780">ܕܡ̇ܠܟܐ</w> <w xml:id="w2781">ܘܦܘܩܕܢܗ</w><w xml:id="w2782">܆</w> <w xml:id="w2783">ܚܕܘܬܐܪܒܬܐ</w> <w xml:id="w2784">ܗܘܬ</w> <w xml:id="w2785">ܠܝܗܘܕ̈ܝܐ</w><w xml:id="w2786">.</w> <w xml:id="w2787">ܘܡܫܬܝܐ</w> <w xml:id="w2788">ܘܝܘܡܐ</w> <w xml:id="w2789">ܛ̇ܒܐ</w><w xml:id="w2790">.</w> <w xml:id="w2791">ܘܣܘܓܐܐ</w> <w xml:id="w2792">ܡܢ</w> <w xml:id="w2793">ܥ̈ܡܡܐ</w> <w xml:id="w2794">ܕܐܪܥܐ</w> <w xml:id="w2795">ܡܬܢܗܬܝܢ</w><w xml:id="w2796">.</w><w xml:id="w2797">ܡܛܠ</w> <w xml:id="w2798">ܕܢܦ̣ܠܬ</w> <w xml:id="w2799">ܕܚܠܬܐ</w> <w xml:id="w2800">ܕܝܗܘ̈ܕܝܐ</w> <w xml:id="w2801">ܥܠܝܗܘܢ</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="9">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w2802">ܘܒܝܪܚܐ</w> <w xml:id="w2803">ܕܬܪܥܣܪ</w> <w xml:id="w2804">ܕܗ̣ܘ</w> <w xml:id="w2805">ܐܕܪ</w> <w xml:id="w2806">ܒܬܠܬܥܣܪܐ</w><w xml:id="w2807">:</w> <w xml:id="w2808">ܟܕ</w> <w xml:id="w2809">ܡ̇ܛܝ</w> <w xml:id="w2810">ܙܒܢܐ</w> <w xml:id="w2811">ܕܦܬܓܡܐ</w> <w xml:id="w2812">ܕܡ̇ܠܟܐ</w> <w xml:id="w2813">ܘܦܘܩܕܢܗܠܡܬܥܒܕܘ</w> <w xml:id="w2814">ܠܒܥܠܕ̈ܒܒܝܗܘܢ</w><w xml:id="w2815">܆</w> <w xml:id="w2816">ܐܫܬܚ̣ܠܦܬ</w> <w xml:id="w2817">ܥ̣ܒܝܕܬܐ</w> <w xml:id="w2818">ܕܢܫܬܠܛܘܢ</w> <w xml:id="w2819">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w2820">ܒܣܢܐܝܗܘܢ</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w2821">ܘܐܬܟܢܫܘ</w> <w xml:id="w2822">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w2823">ܒܩܘܪ̈ܝܗܘܢ</w><w xml:id="w2824">܆</w> <w xml:id="w2825">ܒܟܠܗܝܢ</w> <w xml:id="w2826">ܡܕܝ̈ܢܬܗ</w> <w xml:id="w2827">ܕܡ̇ܠܟܐ</w> <w xml:id="w2828">ܐܚܫܝܪܝܫ</w><w xml:id="w2829">.</w> <w xml:id="w2830">ܕܢܘܫܛܘܢܐܝ̣ܕܐ</w> <w xml:id="w2831">ܒ̇ܥܒ̈ܕܝ</w> <w xml:id="w2832">ܒܝ̣ܫ̈ܘܬܗܘܢ</w><w xml:id="w2833">.</w> <w xml:id="w2834">ܘܐܢܫ</w> <w xml:id="w2835">ܠܐ</w> <w xml:id="w2836">ܩܡ</w> <w xml:id="w2837">ܩܕܡܝܗܘܢ</w><w xml:id="w2838">.</w> <w xml:id="w2839">ܡܛܠ</w> <w xml:id="w2840">ܕܢܦ̣ܠܬ</w> <w xml:id="w2841">ܕܚܠܬܗܘܢ</w> <w xml:id="w2842">ܥܠܟܠܗܘܢ</w> <w xml:id="w2843">ܥܡܡ̈ܐ</w><w xml:id="w2844">܆</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w2845">ܘܟܠܗܘܢ</w> <w xml:id="w2846">ܪ̈ܘܪܒܢܐ</w> <w xml:id="w2847">ܕܡܕܝ̈ܢܬܐ</w><w xml:id="w2848">.</w> <w xml:id="w2849">ܘܪ̈ܒܝ</w> <w xml:id="w2850">ܚܝ̈ܠܐ</w> <w xml:id="w2851">ܘܡܪ̈ܘܬܐ</w><w xml:id="w2852">.</w> <w xml:id="w2853">ܘܥ̇ܒ̈ܕܝ</w> <w xml:id="w2854">ܥ̇ܒܕܐ</w> <w xml:id="w2855">ܕܡ̇ܠܟܐܡܝܩܪܝܢ</w> <w xml:id="w2856">ܠܝܗܘܕ̈ܝܐ</w><w xml:id="w2857">.</w> <w xml:id="w2858">ܡܛܠ</w> <w xml:id="w2859">ܕܢܦ̣ܠܬ</w> <w xml:id="w2860">ܕܚܠܬܐ</w> <w xml:id="w2861">ܕܡ̇ܠܟܐ</w> <w xml:id="w2862">ܥܠܝܗܘܢ</w><w xml:id="w2863">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="4">
+                  <p><w xml:id="w2864">ܡܛܠ</w> <w xml:id="w2865">ܕܝ̣ܪܒ</w> <w xml:id="w2866">ܡܘܪܕܟܝ</w> <w xml:id="w2867">ܒܝܬ</w> <w xml:id="w2868">ܡܠܟܐ</w><w xml:id="w2869">.</w> <w xml:id="w2870">ܘܫܡܗ</w> <w xml:id="w2871">ܐ̇ܙܠ</w> <w xml:id="w2872">ܗܘܐ</w> <w xml:id="w2873">ܒܟܠܗܝܢ</w> <w xml:id="w2874">ܡ̈ܠܟܘܬܐ</w><w xml:id="w2875">.</w> <w xml:id="w2876">ܡܛܠ</w> <w xml:id="w2877">ܕܓܒܪܐܡܘܪܕܟܝ</w> <w xml:id="w2878">ܐ̇ܙܠ</w> <w xml:id="w2879">ܗܘܐ</w> <w xml:id="w2880">ܘܝܪܒ</w><w xml:id="w2881">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="5">
+                  <p><w xml:id="w2882">ܘܡܚܘ</w> <w xml:id="w2883">ܝܗܘܕ̈ܝܐ</w> <w xml:id="w2884">ܒܟܠܗܘܢ</w> <w xml:id="w2885">ܒܥܠܕܒܒ̈ܝܗܘܢ</w><w xml:id="w2886">.</w> <w xml:id="w2887">ܡܚܘܬܐ̇</w> <w xml:id="w2888">ܕܚܪܒܐ</w> <w xml:id="w2889">ܘܕܩܛܠܐ̣</w> <w xml:id="w2890">ܘܕܐܒܕܢܐ</w><w xml:id="w2891">.</w><w xml:id="w2892">ܘܥܒ̣ܕܘ</w> <w xml:id="w2893">ܒܣ̈ܢܐܝܗܘܢ</w> <w xml:id="w2894">ܐܝܟ</w> <w xml:id="w2895">ܨܒܝܢܗܘܢ</w><w xml:id="w2896">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="6">
+                  <p><w xml:id="w2897">ܘܒܫܘܫܢ</w> <w xml:id="w2898">ܒܝܪܬܐ</w> <w xml:id="w2899">ܩ̇ܛܠܘ</w> <w xml:id="w2900">ܝܗܘܕ̈ܝܐ</w><w xml:id="w2901">.</w> <w xml:id="w2902">ܘܐܘܒܕܘ</w> <w xml:id="w2903">ܚܡܫܡܐܐ</w> <w xml:id="w2904">ܓܒܪ̈ܝܢ</w><w xml:id="w2905">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="7">
+                  <p><w xml:id="w2906">ܘܠܦܫܝܪܘܬ</w> <w xml:id="w2907">ܘܠܕܝܠܟܘܢ</w><w xml:id="w2908">.</w> <w xml:id="w2909">ܘܠܐܣܦܘܬ̣</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="8">
+                  <p><w xml:id="w2910">ܘܠܦܪܠܛ</w> <w xml:id="w2911">ܘܠܕܠܝܐ</w><w xml:id="w2912">.</w> <w xml:id="w2913">ܘܠܕܝܪܬ</w><w xml:id="w2914">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="9">
+                  <p><w xml:id="w2915">ܘܠܐܦܪܣܡܘܬ</w><w xml:id="w2916">.</w> <w xml:id="w2917">ܘܠܕܝܣܝ</w> <w xml:id="w2918">ܘܠܐܕܪܝ</w> <w xml:id="w2919">ܘܠܙܘܬ</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="10">
+                  <p><w xml:id="w2920">ܥܣܪܐ</w> <w xml:id="w2921">ܒܢܘ̈ܗܝ</w> <w xml:id="w2922">ܕܗܡܢ</w> <w xml:id="w2923">ܒܪ</w> <w xml:id="w2924">ܗܡܕܬ</w> <w xml:id="w2925">ܐܓܓܝܐ</w> <w xml:id="w2926">ܒܥܠܕܒܒܐ</w><w xml:id="w2927">.</w> <w xml:id="w2928">ܕܝܗܘ̈ܕܝܐ̣</w> <w xml:id="w2929">ܩ̇ܛܠܘ</w><w xml:id="w2930">.</w> <w xml:id="w2931">ܘܠܒܙܬܐ</w> <w xml:id="w2932">ܠܐܐܘܫܛܘ</w> <w xml:id="w2933">ܐܝܕ̈ܝܗܘܢ</w> <w xml:id="w2934">ܒܝܘܡܐ</w> <w xml:id="w2935">ܗ̇ܘ</w><w xml:id="w2936">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="11">
+                  <p><w xml:id="w2937">ܘܥܠ</w> <w xml:id="w2938">ܡܢܝܢܐ</w> <w xml:id="w2939">ܕܩ̈ܛܝܠܐ</w> <w xml:id="w2940">ܕܒܫܘܫܢ</w> <w xml:id="w2941">ܒܝܪܬܐ</w> <w xml:id="w2942">ܩܕܡ</w> <w xml:id="w2943">ܡܠܟܐ</w><w xml:id="w2944">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="12">
+                  <p><w xml:id="w2945">ܘܐܡ̣ܪ</w> <w xml:id="w2946">ܡܠܟܐ</w> <w xml:id="w2947">ܠܐܣܬܝܪ</w> <w xml:id="w2948">ܡܠܟܬܐ</w><w xml:id="w2949">.</w> <w xml:id="w2950">ܒܫܘܫܢ</w> <w xml:id="w2951">ܒܝܪܬܐ</w> <w xml:id="w2952">ܩ̇ܛܠܘ</w> <w xml:id="w2953">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w2954">ܘܐܘܒܕܘ</w> <w xml:id="w2955">ܚܡܫܡܐܐܓܒܪܝܢ</w><w xml:id="w2956">.</w> <w xml:id="w2957">ܘܠܥܣܪܐ</w> <w xml:id="w2958">ܒܢܘ̈ܗܝ</w> <w xml:id="w2959">ܕܗܡܢ</w><w xml:id="w2960">.</w> <w xml:id="w2961">ܒܫܪܟܐ</w> <w xml:id="w2962">ܕܡܕܝܢܬܐ</w> <w xml:id="w2963">ܡܢܐ</w> <w xml:id="w2964">ܥܒ̣ܕܘ</w><w xml:id="w2965">.</w> <w xml:id="w2966">ܡܢܐ</w> <w xml:id="w2967">ܗܝ</w> <w xml:id="w2968">ܫܐܠܬܟܝ</w><w xml:id="w2969">.</w><w xml:id="w2970">ܢܬܝܗܒ</w> <w xml:id="w2971">ܠܟܝ</w><w xml:id="w2972">.</w> <w xml:id="w2973">ܘܡܢܐ</w> <w xml:id="w2974">ܗܝ</w> <w xml:id="w2975">ܒܥܘܬܟܝ̣</w> <w xml:id="w2976">ܢ̇ܬܥܒܕ</w> <w xml:id="w2977">ܠܟܝ</w><w xml:id="w2978">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="13">
+                  <p><w xml:id="w2979">ܘܐܡ̣ܪܬ</w> <w xml:id="w2980">ܐܣܬܝܪ</w> <w xml:id="w2981">ܢ̇ܬܝܗܒ</w> <w xml:id="w2982">ܡܚܪ</w> <w xml:id="w2983">ܠܝܗܘ̈ܕܝܐ̇</w> <w xml:id="w2984">ܕܒܫܘܫܢ</w> <w xml:id="w2985">ܕܢܥܒܕܘܢ</w> <w xml:id="w2986">ܐܝܟ</w> <w xml:id="w2987">ܕܝܘܡܢܐ</w><w xml:id="w2988">.</w> <w xml:id="w2989">ܘܠܥܣܪܐܒܢ̈ܘܗܝ</w> <w xml:id="w2990">ܕܗܡܢ</w> <w xml:id="w2991">ܢܬܠܘܢ</w> <w xml:id="w2992">ܐܢܘܢ</w> <w xml:id="w2993">ܥܠ</w> <w xml:id="w2994">ܩܝܣ̈ܐ</w><w xml:id="w2995">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="14">
+                  <p><w xml:id="w2996">ܘܐܡ̣ܪ</w> <w xml:id="w2997">ܡ̇ܠܟܐ</w> <w xml:id="w2998">ܢܥܒܕܘܢ</w> <w xml:id="w2999">ܗܟܢܐ</w><w xml:id="w3000">.</w> <w xml:id="w3001">ܘܐܬܦܩܕ</w> <w xml:id="w3002">ܦܘܩܕܢܐ</w> <w xml:id="w3003">ܒܫܘܫܢ</w><w xml:id="w3004">.</w> <w xml:id="w3005">ܘܠܥܣܪ̈ܐ</w> <w xml:id="w3006">ܒܢܘ̈ܗܝ</w> <w xml:id="w3007">ܕܗܡܢܬܠܘ</w><w xml:id="w3008">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="15">
+                  <p><w xml:id="w3009">ܘܐܬܟܢܫܘ</w> <w xml:id="w3010">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w3011">ܕܒܫܘܫܢ</w><w xml:id="w3012">.</w> <w xml:id="w3013">ܐܦ</w> <w xml:id="w3014">ܒܐܪܒܥܣܪ̈ܐ</w> <w xml:id="w3015">ܒܗ</w> <w xml:id="w3016">ܒܝܪܚܐ</w><w xml:id="w3017">܆</w> <w xml:id="w3018">ܘܩܛܠܘ</w> <w xml:id="w3019">ܒܫܘܫܢ</w> <w xml:id="w3020">ܬܠܬ</w> <w xml:id="w3021">ܡܐܐܓܒܪ̈ܝܢ</w><w xml:id="w3022">.</w> <w xml:id="w3023">ܘܠܒܙܬܐ̣</w> <w xml:id="w3024">ܠܐ</w> <w xml:id="w3025">ܐܘܫܛܘ</w> <w xml:id="w3026">ܐܝܕ̈ܝܗܘܢ</w><w xml:id="w3027">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="16">
+                  <p><w xml:id="w3028">ܘܫܪܟܐ</w> <w xml:id="w3029">ܕܝܗ̈ܘܕܝܐ</w> <w xml:id="w3030">ܕܒܡܕ̈ܝܢܬܐ</w> <w xml:id="w3031">ܕܡ̇ܠܟܐ</w><w xml:id="w3032">܆</w> <w xml:id="w3033">ܐܬܟܢܫܘ</w> <w xml:id="w3034">ܘܩ̇ܡܘ</w> <w xml:id="w3035">ܠܢܦܫܗܘܢ</w> <w xml:id="w3036">ܘܐܬܬܢܝܚܘ</w> <w xml:id="w3037">ܡܢܒܥܠܕܒ̈ܒܝܗܘܢ</w> <w xml:id="w3038">ܘܩܛܠܘ</w> <w xml:id="w3039">ܡܢ</w> <w xml:id="w3040">ܣܢܐܝ̈ܗܘܢ</w> <w xml:id="w3041">ܫܒܥܝܢ</w> <w xml:id="w3042">ܘܚܡܫܐ</w> <w xml:id="w3043">ܐ̈ܠܦܝܢ</w><w xml:id="w3044">.</w> <w xml:id="w3045">ܘܠܒܙܬܐ</w> <w xml:id="w3046">ܠܐ</w> <w xml:id="w3047">ܐܘܫܛܘܐܝܕ̈ܝܗܘܢ̇</w><w xml:id="w3048">·</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="17">
+                  <p><w xml:id="w3049">ܒܬܠܬܥܣܪܐ</w> <w xml:id="w3050">ܒܐܝܪܚ</w> <w xml:id="w3051">ܐܕܪ</w><w xml:id="w3052">܆</w> <w xml:id="w3053">ܘܐܬܬܢܝܚܘ</w> <w xml:id="w3054">ܒܐܪ̈ܒܥܣܪܐ</w> <w xml:id="w3055">ܒܗ</w> <w xml:id="w3056">ܒܝܪܚܐ</w><w xml:id="w3057">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="18">
+                  <p><w xml:id="w3058">ܘܥܒܕܘܗܝ</w> <w xml:id="w3059">ܝܘܡܐ</w> <w xml:id="w3060">ܕܡܫܬܝܐ̣</w> <w xml:id="w3061">ܘܕܚܕܘܬܐ</w><w xml:id="w3062">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="19">
+                  <p><w xml:id="w3063">ܡܛܠ</w> <w xml:id="w3064">ܗܢܐ</w> <w xml:id="w3065">ܝܗܘܕ̈ܝܐ</w> <w xml:id="w3066">ܡܒܕܪ̈ܐ</w> <w xml:id="w3067">ܝܬܒ̈ܝ</w> <w xml:id="w3068">ܩܘܪ̈ܝܐ</w> <w xml:id="w3069">ܡܒܕܪ̈ܬܐ</w><w xml:id="w3070">܆</w> <w xml:id="w3071">ܥܒܕܝܢ</w> <w xml:id="w3072">ܒܐܪܒܥܣܪܐ</w> <w xml:id="w3073">ܒܐܕܪ</w><w xml:id="w3074">.</w><w xml:id="w3075">ܚܕܘܬܐ</w> <w xml:id="w3076">ܘܡܫܬܝܐ</w> <w xml:id="w3077">ܘܝܘܡܐ</w> <w xml:id="w3078">ܛ̇ܒܐ</w><w xml:id="w3079">.</w> <w xml:id="w3080">ܘܡܫܕܪܝܢ</w> <w xml:id="w3081">ܡܢܘ̈ܬܐ</w> <w xml:id="w3082">ܓܒܪ</w> <w xml:id="w3083">ܠܚܒܪܗ</w><w xml:id="w3084">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="20">
+                  <p><w xml:id="w3085">ܘܟܬܒܝ</w> <w xml:id="w3086">ܡܘܪܕܟܝ</w> <w xml:id="w3087">ܡ̈ܠܐ</w> <w xml:id="w3088">ܗܠܝ̣ܢ</w> <w xml:id="w3089">ܘܫܕܪ</w> <w xml:id="w3090">ܐܓܪ̈ܬܐ</w> <w xml:id="w3091">ܠܟܠܗܘܢ</w> <w xml:id="w3092">ܝܗܘܕ̈ܝܐ</w> <w xml:id="w3093">ܕܒܟܠܗܝܢ</w> <w xml:id="w3094">ܡܕ̈ܝܢܬܗܕܡܠܟܐ</w> <w xml:id="w3095">ܐܚܫܝܪܝܫ</w><w xml:id="w3096">܆</w> <w xml:id="w3097">ܕܩܪܝܒܝܢ</w> <w xml:id="w3098">ܘܕܪ̈ܚܝܩܝܢ</w><w xml:id="w3099">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="21">
+                  <p><w xml:id="w3100">ܕܢܩܒܠܘܢ</w> <w xml:id="w3101">ܥܠܝܗܘܢ</w><w xml:id="w3102">܆</w> <w xml:id="w3103">ܕܢܗܘܘܢ</w> <w xml:id="w3104">ܥ̇ܒܕܝܢ</w> <w xml:id="w3105">ܒܐܪܒܥܣܪܐ</w> <w xml:id="w3106">ܘܒܟܣܐܐ</w> <w xml:id="w3107">ܒܐܕܪ</w> <w xml:id="w3108">ܟܠ</w> <w xml:id="w3109">ܫܢܐ</w> <w xml:id="w3110">ܒܫܢܐ</w><w xml:id="w3111">܇</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="22">
+                  <p><w xml:id="w3112">ܐܝܟ</w> <w xml:id="w3113">ܝܘܡ̈ܬܐ</w> <w xml:id="w3114">ܕܐܬܬܢܝܚܘ</w> <w xml:id="w3115">ܒܗܘܢ</w> <w xml:id="w3116">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w3117">ܡܢ</w> <w xml:id="w3118">ܒܥܠܕܒ̈ܒܝܗܘܢ</w><w xml:id="w3119">܇</w> <w xml:id="w3120">ܝܪܚܐ</w> <w xml:id="w3121">ܕܐܫܬܚܠܦ</w> <w xml:id="w3122">ܡܢܕܘܘܢܐ</w> <w xml:id="w3123">ܠܚܕܘܬܐ</w><w xml:id="w3124">܇</w> <w xml:id="w3125">ܘܡܢ</w> <w xml:id="w3126">ܐܒܠܐ</w> <w xml:id="w3127">ܠܝܘܡܐ</w> <w xml:id="w3128">ܛ̇ܒܐ</w><w xml:id="w3129">.</w> <w xml:id="w3130">ܕܢܥܒܕܘܢ</w> <w xml:id="w3131">ܐܢܘܢ</w> <w xml:id="w3132">ܠܝܘܡ̈ܬܐ</w><w xml:id="w3133">.</w> <w xml:id="w3134">ܕܡܫܬܝܐ</w><w xml:id="w3135">.</w><w xml:id="w3136">ܘܕܚܕܘܬܐ</w><w xml:id="w3137">܆</w> <w xml:id="w3138">ܘܕܢܫܕܪܘܢ</w> <w xml:id="w3139">ܡܢܘ̈ܬܐ</w> <w xml:id="w3140">ܐܢܫ</w> <w xml:id="w3141">ܠܚܒܪܗ</w><w xml:id="w3142">܆</w> <w xml:id="w3143">ܘܡܘܗ̈ܒܬܐ</w> <w xml:id="w3144">ܠܒܝܫ̈ܐ</w><w xml:id="w3145">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="23">
+                  <p><w xml:id="w3146">ܘܩ̇ܒܠܘ</w> <w xml:id="w3147">ܝܗܘ̈ܕܝܐ</w> <w xml:id="w3148">ܥܠܝܗܘܢ</w> <w xml:id="w3149">ܡܕܡ</w> <w xml:id="w3150">ܕܫ̇ܪܝܘ</w> <w xml:id="w3151">ܠܡܥܒܕ</w><w xml:id="w3152">.</w> <w xml:id="w3153">ܘܡܕܡ</w> <w xml:id="w3154">ܕܟ̣ܬܒ</w> <w xml:id="w3155">ܡܘܪܕܟܝ</w><w xml:id="w3156">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="24">
+                  <p><w xml:id="w3157">ܡܛܠ</w> <w xml:id="w3158">ܗܡܢ</w> <w xml:id="w3159">ܒܪ</w> <w xml:id="w3160">ܗܡܕܬ</w> <w xml:id="w3161">ܐܓܓܝܐ</w> <w xml:id="w3162">ܒܥܠܕܒܒܐ</w> <w xml:id="w3163">ܕܟܠܗܘܢ</w> <w xml:id="w3164">ܝܗܘ̈ܕܝܐ</w><w xml:id="w3165">܇</w> <w xml:id="w3166">ܘܐܬܚܫܒ</w> <w xml:id="w3167">ܥܠ</w> <w xml:id="w3168">ܝܗܘ̈ܕܝܐܕܢܘܒܕ</w> <w xml:id="w3169">ܐܢܘܢ</w><w xml:id="w3170">.</w> <w xml:id="w3171">ܘܐܪܡܝ</w> <w xml:id="w3172">ܦܨ̈ܐ</w> <w xml:id="w3173">ܕܢܚܪܘܒ</w> <w xml:id="w3174">ܘܢܘܒܕ</w> <w xml:id="w3175">ܐܢܘܢ</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="25">
+                  <p><w xml:id="w3176">ܘܡܐ</w> <w xml:id="w3177">ܕܥܐ̇ܠܐ</w> <w xml:id="w3178">ܗܘܬ</w> <w xml:id="w3179">ܐܣܬܝܪ</w> <w xml:id="w3180">ܩܕܡ</w> <w xml:id="w3181">ܡ̇ܠܟܐ</w><w xml:id="w3182">܆</w> <w xml:id="w3183">ܐܡ̇ܪ</w> <w xml:id="w3184">ܗܘܐ</w> <w xml:id="w3185">ܣ̇ܦܪܐ</w> <w xml:id="w3186">ܢܗ̈ܦܟܢ</w> <w xml:id="w3187">ܡܚܫܒ̈ܬܐ</w> <w xml:id="w3188">ܒܝܫ̈ܬܐܥܠ</w> <w xml:id="w3189">ܪܝܫܗ</w> <w xml:id="w3190">ܕܡ̇ܢ</w> <w xml:id="w3191">ܕܐܬܚܫܒ</w> <w xml:id="w3192">ܥܠ</w> <w xml:id="w3193">ܝܗܘܕ̈ܝܐ</w><w xml:id="w3194">.</w> <w xml:id="w3195">ܘܢܬܠܘܢܝܗܝ</w> <w xml:id="w3196">ܘܠܒܢܘ̈ܗܝ</w> <w xml:id="w3197">ܥܠ</w> <w xml:id="w3198">ܩܝܣ̈ܐ</w><w xml:id="w3199">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="26">
+                  <p><w xml:id="w3200">ܡܛܠ</w> <w xml:id="w3201">ܗܢܐ</w> <w xml:id="w3202">ܩܪܘ</w> <w xml:id="w3203">ܐܢܘܢ</w> <w xml:id="w3204">ܠܝܘܡ̈ܬܐ</w> <w xml:id="w3205">ܗܠܝ̣ܢ</w> <w xml:id="w3206">ܦܘܪ̈ܝܐ</w><w xml:id="w3207">.</w> <w xml:id="w3208">ܥܠ</w> <w xml:id="w3209">ܫܡ</w> <w xml:id="w3210">ܦܨܚܐ</w><w xml:id="w3211">.</w> <w xml:id="w3212">ܡܛܠ</w> <w xml:id="w3213">ܡ̈ܠܐ</w> <w xml:id="w3214">ܕܐܓܪܬܐܗܕܐ</w><w xml:id="w3215">.</w> <w xml:id="w3216">ܘܥܠ</w> <w xml:id="w3217">ܡܕܡ</w> <w xml:id="w3218">ܕܚܙܘ</w><w xml:id="w3219">.</w> <w xml:id="w3220">ܘܥܠ</w> <w xml:id="w3221">ܡܕܡ</w> <w xml:id="w3222">ܕܓ̣ܕܫ</w> <w xml:id="w3223">ܠܗܘܢ̇</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="27">
+                  <p><w xml:id="w3224">ܘܩ̇ܒܠܘ</w> <w xml:id="w3225">ܝܗܘܕ̈ܝܐ</w> <w xml:id="w3226">ܥܠܝܗܘܢ</w> <w xml:id="w3227">ܘܥܠ</w> <w xml:id="w3228">ܙܪܥܗܘܢ</w><w xml:id="w3229">܆</w> <w xml:id="w3230">ܘܥܠ</w> <w xml:id="w3231">ܟܘܠ</w> <w xml:id="w3232">ܕܡܬܠܘܐ</w> <w xml:id="w3233">ܠܗܘܢ</w><w xml:id="w3234">.</w> <w xml:id="w3235">ܕܠܐ</w> <w xml:id="w3236">ܢܒ̇ܛܠܕܢܗܘܘܢ</w> <w xml:id="w3237">ܥ̇ܒܕܝܢ</w> <w xml:id="w3238">ܗܠܝܢ</w> <w xml:id="w3239">ܬܪ̈ܝܢ</w> <w xml:id="w3240">ܝܘܡ̈ܝܢ</w><w xml:id="w3241">܇</w> <w xml:id="w3242">ܐܝܟ</w> <w xml:id="w3243">ܕܟܬܝܒܝܢ</w> <w xml:id="w3244">ܒܙܒܢܗܘܢ</w> <w xml:id="w3245">ܒܟܠ</w> <w xml:id="w3246">ܫܢܐ</w><w xml:id="w3247">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="28">
+                  <p><w xml:id="w3248">ܘܝܘܡ̈ܬܐ</w> <w xml:id="w3249">ܗܠܝܢ</w><w xml:id="w3250">.</w> <w xml:id="w3251">ܡܬܕܟܪܝܢ</w> <w xml:id="w3252">ܘܡܬܥܒܕܝܢ</w> <w xml:id="w3253">ܒܟܠ</w> <w xml:id="w3254">ܫܪ̈ܒܬܐ</w><w xml:id="w3255">.</w> <w xml:id="w3256">ܘܡܕ̈ܝܢܬܐ</w> <w xml:id="w3257">ܘܩܘܪ̈ܝܐ</w><w xml:id="w3258">.</w><w xml:id="w3259">ܝܘܡ̈ܬܐ</w> <w xml:id="w3260">ܕܦܘܪ̈ܝܐ</w> <w xml:id="w3261">ܗܠܝܢ</w> <w xml:id="w3262">ܠܐ</w> <w xml:id="w3263">ܢܥܒܪܘܢ</w> <w xml:id="w3264">ܡܢ</w> <w xml:id="w3265">ܓܘ</w> <w xml:id="w3266">ܝܗܘܕ̈ܝܐ</w><w xml:id="w3267">.</w> <w xml:id="w3268">ܘܕܘܟܪܢܗܘܢ</w> <w xml:id="w3269">ܠܐ</w> <w xml:id="w3270">ܢܥܒܪ</w> <w xml:id="w3271">ܡܢܙܪܥܗܘܢ</w><w xml:id="w3272">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="29">
+                  <p><w xml:id="w3273">ܘܟܬ̣ܒܬ</w> <w xml:id="w3274">ܐܣܬܝܪ</w> <w xml:id="w3275">ܡܠܟܬܐ</w> <w xml:id="w3276">ܒܪܬ</w> <w xml:id="w3277">ܐܒܝܚܝܠ</w> <w xml:id="w3278">ܘܡܘܪܕܟܝ</w> <w xml:id="w3279">ܝܗܘܕܝܐ</w> <w xml:id="w3280">ܟܠܗܝܢ</w> <w xml:id="w3281">ܫܪ̈ܝܪܬܐ</w><w xml:id="w3282">܇</w> <w xml:id="w3283">ܕܢܫܪܘܢܐܓܪܬܐ</w> <w xml:id="w3284">ܗܕܐ</w> <w xml:id="w3285">ܕܦܘܪ̈ܝܐ</w><w xml:id="w3286">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="30">
+                  <p><w xml:id="w3287">ܘܫ̇ܕܪ</w> <w xml:id="w3288">ܐܓܪ̈ܬܐ</w> <w xml:id="w3289">ܠܟܠܗܘܢ</w> <w xml:id="w3290">ܝܗܘܕ̈ܝܐ</w><w xml:id="w3291">܇</w> <w xml:id="w3292">ܠܡܐܐ</w> <w xml:id="w3293">ܘܥܣܪ̈ܝܢ</w> <w xml:id="w3294">ܘܫܒܥ</w> <w xml:id="w3295">ܡܕܝܢܢ</w><w xml:id="w3296">܇</w>   <w xml:id="w3297">ܕܡܠܟܘܬܗܕܐܚܫܝܪܝܫ</w> <w xml:id="w3298">ܡ̇ܠܟܐ</w><w xml:id="w3299">.</w> <w xml:id="w3300">ܡ̈ܠܐ</w> <w xml:id="w3301">ܕܫܪܪܐ</w> <w xml:id="w3302">ܘܕܫܠܡܐ</w><w xml:id="w3303">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="31">
+                  <p><w xml:id="w3304">ܕܢܫܪܘܢ</w> <w xml:id="w3305">ܝܘܡ̈ܬܐ</w> <w xml:id="w3306">ܕܦܘܪ̈ܝܐ</w> <w xml:id="w3307">ܗܠܝܢ</w> <w xml:id="w3308">ܒܙܒܢܗܘܢ</w> <w xml:id="w3309">ܐܝܟ</w> <w xml:id="w3310">ܕܐܫ̣ܪܘ</w> <w xml:id="w3311">ܥܠܝܗܘܢ</w> <w xml:id="w3312">ܡܘܪܕܟܝ</w> <w xml:id="w3313">ܝܗܘܕܝܐܘܐܣܬܝܪ</w> <w xml:id="w3314">ܡܠܟܬܐ</w><w xml:id="w3315">.</w> <w xml:id="w3316">ܐܝܟ</w> <w xml:id="w3317">ܕܐܫܪܘ</w> <w xml:id="w3318">ܗ̣ܢܘܢ</w> <w xml:id="w3319">ܥܠ</w> <w xml:id="w3320">ܢܦܫܗܘܢ</w> <w xml:id="w3321">ܘܥܠ</w> <w xml:id="w3322">ܒܢܝ̈ܗܘܢ</w> <w xml:id="w3323">ܦܘܩܕܢܐ</w><w xml:id="w3324">.</w> <w xml:id="w3325">ܘܨܘܡܗܘܢܘܨܠܘܬܗܘܢ</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="32">
+                  <p><w xml:id="w3326">ܘܡܐܡܪܗ̇</w> <w xml:id="w3327">ܕܐܣܬܝܪ</w><w xml:id="w3328">.</w> <w xml:id="w3329">ܐܫܪ</w> <w xml:id="w3330">ܥܠ</w> <w xml:id="w3331">ܡ̈ܠܐ</w> <w xml:id="w3332">ܗܠܝܢ</w> <w xml:id="w3333">ܕܦܘܪ̈ܝܐ</w> <w xml:id="w3334">ܕܐܬܟܬܒ̣</w> <w xml:id="w3335">ܒܣܦܪܐ</w><w xml:id="w3336">.</w></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="chapter" n="10">
+               <div type="textpart" subtype="verse" n="1">
+                  <p><w xml:id="w3337">ܘܐܪܡܝ</w> <w xml:id="w3338">ܡܠܟܐ</w> <w xml:id="w3339">ܐܚܫܝܪ̈ܝܫ</w> <w xml:id="w3340">ܡܕܐܬܐ</w> <w xml:id="w3341">ܥܠ</w> <w xml:id="w3342">ܟܠܗ̇</w> <w xml:id="w3343">ܐܪܥܐ</w><w xml:id="w3344">.</w> <w xml:id="w3345">ܘܥܠ</w> <w xml:id="w3346">ܓܙܪ̈ܬܐ</w> <w xml:id="w3347">ܕܝܡܐ</w><w xml:id="w3348">܇</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="2">
+                  <p><w xml:id="w3349">ܘܟܠ</w> <w xml:id="w3350">ܥ̇ܒܪܝ</w> <w xml:id="w3351">ܥܘܫܢܗ</w> <w xml:id="w3352">ܘܓܢܒܪܘܬܗ</w><w xml:id="w3353">.</w> <w xml:id="w3354">ܘܬܫܒܚܬ</w> <w xml:id="w3355">ܪܒܘܬܗ</w> <w xml:id="w3356">ܕܡܘܪܕܟܝ</w> <w xml:id="w3357">ܕܐܘܪܒܗ</w> <w xml:id="w3358">ܡ̇ܠܟܐ</w><w xml:id="w3359">.</w> <w xml:id="w3360">ܗܐܟܬܝܒ̣</w> <w xml:id="w3361">ܣܦܪ</w> <w xml:id="w3362">ܡ̈ܠܝ</w> <w xml:id="w3363">ܝܘܡ̈ܬܐ</w> <w xml:id="w3364">ܕܡ̈ܠܟܝ</w> <w xml:id="w3365">ܡܕܝ</w> <w xml:id="w3366">ܘܦܪܣ</w><w xml:id="w3367">.</w></p>
+               </div>
+               <div type="textpart" subtype="verse" n="3">
+                  <p><w xml:id="w3368">ܡܛܘܠ</w> <w xml:id="w3369">ܡܘܪܕܟܝ</w> <w xml:id="w3370">ܝܗܘܕܝܐ</w><w xml:id="w3371">܆</w> <w xml:id="w3372">ܬܢܝܢܐ</w> <w xml:id="w3373">ܗܘܐ</w> <w xml:id="w3374">ܕܡ̇ܠܟܐ</w> <w xml:id="w3375">ܐܚܫܝܪܝܫ</w><w xml:id="w3376">.</w> <w xml:id="w3377">ܘܗ̣ܘܐ</w> <w xml:id="w3378">ܪܒܐ</w> <w xml:id="w3379">ܥܠܝܗܘܕ̈ܝܐ</w><w xml:id="w3380">.</w> <w xml:id="w3381">ܘܨ̇ܒܐ</w> <w xml:id="w3382">ܗܘܐ</w> <w xml:id="w3383">ܛܒܬܐ</w> <w xml:id="w3384">ܥܠ</w> <w xml:id="w3385">ܥܡܗ</w><w xml:id="w3386">܆</w> <w xml:id="w3387">ܘܡܡܠܠ</w> <w xml:id="w3388">ܗܘܐ</w> <w xml:id="w3389">ܥܠ</w> <w xml:id="w3390">ܟܘܠܗ</w> <w xml:id="w3391">ܙܪܥܗ</w><w xml:id="w3392">.</w></p>
+               </div>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

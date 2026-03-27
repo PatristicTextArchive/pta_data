@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/css" href="standard.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:m="https://pta.bbaw.de/ns">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">Testimonies to John of Ephesus's Ecclesiastical History, Part 3 from the Chronicle of 1234</title>
+            <author>
+               Unknown
+            </author>
+            <editor>
+               <persName ref="https://lobid.org/gnd/120555240" xml:id="SR">Silvio Roggo</persName>
+               <roleName>Editor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </editor>
+            <editor>
+               <persName ref="https://lobid.org/gnd/1102566705" xml:id="NK">Nikolai Kiel</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </editor>
+            <editor>
+               <persName ref="https://lobid.org/gnd/122499425" xml:id="HL">Hartmut Leppin</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Goethe Universität Frankfurt am Main</orgName>
+            </editor>
+            <editor>
+               <persName ref="https://lobid.org/gnd/1172839352" xml:id="PMF">Philip Michael Forness</persName>
+               <roleName>Contributor</roleName>
+               <orgName>Katholieke Universiteit Leuven</orgName>
+            </editor>
+            <respStmt>
+               <persName xml:id="JK" ref="https://orcid.org/0000-0003-2713-5207">Jan Köster</persName>
+               <resp>Word-tagging-pipeline</resp>
+            </respStmt>
+         </titleStmt>
+         <editionStmt>
+            <p>The following passages from the Chronicle of 1234 are all those introduced as quotations of the third part of the Ecclesiastical History (henceforth EH) of John of Ephesus. Passages which can serve to close gaps in the EH's sole manuscript have also been included. Silvio Roggo identified the passages based on a comparison of the Chronicle to the EH and transcribed them from the edition of the Chronicle. The list of testimonies found in Jan van Ginkel's dissertation (pp. 237-240) provided an important point of comparison, as did the edition of the EH by E.W. Brooks. This is an exact copy of the Syriac text found in Chabot's 1916-1920 edition of the Chronicle, based on its only manuscript, now lost. The Syriac text was proofread by Philip Michael Forness.</p>
+         </editionStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2023</date>
+            <idno type="PTA">pta0200.pta001</idno>
+            <idno type="TLG"/>
+            <idno type="CPG"/>
+            <idno type="BHG"/>
+            <idno type="Aldama"/>
+            <idno type="Pinakes-Oeuvre"/>
+            <idno type="ClaCla"/>
+            <idno type="CHAP">https://www.late-antique-historiography.ugent.be/database/works/666</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listWit>
+               <head>Manuscript Witnesses</head>
+               <witness xml:id="MS1234">
+                  <abbr type="siglum">MS1234</abbr>
+                  <name>Manuscript of the Chronicle of 1234 (lost)</name>
+                  <origDate>end of 14th century</origDate>
+                  <locus>Chabot, pp. 213 (vol. 1); 244-257 (vol. 2)</locus>
+                  <note>Chabot's edition was based on a copy of the manuscript he received from Ephrem Barsaum. Chabot himself did not have direct access to the manuscript. In a couple places in the text encoded in the present file, Chabot deviated from the copy he received from Barsaum as noted. References to the manuscript should be understood as references to the transcription of Barsaum used by Chabot. The description of the manuscript, based on the information Chabot received from Barsaum, can be found in vol. 2 of his edition, pp. ii-v.</note>
+               </witness>
+            </listWit>
+            <listBibl>
+               <head>Edition of the Chronicle's only manuscript, volume one</head>
+               <bibl xml:id="Chabot1234.1">Jean-Baptiste Chabot, ed., Anonymi auctoris Chronicon ad annum Christi 1234 pertinens, vol. 1, Corpus Scriptorum Christianorum Orientalium 81, Scriptores Syri 36 (Paris: J. Gabalda, 1920)</bibl>
+            </listBibl>
+            <listBibl>
+               <head>Edition of the Chronicle's only manuscript, volume two</head>
+               <bibl xml:id="Chabot1234.2">Jean-Baptiste Chabot, ed., Anonymi auctoris Chronicon ad annum Christi 1234 pertinens, vol. 2, Corpus Scriptorum Christianorum Orientalium 82, Scriptores Syri 37 (Paris: J. Gabalda, 1916)</bibl>
+            </listBibl>
+            <listBibl>
+               <head>Other Literature</head>
+               <bibl xml:id="Hilkens">Andy Hilkens, The Anonymous Syriac Chronicle of 1234 and Its Sources, Orientalia Lovaniensa Analecta 272, Bibliothèque de Byzantion 18 (Leuven: Peeters, 2018)</bibl>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="testimonium"
+                         matchPattern="(.+).(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])"/>
+            <cRefPattern n="chapter"
+                         matchPattern="(.+).(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+            <cRefPattern n="book"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations" ana="not-annotated not-identified">
+            Biblical quotations will be fully annotated and fully referenced in subsequent versions of this file. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+                  Persons will be fully annotated and fully referenced in subsequent versions of this file with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+                  Groups of persons and organisations will be fully annotated and fully referenced in subsequent versions of this file with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+                  Places will be fully annotated and fully referenced in subsequent versions of this file with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+               <p xml:id="text-analysis" ana="automatically-tagged not-analyzed">
+                  Words are automatically tagged, but text is not analyzed.
+               </p>
+            </interpretation>
+            <normalization>
+               <p>All the abbreviations used by the scribe have been resolved.</p>
+               <p>Chabot's edition does not distinguish between diacritical points above and below letters and vowels, such as pṯāḥā. For this reason, all of these have been represented as diacritical points, as we have no direct access to the manuscript itself.</p>
+            </normalization>
+            <punctuation>
+               <p>The punctuation follows that found in Chabot's edition. The diacritical dot placed above the taw on third feminine singular perfect verbs has been indicated. This is also the case for nouns ending in taw in the construct state that make use of the same diacritical dot.</p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+                  Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+                  Patristic Text Archive Status of edition
+               </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+                     Critical edition in which the text-critical variants have been encoded.
+                  </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+                     Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+                  </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+                     Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+                  </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+                     Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+                  </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+                  Patristic Text Archive Status of annotation
+               </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+                     All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+                     Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+                     No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+                  </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+                     All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+                  </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+                     Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+                  </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+                     No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+                  </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="1200" notAfter="1250"/>
+            <placeName ref="https://pleiades.stoa.org/places/629039/melitene">Unknown, possibly the monastery of Bar Sauma close to Melitene</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Historiography</term>
+               <term>Thematic Historiography</term>
+               <term>Church History</term>
+               <term>Chronicle</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2026-03-31" who="#JK">Words tagged</change>
+         <change when="2023-12-03" who="#PMF">Encoding of variants, modification of header</change>
+         <change when="2023-11-28" who="#PMF">Proofreading, addition of metadata</change>
+         <change when="2023-09-15" who="#SR">Initial encoding, entry of text</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              n="urn:cts:pta:pta0200.pta001.pta-syc3"
+              xml:lang="syc">
+            <div type="textpart" xml:lang="syc" subtype="book" n="1">
+               <div type="textpart" xml:lang="syc" subtype="chapter" n="77">
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="1"
+                       xml:id="EH3.3.54.1234"
+                       corresp="EH3.3.54">
+                     <p>
+                        <pb edRef="#Chabot1234.1"
+                            n="213"
+                            facs="https://iiif.archive.org/iiif/chroniconanonymi01chab$142/full/full/0/default.jpg"/>
+                        <app type="witnesses" xml:id="p213.23" next="#p213.24">
+                           <rdg wit="#Chabot1234.1">
+                              <witStart/>
+                           </rdg>
+                        </app>           
+                         <w xml:id="w1">ܟܕ</w> <w xml:id="w2">ܗܟܝܠ</w> <w xml:id="w3">ܡܠܟ</w> <w xml:id="w4">ܡܘܪܝܩܝ</w> <w xml:id="w5">ܫܕܪ</w> <w xml:id="w6">ܠܡܘܢܕܪ</w> <w xml:id="w7">ܠܐܟܣܘܪܝܐ</w><w xml:id="w8">.</w>
+                         <app type="witnesses" xml:id="p213.24" prev="#p213.23">
+                           <rdg wit="#Chabot1234.1">
+                              <witEnd/>
+                           </rdg>
+                        </app>
+                     </p>
+                  </div>
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="2"
+                       xml:id="EH3.3.56.1234"
+                       corresp="EH3.3.56">
+                     <p>
+                        <pb edRef="#Chabot1234.1"
+                            n="213"
+                            facs="https://iiif.archive.org/iiif/chroniconanonymi01chab$142/full/full/0/default.jpg"/>
+                        <app type="witnesses" xml:id="p213.25" next="#p213.31">
+                           <rdg wit="#Chabot1234.1">
+                              <witStart/>
+                           </rdg>
+                        </app>           
+                         <w xml:id="w9">ܢܥܡܢ</w> <w xml:id="w10">ܕܝܢ</w> <w xml:id="w11">ܒܪܗ</w> <w xml:id="w12">ܐܡܣܪ</w><w xml:id="w13">܆</w> <w xml:id="w14">ܘܥ̣ܠ</w> <w xml:id="w15">ܠܘܬ</w> <w xml:id="w16">ܡܠܟܐ</w> <w xml:id="w17">ܘܐܬܩ̇ܒܠ</w><w xml:id="w18">:</w> <w xml:id="w19">ܘܝܡܐ</w> <w xml:id="w20">ܠܗ</w> <w xml:id="w21">ܡܘܪܝܩܝ</w> <w xml:id="w22">ܕܐܢ</w> <w xml:id="w23">ܡ̇ܨܠܚ</w> <w xml:id="w24">ܒܩܪܒܐ</w> <w xml:id="w25">ܕܥܡ</w> <w xml:id="w26">ܦܪ̈ܣܝܐ</w><w xml:id="w27">܇</w> <w xml:id="w28">ܐܒܘܗܝ</w> <w xml:id="w29">ܢܦܢܐ</w><w xml:id="w30">.</w> <w xml:id="w31">ܘܐܬܐܡܪ</w> <w xml:id="w32">ܠܗ</w> <w xml:id="w33">ܕܢܫܬܘܬܦ</w> <w xml:id="w34">ܒܩܘܪܒܢܐ</w> <w xml:id="w35">ܒܡܕܝܢܬ</w> <w xml:id="w36">ܡܠܟܘܬܐ</w><w xml:id="w37">.</w> <w xml:id="w38">ܘܐܫܬܐܠ</w> <w xml:id="w39">ܘܐܡ̣ܪ</w><w xml:id="w40">:</w> <w xml:id="w41">ܕܟܠܗܘܢ</w> <w xml:id="w42">ܝܗ̈ܠܐ</w> <w xml:id="w43">ܕܛܝ̈ܝܐ</w> <w xml:id="w44">ܝܥܩܘ̈ܒܝܐ</w> <w xml:id="w45">ܐܢܘܢ</w><w xml:id="w46">.</w> <w xml:id="w47">ܐܢ</w> <w xml:id="w48">ܕܝܢ</w> <w xml:id="w49">ܡ̇ܪܓܫܝܢ</w> <w xml:id="w50">ܩ̇ܛܠܝܢ</w> <w xml:id="w51">ܠܝ</w><w xml:id="w52">.</w> <w xml:id="w53">ܘܒܗܕܐ</w> <w xml:id="w54">ܥܠܬܐ</w> <w xml:id="w55">ܐܫܬܒܩ</w> <w xml:id="w56">ܘܠܐ</w> <w xml:id="w57">ܢܣܒ</w> <w xml:id="w58">ܩܘܪܒܢܐ</w> <w xml:id="w59">ܡܢ</w> <w xml:id="w60">ܟܠܩܝ̈ܕܘܢܝܐ</w><w xml:id="w61">܀</w>
+                         <app type="witnesses" xml:id="p213.31" prev="#p213.25">
+                           <rdg wit="#Chabot1234.1">
+                              <witEnd/>
+                           </rdg>
+                        </app>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div type="textpart" xml:lang="syc" subtype="book" n="2">
+               <div type="textpart" xml:lang="syc" subtype="chapter" n="31">
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="1"
+                       xml:id="EH3.4.12.1234"
+                       corresp="EH3.4.12 EH3.4.12.MS">
+                     <p>
+                        <pb edRef="#Chabot1234.2"
+                            n="244"
+                            facs="https://iiif.archive.org/iiif/chroniconanonymi02chab$248/full/full/0/default.jpg"/>
+                        <app type="witnesses" xml:id="p244.2" next="#p245.9">
+                           <rdg wit="#Chabot1234.2">
+                              <witStart/>
+                           </rdg>
+                        </app>           
+                         <w xml:id="w62">ܐܡ̇ܪ</w> <w xml:id="w63">ܗܟܝܠ</w> <w xml:id="w64">ܝܘܚܢܢ</w> <w xml:id="w65">ܕܐܣܝܐ</w> <w xml:id="w66">ܗ̇ܘ</w> <w xml:id="w67">ܕܐܟܬ̣ܒ</w> <w xml:id="w68">ܡܛܠ</w> <w xml:id="w69">ܗܠܝܢ</w> <w xml:id="w70">ܒܟܬܒܗ</w> <w xml:id="w71">ܗܟܢܐ</w><w xml:id="w72">:</w> <w xml:id="w73">ܐܝܟܢܐ</w> <w xml:id="w74">ܕܐܝܢܐ</w> <w xml:id="w75">ܕܢܣܝ̣ܣ</w> <w xml:id="w76">ܘܓ̇ܗܪ</w> <w xml:id="w77">ܒܥܝܢ̈ܘܗܝ</w> <w xml:id="w78">ܠܐ</w> <w xml:id="w79">ܕܠܝܠ</w> <w xml:id="w80">ܠܗ</w> <w xml:id="w81">ܠܡܚ̣ܙܐ</w> <w xml:id="w82">ܫܦܝܪ</w><w xml:id="w83">.</w> <w xml:id="w84">ܘܠܡ̇ܨܕܘ</w> <w xml:id="w85">ܒܙܠܝ̈ܩܘܗܝ</w> <w xml:id="w86">ܕܫܡܫܐ</w><w xml:id="w87">:</w> <w xml:id="w88">ܘܐܦܠܐ</w> <w xml:id="w89">ܬܘܒ</w> <w xml:id="w90">ܐܝܢܐ</w> <w xml:id="w91">ܕܡܢ</w> <w xml:id="w92">ܐܫܬܐ</w> <w xml:id="w93">ܥܙܝܙܬܐ</w> <w xml:id="w94">ܡܫܬܓܪ</w><w xml:id="w95">.</w> <w xml:id="w96">ܠܐ</w> <w xml:id="w97">ܡ̇ܨ̣ܐ</w> <w xml:id="w98">ܕܣܥܘܪܘܬܐ</w> <w xml:id="w99">ܐܝܕܐ</w> <w xml:id="w100">ܕܗ̣ܝ</w> <w xml:id="w101">ܠܡܣ̣ܥܪ</w> <w xml:id="w102">ܐܝܟ</w> <w xml:id="w103">ܚܠܝ̣ܡܐ</w><w xml:id="w104">.</w> <w xml:id="w105">ܗܟܢܐ</w> <w xml:id="w106">ܘܐܝܠܝܢ</w> <w xml:id="w107">ܕܡܢ</w> <w xml:id="w108">ܚܫܐ</w> <w xml:id="w109">ܕܚܡܬܐ</w> <w xml:id="w110">ܡܬܚܛܦܝܢ</w><w xml:id="w111">.</w> <w xml:id="w112">ܘܠܘܬ</w> <w xml:id="w113">ܚܐܦܐ</w> <w xml:id="w114">ܕܛܢܢܐ</w> <w xml:id="w115">ܕܪܘܓܙܐ</w> <w xml:id="w116">ܡܬܢܬܦܝܢ</w><w xml:id="w117">.</w> <w xml:id="w118">ܠܐ</w> <w xml:id="w119">ܡ̇ܨܝܢ</w> <w xml:id="w120">ܠܡܒܚܢܘ</w> <w xml:id="w121">ܘܠܡܕܢ</w> <w xml:id="w122">ܘ̇ܠܝܬܐ</w><w xml:id="w123">.</w> <w xml:id="w124">ܘܗ̇ܝܕܝܢ</w> <w xml:id="w125">ܢܣܥܪܘܢ</w> <w xml:id="w126">ܣܘܥܪ̈ܢܝܗܘܢ</w><w xml:id="w127">.</w> <w xml:id="w128" norm="ܡ̣̇ܐܠܠܘܢ">ܡ̣̇ܐܠܠܘܢ</w> <w xml:id="w129">ܐܦܠܐ</w> <w xml:id="w130">ܡܕܡ</w> <w xml:id="w131">ܬܩܢܐ</w> <w xml:id="w132">ܡܨܝܢ</w> <w xml:id="w133">ܠܡܬܚܫܒܘ</w> <w xml:id="w134">ܘܠܡ̣ܣܥܪ</w><w xml:id="w135">.</w> <w xml:id="w136">ܗܕܐ</w> <w xml:id="w137">ܕܒܣܥܘܪܘܬܐ</w> <w xml:id="w138">ܠܚܟܝ̈ܡܐ</w> <w xml:id="w139">ܩܠܝܪ̈ܝܩܘ</w> <w xml:id="w140">ܐܠܟܣܢܕܪ̈ܝܐ</w> <w xml:id="w141">ܓܕܫ̣ܬ݀</w><w xml:id="w142">:</w> <w xml:id="w143">ܗܠܝܢ</w> <w xml:id="w144">ܕܠܐ</w> <w xml:id="w145">ܒܨܝܪܝܢ</w> <w xml:id="w146">ܗܘ̣ܘ</w> <w xml:id="w147">ܘܠܐ</w> <w xml:id="w148">ܒܝܕܥܬܐ</w><w xml:id="w149">.</w> <w xml:id="w150">ܐܠܘ</w> <w xml:id="w151">ܬܐܛܪܐ</w> <w xml:id="w152">ܕܪܘܓܙܐ</w> <w xml:id="w153">ܠܐ</w> <w xml:id="w154">ܕܠ̣ܚ</w> <w xml:id="w155">ܐܢܘܢ</w><w xml:id="w156">:</w> <w xml:id="w157">ܘܚܡ̣ܬܐ</w> <w xml:id="w158">ܠܐ</w> <w xml:id="w159">ܕܘܕܬ݀</w> <w xml:id="w160">ܐܢܘܢ</w><w xml:id="w161">.</w> <w xml:id="w162">ܘܫܪܟܐ</w> <w xml:id="w163">ܠܡܠܬܐ</w> <w xml:id="w164">ܟܬܒܝܬܐ</w> <w xml:id="w165">ܕܐܡ̇ܪܐ</w> <w xml:id="w166">ܥܠ</w> <w xml:id="w167">ܐܝܠܝܢ</w> <w xml:id="w168">ܕܒܝܢܬ</w> <w xml:id="w169">ܓܐ̈ܠܐ</w> <w xml:id="w170">ܡ̣ܢ</w> <w xml:id="w171">ܪ̈ܘܚܐ</w> <w xml:id="w172">ܘܥܠܥ̈ܠܐ</w> <w xml:id="w173">ܡܫܬܩܦܝܢ</w><w xml:id="w174">.</w> <w xml:id="w175">ܕܙܥ̣ܘ</w> <w xml:id="w176">ܠܡ</w> <w xml:id="w177">ܘܢ̣ܕܘ</w> <w xml:id="w178">ܐܝܟ</w> <w xml:id="w179">ܪ̈ܘܝܐ</w><w xml:id="w180">܆</w> <w xml:id="w181">ܘܟܠܗ̇</w> <w xml:id="w182">ܚܟܡܬܗܘܢ</w> <w xml:id="w183">ܐܒܕܬ݀</w><w xml:id="w184">.</w> <w xml:id="w185">ܐܝܟܢܐ</w> <w xml:id="w186">ܕܗܫܐ</w> <w xml:id="w187">ܕܠܐ</w> <w xml:id="w188">ܛܟܣܐ</w> <w xml:id="w189">ܥܕܬܢܝܐ̣</w> <w xml:id="w190">ܒܥܪܝܪܐܝܬ</w> <w xml:id="w191">ܐܣܬܥ̣ܪܬ݀</w><w xml:id="w192">.</w> <w xml:id="w193">ܕܥܠ</w> <w xml:id="w194">ܕܠܐ</w> <w xml:id="w195">ܠܡ</w> <w xml:id="w196">ܪܓܫܘ</w> <w xml:id="w197">ܒܦܐܛܪܝܪ</w><w xml:id="w198">‏</w><w xml:id="w199">‏</w><w xml:id="w200">‏</w><w xml:id="w201">ܟܐ</w> <w xml:id="w202">ܕܗܘ̣ܐ</w> <w xml:id="w203">ܠܗܘܢ</w> <w xml:id="w204">ܡܢ</w> <w xml:id="w205">ܥܠܬ݀</w> <w xml:id="w206">ܙܒܢܐ</w> <w xml:id="w207">ܕܠܐ</w> <w xml:id="w208">ܝ̇ܗܒ</w> <w xml:id="w209">ܗܘ̣ܐ</w> <w xml:id="w210">ܐܝܕܐ</w><w xml:id="w211">.</w> <w xml:id="w212">ܐܬܕܘܕܘ</w> <w xml:id="w213">ܘܥ̣ܒܕܘ</w> <w xml:id="w214">ܐܚܪܢܐ</w><w xml:id="w215">.</w> <w xml:id="w216">ܘܗܕܐ</w> <w xml:id="w217">ܙܕܩ̇ܐ</w> <w xml:id="w218">ܗܘܬ</w> <w xml:id="w219">ܠܗܘܢ</w> <w xml:id="w220">ܕܒܟܠܗ</w> <w xml:id="w221">ܙܒܢܐ</w> <w xml:id="w222">ܕܥܣܪ</w> <w xml:id="w223">ܫܢ̈ܝܢ</w> <w xml:id="w224">ܕܒܬܪ</w> <w xml:id="w225">ܡܘܬܗ</w> <w xml:id="w226">ܕܬܐܘܕܘܣܝܘܣ</w> <w xml:id="w227">ܢܥܒܕܘܢ</w> <w xml:id="w228">ܐܚܪܢܐ</w><w xml:id="w229">.</w> <w xml:id="w230">ܘܠܘ</w> <w xml:id="w231">ܡܢ</w> <w xml:id="w232">ܕܝܠܦܘ</w> <w xml:id="w233">ܕܗܘ̣ܐ</w> <w xml:id="w234">ܬܐܘܕܘܪܐ</w><w xml:id="w235">.</w> <w xml:id="w236">ܥ̣ܒܕܘ</w> <w xml:id="w237">ܦܝܣܝܡܐ</w> <w xml:id="w238">ܕܪܘܓܙܐ</w><w xml:id="w239">.</w> <w xml:id="w240">ܘܥ̣ܒܕܘ</w> <w xml:id="w241">ܠܦܐܛܪܐ</w><w xml:id="w242">.</w> <w xml:id="w243">ܐܝܟܢܐ</w> <w xml:id="w244">ܕܡܢ</w> <w xml:id="w245">ܐܢܫ̈ܝܢ</w> <w xml:id="w246">ܢܬܚܫܒ</w> <w xml:id="w247">ܕܢܦ̣ܠ</w> <w xml:id="w248">ܒܓܘܪܐ</w> <w xml:id="w249">ܥܠ</w> <w xml:id="w250">ܐܢܬܬ</w> <w xml:id="w251">ܚܒܪܗ</w><w xml:id="w252">.</w> <w xml:id="w253">ܐܝܟܢܐ</w> <w xml:id="w254">ܕܒܚܦܝܛܘܬܐ</w> <w xml:id="w255">ܕܠܐ</w> <w xml:id="w256">ܢܡܘܣ</w> <w xml:id="w257">ܘܕܠܐ</w> <w xml:id="w258">ܛܟܣܐ</w><w xml:id="w259">.</w> <w xml:id="w260">ܬܪ̈ܝܢ</w> <w xml:id="w261">ܐܦܝܣܩ̈ܘܦܐ</w> <w xml:id="w262">ܕܠܐ</w> <w xml:id="w263">ܩܢܘܢܐ</w> <w xml:id="w264">ܥܕܬܢܝܐ</w> <w xml:id="w265">ܥ̣ܒܕܘܗܝ</w><w xml:id="w266">.</w> <w xml:id="w267">ܘܐܝܟ</w> <w xml:id="w268">ܕܠܫܘܪܪܗ</w> <w xml:id="w269">ܠܡ</w> <w xml:id="w270">ܡ̇ܠܟܝܢ</w> <w xml:id="w271">ܠܗ</w> <w xml:id="w272">ܕܢܩܘܡ</w> <w xml:id="w273">ܗ̣ܘ</w> <w xml:id="w274">ܘܢܥ̣ܒܕ</w> <w xml:id="w275">ܐܦܝܣ̈ܩܘܦܐ</w> <w xml:id="w276">ܐܝܟ</w> <w xml:id="w277">ܕܡܐܬܡܪܐ</w> <w xml:id="w278">ܫܒ̈ܥܝܢ</w> <w xml:id="w279">ܒܡܢܝܢܐ</w> <w xml:id="w280">ܒܙܒܢܐ</w> <w xml:id="w281">ܙܥܘܪܐ</w><w xml:id="w282">.</w> <w xml:id="w283">ܘܣܓܝ̈ܐܐ</w> <w xml:id="w284">ܡܢܗܘܢ</w> <w xml:id="w285">ܕܠܐ</w> <w xml:id="w286">ܐܘܦܪ̈ܟܝܣ</w><w xml:id="w287">.</w> <w xml:id="w288">ܗܕܐ</w> <w xml:id="w289">ܕܐܠܘ</w> <w xml:id="w290">ܐܪ̈ܓܛܐ</w> <w xml:id="w291">ܠܦܘܠܚܢ</w> <w xml:id="w292">ܐܪܥܐ</w> <w xml:id="w293">ܢܒ̣ܥܐ</w> <w xml:id="w294">ܗܘ̣ܐ</w> <w xml:id="w295">ܡ̣ܢ</w> 
+                         <pb edRef="#Chabot1234.2"
+                            n="245"
+                            facs="https://iiif.archive.org/iiif/chroniconanonymi02chab$249/full/full/0/default.jpg"/>            
+                         <w xml:id="w296">ܕܗ̣ܘ</w> <w xml:id="w297">ܢܥ̣ܒܕ</w> <w xml:id="w298">ܥ̇ܛܠ</w> <w xml:id="w299">ܗܘܐ</w> <w xml:id="w300">ܠܗ</w> <w xml:id="w301">ܕܒܚܕ</w> <w xml:id="w302">ܙܒܢܐ</w> <w xml:id="w303">ܢܫܟܚ</w> <w xml:id="w304">ܗܠܝܢ</w> <w xml:id="w305">ܟܠܗܘܢ</w> <w xml:id="w306">ܕܡܛܝܒܝܢ</w> <w xml:id="w307">ܘܢܟ̇ܢܫ</w><w xml:id="w308">:</w> <w xml:id="w309">ܘܡܢܐ</w> <w xml:id="w310">ܐܝܬ</w> <w xml:id="w311">ܠܡܐܡܪ</w> <w xml:id="w312">ܥܠ</w> <w xml:id="w313">ܐܝܠܝܢ</w> <w xml:id="w314">ܕܡܬܓܒܝܢ</w><w xml:id="w315">.</w> <w xml:id="w316">ܕܙ̇ܕܩ</w> <w xml:id="w317">ܠܡ</w> <w xml:id="w318">ܕܒܒܘܚܢܐ</w> <w xml:id="w319">ܢܗܘܘܢ</w> <w xml:id="w320">ܟܗ̈ܢܐ</w><w xml:id="w321">.</w> <w xml:id="w322">ܚܕ</w> <w xml:id="w323">ܟܡܐ</w> <w xml:id="w324">ܪ̈ܝܫܝ</w> <w xml:id="w325">ܟܗ̈ܢܐ</w><w xml:id="w326">.</w> <w xml:id="w327">ܐܠܐ</w> <w xml:id="w328">ܡܛܠ</w> <w xml:id="w329">ܕܫܘܪܝܗ̇</w> <w xml:id="w330">ܕܣܥܘܪܘܬܐ</w> <w xml:id="w331">ܡܕܘܕܐ</w> <w xml:id="w332">ܗܟܢܐ</w> <w xml:id="w333">ܘܫܘܠܡܗ̇</w><w xml:id="w334">.</w> <w xml:id="w335">ܚܦܛܘܗܝ</w> <w xml:id="w336">ܬܘܒ</w> <w xml:id="w337">ܠܗܢܐ</w> <w xml:id="w338">ܦܐܛܪܝܪܟܐ</w> <w xml:id="w339">ܦܐܛܪܐ</w><w xml:id="w340">.</w> <w xml:id="w341">ܐܝܟܢܐ</w> <w xml:id="w342">ܕܠܣܕܩܐ</w> <w xml:id="w343">ܕܥܕܬܐ</w> <w xml:id="w344">ܕܐܠܟܣܢܕܪܝܐ</w> <w xml:id="w345">ܘܕܣܘܪܝܐ</w> <w xml:id="w346">ܢܪܗܛ</w> <w xml:id="w347">ܘܢܬܚܫܚ</w> <w xml:id="w348">ܒܩܐܬܪܣܝܣ</w> <w xml:id="w349">ܕܦܘܠܐ</w> <w xml:id="w350">ܦܐܛܪܝܪܟܐ</w><w xml:id="w351">.</w> <w xml:id="w352">ܗ̇ܘ</w> <w xml:id="w353">ܕܒܙܕܩܐ</w> <w xml:id="w354">ܥܒܝܕ</w> <w xml:id="w355">ܗܘ̣ܐ</w> <w xml:id="w356">ܦܐܛܪܝܪܟܐ</w> <w xml:id="w357">ܠܐܢܛܝܘܟܝܐ</w> <w xml:id="w358">ܘܣܘܪܝܐ</w><w xml:id="w359">.</w><w xml:id="w360">.</w>
+                         <app type="witnesses" xml:id="p245.9" prev="#p244.2">
+                           <rdg wit="#Chabot1234.2">
+                              <witEnd/>
+                           </rdg>
+                        </app>
+                     </p>
+                  </div>
+               </div>
+               <div type="textpart" xml:lang="syc" subtype="chapter" n="36">
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="1"
+                       xml:id="EH3.2.5.1234"
+                       corresp="EH3.2.5 EH3.2.5.MS">
+                     <p>
+                        <pb edRef="#Chabot1234.2"
+                            n="254"
+                            facs="https://iiif.archive.org/iiif/chroniconanonymi02chab$258/full/full/0/default.jpg"/>
+                        <app type="witnesses" xml:id="p254.17" next="#p254.28">
+                           <rdg wit="#Chabot1234.2">
+                              <witStart/>
+                           </rdg>
+                        </app>           
+                     <w xml:id="w361">ܐܡ̇ܪ</w> <w xml:id="w362">ܗܟܝܠ</w> <w xml:id="w363">ܝܘܚܢܢ</w> <w xml:id="w364">ܕܐܣܝܐ</w> <w xml:id="w365">ܡܛܠ</w> <w xml:id="w366">ܚܒܘܫܝܗ</w><w xml:id="w367">.</w> <w xml:id="w368">ܟܕ</w> <w xml:id="w369">ܓܝܪ</w> <w xml:id="w370">ܒܐܘܠܨܢܐ</w> <w xml:id="w371">ܡܪܝܪܐ</w> <w xml:id="w372">ܕܚܒܘܫܝܐ</w> <w xml:id="w373">ܪܡܐ</w> <w xml:id="w374">ܗܘ̇ܝܬ</w><w xml:id="w375">.</w> <w xml:id="w376">ܢ̇ܦܠܬ</w> <w xml:id="w377">ܒܟܐܦܐ</w> <w xml:id="w378">ܡܪܝܪܐ</w> <w xml:id="w379">ܕܐܝ̈ܕܝܐ</w> <w xml:id="w380">ܘܪ̈ܓܠܐ</w><w xml:id="w381">.</w> <w xml:id="w382">ܘܪܦ̇ܬ</w> <w xml:id="w383">ܗܘ̇ܝܬ</w> <w xml:id="w384">ܒܩܠܡ̈ܐ</w> 
+                     <app type="variants">
+                           <lem resp="#Chabot1234.2" type="correction">
+                     <w xml:id="w385">ܘܒܦܘܪ̈ܬܥܢܐ</w><w xml:id="w386">.</w> <w xml:id="w387">ܕܡܠܝܐ</w>
+                         </lem>
+                           <rdg wit="#MS1234">
+                         ܦܘܪ̈ܛܥܢܐ. ܕܒܠܠܝܐ
+                     </rdg>
+                        </app>
+                     <w xml:id="w388">ܗܘ̣ܬ</w> <w xml:id="w389">ܩܠܝܬܐ</w> <w xml:id="w390">ܕܚܒܘܫܝܐ</w><w xml:id="w391">.</w> <w xml:id="w392">ܘܒܐܡܡܐ</w> <w xml:id="w393">ܫܠܚ̈ܐ</w> <w xml:id="w394">ܕܕܒܒ̈ܐ</w> <w xml:id="w395">ܕܟܫ̇ܝܢ</w> <w xml:id="w396">ܗܘ̣ܘ</w> <w xml:id="w397">ܥܠܝܢ</w> <w xml:id="w398">ܡܢ</w> <w xml:id="w399">ܙܗܡܘܬܐ</w> <w xml:id="w400">ܕܒܝܬ</w> <w xml:id="w401">ܟܪ̈ܝܗܐ</w><w xml:id="w402">.</w> <w xml:id="w403">ܘܦܫܦ̈ܫܐ</w> <w xml:id="w404">ܕܢ̇ܦܩܝܢ</w> <w xml:id="w405">ܗܘ̣ܘ</w> <w xml:id="w406">ܒܠܠܝܐ</w><w xml:id="w407">.</w> <w xml:id="w408">ܘܡܚܦܝܢ</w> <w xml:id="w409">ܗܘ̣ܘ</w> <w xml:id="w410">ܠܗ̇</w> <w xml:id="w411">ܠܟܠܗ̇</w> <w xml:id="w412">ܥܪܣܐ</w><w xml:id="w413">.</w> <w xml:id="w414">ܘܐܟ̇ܠܝܢ</w> <w xml:id="w415">ܠܐܦ̈ܝܢ</w> <w xml:id="w416">ܘܥܝܢ̈ܝܢ</w><w xml:id="w417">.</w> <w xml:id="w418">ܘܟܠܗ</w> <w xml:id="w419">ܠܠܝܐ</w> <w xml:id="w420">ܒܩ̈ܐ</w> <w xml:id="w421">ܕܡܘ̈ܩܕܝܢ</w> <w xml:id="w422">ܐܦܝ̈ܢ</w> <w xml:id="w423">ܘܥܘܩܒܪ̈ܐ</w> <w xml:id="w424">ܕܥ̣ܒܕܘ</w> <w xml:id="w425">ܩܢ̣ܐ</w> <w xml:id="w426">ܬܚܝܬ</w> 
+                     <app type="variants">
+                           <lem resp="#Chabot1234.2" type="correction">
+                     <w xml:id="w427">ܒܣܕܝܐ</w>
+                         </lem>
+                           <rdg wit="#MS1234">
+                         ܒܘܩܕܢܐ
+                     </rdg>
+                        </app>
+                     <w xml:id="w428">ܕܪܝܫܝ</w><w xml:id="w429">.</w> <w xml:id="w430">ܘܟܠܗ</w> <w xml:id="w431">ܠܠܝܐ</w> <w xml:id="w432">ܕܚ̇ܦܪܝܢ</w> <w xml:id="w433">ܟܕ</w> <w xml:id="w434">ܡܥ̇ܘܨܝܢ</w> <w xml:id="w435">ܘܡܨܘܨ̈ܝܢ</w><w xml:id="w436">.</w> <w xml:id="w437">ܘܓ̇ܕܫܐ</w> <w xml:id="w438">ܕܐܝܠܝܢ</w> <w xml:id="w439">ܕܠܐ</w> <w xml:id="w440" norm="ܢܣ̣̇ܝܘ">ܢܣ̣̇ܝܘ</w> <w xml:id="w441">ܠܡܘܝܩܐ</w> <w xml:id="w442">ܫ̇ܩܠܝܢ</w> <w xml:id="w443">ܠܗܠܝܢ</w> <w xml:id="w444">ܕܪܫܡ̇ܬ</w><w xml:id="w445">.</w> <w xml:id="w446">ܢܨܠܘܢ</w> <w xml:id="w447">ܕܠܐ</w> <w xml:id="w448">ܢܥܠܘܢ</w> <w xml:id="w449">ܠܢܣܝܘܢܐ</w><w xml:id="w450">܀</w>
+                     <app type="witnesses" xml:id="p254.28" prev="#p254.17">
+                           <rdg wit="#Chabot1234.2">
+                              <witEnd/>
+                           </rdg>
+                        </app>
+                     </p>
+                  </div>
+               </div>
+               <div type="textpart" xml:lang="syc" subtype="fragment" n="A">
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="1"
+                       xml:id="EH3.4.33.1234"
+                       corresp="EH3.4.33 EH3.4.33.MS">
+                     <p>
+                        <pb edRef="#Chabot1234.2"
+                            n="256"
+                            facs="https://iiif.archive.org/iiif/chroniconanonymi02chab$260/full/full/0/default.jpg"/>
+                        <app type="witnesses" xml:id="p256.7" next="#p256.13">
+                           <rdg wit="#Chabot1234.2">
+                              <witStart/>
+                           </rdg>
+                        </app>           
+                         <w xml:id="w451">ܡܫܡܫܗ</w><w xml:id="w452">.</w> <w xml:id="w453">ܗ̇ܠܝܢ</w> <w xml:id="w454">ܟܠܗܘܢ</w> <w xml:id="w455">ܒܬܪ̈ܥܣܪ</w> <w xml:id="w456">ܝܘܡ̈ܬܐ</w> <w xml:id="w457">ܕܗܘ̣ܘ</w> <w xml:id="w458">ܒܕܝܪܐ</w> <w xml:id="w459">ܥܢ̣ܕ</w> <w xml:id="w460">ܒܬܪ</w> <w xml:id="w461">ܚ̈ܕܕܐ</w><w xml:id="w462">.</w> <w xml:id="w463">ܘܟܕ</w> <w xml:id="w464">ܐܬܝܕܥܬ</w> <w xml:id="w465">ܗܕܐ</w> <w xml:id="w466">ܠܕܘܡܝܢܐ</w> <w xml:id="w467">ܦܐܛܪܝܪܟܐ</w><w xml:id="w468">.</w> <w xml:id="w469">ܐܬ̣ܐ</w> <w xml:id="w470">ܐܟܡܢ</w> <w xml:id="w471">ܕܢ̇ܣܒ</w> <w xml:id="w472">ܦܓܪܗ</w><w xml:id="w473">.</w> <w xml:id="w474">ܘܠܐ</w> <w xml:id="w475">ܐܫܬܒܩ</w> <w xml:id="w476">ܡܢ</w> <w xml:id="w477">ܒܢ̈ܝ</w> <w xml:id="w478">ܕܝܪܐ</w><w xml:id="w479">.</w> <w xml:id="w480">ܐܦܝ̈ܣܩܘܦܐ</w> <w xml:id="w481">ܕܝܢ</w> <w xml:id="w482">ܘܕܝܪ̈ܝܐ</w> <w xml:id="w483">ܒܢ̈ܝ</w> <w xml:id="w484">ܓܒܗ</w> <w xml:id="w485">ܕܝܥܩܘܒ</w> <w xml:id="w486">ܐܬܟܢܫܘ</w> <w xml:id="w487">ܒܫܢܬ</w> <w xml:id="w488">ܬܡܢܡ̈ܐܐ</w> <w xml:id="w489">܁</w><w xml:id="w490">ܘܦܒ</w><w xml:id="w491">܁</w> <w xml:id="w492">ܕܝܘܢܝ̈ܐ</w><w xml:id="w493">.</w> <w xml:id="w494">ܐܟܡܢ</w> <w xml:id="w495">ܕܢܩܝܡܘܢ</w> <w xml:id="w496">ܦܐܛܪܝܪܟܐ</w> <w xml:id="w497">ܠܣܘܪܝܐ</w><w xml:id="w498">܀</w>
+                         <app type="witnesses" xml:id="p256.13" prev="#p256.7">
+                           <rdg wit="#Chabot1234.2">
+                              <witEnd/>
+                           </rdg>
+                        </app>
+                     </p>
+                  </div>
+               </div>
+               <div type="textpart" xml:lang="syc" subtype="fragment" n="B">
+                  <div type="textpart"
+                       xml:lang="syc"
+                       subtype="testimonium"
+                       n="1"
+                       xml:id="EH3.4.45-46.1234"
+                       corresp="EH3.4.45 EH3.4.46 EH3.4.45-46.MS">
+                     <p>
+                        <pb edRef="#Chabot1234.2"
+                            n="256"
+                            facs="https://iiif.archive.org/iiif/chroniconanonymi02chab$260/full/full/0/default.jpg"/>
+                        <app type="witnesses" xml:id="p256.14" next="#p257.22">
+                           <rdg wit="#Chabot1234.2">
+                              <witStart/>
+                           </rdg>
+                           <rdg wit="#MS1234">
+                              <lacunaEnd/>
+                           </rdg>
+                        </app>           
+                         <w xml:id="w499">ܡܬܬܣܪܚܢܘܬܐ</w> <w xml:id="w500">ܕܦܐܛܪܐ</w> <w xml:id="w501">ܩܐܠܘܢܝܩܝܐ</w> <w xml:id="w502">ܠܟܘܪܣܝܐ</w> <w xml:id="w503">ܕܐܢܛܝܘܟܝܐ</w><w xml:id="w504">܀</w> <w xml:id="w505">ܒܬܪ</w> <w xml:id="w506">ܗܟܝܠ</w> <w xml:id="w507">ܥܘܢܕܢܗ</w> <w xml:id="w508">ܕܝܥܩܘܒ</w> <w xml:id="w509">ܣܒܐ</w><w xml:id="w510">.</w> <w xml:id="w511">ܐܬ̣ܐ</w> <w xml:id="w512">ܕܘܡܝܢܐ</w> <w xml:id="w513">ܦܐܛܪܝܪܟܐ</w> <w xml:id="w514">ܠܣܘܪܝܐ</w><w xml:id="w515">.</w> <w xml:id="w516">ܐܟܡܢ</w> <w xml:id="w517">ܕܢ̣ܚܙܐ</w> <w xml:id="w518">ܠܐܚܘܗܝ</w> <w xml:id="w519">ܕܐܝܬܘܗܝ</w> <w xml:id="w520">ܗܘ̣ܐ</w> <w xml:id="w521">ܐܘܦܪܟܐ</w> <w xml:id="w522">ܒܐܘܪܗܝ</w><w xml:id="w523">.</w> <w xml:id="w524">ܘܟܕ</w> <w xml:id="w525">ܐܬܟܢܫܘ</w> <w xml:id="w526">ܠܘܬܗ</w> <w xml:id="w527">ܐܦܝ̈ܣܩܘܦܐ</w> <w xml:id="w528">ܘܕܝܪ̈ܝܐ</w> <w xml:id="w529">ܒܢ̈ܝ</w> <w xml:id="w530">ܓܒܗ</w> <w xml:id="w531">ܕܝܥܩܘܒ</w><w xml:id="w532">܆</w> <w xml:id="w533">ܓܒ̣ܘ</w> <w xml:id="w534">ܠܐܢܫ</w> <w xml:id="w535">ܕܫܡܗ</w> <w xml:id="w536">ܦܐܛܪܘܣ</w> <w xml:id="w537">ܒܪ</w> <w xml:id="w538">ܦܘܠܐ</w> <w xml:id="w539">ܕܡܢ</w> <w xml:id="w540">ܩܐܠܘܢܝܩܘܣ</w> <w xml:id="w541">ܓܒܪܐ</w> <w xml:id="w542">ܥܠܡܝܐ</w><w xml:id="w543">.</w> <w xml:id="w544">ܗܢܐ</w> <w xml:id="w545">ܝܥܩܘܒ</w> <w xml:id="w546">ܣܒܐ</w> <w xml:id="w547">ܟܕ</w> <w xml:id="w548" norm="ܚ̣̇ܝ">ܚ̣̇ܝ</w> <w xml:id="w549">ܬܒܥܗ</w> <w xml:id="w550">ܬܪ̈ܬܝܢ</w> <w xml:id="w551">ܙܒܢ̈ܝܢ</w> <w xml:id="w552">ܕܢܗܘܐ</w> <w xml:id="w553">ܦܐܛܪܝܪܟܐ</w> <w xml:id="w554">ܘܠܐ</w> <w xml:id="w555">ܐܬܬܛܦܝܣ</w><w xml:id="w556">.</w> <w xml:id="w557">ܟܕ</w> <w xml:id="w558">ܐܡ̇ܪ</w> <w xml:id="w559">ܗܘ̣ܐ</w> <w xml:id="w560">ܕܐܢܐ</w> <w xml:id="w561">ܠܡ</w> <w xml:id="w562">ܠܥܠ</w> <w xml:id="w563">ܡܢ</w> <w xml:id="w564">ܓܒܪܐ</w> <w xml:id="w565">ܕܠܐ</w> <w xml:id="w566" norm="ܐܬܚ̣̇ܝܒ">ܐܬܚ̣̇ܝܒ</w> <w xml:id="w567">ܩܢܘܢܐܝܬ</w><w xml:id="w568">.</w> <w xml:id="w569">ܕܐܗܘܐ</w> <w xml:id="w570">ܦܐܛܪܝܪܟܐ</w>
+                         <pb edRef="#Chabot1234.2"
+                            n="257"
+                            facs="https://iiif.archive.org/iiif/chroniconanonymi02chab$261/full/full/0/default.jpg"/>            
+                         <w xml:id="w571">ܠܐ</w> <w xml:id="w572">ܡܩܒܠ</w> <w xml:id="w573">ܐܢܐ</w><w xml:id="w574">.</w> <w xml:id="w575">ܘܗܫܐ</w> <w xml:id="w576">ܐܬܬܦܝܣ</w><w xml:id="w577">.</w> <w xml:id="w578">ܘܟܪܘܛܝܢܝܬܢܝܐ</w> <w xml:id="w579">ܗܘ̣ܐ</w> <w xml:id="w580">ܡܢ</w> <w xml:id="w581">ܕܘܡܝܢܐ</w> <w xml:id="w582">ܦܐܛܪܝܪܟܐ</w> <w xml:id="w583">ܐܠܟܣܢܕܪܝܐ</w> <w xml:id="w584">ܒܕܝܪܐ</w> <w xml:id="w585">ܕܡܪܝ</w> <w xml:id="w586">ܚܢܢܝܐ</w><w xml:id="w587">.</w> <w xml:id="w588">ܟܕ</w> <w xml:id="w589">ܦܘܠܐ</w> <w xml:id="w590">ܦܐܛܪܝܪܟܐ</w> <w xml:id="w591" norm="ܚ̣̇ܝ">ܚ̣̇ܝ</w><w xml:id="w592">.</w> <w xml:id="w593">ܟܕ</w> <w xml:id="w594">ܐܝܬܝܗ̇</w> <w xml:id="w595">ܥܕܬܐ</w> <w xml:id="w596">ܒܒܘܠܒܠܐ</w> <w xml:id="w597">ܘܚܒ̇ܠܐ</w><w xml:id="w598">܀</w> <w xml:id="w599">ܐܡ̇ܪ</w> <w xml:id="w600">ܗܟܝܠ</w> <w xml:id="w601">ܝܘܚܢܢ</w> <w xml:id="w602">ܐܦܝܣܩܘܦܐ</w> <w xml:id="w603">ܕܐܣܝܐ</w><w xml:id="w604">.</w> <w xml:id="w605">ܒܬܪ</w> <w xml:id="w606">ܗܠܝܢ</w> <w xml:id="w607">ܫܕܪܘ</w> <w xml:id="w608">ܪ̈ܝܫܝ</w> <w xml:id="w609">ܥܘܡܪ̈ܐ</w> <w xml:id="w610">ܟܬܝܒ̈ܬܐ</w> <w xml:id="w611">ܠܘܬܢ</w> <w xml:id="w612">ܕܢܩܒܠ</w> <w xml:id="w613">ܠܦܐܛܪܝܪܟܐ</w> <w xml:id="w614">ܕܥܒ̣ܕܘ</w><w xml:id="w615">.</w> <w xml:id="w616">ܚܢܢ</w> <w xml:id="w617">ܕܝܢ</w> <w xml:id="w618">ܡܛܠ</w> <w xml:id="w619">ܕܣ̇ܓܝ</w> <w xml:id="w620">ܚ̣ܫܢܢ</w> <w xml:id="w621">ܥܠ</w> <w xml:id="w622">ܒܘܠܒܠܐ</w> <w xml:id="w623">ܕܥܕܬܐ</w> <w xml:id="w624">ܒܣܓܝ̈ܐܬܐ</w> <w xml:id="w625" norm="ܟ̣̇ܐܪܢܢ">ܟ̣̇ܐܪܢܢ</w> <w xml:id="w626">ܐܢܘܢ</w> <w xml:id="w627">ܥܠܗ̇ܝ</w> <w xml:id="w628">ܕܠܒܪ</w> <w xml:id="w629">ܡܢ</w> <w xml:id="w630">ܩܢܘ̈ܢܐ</w> <w xml:id="w631">ܐܬܚܫܚܘ</w> <w xml:id="w632">ܒܡܕܡ</w> <w xml:id="w633">ܕܣ̣ܥܕܘ</w><w xml:id="w634">.</w> <w xml:id="w635">ܘܐܝܟܢܐ</w> <w xml:id="w636">ܡܬܚܝܕܝܢܢ</w> <w xml:id="w637">ܠܗܘܢ</w><w xml:id="w638">܇</w> <w xml:id="w639">ܟܕ</w> <w xml:id="w640">ܗܢܘܢ</w> <w xml:id="w641">ܢܦ̣ܠܘ</w> <w xml:id="w642">ܡܢ</w> <w xml:id="w643">ܘ̇ܠܝܬܐ</w><w xml:id="w644">.</w> <w xml:id="w645">ܒܕܓܘܢ</w> <w xml:id="w646">ܗܕܐ</w> <w xml:id="w647">ܬܬܝܕܥ</w> <w xml:id="w648">ܠܬܪ̈ܝܗܘܢ</w> <w xml:id="w649">ܓܒ̈ܐ</w> <w xml:id="w650">ܗܠܝܢ</w> <w xml:id="w651">ܕܒܝܕ</w> <w xml:id="w652">ܡܥܒܕܢܘܬܐ</w> <w xml:id="w653">ܕܪܘܚܐ</w> <w xml:id="w654">ܕܣܩܘܒܠܝܘܬܐ</w> <w xml:id="w655">ܠܘܩܒܠ</w> <w xml:id="w656">ܚܕܪ̈ܐ</w> <w xml:id="w657" norm="ܐܬܥ̣̇ܪܡܘ">ܐܬܥ̣̇ܪܡܘ</w><w xml:id="w658">.</w> <w xml:id="w659">ܕܕܠܐ</w> <w xml:id="w660">ܡܨܛܠܝܢܘܬܐ</w> <w xml:id="w661">ܟܬܒ̣ܢܢ</w> <w xml:id="w662">ܗ̇ܠܝܢ</w> <w xml:id="w663">ܘܚܠܦ</w> <w xml:id="w664">ܫܪܪܐ</w> <w xml:id="w665">ܪܫ̇ܝܢܢ</w> <w xml:id="w666">ܘܐܒܝܠܝܢܢ</w> <w xml:id="w667">ܥܠ</w> <w xml:id="w668">ܣܘܪ̈ܚܢܐ</w> <w xml:id="w669">ܘܣ̈ܕܩܐ</w> <w xml:id="w670">ܕܒܝܢܬܢ</w><w xml:id="w671">.</w> <w xml:id="w672">ܘܠܐ</w> <w xml:id="w673">ܐܪܚܩܢܢ</w> <w xml:id="w674">ܡܢ</w> <w xml:id="w675">ܫܘܬܦܘܬܐ</w> <w xml:id="w676">ܕܦܘܠܐ</w> <w xml:id="w677">ܘܕܦܐܛܪܘܣ</w><w xml:id="w678">.</w> <w xml:id="w679">ܐܠܐ</w> <w xml:id="w680">ܡܛܠ</w> <w xml:id="w681">ܕܠܩܘܒܠܝܘܬܐ</w> <w xml:id="w682">ܘܠܘ</w> <w xml:id="w683">ܟܕ</w> <w xml:id="w684">ܣܘܪܚܢܐ</w> <w xml:id="w685">ܒܗܝܡܢܘܬܐ</w> <w xml:id="w686">ܚ̇ܙܝܢܢ</w> <w xml:id="w687">ܘܪܫܝܢܐ</w> <w xml:id="w688">ܘܐܦܢ</w> <w xml:id="w689">ܣܩܘܒܠܝܘܬܐ</w> <w xml:id="w690">ܣܒܝܪܐ</w> <w xml:id="w691">ܥܠܝ</w> <w xml:id="w692">ܡܢ</w> <w xml:id="w693">ܬܪ̈ܝܗܘܢ</w> <w xml:id="w694">ܓܒ̈ܐ</w><w xml:id="w695">܆</w> <w xml:id="w696">ܟܕ</w> <w xml:id="w697">ܣ̇ܗܕܐ</w> <w xml:id="w698">ܩ̇ܪܐ</w> <w xml:id="w699">ܐܢܐ</w> <w xml:id="w700">ܠܗ̇ܘ</w> <w xml:id="w701">ܒ̇ܚܪ</w> <w xml:id="w702">ܟܘܠܝ̈ܬܐ</w> <w xml:id="w703">ܘܠܒܐ</w><w xml:id="w704">.</w> <w xml:id="w705">ܕܟܕ</w> <w xml:id="w706">ܠܐ</w> <w xml:id="w707">ܣܕܝܪ</w> <w xml:id="w708">ܐܢܐ</w> <w xml:id="w709">ܒܓܒܐ</w> <w xml:id="w710">ܠܘܩܒܠ</w> <w xml:id="w711">ܓܒܐ</w><w xml:id="w712">܇</w> <w xml:id="w713">ܒܡܨܥܝܘܬܐ</w> <w xml:id="w714">ܟܬ̇ܪܬ</w> <w xml:id="w715">ܥܕܡܐ</w> <w xml:id="w716">ܠܗܫܐ</w><w xml:id="w717">.</w> <w xml:id="w718">ܟܕ</w> <w xml:id="w719">ܚܲܫܝܫ</w> <w xml:id="w720">ܐܢܐ</w> <w xml:id="w721">ܘܓܢܝܚ</w> <w xml:id="w722">ܐܢܐ</w> <w xml:id="w723">ܥܠ</w> <w xml:id="w724">ܗܠܝܢ</w> <w xml:id="w725">ܒܝ̈ܫܬܐ</w> <w xml:id="w726">ܕܡܢ</w> <w xml:id="w727">ܡܥܒܕܢܘܬܗ</w> <w xml:id="w728">ܕܗ̇ܘ</w> <w xml:id="w729">ܕܫ̇ܐܠ</w> <w xml:id="w730">ܕܢܥܪܘܒ</w> <w xml:id="w731">ܠܢ</w> <w xml:id="w732">ܐܝܟ</w> <w xml:id="w733">ܕܠܚ̈ܛܐ</w>
+<app type="variants">
+                           <lem source="#Chabot1234.2" type="conjecture">
+<w xml:id="w734">ܐܣܬܥܪ</w><w xml:id="w735">܀</w>
+    </lem>
+                           <rdg wit="#MS1234">
+                              <lacunaStart/>
+                           </rdg>
+                        </app>
+                        <app type="witnesses" xml:id="p257.22" prev="#p256.14">
+                           <rdg wit="#Chabot1234.2">
+                              <witEnd/>
+                           </rdg>
+                        </app>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

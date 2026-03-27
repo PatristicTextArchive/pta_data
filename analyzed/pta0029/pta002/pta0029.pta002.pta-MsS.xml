@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:m="https://pta.bbaw.de/ns">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">De sabbatis et circumcisione (Ms S)</title>
+            <author>
+               <persName key="pta0029">Ps.-Athanasius Alexandrinus</persName>
+            </author>
+            <respStmt>
+               <resp>transkribiert von</resp>
+               <persName xml:id="CS" ref="https://orcid.org/0009-0002-4995-7260">Christoph Scheerer</persName>
+            </respStmt>
+            <respStmt>
+               <resp>transkribiert von</resp>
+               <persName xml:id="KB" ref="https://orcid.org/0009-0001-9053-4123">Kathrin Breimayer</persName>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="JK" ref="https://orcid.org/0000-0003-2713-5207">Jan Köster</persName>
+               <resp>Word-tagging-pipeline</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Institut für Kirchengeschichte, Christliche Archäologie und Kirchliche Kunst an der Evangelisch-Theologischen Fakultät der Universität Wien (Univ.-Prof. Dr. Uta Heil)</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2023</date>
+            <idno type="PTA">pta0029.pta002</idno>
+            <idno type="TLG">tlg2035.tlg058</idno>
+            <idno type="CPG">2244</idno>
+            <idno type="Pinakes-Oeuvre">3823</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc status="draft">
+               <msIdentifier xml:id="S" corresp="PTAMS00601">
+                  <settlement>Paris</settlement>
+                  <repository>Bibliothèque nationale de France (BNF)</repository>
+                  <idno>Coislin gr. 45</idno>
+                  <altIdentifier type="diktyon">
+                     <idno>49187</idno>
+                  </altIdentifier>
+               </msIdentifier>
+               <physDesc>
+                  <objectDesc>
+                     <layoutDesc>
+                        <layout columns="1"/>
+                     </layoutDesc>
+                  </objectDesc>
+                  <scriptDesc>
+                     <p/>
+                  </scriptDesc>
+               </physDesc>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="chapter"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>For references to the Septuagint LXX is used as abbreviation, for references to the New Testament NA is used as abbreviation for the version.</p>
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+    This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+  </p>
+               <p xml:id="biblical-quotations" ana="not-annotated not-identified">
+    Biblical quotations are not annotated and not referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+  </p>
+               <p xml:id="other-references" ana="not-annotated not-identified">
+    Other references are not annotated and not referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+  </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+    Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+  </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+    Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+  </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+    Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+  </p>
+               <p xml:id="text-analysis" ana="automatically-tagged not-analyzed">
+                  Words are automatically tagged, but text is not analyzed.
+               </p>
+            </interpretation>
+            <normalization>
+               <p>Normalization of capitalisation, ν-ephelkystikon, σ/ς, Iota subscriptum/adscriptum, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra.</p>
+            </normalization>
+            <punctuation>
+               <p>Usage of full stop, comma, semicolon, question mark, dash and parenthesis.</p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+Patristic Text Archive Status of edition
+</bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+Critical edition in which the text-critical variants have been encoded.
+</catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+</catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+</catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+</catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+Patristic Text Archive Status of annotation
+</bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+</catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+</catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+</catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+</catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+</catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+</catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0340" notAfter="0500"/>
+            <placeName>Alexandria?</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Quaestiones</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2026-03-31" who="#JK">Words tagged</change>
+         <change when="2023-12-16" who="#AvS">Links auf Digitalisate korrigiert; Transkriptionsfehler korrigiert</change>
+         <change when="2023-05-22" who="#AvS">
+Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2023-03-10" who="#CS" status="draft">Einrichten des files, Beginn der Kollation</change>
+         <change when="2023-03-22" who="#CS" status="draft">Beenden der Kollation</change>
+         <change when="2023-03-29" who="#KB" status="draft">Zweitkollation</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta0029.pta002.pta-MsS">
+            <pb n="382v"
+                facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f392/266,142,3374,4857/full/0/native.jpg"/>
+            <div type="textpart" subtype="chapter" n="1">
+               <p>
+                  <note place="top_center" hand="#mr">Περὶ σαββάτων καὶ περιτομῆς ἐκ τοῦ εξόδου:·</note>
+                  <note place="margin_outer" anchored="true">
+                     <num>κε</num>
+                  </note>
+<w xml:id="w1" norm="καί">καὶ</w> <w xml:id="w2">φυλάξουσιν</w> <w xml:id="w3">οἱ</w> <w xml:id="w4" norm="υἱοί">υἱοὶ</w> <choice>
+                     <expan><w xml:id="w5" norm="Ἰσραήλ">Ἰσραὴλ</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ιηλ</hi>
+                     </abbr>
+                  </choice>
+                  <lb/>
+                  <g type="diple"/><w xml:id="w6" norm="τά">τὰ</w> <w xml:id="w7">σάββατα</w> <w xml:id="w8">ποιεῖν</w> <w xml:id="w9" norm="αὐτά">αὐτὰ</w> <w xml:id="w10">εἰς</w> <w xml:id="w11" norm="τάς">τὰς</w> <w xml:id="w12" norm="γενεάς">γενεὰς</w> <w xml:id="w13" norm="αὐ">αὐ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w14">τῶν</w><w xml:id="w15">·</w> <w xml:id="w16">διαθήκη</w> <w xml:id="w17">αἰώνιος</w> <w xml:id="w18">ἐν</w> <w xml:id="w19" norm="ἐμοί">ἐμοὶ</w> <w xml:id="w20" norm="καί">καὶ</w> <w xml:id="w21">τοῖς</w> <w xml:id="w22">υἱοῖς</w><lb/>
+                  <g type="diple"/>
+                  <choice>
+                     <expan><w xml:id="w23" norm="Ἰσραήλ">Ἰσραὴλ</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ιηλ</hi>
+                     </abbr>
+                  </choice><w xml:id="w24">·</w> <w xml:id="w25">σημεῖόν</w> <w xml:id="w26">ἐστιν</w> <w xml:id="w27">ἐν</w> <w xml:id="w28" norm="ἐμοί">ἐμοὶ</w> <w xml:id="w29">αἰώνιον</w><w xml:id="w30">·</w> <w xml:id="w31">ὅτι</w> <w xml:id="w32">ἐν</w> <w xml:id="w33" norm="ἕξ">ἓξ</w> <w xml:id="w34" norm="ἡμέ">ἡμέ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w35">ραις</w> <w xml:id="w36">ἐποίησε</w> <choice>
+                     <expan><w xml:id="w37">κύριος</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w38" norm="τόν">τὸν</w> <choice>
+                     <expan><w xml:id="w39" norm="οὐρανόν">οὐρανὸν</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ουνον</hi>
+                     </abbr>
+                  </choice> <w xml:id="w40" norm="καί">καὶ</w> <w xml:id="w41" norm="τήν">τὴν</w> <w xml:id="w42">γῆν</w><w xml:id="w43">·</w> <w xml:id="w44" norm="καί">καὶ</w> <w xml:id="w45">τῇ</w><lb/>
+                  <g type="diple"/><w xml:id="w46">ἑβδόμῃ</w> <w xml:id="w47">ἡμέρᾳ</w> <w xml:id="w48">κατέπαυσε</w><w xml:id="w49">,</w> </p>
+               <p><w xml:id="w50">σημεῖόν</w> <w xml:id="w51">ἐστι</w> <w xml:id="w52">τοῦ</w><lb/>
+<w xml:id="w53">εἰδέναι</w> <w xml:id="w54" norm="τήν">τὴν</w> <w xml:id="w55">τῆς</w> <w xml:id="w56">κτίσεως</w> <w xml:id="w57">ἡμέραν</w><w xml:id="w58">·</w> <w xml:id="w59" norm="καί">καὶ</w> <w xml:id="w60" norm="τό">τὸ</w> <w xml:id="w61">ταύτης</w><lb/>
+<w xml:id="w62">τέλος</w> <w xml:id="w63">ἀκόλουθον</w> <w xml:id="w64">ἦν</w><w xml:id="w65">·</w> <w xml:id="w66">ἕως</w> <w xml:id="w67" norm="τά">τὰ</w> <w xml:id="w68">τῆς</w> <w xml:id="w69">κτίσεως</w> <w xml:id="w70" norm="ἐνεργεῖτο">ἐ<lb break="no"/>νεργεῖτο</w> <w xml:id="w71">ἡ</w> <w xml:id="w72" norm="ἐπί">ἐπὶ</w> <w xml:id="w73">τῆς</w> <choice>
+                     <expan><w xml:id="w74" norm="Ἱερουσαλήμ">Ἱερουσαλὴμ</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ιλημ</hi>
+                     </abbr>
+                  </choice><w xml:id="w75">,</w> <w xml:id="w76">ἕως</w> <w xml:id="w77">τότε</w> <w xml:id="w78">φυλάττειν</w><lb/>
+ <w xml:id="w79" norm="τά">τὰ</w> <w xml:id="w80">σάββατα</w><w xml:id="w81">·</w> <w xml:id="w82">ἐλθούσης</w> <w xml:id="w83" norm="δέ">δὲ</w> <w xml:id="w84">τῆς</w> <w xml:id="w85">ἑτέρας</w> <w xml:id="w86" norm="γενεᾶς">γενε<lb break="no"/>
+ᾶς</w><w xml:id="w87">·</w> <w xml:id="w88" norm="καί">καὶ</w> <w xml:id="w89">τοῦ</w> <w xml:id="w90">κτιζομένου</w> <w xml:id="w91">λαοῦ</w> <w xml:id="w92" norm="κατά">κατὰ</w> <w xml:id="w93" norm="τό">τὸ</w> <w xml:id="w94">λεγόμενον</w><w xml:id="w95">·</w><lb/>
+                  <g type="diple"/><w xml:id="w96">γραφήτω</w> <w xml:id="w97">αὕτη</w> <w xml:id="w98">εἰς</w> <w xml:id="w99" norm="γενεάν">γενεὰν</w> <w xml:id="w100">ἑτέραν</w><w xml:id="w101">·</w> <w xml:id="w102" norm="καί">καὶ</w> <w xml:id="w103" norm="λαός">λαὸς</w><lb/>
+                  <g type="diple"/><w xml:id="w104">ὁ</w> <w xml:id="w105">κτιζόμενος</w> <w xml:id="w106">αἰνέσει</w> <w xml:id="w107" norm="τόν">τὸν</w> <choice>
+                     <expan><w xml:id="w108">κύριον</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κν</hi>
+                     </abbr>
+                  </choice><w xml:id="w109">,</w> <w xml:id="w110">ἀνάγκη</w> <w xml:id="w111">μηκέτι</w><lb/>
+<w xml:id="w112" norm="τόν">τὸν</w> <w xml:id="w113" norm="λαόν">λαὸν</w> <w xml:id="w114">τοῦτον</w> <w xml:id="w115">τηρεῖν</w> <w xml:id="w116" norm="τό">τὸ</w> <w xml:id="w117">τῆς</w> <w xml:id="w118">προτέρας</w> <w xml:id="w119" norm="κτίσεως">κτί<lb break="no"/>
+σεως</w> <w xml:id="w120">τέλος</w><w xml:id="w121">·</w> <w xml:id="w122" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w123" norm="τήν">τὴν</w> <w xml:id="w124" norm="ἀρχήν">ἀρχὴν</w> <w xml:id="w125">τῆς</w> <w xml:id="w126">δευτέρας</w> <w xml:id="w127" norm="κτίσεως">κτί<lb break="no"/>
+σεως</w> <w xml:id="w128">ζητεῖν</w><w xml:id="w129">·</w> <w xml:id="w130">τίς</w> <w xml:id="w131">δέ</w> <w xml:id="w132">ἐστιν</w> <w xml:id="w133" norm="ἤ">ἢ</w><w xml:id="w134">,</w> <w xml:id="w135" norm="κατά">καθ’</w> <w xml:id="w136" norm="ἥν">ἣν</w> <w xml:id="w137">ἀνέστη</w> <w xml:id="w138">ὁ</w> <choice>
+                     <expan><w xml:id="w139">κύριος</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κσ</hi>
+                     </abbr>
+                  </choice><w xml:id="w140">·</w><lb/>
+ <w xml:id="w141">ἔκτοτε</w> <w xml:id="w142" norm="γάρ">γὰρ</w> <w xml:id="w143" norm="ἀρχήν">ἀρχὴν</w> <w xml:id="w144">ἔσχεν</w> <w xml:id="w145">ἡ</w> <w xml:id="w146" norm="καινή">καινὴ</w> <w xml:id="w147">κτίσις</w><w xml:id="w148">·</w> <w xml:id="w149" norm="περί">περὶ</w><lb/>
+                  <g type="diple"/><w xml:id="w150">ἧς</w> <w xml:id="w151">εἶπεν</w> <w xml:id="w152">ὁ</w> <w xml:id="w153">Παῦλος</w><w xml:id="w154">·</w> <w xml:id="w155">ὥστε</w> <w xml:id="w156">εἴ</w> <w xml:id="w157">τις</w> <w xml:id="w158">ἐν</w> <choice>
+                     <expan><w xml:id="w159">Χριστῷ</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">χω</hi>
+                     </abbr>
+                  </choice> <w xml:id="w160" norm="και">και<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w161" norm="νή">νὴ</w> <w xml:id="w162">κτίσις</w><w xml:id="w163">·</w> <w xml:id="w164" norm="τήν">τὴν</w> <w xml:id="w165" norm="μέν">μὲν</w> <w xml:id="w166">οὖν</w> <w xml:id="w167">προτέραν</w> <w xml:id="w168">κτίσιν</w> <w xml:id="w169" norm="ποιῶν">ποι<lb break="no"/>
+ῶν</w> <w xml:id="w170">ὁ</w> <choice>
+                     <expan><w xml:id="w171" norm="θεός">θεὸς</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w172">κατέπαυσε</w><w xml:id="w173">·</w> <w xml:id="w174" norm="διά">διὰ</w> <w xml:id="w175">τοῦτο</w> <w xml:id="w176" norm="καί">καὶ</w> <w xml:id="w177" norm="τό">τὸ</w> <w xml:id="w178" norm="σάββατον">σάββα<lb break="no"/>
+τον</w> <w xml:id="w179">ἐν</w> <w xml:id="w180">τῇ</w> <w xml:id="w181">ἡμέρᾳ</w> <w xml:id="w182">τῇ</w> <w xml:id="w183">ἑβδόμῃ</w> <w xml:id="w184">ἐτήρουν</w> <w xml:id="w185">οἱ</w> <w xml:id="w186">τῆς</w> <w xml:id="w187" norm="γενεᾶς">γενε<lb break="no"/>
+ᾶς</w> <w xml:id="w188">ἐκείνης</w><w xml:id="w189">·</w> <w xml:id="w190">ἡ</w> <w xml:id="w191" norm="δέ">δὲ</w> <w xml:id="w192">δευτέρα</w> <w xml:id="w193">κτίσις</w><w xml:id="w194">,</w> <w xml:id="w195">τέλος</w> <w xml:id="w196">οὐκ</w> <w xml:id="w197">ἔχει</w><w xml:id="w198">·</w><lb/>
+<w xml:id="w199" norm="διά">διὰ</w> <w xml:id="w200">τοῦτο</w> <w xml:id="w201" norm="οὐδέ">οὐδὲ</w> <w xml:id="w202">κατέπαυσεν</w><w xml:id="w203">·</w> <w xml:id="w204" norm="ἀλλά">ἀλλ’</w> <w xml:id="w205">ἕως</w> <w xml:id="w206">ἄρτι</w> <w xml:id="w207" norm="ἐργάζεται">ἐρ<lb break="no"/>
+ γάζεται</w><w xml:id="w208">·</w> <w xml:id="w209">ὅθεν</w> <w xml:id="w210" norm="οὐδέ">οὐδὲ</w> <w xml:id="w211">σαββατίζομεν</w> <w xml:id="w212">ἡμέραν</w><pb n="383r"
+                      facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f392/3534,169,3374,4857/full/0/native.jpg"/>
+<w xml:id="w213">ὡς</w> <w xml:id="w214" norm="ἐπί">ἐπὶ</w> <w xml:id="w215">τῇ</w> <w xml:id="w216">πρώτῃ</w><w xml:id="w217">·</w> <w xml:id="w218" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w219" norm="τά">τὰ</w> <w xml:id="w220">μέλλοντα</w> <w xml:id="w221">ἐλπίζομεν</w><lb/>
+<w xml:id="w222">σάββατα</w> <w xml:id="w223">σαββάτων</w><w xml:id="w224">·</w> <w xml:id="w225" norm="ἅ">ἃ</w> <w xml:id="w226">οὔτε</w> <w xml:id="w227">τέλος</w> <w xml:id="w228">λαμβάνει</w><lb/>
+<w xml:id="w229">ἡ</w> <w xml:id="w230" norm="καινή">καινὴ</w> <w xml:id="w231">κτίσις</w><w xml:id="w232">·</w> <w xml:id="w233" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w234">φανεροῦται</w> <w xml:id="w235" norm="καί">καὶ</w> <w xml:id="w236">διόλου</w> <w xml:id="w237" norm="ἑορτάζει">ἑορ<lb break="no"/>
+τάζει</w><w xml:id="w238">·</w> <w xml:id="w239" norm="διά">διὰ</w> <w xml:id="w240" norm="γάρ">γὰρ</w> <w xml:id="w241">τοῦτο</w> <w xml:id="w242">ἐδόθη</w> <w xml:id="w243" norm="τό">τὸ</w> <w xml:id="w244">σάββατον</w> <w xml:id="w245">τῷ</w><lb/>
+<w xml:id="w246">προτέρῳ</w> <w xml:id="w247">λαῷ</w><w xml:id="w248">·</w> <w xml:id="w249">ἵνα</w> <w xml:id="w250">γινώσκῃ</w> <w xml:id="w251" norm="καί">καὶ</w> <w xml:id="w252" norm="τό">τὸ</w> <w xml:id="w253">τέλος</w> <w xml:id="w254" norm="καί">καὶ</w> <w xml:id="w255" norm="τήν">τὴν</w><lb/>
+<w xml:id="w256" norm="ἀρχήν">ἀρχὴν</w> <w xml:id="w257">τῆς</w> <w xml:id="w258">κτίσεως</w><w xml:id="w259">·</w> <w xml:id="w260">τῇ</w> <w xml:id="w261" norm="δέ">δὲ</w> <w xml:id="w262">καινῇ</w> <w xml:id="w263">κτίσει</w><w xml:id="w264">,</w> <w xml:id="w265">οὐκ</w> <w xml:id="w266" norm="ἐνετείλατο">ἐ<lb break="no"/>
+νετείλατο</w> <w xml:id="w267">φυλάττειν</w> <w xml:id="w268">σάββατον</w><w xml:id="w269">·</w> <w xml:id="w270">ἵνα</w> <w xml:id="w271" norm="τήν">τὴν</w> <w xml:id="w272" norm="μέν">μὲν</w><lb/>
+<w xml:id="w273" norm="ἀρχήν">ἀρχὴν</w> <w xml:id="w274">ἐν</w> <w xml:id="w275">τῇ</w> <w xml:id="w276">κυριακῇ</w> <w xml:id="w277">γινώσκῃ</w><w xml:id="w278">·</w> <w xml:id="w279">ἀτελεύτητον</w> <w xml:id="w280" norm="δέ">δὲ</w><lb/>
+<w xml:id="w281">ἐπίσταται</w> <w xml:id="w282" norm="τήν">τὴν</w> <w xml:id="w283">ταύτης</w> <w xml:id="w284">χάριν</w><w xml:id="w285">·</w> 
+</p>
+               <p><w xml:id="w286" norm="διά">διὰ</w> <w xml:id="w287">τοῦτο</w> <w xml:id="w288" norm="δέ">δὲ</w> <w xml:id="w289" norm="καί">καὶ</w><lb/>
+<w xml:id="w290" norm="τήν">τὴν</w> <w xml:id="w291" norm="ἀρχήν">ἀρχὴν</w> <w xml:id="w292">τουτέστι</w> <w xml:id="w293" norm="τήν">τὴν</w> <w xml:id="w294" norm="κυριακήν">κυριακὴν</w> <w xml:id="w295">ἐδήλωσεν</w> <w xml:id="w296">ἵνα</w><lb/>
+<w xml:id="w297" norm="τό">τὸ</w> <w xml:id="w298">τέλος</w> <w xml:id="w299">τῆς</w> <w xml:id="w300">παρελθούσης</w> <w xml:id="w301">γινώσκῃς</w><w xml:id="w302">·</w> <w xml:id="w303">ὁ</w> <w xml:id="w304">γοῦν</w><lb/>
+<w xml:id="w305">ἀπόστολος</w> <w xml:id="w306" norm="περί">περὶ</w> <w xml:id="w307">τῆς</w> <w xml:id="w308">προτέρας</w> <w xml:id="w309">γράφων</w> <w xml:id="w310" norm="φη">φη<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w311">σίν</w><w xml:id="w312">·</w> <w xml:id="w313">ὅτε</w> <w xml:id="w314" norm="δέ">δὲ</w> <w xml:id="w315">ἦλθε</w> <w xml:id="w316" norm="τό">τὸ</w> <w xml:id="w317">πλήρωμα</w> <w xml:id="w318">τοῦ</w> <w xml:id="w319">χρόνου</w><w xml:id="w320">,</w> <w xml:id="w321" norm="ἐξα">ἐξα<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w322">πέστειλεν</w> <w xml:id="w323">ὁ</w> <choice>
+                     <expan><w xml:id="w324" norm="θεός">θεὸς</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w325" norm="τόν">τὸν</w> <choice>
+                     <expan><w xml:id="w326" norm="υἱόν">υἱὸν</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">υν</hi>
+                     </abbr>
+                  </choice> <w xml:id="w327">αὐτοῦ</w><w xml:id="w328">·</w> <w xml:id="w329" norm="καί">καὶ</w> <w xml:id="w330">πάλιν</w> <w xml:id="w331" norm="ἐπί">ἐπὶ</w> <w xml:id="w332" norm="συν">συν<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w333">τελείᾳ</w> <w xml:id="w334">τῶν</w> <w xml:id="w335">αἰώνων</w><w xml:id="w336">·</w> <w xml:id="w337">οὐκοῦν</w> <w xml:id="w338">ἡ</w> <w xml:id="w339" norm="μέν">μὲν</w> <w xml:id="w340">πρώτη</w> <w xml:id="w341" norm="πεπλήρωται">πε<lb break="no"/>
+πλήρωται</w> <w xml:id="w342" norm="καί">καὶ</w> <w xml:id="w343">τετελείωται</w><w xml:id="w344">·</w> <w xml:id="w345">οὐκ</w> <w xml:id="w346">ἄλλοτε</w> <w xml:id="w347" norm="ἤ">ἢ</w> <w xml:id="w348">ὡς</w><lb/>
+                  <g type="diple"/><w xml:id="w349">οἱ</w> <w xml:id="w350">προφῆται</w> <w xml:id="w351">ἔλεγον</w><w xml:id="w352">·</w> <w xml:id="w353">ἐν</w> <w xml:id="w354">ταῖς</w> <w xml:id="w355">ἐσχάταις</w> <w xml:id="w356" norm="ἡμέ">ἡμέ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w357">ραις</w> <w xml:id="w358">ἐκχεῶ</w> <w xml:id="w359" norm="ἀπό">ἀπὸ</w> <w xml:id="w360">τοῦ</w> <choice>
+                     <expan><w xml:id="w361">πνεύματός</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">πνσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w362">μου</w><w xml:id="w363">·</w> <w xml:id="w364">τέλος</w> <w xml:id="w365" norm="δέ">δὲ</w> <w xml:id="w366" norm="ἐχουσῶν">ἐχου<lb break="no"/>
+σῶν</w> <w xml:id="w367">τῶν</w> <w xml:id="w368">πρώτων</w> <w xml:id="w369">ἡμερῶν</w><w xml:id="w370">,</w> <w xml:id="w371">ἄλλαι</w> <w xml:id="w372">γίνονται</w><lb/>
+                  <g type="diple"/><w xml:id="w373">ὡς</w> <w xml:id="w374">ὁ</w> <w xml:id="w375">Ἱερεμίας</w> <w xml:id="w376">φησίν</w><w xml:id="w377">·</w> <w xml:id="w378" norm="ἰδού">ἰδοὺ</w> <w xml:id="w379">ἡμέραι</w> <w xml:id="w380">ἔρχονται</w><lb/>
+                  <g type="diple"/><w xml:id="w381">λέγει</w> <choice>
+                     <expan><w xml:id="w382">Κύριος</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κσ</hi>
+                     </abbr>
+                  </choice><w xml:id="w383">·</w> <w xml:id="w384">τέλος</w> <w xml:id="w385" norm="δέ">δὲ</w> <w xml:id="w386">ἐχούσης</w> <w xml:id="w387">τῆς</w> <w xml:id="w388">πρώτης</w><w xml:id="w389">,</w> <w xml:id="w390" norm="ἀκολούθως">ἀκο<lb break="no"/>
+λούθως</w> <w xml:id="w391">ἑτέρας</w> <w xml:id="w392" norm="ἀρχή">ἀρχὴ</w> <w xml:id="w393">γέγονε</w><w xml:id="w394">·</w> <w xml:id="w395" norm="διά">διὰ</w> <w xml:id="w396">τοῦτο</w> <w xml:id="w397" norm="μετά">μετὰ</w><lb/>
+<w xml:id="w398" norm="τό">τὸ</w> <w xml:id="w399">σάββατον</w> <w xml:id="w400">ἀνέστη</w> <w xml:id="w401">ὁ</w> <choice>
+                     <expan><w xml:id="w402">κύριος</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κσ</hi>
+                     </abbr>
+                  </choice><w xml:id="w403">·</w> <w xml:id="w404">οὐ</w> <w xml:id="w405" norm="γάρ">γὰρ</w> <w xml:id="w406" norm="προηγουμένως">προηγουμέ<lb break="no"/>
+νως</w> <w xml:id="w407">εἵνεκεν</w> <w xml:id="w408">τοῦ</w> <w xml:id="w409">ἀργεῖν</w> <w xml:id="w410" norm="τούς">τοὺς</w> <choice>
+                     <expan><w xml:id="w411">ἀνθρώπους</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ανουσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w412">ἐδίδου</w><lb/>
+                  <g type="diple"/><w xml:id="w413" norm="τό">τὸ</w> <w xml:id="w414">σάββατον</w> <w xml:id="w415">ὁ</w> <choice>
+                     <expan><w xml:id="w416" norm="θεός">θεὸς</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θσ</hi>
+                     </abbr>
+                  </choice><w xml:id="w417">·</w> <w xml:id="w418">ὁ</w> <w xml:id="w419">λέγων</w><w xml:id="w420">·</w> <w xml:id="w421" norm="ὁδοί">ὁδοὶ</w> <w xml:id="w422">ἀεργῶν</w><lb/>
+                  <g type="diple"/><w xml:id="w423">ἐστρωμμέναι</w> <w xml:id="w424">ἀκάνθαις</w><w xml:id="w425">·</w> <w xml:id="w426" norm="καί">καὶ</w> <w xml:id="w427">ὁ</w> <w xml:id="w428">προστάττων</w><lb/>
+                  <g type="diple"/><w xml:id="w429">ἐν</w> <w xml:id="w430">τοῖς</w> <w xml:id="w431">Ἀριθμοῖς</w><w xml:id="w432">·</w> <w xml:id="w433" norm="καί">καὶ</w> <w xml:id="w434">τῇ</w> <w xml:id="w435">ἡμέρᾳ</w> <w xml:id="w436">τῶν</w> <w xml:id="w437" norm="σαββά">σαββά<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w438">των</w> <w xml:id="w439">προσάξετε</w> <w xml:id="w440">δύο</w> <w xml:id="w441" norm="ἀμνούς">ἀμνοὺς</w> <w xml:id="w442">ἐνιαυσίους</w><lb/>
+                  <g type="diple"/><w xml:id="w443">ἀμώμους</w><w xml:id="w444">·</w> <w xml:id="w445" norm="καί">καὶ</w> <w xml:id="w446">δύο</w> <w xml:id="w447">δέκατα</w> <w xml:id="w448">σεμιδάλεως</w> <w xml:id="w449" norm="ἀνα">ἀνα<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w450">πεποιημένης</w> <w xml:id="w451">ἐν</w> <w xml:id="w452">ἐλαίῳ</w> <w xml:id="w453">εἰς</w> <w xml:id="w454">θυσίαν</w> <w xml:id="w455" norm="καί">καὶ</w> <w xml:id="w456" norm="σπονδήν">σπονδὴν</w><w xml:id="w457">·</w><pb n="383v"
+                      facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f393/266,142,3374,4857/full/0/native.jpg"/>
+                  <g type="diple"/><w xml:id="w458" norm="καί">καὶ</w> <w xml:id="w459">ὁλοκαύτωμα</w> <w xml:id="w460">σαββάτων</w> <w xml:id="w461">ἐν</w> <w xml:id="w462">τοῖς</w> <w xml:id="w463" norm="σαββά">σαββά<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w464">τοις</w><w xml:id="w465">·</w> <w xml:id="w466" norm="ἐπί">ἐπὶ</w> <w xml:id="w467">τῆς</w> <w xml:id="w468">ὁλοκαυτώσεως</w> <w xml:id="w469">τῆς</w> <w xml:id="w470" norm="διά">διὰ</w> <w xml:id="w471" norm="παν">παν<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w472">τός</w><w xml:id="w473">·</w> <w xml:id="w474" norm="καί">καὶ</w> <w xml:id="w475">πάλιν</w> <w xml:id="w476" norm="πρό">πρὸ</w> <w xml:id="w477">ὀλίγων</w> <w xml:id="w478">λέγει</w><w xml:id="w479">·</w> <w xml:id="w480">ἐν</w> <w xml:id="w481">τοῖς</w> <w xml:id="w482" norm="ἀ">ἀ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w483">νωτέρω</w> <w xml:id="w484" norm="καί">καὶ</w> <w xml:id="w485">ἐπιθήσετε</w> <w xml:id="w486" norm="ἐπί">ἐπὶ</w> <w xml:id="w487" norm="τό">τὸ</w> <w xml:id="w488">θέλημα</w><w xml:id="w489">·</w> <w xml:id="w490" norm="λίβα">λίβα<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w491">νον</w> <w xml:id="w492" norm="καθαρόν">καθαρὸν</w> <w xml:id="w493" norm="καί">καὶ</w> <w xml:id="w494">ἅλας</w><w xml:id="w495">·</w> <w xml:id="w496" norm="καί">καὶ</w> <w xml:id="w497">ἔσονται</w> <w xml:id="w498">εἰς</w> <w xml:id="w499">ἄρτους</w><lb/>
+                  <g type="diple"/><w xml:id="w500">εἰς</w> <w xml:id="w501">ἀνάμνησιν</w> <w xml:id="w502">προκείμενα</w> <w xml:id="w503">τῷ</w> <choice>
+                     <expan><w xml:id="w504">κυρίῳ</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κω</hi>
+                     </abbr>
+                  </choice><w xml:id="w505">·</w> <w xml:id="w506">τῇ</w> <w xml:id="w507" norm="ἡμέ">ἡμέ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w508">ρᾳ</w> <w xml:id="w509">τῶν</w> <w xml:id="w510">σαββάτων</w> <w xml:id="w511">προτεθήσεται</w> <w xml:id="w512">ἔναντι</w><lb/>
+                  <g type="diple"/>
+                  <choice>
+                     <expan><w xml:id="w513">κυρίου</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κυ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w514" norm="διαπαντός">διαπαντὸς</w> <w xml:id="w515">ἐνώπιον</w> <w xml:id="w516">τῶν</w> <w xml:id="w517">υἱῶν</w> <choice>
+                     <expan><w xml:id="w518" norm="Ἰσραήλ">Ἰσραὴλ</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">ιηλ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w519" norm="δια">δια<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w520">θήκην</w> <w xml:id="w521">αἰώνιον</w><w xml:id="w522">·</w> <w xml:id="w523">εἰ</w> <w xml:id="w524" norm="γάρ">γὰρ</w> <w xml:id="w525">ἔμελλεν</w> <w xml:id="w526">αὐτῷ</w> <w xml:id="w527" norm="περί">περὶ</w> <w xml:id="w528" norm="ἀργίας">ἀρ<lb break="no"/>
+γίας</w><w xml:id="w529">,</w> <w xml:id="w530">οὐκ</w> <w xml:id="w531" norm="ἄν">ἂν</w> <w xml:id="w532">προτιθέναι</w> <w xml:id="w533" norm="καί">καὶ</w> <w xml:id="w534">προσάγειν</w> <w xml:id="w535" norm="καί">καὶ</w><lb/>
+<w xml:id="w536">σφάζειν</w> <w xml:id="w537">ἐκέλευε</w> <w xml:id="w538" norm="τούς">τοὺς</w> <w xml:id="w539">Λευίτας</w><w xml:id="w540">·</w> <w xml:id="w541">εἰ</w> <w xml:id="w542" norm="γάρ">γὰρ</w> <w xml:id="w543">ἡ</w> <w xml:id="w544">ἀργία</w><lb/>
+<w xml:id="w545">ἁγιάζει</w><w xml:id="w546">,</w> <w xml:id="w547">δηλονότι</w> <w xml:id="w548">ἡ</w> <w xml:id="w549">ἐργασία</w> <w xml:id="w550">μολύνει</w><w xml:id="w551">·</w> <w xml:id="w552" norm="ἀλλά">ἀλλ’</w> <w xml:id="w553">οἱ</w><lb/>
+<w xml:id="w554">Λευῖται</w> <w xml:id="w555">ἐργαζόμενοι</w> <w xml:id="w556">οὐ</w> <w xml:id="w557">μολύνονται</w><w xml:id="w558">·</w> <w xml:id="w559">οὐκ</w> <w xml:id="w560" norm="ἄρα">ἄ<lb break="no"/>
+ρα</w> <w xml:id="w561">ἡ</w> <w xml:id="w562">ἀργία</w> <w xml:id="w563">καθαρίζει</w><w xml:id="w564">·</w> <w xml:id="w565" norm="ἤ">ἢ</w> <w xml:id="w566" norm="διά">διὰ</w> <w xml:id="w567">τί</w> <w xml:id="w568">μόνοι</w> <w xml:id="w569">οἱ</w> <w xml:id="w570" norm="Λευῗται">Λευῗ<lb break="no"/>
+ται</w> <w xml:id="w571">τοῦ</w> <w xml:id="w572">ἁγιασμοῦ</w> <w xml:id="w573">στερίσκονται</w> <w xml:id="w574">προσάγοντες</w><lb/>
+<w xml:id="w575" norm="καί">καὶ</w> <w xml:id="w576">σφάζοντες</w> <w xml:id="w577" norm="καί">καὶ</w> <w xml:id="w578">προστιθέντες</w> <w xml:id="w579">ἐν</w> <w xml:id="w580">τῷ</w> <w xml:id="w581" norm="σαββάτῳ">σαβ<lb break="no"/>
+βάτῳ</w><w xml:id="w582">·</w> <w xml:id="w583">τοσούτῳ</w> <w xml:id="w584" norm="γάρ">γὰρ</w> <w xml:id="w585">ἀπέχονται</w> <w xml:id="w586">τοῦ</w> <w xml:id="w587" norm="πλημμελεῖν">πλημ<lb break="no"/>
+μελεῖν</w><w xml:id="w588">,</w> <w xml:id="w589">ὅσῳ</w> <w xml:id="w590" norm="καί">καὶ</w> <w xml:id="w591">ἱλάσκονται</w> <w xml:id="w592" norm="ὑπέρ">ὑπὲρ</w> <w xml:id="w593">τῶν</w> <w xml:id="w594" norm="προσφερόντων">προσ<lb break="no"/>
+φερόντων</w><w xml:id="w595">.</w> </p>
+               <p><w xml:id="w596">οὐκοῦν</w> <w xml:id="w597">οὐκ</w> <w xml:id="w598">ἀργίαν</w> <w xml:id="w599">σημαίνει</w><lb/>
+<w xml:id="w600" norm="τό">τὸ</w> <w xml:id="w601">σάββατον</w><w xml:id="w602">·</w> <w xml:id="w603" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w604">γνῶσιν</w> <w xml:id="w605" norm="μέν">μὲν</w> <w xml:id="w606">τοῦ</w> <w xml:id="w607">ποιητοῦ</w><w xml:id="w608">·</w><lb/>
+<w xml:id="w609">παῦλαν</w> <w xml:id="w610" norm="δέ">δὲ</w> <w xml:id="w611">τοῦ</w> <w xml:id="w612">σχήματος</w> <w xml:id="w613">τῆς</w> <w xml:id="w614">κτίσεως</w> <w xml:id="w615" norm="ταύτης">ταύ<lb break="no"/>
+της</w><w xml:id="w616">·</w> <w xml:id="w617">ὡς</w> <w xml:id="w618" norm="καί">καὶ</w> <w xml:id="w619">ἐν</w> <w xml:id="w620">τῷ</w> <w xml:id="w621" norm="Ἰεζεκιήλ">Ἰεζεκιὴλ</w> <w xml:id="w622">διαμαρτύρεται</w><lb/>
+                  <g type="diple"/><w xml:id="w623">λέγων</w> <w xml:id="w624">ὁ</w> <choice>
+                     <expan><w xml:id="w625">θεός</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θσ</hi>
+                     </abbr>
+                  </choice><w xml:id="w626">·</w> <w xml:id="w627" norm="καί">καὶ</w> <w xml:id="w628" norm="τά">τὰ</w> <w xml:id="w629">σάββατά</w> <w xml:id="w630">μου</w> <w xml:id="w631">ἔδωκα</w><lb/>
+                  <g type="diple"/><w xml:id="w632">αὐτοῖς</w><w xml:id="w633">·</w> <w xml:id="w634">τοῦ</w> <w xml:id="w635">εἶναι</w> <w xml:id="w636">εἰς</w> <w xml:id="w637">σημεῖον</w> <w xml:id="w638" norm="ἀνά">ἀνὰ</w> <w xml:id="w639">μέσον</w><lb/>
+                  <g type="diple"/><w xml:id="w640">ἐμοῦ</w><w xml:id="w641">·</w> <w xml:id="w642" norm="καί">καὶ</w> <w xml:id="w643" norm="ἀνά">ἀνὰ</w> <w xml:id="w644">μέσον</w> <w xml:id="w645">αὐτῶν</w><w xml:id="w646">·</w> <w xml:id="w647">τοῦ</w> <w xml:id="w648">γνῶναι</w> <w xml:id="w649" norm="αὐ">αὐ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w650" norm="τούς">τοὺς</w> <w xml:id="w651">διότι</w> <w xml:id="w652" norm="ἐγώ">ἐγὼ</w> <choice>
+                     <expan><w xml:id="w653">κύριος</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w654">ὁ</w> <w xml:id="w655">ἁγιάζων</w> <w xml:id="w656">αὐτούς</w><w xml:id="w657">·</w> <w xml:id="w658" norm="γνώσεως">γνώ<lb break="no"/>
+σεως</w> <w xml:id="w659">ἄρα</w> <w xml:id="w660" norm="καί">καὶ</w> <w xml:id="w661">οὐκ</w> <w xml:id="w662">ἀργίας</w> <w xml:id="w663">ἕνεκεν</w> <w xml:id="w664">ἐδόθη</w> <w xml:id="w665" norm="τό">τὸ</w><lb/>
+<w xml:id="w666">σάββατον</w><w xml:id="w667">·</w> <w xml:id="w668">ὡς</w> <w xml:id="w669">εἶναι</w> <w xml:id="w670">μᾶλλον</w> <w xml:id="w671" norm="τήν">τὴν</w> <w xml:id="w672">γνῶσιν</w><lb/>
+<w xml:id="w673">ἀναγκαιοτέραν</w> <w xml:id="w674">τῆς</w> <w xml:id="w675">ἀργίας</w><w xml:id="w676">·</w> <w xml:id="w677" norm="διά">διὰ</w> <w xml:id="w678">τοῦτο</w> <w xml:id="w679">ὁ</w><lb/>
+                  <g type="diple"/>
+                  <choice>
+                     <expan><w xml:id="w680">κύριος</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w681">ἔλεγε</w> <w xml:id="w682">τοῖς</w> <w xml:id="w683">αἰτιωμένοις</w> <w xml:id="w684" norm="τούς">τοὺς</w> <w xml:id="w685" norm="μαθητάς">μαθητὰς</w><pb n="384r"
+                      facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f393/3534,169,3374,4857/full/0/native.jpg"/>
+                  <g type="diple"/><w xml:id="w686" norm="ἐπί">ἐπὶ</w> <w xml:id="w687">τῷ</w> <w xml:id="w688">τίλλειν</w> <w xml:id="w689">στάχυας</w><w xml:id="w690">·</w> <w xml:id="w691">εἰ</w> <w xml:id="w692">ἐγνώκειτε</w> <w xml:id="w693">τί</w> <w xml:id="w694">ἐστιν</w><w xml:id="w695">,</w> <w xml:id="w696" norm="ἔ">ἔ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w697">λεον</w> <w xml:id="w698">θέλω</w> <w xml:id="w699" norm="καί">καὶ</w> <w xml:id="w700">οὐ</w> <w xml:id="w701">θυσίαν</w><w xml:id="w702">·</w> <w xml:id="w703">ἀργοῦντας</w> <w xml:id="w704" norm="γάρ">γὰρ</w> <w xml:id="w705" norm="αὐτούς">αὐ<lb break="no"/>
+τοὺς</w> <w xml:id="w706">ἐν</w> <w xml:id="w707">τῷ</w> <w xml:id="w708">σαββάτῳ</w> <w xml:id="w709">ᾐτιᾶτο</w><w xml:id="w710">·</w> <w xml:id="w711">ὅτι</w> <w xml:id="w712" norm="τό">τὸ</w> <w xml:id="w713" norm="ἴδιον">ἴδι<lb break="no"/>
+ον</w> <w xml:id="w714">τοῦ</w> <w xml:id="w715">σαββάτου</w> <w xml:id="w716">οὐκ</w> <w xml:id="w717">ἔχετε</w><w xml:id="w718">·</w> <w xml:id="w719">ὅπερ</w> <w xml:id="w720" norm="ἐστίν">ἐστὶν</w> <w xml:id="w721">ἡ</w><lb/>
+<w xml:id="w722" norm="πρός">πρὸς</w> <w xml:id="w723" norm="τήν">τὴν</w> <w xml:id="w724">ἀλήθειαν</w> <w xml:id="w725">γνῶσις</w><w xml:id="w726">·</w> <w xml:id="w727" norm="διά">διὰ</w> <w xml:id="w728">τοῦτο</w> <w xml:id="w729" norm="καί">καὶ</w><lb/>
+<w xml:id="w730" norm="περί">περὶ</w> <w xml:id="w731" norm="τήν">τὴν</w> <w xml:id="w732" norm="Ἱεριχώ">Ἱεριχὼ</w> <w xml:id="w733">κελεύονται</w> <w xml:id="w734">σαλπίζειν</w> <w xml:id="w735">οἱ</w><lb/>
+<w xml:id="w736" norm="τόν">τὸν</w> <w xml:id="w737">νόμον</w> <w xml:id="w738">τοῦ</w> <w xml:id="w739">σαββάτου</w> <w xml:id="w740">λαβόντες</w> <w xml:id="w741" norm="ἑπτά">ἑπτὰ</w> <w xml:id="w742" norm="ἡμέραις">ἡμέ<lb break="no"/>
+ραις</w><w xml:id="w743">·</w> <w xml:id="w744">ἐν</w> <w xml:id="w745">αἷς</w> <w xml:id="w746" norm="ἐπτά">ἐπτὰ</w><w xml:id="w747">,</w> <w xml:id="w748" norm="καί">καὶ</w> <w xml:id="w749" norm="τό">τὸ</w> <w xml:id="w750">σάββατον</w> <w xml:id="w751" norm="ἐμπίπτει">ἐμπί<lb break="no"/>
+πτει</w><w xml:id="w752">·</w> <w xml:id="w753">εἰ</w> <w xml:id="w754">τοίνυν</w> <w xml:id="w755">ἕνεκα</w> <w xml:id="w756">τοῦ</w> <w xml:id="w757">ἀργεῖν</w> <w xml:id="w758">ἐδόθη</w> <w xml:id="w759" norm="τό">τὸ</w><lb/>
+<w xml:id="w760">σάββατον</w><w xml:id="w761">·</w> <w xml:id="w762" norm="διά">διὰ</w> <w xml:id="w763">τί</w> <w xml:id="w764">ἐργάζεσθαι</w> <w xml:id="w765" norm="προστάττονται">προστάτ<lb break="no"/>
+τονται</w> <w xml:id="w766">σαλπίζοντες</w><w xml:id="w767">·</w> <w xml:id="w768" norm="ἀλλά">ἀλλ’</w> <w xml:id="w769">ἠπίστατο</w> <w xml:id="w770">ὅτι</w> <w xml:id="w771" norm="καί">καὶ</w><lb/>
+<w xml:id="w772">σαλπίζοντες</w><w xml:id="w773">,</w> <w xml:id="w774">ἐσαββάτιζον</w><w xml:id="w775">·</w> <w xml:id="w776">οὐκ</w> <w xml:id="w777">ἀργοῦντες</w><lb/>
+<w xml:id="w778" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w779">γινώσκοντες</w> <w xml:id="w780" norm="τόν">τὸν</w> <w xml:id="w781">βοηθοῦντα</w> <w xml:id="w782">αὐτοῖς</w><lb/>
+                  <choice>
+                     <expan><w xml:id="w783">κύριον</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κν</hi>
+                     </abbr>
+                  </choice><w xml:id="w784">·</w> <w xml:id="w785">ὥσπερ</w> <w xml:id="w786" norm="καί">καὶ</w> <w xml:id="w787" norm="ἐπί">ἐπὶ</w> <w xml:id="w788">τοῦ</w> <w xml:id="w789" norm="περιτεμνομένου">περιτεμνομέ<lb break="no"/>
+νου</w> <w xml:id="w790">ὀκταημέρου</w><w xml:id="w791">·</w> <w xml:id="w792">ἀνάγκην</w> <w xml:id="w793" norm="γάρ">γὰρ</w> <w xml:id="w794">ἔχει</w> <w xml:id="w795" norm="καί">καὶ</w> <w xml:id="w796">τῷ</w><lb/>
+<w xml:id="w797">σαββάτῳ</w> <w xml:id="w798">περιτέμνειν</w><w xml:id="w799">·</w> <w xml:id="w800" norm="καί">καὶ</w> <w xml:id="w801">ὅμως</w> <w xml:id="w802" norm="σαββατίζει">σαβ<lb break="no"/>
+βατίζει</w> <w xml:id="w803">ἐργαζόμενος</w> <w xml:id="w804" norm="μέν">μὲν</w><w xml:id="w805">.</w> <w xml:id="w806">γινώσκων</w> <w xml:id="w807" norm="δέ">δὲ</w><lb/>
+<w xml:id="w808" norm="τόν">τὸν</w> <choice>
+                     <expan><w xml:id="w809">θεόν</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">θν</hi>
+                     </abbr>
+                  </choice><w xml:id="w810">·</w> <w xml:id="w811">ἀμέλει</w> <w xml:id="w812" norm="καί">καὶ</w> <w xml:id="w813" norm="τάς">τὰς</w> <w xml:id="w814" norm="μή">μὴ</w> <w xml:id="w815">ἡμέρας</w> <w xml:id="w816">τῶν</w><lb/>
+<w xml:id="w817">σαββάτων</w><w xml:id="w818">·</w> <w xml:id="w819">ὅμως</w> <w xml:id="w820" norm="διά">διὰ</w> <w xml:id="w821" norm="τήν">τὴν</w> <w xml:id="w822">ἄφεσιν</w> <w xml:id="w823">τῶν</w> <w xml:id="w824" norm="ἁμαρτιῶν">ἁ<lb break="no"/>
+μαρτιῶν</w> <w xml:id="w825" norm="καί">καὶ</w> <w xml:id="w826" norm="τήν">τὴν</w> <w xml:id="w827">τῆς</w> <w xml:id="w828">θεογνωσίας</w> <w xml:id="w829" norm="χάριν">χά<lb break="no"/>
+ριν</w><w xml:id="w830">,</w> <w xml:id="w831">σάββατα</w> <w xml:id="w832">ὀνομάζειν</w> <w xml:id="w833">εἴωθεν</w> <w xml:id="w834">ὁ</w> <w xml:id="w835">νόμος</w><w xml:id="w836">·</w><lb/>
+<w xml:id="w837">μᾶλλον</w> <w xml:id="w838" norm="δέ">δὲ</w> <w xml:id="w839">ὁ</w> <choice>
+                     <expan><w xml:id="w840">κύριος</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w841">τοῦ</w> <w xml:id="w842">νόμου</w><w xml:id="w843">·</w> <w xml:id="w844">ὡς</w> <w xml:id="w845">ἐν</w> <w xml:id="w846">τῷ</w> <w xml:id="w847" norm="Λευϊτι">Λευϊτι<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w848">κῷ</w><w xml:id="w849">·</w> <w xml:id="w850" norm="καί">καὶ</w> <w xml:id="w851">ἐλάλησε</w> <choice>
+                     <expan><w xml:id="w852">κύριος</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κσ</hi>
+                     </abbr>
+                  </choice> <w xml:id="w853" norm="πρός">πρὸς</w> <w xml:id="w854">Μωσῆν</w> <w xml:id="w855">λέγων</w><w xml:id="w856">·</w> <w xml:id="w857" norm="Καί">Καὶ</w><lb/>
+                  <g type="diple"/><w xml:id="w858">τῇ</w> <w xml:id="w859">δεκάτῃ</w> <w xml:id="w860">τοῦ</w> <w xml:id="w861" norm="μηνός">μηνὸς</w> <w xml:id="w862">τοῦ</w> <w xml:id="w863">ἑβδόμου</w> <w xml:id="w864">τούτου</w><lb/>
+                  <g type="diple"/><w xml:id="w865">ἡμέρα</w> <w xml:id="w866">ἐξιλασμοῦ</w><w xml:id="w867">·</w> <w xml:id="w868" norm="κλητή">κλητὴ</w> <w xml:id="w869">ἁγία</w> <w xml:id="w870">ἔσται</w> <w xml:id="w871">ὑμῖν</w><w xml:id="w872">·</w><lb/>
+                  <g type="diple"/><w xml:id="w873" norm="καί">καὶ</w> <w xml:id="w874">ταπεινώσετε</w> <w xml:id="w875" norm="τάς">τὰς</w> <w xml:id="w876" norm="ψυχάς">ψυχὰς</w> <w xml:id="w877">ὑμῶν</w><w xml:id="w878">·</w> <w xml:id="w879" norm="καί">καὶ</w><lb/>
+                  <g type="diple"/><w xml:id="w880">προσάξετε</w> <w xml:id="w881">ὁλοκαυτώματα</w> <w xml:id="w882">τῷ</w> <choice>
+                     <expan><w xml:id="w883">κυρίῳ</w></expan>
+                     <abbr type="nomSac">
+                        <hi rend="overline">κω</hi>
+                     </abbr>
+                  </choice> <w xml:id="w884">πᾶν</w> <w xml:id="w885" norm="ἔρ">ἔρ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w886">γον</w> <w xml:id="w887">οὐ</w> <w xml:id="w888">ποιήσετε</w> <w xml:id="w889">ἐν</w> <w xml:id="w890">τῇ</w> <w xml:id="w891">ἡμέρᾳ</w> <w xml:id="w892">ταύτῃ</w><w xml:id="w893">·</w> <w xml:id="w894" norm="καί">καὶ</w> <w xml:id="w895" norm="με">με<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w896" norm="τε">τ’</w> <w xml:id="w897">ὀλίγα</w><w xml:id="w898">·</w> <w xml:id="w899" norm="καί">καὶ</w> <w xml:id="w900">ἔσται</w> <w xml:id="w901">πᾶσα</w> <w xml:id="w902" norm="ψυχή">ψυχὴ</w> <w xml:id="w903">ἥτις</w> <w xml:id="w904">ποιήσει</w><lb/>
+                  <g type="diple"/><w xml:id="w905">ἔργον</w> <w xml:id="w906">ἐν</w> <w xml:id="w907">αὐτῇ</w> <w xml:id="w908">τῇ</w> <w xml:id="w909">ἡμέρᾳ</w> <w xml:id="w910">ταύτῃ</w><w xml:id="w911">,</w> <w xml:id="w912">ἀπολεῖται</w><pb n="384v"
+                      facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f394/266,142,3374,4857/full/0/native.jpg"/>
+                  <g type="diple"/><w xml:id="w913">ἡ</w> <w xml:id="w914" norm="ψυχή">ψυχὴ</w> <w xml:id="w915">ἐκείνη</w> <w xml:id="w916">ἐκ</w> <w xml:id="w917">τοῦ</w> <w xml:id="w918">λαοῦ</w> <w xml:id="w919">αὐτῆς</w><w xml:id="w920">·</w> <w xml:id="w921">πᾶν</w> <w xml:id="w922">ἔργον</w> <w xml:id="w923">οὐ</w><lb/>
+                  <g type="diple"/><w xml:id="w924">ποιήσετε</w><w xml:id="w925">·</w> <w xml:id="w926">νόμιμον</w> <w xml:id="w927">αἰώνιον</w> <w xml:id="w928">εἰς</w> <w xml:id="w929" norm="τάς">τὰς</w> <w xml:id="w930" norm="γενεάς">γενεὰς</w> <w xml:id="w931" norm="ὑ">ὑ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w932">μῶν</w><w xml:id="w933">·</w> <w xml:id="w934">σάββατα</w> <w xml:id="w935">σαββάτων</w> <w xml:id="w936">ἔσται</w> <w xml:id="w937">ὑμῖν</w><w xml:id="w938">·</w> <w xml:id="w939" norm="καί">καὶ</w> <w xml:id="w940" norm="τα">τα<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w941">πεινώσετε</w> <w xml:id="w942" norm="τάς">τὰς</w> <w xml:id="w943" norm="ψυχάς">ψυχὰς</w> <w xml:id="w944">ὑμῶν</w><w xml:id="w945">·</w> <w xml:id="w946" norm="ἀπό">ἀπὸ</w> <w xml:id="w947">ἐννάτης</w><lb/>
+                  <g type="diple"/><w xml:id="w948">τοῦ</w> <w xml:id="w949" norm="μηνός">μηνὸς</w><w xml:id="w950">·</w> <w xml:id="w951" norm="ἀπό">ἀπὸ</w> <w xml:id="w952">ἑσπέρας</w> <w xml:id="w953">ἕως</w> <w xml:id="w954">ἑσπέρας</w><w xml:id="w955">·</w> <w xml:id="w956" norm="καί">καὶ</w> <w xml:id="w957" norm="σαβ">σαβ<lb break="no"/></w>
+                  <g type="diple"/><w xml:id="w958">βατιεῖτε</w> <w xml:id="w959" norm="τά">τὰ</w> <w xml:id="w960">σάββατα</w> <w xml:id="w961">ὑμῶν</w><w xml:id="w962">·</w> </p>
+               <div type="textpart" subtype="chapter" n="4">
+                  <p><w xml:id="w963">οὐκοῦν</w> <w xml:id="w964">οὐχ</w> <w xml:id="w965">ἡ</w><lb/>
+<w xml:id="w966">ἑβδόμη</w> <w xml:id="w967" norm="ἐστί">ἐστὶ</w> <w xml:id="w968" norm="τό">τὸ</w> <w xml:id="w969">σάββατον</w><w xml:id="w970">·</w> <w xml:id="w971" norm="ἀλλά">ἀλλ’</w> <w xml:id="w972">ἡ</w> <w xml:id="w973">ἄφεσις</w> <w xml:id="w974">τῶν</w> <w xml:id="w975" norm="ἁμαρτιῶν">ἁ<lb break="no"/>
+μαρτιῶν</w> <w xml:id="w976">ὅτε</w> <w xml:id="w977">τις</w> <w xml:id="w978" norm="ἀπό">ἀπ’</w> <w xml:id="w979">αὐτῶν</w> <w xml:id="w980">καταπαύει</w><w xml:id="w981">·</w> <w xml:id="w982" norm="οὐδέ">οὐ<lb break="no"/>
+δὲ</w> <w xml:id="w983">ἡ</w> <w xml:id="w984">ἀργία</w> <w xml:id="w985" norm="ἐστί">ἐστὶ</w> <w xml:id="w986" norm="τό">τὸ</w> <w xml:id="w987">σάββατον</w><w xml:id="w988">·</w> <w xml:id="w989" norm="ἀλλά">ἀλλ’</w> <w xml:id="w990">ἡ</w> <w xml:id="w991" norm="ἐξομολόγησις">ἐξομολόγη<lb break="no"/>
+σις</w> <w xml:id="w992" norm="καί">καὶ</w> <w xml:id="w993" norm="τό">τὸ</w> <w xml:id="w994">ταπεινοῦν</w> <w xml:id="w995" norm="τήν">τὴν</w> <w xml:id="w996">ψυχήν</w><w xml:id="w997">·</w> <w xml:id="w998">οὐ</w> <w xml:id="w999" norm="γάρ">γὰρ</w> <w xml:id="w1000" norm="ὡρισμένως">ὡρισ<lb break="no"/>
+μένως</w> <w xml:id="w1001">τῷ</w> <w xml:id="w1002">σαββάτῳ</w> <w xml:id="w1003">εἴρηκεν</w><w xml:id="w1004">·</w> <w xml:id="w1005" norm="ἀλλά">ἀλλ’</w> <w xml:id="w1006">ἁπλῶς</w> <w xml:id="w1007">τῇ</w><lb/> 
+<w xml:id="w1008">δεκάτῃ</w><w xml:id="w1009">·</w> <w xml:id="w1010" norm="ἥν">ἣν</w> <w xml:id="w1011">συμβαίνει</w> <w xml:id="w1012">ἀπαντᾷν</w> <w xml:id="w1013" norm="μή">μὴ</w> <w xml:id="w1014">ἐν</w> <w xml:id="w1015" norm="σαββάτῳ">σαββά<lb break="no"/>
+τῳ</w><w xml:id="w1016">·</w> <w xml:id="w1017" norm="καί">καὶ</w> <w xml:id="w1018">ὅμως</w> <w xml:id="w1019" norm="τήν">τὴν</w> <w xml:id="w1020">ἀπαντῶσαν</w> <w xml:id="w1021">ἡμέραν</w> <w xml:id="w1022" norm="διά">διὰ</w><lb/>
+<w xml:id="w1023" norm="τόν">τὸν</w> <w xml:id="w1024" norm="ἐξιλασμόν">ἐξιλασμὸν</w><w xml:id="w1025">·</w> <w xml:id="w1026">σάββατον</w> <w xml:id="w1027">οὐχ</w> <w xml:id="w1028">ἀπλῶς</w><w xml:id="w1029">·</w> <w xml:id="w1030" norm="ἀλλά">ἀλλὰ</w><lb/>
+<w xml:id="w1031">σάββατα</w> <w xml:id="w1032">σαββάτων</w> <w xml:id="w1033">ὀνομάζει</w><w xml:id="w1034">·</w> <w xml:id="w1035">εἰ</w> <w xml:id="w1036" norm="δέ">δὲ</w> <w xml:id="w1037">ταύτην</w><lb/>
+<w xml:id="w1038">σάββατον</w> <w xml:id="w1039">ὀνομάζει</w><w xml:id="w1040">·</w> <w xml:id="w1041">ἐν</w> <w xml:id="w1042" norm="δέ">δὲ</w> <w xml:id="w1043">σαββάτῳ</w> <w xml:id="w1044" norm="ἐργάζεσθαι">ἐργά<lb break="no"/>
+ζεσθαι</w> <w xml:id="w1045">κελεύει</w><w xml:id="w1046">,</w> <w xml:id="w1047">οὐκ</w> <w xml:id="w1048">ἄρα</w> <w xml:id="w1049">ἀργίας</w> <w xml:id="w1050" norm="προηγουμένως">προηγουμέ<lb break="no"/>
+νως</w> <w xml:id="w1051" norm="ἐστί">ἐστὶ</w> <w xml:id="w1052">νόμος</w> <w xml:id="w1053" norm="τό">τὸ</w> <w xml:id="w1054">σάββατον</w><w xml:id="w1055">·</w> <w xml:id="w1056" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w1057">γνώσεως</w><lb/>
+<w xml:id="w1058" norm="καί">καὶ</w> <w xml:id="w1059">ἐξιλασμοῦ</w><w xml:id="w1060">,</w> <w xml:id="w1061" norm="καί">καὶ</w> <w xml:id="w1062">ἀργίας</w> <w xml:id="w1063" norm="ἀπό">ἀπὸ</w> <w xml:id="w1064">κακίας</w> <w xml:id="w1065">πάσης</w><w xml:id="w1066">·</w><lb/>
+<w xml:id="w1067">οὐ</w> <w xml:id="w1068" norm="διά">διὰ</w> <w xml:id="w1069" norm="τήν">τὴν</w> <w xml:id="w1070">ἀργίαν</w> <w xml:id="w1071">οὖν</w> <w xml:id="w1072" norm="τό">τὸ</w> <w xml:id="w1073">σάββατον</w> <w xml:id="w1074">δέδωκεν</w><w xml:id="w1075">·</w><lb/>
+<w xml:id="w1076" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w1077" norm="πρός">πρὸς</w> <w xml:id="w1078" norm="τό">τὸ</w> <w xml:id="w1079">γινώσκειν</w> <w xml:id="w1080" norm="αὐτούς">αὐτοὺς</w><w xml:id="w1081">,</w> <w xml:id="w1082" norm="τήν">τὴν</w> <w xml:id="w1083" norm="κατάπαυσιν">κατά<lb break="no"/>
+παυσιν</w> <w xml:id="w1084">τῆς</w> <w xml:id="w1085">κτίσεως</w><w xml:id="w1086">·</w> <w xml:id="w1087">ἐνετείλατο</w> <w xml:id="w1088" norm="γάρ">γὰρ</w> <w xml:id="w1089">ὁ</w> <choice>
+                        <expan><w xml:id="w1090" norm="θεός">θεὸς</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">θσ</hi>
+                        </abbr>
+                     </choice>
+                     <lb/>
+                     <g type="diple"/><w xml:id="w1091">λέγων</w><w xml:id="w1092">·</w> <w xml:id="w1093">ἵνα</w> <w xml:id="w1094">γινώσκητε</w> <w xml:id="w1095">ὅτι</w> <w xml:id="w1096">ἐν</w> <w xml:id="w1097">ταύτῃ</w> <w xml:id="w1098">τῇ</w> <w xml:id="w1099" norm="ἡμέ">ἡμέ<lb break="no"/></w>
+                     <g type="diple"/><w xml:id="w1100">ρᾳ</w><w xml:id="w1101">·</w> <w xml:id="w1102">κατέπαυσε</w> <choice>
+                        <expan><w xml:id="w1103">κύριος</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">κσ</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1104">ὁ</w> <choice>
+                        <expan><w xml:id="w1105" norm="θεός">θεὸς</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">θσ</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1106">ἡμῶν</w> <w xml:id="w1107" norm="ἀπό">ἀπὸ</w> <w xml:id="w1108">τῶν</w> <w xml:id="w1109" norm="ἔρ">ἔρ<lb break="no"/></w>
+                     <g type="diple"/><w xml:id="w1110">γων</w> <w xml:id="w1111">ὧν</w> <w xml:id="w1112">ἤρξατο</w> <w xml:id="w1113">ποιῆσαι</w><w xml:id="w1114">·</w> <w xml:id="w1115">ἤθελε</w> <w xml:id="w1116" norm="δέ">δὲ</w> <w xml:id="w1117" norm="αὐτούς">αὐτοὺς</w> <w xml:id="w1118" norm="γινώσκοντας">γι<lb break="no"/>
+νώσκοντας</w> <w xml:id="w1119" norm="τό">τὸ</w> <w xml:id="w1120">τέλος</w> <w xml:id="w1121">ταύτης</w><w xml:id="w1122">,</w> <w xml:id="w1123" norm="ἀρχήν">ἀρχὴν</w> <w xml:id="w1124">ζητεῖν</w> <w xml:id="w1125" norm="ἑτέρας">ἑ<lb break="no"/>
+τέρας</w><w xml:id="w1126">·</w> <w xml:id="w1127">τέλος</w> <w xml:id="w1128" norm="μέν">μὲν</w> <w xml:id="w1129">οὖν</w> <w xml:id="w1130">τῆς</w> <w xml:id="w1131">προτέρας</w> <w xml:id="w1132">κτίσεως</w><lb/>
+<w xml:id="w1133">ἦν</w> <w xml:id="w1134" norm="τό">τὸ</w> <w xml:id="w1135">σάββατον</w><w xml:id="w1136">·</w> <w xml:id="w1137" norm="ἀρχή">ἀρχὴ</w> <w xml:id="w1138" norm="δέ">δὲ</w> <w xml:id="w1139">τῆς</w> <w xml:id="w1140">δευτέρας</w><w xml:id="w1141">,</w> <w xml:id="w1142">ἡ</w><lb/>
+<w xml:id="w1143" norm="κυριακή">κυριακὴ</w><w xml:id="w1144">·</w> <w xml:id="w1145">ἐν</w> <w xml:id="w1146">ᾗ</w> <w xml:id="w1147" norm="τήν">τὴν</w> <w xml:id="w1148" norm="παλαιάν">παλαιὰν</w> <w xml:id="w1149">ἀνενεώσατο</w> <w xml:id="w1150" norm="καί">καὶ</w><lb/>
+<w xml:id="w1151">ἀνεκαίνισεν</w><w xml:id="w1152">·</w> <w xml:id="w1153">ὥσπερ</w> <w xml:id="w1154">οὖν</w> <w xml:id="w1155">ἐνετείλατο</w> <w xml:id="w1156" norm="φυλάττειν">φυ<pb n="385r"
+                         facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f394/3534,169,3374,4857/full/0/native.jpg"
+                         break="no"/>
+λάττειν</w> <w xml:id="w1157">πρότερον</w> <w xml:id="w1158">τοῦ</w> <w xml:id="w1159">σαββάτου</w> <w xml:id="w1160" norm="τήν">τὴν</w> <w xml:id="w1161">ἡμέραν</w><lb/>
+<w xml:id="w1162">μνήμην</w> <w xml:id="w1163">οὖσαν</w> <w xml:id="w1164">τοῦ</w> <w xml:id="w1165">τέλους</w> <w xml:id="w1166">τῶν</w> <w xml:id="w1167">προτέρων</w><w xml:id="w1168">,</w> <w xml:id="w1169">οὕτως</w><lb/>
+<w xml:id="w1170" norm="τήν">τὴν</w> <w xml:id="w1171" norm="κυριακήν">κυριακὴν</w> <w xml:id="w1172">τιμῶμεν</w><w xml:id="w1173">,</w> <w xml:id="w1174">μνήμην</w> <w xml:id="w1175">οὖσαν</w> <w xml:id="w1176">ἀρχῆς</w><lb/>
+<w xml:id="w1177">δευτέρας</w> <w xml:id="w1178">ἀνακτίσεως</w><w xml:id="w1179">·</w> <w xml:id="w1180">οὐ</w> <w xml:id="w1181" norm="γάρ">γὰρ</w> <w xml:id="w1182">ἄλλην</w> <w xml:id="w1183" norm="ἐπέκτισεν">ἐπέκτι<lb break="no"/>
+σεν</w><w xml:id="w1184">,</w> <w xml:id="w1185" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w1186" norm="τήν">τὴν</w> <w xml:id="w1187" norm="παλαιάν">παλαιὰν</w> <w xml:id="w1188">ἀνεκαίνισε</w><w xml:id="w1189">·</w> <w xml:id="w1190" norm="καί">καὶ</w> <w xml:id="w1191" norm="ἥν">ἣν</w> <w xml:id="w1192" norm="ἤρξατο">ἤρ<lb break="no"/>
+ξατο</w> <w xml:id="w1193">ποιεῖν</w><w xml:id="w1194">,</w> <w xml:id="w1195">ἐτελείωσε</w><w xml:id="w1196">·</w> <w xml:id="w1197" norm="διά">διὰ</w> <w xml:id="w1198">τοῦτο</w> <w xml:id="w1199">ἐν</w> <w xml:id="w1200" norm="μέν">μὲν</w> <w xml:id="w1201">τῇ</w><lb/>
+<w xml:id="w1202">ἕκτῃ</w><w xml:id="w1203">,</w> <w xml:id="w1204" norm="τά">τὰ</w> <w xml:id="w1205">γενόμενα</w> <w xml:id="w1206">συνετελέσθη</w><w xml:id="w1207">·</w> <w xml:id="w1208" norm="καί">καὶ</w> <w xml:id="w1209">τῇ</w> <w xml:id="w1210" norm="ἡμέρᾳ">ἡμέ<lb break="no"/>
+ρᾳ</w> <w xml:id="w1211">τῇ</w> <w xml:id="w1212">ἑβδόμῃ</w><w xml:id="w1213">,</w> <w xml:id="w1214">κατέπαυσεν</w> <w xml:id="w1215" norm="ἀπό">ἀπὸ</w> <w xml:id="w1216">πάντων</w><w xml:id="w1217">·</w><lb/>
+                     <g type="diple"/><w xml:id="w1218">ἐν</w> <w xml:id="w1219" norm="δέ">δὲ</w> <w xml:id="w1220">τῷ</w> <w xml:id="w1221">εὐαγγελίῳ</w> <w xml:id="w1222" norm="ἐλθών">ἐλθὼν</w> <w xml:id="w1223">ὁ</w> <w xml:id="w1224">λόγος</w> <w xml:id="w1225">φησίν</w><w xml:id="w1226">·</w> <w xml:id="w1227" norm="ἦλ">ἦλ<lb break="no"/></w>
+                     <g type="diple"/><w xml:id="w1228">θον</w> <w xml:id="w1229">τελειῶσαι</w> <w xml:id="w1230" norm="τό">τὸ</w> <w xml:id="w1231">ἔργον</w><w xml:id="w1232">·</w> <w xml:id="w1233">Ὁ</w> <w xml:id="w1234" norm="γάρ">γὰρ</w> <w xml:id="w1235" norm="ἀπό">ἀπὸ</w> <w xml:id="w1236" norm="πάντων">πάν<lb break="no"/>
+των</w> <w xml:id="w1237">καταπαύων</w><w xml:id="w1238">,</w> <w xml:id="w1239">σημαίνει</w> <w xml:id="w1240" norm="τινά">τινὰ</w> <w xml:id="w1241">δεῖσθαι</w> <w xml:id="w1242" norm="τέλους">τέ<lb break="no"/>
+λους</w><w xml:id="w1243">·</w> <w xml:id="w1244">ἅπερ</w> <w xml:id="w1245" norm="ἐλθών">ἐλθὼν</w> <w xml:id="w1246">ἐπετελείωσε</w><w xml:id="w1247">·</w> <w xml:id="w1248" norm="φησί">φησὶ</w> <w xml:id="w1249" norm="γάρ">γὰρ</w><lb/>
+                     <g type="diple"/><w xml:id="w1250">ἐν</w> <w xml:id="w1251">τῷ</w> <w xml:id="w1252" norm="κατά">κατὰ</w> <choice>
+                        <expan><w xml:id="w1253">Ἰωάννην</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">ιω</hi>
+                        </abbr>
+                     </choice><w xml:id="w1254">·</w> <w xml:id="w1255" norm="τά">τὰ</w> <w xml:id="w1256">ἔργα</w> <w xml:id="w1257" norm="ἅ">ἃ</w> <w xml:id="w1258">δέδωκέ</w> <w xml:id="w1259">μοι</w> <w xml:id="w1260">ὁ</w><lb/>
+                     <g type="diple"/>
+                     <choice>
+                        <expan><w xml:id="w1261" norm="πατήρ">πατὴρ</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">πηρ</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1262">ἵνα</w> <w xml:id="w1263">τελειώσω</w> <w xml:id="w1264">αὐτά</w><w xml:id="w1265">,</w> <w xml:id="w1266" norm="αὐτά">αὐτὰ</w> <w xml:id="w1267" norm="τά">τὰ</w> <w xml:id="w1268">ἔργα</w> <w xml:id="w1269" norm="ἅ">ἃ</w><lb/>
+                     <g type="diple"/><w xml:id="w1270">ποιῶ</w><w xml:id="w1271">,</w> <w xml:id="w1272">μαρτυρεῖ</w> <w xml:id="w1273" norm="περί">περὶ</w> <w xml:id="w1274">ἐμοῦ</w><w xml:id="w1275">.</w> </p>
+                  <p><w xml:id="w1276" norm="ἀτελές">ἀτελὲς</w> <w xml:id="w1277" norm="μέν">μὲν</w> <w xml:id="w1278" norm="γάρ">γὰρ</w><lb/>
+<w xml:id="w1279">ἦν</w> <w xml:id="w1280" norm="τό">τὸ</w> <w xml:id="w1281">ἔργον</w><w xml:id="w1282">.</w> <w xml:id="w1283">εἰ</w> <w xml:id="w1284">ἁμαρτήσαντος</w> <w xml:id="w1285">τοῦ</w> <w xml:id="w1286" norm="Ἀδάμ">Ἀδὰμ</w> <w xml:id="w1287" norm="ἀπέθνησκεν">ἀ<lb break="no"/>
+πέθνησκεν</w> <w xml:id="w1288">ὁ</w> <choice>
+                        <expan><w xml:id="w1289">ἄνθρωπος</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">ανοσ</hi>
+                        </abbr>
+                     </choice><w xml:id="w1290">·</w> <w xml:id="w1291">τέλειον</w> <w xml:id="w1292" norm="δέ">δὲ</w> <w xml:id="w1293">γέγονε</w> <w xml:id="w1294" norm="ζωοποιηθέντος">ζωοποι<lb break="no"/>
+ηθέντος</w> <w xml:id="w1295">αὐτοῦ</w><w xml:id="w1296">·</w> <w xml:id="w1297" norm="διά">διὰ</w> <w xml:id="w1298">τοῦτο</w> <w xml:id="w1299" norm="τήν">τὴν</w> <w xml:id="w1300">ἐν</w> <w xml:id="w1301" norm="ἕξ">ἓξ</w> <w xml:id="w1302" norm="ἡμέραις">ἡμέ<lb break="no"/>
+ραις</w> <w xml:id="w1303">κτίσιν</w> <w xml:id="w1304">ἀνακαινίσας</w><w xml:id="w1305">,</w> <w xml:id="w1306">ἡμέραν</w> <w xml:id="w1307" norm="τίθησι">τίθη<lb break="no"/>
+σι</w> <w xml:id="w1308">τῇ</w> <w xml:id="w1309">ἀνακαινίσει</w><w xml:id="w1310">,</w> <w xml:id="w1311" norm="ἥν">ἣν</w> <w xml:id="w1312" norm="διά">διὰ</w> <w xml:id="w1313">τοῦ</w> <w xml:id="w1314">ψαλμοῦ</w> <w xml:id="w1315" norm="προαναφωνεῖ">προ<lb break="no"/>
+αναφωνεῖ</w> <w xml:id="w1316">λέγον</w> <w xml:id="w1317" norm="τό">τὸ</w> <choice>
+                        <expan><w xml:id="w1318">πνεῦμα</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">πνα</hi>
+                        </abbr>
+                     </choice><w xml:id="w1319">·</w> <w xml:id="w1320">αὕτη</w> <w xml:id="w1321">ἡμέρα</w> <w xml:id="w1322" norm="ἥν">ἣν</w> <w xml:id="w1323" norm="ἐποίησεν">ἐ<lb break="no"/>
+ποίησεν</w> <w xml:id="w1324">ὁ</w> <choice>
+                        <expan><w xml:id="w1325">κύριος</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">κσ</hi>
+                        </abbr>
+                     </choice><w xml:id="w1326">·</w> <w xml:id="w1327" norm="ἀντί">ἀνθ’</w> <w xml:id="w1328">ἡλίου</w> <w xml:id="w1329" norm="γάρ">γὰρ</w> <choice>
+                        <expan><w xml:id="w1330" norm="θεός">θεὸς</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">θσ</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1331">ἀνατέλλει</w><w xml:id="w1332">·</w><lb/>
+<w xml:id="w1333">καταυγάζων</w> <w xml:id="w1334">τῇ</w> <w xml:id="w1335">ἑκάστου</w> <w xml:id="w1336">ψυχῇ</w><w xml:id="w1337">·</w> <w xml:id="w1338" norm="διά">διὰ</w> <w xml:id="w1339">τοῦτο</w><lb/>
+<w xml:id="w1340" norm="καί">καὶ</w> <w xml:id="w1341">ἐν</w> <w xml:id="w1342">αὐτῷ</w> <w xml:id="w1343">τῷ</w> <choice>
+                        <expan><w xml:id="w1344">σωτηρίῳ</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">σριω</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1345">πάθει</w><w xml:id="w1346">,</w> <w xml:id="w1347">οὐκ</w> <w xml:id="w1348">ἔφανεν</w> <w xml:id="w1349" norm="ἥλιος">ἥ<lb break="no"/>
+λιος</w><w xml:id="w1350">·</w> <w xml:id="w1351">σημαίνων</w> <w xml:id="w1352">τέλος</w> <w xml:id="w1353" norm="μέν">μὲν</w><w xml:id="w1354">,</w> <w xml:id="w1355">τῆς</w> <w xml:id="w1356">προτέρας</w><lb/>
+<w xml:id="w1357">κτίσεως</w><w xml:id="w1358">·</w> <w xml:id="w1359" norm="ἀρχήν">ἀρχὴν</w> <w xml:id="w1360" norm="δέ">δὲ</w> <w xml:id="w1361">ἑτέρας</w> <w xml:id="w1362" norm="τήν">τὴν</w> <w xml:id="w1363">ἐκ</w> <w xml:id="w1364">τοῦ</w> <choice>
+                        <expan><w xml:id="w1365">σωτῆρος</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">σρσ</hi>
+                        </abbr>
+                     </choice>
+                     <lb/>
+<w xml:id="w1366">ἀνατέλλουσαν</w><w xml:id="w1367">·</w> <w xml:id="w1368" norm="ἥν">ἣν</w> <w xml:id="w1369" norm="ἑωρακώς">ἑωρακὼς</w> <w xml:id="w1370">ὁ</w> <w xml:id="w1371">προφήτης</w><w xml:id="w1372">,</w><lb/>
+                     <g type="diple"/><w xml:id="w1373">φησίν</w><w xml:id="w1374">·</w> <w xml:id="w1375" norm="ἰδού">ἰδοὺ</w> <w xml:id="w1376" norm="ἀνήρ">ἀνὴρ</w> <w xml:id="w1377" norm="ἀνατολή">ἀνατολὴ</w> <w xml:id="w1378">ὄνομα</w> <w xml:id="w1379">αὐτῷ</w><w xml:id="w1380">·</w> <w xml:id="w1381" norm="καί">καὶ</w><lb/>
+                     <g type="diple"/><w xml:id="w1382">πάλιν</w> <w xml:id="w1383">ὑμῖν</w> <w xml:id="w1384" norm="δέ">δὲ</w> <w xml:id="w1385">τοῖς</w> <w xml:id="w1386">φοβουμένοις</w> <w xml:id="w1387" norm="αὐτόν">αὐτὸν</w><w xml:id="w1388">.</w> <w xml:id="w1389" norm="ἀ">ἀ<lb break="no"/></w>
+                     <g type="diple"/><w xml:id="w1390">νατελεῖ</w> <w xml:id="w1391">ἥλιος</w> <w xml:id="w1392">δικαιοσύνης</w><w xml:id="w1393">·</w> <w xml:id="w1394">οὐ</w> <w xml:id="w1395" norm="γάρ">γὰρ</w> <w xml:id="w1396" norm="πάντωνἡμέρα">πάντων<pb n="385v"
+                         facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f395/266,142,3374,4857/full/0/native.jpg"
+                         break="no"/> 
+ἡμέρα</w> <w xml:id="w1397">αὕτη</w> <w xml:id="w1398" norm="ἀλλά">ἀλλὰ</w> <w xml:id="w1399">τῶν</w> <w xml:id="w1400">ἀποθανόντων</w> <w xml:id="w1401">τῇ</w> <w xml:id="w1402" norm="ἁμαρτίᾳ">ἁ<lb break="no"/>
+μαρτίᾳ</w> <w xml:id="w1403">ζώντων</w> <w xml:id="w1404" norm="δέ">δὲ</w> <w xml:id="w1405">τῷ</w> <choice>
+                        <expan><w xml:id="w1406">κυρίῳ</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">κω</hi>
+                        </abbr>
+                     </choice><w xml:id="w1407">·</w> <w xml:id="w1408" norm="διά">διὰ</w> <w xml:id="w1409">τοῦτο</w> <w xml:id="w1410" norm="γάρ">γὰρ</w> <w xml:id="w1411" norm="καί">καὶ</w><lb/>
+<w xml:id="w1412">τῇ</w> <w xml:id="w1413">ὀγδόῃ</w> <w xml:id="w1414">ἡμέρᾳ</w> <w xml:id="w1415">περιτέμνεσθαι</w> <w xml:id="w1416">ἐκέλευσεν</w> <w xml:id="w1417">ὁ</w> <w xml:id="w1418" norm="νόμος">νό<lb break="no"/>
+μος</w><w xml:id="w1419">·</w> <w xml:id="w1420" norm="καί">καὶ</w> <w xml:id="w1421">ἀπαράβατος</w> <w xml:id="w1422">ἦν</w> <w xml:id="w1423">ἡ</w> <w xml:id="w1424" norm="ἐντολή">ἐντολὴ</w><w xml:id="w1425">·</w> <w xml:id="w1426" norm="σημαίνουσα">σημαί<lb break="no"/>
+νουσα</w> <w xml:id="w1427" norm="τήν">τὴν</w> <w xml:id="w1428" norm="μετά">μετὰ</w> <w xml:id="w1429" norm="τήν">τὴν</w> <w xml:id="w1430">ἑβδόμην</w> <w xml:id="w1431">ἀναγέννησιν</w><lb/>
+<w xml:id="w1432">πάντων</w><w xml:id="w1433">·</w> <w xml:id="w1434">ἡ</w> <w xml:id="w1435" norm="γάρ">γὰρ</w> <w xml:id="w1436" norm="περιτομή">περιτομὴ</w> <w xml:id="w1437" norm="οὐδέν">οὐδὲν</w> <w xml:id="w1438">ἄλλο</w> <w xml:id="w1439">ἐδήλου</w><lb/>
+<w xml:id="w1440" norm="ἤ">ἢ</w> <w xml:id="w1441" norm="τήν">τὴν</w> <w xml:id="w1442">τῆς</w> <w xml:id="w1443">γενέσεως</w> <w xml:id="w1444">ἀπέκδυσιν</w><w xml:id="w1445">·</w> <w xml:id="w1446" norm="τόν">τὸν</w> <w xml:id="w1447" norm="γάρ">γὰρ</w> <w xml:id="w1448">τῇ</w><lb/>
+<w xml:id="w1449">ἕκτῃ</w> <w xml:id="w1450">ἀποθανόντα</w><w xml:id="w1451">,</w> <w xml:id="w1452">ἀπεκδιδυσκόμεθα</w><w xml:id="w1453">·</w><lb/>
+<w xml:id="w1454" norm="καί">καὶ</w> <w xml:id="w1455">ἀνακαινούμεθα</w> <w xml:id="w1456">τῇ</w> <w xml:id="w1457">κυριακῇ</w><w xml:id="w1458">·</w> <w xml:id="w1459">ὅτε</w> <w xml:id="w1460">ὁ</w> <w xml:id="w1461" norm="παλαιός">πα<lb break="no"/>
+λαιὸς</w> <w xml:id="w1462" norm="ἀπεκδυθείς">ἀπεκδυθεὶς</w><w xml:id="w1463">,</w> <w xml:id="w1464">ἀνεγεννήθη</w> <w xml:id="w1465">τῇ</w> <w xml:id="w1466" norm="ἀναστάσει">ἀνα<lb break="no"/>
+στάσει</w><w xml:id="w1467">·</w> <w xml:id="w1468">τοῦτο</w> <w xml:id="w1469" norm="γάρ">γὰρ</w> <w xml:id="w1470" norm="καί">καὶ</w> <w xml:id="w1471">ὁ</w> <w xml:id="w1472">Παῦλός</w> <w xml:id="w1473">φησιν</w> <w xml:id="w1474">ἐν</w> <w xml:id="w1475">τῇ</w><lb/>
+                     <g type="diple"/><w xml:id="w1476" norm="πρός">πρὸς</w> <w xml:id="w1477">Κολασσαεῖς</w><w xml:id="w1478">·</w> <w xml:id="w1479">ἐν</w> <w xml:id="w1480">ᾧ</w><w xml:id="w1481">.</w> <w xml:id="w1482" norm="καί">καὶ</w> <w xml:id="w1483">περιετμήθητε</w><lb/>
+                     <g type="diple"/><w xml:id="w1484">περιτομῇ</w> <w xml:id="w1485">ἀχειροποιήτῳ</w><w xml:id="w1486">·</w> <w xml:id="w1487">ἐν</w> <w xml:id="w1488">τῇ</w> <w xml:id="w1489">ἀπεκδύσει</w><lb/>
+                     <g type="diple"/><w xml:id="w1490">τοῦ</w> <w xml:id="w1491">σώματος</w> <w xml:id="w1492">τῆς</w> <w xml:id="w1493" norm="σαρκός">σαρκὸς</w> <w xml:id="w1494">ἐν</w> <w xml:id="w1495">τῇ</w> <w xml:id="w1496" norm="περιτο">περιτο<lb break="no"/></w>
+                     <g type="diple"/><w xml:id="w1497">μῇ</w> <w xml:id="w1498">τοῦ</w> <choice>
+                        <expan><w xml:id="w1499">Χριστοῦ</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">χυ</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1500">συνταφέντες</w> <w xml:id="w1501">αὐτῷ</w> <w xml:id="w1502">ἐν</w> <w xml:id="w1503">τῷ</w> <w xml:id="w1504" norm="βαπ">βαπ<lb break="no"/></w>
+                     <g type="diple"/><w xml:id="w1505">τίσματι</w> <w xml:id="w1506">εἰς</w> <w xml:id="w1507" norm="τόν">τὸν</w> <w xml:id="w1508">ᾅδην</w><w xml:id="w1509">·</w> <w xml:id="w1510">ἐν</w> <w xml:id="w1511">ᾧ</w> <w xml:id="w1512" norm="καί">καὶ</w> <w xml:id="w1513" norm="συνηγέρθη">συνηγέρθη<lb break="no"/></w>
+                     <g type="diple"/><w xml:id="w1514">τε</w><w xml:id="w1515">·</w> </p>
+                  <p><w xml:id="w1516">τῆς</w> <w xml:id="w1517" norm="γάρ">γὰρ</w> <w xml:id="w1518" norm="διά">διὰ</w> <w xml:id="w1519">τοῦ</w> <w xml:id="w1520">βαπτίσματος</w> <w xml:id="w1521" norm="ἀπεκδύσεως">ἀ<lb break="no"/>
+πεκδύσεως</w> <w xml:id="w1522">τύπος</w> <w xml:id="w1523">ἦν</w> <w xml:id="w1524">ἡ</w> <w xml:id="w1525">περιτομή</w><w xml:id="w1526">,</w> <w xml:id="w1527" norm="ἥν">ἣν</w> <w xml:id="w1528">ἐν</w> <w xml:id="w1529" norm="ἐκείνοις">ἐ<lb break="no"/>
+κείνοις</w> <w xml:id="w1530">τοῖς</w> <w xml:id="w1531">μέλεσιν</w> <w xml:id="w1532">ἐνετείλατο</w> <w xml:id="w1533">γίνεσθαι</w> <w xml:id="w1534" norm="διά">δι’</w><lb/>
+<w xml:id="w1535">ὧν</w> <w xml:id="w1536" norm="καί">καὶ</w> <w xml:id="w1537">γεννᾶται</w> <w xml:id="w1538" norm="τό">τὸ</w> <w xml:id="w1539">σῶμα</w><w xml:id="w1540">·</w> <w xml:id="w1541" norm="ἵνα">ἵν’</w> <w xml:id="w1542">εἰδεῖεν</w> <w xml:id="w1543">οἱ</w> <w xml:id="w1544" norm="περιτεμνόμενοι">πε<lb break="no"/>
+ριτεμνόμενοι</w><w xml:id="w1545">,</w> <w xml:id="w1546">ὅτι</w> <w xml:id="w1547">ἀπεκδύσεως</w> <w xml:id="w1548" norm="παλαιότητός">παλαιό<lb break="no"/>
+τητός</w> <w xml:id="w1549">ἐστι</w> <w xml:id="w1550">σημεῖον</w><w xml:id="w1551">·</w> <w xml:id="w1552">πιστεύσας</w> <w xml:id="w1553" norm="γάρ">γὰρ</w> <w xml:id="w1554" norm="Ἀβραάμ">Ἀβραὰμ</w><lb/>
+<w xml:id="w1555">ἔλαβε</w> <w xml:id="w1556" norm="τήν">τὴν</w> <w xml:id="w1557" norm="περιτομήν">περιτομὴν</w><w xml:id="w1558">·</w> <w xml:id="w1559">σημεῖον</w> <w xml:id="w1560">οὖσαν</w> <w xml:id="w1561">τῆς</w> <w xml:id="w1562" norm="διά">δι<lb break="no"/>
+ὰ</w> <w xml:id="w1563">τοῦ</w> <w xml:id="w1564">βαπτίσματος</w> <w xml:id="w1565">ἀναγεννήσεως</w><w xml:id="w1566">·</w> <w xml:id="w1567" norm="Διά">Διὰ</w><lb/>
+<w xml:id="w1568">τοῦτο</w> <w xml:id="w1569">ἐλθόντος</w> <w xml:id="w1570">τοῦ</w> <w xml:id="w1571">σημαινομένου</w><w xml:id="w1572">,</w> <w xml:id="w1573" norm="πέπαυται">πέ<lb break="no"/>
+παυται</w> <w xml:id="w1574" norm="τό">τὸ</w> <w xml:id="w1575">σημεῖον</w><w xml:id="w1576">·</w> <w xml:id="w1577">ἡ</w> <w xml:id="w1578" norm="μέν">μὲν</w> <w xml:id="w1579" norm="γάρ">γὰρ</w> <w xml:id="w1580" norm="περιτομή">περιτομὴ</w><lb/>
+<w xml:id="w1581">σημεῖον</w> <w xml:id="w1582">ἦν</w><w xml:id="w1583">·</w> <w xml:id="w1584" norm="τό">τὸ</w> <w xml:id="w1585">δέ</w> <w xml:id="w1586">γε</w> <w xml:id="w1587" norm="λουτρόν">λουτρὸν</w> <w xml:id="w1588">τῆς</w> <w xml:id="w1589" norm="παλιγγενεσίας">παλιγγε<lb break="no"/>
+νεσίας</w><w xml:id="w1590">,</w> <w xml:id="w1591" norm="τό">τὸ</w> <w xml:id="w1592">σημαινόμενον</w><w xml:id="w1593">·</w> <w xml:id="w1594">ὅλου</w> <w xml:id="w1595" norm="γάρ">γὰρ</w> <w xml:id="w1596">τοῦ</w> <w xml:id="w1597" norm="παλαιοῦ">πα<lb break="no"/>
+λαιοῦ</w> <w xml:id="w1598">ἀπεκδιδυσκομένου</w><w xml:id="w1599">,</w> <w xml:id="w1600" norm="περιττή">περιττὴ</w> <w xml:id="w1601">ἡ</w> <w xml:id="w1602" norm="διά">διὰ</w><lb/>
+<w xml:id="w1603">τοῦ</w> <w xml:id="w1604">μέρους</w> <w xml:id="w1605">σημασία</w><w xml:id="w1606">·</w> <w xml:id="w1607" norm="καί">καὶ</w> <w xml:id="w1608">ὥσπερ</w> <w xml:id="w1609">ἡ</w> <w xml:id="w1610" norm="κυριακή">κυριακὴ</w><pb n="386r"
+                         facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f395/3534,169,3374,4857/full/0/native.jpg"/>
+<w xml:id="w1611" norm="ἀρχή">ἀρχὴ</w> <w xml:id="w1612">κτίσεώς</w> <w xml:id="w1613">ἐστι</w> <w xml:id="w1614" norm="καί">καὶ</w> <w xml:id="w1615">παύει</w> <w xml:id="w1616" norm="τό">τὸ</w> <w xml:id="w1617">σάββατον</w><w xml:id="w1618">,</w> <w xml:id="w1619" norm="οὕτως">οὕ<lb break="no"/>
+τως</w> <w xml:id="w1620">ἡ</w> <w xml:id="w1621" norm="αὐτή">αὐτὴ</w> <w xml:id="w1622">ἀναγεννήσασα</w> <w xml:id="w1623" norm="τόν">τὸν</w> <choice>
+                        <expan><w xml:id="w1624">ἄνθρωπον</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">ανον</hi>
+                        </abbr>
+                     </choice><w xml:id="w1625">,</w> <w xml:id="w1626" norm="ἔπαυσε">ἔπαυ<lb break="no"/>
+σε</w> <w xml:id="w1627" norm="τήν">τὴν</w> <w xml:id="w1628">περιτομήν</w><w xml:id="w1629">·</w> <w xml:id="w1630">ἀμφότερα</w> <w xml:id="w1631" norm="γάρ">γὰρ</w> <w xml:id="w1632">ἐν</w> <w xml:id="w1633">τῇ</w> <w xml:id="w1634" norm="ὀγδόῃ">ὀγδό<lb break="no"/>
+ῃ</w> <w xml:id="w1635">κατώρθωται</w><w xml:id="w1636">·</w> <w xml:id="w1637" norm="καί">καὶ</w> <w xml:id="w1638">ἡ</w> <w xml:id="w1639" norm="ἀρχή">ἀρχὴ</w> <w xml:id="w1640">τῆς</w> <w xml:id="w1641">κτίσεως</w><w xml:id="w1642">·</w> <w xml:id="w1643" norm="καί">καὶ</w><lb/>
+<w xml:id="w1644">ἡ</w> <w xml:id="w1645">ἀναγέννησις</w> <w xml:id="w1646">τοῦ</w> <choice>
+                        <expan><w xml:id="w1647">ἀνθρώπου</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">ανου</hi>
+                        </abbr>
+                     </choice><w xml:id="w1648">·</w> <w xml:id="w1649" norm="διά">διὰ</w> <w xml:id="w1650">τοῦτο</w> <w xml:id="w1651">ἡ</w> <w xml:id="w1652">ὀγδόη</w> <w xml:id="w1653" norm="τό">τὸ</w><lb/>
+<w xml:id="w1654">σάββατον</w> <w xml:id="w1655">ἔλυσε</w><w xml:id="w1656">·</w> <w xml:id="w1657" norm="καί">καὶ</w> <w xml:id="w1658">οὐ</w> <w xml:id="w1659" norm="τό">τὸ</w> <w xml:id="w1660">σάββατον</w> <w xml:id="w1661" norm="τήν">τὴν</w> <w xml:id="w1662" norm="ὀγδόην">ὀ<lb break="no"/>
+γδόην</w><w xml:id="w1663">·</w> <w xml:id="w1664">ἐν</w> <w xml:id="w1665" norm="μέν">μὲν</w> <w xml:id="w1666" norm="γάρ">γὰρ</w> <w xml:id="w1667">σαββάτῳ</w> <w xml:id="w1668">περιετέμνετο</w><lb/>
+<w xml:id="w1669">ὁ</w> <choice>
+                        <expan><w xml:id="w1670">ἄνθρωπος</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">ανοσ</hi>
+                        </abbr>
+                     </choice><w xml:id="w1671">·</w> <w xml:id="w1672">ἐν</w> <w xml:id="w1673" norm="δέ">δὲ</w> <w xml:id="w1674">τῷ</w> <w xml:id="w1675">σαββάτῳ</w> <w xml:id="w1676">οὐκ</w> <w xml:id="w1677">ἤργει</w> <w xml:id="w1678">ἡ</w> <w xml:id="w1679" norm="περιτομή">πε<lb break="no"/>
+ριτομή</w><w xml:id="w1680">·</w> <w xml:id="w1681">ἡ</w> <w xml:id="w1682" norm="γάρ">γὰρ</w> <w xml:id="w1683">ὀγδόη</w> <w xml:id="w1684" norm="ἀρχή">ἀρχὴ</w> <w xml:id="w1685">οὖσα</w> <w xml:id="w1686">τῆς</w> <w xml:id="w1687" norm="ἀνακτίσεως">ἀνα<lb break="no"/>
+κτίσεως</w><w xml:id="w1688">,</w> <w xml:id="w1689">κατέπαυε</w> <w xml:id="w1690" norm="τήν">τὴν</w> <w xml:id="w1691">πρώτην</w><w xml:id="w1692">·</w> </p>
+                  <p><w xml:id="w1693" norm="ἡγοῦμαι">ἡγοῦ<lb break="no"/>
+μαι</w> <w xml:id="w1694" norm="δέ">δὲ</w> <w xml:id="w1695" norm="καί">καὶ</w> <w xml:id="w1696" norm="διά">διὰ</w> <w xml:id="w1697">τοῦτο</w> <w xml:id="w1698" norm="τήν">τὴν</w> <w xml:id="w1699" norm="περιτομήν">περιτομὴν</w> <w xml:id="w1700" norm="δεδόσθαι">δεδό<lb break="no"/>
+σθαι</w><w xml:id="w1701">·</w> </p>
+                  <p><w xml:id="w1702">τοῦ</w> <w xml:id="w1703" norm="γάρ">γὰρ</w> <w xml:id="w1704" norm="Ἀδάμ">Ἀδὰμ</w> <w xml:id="w1705">ἀκούσαντος</w><w xml:id="w1706">·</w> <w xml:id="w1707">γῆ</w> <w xml:id="w1708">εἶ</w> <w xml:id="w1709" norm="καί">καὶ</w><lb/>
+<w xml:id="w1710">εἰς</w> <w xml:id="w1711">γῆν</w> <w xml:id="w1712">ἀπελεύσῃ</w><w xml:id="w1713">,</w> <w xml:id="w1714">ἔθνησκε</w> <w xml:id="w1715" norm="καί">καὶ</w> <w xml:id="w1716">διεφθείρετο</w><lb/>
+<w xml:id="w1717" norm="τό">τὸ</w> <w xml:id="w1718">σῶμα</w><w xml:id="w1719">·</w> <w xml:id="w1720">ὅθεν</w> <w xml:id="w1721">μέρος</w> <w xml:id="w1722">τι</w> <w xml:id="w1723">τοῦ</w> <w xml:id="w1724">σώματος</w><lb/>
+<w xml:id="w1725" norm="καί">καὶ</w> <w xml:id="w1726">τοῦτο</w> <w xml:id="w1727" norm="τό">τὸ</w> <w xml:id="w1728">αἴτιον</w> <w xml:id="w1729">τῆς</w> <w xml:id="w1730">τοῦ</w> <w xml:id="w1731">σώματος</w> <w xml:id="w1732" norm="γενέσεως">γε<lb break="no"/>
+νέσεως</w> <w xml:id="w1733">προσετάχθησαν</w> <w xml:id="w1734">ἐκτιννύειν</w><w xml:id="w1735">·</w> <w xml:id="w1736" norm="προδιδασκόμενοι">προ<lb break="no"/>
+διδασκόμενοι</w> <w xml:id="w1737" norm="τήν">τὴν</w> <w xml:id="w1738">τοῦ</w> <w xml:id="w1739">ὅλου</w> <w xml:id="w1740">ἀπέκδυσιν</w><w xml:id="w1741">·</w><lb/>
+<w xml:id="w1742" norm="ἵνα">ἵν’</w> <w xml:id="w1743">ὥσπερ</w> <w xml:id="w1744">ἀποδιδόντες</w> <w xml:id="w1745" norm="τό">τὸ</w> <w xml:id="w1746" norm="κατακριθέν">κατακριθὲν</w> <w xml:id="w1747" norm="διασωθῆναι">δια<lb break="no"/>
+σωθῆναι</w> <w xml:id="w1748">δυνηθῶσι</w><w xml:id="w1749">·</w> <w xml:id="w1750" norm="καί">καὶ</w> <w xml:id="w1751">ὥσπερ</w> <w xml:id="w1752">αἱ</w> <w xml:id="w1753">θυσίαι</w><lb/>
+<w xml:id="w1754" norm="σκιαί">σκιαὶ</w> <w xml:id="w1755">ἦσαν</w> <w xml:id="w1756">τῶν</w> <w xml:id="w1757">μελλόντων</w><w xml:id="w1758">,</w> <w xml:id="w1759">οὕτως</w> <w xml:id="w1760" norm="καί">καὶ</w> <w xml:id="w1761">ἡ</w> <w xml:id="w1762">ἐκ</w><lb/>
+<w xml:id="w1763">μέρους</w> <w xml:id="w1764" norm="περιτομή">περιτομὴ</w><w xml:id="w1765">,</w> <w xml:id="w1766">τοῦ</w> <w xml:id="w1767">ὅλου</w> <w xml:id="w1768">ἦν</w> <w xml:id="w1769">σκιά</w><w xml:id="w1770">·</w> <w xml:id="w1771">τοῦτο</w><lb/>
+<w xml:id="w1772" norm="δέ">δὲ</w> <w xml:id="w1773" norm="καί">καὶ</w> <w xml:id="w1774">ἐν</w> <w xml:id="w1775">τῷ</w> <choice>
+                        <expan><w xml:id="w1776">Ἰησοῦ</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">ιου</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1777">τῷ</w> <w xml:id="w1778">τοῦ</w> <w xml:id="w1779">Ναυῆ</w><w xml:id="w1780">,</w> <w xml:id="w1781">φανερῶς</w> <w xml:id="w1782">ὁ</w> <w xml:id="w1783" norm="λόγος">λό<lb break="no"/>
+γος</w> <w xml:id="w1784">σημαίνει</w><w xml:id="w1785">·</w> </p>
+                  <p><w xml:id="w1786">τοῦ</w> <w xml:id="w1787" norm="γάρ">γὰρ</w> <choice>
+                        <expan><w xml:id="w1788">Ἰησοῦ</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">ιυ</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1789" norm="κατά">κατὰ</w> <w xml:id="w1790">πρόσταξιν</w><lb/>
+<w xml:id="w1791">τοῦ</w> <choice>
+                        <expan><w xml:id="w1792">θεοῦ</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">θυ</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1793">περιτέμνοντος</w> <w xml:id="w1794" norm="τόν">τὸν</w> <w xml:id="w1795" norm="λαόν">λαὸν</w> <w xml:id="w1796">ἐν</w> <w xml:id="w1797" norm="Γαλγάλοις">Γαλγά<lb break="no"/>
+λοις</w> <w xml:id="w1798">πέραν</w> <w xml:id="w1799">τοῦ</w> <w xml:id="w1800">Ἰορδάνου</w><w xml:id="w1801">,</w> <w xml:id="w1802">εἶπε</w> <choice>
+                        <expan><w xml:id="w1803">κύριος</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">κσ</hi>
+                        </abbr>
+                     </choice> <w xml:id="w1804">τῷ</w> <choice>
+                        <expan><w xml:id="w1805">Ἰησοῦ</w></expan>
+                        <abbr type="nomSac">
+                           <hi rend="overline">ιυ</hi>
+                        </abbr>
+                     </choice>
+                     <lb/>
+<w xml:id="w1806">υἱῷ</w> <w xml:id="w1807">Ναυῆ</w><w xml:id="w1808">·</w> <w xml:id="w1809">ἐν</w> <w xml:id="w1810">τῇ</w> <w xml:id="w1811">σήμερον</w> <w xml:id="w1812">ἡμέρᾳ</w><w xml:id="w1813">,</w> <w xml:id="w1814">ἀφεῖλον</w><lb/>
+<w xml:id="w1815" norm="τόν">τὸν</w> <w xml:id="w1816" norm="ὀνειδισμόν">ὀνειδισμὸν</w> <w xml:id="w1817">Αἰγύπτου</w> <w xml:id="w1818" norm="ἀπό">ἀφ’</w> <w xml:id="w1819">ὑμῶν</w><w xml:id="w1820">·</w> <w xml:id="w1821" norm="καί">καὶ</w> <w xml:id="w1822" norm="ἐκάλεσε">ἐ<lb break="no"/>
+κάλεσε</w> <w xml:id="w1823" norm="φησί">φησὶ</w> <w xml:id="w1824" norm="τό">τὸ</w> <w xml:id="w1825">ὄνομα</w> <w xml:id="w1826">τοῦ</w> <w xml:id="w1827">τόπου</w> <w xml:id="w1828">ἐκείνου</w><w xml:id="w1829">,</w><lb/>
+<w xml:id="w1830">Γάλγαλα</w><w xml:id="w1831">·</w> <w xml:id="w1832">εἰ</w> <w xml:id="w1833" norm="γάρ">γὰρ</w> <w xml:id="w1834">ἡ</w> <w xml:id="w1835" norm="περιτομή">περιτομὴ</w> <w xml:id="w1836">ἀφαίρεσίς</w> <w xml:id="w1837">ἐστι</w><lb/>
+<w xml:id="w1838">τῆς</w> <w xml:id="w1839">ἐν</w> <w xml:id="w1840">Αἰγύπτῳ</w> <w xml:id="w1841">γενέσεως</w><w xml:id="w1842">,</w> <w xml:id="w1843">δηλονότι</w> <w xml:id="w1844">ἡ</w> <w xml:id="w1845" norm="ἀκροβυστία">ἀκρο<pb n="386v"
+                         facs="https://gallica.bnf.fr/iiif/ark:/12148/btv1b110046334/f396/266,142,3374,4857/full/0/native.jpg"
+                         break="no"/>
+βυστία</w> <w xml:id="w1846">Αἰγυπτιακῆς</w> <w xml:id="w1847">σχέσεως</w> <w xml:id="w1848" norm="καί">καὶ</w> <w xml:id="w1849">γενέσεως</w> <w xml:id="w1850" norm="γνώρισμά">γνώ<lb break="no"/>
+ρισμά</w> <w xml:id="w1851">ἐστι</w><w xml:id="w1852">·</w> <w xml:id="w1853">τοῦτο</w> <w xml:id="w1854" norm="δέ">δὲ</w> <w xml:id="w1855">ἀφεῖλεν</w> <w xml:id="w1856">ὁ</w> <choice>
+                        <expan><w xml:id="w1857" norm="θεός">θεὸς</w></expan>
+                        <abbr type="nomSac">
+      </body>
+   </text>
+</TEI>

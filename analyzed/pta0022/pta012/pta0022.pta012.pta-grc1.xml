@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta_linguistic.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en" xmlns:m="https://pta.bbaw.de/ns">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">Epistula ad Palladium</title>
+            <author>
+               <persName key="pta0022">Athanasius Alexandrinus</persName>
+            </author>
+            <funder>Deutsche Forschungsgemeinschaft</funder>
+            <respStmt>
+               <persName xml:id="AvS">Annette von Stockhausen</persName>
+               <resp>Conversion to CTS-compliant PTA TEI. Markup of places and persons.</resp>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="JK" ref="https://orcid.org/0000-0003-2713-5207">Jan Köster</persName>
+               <resp>Word-tagging-pipeline</resp>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="spacy" ref="https://huggingface.co/latincy">spacy-nlp-model grc_dep_web_lg by Patrick J. Burns</persName>
+               <resp>Natural language processing</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Arbeitsstelle Athanasius Werke, FAU Erlangen-Nürnberg</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+            </availability>
+            <date>2018</date>
+            <idno type="PTA">pta0022.pta012</idno>
+            <idno type="TLG">tlg2035.tlg136</idno>
+            <idno type="CPG">2131</idno>
+            <idno type="Aldama"/>
+            <idno type="Pinakes-Oeuvre">5129</idno>
+            <idno type="GND">4419279-4</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <bibl xml:id="AW_II_8">
+                  <note>Critical edition (without critical apparatus; based on https://www.athanasius.theologie.uni-erlangen.de/eppall.html)</note>
+                  <title>Athanasius Werke. Band 2: Die »Apologien«. Lieferung 8: Apologia ad Constantium / Epistula ad Ioannem et Antiochum / Epistula ad Palladium / Epistula ad Dracontium / Epistula ad Afros / Tomus ad Antiochenos / Epistula ad Jovianum / Epistula Joviani ad Athanasium / Petitiones Arianorum</title>
+                  <editor>
+                     <forename>Hanns Christof</forename>
+                     <surname>Brennecke</surname>
+                  </editor>
+                  <editor>
+                     <forename>Uta</forename>
+                     <surname>Heil</surname>
+                  </editor>
+                  <editor>
+                     <forename>Annette</forename>
+                     <surname>von Stockhausen</surname>
+                  </editor>
+                  <publisher>Walter de Gruyter</publisher>
+                  <pubPlace>Berlin/New York</pubPlace>
+                  <biblScope unit="page" from="312" to="313">312–313</biblScope>
+                  <date when="2006">2006</date>
+               </bibl>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations" ana="fully-annotated fully-identified">
+            Biblical quotations are fully annotated and fully referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references" ana="fully-annotated fully-identified">
+            Other references are fully annotated and fully referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons" ana="fully-annotated partially-identified">
+            Persons are fully annotated and partially referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups" ana="fully-annotated fully-identified">
+            Groups of persons and organisations are fully annotated and fully referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places" ana="fully-annotated fully-identified">
+            Places are fully annotated and fully referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+               <p xml:id="text-analysis" ana="automatically-tagged automatically-analyzed">
+                  Words are automatically tagged and text is automatically analyzed by spacy-nlp-model <ref target="https://huggingface.co/latincy">grc_dep_web_lg (3.8.1) by Patrick J. Burns @ spacy (3.8.5)</ref>.
+               </p>
+            </interpretation>
+            <normalization>
+               <p></p>
+            </normalization>
+            <punctuation>
+               <p></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0030" notAfter="0800"/>
+            <placeName ref="https://pleiades.stoa.org/places/XXXXX">
+                    placeName missing
+                </placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>
+                        Genre missing
+                    </term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>critical-edition-no-app</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2026-03-31" who="#JK #spacy">Text analysis added</change>
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2019-12-17" who="#AvS">
+                Updated file to comply with version 1.2 of
+                <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2018-11-02" who="#AvS">Converted to PTA/CapiTainS</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="praefatio" xml:lang="deu">
+            <p>Zu Datierung und Authentizität vgl. ep.Io.Ant. Obwohl beide Briefe nach Jerusalem adressiert sind, in die letzten Lebensjahre des Athanasius fallen und Basilius von Caesarea eine Rolle spielt, haben sie unterschiedliche Anlässe. Adressat dieses Schreibens ist der in Bas., ep. 258f. bezeugte kappadokische Presbyter oder Mönch Palladius, der sich bei dem Mönch Innocentius in Jerusalem (vgl. auch Pall., hist.Laus. 44) aufhält. In der Epistula ad Palladium geht es um einen Autoritätskonflikt zwischen dem Bischof Basilius und Mönchen im kappadokischen Caesarea. Athanasius, der sich selbst bereits durch Briefe für die bischöfliche Autorität des Basilius eingesetzt hatte, fordert Palladius auf, dasselbe zu tun.
+                </p>
+         </div>
+         <div type="edition"
+              xml:lang="grc"
+              n="urn:cts:pta:pta0022.pta012.pta-grc1">
+            <head>
+               <title><w xml:id="w1" lemma="τοῦ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Masc,Neut|Number=Sing|PronType=Art" m:dep="det" m:anc="w1">Τοῦ</w> <w xml:id="w2" lemma="αὐτός" pos="ADJ" msd="Case=Gen|Gender=Masc|Number=Sing" m:dep="ROOT">αὐτοῦ</w></title>
+            </head>
+            <div type="textpart" subtype="section" n="pr">
+               <p><w xml:id="w3" lemma="ἀγαπητός" pos="ADJ" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="nmod" m:anc="w3">Ἀγαπητῷ</w> <w xml:id="w4" lemma="υἱός" pos="NOUN" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="obl" m:anc="w3">υἱῷ</w>
+                        <persName key="PTA_P00018"><w xml:id="w5" lemma="Παλλαδῖος" pos="PROPN" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="nmod" m:anc="w3">Παλλαδίῳ</w></persName>
+                        <w xml:id="w6" lemma="πρεσβότερυς" pos="ADJ" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="amod" m:anc="w3">πρεσβυτέρῳ</w>
+                        <persName key="PTA_P00015"><w xml:id="w7" lemma="Ἀθανάσιος" pos="PROPN" msd="Case=Nom|Gender=Masc|Number=Sing" m:dep="acl" m:anc="w3">Ἀθανάσιος</w></persName>
+                        <w xml:id="w8" lemma="ὁ" pos="DET" msd="Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Dem" m:dep="det" m:anc="w3">ὁ</w> <w xml:id="w9" lemma="ἐπίσκοπος" pos="NOUN" msd="Case=Nom|Gender=Masc|Number=Sing" m:dep="appos" m:anc="w3">ἐπίσκοπος</w> <w xml:id="w10" lemma="ἐν" pos="ADP" m:dep="case" m:anc="w3">ἐν</w> <w xml:id="w11" lemma="κύριος" pos="NOUN" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="nmod" m:anc="w3">κυρίῳ</w> <w xml:id="w12" lemma="χαίρω" pos="VERB" msd="Tense=Pres|VerbForm=Inf|Voice=Act" m:dep="ROOT">χαίρειν</w><w xml:id="w13" pos="PUNCT" m:dep="punct" m:anc="w3">.</w>
+                    </p>
+            </div>
+            <div type="textpart" subtype="section" n="1">
+               <p><w xml:id="w14" norm="καί" lemma="καί" pos="ADV" m:dep="advmod" m:anc="w14">Καὶ</w> <w xml:id="w15" norm="τήν" lemma="ὁ" pos="DET" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="det" m:anc="w14">τὴν</w> <w xml:id="w16" norm="παρά" lemma="παρά" pos="ADP" m:dep="case" m:anc="w14">παρὰ</w> <w xml:id="w17" lemma="σύ" pos="PRON" msd="Case=Gen|Gender=Masc|Number=Sing|Person=2|PronType=Prs" m:dep="nmod" m:anc="w14">σοῦ</w> <w xml:id="w18" lemma="μόνος" pos="ADJ" msd="Case=Gen|Gender=Masc|Number=Sing" m:dep="xcomp" m:anc="w14">μόνου</w> <w xml:id="w19" lemma="γραφεῖσαν" pos="VERB" msd="Case=Acc|Gender=Fem|Number=Sing|Tense=Past|VerbForm=Part|Voice=Pass" m:dep="acl" m:anc="w14">γραφεῖσαν</w> <w xml:id="w20" norm="ἐπιστολήν" lemma="ἐπιστολή" pos="NOUN" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="obj" m:anc="w14">ἐπιστολὴν</w> <w xml:id="w21" lemma="δέχομαι" pos="VERB" msd="Case=Nom|Gender=Masc|Number=Sing|Tense=Past|VerbForm=Part|Voice=Mid" m:dep="advcl" m:anc="w14">δεξάμενος</w> <w xml:id="w22" lemma="ἐχάρην" pos="VERB" msd="Aspect=Imp|Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Mid" m:dep="advcl" m:anc="w14">ἐχάρην</w><w xml:id="w23" pos="PUNCT" m:dep="punct" m:anc="w14">,</w> <w xml:id="w24" lemma="μάλιστα" pos="ADV" m:dep="advmod" m:anc="w14">μάλιστα</w> <w xml:id="w25" lemma="ὅτι" pos="SCONJ" m:dep="mark" m:anc="w14">ὅτι</w> <w xml:id="w26" lemma="συνήθως" pos="ADV" m:dep="nmod" m:anc="w14">συνήθως</w> <w xml:id="w27" lemma="ἔπνεες" pos="ADJ" msd="Case=Nom|Gender=Fem|Number=Plur" m:dep="vocative" m:anc="w14">ἔπνεες</w> <w xml:id="w28" lemma="ὀρθοδοξία" pos="NOUN" msd="Case=Gen|Gender=Fem|Number=Sing" m:dep="nmod" m:anc="w14">ὀρθοδοξίας</w><w xml:id="w29" pos="PUNCT" m:dep="punct" m:anc="w14">,</w> <w xml:id="w30" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w14">καὶ</w> <w xml:id="w31" norm="τήν" lemma="τήν" pos="DET" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="det" m:anc="w14">τὴν</w> <w xml:id="w32" lemma="αἰτία" pos="NOUN" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="obj" m:anc="w14">αἰτίαν</w> <w xml:id="w33" pos="PUNCT" m:dep="conj" m:anc="w14">[</w><w xml:id="w34" lemma="δέ" pos="PART" m:dep="advmod" m:anc="w14">δέ</w><w xml:id="w35" pos="PUNCT" m:dep="conj" m:anc="w14">]</w><w xml:id="w36" pos="PUNCT" m:dep="punct" m:anc="w14">,</w> <w xml:id="w37" norm="διά" lemma="διά" pos="ADP" m:dep="case" m:anc="w14">δι’</w> <w xml:id="w38" norm="ἥν" lemma="ὅς" pos="PRON" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="obl" m:anc="w14">ἣν</w> <w xml:id="w39" norm="μετά" lemma="μετά" pos="ADP" m:dep="case" m:anc="w14">μετὰ</w> <w xml:id="w40" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Masc,Neut|Number=Sing|PronType=Art" m:dep="det" m:anc="w14">τοῦ</w> <w xml:id="w41" lemma="ἀγαπητός" pos="ADJ" msd="Case=Gen|Gender=Neut|Number=Sing" m:dep="nmod" m:anc="w14">ἀγαπητοῦ</w> <w xml:id="w42" lemma="ἡμεῖς" pos="PRON" msd="Case=Gen|Number=Plur|Person=1|PronType=Prs" m:dep="nmod" m:anc="w14">ἡμῶν</w>
+                        <persName><w xml:id="w43" lemma="ἰννοκεντίου" pos="NOUN" msd="Case=Gen|Gender=Masc|Number=Sing" m:dep="obl" m:anc="w14">Ἰννοκεντίου</w></persName>
+                        <w xml:id="w44" lemma="διάγω" pos="VERB" msd="Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="advcl" m:anc="w14">διάγεις</w><w xml:id="w45" pos="PUNCT" m:dep="punct" m:anc="w14">,</w> <w xml:id="w46" lemma="οὐ" pos="ADV" m:dep="advmod" m:anc="w14">οὐ</w> <w xml:id="w47" lemma="πρῶτος" pos="ADJ" msd="Case=Acc|Gender=Neut|Number=Sing" m:dep="advmod" m:anc="w14">πρῶτον</w> <w xml:id="w48" lemma="νῦν" pos="ADV" m:dep="advmod" m:anc="w14">νῦν</w> <w xml:id="w49" norm="ἀλλά" lemma="ἀλλά" pos="CCONJ" m:dep="cc" m:anc="w14">ἀλλ’</w> <w xml:id="w50" lemma="ἔκπαλαι" pos="VERB" msd="Aspect=Perf|Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin|Voice=Mid" m:dep="conj" m:anc="w14">ἔκπαλαι</w> <w xml:id="w51" norm="μαθών" lemma="μανθάνω" pos="VERB" msd="Case=Nom|Gender=Masc|Number=Sing|Tense=Past|VerbForm=Part|Voice=Act" m:dep="advcl" m:anc="w14">μαθὼν</w> <w xml:id="w52" lemma="ἀπεδεξάμην" pos="VERB" msd="Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Mid" m:dep="ROOT">ἀπεδεξάμην</w> <w xml:id="w53" lemma="σύ" pos="PRON" msd="Case=Gen|Gender=Masc|Number=Sing" m:dep="nmod" m:anc="w14">σου</w> <w xml:id="w54" norm="τήν" lemma="τήν" pos="DET" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="det" m:anc="w14">τὴν</w> <w xml:id="w55" lemma="εὐλάβεια" pos="NOUN" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="obj" m:anc="w14">εὐλάβειαν</w><w xml:id="w56" pos="PUNCT" m:dep="punct" m:anc="w14">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <p><w xml:id="w57" lemma="οὕτως" pos="ADV" m:dep="advmod" m:anc="w57">οὕτω</w> <w xml:id="w58" lemma="τοίνυν" pos="PART" m:dep="discourse" m:anc="w57">τοίνυν</w> <w xml:id="w59" lemma="πράττω" pos="VERB" msd="Case=Nom|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part|Voice=Act" m:dep="advcl" m:anc="w57">πράττων</w> <w xml:id="w60" lemma="γράφω" pos="VERB" msd="Mood=Imp|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="ROOT">γράφε</w> <w xml:id="w61" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w57">καὶ</w> <w xml:id="w62" lemma="γνώριζε" pos="VERB" msd="Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="conj" m:anc="w57">γνώριζε</w> <w xml:id="w63" lemma="ἡμεῖς" pos="PRON" msd="Case=Dat|Gender=Fem,Masc|Number=Plur|Person=1|PronType=Prs" m:dep="iobj" m:anc="w57">ἡμῖν</w> <w xml:id="w64" lemma="πῶς" pos="ADV" msd="PronType=Int" m:dep="advmod" m:anc="w57">πῶς</w> <w xml:id="w65" lemma="ὁ" pos="DET" msd="Case=Nom|Definite=Def|Gender=Masc|Number=Plur|PronType=Dem" m:dep="det" m:anc="w57">οἱ</w> <w xml:id="w66" lemma="ἐκεῖ" pos="ADV" m:dep="advmod" m:anc="w57">ἐκεῖ</w> <w xml:id="w67" norm="ἀδελφοί" lemma="ἀδελφός" pos="NOUN" msd="Case=Voc|Gender=Masc|Number=Plur" m:dep="vocative" m:anc="w57">ἀδελφοὶ</w> <w xml:id="w68" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w57">καὶ</w> <w xml:id="w69" lemma="πῶς" pos="ADV" msd="PronType=Int" m:dep="advmod" m:anc="w57">πῶς</w> <w xml:id="w70" lemma="ὁ" pos="DET" msd="Case=Nom|Definite=Def|Gender=Masc|Number=Plur|PronType=Dem" m:dep="det" m:anc="w57">οἱ</w> <w xml:id="w71" norm="ἐχθροί" lemma="ἐχθρός" pos="ADJ" msd="Case=Nom|Gender=Masc|Number=Plur" m:dep="nsubj" m:anc="w57">ἐχθροὶ</w> <w xml:id="w72" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w57">τῆς</w> <w xml:id="w73" lemma="ἀλήθεια" pos="NOUN" msd="Case=Gen|Gender=Fem|Number=Sing" m:dep="nmod" m:anc="w57">ἀληθείας</w> <w xml:id="w74" norm="περί" lemma="περί" pos="ADP" m:dep="case" m:anc="w57">περὶ</w> <w xml:id="w75" lemma="ἡμεῖς" pos="PRON" msd="Case=Gen|Gender=Masc|Number=Plur|Person=1|PronType=Prs" m:dep="obl" m:anc="w57">ἡμῶν</w> <w xml:id="w76" lemma="διανοοῦμι" pos="VERB" msd="Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass" m:dep="conj" m:anc="w57">διανοοῦνται</w><w xml:id="w77" pos="PUNCT" m:dep="punct" m:anc="w57">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <p><w xml:id="w78" norm="ἐπειδή" lemma="ἐπειδή" pos="SCONJ" m:dep="mark" m:anc="w78">ἐπειδὴ</w> <w xml:id="w79" norm="δέ" lemma="δέ" pos="ADV" m:dep="discourse" m:anc="w78">δὲ</w> <w xml:id="w80" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w78">καὶ</w> <w xml:id="w81" norm="περί" lemma="περί" pos="ADP" m:dep="case" m:anc="w78">περὶ</w> <w xml:id="w82" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Masc|Number=Plur|PronType=Dem" m:dep="det" m:anc="w78">τῶν</w> <w xml:id="w83" lemma="μονάζω" pos="VERB" msd="Case=Gen|Gender=Masc|Number=Plur|Tense=Pres|VerbForm=Part|Voice=Act" m:dep="obl" m:anc="w78">μοναζόντων</w> <w xml:id="w84" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Masc|Number=Plur|PronType=Dem" m:dep="det" m:anc="w78">τῶν</w> <w xml:id="w85" lemma="ἐν" pos="ADP" m:dep="case" m:anc="w78">ἐν</w>
+                        <placeName ref="https://pleiades.stoa.org/places/629035"><w xml:id="w86" lemma="καισαρείᾳ" pos="NOUN" msd="Case=Dat|Gender=Fem|Number=Sing" m:dep="nmod" m:anc="w78">Καισαρείᾳ</w></placeName>
+                        <w xml:id="w87" lemma="ἐδήλωσας" pos="VERB" msd="Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="advmod" m:anc="w78">ἐδήλωσας</w> <w xml:id="w88" pos="PUNCT" m:dep="punct" m:anc="w78">–</w> <w xml:id="w89" lemma="μανθάνω" pos="VERB" msd="Aspect=Perf|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="advcl" m:anc="w78">ἔμαθον</w> <w xml:id="w90" norm="δέ" lemma="δέ" pos="ADV" m:dep="discourse" m:anc="w78">δὲ</w> <w xml:id="w91" norm="παρά" lemma="παρά" pos="ADP" m:dep="case" m:anc="w78">παρὰ</w> <w xml:id="w92" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Masc,Neut|Number=Sing|PronType=Art" m:dep="det" m:anc="w78">τοῦ</w> <w xml:id="w93" lemma="ἀγαπητός" pos="ADJ" msd="Case=Gen|Gender=Neut|Number=Sing" m:dep="obl" m:anc="w78">ἀγαπητοῦ</w> <w xml:id="w94" lemma="ἡμεῖς" pos="PRON" msd="Case=Gen|Number=Plur|Person=1|PronType=Prs" m:dep="nmod" m:anc="w78">ἡμῶν</w>
+                        <persName><w xml:id="w95" lemma="Διανίου" pos="PROPN" msd="Case=Gen|Gender=Masc|Number=Sing" m:dep="appos" m:anc="w78">Διανίου</w></persName><w xml:id="w96" lemma="–" pos="ADJ" msd="Case=Gen|Gender=Fem,Masc,Neut|Number=Plur" m:dep="xcomp" m:anc="w78">–</w><w xml:id="w97" pos="PUNCT" m:dep="punct" m:anc="w78">,</w> <w xml:id="w98" lemma="ὡς" pos="SCONJ" m:dep="advmod" m:anc="w78">ὡς</w> <w xml:id="w99" lemma="λυπουμένων" pos="VERB" msd="Case=Gen|Gender=Masc|Number=Plur|Tense=Pres|VerbForm=Part|Voice=Mid" m:dep="advcl" m:anc="w78">λυπουμένων</w> <w xml:id="w100" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w78">καὶ</w> <w xml:id="w101" lemma="ἀνθισταμένων" pos="VERB" msd="Case=Gen|Gender=Masc|Number=Plur|Tense=Pres|VerbForm=Part|Voice=Mid" m:dep="conj" m:anc="w78">ἀνθισταμένων</w> <w xml:id="w102" lemma="αὐτός" pos="PRON" msd="Case=Gen|Gender=Masc|Number=Plur|Person=3|PronType=Prs" m:dep="obj" m:anc="w78">αὐτῶν</w> <w xml:id="w103" lemma="ὁ" pos="DET" msd="Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Dem" m:dep="det" m:anc="w78">τῷ</w> <w xml:id="w104" lemma="ἀγαπητός" pos="ADJ" msd="Case=Dat|Gender=Masc,Neut|Number=Sing" m:dep="nmod" m:anc="w78">ἀγαπητῷ</w> <w xml:id="w105" lemma="ἡμεῖς" pos="PRON" msd="Case=Gen|Gender=Masc|Number=Plur|Person=1|PronType=Prs" m:dep="nmod" m:anc="w78">ἡμῶν</w>
+                        <persName key="PTA_P00012"><w xml:id="w106" lemma="Βασιλείῳ" pos="PROPN" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="nmod" m:anc="w78">Βασιλείῳ</w></persName>
+                        <w xml:id="w107" lemma="ὁ" pos="DET" msd="Case=Dat|Definite=Def|Gender=Masc,Neut|Number=Sing|PronType=Art" m:dep="det" m:anc="w78">τῷ</w> <w xml:id="w108" lemma="ἐπισκόπος" pos="NOUN" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="obl" m:anc="w78">ἐπισκόπῳ</w><w xml:id="w109" pos="PUNCT" m:dep="punct" m:anc="w78">,</w> <w xml:id="w110" norm="σέ" lemma="σύ" pos="PRON" msd="Case=Acc|Gender=Masc|Number=Sing" m:dep="obj" m:anc="w78">σὲ</w> <w xml:id="w111" norm="μέν" lemma="μέν" pos="PART" m:dep="advmod" m:anc="w78">μὲν</w> <w xml:id="w112" lemma="ἀπεδεξάμην" pos="VERB" msd="Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Mid" m:dep="ROOT">ἀπεδεξάμην</w> <w xml:id="w113" lemma="δηλώσαντα" pos="VERB" msd="Case=Acc|Gender=Masc|Number=Sing|Tense=Past|VerbForm=Part|Voice=Act" m:dep="advcl" m:anc="w78">δηλώσαντα</w><w xml:id="w114" pos="PUNCT" m:dep="punct" m:anc="w78">,</w> <w xml:id="w115" lemma="αὐτός" pos="PRON" msd="Case=Dat|Gender=Masc|Number=Plur" m:dep="iobj" m:anc="w78">αὐτοῖς</w> <w xml:id="w116" norm="δέ" lemma="δέ" pos="PART" m:dep="cc" m:anc="w78">δὲ</w> <w xml:id="w117" norm="τά" lemma="τά" pos="DET" msd="Case=Acc|Gender=Neut|Number=Plur" m:dep="nsubj" m:anc="w78">τὰ</w> <w xml:id="w118" lemma="πρέποντα" pos="ADJ" msd="Case=Acc|Gender=Neut|Number=Plur" m:dep="xcomp" m:anc="w78">πρέποντα</w> <w xml:id="w119" lemma="δεδήλωκα" pos="VERB" msd="Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Pass" m:dep="conj" m:anc="w78">δεδήλωκα</w><w xml:id="w120" pos="PUNCT" m:dep="punct" m:anc="w78">,</w> <w xml:id="w121" norm="ἵνα" lemma="ἵνα" pos="SCONJ" m:dep="mark" m:anc="w78">ἵν’</w> <w xml:id="w122" lemma="ὡς" pos="ADV" m:dep="mark" m:anc="w78">ὡς</w> <w xml:id="w123" lemma="τέκνον" pos="NOUN" msd="Case=Acc|Gender=Neut|Number=Plur" m:dep="obj" m:anc="w78">τέκνα</w> <w xml:id="w124" lemma="ὑπακούωσι" pos="VERB" msd="Aspect=Perf|Mood=Sub|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="advcl" m:anc="w78">ὑπακούωσι</w> <w xml:id="w125" norm="πατρί" lemma="πατήρ" pos="NOUN" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="iobj" m:anc="w78">πατρὶ</w> <w xml:id="w126" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w78">καὶ</w> <w xml:id="w127" norm="μή" lemma="μή" pos="ADV" m:dep="advmod" m:anc="w78">μὴ</w> <w xml:id="w128" lemma="ἀντιλέγω" pos="VERB" msd="Mood=Sub|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="conj" m:anc="w78">ἀντιλέγωσιν</w><w xml:id="w129" pos="PUNCT" m:dep="punct" m:anc="w78">,</w> <w xml:id="w130" lemma="ὅς" pos="PRON" msd="Case=Dat|Gender=Masc|Number=Plur" m:dep="obj" m:anc="w78">οἷς</w> <w xml:id="w131" norm="αὐτός" lemma="αὐτός" pos="ADJ" msd="Case=Nom|Gender=Masc|Number=Sing" m:dep="nsubj" m:anc="w78">αὐτὸς</w> <w xml:id="w132" lemma="δοκιμάζω" pos="VERB" msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="conj" m:anc="w78">δοκιμάζει</w><w xml:id="w133" pos="PUNCT" m:dep="punct" m:anc="w78">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
+               <p><w xml:id="w134" lemma="εἰ" pos="SCONJ" m:dep="mark" m:anc="w134">εἰ</w> <w xml:id="w135" norm="μέν" lemma="μέν" pos="ADV" m:dep="advmod" m:anc="w134">μὲν</w> <w xml:id="w136" norm="γάρ" lemma="γάρ" pos="ADV" m:dep="advmod" m:anc="w134">γὰρ</w> <w xml:id="w137" lemma="ὕποπτος" pos="ADJ" msd="Case=Nom|Gender=Masc|Number=Sing" m:dep="advcl" m:anc="w134">ὕποπτος</w> <w xml:id="w138" lemma="εἰμί" pos="AUX" msd="Aspect=Imp|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="cop" m:anc="w134">ἦν</w> <w xml:id="w139" norm="περί" lemma="περί" pos="ADP" m:dep="case" m:anc="w134">περὶ</w> <w xml:id="w140" norm="τήν" lemma="ὁ" pos="DET" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="det" m:anc="w134">τὴν</w> <w xml:id="w141" lemma="ἀλήθεια" pos="NOUN" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="obl" m:anc="w134">ἀλήθειαν</w><w xml:id="w142" pos="PUNCT" m:dep="punct" m:anc="w134">,</w> <w xml:id="w143" lemma="καλός" pos="ADV" m:dep="advmod" m:anc="w134">καλῶς</w> <w xml:id="w144" lemma="μάχομαι" pos="VERB" msd="Aspect=Imp|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Mid" m:dep="ROOT">ἐμάχοντο</w><w xml:id="w145" pos="PUNCT" m:dep="punct" m:anc="w134">·</w> <w xml:id="w146" lemma="εἰ" pos="SCONJ" m:dep="mark" m:anc="w134">εἰ</w> <w xml:id="w147" norm="δέ" lemma="δέ" pos="PART" m:dep="cc" m:anc="w134">δὲ</w> <w xml:id="w148" lemma="τεθαρρήκασι" pos="VERB" msd="Aspect=Perf|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="advcl" m:anc="w134">τεθαρρήκασι</w><w xml:id="w149" pos="PUNCT" m:dep="punct" m:anc="w134">,</w> <w xml:id="w150" lemma="τεθαρρήκαμεν" pos="VERB" msd="Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="conj" m:anc="w134">τεθαρρήκαμεν</w> <w xml:id="w151" norm="δέ" lemma="δέ" pos="PART" m:dep="advmod" m:anc="w134">δὲ</w> <w xml:id="w152" norm="καί" lemma="καί" pos="ADV" m:dep="advmod" m:anc="w134">καὶ</w> <w xml:id="w153" lemma="πᾶς" pos="ADJ" msd="Case=Nom|Gender=Masc|Number=Plur" m:dep="nmod" m:anc="w134">πάντες</w> <w xml:id="w154" lemma="ἐγώ" pos="PRON" msd="Case=Nom|Gender=Masc|Number=Plur|Person=1|PronType=Prs" m:dep="nsubj" m:anc="w134">ἡμεῖς</w><w xml:id="w155" pos="PUNCT" m:dep="punct" m:anc="w134">,</w> <w xml:id="w156" lemma="ὡς" pos="ADV" m:dep="mark" m:anc="w134">ὡς</w> <w xml:id="w157" lemma="καύχημα" pos="NOUN" msd="Case=Nom|Gender=Neut|Number=Sing" m:dep="dep" m:anc="w134">καύχημα</w> <w xml:id="w158" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w134">τῆς</w> <w xml:id="w159" lemma="ἐκκλησία" pos="NOUN" msd="Case=Gen|Gender=Fem|Number=Sing" m:dep="nmod" m:anc="w134">ἐκκλησίας</w> <w xml:id="w160" norm="ἐστίν" lemma="εἰμί" pos="AUX" msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="cop" m:anc="w134">ἐστὶν</w> <w xml:id="w161" lemma="ἀγωνίζομαι" pos="VERB" msd="Case=Nom|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part|Voice=Mid" m:dep="advcl" m:anc="w134">ἀγωνιζόμενος</w> <w xml:id="w162" lemma="μᾶλλον" pos="ADV" msd="Degree=Cmp" m:dep="advmod" m:anc="w134">μᾶλλον</w> <w xml:id="w163" norm="ὑπέρ" lemma="ὑπέρ" pos="ADP" m:dep="ROOT">ὑπὲρ</w> <w xml:id="w164" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w134">τῆς</w> <w xml:id="w165" lemma="ἀλήθεια" pos="NOUN" msd="Case=Gen|Gender=Fem|Number=Sing" m:dep="obl" m:anc="w134">ἀληθείας</w> <w xml:id="w166" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w134">καὶ</w> <w xml:id="w167" lemma="διδάσκω" pos="VERB" msd="Case=Nom|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part|Voice=Act" m:dep="conj" m:anc="w134">διδάσκων</w> <w xml:id="w168" norm="τούς" lemma="ὁ" pos="DET" msd="Case=Acc|Gender=Masc|Number=Plur" m:dep="det" m:anc="w134">τοὺς</w> <w xml:id="w169" lemma="δεομένους" pos="VERB" msd="Case=Acc|Gender=Masc|Number=Plur|Tense=Pres|VerbForm=Part|Voice=Mid" m:dep="xcomp" m:anc="w134">δεομένους</w><w xml:id="w170" pos="PUNCT" m:dep="punct" m:anc="w134">·</w> <w xml:id="w171" lemma="οὐ" pos="ADV" m:dep="advmod" m:anc="w134">οὐ</w> <w xml:id="w172" norm="χρή" lemma="χρή" pos="VERB" msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="ROOT">χρὴ</w> <w xml:id="w173" norm="πρός" lemma="πρός" pos="ADP" m:dep="case" m:anc="w134">πρὸς</w> <w xml:id="w174" norm="τόν" lemma="ὁ" pos="DET" msd="Case=Acc|Gender=Masc|Number=Sing" m:dep="det" m:anc="w134">τὸν</w> <w xml:id="w175" lemma="τοιοῦτος" pos="ADJ" msd="Case=Acc|Gender=Masc|Number=Sing" m:dep="obl" m:anc="w134">τοιοῦτον</w> <w xml:id="w176" lemma="μάχομαι" pos="VERB" msd="Tense=Pres|VerbForm=Inf|Voice=Mid" m:dep="ccomp" m:anc="w134">μάχεσθαι</w><w xml:id="w177" pos="PUNCT" m:dep="punct" m:anc="w134">,</w> <w xml:id="w178" norm="ἀλλά" lemma="ἀλλά" pos="CCONJ" m:dep="advmod" m:anc="w134">ἀλλὰ</w> <w xml:id="w179" norm="καί" lemma="καί" pos="ADV" m:dep="advmod" m:anc="w134">καὶ</w> <w xml:id="w180" lemma="μᾶλλον" pos="ADV" m:dep="advmod" m:anc="w134">μᾶλλον</w> <w xml:id="w181" lemma="ἀποδέχομαι" pos="VERB" msd="Tense=Pres|VerbForm=Inf|Voice=Mid" m:dep="conj" m:anc="w134">ἀποδέχεσθαι</w> <w xml:id="w182" norm="τήν" lemma="ὁ" pos="DET" msd="Case=Acc|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w134">τὴν</w> <w xml:id="w183" norm="ἀγαθήν" lemma="ἀγαθός" pos="ADJ" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="amod" m:anc="w134">ἀγαθὴν</w> <w xml:id="w184" lemma="αὐτός" pos="PRON" msd="Case=Gen|Gender=Masc|Number=Sing|Person=3|PronType=Prs" m:dep="det" m:anc="w134">αὐτοῦ</w> <w xml:id="w185" lemma="συνείδησις" pos="NOUN" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="obl" m:anc="w134">συνείδησιν</w><w xml:id="w186" pos="PUNCT" m:dep="punct" m:anc="w134">.</w> <w xml:id="w187" lemma="ἐκ" pos="ADP" m:dep="case" m:anc="w134">ἐξ</w> <w xml:id="w188" lemma="ὅς" pos="PRON" msd="Case=Gen|Gender=Neut|Number=Plur" m:dep="obl" m:anc="w134">ὧν</w> <w xml:id="w189" norm="γάρ" lemma="γάρ" pos="PART" m:dep="advmod" m:anc="w134">γὰρ</w> <w xml:id="w190" lemma="διηγέομαι" pos="VERB" msd="Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Mid" m:dep="ROOT">διηγήσατο</w> <w xml:id="w191" lemma="ὁ" pos="DET" msd="Case=Nom|Gender=Masc|Number=Sing" m:dep="det" m:anc="w134">ὁ</w> <w xml:id="w192" norm="ἀγαπητός" lemma="ἀγαπητός" pos="ADJ" msd="Case=Nom|Gender=Masc|Number=Sing" m:dep="nmod" m:anc="w134">ἀγαπητὸς</w>
+                        <persName><w xml:id="w193" lemma="διάνις" pos="NOUN" msd="Case=Nom|Gender=Masc|Number=Sing" m:dep="nsubj" m:anc="w134">Διάνιος</w></persName>
+                        <w xml:id="w194" lemma="μάτην" pos="ADV" m:dep="advmod" m:anc="w134">μάτην</w> <w xml:id="w195" lemma="φαίνω" pos="VERB" msd="Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Mid" m:dep="xcomp" m:anc="w134">φαίνονται</w> <w xml:id="w196" lemma="λυπέω" pos="VERB" msd="Case=Nom|Gender=Masc|Number=Plur|Tense=Pres|VerbForm=Part|Voice=Mid" m:dep="advcl" m:anc="w134">λυπούμενοι</w><w xml:id="w197" pos="PUNCT" m:dep="punct" m:anc="w134">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="5">
+               <p><w xml:id="w198" norm="αὐτός" lemma="αὐτός" pos="ADJ" msd="Case=Nom|Gender=Masc|Number=Sing" m:dep="xcomp" m:anc="w198">αὐτὸς</w> <w xml:id="w199" norm="μέν" lemma="μέν" pos="PART" m:dep="advmod" m:anc="w198">μὲν</w> <w xml:id="w200" lemma="γάρ" pos="PART" m:dep="advmod" m:anc="w198">γάρ</w><w xml:id="w201" pos="PUNCT" m:dep="punct" m:anc="w198">,</w> <w xml:id="w202" lemma="ὡς" pos="ADV" m:dep="mark" m:anc="w198">ὡς</w> <w xml:id="w203" lemma="τεθάρρηκα" pos="VERB" msd="Aspect=Perf|Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="advcl" m:anc="w198">τεθάρρηκα</w><w xml:id="w204" pos="PUNCT" m:dep="punct" m:anc="w198">,</w>
+                        <seg type="allusion"><w xml:id="w205" lemma="ὁ" pos="DET" msd="Case=Dat|Gender=Masc|Number=Plur" m:dep="det" m:anc="w198">τοῖς</w> <w xml:id="w206" lemma="ἀσθενέω" pos="VERB" msd="Case=Dat|Gender=Masc|Number=Plur|Tense=Pres|VerbForm=Part|Voice=Act" m:dep="xcomp" m:anc="w198">ἀσθενοῦσιν</w> <w xml:id="w207" norm="ἀσθενής" lemma="ἀσθενής" pos="ADJ" msd="Case=Nom|Gender=Fem|Number=Sing" m:dep="xcomp" m:anc="w198">ἀσθενὴς</w> <w xml:id="w208" lemma="γίγνομαι" pos="VERB" msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Mid" m:dep="ROOT">γίνεται</w><w xml:id="w209" pos="PUNCT" m:dep="punct" m:anc="w198">,</w> <w xml:id="w210" lemma="ἵνα" pos="SCONJ" m:dep="mark" m:anc="w198">ἵνα</w> <w xml:id="w211" norm="τούς" lemma="ὁ" pos="DET" msd="Case=Acc|Gender=Masc|Number=Plur" m:dep="det" m:anc="w198">τοὺς</w> <w xml:id="w212" lemma="ἀσθενής" pos="ADJ" msd="Case=Acc|Gender=Masc|Number=Plur" m:dep="obj" m:anc="w198">ἀσθενεῖς</w> <w xml:id="w213" lemma="κερδήσῃ" pos="VERB" msd="Mood=Sub|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="advcl" m:anc="w198">κερδήσῃ</w><w xml:id="w214" pos="PUNCT" m:dep="punct" m:anc="w198">·</w><ref decls="#biblical" cRef="NA:1Cor:9:22"/>
+                  </seg>
+                        <w xml:id="w215" lemma="ὁ" pos="DET" msd="Case=Nom|Gender=Masc|Number=Plur" m:dep="det" m:anc="w198">οἱ</w> <w xml:id="w216" norm="δέ" lemma="δέ" pos="ADV" m:dep="advmod" m:anc="w198">δὲ</w> <w xml:id="w217" norm="ἀγαπητοί" lemma="ἀγαπητός" pos="ADJ" msd="Case=Voc|Gender=Masc|Number=Plur" m:dep="advmod" m:anc="w198">ἀγαπητοὶ</w> <w xml:id="w218" lemma="ἡμεῖς" pos="PRON" msd="Case=Gen|Gender=Masc|Number=Plur|Person=1|PronType=Prs" m:dep="nmod" m:anc="w198">ἡμῶν</w> <w xml:id="w219" lemma="ἀποβλέπω" pos="VERB" msd="Case=Nom|Gender=Masc|Number=Plur|Tense=Pres|VerbForm=Part|Voice=Act" m:dep="ROOT">ἀποβλέποντες</w> <w xml:id="w220" lemma="εἰς" pos="ADP" m:dep="case" m:anc="w198">εἰς</w> <w xml:id="w221" norm="τόν" lemma="τόν" pos="DET" msd="Case=Acc|Definite=Def|Gender=Masc|Number=Sing|PronType=Dem" m:dep="det" m:anc="w198">τὸν</w> <w xml:id="w222" norm="σκοπόν" lemma="σκοπός" pos="NOUN" msd="Case=Acc|Gender=Masc|Number=Sing" m:dep="obl" m:anc="w198">σκοπὸν</w> <w xml:id="w223" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w198">τῆς</w> <w xml:id="w224" lemma="ἀλήθεια" pos="NOUN" msd="Case=Gen|Gender=Fem|Number=Sing" m:dep="nmod" m:anc="w198">ἀληθείας</w> <w xml:id="w225" lemma="αὐτός" pos="PRON" msd="Case=Gen|Gender=Masc|Number=Sing|Person=3|PronType=Prs" m:dep="det" m:anc="w198">αὐτοῦ</w> <w xml:id="w226" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w198">καὶ</w> <w xml:id="w227" norm="τήν" lemma="τήν" pos="DET" msd="Case=Acc|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w198">τὴν</w> <w xml:id="w228" lemma="οἰκονομία" pos="NOUN" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="obj" m:anc="w198">οἰκονομίαν</w> <w xml:id="w229" lemma="δοξαζέτωσαν" pos="VERB" msd="Mood=Imp|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="conj" m:anc="w198">δοξαζέτωσαν</w> <w xml:id="w230" norm="τόν" lemma="τόν" pos="DET" msd="Case=Acc|Definite=Def|Gender=Masc|Number=Sing|PronType=Dem" m:dep="det" m:anc="w198">τὸν</w> <w xml:id="w231" lemma="κύριος" pos="NOUN" msd="Case=Acc|Gender=Masc|Number=Sing" m:dep="obj" m:anc="w198">κύριον</w> <w xml:id="w232" norm="τόν" lemma="τόν" pos="DET" msd="Case=Acc|Definite=Def|Gender=Masc|Number=Sing|PronType=Dem" m:dep="det" m:anc="w198">τὸν</w> <w xml:id="w233" lemma="δεδωκότα" pos="VERB" msd="Aspect=Perf|Case=Acc|Gender=Masc|Number=Sing|Tense=Past|VerbForm=Part|Voice=Act" m:dep="nmod" m:anc="w198">δεδωκότα</w> <w xml:id="w234" lemma="ὁ" pos="DET" msd="Case=Dat|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w198">τῇ</w>
+                        <placeName ref="https://pleiades.stoa.org/places/628949"><w xml:id="w235" lemma="καππαδοκίᾳ" pos="NOUN" msd="Case=Dat|Gender=Fem|Number=Sing" m:dep="obl" m:anc="w198">Καππαδοκίᾳ</w></placeName>
+                        <w xml:id="w236" lemma="τοιοῦτος" pos="ADJ" msd="Case=Acc|Gender=Masc|Number=Sing" m:dep="nmod" m:anc="w198">τοιοῦτον</w> <w xml:id="w237" lemma="ἐπίσκοπος" pos="NOUN" msd="Case=Acc|Gender=Masc|Number=Sing" m:dep="obj" m:anc="w198">ἐπίσκοπον</w><w xml:id="w238" pos="PUNCT" m:dep="punct" m:anc="w198">,</w> <w xml:id="w239" lemma="οἷος" pos="ADJ" msd="Case=Acc|Gender=Neut|Number=Sing" m:dep="advmod" m:anc="w198">οἷον</w> <w xml:id="w240" norm="καί" lemma="καί" pos="CCONJ" m:dep="advmod" m:anc="w198">καὶ</w> <w xml:id="w241" lemma="ἕκαστος" pos="ADJ" msd="Case=Nom|Gender=Fem|Number=Sing" m:dep="nmod" m:anc="w198">ἑκάστη</w> <w xml:id="w242" lemma="χώρα" pos="NOUN" msd="Case=Nom|Gender=Fem|Number=Sing" m:dep="obj" m:anc="w198">χώρα</w> <w xml:id="w243" lemma="ἔχω" pos="VERB" msd="Tense=Pres|VerbForm=Inf|Voice=Act" m:dep="xcomp" m:anc="w198">ἔχειν</w> <w xml:id="w244" lemma="εὔχομαι" pos="VERB" msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Mid" m:dep="acl" m:anc="w198">εὔχεται</w><w xml:id="w245" pos="PUNCT" m:dep="punct" m:anc="w198">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="6">
+               <p>
+                        <w xml:id="w246" norm="καί" lemma="καί" pos="ADV" m:dep="advmod" m:anc="w246">καὶ</w> <w xml:id="w247" norm="σύ" lemma="σύ" pos="PRON" msd="Case=Nom|Number=Sing" m:dep="nsubj" m:anc="w246">σὺ</w> <w xml:id="w248" lemma="οὖν" pos="ADV" m:dep="advmod" m:anc="w246">οὖν</w><w xml:id="w249" pos="PUNCT" m:dep="punct" m:anc="w246">,</w> <w xml:id="w250" lemma="ἀγαπητέ" pos="VERB" msd="Mood=Imp|Number=Plur|Person=2|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="vocative" m:anc="w246">ἀγαπητέ</w><w xml:id="w251" pos="PUNCT" m:dep="punct" m:anc="w246">,</w> <w xml:id="w252" lemma="θέλησον" pos="VERB" msd="Aspect=Perf|Mood=Imp|Number=Sing|Person=2|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="ROOT">θέλησον</w> <w xml:id="w253" lemma="αὐτός" pos="PRON" msd="Case=Dat|Gender=Masc|Number=Plur" m:dep="iobj" m:anc="w246">αὐτοῖς</w> <w xml:id="w254" lemma="δηλῶσαι" pos="VERB" msd="Tense=Past|VerbForm=Inf|Voice=Act" m:dep="xcomp" m:anc="w246">δηλῶσαι</w><w xml:id="w255" pos="PUNCT" m:dep="punct" m:anc="w246">,</w> <w xml:id="w256" lemma="ἵνα" pos="SCONJ" m:dep="mark" m:anc="w246">ἵνα</w><w xml:id="w257" pos="PUNCT" m:dep="punct" m:anc="w246">,</w> <w xml:id="w258" lemma="ὡς" pos="SCONJ" m:dep="mark" m:anc="w246">ὡς</w> <w xml:id="w259" lemma="γράφω" pos="VERB" msd="Aspect=Perf|Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act" m:dep="advcl" m:anc="w246">ἔγραψα</w><w xml:id="w260" pos="PUNCT" m:dep="punct" m:anc="w246">,</w> <w xml:id="w261" lemma="πεισθῶσι" pos="VERB" msd="Mood=Sub|Number=Sing|Person=2|Tense=Past|VerbForm=Fin|Voice=Pass" m:dep="ccomp" m:anc="w246">πεισθῶσι</w><w xml:id="w262" pos="PUNCT" m:dep="punct" m:anc="w246">.</w> <w xml:id="w263" lemma="οὗτος" pos="PRON" msd="Case=Acc|Gender=Neut|Number=Sing" m:dep="obj" m:anc="w246">τοῦτο</w> <w xml:id="w264" norm="γάρ" lemma="γάρ" pos="ADV" m:dep="advmod" m:anc="w246">γὰρ</w> <w xml:id="w265" norm="καί" lemma="καί" pos="ADV" m:dep="cc" m:anc="w246">καὶ</w> <w xml:id="w266" norm="αὐτούς" lemma="αὐτός" pos="PRON" msd="Case=Acc|Gender=Masc|Number=Plur|Person=3|PronType=Prs" m:dep="obj" m:anc="w246">αὐτοὺς</w> <w xml:id="w267" lemma="συνίστημι" pos="VERB" msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="ROOT">συνίστησιν</w> <w xml:id="w268" lemma="εὐγνώμων" pos="ADJ" msd="Case=Acc|Gender=Masc|Number=Plur" m:dep="amod" m:anc="w246">εὐγνώμονας</w> <w xml:id="w269" norm="πρός" lemma="πρός" pos="ADP" m:dep="case" m:anc="w246">πρὸς</w> <w xml:id="w270" lemma="πατήρ" pos="NOUN" msd="Case=Acc|Gender=Masc|Number=Sing" m:dep="obl" m:anc="w246">πατέρα</w><w xml:id="w271" pos="PUNCT" m:dep="punct" m:anc="w246">·</w> <w xml:id="w272" lemma="οὗτος" pos="PRON" msd="Case=Acc|Gender=Neut|Number=Sing" m:dep="obl" m:anc="w246">τοῦτο</w> <w xml:id="w273" norm="καί" lemma="καί" pos="CCONJ" m:dep="cc" m:anc="w246">καὶ</w> <w xml:id="w274" norm="τήν" lemma="τήν" pos="DET" msd="Case=Acc|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w246">τὴν</w> <w xml:id="w275" lemma="εἰρήνη" pos="NOUN" msd="Case=Acc|Gender=Fem|Number=Sing" m:dep="obj" m:anc="w246">εἰρήνην</w> <w xml:id="w276" lemma="ὁ" pos="DET" msd="Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Dem" m:dep="det" m:anc="w246">τῆς</w> <w xml:id="w277" lemma="ἐκκλησία" pos="NOUN" msd="Case=Gen|Gender=Fem|Number=Sing" m:dep="nmod" m:anc="w246">ἐκκλησίας</w> <w xml:id="w278" lemma="διαφυλάττω" pos="VERB" msd="Mood=Imp|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act" m:dep="ROOT">διαφυλάττει</w><w xml:id="w279" pos="PUNCT" m:dep="punct" m:anc="w246">.</w>
+                    </p>
+            </div>
+            <div type="textpart" subtype="section" n="7">
+               <p><w xml:id="w280" lemma="ἐρρῶσθαί" pos="VERB" msd="Aspect=Perf|Tense=Past|VerbForm=Inf|Voice=Mid" m:dep="ccomp" m:anc="w280">ἐρρῶσθαί</w> <w xml:id="w281" lemma="σύ" pos="PRON" msd="Case=Acc|Gender=Fem,Masc|Number=Sing|Person=2|PronType=Prs" m:dep="nsubj" m:anc="w280">σε</w> <w xml:id="w282" lemma="ἐν" pos="ADP" m:dep="case" m:anc="w280">ἐν</w> <w xml:id="w283" lemma="κύριος" pos="NOUN" msd="Case=Dat|Gender=Masc|Number=Sing" m:dep="obl" m:anc="w280">κυρίῳ</w> <w xml:id="w284" lemma="εὔχομαι" pos="VERB" msd="Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin|Voice=Mid" m:dep="ROOT">εὔχομαι</w> <w xml:id="w285" norm="ἀγαπητέ" lemma="ἀγαπητέ" pos="VERB" msd="Aspect=Perf|Mood=Imp|Number=Plur|Person=2|Tense=Past|VerbForm=Fin|Voice=Pass" m:dep="vocative" m:anc="w280">ἀγαπητὲ</w> <w xml:id="w286" lemma="υἱός" pos="NOUN" msd="Case=Voc|Gender=Masc|Number=Sing" m:dep="vocative" m:anc="w280">υἱέ</w><w xml:id="w287" pos="PUNCT" m:dep="punct" m:anc="w280">.</w></p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

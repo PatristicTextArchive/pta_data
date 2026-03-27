@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en" xmlns:m="https://pta.bbaw.de/ns">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="la">In theophaniam</title>
+            <author>
+               <persName key="pta0001">Severianus
+                        Gabalensis</persName>
+            </author>
+            <respStmt>
+               <persName xml:id="DC">Daria Coșcodan</persName>
+               <resp>Digitisation</resp>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="AvS">Annette von
+                        Stockhausen</persName>
+               <resp>Conversion to CTS-compliant PTA TEI.</resp>
+            </respStmt>
+            <respStmt>
+               <persName xml:id="JK" ref="https://orcid.org/0000-0003-2713-5207">Jan Köster</persName>
+               <resp>Word-tagging-pipeline</resp>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Berlin-Brandenburgische Akademie der
+                    Wissenschaften</authority>
+            <distributor>Patristic Text Archive</distributor>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons
+                        Attribution ShareAlike 4.0 International
+                        License</licence>
+            </availability>
+            <date>2019</date>
+            <idno type="PTA">pta0001.pta028</idno>
+            <idno type="TLG">tlg4139.tlg017</idno>
+            <idno type="CPG">4212</idno>
+            <idno type="BHG">1928</idno>
+            <idno type="Aldama">30</idno>
+            <idno type="Pinakes-Oeuvre">8697</idno>
+         </publicationStmt>
+         <sourceDesc>
+            <listBibl>
+               <biblStruct xml:id="Minei">
+                  <analytic>
+                     <author>
+                        <forename>Макарии</forename>
+                     </author>
+                     <title>Великие Минеи Четии</title>
+                  </analytic>
+                  <monogr>
+                     <title type="sub">Январь. Выпуск 15. Тетрадь 1. Дни 1–6</title>
+                     <imprint>
+                        <pubPlace>Москва</pubPlace>
+                        <publisher>Императорская Археографическая коммиссия</publisher>
+                        <date when="1910">1910</date>
+                        <biblScope unit="column">298–310</biblScope>
+                     </imprint>
+                  </monogr>
+               </biblStruct>
+            </listBibl>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section"
+                         matchPattern="(.+)"
+                         replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+         </refsDecl>
+         <refsDecl xml:id="biblical">
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+               <p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+               <p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+               <p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+            </cRefPattern>
+            <cRefPattern matchPattern="(.+):(.+)"
+                         replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+               <p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="pta">
+            <cRefPattern matchPattern="(.+)" replacementPattern="https://pta.bbaw.de/text/$1">
+               <p>References to PTA-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <refsDecl xml:id="perseus">
+            <cRefPattern matchPattern="(.+)"
+                         replacementPattern="https://scaife.perseus.org/reader/$1">
+               <p>References to Perseus-CTS-URNs</p>
+            </cRefPattern>
+         </refsDecl>
+         <editorialDecl>
+            <interpretation>
+               <p>
+            This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See <ref target="https://pta.bbaw.de/project/encoding-guidelines">https://pta.bbaw.de/project/encoding-guidelines</ref> and <ref target="https://doi.org/10.5281/zenodo.3737666">https://doi.org/10.5281/zenodo.3737666</ref>.
+          </p>
+               <p xml:id="biblical-quotations" ana="fully-annotated fully-identified">
+            Biblical quotations are fully annotated and fully referenced. References follow the scheme declared <ref target="#biblical">above</ref>.
+          </p>
+               <p xml:id="other-references" ana="fully-annotated fully-identified">
+            Other references are fully annotated and fully referenced. References to texts in the PTA follow the scheme declared <ref target="#pta">above (pta)</ref>, references to texts available in the <ref target="https://scaife.perseus.org/">Perseus Digital Library</ref> follow the scheme declared <ref target="#perseus">above (perseus)</ref>. If the referenced text is not available in either repository, the reference for the referenced text is given in the attribute @source in the form “Authorabbrev_Workabbrev_Location”; ancient Greek authors should be referenced according to the lists of H. G. Liddell/R. Scott/H. S. Jones, A Greek - English Lexicon, Oxford 1968 (9th edition) and G. W. H. Lampe, A Patristic Greek Lexicon, Oxford 1987 (3rd edition), for Latin ones the abbreviations of the Thesaurus Linguae Latinae (cf. Index librorum scriptorum inscriptionum ex quibus exempla afferuntur) should be used, with dots in the abbreviations deleted without replacement.
+          </p>
+               <p xml:id="persons" ana="not-annotated not-identified">
+            Persons are not annotated and not referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.
+          </p>
+               <p xml:id="groups" ana="not-annotated not-identified">
+            Groups of persons and organisations are not annotated and not referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.
+          </p>
+               <p xml:id="places" ana="not-annotated not-identified">
+            Places are not annotated and not referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.
+          </p>
+               <p xml:id="text-analysis" ana="automatically-tagged not-analyzed">
+                  Words are automatically tagged, but text is not analyzed.
+               </p>
+            </interpretation>
+            <normalization>
+               <p></p>
+            </normalization>
+            <punctuation>
+               <p></p>
+            </punctuation>
+         </editorialDecl>
+         <classDecl>
+            <taxonomy xml:id="comphistsem">
+               <bibl>
+          Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+               </bibl>
+            </taxonomy>
+            <taxonomy xml:id="editionstatus">
+               <bibl>
+          Patristic Text Archive Status of edition
+        </bibl>
+               <category xml:id="critical-edition">
+                  <catDesc>
+            Critical edition in which the text-critical variants have been encoded.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-no-app">
+                  <catDesc>
+            Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.
+          </catDesc>
+               </category>
+               <category xml:id="critical-edition-outdated">
+                  <catDesc>
+              Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.
+            </catDesc>
+               </category>
+               <category xml:id="pre-critical-edition">
+                  <catDesc>
+              Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)section
+            </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="annotationstatus">
+               <bibl>
+          Patristic Text Archive Status of annotation
+        </bibl>
+               <category xml:id="fully-annotated">
+                  <catDesc>
+            All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="partially-annotated">
+                  <catDesc>
+            Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="not-annotated">
+                  <catDesc>
+            No instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.
+          </catDesc>
+               </category>
+               <category xml:id="fully-identified">
+                  <catDesc>
+            All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+               <category xml:id="partially-identified">
+                  <catDesc>
+            Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data
+          </catDesc>
+               </category>
+               <category xml:id="not-identified">
+                  <catDesc>
+            No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.
+          </catDesc>
+               </category>
+            </taxonomy>
+            <taxonomy xml:id="analysisstatus">
+               <bibl>Patristic Text Archive Status of linguistic analysis</bibl>
+               <category xml:id="automatically-tagged">
+                  <catDesc>Words are automatically tagged.</catDesc>
+               </category>
+               <category xml:id="manually-tagged">
+                  <catDesc>Words are manually tagged.</catDesc>
+               </category>
+               <category xml:id="not-tagged">
+                  <catDesc>Words are not tagged.</catDesc>
+               </category>
+               <category xml:id="automatically-analyzed">
+                  <catDesc>Words are automatically analyzed.</catDesc>
+               </category>
+               <category xml:id="manually-analyzed">
+                  <catDesc>Words are manually analyzed.</catDesc>
+               </category>
+               <category xml:id="not-analyzed">
+                  <catDesc>Words are not analyzed.</catDesc>
+               </category>
+            </taxonomy>
+         </classDecl>
+         <schemaRef key="v3"
+                    url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+      </encodingDesc>
+      <profileDesc>
+         <creation>
+            <date notBefore="0401" notAfter="0404"/>
+            <placeName ref="https://pleiades.stoa.org/places/77402394">Constantinopolis</placeName>
+         </creation>
+         <textClass>
+            <keywords scheme="#comphistsem">
+               <term>Paraenetic</term>
+               <term>Sermon</term>
+            </keywords>
+            <keywords scheme="#editionstatus">
+               <term>pre-critical-edition</term>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc status="draft">
+         <change when="2026-03-31" who="#JK">Words tagged</change>
+         <change when="2023-05-22" who="#AvS">
+          Updated file to comply with version 3.0 of <ref target="https://github.com/PatristicTextArchive/Schema">TEI-PTA-Schema</ref>
+         </change>
+         <change when="2019-01-23" who="#AvS">Conversion to TEI
+                XML</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition"
+              xml:lang="chu"
+              n="urn:cts:pta:pta0001.pta028.pta-chu1"
+              corresp="urn:cts:pta:pta0001.pta028.pta-grcBibex">
+            <head>
+               <pb n="441"/>
+               <cb n="441b"/>
+               <title><w xml:id="w1">В</w> <w xml:id="w2">тоиⷤ</w> <w xml:id="w3">деⷩ҇</w> <w xml:id="w4">иⷤ</w> <w xml:id="w5">в</w> <w xml:id="w6">ст҃ыⷯ</w> <w xml:id="w7">ѿц҃а</w> <w xml:id="w8">нашего</w>
+                        <w xml:id="w9">І҆ѡ҆а́нна</w> <w xml:id="w10" norm="а҆рх҆їепⷭ҇па">а҆рх҆їепⷭ҇па</w> <w xml:id="w11">Костѧнтина</w> <w xml:id="w12">града</w>
+                        <w xml:id="w13">Златаоу҆́стаго</w> <w xml:id="w14">на</w> <w xml:id="w15">ст҃ое</w> <w xml:id="w16">Бг҃оꙗ҆влеⷩ҇е</w> <w xml:id="w17">сло́во</w><w xml:id="w18">.</w>
+                    </title>
+            </head>
+            <div type="textpart" subtype="section" n="1">
+               <p><w xml:id="w19">Да</w> <w xml:id="w20">ѿверзаю҆тсѧ</w> <w xml:id="w21">всѧ</w> <w xml:id="w22">оу҆ста</w> <w xml:id="w23">днⷭ҇е</w> <w xml:id="w24">къ</w>
+                        <w xml:id="w25" norm="бл҃гословїю">бл҃гословїю</w><w xml:id="w26">,</w> <w xml:id="w27">и҆</w> <w xml:id="w28">да</w> <w xml:id="w29">воспоеⷮ</w> <w xml:id="w30">всѧко</w> <w xml:id="w31">слово</w> <w xml:id="w32">иⷤ</w> <w xml:id="w33">съ</w>
+                        <w xml:id="w34">нб҃се</w> <w xml:id="w35" norm="восїавшаго">восїавшаго</w> <w xml:id="w36" norm="Бж҃їа">Бж҃їа</w> <w xml:id="w37">Сло́ва</w><w xml:id="w38">.</w> <w xml:id="w39">Всѧкъ</w>
+                        <cb n="441c"/>
+                         <w xml:id="w40">ꙗ҆зыкъ</w> <w xml:id="w41">да</w> <w xml:id="w42">вѣщаеⷮ</w><w xml:id="w43">,</w> <w xml:id="w44">всѧка</w> <w xml:id="w45">дш҃а</w> <w xml:id="w46">да</w> <w xml:id="w47">ликоствꙋеⷮ</w><w xml:id="w48">,</w>
+                        <w xml:id="w49">всѧ</w> <w xml:id="w50">землѧ</w> <w xml:id="w51">да</w> <w xml:id="w52">поеⷮ</w><w xml:id="w53">:</w> <w xml:id="w54">днⷭ҇е</w> <w xml:id="w55">бо</w> <w xml:id="w56">словеса</w> <w xml:id="w57">свѣта</w> <w xml:id="w58">сн҃ы</w>
+                        <w xml:id="w59">свѣта</w> <w xml:id="w60">ѡ҆свѣщае҆тъ</w><w xml:id="w61">.</w> <w xml:id="w62">Да</w> <w xml:id="w63">согласꙋю҆ть</w> <w xml:id="w64">съ</w> <w xml:id="w65">нбⷭ҇ными</w>
+                        <w xml:id="w66">земльнаѧ</w><w xml:id="w67">,</w> <w xml:id="w68">да</w> <w xml:id="w69">поюⷮ</w> <w xml:id="w70">с</w> <w xml:id="w71">премирными</w> <w xml:id="w72">силами</w> <w xml:id="w73">ꙗ҆же</w> <w xml:id="w74">в</w>
+                        <w xml:id="w75">мирѣ</w> <w xml:id="w76">видимаѧ</w><w xml:id="w77">:</w> <w xml:id="w78">и҆́стинѣ</w> <w xml:id="w79">бо</w> <w xml:id="w80">ꙗ҆́вльшисѧ</w> <w xml:id="w81">и҆</w> <w xml:id="w82">Цр҃ю</w>
+                        <w xml:id="w83">нбⷭ҇номꙋ</w> <w xml:id="w84">пришеⷣшоу</w><w xml:id="w85">,</w> <w xml:id="w86">всѣмь</w> <w xml:id="w87">подобаеⷮ</w> <w xml:id="w88">стещисѧ</w> <w xml:id="w89">въ</w>
+                        <w xml:id="w90" norm="ѡ҆́бщеѐ">ѡ҆́бщеѐ</w> <w xml:id="w91">Влⷣки</w> <w xml:id="w92">всѣⷯ</w> <w xml:id="w93" norm="и҆сповѣданїе">и҆сповѣданїе</w><w xml:id="w94">.</w> <w xml:id="w95">Хвⷭ҇о</w>
+                        <w xml:id="w96" norm="пришествїе">пришествїе</w> <w xml:id="w97">вселен̾нѣи</w> <w xml:id="w98">всеи</w> <w xml:id="w99" norm="бл҃годѣѧ́нїе">бл҃годѣѧ́нїе</w><w xml:id="w100">.</w>
+                        <w xml:id="w101">Хвⷭ҇о</w> <w xml:id="w102" norm="пришествїе">пришествїе</w> <w xml:id="w103">мира</w> <w xml:id="w104">всего</w> <w xml:id="w105" norm="свобожⷣенїе">свобожⷣенїе</w><w xml:id="w106">.</w> <w xml:id="w107">Хс҃</w>
+                        <w xml:id="w108">въспѣвае҆тсѧ</w><w xml:id="w109">,</w> <w xml:id="w110">и҆</w> <w xml:id="w111">миⷬ҇</w> <w xml:id="w112">ѡ҆сщ҃ае҆тсѧ</w><w xml:id="w113">.</w> <w xml:id="w114">Хс҃</w>
+                        <w xml:id="w115">проповѣдꙋе҆тсѧ</w><w xml:id="w116">,</w> <w xml:id="w117">и҆</w> <w xml:id="w118">всѧка</w> <w xml:id="w119">дш҃а</w> <w xml:id="w120">нбⷭ҇ною</w> <w xml:id="w121" norm="любовїю">любовїю</w>
+                        <w xml:id="w122">ѡ҆дѣвае҆тсѧ</w><w xml:id="w123">.</w> <w xml:id="w124">Свидѣтельствꙋеⷮ</w> <w xml:id="w125">ми</w> <w xml:id="w126">словеси</w>
+                        <w xml:id="w127">и҆скꙋсъ</w> <w xml:id="w128" norm="вещїи">вещїи</w><w xml:id="w129">.</w></p>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <p><w xml:id="w130">Вижⷣь</w> <w xml:id="w131">ми</w> <w xml:id="w132" norm="бг҃олѣпноѐ">бг҃олѣпноѐ</w> <w xml:id="w133">се</w> <w xml:id="w134">цр҃кве</w> <w xml:id="w135" norm="оу҆строе҆нїе">оу҆строе҆нїе</w><w xml:id="w136">,</w>
+                        <w xml:id="w137">вижⷣь</w> <w xml:id="w138">ми</w> <w xml:id="w139">нбⷭ҇наго</w> <w xml:id="w140">неоу҆гасимꙋ</w> <w xml:id="w141">свѣщꙋ</w><w xml:id="w142">,</w> <w xml:id="w143">вижⷣь</w>
+                        <w xml:id="w144">тѣлесное</w> <w xml:id="w145">еⷭ҇ство</w> <w xml:id="w146">ретѧщесѧ</w> <w xml:id="w147">а҆́гг҃льскомꙋ</w>
+                        <w xml:id="w148" norm="слꙋженїю">слꙋженїю</w><w xml:id="w149">.</w> <w xml:id="w150">Ѡⷮц҃ы</w> <w xml:id="w151">ѡⷮ</w> <w xml:id="w152">землѧ</w> <w xml:id="w153">сꙋще</w><w xml:id="w154">,</w> <w xml:id="w155">и҆</w> <w xml:id="w156">на</w> <w xml:id="w157">земли</w>
+                        <w xml:id="w158">живꙋще</w><w xml:id="w159">,</w> <w xml:id="w160">и҆</w> <w xml:id="w161">ѡⷮ</w> <w xml:id="w162">землѧ</w> <w xml:id="w163">питаю҆щесѧ</w><w xml:id="w164">,</w> <w xml:id="w165">небеснымъ</w>
+                        <w xml:id="w166">сопротѧꙁаю҆тсѧ</w><w xml:id="w167">:</w> <w xml:id="w168">такова</w> <w xml:id="w169">бѡ</w> <w xml:id="w170">цркви</w> <w xml:id="w171" norm="Бж҃їа">Бж҃їа</w><w xml:id="w172">.</w>
+                        <w xml:id="w173">Жительствоуе҆тъ</w> <w xml:id="w174">на</w> <w xml:id="w175">земли</w><w xml:id="w176">,</w> <w xml:id="w177">чин</w> <w xml:id="w178">же</w> <w xml:id="w179">и҆́мать</w>
+                        <w xml:id="w180">нбⷭ҇ныⷯ</w> <w xml:id="w181">вещеи</w><w xml:id="w182">.</w> <w xml:id="w183">Что</w> <w xml:id="w184">дѣло</w> <w xml:id="w185">иⷤ</w> <w xml:id="w186">на</w> <w xml:id="w187">нбⷭ҇си</w>
+                        <w xml:id="w188">а҆́гг҃ломъ</w><w xml:id="w189">;</w> <w xml:id="w190">е҆́же</w> <w xml:id="w191">Бг҃ꙋ</w> <w xml:id="w192">слꙋжити</w><w xml:id="w193">.</w> <w xml:id="w194">Что</w> <w xml:id="w195">дѣло</w> <w xml:id="w196">е҆́же</w>
+                        <w xml:id="w197">на</w> <w xml:id="w198">земли</w> <w xml:id="w199">прпⷣбныхъ</w><w xml:id="w200">;</w>
+                        <cb n="441d"/>
+                         <w xml:id="w201">е҆́же</w> <w xml:id="w202">Бг҃а</w> <w xml:id="w203">въспѣвати</w><w xml:id="w204">.</w> <w xml:id="w205">И҆хже</w> <w xml:id="w206">оу҆бо</w>
+                        <w xml:id="w207">е҆диночⷭ҇тно</w> <w xml:id="w208">и҆</w> <w xml:id="w209">достои҆ньство</w><w xml:id="w210">.</w> <w xml:id="w211">Сего</w> <w xml:id="w212">раⷣꙵ</w>
+                        <w xml:id="w213">бл҃жен҆н҆ыи</w> <w xml:id="w214">Дв҃дъ</w><w xml:id="w215">,</w> <w xml:id="w216">дх҃овнꙋю</w> <w xml:id="w217">оу҆дарѧа</w> <w xml:id="w218">цѣвницꙋ</w><w xml:id="w219">,</w>
+                        <w xml:id="w220">и҆</w> <w xml:id="w221" norm="спⷭ҇нїю">спⷭ҇нїю</w> <w xml:id="w222" norm="бг҃ословїа">бг҃ословїа</w> <w xml:id="w223">проповѣдꙋа̀</w><w xml:id="w224">,</w> <w xml:id="w225">пѣⷭ҇</w>
+                        <w xml:id="w226">гл҃аше</w><w xml:id="w227">,</w> <w xml:id="w228">ꙗ҆коⷤ</w> <w xml:id="w229" norm="нынѣшнеѐ">нынѣшнеѐ</w> <w xml:id="w230">припѣваѧ</w><w xml:id="w231">:</w> <quote> <w xml:id="w232">Бж҃е</w>
+                            <w xml:id="w233">силъ</w><w xml:id="w234">,</w> <w xml:id="w235">ѡ҆брати</w> <w xml:id="w236">ны</w><w xml:id="w237">,</w> <w xml:id="w238">и҆</w> <w xml:id="w239">ꙗ҆ви</w> <w xml:id="w240">лице</w> <w xml:id="w241" norm="своѐ">своѐ</w><w xml:id="w242">,</w> <w xml:id="w243">и҆</w>
+                            <w xml:id="w244">спⷭ҇ни</w> <w xml:id="w245">бꙋдеⷨ</w><w xml:id="w246">.</w><ref decls="#biblical" cRef="CHU:Ps:79:4"/>
+                  </quote>
+               </p>
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <p><w xml:id="w247">Не</w> <w xml:id="w248">оуⷤ</w> <w xml:id="w249" norm="прїи҆де">прїи҆де</w> <w xml:id="w250">Цр҃ь</w> <w xml:id="w251">славы</w><w xml:id="w252">,</w> <w xml:id="w253">и҆</w> <w xml:id="w254">пртⷣчѧ</w>
+                        <w xml:id="w255" norm="цр҃ьствїа">цр҃ьствїа</w> <w xml:id="w256">проповѣдахоу</w><w xml:id="w257">:</w> <quote><w xml:id="w258">пасы</w>
+                                <w xml:id="w259">І҆илⷠ҇ѧ</w><ref decls="#biblical" cRef="CHU:Ps:79:2"/>
+                  </quote><w xml:id="w260">,</w> <w xml:id="w261">реⷱ҇</w><w xml:id="w262">.</w>
+                        <w xml:id="w263">Рцы</w><w xml:id="w264">,</w> <w xml:id="w265">прⷪ҇рчѣ</w><w xml:id="w266">,</w> <w xml:id="w267">свѣтлостнѣ</w><w xml:id="w268">,</w> <w xml:id="w269">еⷤ</w> <w xml:id="w270">гл҃еши</w><w xml:id="w271">,</w>
+                        <w xml:id="w272">и҆зъꙗ҆сни</w><w xml:id="w273">,</w> <w xml:id="w274">е҆́же</w> <w xml:id="w275">проповѣдꙋе҆ши</w><w xml:id="w276">.</w> <w xml:id="w277">Мноѕи</w> <w xml:id="w278">бо</w>
+                        <w xml:id="w279">пасоша</w><w xml:id="w280">:</w> <w xml:id="w281" norm="Мо҆исїи">Мо҆исїи</w> <w xml:id="w282">пастырь</w><w xml:id="w283">,</w> <w xml:id="w284">А҆а҆рѡⷩ҇</w> <w xml:id="w285">пастырь</w><w xml:id="w286">:</w>
+                            <quote><w xml:id="w287">оу҆пасе</w> <w xml:id="w288">бо</w><w xml:id="w289">,</w> <w xml:id="w290">рече</w><w xml:id="w291">,</w> <w xml:id="w292">люⷣꙵ</w> <w xml:id="w293">своѧ</w> <w xml:id="w294">рꙋкою</w>
+                            <w xml:id="w295">Мои҆сеѡ҆вою</w> <w xml:id="w296">и҆</w> <w xml:id="w297">Аа҆ронею</w><ref decls="#biblical" cRef="CHU:Ps:76:21"/>
+                  </quote><w xml:id="w298">.</w> <w xml:id="w299">Пастырь</w> <w xml:id="w300">и҆</w> <w xml:id="w301">Двд҃ъ</w><w xml:id="w302">:</w>
+                            <quote><w xml:id="w303">и҆збра</w> <seg type="insertion"><w xml:id="w304">бѡ</w><w xml:id="w305">,</w>
+                                <w xml:id="w306">реⷱ҇</w><w xml:id="w307">,</w> <w xml:id="w308">и҆</w></seg> <w xml:id="w309">Дв҃да</w><w xml:id="w310">,</w> <w xml:id="w311">раба</w> <w xml:id="w312">Свое҆го</w><w xml:id="w313">,</w>
+                            <w xml:id="w314">пасти</w> <w xml:id="w315">І҆ил҃ѧ</w><w xml:id="w316">,</w> <w xml:id="w317" norm="достоꙗ҆́нїе">достоꙗ҆́нїе</w> <w xml:id="w318" norm="Своѐ">Своѐ</w><ref decls="#biblical" cRef="CHU:Ps:77:71"/>
+                  </quote><w xml:id="w319">.</w> <w xml:id="w320">Что</w> <w xml:id="w321">оу҆бо</w> <w xml:id="w322" norm="и҆менованїе">и҆менованїе</w> <w xml:id="w323">пастырѧ</w>
+                        <w xml:id="w324">крые҆ши</w> <w xml:id="w325">достои҆ньство</w><w xml:id="w326">;</w> <w xml:id="w327">Раздѣли</w> <w xml:id="w328">ꙗ҆вьственѣ</w><w xml:id="w329">.</w>
+                        <w xml:id="w330">Бл҃горасꙋденъ</w> <w xml:id="w331">и҆</w> <w xml:id="w332">не</w> <w xml:id="w333">смꙋщенъ</w> <w xml:id="w334" norm="въспрїими">въспрїими</w> <w xml:id="w335">глⷭ҇а</w>
+                        <w xml:id="w336" norm="проповѣданїа">проповѣданїа</w><w xml:id="w337">.</w> <w xml:id="w338">Гл҃ть</w><w xml:id="w339">:</w> <quote><w xml:id="w340">пасыи</w> <w xml:id="w341">І҆ил҃ѧ</w><w xml:id="w342">,</w>
+                            <w xml:id="w343">вонми</w><w xml:id="w344">,</w> <w xml:id="w345">наставлѧа̀</w><w xml:id="w346">,</w> <w xml:id="w347">ꙗ҆ко</w> <w xml:id="w348">ѡ҆вчѧ</w><w xml:id="w349">,</w>
+                                <w xml:id="w350">І҆о́сифа</w><w xml:id="w351">.</w><ref decls="#biblical" cRef="CHU:Ps:79:2"/>
+                  </quote> <w xml:id="w352">Зде</w> <w xml:id="w353">рекъ</w>
+                            <quote><w xml:id="w354">пастырѧ</w></quote><w xml:id="w355">,</w> <w xml:id="w356">не</w> <w xml:id="w357">е҆ще</w> <w xml:id="w358">сказаеⷮ</w>
+                        <w xml:id="w359">проповѣдꙋе҆маго</w> <w xml:id="w360">достои҆ньство</w><w xml:id="w361">,</w> <w xml:id="w362">за</w> <w xml:id="w363">еⷤ</w> <w xml:id="w364">къ</w>
+                        <w xml:id="w365">дрꙋгимъ</w> <w xml:id="w366">пастыремь</w> <w xml:id="w367">е҆динои҆меньство</w><w xml:id="w368">.</w> </p>
+            </div>
+            <div type="textpart" subtype="section" n="4">
+               <p><w xml:id="w369">Что</w> <w xml:id="w370">ꙋбѡ̀</w><w xml:id="w371">;</w> <w xml:id="w372">не</w> <w xml:id="w373">е҆́ще</w> <w xml:id="w374">ли</w> <w xml:id="w375">разꙋмѣлъ</w> <w xml:id="w376">е҆си</w>
+                        <w xml:id="w377">достои҆ньство</w><w xml:id="w378">;</w> <w xml:id="w379">И҆зьꙗ҆влю</w> <w xml:id="w380">тебѣ</w>
+                        <pb n="442"/>
+                  <cb n="442a"/>
+                         <w xml:id="w381">и҆́стиноу</w><w xml:id="w382">.</w> <quote><w xml:id="w383">Сѣдѧи</w> <w xml:id="w384">на</w> <w xml:id="w385">херꙋвиме</w><w xml:id="w386">,</w> <w xml:id="w387">ꙗ҆висѧ</w><w xml:id="w388">,</w>
+                            <w xml:id="w389">възвиⷣгни</w> <w xml:id="w390">силꙋ</w> <w xml:id="w391">Твою̀</w><w xml:id="w392">,</w> <w xml:id="w393">и҆</w> <w xml:id="w394" norm="прїиди">прїиди</w><w xml:id="w395">,</w> <w xml:id="w396">да</w> <w xml:id="w397">ны</w>
+                                <w xml:id="w398">спасеши</w><ref decls="#biblical" cRef="CHU:Jn:10:11"/>
+                  </quote><w xml:id="w399">.</w> <w xml:id="w400">Видиши</w>
+                        <w xml:id="w401">ли</w><w xml:id="w402">,</w> <w xml:id="w403">како</w> <w xml:id="w404">все</w> <w xml:id="w405">ѡ҆бнажи</w> <w xml:id="w406">прⷪ҇рчествꙋе҆маго</w>
+                        <w xml:id="w407">достои҆ньство</w><w xml:id="w408">;</w> <w xml:id="w409">Видиши</w> <w xml:id="w410" norm="лї">лї</w><w xml:id="w411">,</w> <w xml:id="w412">како</w> <w xml:id="w413">црⷭ҇комоу</w> <w xml:id="w414">и҆</w>
+                        <w xml:id="w415">премирномоу</w> <w xml:id="w416">пртⷭ҇лꙋ</w> <w xml:id="w417">Цр҃ѧ</w> <w xml:id="w418">славы</w> <w xml:id="w419">възвѣсти</w> <w xml:id="w420">І҆с҃а</w><w xml:id="w421">;</w>
+                        <w xml:id="w422">тѣмже</w> <w xml:id="w423">и҆</w> <w xml:id="w424">Сп҃съ</w><w xml:id="w425">,</w> <w xml:id="w426">поутвержаѧ</w> <w xml:id="w427">е҆́же</w> <w xml:id="w428">прⷪ҇рка</w>
+                        <w xml:id="w429" norm="и҆менованїе">и҆менованїе</w><w xml:id="w430">,</w> <w xml:id="w431" norm="вопїаше">вопїаше</w> <w xml:id="w432">е҆ѵⷢ҇льскою</w> <w xml:id="w433" norm="блгⷣтїю">блгⷣтїю</w><w xml:id="w434">:</w>
+                        <w xml:id="w435">А҆́зъ</w> <w xml:id="w436">е҆смь</w> <w xml:id="w437">пастырь</w> <w xml:id="w438">добрыи</w><w xml:id="w439">.</w> <w xml:id="w440">Понеже</w> <w xml:id="w441">бо</w> <w xml:id="w442">рече</w><w xml:id="w443">,</w>
+                        <w xml:id="w444">ꙗ҆ко</w> <w xml:id="w445">словесни</w> <w xml:id="w446">Бг҃а</w> <w xml:id="w447">не</w> <w xml:id="w448">поⷥнасте</w><w xml:id="w449">,</w> <w xml:id="w450">поне</w> <w xml:id="w451">ꙗ҆ко</w>
+                        <w xml:id="w452">бесловесныа</w> <w xml:id="w453">о҆вца</w> <w xml:id="w454">пастырѧ</w> <w xml:id="w455">познаи҆те</w><w xml:id="w456">.</w> </p>
+            </div>
+            <div type="textpart" subtype="section" n="5">
+               <p><w xml:id="w457">Хотѧ</w> <w xml:id="w458">же</w> <w xml:id="w459">и҆</w> <w xml:id="w460">прⷪ҇ркъ</w> <w xml:id="w461">плѡⷣ</w> <w xml:id="w462">показати</w> <w xml:id="w463">пастырьскаго</w>
+                        <w xml:id="w464" norm="пришествїа">пришествїа</w><w xml:id="w465">:</w> <quote><w xml:id="w466">възвⷣигни</w> <w xml:id="w467">силꙋ</w> <w xml:id="w468">Твою</w><seg type="insertion"><w xml:id="w469">,</w> <w xml:id="w470">рече</w><w xml:id="w471">,</w></seg> <w xml:id="w472">и҆</w>
+                            <w xml:id="w473" norm="прїиди">прїиди</w><w xml:id="w474">,</w> <w xml:id="w475">да</w> <w xml:id="w476">ны</w> <w xml:id="w477">сп҃сеши</w><ref decls="#biblical" cRef="CHU:Jn:10:11"/>
+                  </quote><w xml:id="w478">.</w> <w xml:id="w479">Сп҃сово</w> <w xml:id="w480">бѡ҆</w> <w xml:id="w481" norm="ꙗ҆вленїе">ꙗ҆вленїе</w>
+                        <w xml:id="w482">и҆сточникъ</w> <w xml:id="w483">всѧкого</w> <w xml:id="w484">еⷭ҇</w> <w xml:id="w485" norm="бл҃годѣѧнїа">бл҃годѣѧнїа</w><w xml:id="w486">.</w> <w xml:id="w487">Ꙗ̑висѧ</w>
+                        <w xml:id="w488">оу҆бо</w> <w xml:id="w489">и҆збавитель</w> <w xml:id="w490">вселен҆н҆ыа</w><w xml:id="w491">,</w> <w xml:id="w492">всѧ</w> <w xml:id="w493" norm="въспрїемь">въспрїемь</w>
+                        <w xml:id="w494">в</w> <w xml:id="w495">Себе</w> <w xml:id="w496">за</w> <w xml:id="w497">е҆́же</w> <w xml:id="w498">Томоу</w> <w xml:id="w499">подобною</w> <w xml:id="w500" norm="бл҃гостїю">бл҃гостїю</w><w xml:id="w501">.</w>
+                        <w xml:id="w502">Понеже</w> <w xml:id="w503">видѣ</w> <w xml:id="w504">всѣⷯ</w><w xml:id="w505">,</w> <w xml:id="w506">ꙗ҆́же</w> <w xml:id="w507">на</w> <w xml:id="w508">нб҃си</w><w xml:id="w509">,</w> <w xml:id="w510">ѡⷮпаⷣшиⷯ</w><w xml:id="w511">,</w> <w xml:id="w512">и҆</w>
+                        <w xml:id="w513">сщ҃еньство</w><w xml:id="w514">,</w> <w xml:id="w515">еⷤ</w> <w xml:id="w516">да</w> <w xml:id="w517">І҆ил҃ю</w><w xml:id="w518">,</w> <w xml:id="w519">и҆</w> <w xml:id="w520">прⷪ҇рчество</w> <w xml:id="w521">всѧ</w>
+                        <w xml:id="w522">и҆зрѧднаѧ</w> <w xml:id="w523">Тои</w> <w xml:id="w524">ѡ҆бновлѧеⷮ</w> <w xml:id="w525">Собою</w> <w xml:id="w526">своѧ</w> <w xml:id="w527">дары</w><w xml:id="w528">.</w> <w xml:id="w529">И҆</w>
+                        <w xml:id="w530">како</w><w xml:id="w531">;</w> <w xml:id="w532">Слыши</w><w xml:id="w533">.</w> </p>
+            </div>
+            <div type="textpart" subtype="section" n="6">
+               <p><w xml:id="w534">Бываеⷮ</w> <w xml:id="w535">прⷪ҇ркъ</w><w xml:id="w536">,</w> <w xml:id="w537">понеже</w> <w xml:id="w538">и҆сказисѧ</w> <w xml:id="w539">прⷪ҇рчество</w> <w xml:id="w540">ѡⷮ</w>
+                        <w xml:id="w541">недостои҆ныⷯ</w><w xml:id="w542">,</w> <w xml:id="w543">ꙗ҆коⷤ</w> <w xml:id="w544">е҆сть</w> <w xml:id="w545">писано</w><w xml:id="w546">:</w>
+                            <quote><w xml:id="w547">прⷪ҇раⷦ҇</w> <w xml:id="w548">вамъ</w> <w xml:id="w549">възвиⷣгнеть</w> <w xml:id="w550">Гь҃</w> <w xml:id="w551">Бг҃ъ</w>
+                            <w xml:id="w552">ѡⷮ</w> <w xml:id="w553" norm="братїа">братїа</w> <w xml:id="w554">ва</w>
+                            <w xml:id="w555" norm="шеѧ"><cb n="442b" break="no"/>
+                            шеѧ</w><w xml:id="w556">,</w> <w xml:id="w557">ꙗ҆коже</w> <w xml:id="w558">мене</w><ref decls="#biblical" cRef="CHU:Dt:18:15"/>
+                  </quote><w xml:id="w559">.</w>
+                        <w xml:id="w560">Бывае҆тъ</w> <w xml:id="w561">а҆пⷭ҇лъ</w> <w xml:id="w562">и҆</w> <w xml:id="w563" norm="архїереи">архїереи</w> <w xml:id="w564">по</w> <w xml:id="w565">речен҆н҆омоу</w><w xml:id="w566">:</w>
+                            <quote><w xml:id="w567">смотрите</w> <w xml:id="w568">а҆пⷭ҇ла</w> <w xml:id="w569">і҆</w> <w xml:id="w570" norm="архїереѧ">архїереѧ</w>
+                            <w xml:id="w571" norm="званїа">званїа</w> <w xml:id="w572">вашего</w> <w xml:id="w573">І҆с҃а</w><w xml:id="w574">.</w><ref decls="#biblical" cRef="CHU:Heb:3:1"/>
+                  </quote> <w xml:id="w575">Бываеⷮ</w> <w xml:id="w576">сщ҃ен҆н҆икъ</w><w xml:id="w577">,</w> <w xml:id="w578">ꙗ҆коже</w> <w xml:id="w579">рече</w>
+                        <w xml:id="w580">пѣснопѣвець</w><w xml:id="w581">:</w> <quote><w xml:id="w582">Ты</w> <w xml:id="w583">е҆си</w> <w xml:id="w584">сщ҃ен҆н҆икъ</w> <w xml:id="w585">въ</w>
+                            <w xml:id="w586">вѣки</w> <w xml:id="w587">по</w> <w xml:id="w588">чиноу</w> <w xml:id="w589">Мелхиседековоу</w><w xml:id="w590">.</w><ref decls="#biblical" cRef="CHU:Ps:109:4"/>
+                  </quote> <w xml:id="w591">Бываеⷮ</w> <w xml:id="w592">братъ</w> <w xml:id="w593">и҆</w> <w xml:id="w594">слꙋжитель</w><w xml:id="w595">,</w>
+                        <w xml:id="w596">ꙗ҆коⷤ</w> <w xml:id="w597">рече</w> <w xml:id="w598">доблественыи</w> <w xml:id="w599">Павелъ</w><w xml:id="w600">:</w> <quote><w xml:id="w601">ꙗ҆ко</w>
+                            <w xml:id="w602">быти</w> <w xml:id="w603">Е҆мꙋ</w> <w xml:id="w604">первенцоу</w> <w xml:id="w605">въ</w> <w xml:id="w606">мноѕѣи҆</w> <w xml:id="w607" norm="братїи">братїи</w><ref decls="#biblical" cRef="CHU:Rom:8:29"/>
+                  </quote> <w xml:id="w608">и</w> <w xml:id="w609">паки</w><w xml:id="w610">:</w> <quote><w xml:id="w611">гл҃ю</w> <w xml:id="w612">бо</w><w xml:id="w613">,</w><seg type="insertion"> <w xml:id="w614">рече</w><w xml:id="w615">,</w></seg> <w xml:id="w616">Ха҃</w>
+                            <w xml:id="w617">слꙋжителѧ</w> <w xml:id="w618">быти</w> <w xml:id="w619" norm="ѡ҆брѣзанїю">ѡ҆брѣзанїю</w><w xml:id="w620">,</w> <w xml:id="w621">въ</w> <w xml:id="w622">е҆́же</w>
+                            <w xml:id="w623">и҆сполнити</w> <w xml:id="w624" norm="ѡ҆бѣщанїа">ѡ҆бѣщанїа</w> <w xml:id="w625">ѡ҆ц҃ь</w><ref decls="#biblical" cRef="CHU:Rom:15:8"/>
+                  </quote><w xml:id="w626">.</w> <w xml:id="w627">Всѧкимъ</w> <w xml:id="w628">оу҆бо</w> <w xml:id="w629">приходить</w>
+                        <w xml:id="w630">чиномь</w><w xml:id="w631">,</w> <w xml:id="w632">и҆</w> <w xml:id="w633">бываеⷮ</w> <w xml:id="w634">паки</w> <w xml:id="w635">и҆</w> <w xml:id="w636">чтець</w><w xml:id="w637">:</w>
+                            <quote><w xml:id="w638" norm="прїемь">прїемь</w> <w xml:id="w639">бо</w> <w xml:id="w640" norm="И҆саїю">И҆саїю</w><ref decls="#biblical" cRef="CHU:Lk:4:17"/>
+                  </quote><w xml:id="w641">,</w> <w xml:id="w642">чтѧше</w><w xml:id="w643">,</w> <w xml:id="w644">ꙗ҆коⷤ</w> <w xml:id="w645">сказаеⷮ</w>
+                        <w xml:id="w646" norm="Е҆ѵⷢ҇лїе">Е҆ѵⷢ҇лїе</w><w xml:id="w647">,</w> <w xml:id="w648">да</w> <w xml:id="w649">и҆</w> <w xml:id="w650" norm="прⷪ҇рческїа">прⷪ҇рческїа</w> <w xml:id="w651">гласы</w>
+                        <w xml:id="w652">и҆звѣстить</w><w xml:id="w653">,</w> <w xml:id="w654">и҆</w> <w xml:id="w655">цр҃ковныа</w> <w xml:id="w656">требища</w> <w xml:id="w657">почтеⷮ</w><w xml:id="w658">.</w> <w xml:id="w659">Быⷭ҇</w>
+                        <w xml:id="w660">и҆</w> <w xml:id="w661">цр҃ь</w> <w xml:id="w662">цртⷭ҇воую҆щиⷯ</w><w xml:id="w663">,</w> <w xml:id="w664">ꙗ҆коⷤ</w> <w xml:id="w665">реⷱ҇</w> <w xml:id="w666">Нафанаи҆лъ</w><w xml:id="w667">:</w>
+                            <quote><w xml:id="w668">рав̾ви</w><w xml:id="w669">,</w> <w xml:id="w670">Ты</w> <w xml:id="w671">е҆си</w> <w xml:id="w672">Сн҃ъ</w> <w xml:id="w673" norm="Бж҃їи">Бж҃їи</w><w xml:id="w674">,</w> <w xml:id="w675">Ты</w>
+                            <w xml:id="w676">Цр҃ь</w> <w xml:id="w677">е҆си</w> <w xml:id="w678">І҆ил҃е</w><w xml:id="w679">.</w><ref decls="#biblical" cRef="CHU:Jn:1:49"/>
+                  </quote>
+               </p>
+            </div>
+            <div type="textpart" subtype="section" n="7">
+               <p><w xml:id="w680">Но</w> <w xml:id="w681">речеⷮ</w> <w xml:id="w682">кто</w> <w xml:id="w683">негли</w> <w xml:id="w684">ѡⷮ</w> <w xml:id="w685">преⷣстоꙗ҆́щиⷯ</w><w xml:id="w686">:</w> <w xml:id="w687">что</w> <w xml:id="w688">ꙋбо</w> <w xml:id="w689">ко</w>
+                        <w xml:id="w690">мнѣ</w> <w xml:id="w691">людиноу</w><w xml:id="w692">,</w> <w xml:id="w693">а҆́ще</w> <w xml:id="w694">прⷪ҇рчьствомъ</w> <w xml:id="w695">и҆</w>
+                        <w xml:id="w696">апⷭ҇льствоⷨ</w> <w xml:id="w697">і҆</w> <w xml:id="w698" norm="архїереиствомъ">архїереиствомъ</w> <w xml:id="w699">ѡ҆дѣꙗ҆сѧ</w><w xml:id="w700">;</w> <w xml:id="w701">что</w>
+                        <w xml:id="w702">ко</w> <w xml:id="w703">мнѣ</w><w xml:id="w704">,</w> <w xml:id="w705">иⷤ</w> <w xml:id="w706">в</w> <w xml:id="w707">людьскомъ</w> <w xml:id="w708">чиноу</w> <w xml:id="w709">причтен҆н҆омоу</w><w xml:id="w710">;</w>
+                        <w xml:id="w711">Паⷱ҇</w> <w xml:id="w712">же</w> <w xml:id="w713">оу҆бѡ</w> <w xml:id="w714">за</w> <w xml:id="w715">всѧ</w> <w xml:id="w716">чл҃ки</w> <w xml:id="w717">бысть</w> <w xml:id="w718">чл҃къ</w>
+                        <w xml:id="w719">чл҃колюбивыи</w><w xml:id="w720">.</w> <w xml:id="w721">А҆́ще</w> <w xml:id="w722">ли</w> <w xml:id="w723">хощеши</w> <w xml:id="w724">Того</w> <w xml:id="w725">и҆</w> <w xml:id="w726">людина</w>
+                        <w xml:id="w727">чиⷩ҇</w> <w xml:id="w728" norm="прїемлюща">прїемлюща</w> <w xml:id="w729">видѣти</w> <w xml:id="w730">Тебе</w> <w xml:id="w731">ради</w><w xml:id="w732">,</w> <w xml:id="w733">посꙋди</w> <w xml:id="w734">в</w>
+                        <w xml:id="w735">себѣ</w> <w xml:id="w736">и҆</w> <w xml:id="w737">смотри</w> <w xml:id="w738">хотѧще҆сѧ</w> <w xml:id="w739">рещи</w><w xml:id="w740">.</w> <w xml:id="w741">И҆спо</w>
+                        <cb n="442c"/>
+                        <w xml:id="w742">вѣдательное</w> <w xml:id="w743">крⷭ҇тѧи</w> <w xml:id="w744">не</w> <w xml:id="w745">въ</w> <w xml:id="w746">странѣ</w> <w xml:id="w747">ли</w> <w xml:id="w748">е҆сть</w>
+                        <w xml:id="w749">сщ҃енника</w><w xml:id="w750">,</w> <w xml:id="w751">крщ҃ае҆мыи</w> <w xml:id="w752">не</w> <w xml:id="w753">в</w> <w xml:id="w754">чиноу</w> <w xml:id="w755">ли</w> <w xml:id="w756">людина</w>
+                        <w xml:id="w757">е҆сть</w><w xml:id="w758">;</w> <w xml:id="w759">Зриꙵ</w> <w xml:id="w760">оу҆бо</w> <w xml:id="w761">І҆ѡ҆а́н҆н҆а</w><w xml:id="w762">,</w> <w xml:id="w763">крщ҃аю҆ща</w> <w xml:id="w764">в</w>
+                        <w xml:id="w765">чинꙋ</w> <w xml:id="w766">сщ҃ен҆н҆ика</w><w xml:id="w767">,</w> <w xml:id="w768">и҆</w> <w xml:id="w769">крщ҃ае҆ма</w> <w xml:id="w770">Ха҃</w> <w xml:id="w771">в</w> <w xml:id="w772">чинꙋ</w>
+                        <w xml:id="w773">людина</w><w xml:id="w774">.</w> <w xml:id="w775">Днⷭ҇ь</w> <w xml:id="w776">бо</w><w xml:id="w777">,</w> <w xml:id="w778" norm="бра́тїе">бра́тїе</w><w xml:id="w779">,</w> <w xml:id="w780">днесь</w> <w xml:id="w781">е҆́же</w> <w xml:id="w782">водами</w>
+                        <w xml:id="w783">и҆сполни</w> <w xml:id="w784" norm="смотренїе">смотренїе</w><w xml:id="w785">,</w> <w xml:id="w786">не</w> <w xml:id="w787">ѡⷮ</w> <w xml:id="w788">водъ</w> <w xml:id="w789">ѡ҆сщ҃ае҆мъ</w><w xml:id="w790">,</w> <w xml:id="w791">но</w>
+                        <w xml:id="w792">водамъ</w> <w xml:id="w793" norm="ѡ҆сщ҃енїе">ѡ҆сщ҃енїе</w> <w xml:id="w794">подаѧ</w><w xml:id="w795">.</w> <w xml:id="w796">И҆</w> <w xml:id="w797">І҆ѡⷩ҇а</w> <w xml:id="w798">и҆сполнѧше</w>
+                        <w xml:id="w799">ѡ҆́бразъ</w> <w xml:id="w800" norm="сщ҃ен҆н҆ическїи">сщ҃ен҆н҆ическїи</w><w xml:id="w801">,</w> <w xml:id="w802">пристꙋпае҆тъ</w> <w xml:id="w803">і҆</w>
+                        <w xml:id="w804">И҆збавитель</w> <w xml:id="w805">вселеныа̀</w> <w xml:id="w806">крщ҃аю҆щемоу</w> <w xml:id="w807">вꙵ</w> <w xml:id="w808">водѣ</w>
+                        <w xml:id="w809">І҆ѡ҆а́н҆н҆ꙋ</w><w xml:id="w810">,</w> <w xml:id="w811">кр҃щаѧиⷯ</w> <w xml:id="w812">в</w> <w xml:id="w813">Дс҃ѣ</w><w xml:id="w814">,</w> <w xml:id="w815">Цр҃ь</w> <w xml:id="w816">къ</w> <w xml:id="w817">пртⷣчи</w><w xml:id="w818">,</w>
+                        <w xml:id="w819">Бг҃ъ</w> <w xml:id="w820">къ</w> <w xml:id="w821">прⷪ҇ркꙋ</w><w xml:id="w822">.</w> <w xml:id="w823">Не</w> <w xml:id="w824">не</w> <w xml:id="w825">оу҆̀разꙋмѣ</w>
+                        <w xml:id="w826">достои҆ньства</w> <w xml:id="w827" norm="смотренїа">смотренїа</w><w xml:id="w828">,</w> <w xml:id="w829">не</w> <w xml:id="w830">смѧте</w> <w xml:id="w831">е҆го</w>
+                        <w xml:id="w832">ѡ҆́бразъ</w> <w xml:id="w833">тѣлесныи</w><w xml:id="w834">,</w> <w xml:id="w835">не</w> <w xml:id="w836">прельсти</w> <w xml:id="w837">е҆го</w> <w xml:id="w838">видимаго</w>
+                        <w xml:id="w839">зрака</w> <w xml:id="w840">невидимагѧ</w> <w xml:id="w841">си́ла</w><w xml:id="w842">,</w> <w xml:id="w843">ю҆́же</w> <w xml:id="w844">и҆</w> <w xml:id="w845">невѣдꙋщимъ</w>
+                        <w xml:id="w846">проповѣдашꙵ</w><w xml:id="w847">.</w> <w xml:id="w848">Свѣтилникъ</w> <w xml:id="w849">бо</w> <w xml:id="w850">бѣ</w> <w xml:id="w851">ст҃ыи</w><w xml:id="w852">,</w> <w xml:id="w853">ди́вныи</w>
+                        <w xml:id="w854">свѣтилникъ</w><w xml:id="w855">,</w> <w xml:id="w856">ѡ҆</w> <w xml:id="w857">немьⷤ</w><w xml:id="w858">:</w> <quote><w xml:id="w859">оу҆готоваⷯ</w>
+                            <w xml:id="w860">свѣтилникъ</w> <w xml:id="w861">Хоу҃</w> <w xml:id="w862">Мое҆мꙋ</w><ref decls="#biblical" cRef="CHU:Ps:131:17"/>
+                  </quote><w xml:id="w863">,</w> <w xml:id="w864">прⷪ҇ркоⷨ</w> <w xml:id="w865">речесѧ</w><w xml:id="w866">.</w> <w xml:id="w867">Свѣтилникъⷤ</w>
+                        <w xml:id="w868">І҆ѡаⷩ҇</w> <w xml:id="w869">преⷣнарицашесѧ</w><w xml:id="w870">,</w> <w xml:id="w871">не</w> <w xml:id="w872">понеⷤ</w> <w xml:id="w873" norm="Бж҃їю">Бж҃їю</w>
+                        <w xml:id="w874">Словеси</w><w xml:id="w875">,</w> <w xml:id="w876">свѣтꙋ</w> <w xml:id="w877">и҆́стин҆н҆омоу</w><w xml:id="w878">,</w> <w xml:id="w879">потреба</w> <w xml:id="w880">бѣ</w>
+                        <w xml:id="w881">е҆́же</w> <w xml:id="w882">ѡⷮ</w> <w xml:id="w883">свѣтилника</w> <w xml:id="w884" norm="приложенїа">приложенїа</w><w xml:id="w885">:</w> <w xml:id="w886">сл҃нце</w> <w xml:id="w887">бо</w> <w xml:id="w888">бѣ</w>
+                        <w xml:id="w889" norm="праведноѐ">праведноѐ</w><w xml:id="w890">,</w> <w xml:id="w891">но</w> <w xml:id="w892">понеⷤ</w> <w xml:id="w893">и҆же</w> <w xml:id="w894">въ</w> <w xml:id="w895">плоти</w> <w xml:id="w896">крые҆маⷢ҇</w>
+                        <w xml:id="w897">Га҃</w> <w xml:id="w898">познаваше</w><w xml:id="w899">,</w> <w xml:id="w900">ꙗ҆ко</w> <w xml:id="w901">в</w> <w xml:id="w902">нощи</w><w xml:id="w903">,</w> <w xml:id="w904">і҆оу҆деи҆скаго</w>
+                        <w xml:id="w905" norm="ꙋстрое҆́нїа">ꙋстрое҆́нїа</w><w xml:id="w906">,</w> <w xml:id="w907">свѣⷮ</w> <w xml:id="w908">ѡ҆блистаѧ</w> <w xml:id="w909">бжⷭ҇твенаго</w>
+                        <w xml:id="w910">Словеси</w><w xml:id="w911">.</w> <w xml:id="w912">Нарицае҆тсѧ</w> <w xml:id="w913">свѣтиⷧниⷦ҇</w>
+                        <cb n="442d"/>
+                         <w xml:id="w914">в</w> <w xml:id="w915">лѣпотоу</w><w xml:id="w916">.</w> </p>
+            </div>
+            <div type="textpart" subtype="section" n="8">
+               <p><w xml:id="w917">И҆</w> <w xml:id="w918">зриꙵте</w> <w xml:id="w919">дивное</w><w xml:id="w920">,</w> <w xml:id="w921" norm="братїе">братїе</w><w xml:id="w922">.</w> <w xml:id="w923">Е҆гда</w> <w xml:id="w924">приде</w> <w xml:id="w925">на</w>
+                        <w xml:id="w926">плоⷮское</w> <w xml:id="w927" norm="смотренїе">смотренїе</w><w xml:id="w928">,</w> <w xml:id="w929">иⷤ</w> <w xml:id="w930">к</w> <w xml:id="w931">намъ</w> <w xml:id="w932">пришедыи</w> <w xml:id="w933">Влⷣка</w><w xml:id="w934">,</w>
+                        <w xml:id="w935">чл҃кь</w> <w xml:id="w936" norm="чл҃колюбїа">чл҃колюбїа</w> <w xml:id="w937">раⷣ</w> <w xml:id="w938">ꙵ</w> <w xml:id="w939">бывъ</w><w xml:id="w940">,</w> <w xml:id="w941">и҆</w> <w xml:id="w942">стран҆н҆ое</w>
+                        <w xml:id="w943">чюдо</w><w xml:id="w944">:</w> <w xml:id="w945">Бг҃ъ</w> <w xml:id="w946">въ</w> <w xml:id="w947">чл҃цѣⷯ</w><w xml:id="w948">,</w> <w xml:id="w949">в</w> <w xml:id="w950">рабеⷯ</w> <w xml:id="w951">Влⷣка</w><w xml:id="w952">,</w> <w xml:id="w953">Творець</w>
+                        <w xml:id="w954">со</w> <w xml:id="w955">творенми</w><w xml:id="w956">,</w> <w xml:id="w957" norm="ѡ҆сщ҃ѧѝ">ѡ҆сщ҃ѧѝ</w> <w xml:id="w958">съ</w> <w xml:id="w959">ѡ҆сщ҃ае҆мыми</w><w xml:id="w960">,</w> <w xml:id="w961">тогда</w>
+                        <w xml:id="w962">І҆ѡаⷩ҇</w> <w xml:id="w963">проповѣдꙋеⷮ</w> <w xml:id="w964">достои҆ньство</w><w xml:id="w965">,</w> <w xml:id="w966">и҆</w> <w xml:id="w967">бѣ</w> <w xml:id="w968">видѣти</w>
+                        <w xml:id="w969">преславно</w> <w xml:id="w970">і҆</w> <w xml:id="w971">оу҆жасно</w> <w xml:id="w972">чюⷣ</w><w xml:id="w973">:</w> <w xml:id="w974">свѣтилника</w><w xml:id="w975">,</w>
+                        <w xml:id="w976" norm="прїемлюща">прїемлюща</w> <w xml:id="w977">сл҃нце</w> <w xml:id="w978" norm="праведноѐ">праведноѐ</w><w xml:id="w979">,</w> <w xml:id="w980">и҆бо</w> <w xml:id="w981">всѣⷯ</w>
+                        <w xml:id="w982">и҆збавителѧ</w> <w xml:id="w983">Га҃</w> <w xml:id="w984" norm="и҆збавленїа">и҆збавленїа</w> <w xml:id="w985">требꙋѧ</w> <w xml:id="w986">и҆</w> <w xml:id="w987">чл҃къ</w>
+                        <w xml:id="w988">крⷭ҇ти</w><w xml:id="w989">,</w> <w xml:id="w990">не</w> <w xml:id="w991" norm="дерзостїю">дерзостїю</w> <w xml:id="w992">преⷣвосхитивсѧ</w><w xml:id="w993">,</w> <w xml:id="w994">но</w>
+                        <w xml:id="w995" norm="повелѣнїю">повелѣнїю</w> <w xml:id="w996">поработи꙽҇сѧ</w><w xml:id="w997">.</w> <w xml:id="w998">Тогда</w> <w xml:id="w999">бо</w><w xml:id="w1000">,</w> <w xml:id="w1001">тогда</w>
+                        <w xml:id="w1002">стекошасѧ</w> <w xml:id="w1003">дваꙵ</w> <w xml:id="w1004">пророческа</w> <w xml:id="w1005">гласа</w><w xml:id="w1006">:</w> <quote><w xml:id="w1007">глаⷭ҇</w>
+                            <w xml:id="w1008" norm="въпїю́щаго">въпїю́щаго</w> <w xml:id="w1009">в</w> <w xml:id="w1010">пꙋстыни</w><ref decls="#biblical" cRef="CHU:Is:40:3"/>
+                  </quote><w xml:id="w1011">,</w> <w xml:id="w1012">и҆</w> <quote><w xml:id="w1013">глаⷭ҇</w> <w xml:id="w1014">на</w> <w xml:id="w1015">водаⷯ</w><ref decls="#biblical" cRef="CHU:Ps:28:3"/>
+                  </quote><w xml:id="w1016">.</w> <w xml:id="w1017">Проповѣдникъ</w> <w xml:id="w1018">и҆́стин҆н҆ыи</w>
+                        <w xml:id="w1019" norm="въпїетъ">въпїетъ</w><w xml:id="w1020">,</w> <w xml:id="w1021">и҆</w> <quote><w xml:id="w1022">Бг҃ъ</w> <w xml:id="w1023">славы</w> <w xml:id="w1024">възгремѣ</w><ref decls="#biblical" cRef="CHU:Ps:28:3"/>
+                  </quote><w xml:id="w1025">.</w> <w xml:id="w1026">И҆</w> <w xml:id="w1027">бѣ</w> <w xml:id="w1028">тамо</w> <w xml:id="w1029">поклон҆н҆аѧ</w>
+                        <w xml:id="w1030">Трои҆ца</w><w xml:id="w1031">,</w> <w xml:id="w1032">свою</w> <w xml:id="w1033">славꙋ</w> <w xml:id="w1034">ѡ҆блистаю҆щи</w><w xml:id="w1035">:</w> <w xml:id="w1036">Ѡ҆ц҃ь</w> <w xml:id="w1037">свыше</w>
+                        <w xml:id="w1038">Сн҃а</w> <w xml:id="w1039">проповѣдꙋѧ</w><w xml:id="w1040">,</w> <w xml:id="w1041">Сн҃ъ</w> <w xml:id="w1042">низꙋ</w> <w xml:id="w1043">и҆сполнѧа̀</w>
+                        <w xml:id="w1044">бжⷭ҇твеное</w> <w xml:id="w1045" norm="смотренїе">смотренїе</w><w xml:id="w1046">,</w> <w xml:id="w1047">Дх҃ъ</w> <w xml:id="w1048">Ст҃ыи</w> <w xml:id="w1049">запечатлѣꙗ̀</w>
+                        <w xml:id="w1050">бжⷭ҇твенное</w> <w xml:id="w1051">таи҆ньство</w><w xml:id="w1052">.</w> <w xml:id="w1053">И҆</w> <w xml:id="w1054">глⷭ҇а</w> <w xml:id="w1055">толикъ</w> <w xml:id="w1056">бываеⷮ</w>
+                        <w xml:id="w1057">свѣдѣтельствꙋю҆щꙋ</w> <w xml:id="w1058">свыше</w> <w xml:id="w1059">Ѡⷮц҃ꙋ</w> <w xml:id="w1060">Свое҆мᲂу</w>
+                        <w xml:id="w1061">Е҆динорѡⷣномᲂу</w><w xml:id="w1062">,</w> <w xml:id="w1063">ꙗ҆коже</w> <w xml:id="w1064">раздратисѧ</w> <w xml:id="w1065">нб҃семъ</w><w xml:id="w1066">:</w>
+                            <quote><w xml:id="w1067">въсходѧщꙋ</w> <w xml:id="w1068">бѡ</w> <w xml:id="w1069">І҆с҃ꙋ</w> <w xml:id="w1070">ѡⷮ</w> <w xml:id="w1071">воды</w><w xml:id="w1072">,</w>
+                                <w xml:id="w1073" norm="разраⷣшасѧ">разраⷣ<pb n="443" break="no"/>
+                     <cb n="443a" break="no"/>
+                            шасѧ</w> <w xml:id="w1074">нб҃са</w><ref decls="#biblical" cRef="CHU:Mk:1:10"/>
+                  </quote><w xml:id="w1075">:</w> <w xml:id="w1076">не</w> <w xml:id="w1077">бо</w>
+                        <w xml:id="w1078">стерпѣша</w> <w xml:id="w1079">гласа</w> <w xml:id="w1080">толикаго</w> <w xml:id="w1081">свѣдѣтеⷧства</w><w xml:id="w1082">,</w>
+                        <w xml:id="w1083">ᲂу҆жасшесѧ</w> <w xml:id="w1084">бжⷭ҇твенаго</w> <w xml:id="w1085" norm="смотренїа">смотренїа</w><w xml:id="w1086">.</w> </p>
+            </div>
+            <div type="textpart" subtype="section" n="9">
+               <p><w xml:id="w1087">Но</w> <w xml:id="w1088">зриꙵ</w> <w xml:id="w1089">чюⷣное</w><w xml:id="w1090">:</w> <w xml:id="w1091">глаⷭ҇</w> <w xml:id="w1092">сеи</w> <w xml:id="w1093">нб҃са</w> <w xml:id="w1094">раздра</w><w xml:id="w1095">,</w> <w xml:id="w1096">а҆</w>
+                        <w xml:id="w1097">е҆ретики</w> <w xml:id="w1098">не</w> <w xml:id="w1099">ᲂу҆страши</w><w xml:id="w1100">.</w> <quote><w xml:id="w1101">Сеи</w> <w xml:id="w1102">еⷭ҇</w> <w xml:id="w1103">Сн҃ъ</w> <w xml:id="w1104">Мои</w>
+                            <w xml:id="w1105">възлюблен҆н҆ыи</w><w xml:id="w1106">,</w> <w xml:id="w1107">Тѡⷢ҇</w> <w xml:id="w1108">послꙋшаи҆те</w><w xml:id="w1109">.</w><ref decls="#biblical" cRef="CHU:Mt:3:18"/>
+                  </quote> <w xml:id="w1110">Понеже</w> <w xml:id="w1111">преⷣвари</w> <w xml:id="w1112">законъ</w>
+                        <w xml:id="w1113">проповѣдꙋѧ</w><w xml:id="w1114">,</w> <w xml:id="w1115">и҆</w> <w xml:id="w1116">прⷪ҇рцы</w> <w xml:id="w1117">бл҃говѣстᲂую҆ще</w><w xml:id="w1118">,</w> <w xml:id="w1119">да</w> <w xml:id="w1120">не</w>
+                        <w xml:id="w1121">кто</w> <w xml:id="w1122">первымъ</w> <w xml:id="w1123" norm="ᲂу҆строе҆́нїеⷨ">ᲂу҆строе҆́нїеⷨ</w> <w xml:id="w1124">і҆ᲂу҆деи҆скаго</w>
+                        <w xml:id="w1125" norm="сложенїа">сложенїа</w> <w xml:id="w1126">вземлемъ</w><w xml:id="w1127">,</w> <w xml:id="w1128">ѡⷮтрѧсеⷮ</w> <w xml:id="w1129">ꙗ҆ремъ</w>
+                        <w xml:id="w1130" norm="е҆ваⷩ҇гельскїа">е҆ваⷩ҇гельскїа</w> <w xml:id="w1131">блгⷣти</w><w xml:id="w1132">,</w> <w xml:id="w1133">бжтⷭ҇веныи</w> <w xml:id="w1134">глаⷭ҇</w>
+                        <w xml:id="w1135">расꙋждаеⷮ</w> <w xml:id="w1136">ра́вное</w> <w xml:id="w1137">ѡⷮ</w> <w xml:id="w1138">влчнѧго</w> <w xml:id="w1139">достои҆ньства</w><w xml:id="w1140">.</w>
+                            <quote><w xml:id="w1141">Того</w> <w xml:id="w1142">послᲂушаи҆те</w><w xml:id="w1143">.</w><ref decls="#biblical" cRef="CHU:Mt:17:5"/>
+                  </quote> <w xml:id="w1144">Того</w><w xml:id="w1145">,</w> <w xml:id="w1146">кого</w> <w xml:id="w1147">ꙗ҆́вѣ</w><w xml:id="w1148">,</w> <w xml:id="w1149">ꙗ҆ко</w> <w xml:id="w1150">Ха҃</w><w xml:id="w1151">:</w>
+                        <w xml:id="w1152" norm="и҆сполненїе">и҆сполненїе</w> <w xml:id="w1153">бо</w> <w xml:id="w1154">законꙋ</w> <w xml:id="w1155">Хс҃</w><w xml:id="w1156">,</w> <w xml:id="w1157" norm="и҆сполненїе">и҆сполненїе</w>
+                        <w xml:id="w1158">бл҃гиⷯ</w> <w xml:id="w1159">І҆с҃ъ</w><w xml:id="w1160">.</w> <w xml:id="w1161">А҆́ще</w> <w xml:id="w1162">бѡ</w> <w xml:id="w1163">и҆</w> <w xml:id="w1164">преварѧхᲂу</w>
+                        <w xml:id="w1165">закон҆н҆аѧ̀</w> <w xml:id="w1166" norm="блⷭ҇вленїа">блⷭ҇вленїа</w><w xml:id="w1167">,</w> <w xml:id="w1168">но</w> <w xml:id="w1169">не</w> <w xml:id="w1170">бѧхᲂу</w>
+                        <w xml:id="w1171">съвершена</w><w xml:id="w1172">,</w> <w xml:id="w1173">о҆жидаю҆ще</w> <w xml:id="w1174">Га҃</w> <w xml:id="w1175">нашего</w><w xml:id="w1176">,</w> <w xml:id="w1177">ѡ҆</w> <w xml:id="w1178">Немже</w>
+                        <w xml:id="w1179">рече</w> <w xml:id="w1180">чюⷣныи</w> <w xml:id="w1181">Павелъ</w> <quote><w xml:id="w1182" norm="и҆сполненїе">и҆сполненїе</w> <w xml:id="w1183">бо</w>
+                            <w xml:id="w1184">законᲂу</w> <w xml:id="w1185">Хс҃</w><w xml:id="w1186">.</w><ref decls="#biblical" cRef="CHU:Rom:13:10"/>
+                  </quote> <w xml:id="w1187">И҆</w>
+                        <w xml:id="w1188">хощеши</w> <w xml:id="w1189">ли</w><w xml:id="w1190">,</w> <w xml:id="w1191">ѡⷮ</w> <w xml:id="w1192">вещеи</w> <w xml:id="w1193">ꙗ҆вьствено</w> <w xml:id="w1194">тебѣ</w> <w xml:id="w1195">преⷣставлю</w>
+                        <w xml:id="w1196">и҆́стинᲂу</w><w xml:id="w1197">,</w> <w xml:id="w1198">свѣдѣтельствꙋю҆щᲂу</w> <w xml:id="w1199">речен҆н҆ымъ</w><w xml:id="w1200">;</w>
+                        <w xml:id="w1201">Вонми</w> <w xml:id="w1202">ѡ҆пасно</w><w xml:id="w1203">.</w> <w xml:id="w1204">Повелѣ</w> <w xml:id="w1205" norm="Мѡѵꙵсїи">Мѡѵꙵсїи</w>
+                        <w xml:id="w1206">законоположитель</w> <w xml:id="w1207">раздѣлитисѧ</w> <w xml:id="w1208">о҆бѣма</w> <w xml:id="w1209">надесѧⷮ</w>
+                        <w xml:id="w1210">колѣнома</w> <w xml:id="w1211">І҆и҆лѣвѣма</w><w xml:id="w1212">,</w> <w xml:id="w1213">и҆</w> <w xml:id="w1214">шесть</w> <w xml:id="w1215">ᲂубо</w> <w xml:id="w1216">колѣнъ</w>
+                        <w xml:id="w1217">възведе</w> <w xml:id="w1218">на</w> <w xml:id="w1219">горᲂу</w> <w xml:id="w1220">Гевальскꙋю</w><w xml:id="w1221">,</w> <w xml:id="w1222">шесть</w> <w xml:id="w1223">же</w>
+                        <cb n="443b"/>
+                         <w xml:id="w1224">на</w> <w xml:id="w1225" norm="Гаризїискꙋю">Гаризїискꙋю</w> <w xml:id="w1226">горᲂу</w><w xml:id="w1227">,</w> <w xml:id="w1228">и҆</w> <w xml:id="w1229">повелѣваеⷮ</w> <w xml:id="w1230">ᲂу҆́бо</w>
+                        <w xml:id="w1231">ѡ҆нѣмъ</w> <w xml:id="w1232">блвлⷭ҇ѧти</w><w xml:id="w1233">,</w> <w xml:id="w1234">ѡ҆вѣмъ</w> <w xml:id="w1235">же</w> <w xml:id="w1236">проклинати</w><w xml:id="w1237">:</w>
+                        <w xml:id="w1238">блⷭ҇влѧти</w> <w xml:id="w1239">ᲂу҆бо</w> <w xml:id="w1240">и҆справлѧю҆щиⷯ</w> <w xml:id="w1241">законъ</w><w xml:id="w1242">,</w>
+                        <w xml:id="w1243">проклинати</w> <w xml:id="w1244">престᲂупаю҆щиⷯ</w><w xml:id="w1245">.</w> <w xml:id="w1246">Что</w> <w xml:id="w1247">ᲂу҆бо</w><w xml:id="w1248">;</w> <w xml:id="w1249">Ѡ҆</w>
+                        <w xml:id="w1250">клѧтваⷯ</w> <w xml:id="w1251">бѣ</w> <w xml:id="w1252">всѣхъ</w> <w xml:id="w1253">наводимо</w> <w xml:id="w1254" norm="запечатлѣнїе">запечатлѣнїе</w><w xml:id="w1255">:</w>
+                            <quote><w xml:id="w1256">рекᲂуть</w> <w xml:id="w1257">бѡ</w><w xml:id="w1258">,</w> <w xml:id="w1259">рече</w><w xml:id="w1260">,</w> <w xml:id="w1261">Левите</w><w xml:id="w1262">:</w> <w xml:id="w1263">проклѧтъ</w>
+                            <w xml:id="w1264" norm="ѡ҆ставлѧаѝ">ѡ҆ставлѧаѝ</w> <w xml:id="w1265">закѡⷩ҇</w> <w xml:id="w1266">Га҃</w> <w xml:id="w1267">Бг҃а</w><w xml:id="w1268">.</w> <w xml:id="w1269">И҆</w> <w xml:id="w1270">рекꙋ</w> <w xml:id="w1271">вси</w>
+                            <w xml:id="w1272">люⷣеꙵ</w><w xml:id="w1273">:</w> <w xml:id="w1274">а҆миⷩ҇</w><w xml:id="w1275">.</w><ref decls="#biblical" cRef="CHU:Dt:27:26"/>
+                  </quote> <w xml:id="w1276">И҆</w> <w xml:id="w1277">на</w>
+                        <w xml:id="w1278">коеждо</w> <w xml:id="w1279">заповѣди</w> <w xml:id="w1280">наⷣлежаше</w> <w xml:id="w1281">а҆</w> <w xml:id="w1282">же</w> <w xml:id="w1283">а҆минь</w>
+                        <w xml:id="w1284">престꙋпаю҆щимъ</w> <w xml:id="w1285">ѡ҆</w> <w xml:id="w1286">клѧтвѣ</w><w xml:id="w1287">.</w> <w xml:id="w1288">Ѡ҆</w> <w xml:id="w1289" norm="блⷭ҇вленїи">блⷭ҇вленїи</w> <w xml:id="w1290">же</w>
+                        <w xml:id="w1291">рекᲂуⷮ</w> <w xml:id="w1292">Левите</w><w xml:id="w1293">:</w> <quote><w xml:id="w1294">блⷭ҇вленъ</w> <w xml:id="w1295">хранѧи</w> <w xml:id="w1296">законъ</w>
+                            <w xml:id="w1297">Гн҃ь</w><w xml:id="w1298">,</w> <w xml:id="w1299">блⷭ҇венъ</w> <w xml:id="w1300">на</w> <w xml:id="w1301">селѣ</w><w xml:id="w1302">,</w> <w xml:id="w1303">блвⷭ҇нъ</w> <w xml:id="w1304">въ</w> <w xml:id="w1305">градѣ</w><w xml:id="w1306">,</w>
+                            <w xml:id="w1307">блⷭ҇венъ</w> <w xml:id="w1308">в</w> <w xml:id="w1309">брани</w><ref decls="#biblical" cRef="CHU:Dt:28:1-3"/>
+                  </quote><w xml:id="w1310">,</w> <w xml:id="w1311">и҆</w>
+                        <w xml:id="w1312">никакоже</w> <w xml:id="w1313">а҆минь</w> <w xml:id="w1314">ни</w> <w xml:id="w1315">на</w> <w xml:id="w1316">е҆диномъ</w> <w xml:id="w1317">ѡⷮ</w> <w xml:id="w1318">блⷭ҇веныхъ</w><w xml:id="w1319">.</w>
+                        <w xml:id="w1320">Что</w> <w xml:id="w1321">ꙋбо</w> <w xml:id="w1322">клѧтвѣ</w> <w xml:id="w1323">ли</w> <w xml:id="w1324" norm="прїемлюⷮ">прїемлюⷮ</w> <w xml:id="w1325" norm="запечатлѣнїе">запечатлѣнїе</w><w xml:id="w1326">,</w>
+                        <w xml:id="w1327" norm="блⷭ҇вленїа">блⷭ҇вленїа</w> <w xml:id="w1328">же</w> <w xml:id="w1329">не</w> <w xml:id="w1330" norm="прїемлюⷮ">прїемлюⷮ</w> <w xml:id="w1331">печати</w><w xml:id="w1332">;</w> <w xml:id="w1333">Что</w> <w xml:id="w1334">ꙋбо</w><w xml:id="w1335">,</w>
+                        <w xml:id="w1336">хощеть</w> <w xml:id="w1337" norm="сложенїе">сложенїе</w><w xml:id="w1338">;</w> <w xml:id="w1339">Что</w> <w xml:id="w1340">сказꙋе҆тъ</w> <w xml:id="w1341" norm="гаданїе">гаданїе</w><w xml:id="w1342">;</w>
+                        <w xml:id="w1343">Е҆лико</w> <w xml:id="w1344">ꙋбо</w> <w xml:id="w1345">мощенъ</w> <w xml:id="w1346">бᲂудꙋ</w><w xml:id="w1347">,</w> <w xml:id="w1348">потщꙋсѧ</w> <w xml:id="w1349">прои҆ти</w><w xml:id="w1350">,</w>
+                        <w xml:id="w1351">вашею</w> <w xml:id="w1352" norm="любовїю">любовїю</w> <w xml:id="w1353">въскрилѧе҆мъ</w><w xml:id="w1354">:</w> <w xml:id="w1355" norm="и҆зреченїи">и҆зреченїи</w> <w xml:id="w1356">ᲂу҆бо</w>
+                        <w xml:id="w1357">клѧтвѣ</w> <w xml:id="w1358">бѣ</w> <w xml:id="w1359">и҆сполнитель</w> <w xml:id="w1360">закѡⷩ҇</w><w xml:id="w1361">,</w> <w xml:id="w1362" norm="бл҃говѣстїем">бл҃говѣстїем</w>
+                        <w xml:id="w1363">же</w> <w xml:id="w1364">ᲂу҆твердитель</w> <w xml:id="w1365">І҆с҃ъ</w><w xml:id="w1366">.</w> <w xml:id="w1367">Пребыша</w> <w xml:id="w1368" norm="блⷭ҇венїа">блⷭ҇венїа</w>
+                        <w xml:id="w1369">несовершена</w><w xml:id="w1370">,</w> <w xml:id="w1371">понеже</w> <w xml:id="w1372">подобаше</w> <w xml:id="w1373">ꙗ҆́же</w> <w xml:id="w1374">ᲂу҆бо</w>
+                        <w xml:id="w1375">законᲂу</w> <w xml:id="w1376">своѧ̀</w> <w xml:id="w1377">датисѧ</w> <w xml:id="w1378">закономъ</w><w xml:id="w1379">,</w> <w xml:id="w1380">а҆</w> <w xml:id="w1381">ѧ́же</w>
+                        <w xml:id="w1382" norm="е҆ѵⷢ҇льскїа">е҆ѵⷢ҇льскїа</w> <w xml:id="w1383">блгⷣти</w> <w xml:id="w1384">съхранитисѧ</w><w xml:id="w1385">.</w> <w xml:id="w1386">Сего</w> <w xml:id="w1387">ради</w>
+                        <w xml:id="w1388">пребыша</w> <w xml:id="w1389" norm="блⷭ҇вленїа">блⷭ҇вленїа</w><w xml:id="w1390">,</w>
+                        <cb n="443c"/>
+                         <w xml:id="w1391">е҆́же</w> <w xml:id="w1392">а҆минь</w><w xml:id="w1393">,</w> <w xml:id="w1394" norm="приложенїе">приложенїе</w> <w xml:id="w1395" norm="прочеѐ">прочеѐ</w> <w xml:id="w1396">и҆́щꙋще</w><w xml:id="w1397">.</w>
+                    </p>
+            </div>
+            <div type="textpart" subtype="section" n="10">
+               <p><w xml:id="w1398">Словесе</w> <w xml:id="w1399">и҆</w> <w xml:id="w1400">да</w> <w xml:id="w1401">нѣкомᲂу</w> <w xml:id="w1402">възнепщᲂуеⷮсѧ</w> <w xml:id="w1403">понꙋждено</w>
+                        <w xml:id="w1404">быти</w> <w xml:id="w1405" norm="блгⷣтїю">блгⷣтїю</w><w xml:id="w1406">,</w> <w xml:id="w1407">но</w> <w xml:id="w1408">паⷱ҇</w> <w xml:id="w1409">ѡⷮ</w> <w xml:id="w1410">самоѧ</w> <w xml:id="w1411">и҆́стины</w>
+                        <w xml:id="w1412">свѣдѣтельствᲂуе҆мо</w><w xml:id="w1413">,</w> <w xml:id="w1414">слыши</w> <w xml:id="w1415">премдраⷢ҇</w> <w xml:id="w1416">Павла</w><w xml:id="w1417">,</w>
+                        <w xml:id="w1418">гл҃юща</w><w xml:id="w1419">:</w> <quote><w xml:id="w1420">Гь҃</w> <w xml:id="w1421">Бг҃ь</w> <w xml:id="w1422">нашь</w> <w xml:id="w1423">І҆с҃</w> <w xml:id="w1424">Хс҃</w><w xml:id="w1425">,</w> <w xml:id="w1426">не</w>
+                            <w xml:id="w1427">бысть</w> <w xml:id="w1428">в</w> <w xml:id="w1429">Немь</w> <w xml:id="w1430">еи꙼</w> <w xml:id="w1431">и҆</w> <w xml:id="w1432" norm="нѝ">нѝ</w><w xml:id="w1433">,</w> <w xml:id="w1434">но</w> <w xml:id="w1435">все</w> <w xml:id="w1436">в</w> <w xml:id="w1437">Немь</w> <w xml:id="w1438">еи꙼</w>
+                            <w xml:id="w1439">быша</w><w xml:id="w1440">.</w> <w xml:id="w1441">Е҆лика</w> <w xml:id="w1442">бѡ</w> <w xml:id="w1443" norm="о҆бѣщанїа">о҆бѣщанїа</w> <w xml:id="w1444" norm="Бж҃їа">Бж҃їа</w> <w xml:id="w1445">в</w> <w xml:id="w1446">Немь</w><w xml:id="w1447">,</w>
+                            <w xml:id="w1448">еⷤ</w> <w xml:id="w1449">еи꙼</w><w xml:id="w1450">,</w> <w xml:id="w1451">и҆</w> <w xml:id="w1452">самое</w> <w xml:id="w1453">то</w> <w xml:id="w1454">еⷤ</w> <w xml:id="w1455">а҆минь</w> <w xml:id="w1456">къ</w> <w xml:id="w1457">славѣ</w>
+                                <w xml:id="w1458" norm="Бж҃їи">Бж҃їи</w><w xml:id="w1459">.</w><ref decls="#biblical" cRef="CHU:2Cor:1:19-20"/>
+                  </quote>
+                        <w xml:id="w1460">Ѡⷮсюдꙋ</w> <w xml:id="w1461">е҆сть</w> <w xml:id="w1462">реченное</w> <w xml:id="w1463">разᲂумѣти</w> <w xml:id="w1464">ѡⷮ</w> <w xml:id="w1465">самого</w>
+                        <w xml:id="w1466">а҆пⷭ҇ла</w><w xml:id="w1467">:</w> <quote><w xml:id="w1468">ꙗ҆ко</w> <w xml:id="w1469">мр҃твыⷯ</w> <w xml:id="w1470">сꙋщихъ</w> <w xml:id="w1471">наⷭ҇</w>
+                            <w xml:id="w1472" norm="прегрѣшенїа">прегрѣшенїа</w> <w xml:id="w1473">и҆</w> <w xml:id="w1474" norm="неѡ҆брѣзанїемь">неѡ҆брѣзанїемь</w> <w xml:id="w1475">плоти</w>
+                            <w xml:id="w1476">нашеѧ</w><w xml:id="w1477">,</w> <w xml:id="w1478">с҆</w> <w xml:id="w1479">Собою</w> <w xml:id="w1480">ѡ҆житвори</w><w xml:id="w1481">,</w> <w xml:id="w1482">дарова</w> <w xml:id="w1483">намъ</w> <w xml:id="w1484">всѧ</w>
+                            <w xml:id="w1485" norm="прегрѣшенїа">прегрѣшенїа</w><w xml:id="w1486">,</w> <w xml:id="w1487">ѡ҆цыстивъ</w> <w xml:id="w1488">е҆́же</w> <w xml:id="w1489">на</w> <w xml:id="w1490">ны</w>
+                                <w xml:id="w1491" norm="рꙋкописанїе">рꙋкописанїе</w><w xml:id="w1492">.</w><ref decls="#biblical" cRef="CHU:Col:2:13-14"/>
+                  </quote>
+                        <w xml:id="w1493">Понеже</w> <w xml:id="w1494">ᲂу҆бо</w> <w xml:id="w1495">всѧко</w> <w xml:id="w1496" norm="рꙋкописанїе">рꙋкописанїе</w> <w xml:id="w1497">ᲂу҆твержае҆тсѧ</w>
+                        <w xml:id="w1498">и҆</w> <w xml:id="w1499">чресь</w> <w xml:id="w1500">предѣльствоⷨ</w> <w xml:id="w1501">законописателѧ</w> <w xml:id="w1502">и҆</w>
+                        <w xml:id="w1503" norm="пѡⷣписанїемъ">пѡⷣписанїемъ</w> <w xml:id="w1504">заи҆мовавшаго</w> <w xml:id="w1505">нꙋжно</w> <w xml:id="w1506">е҆сть</w><w xml:id="w1507">,</w> <w xml:id="w1508">и҆</w>
+                        <w xml:id="w1509">когда</w><w xml:id="w1510">,</w> <w xml:id="w1511">и҆</w> <w xml:id="w1512">гдеꙵ</w><w xml:id="w1513">,</w> <w xml:id="w1514">и҆</w> <w xml:id="w1515">како</w> <w xml:id="w1516">бысть</w><w xml:id="w1517">.</w> <w xml:id="w1518">И҆маⷮ</w> <w xml:id="w1519">ᲂу҆бо</w> <w xml:id="w1520">тꙋ</w>
+                        <w xml:id="w1521">преⷣречен҆н҆ꙋю</w> <w xml:id="w1522">винᲂу</w><w xml:id="w1523">,</w> <w xml:id="w1524">и҆бо</w> <w xml:id="w1525">законъ</w> <w xml:id="w1526">ѡⷮрицаше</w>
+                        <w xml:id="w1527">клѧтвы</w><w xml:id="w1528">,</w> <w xml:id="w1529">а҆минь</w><w xml:id="w1530">,</w> <w xml:id="w1531">людемь</w> <w xml:id="w1532">пѡⷣписᲂуѧ</w> <w xml:id="w1533">слы́шащиⷨ</w><w xml:id="w1534">.</w>
+                        <w xml:id="w1535">І҆с҃ъ</w> <w xml:id="w1536">бѣ</w> <w xml:id="w1537" norm="и҆сполненїими">и҆сполненїими</w> <w xml:id="w1538" norm="блⷭ҇венїи">блⷭ҇венїи</w><w xml:id="w1539">,</w> <w xml:id="w1540">на</w>
+                        <w xml:id="w1541">І҆ѡрданѣ</w> <w xml:id="w1542">ꙗ҆́вльсѧ</w><w xml:id="w1543">,</w> <w xml:id="w1544">и҆</w> <w xml:id="w1545">прⷪ҇рчество</w> <w xml:id="w1546" norm="И҆саїю">И҆саїю</w>
+                        <w xml:id="w1547">и҆сполнивъ</w><w xml:id="w1548">.</w> <w xml:id="w1549">Гл҃аше</w> <w xml:id="w1550">бо</w> <w xml:id="w1551" norm="И҆саїа">И҆саїа</w><w xml:id="w1552">:</w> <quote><w xml:id="w1553">да</w>
+                            <w xml:id="w1554">възрауе҆тсѧ</w> <w xml:id="w1555">пꙋстыни</w> <w xml:id="w1556">І҆ѡ҆рданова</w><w xml:id="w1557">,</w> <w xml:id="w1558">ꙗ҆ко</w>
+                            <w xml:id="w1559">слава</w> <w xml:id="w1560">Ливанова</w> <w xml:id="w1561">дана</w> <w xml:id="w1562">бысть</w> <w xml:id="w1563">еи꙼</w> <w xml:id="w1564">и҆</w> <w xml:id="w1565">чтⷭ҇ь</w>
+                            <cb n="443d"/>
+                             <w xml:id="w1566">Кармилова</w><w xml:id="w1567">.</w><ref decls="#biblical" cRef="CHU:Is:35:1-2"/>
+                  </quote> <w xml:id="w1568">Гл҃ъ</w> <w xml:id="w1569">не</w>
+                        <w xml:id="w1570">ꙗ҆вленъ</w><w xml:id="w1571">,</w> <w xml:id="w1572">ꙗ҆виⷮ</w> <w xml:id="w1573">же</w> <w xml:id="w1574">сѧ</w> <w xml:id="w1575" norm="блгⷣтїю">блгⷣтїю</w> <w xml:id="w1576" norm="Бж҃їею">Бж҃їею</w><w xml:id="w1577">.</w> </p>
+            </div>
+            <div type="textpart" subtype="section" n="11">
+               <p><w xml:id="w1578">Ливанъ</w> <w xml:id="w1579">нарицаеⷮ</w> <w xml:id="w1580" norm="писанїе">писанїе</w> <w xml:id="w1581">І҆ерⷭ҇лиⷨ</w> <w xml:id="w1582">здеꙵ</w><w xml:id="w1583">,</w> <w xml:id="w1584">и҆</w> <w xml:id="w1585">не</w>
+                        <w xml:id="w1586">мни</w> <w xml:id="w1587">понᲂуждено</w> <w xml:id="w1588">быти</w> <w xml:id="w1589">слово</w><w xml:id="w1590">.</w> <w xml:id="w1591">И҆҆езекеи҆ль</w>
+                        <w xml:id="w1592">свѣдѣтеⷧ҇ствᲂуеⷮ</w> <w xml:id="w1593">ѡ҆</w> <w xml:id="w1594">Навꙋходоносорѣ</w> <w xml:id="w1595">цр҃и</w><w xml:id="w1596">,</w>
+                        <w xml:id="w1597">гл҃аше</w><w xml:id="w1598">:</w> <quote><w xml:id="w1599">ѡ҆релъ</w> <w xml:id="w1600" norm="великїи">великїи</w><w xml:id="w1601">,</w> <w xml:id="w1602">великокрилныи</w><w xml:id="w1603">,</w>
+                            <w xml:id="w1604">простръты</w> <w xml:id="w1605">крилѣ</w><w xml:id="w1606">,</w> <w xml:id="w1607">і҆</w> <w xml:id="w1608">испоⷧ҇нь</w> <w xml:id="w1609">ногтеи</w><w xml:id="w1610">,</w>
+                            <w xml:id="w1611" norm="прїиде">прїиде</w> <w xml:id="w1612">въ</w> <w xml:id="w1613">Вавилѡⷩ҇</w><w xml:id="w1614">,</w> <w xml:id="w1615">и҆</w> <w xml:id="w1616">поꙗ҆́тъ</w>
+                            <w xml:id="w1617">и҆збран҆н҆аѧ̀</w> <w xml:id="w1618">кедра</w> <w xml:id="w1619">Ливанова</w><w xml:id="w1620">,</w> <w xml:id="w1621">и҆</w> <w xml:id="w1622">ѡⷮведе</w> <w xml:id="w1623">в̾</w>
+                                <w xml:id="w1624">Вавилонъ</w><w xml:id="w1625">.</w><ref decls="#biblical" cRef="CHU:Hes:17:3-4"/>
+                  </quote>
+                        <w xml:id="w1626">И҆збран҆н҆аѧ</w> <w xml:id="w1627">же</w> <w xml:id="w1628">котораѧ</w> <w xml:id="w1629">бѧа҆хꙋ</w><w xml:id="w1630">;</w> <w xml:id="w1631">Понеже</w>
+                        <w xml:id="w1632" norm="Седекїю">Седекїю</w> <w xml:id="w1633">свѧзавъ</w> <w xml:id="w1634">цр҃ѧ</w><w xml:id="w1635">,</w> <w xml:id="w1636">І҆ѡ҆акима</w><w xml:id="w1637">,</w> <w xml:id="w1638">и҆</w>
+                        <w xml:id="w1639">сщ҃ен҆н҆иⷦ</w><w xml:id="w1640">,</w> <w xml:id="w1641">і҆</w> <w xml:id="w1642" norm="архїереѧ">архїереѧ</w><w xml:id="w1643">:</w> <w xml:id="w1644" norm="сїа">сїа</w> <w xml:id="w1645">бо</w> <w xml:id="w1646">бѧхꙋ</w>
+                        <w xml:id="w1647">избран҆н҆аѧ</w> <w xml:id="w1648">Ливанова</w><w xml:id="w1649">,</w> <w xml:id="w1650">и҆</w> <w xml:id="w1651">ѡⷮведе</w> <w xml:id="w1652">в̾</w> <w xml:id="w1653">Вавилонъ</w><w xml:id="w1654">,</w>
+                        <w xml:id="w1655">си́це</w> <w xml:id="w1656">и҆</w> <w xml:id="w1657">зде</w> <w xml:id="w1658">речесѧ</w><w xml:id="w1659">,</w> <w xml:id="w1660">ꙗ҆ко</w> <w xml:id="w1661">слава</w> <w xml:id="w1662">Ливанова</w> <w xml:id="w1663">дана</w>
+                        <w xml:id="w1664">быⷭ҇</w> <w xml:id="w1665">ей</w><w xml:id="w1666">.</w> <w xml:id="w1667">Понеже</w> <w xml:id="w1668">и҆</w> <w xml:id="w1669">сщ҃ен҆н҆ичество</w>
+                        <w xml:id="w1670">І҆ерлⷭ҇имово</w> <w xml:id="w1671">и҆</w> <w xml:id="w1672">прⷪ҇рчьство</w> <w xml:id="w1673">все</w> <w xml:id="w1674">преи҆де</w> <w xml:id="w1675">на</w>
+                        <w xml:id="w1676">І҆ѡ҆а́н҆н҆а</w><w xml:id="w1677">,</w> <w xml:id="w1678">и҆</w> <w xml:id="w1679">весь</w> <w xml:id="w1680">І҆ерлⷭ҇имъ</w><w xml:id="w1681">,</w> <w xml:id="w1682">ѡ҆ставль</w>
+                        <w xml:id="w1683">жертовникъ</w><w xml:id="w1684">,</w> <w xml:id="w1685">и҆схожⷣаше</w> <w xml:id="w1686" norm="прїати">прїати</w> <w xml:id="w1687" norm="кр҃щенїе">кр҃щенїе</w>
+                        <w xml:id="w1688">І҆ѡ҆а́н҆н҆ово</w><w xml:id="w1689">.</w> <w xml:id="w1690">и҆</w> <w xml:id="w1691">преⷣваривъ</w> <w xml:id="w1692">прⷪ҇ркъ</w> <w xml:id="w1693">гл҃еть</w> <w xml:id="w1694">ѡ҆</w>
+                        <w xml:id="w1695">пꙋстыни</w> <w xml:id="w1696">І҆ѡ҆рдановѣ</w><w xml:id="w1697">,</w> <w xml:id="w1698">ꙗ҇ⷦ</w> <w xml:id="w1699">слава</w> <w xml:id="w1700">Ливанова</w> <w xml:id="w1701">дана</w>
+                        <w xml:id="w1702">бысть</w> <w xml:id="w1703">ей</w> <w xml:id="w1704">и҆</w> <w xml:id="w1705">чтⷭ҇ь</w> <w xml:id="w1706">Кармилова</w><w xml:id="w1707">.</w> <w xml:id="w1708">И҆</w> <w xml:id="w1709">котораѧ</w> <w xml:id="w1710">чтⷭ҇ь</w><w xml:id="w1711">;</w>
+                        <w xml:id="w1712">Слыши</w><w xml:id="w1713">,</w> <w xml:id="w1714">ꙗ҆ко</w> <w xml:id="w1715">в</w> <w xml:id="w1716" norm="мимотеченїи">мимотеченїи</w><w xml:id="w1717">.</w> <w xml:id="w1718" norm="Илїа">Илїа</w> <w xml:id="w1719">бѣ</w> <w xml:id="w1720">чтⷭ҇ь</w>
+                        <w xml:id="w1721">Кармилова</w><w xml:id="w1722">:</w> <w xml:id="w1723" norm="И҆лїа">И҆лїа</w> <w xml:id="w1724">бо</w> <w xml:id="w1725">прⷪ҇ркъ</w> <w xml:id="w1726">в</w> <w xml:id="w1727">Кармилѣ</w>
+                        <w xml:id="w1728">прѣбываше</w><w xml:id="w1729">.</w> <w xml:id="w1730">И҆</w> <w xml:id="w1731">понеже</w> <w xml:id="w1732">ᲂу҆бо</w> <w xml:id="w1733">преⷣи҆де</w>
+                        <w xml:id="w1734">І҆ѡ҆а́н҆н҆ъ</w> <quote><w xml:id="w1735">дх҃омъ</w> <w xml:id="w1736">и҆</w> <w xml:id="w1737">силою</w>
+                                <w xml:id="w1738" norm="И҆лїиною">И҆лїиною</w><ref decls="#biblical" cRef="CHU:Lk:1:17"/>
+                  </quote><w xml:id="w1739">,</w>
+                        <pb n="444"/>
+                  <cb n="444a"/>
+                         <w xml:id="w1740">зриꙵ</w> <w xml:id="w1741">се</w> <w xml:id="w1742">реⷱ҇</w><w xml:id="w1743">:</w> <quote><w xml:id="w1744">дана</w> <w xml:id="w1745">быⷭ҇</w> <w xml:id="w1746">чтⷭ҇ь</w>
+                                <w xml:id="w1747">Кармилова</w><ref decls="#biblical" cRef="CHU:Is:35:2"/>
+                  </quote> <w xml:id="w1748">в</w>
+                        <w xml:id="w1749">пᲂустыни</w><w xml:id="w1750">.</w> <w xml:id="w1751">І҆ѡ҆а́н҆н҆ъ</w> <w xml:id="w1752">бо</w> <w xml:id="w1753">бѣ</w> <w xml:id="w1754" norm="И҆лїа">И҆лїа</w> <w xml:id="w1755">но҆выи</w> <w xml:id="w1756">в</w>
+                        <w xml:id="w1757">пᲂустыни</w><w xml:id="w1758">,</w> <w xml:id="w1759">о҆</w> <w xml:id="w1760">немъⷤ</w> <w xml:id="w1761">Сп҃съ</w> <w xml:id="w1762">рече</w><w xml:id="w1763">:</w> <quote><w xml:id="w1764">а҆́ще</w>
+                            <w xml:id="w1765">хощете</w> <w xml:id="w1766" norm="прїати">прїати</w><w xml:id="w1767">,</w> <w xml:id="w1768">тоꙵ</w> <w xml:id="w1769">е҆сть</w> <w xml:id="w1770" norm="И҆лїа">И҆лїа</w><w xml:id="w1771">,</w> <w xml:id="w1772">хотѧи</w>
+                                <w xml:id="w1773" norm="прїити">прїити</w><w xml:id="w1774">.</w><ref decls="#biblical" cRef="CHU:Mt:11:14"/>
+                  </quote> <w xml:id="w1775">Понеже</w>
+                        <w xml:id="w1776">ᲂу҆бо</w> <w xml:id="w1777">и҆́ногаⷣ</w> <w xml:id="w1778" norm="И҆лїа">И҆лїа</w> <w xml:id="w1779">живѧше</w> <w xml:id="w1780">в</w> <w xml:id="w1781">пꙋстыни</w><w xml:id="w1782">,</w> <w xml:id="w1783">нн҃ѣ</w>
+                        <w xml:id="w1784">же</w> <w xml:id="w1785">І҆ѡ҆нн҃ъ</w> <w xml:id="w1786">в</w> <w xml:id="w1787">лѣпотᲂу</w> <w xml:id="w1788">рече</w><w xml:id="w1789">:</w> <quote><w xml:id="w1790">слава</w>
+                            <w xml:id="w1791">Ливанова</w> <w xml:id="w1792">дана</w> <w xml:id="w1793">быⷭ҇</w> <w xml:id="w1794">ей</w> <w xml:id="w1795">и҆</w> <w xml:id="w1796">чтⷭ҇ь</w>
+                                <w xml:id="w1797">Кармилова</w><w xml:id="w1798">.</w><ref decls="#biblical" cRef="CHU:Is:35:2"/>
+                  </quote>
+               </p>
+            </div>
+            <div type="textpart" subtype="section" n="12">
+               <p><w xml:id="w1799">Нынѣ</w> <w xml:id="w1800">ᲂу҆бо</w><w xml:id="w1801">,</w> <w xml:id="w1802" norm="възлюбленїи">възлюбленїи</w><w xml:id="w1803">,</w> <w xml:id="w1804">слава</w> <w xml:id="w1805">ѡ҆́на</w> <w xml:id="w1806">не</w>
+                        <w xml:id="w1807">пꙋстыню</w> <w xml:id="w1808">токмо</w> <w xml:id="w1809">и҆сполни</w><w xml:id="w1810">,</w> <w xml:id="w1811">но</w> <w xml:id="w1812">и҆</w> <w xml:id="w1813">вселен҆н҆ᲂую</w>
+                        <w xml:id="w1814">всю</w><w xml:id="w1815">:</w> <w xml:id="w1816">днⷭ҇ь</w> <w xml:id="w1817">бо</w> <w xml:id="w1818">по</w> <w xml:id="w1819">всеи</w> <w xml:id="w1820">земли</w> <w xml:id="w1821">пѣсни</w> <w xml:id="w1822">и҆</w>
+                        <w xml:id="w1823" norm="бг҃ословїа">бг҃ословїа</w><w xml:id="w1824">.</w> <w xml:id="w1825">Ѡⷮ</w> <w xml:id="w1826">с</w> <w xml:id="w1827">вечера</w> <w xml:id="w1828">и҆</w> <w xml:id="w1829">до</w> <w xml:id="w1830">нынѣ</w> <w xml:id="w1831">стоѧ̀тъ</w>
+                        <w xml:id="w1832">чл҃цы</w><w xml:id="w1833">,</w> <w xml:id="w1834">и҆</w> <w xml:id="w1835">пѣсньми</w> <w xml:id="w1836">пѣснь</w> <w xml:id="w1837">побѣдиша</w><w xml:id="w1838">,</w> <w xml:id="w1839">и҆</w> <w xml:id="w1840">бл҃годать</w>
+                        <w xml:id="w1841">показовашесѧ</w><w xml:id="w1842">,</w> <w xml:id="w1843">и҆</w> <w xml:id="w1844">е҆стьство</w> <w xml:id="w1845">не</w> <w xml:id="w1846">ѡ҆бличашесѧ</w><w xml:id="w1847">.</w> <w xml:id="w1848">И҆</w>
+                        <w xml:id="w1849">паче</w> <w xml:id="w1850">в</w> <w xml:id="w1851">лѣпотᲂу</w><w xml:id="w1852">.</w> <w xml:id="w1853">Ꙗ҆коже</w> <w xml:id="w1854">бо</w> <w xml:id="w1855">желѣзо</w> <w xml:id="w1856">ѡ҆гню</w>
+                        <w xml:id="w1857">съвокꙋпльсѧ</w><w xml:id="w1858">,</w> <w xml:id="w1859">е҆́же</w> <w xml:id="w1860">ᲂу҆бо</w> <w xml:id="w1861">бѣ</w><w xml:id="w1862">,</w> <w xml:id="w1863">не</w> <w xml:id="w1864">ктомᲂу</w>
+                        <w xml:id="w1865">ꙗ҆влѧе҆тсѧ</w><w xml:id="w1866">,</w> <w xml:id="w1867">а҆</w> <w xml:id="w1868">е́же</w> <w xml:id="w1869">не</w> <w xml:id="w1870">бѣ</w> <w xml:id="w1871">о҆дѣвае҆тсѧ</w><w xml:id="w1872">,</w> <w xml:id="w1873">не</w>
+                        <w xml:id="w1874">еⷭ҇ство</w> <w xml:id="w1875">ѡⷮложивъ</w><w xml:id="w1876">,</w> <w xml:id="w1877">но</w> <w xml:id="w1878">въ</w> <w xml:id="w1879">е҆стьствѣ</w> <w xml:id="w1880">свѣтлость</w>
+                        <w xml:id="w1881" norm="прїемь">прїемь</w><w xml:id="w1882">,</w> <w xml:id="w1883" norm="сїце">сїце</w> <w xml:id="w1884">и҆</w> <w xml:id="w1885">мы</w><w xml:id="w1886">,</w> <w xml:id="w1887">сподобльшесѧ</w> <w xml:id="w1888">Ст҃гл</w> <w xml:id="w1889">Дх҃а</w><w xml:id="w1890">,</w>
+                        <w xml:id="w1891">ѡⷮвергохомсѧ</w> <w xml:id="w1892">тѣлесныа</w> <w xml:id="w1893">немощи</w><w xml:id="w1894">,</w> <w xml:id="w1895">и҆</w> <w xml:id="w1896">ѡ҆дѣꙗ҆хомсѧ</w>
+                        <w xml:id="w1897">бл҃годатныⷨ</w> <w xml:id="w1898">дѣи҆ствомъ</w><w xml:id="w1899">.</w> <w xml:id="w1900">Стоꙗ҆ше</w> <w xml:id="w1901">же</w> <w xml:id="w1902">цр҃квь</w>
+                        <w xml:id="w1903">свѣтѧшесѧ</w> <w xml:id="w1904">всю</w> <w xml:id="w1905">нощь</w><w xml:id="w1906">,</w> <w xml:id="w1907">і҆</w> <w xml:id="w1908">и҆сполнѧе҆тсѧ</w> <w xml:id="w1909">на</w> <w xml:id="w1910">неи</w>
+                        <w xml:id="w1911" norm="речен҆н҆оѐ">речен҆н҆оѐ</w><w xml:id="w1912">:</w> <quote><w xml:id="w1913">быⷭ҇</w> <w xml:id="w1914">веⷱ҇ръ</w><w xml:id="w1915">,</w> <w xml:id="w1916">и҆</w> <w xml:id="w1917">быⷭ҇</w>
+                            <w xml:id="w1918">ᲂу҆́тро</w><w xml:id="w1919">,</w> <w xml:id="w1920">дн҃ь</w><w xml:id="w1921">.</w><ref decls="#biblical" cRef="CHU:Gn:1:5"/>
+                  </quote> <w xml:id="w1922">Не</w> <w xml:id="w1923">и҆мѣѧше</w>
+                        <cb n="444b"/>
+                         <w xml:id="w1924">нощь</w> <w xml:id="w1925">тмꙋ</w><w xml:id="w1926">:</w> <w xml:id="w1927">бжⷭ҇твенымъ</w> <w xml:id="w1928">бо</w> <w xml:id="w1929">словомъ</w> <w xml:id="w1930">ѡ҆свѣщашесѧ</w><w xml:id="w1931">,</w>
+                        <w xml:id="w1932">по</w> <w xml:id="w1933">речен҆н҆омᲂу</w> <w xml:id="w1934">Дв҃домъ</w><w xml:id="w1935">:</w> <quote><w xml:id="w1936">и҆</w> <w xml:id="w1937">нощь</w>
+                            <w xml:id="w1938" norm="просвѣщенїе">просвѣщенїе</w> <w xml:id="w1939">пищи</w> <w xml:id="w1940">моеи</w><w xml:id="w1941">,</w> <w xml:id="w1942">ꙗⷦ҇</w> <w xml:id="w1943">тма</w> <w xml:id="w1944">не</w>
+                            <w xml:id="w1945">ѡ҆мрачитсѧ</w> <w xml:id="w1946">ѡⷮ</w> <w xml:id="w1947">Тебе</w><w xml:id="w1948">,</w> <w xml:id="w1949">и҆</w> <w xml:id="w1950">нощь</w><w xml:id="w1951">,</w> <w xml:id="w1952">ꙗ҆ко</w> <w xml:id="w1953">дн҃ь</w>
+                                <w xml:id="w1954">просвѣтиⷮсѧ</w><w xml:id="w1955">.</w><ref decls="#biblical" cRef="CHU:Ps:138:11-12"/>
+                  </quote>
+                        <w xml:id="w1956">Толика</w> <w xml:id="w1957">бо</w> <w xml:id="w1958">доброта</w> <w xml:id="w1959">ѡ҆блиставае҆тъ</w> <w xml:id="w1960">цр҃квь</w><w xml:id="w1961">,</w>
+                        <w xml:id="w1962">ѡ҆сиꙗ҆ваеⷮ</w> <w xml:id="w1963">же</w> <w xml:id="w1964">на</w> <w xml:id="w1965">ню</w><w xml:id="w1966">,</w> <w xml:id="w1967">ꙗ҆коже</w> <w xml:id="w1968" norm="нѣкїи">нѣкїи</w> <w xml:id="w1969">вѣнець</w>
+                        <w xml:id="w1970" norm="бл҃голѣпїа">бл҃голѣпїа</w> <w xml:id="w1971">достои҆нъ</w> <w xml:id="w1972">вѣнцꙋ</w> <w xml:id="w1973" norm="цртⷭ҇вїа">цртⷭ҇вїа</w><w xml:id="w1974">,</w> <w xml:id="w1975">е҆гоⷤ</w>
+                        <w xml:id="w1976">дасть</w> <w xml:id="w1977">Бг҃ъ</w> <w xml:id="w1978">вселен҆н҆́и</w><w xml:id="w1979">.</w></p>
+               <p><w xml:id="w1980">Ѡⷮ</w> <w xml:id="w1981">бл҃гаго</w> <w xml:id="w1982">корене</w> <w xml:id="w1983">бл҃гаѧ</w> <w xml:id="w1984">процвѣтцы</w> <w xml:id="w1985">вѣтвь</w><w xml:id="w1986">.</w> <w xml:id="w1987">Е҆гда</w>
+                        <w xml:id="w1988">же</w> <w xml:id="w1989" norm="сїа">сїа</w> <w xml:id="w1990">рекᲂу</w><w xml:id="w1991">,</w> <w xml:id="w1992">двои҆цᲂу</w> <w xml:id="w1993" norm="братїи">братїи</w> <w xml:id="w1994">и҆</w> <w xml:id="w1995" norm="согласїе">согласїе</w>
+                        <w xml:id="w1996">пою</w> <w xml:id="w1997" norm="цртⷭ҇вїа">цртⷭ҇вїа</w><w xml:id="w1998">,</w> <w xml:id="w1999">а҆́ще</w> <w xml:id="w2000">и҆</w> <w xml:id="w2001">бжⷭ҇твеное</w>
+                        <w xml:id="w2002">и҆́стиньствꙋетъ</w> <w xml:id="w2003">сло́во</w><w xml:id="w2004">:</w> <w xml:id="w2005">братъ</w> <w xml:id="w2006">братомъ</w>
+                        <w xml:id="w2007">помогае҆мъ</w><w xml:id="w2008">,</w> <w xml:id="w2009">ꙗ҆ко</w> <w xml:id="w2010">градъ</w> <w xml:id="w2011">крѣпокъ</w><w xml:id="w2012">,</w> <w xml:id="w2013">и҆</w> <w xml:id="w2014">ꙗ́ко</w>
+                        <w xml:id="w2015">ꙋтвержен҆н҆о</w> <w xml:id="w2016" norm="цр҃ьствїе">цр҃ьствїе</w><w xml:id="w2017">.</w> <w xml:id="w2018" norm="Сїи">Сїи</w> <w xml:id="w2019">сᲂуⷮ</w> <w xml:id="w2020">двѣꙵ</w>
+                        <w xml:id="w2021">маслинѣ</w> <w xml:id="w2022" norm="тꙋчнѣѝ">тꙋчнѣѝ</w><w xml:id="w2023">,</w> <w xml:id="w2024">е҆́же</w> <w xml:id="w2025">преⷣстоꙗ҆́тъ</w> <w xml:id="w2026">Гвⷭ҇и</w> <w xml:id="w2027">всеѧ</w>
+                        <w xml:id="w2028">землѧ</w><w xml:id="w2029">,</w> <w xml:id="w2030">цвѣти</w> <w xml:id="w2031" norm="бл҃гочтⷭ҇їа">бл҃гочтⷭ҇їа</w><w xml:id="w2032">,</w> <w xml:id="w2033">столпи</w> <w xml:id="w2034">и҆́стины</w><w xml:id="w2035">,</w>
+                        <w xml:id="w2036">ѡ҆стѣнѧю҆ще</w> <w xml:id="w2037">цр҃квь</w><w xml:id="w2038">,</w> <w xml:id="w2039">понеⷤ</w> <w xml:id="w2040">и҆</w> <w xml:id="w2041">Хс҃</w> <w xml:id="w2042">тѣⷯ</w>
+                        <w xml:id="w2043">ѡ҆сѣнѧе҆тъ</w> <w xml:id="w2044">цртⷭ҇во</w><w xml:id="w2045">.</w> <w xml:id="w2046">А҆́з</w> <w xml:id="w2047">же</w> <w xml:id="w2048">виждꙋ</w> <w xml:id="w2049">вѣтви</w> <w xml:id="w2050">с</w>
+                        <w xml:id="w2051" norm="коренїемъ">коренїемъ</w> <w xml:id="w2052">бл҃жен҆н҆аго</w> <w xml:id="w2053">цр҃ѧ</w><w xml:id="w2054">,</w> <w xml:id="w2055" norm="сїаю҆ща">сїаю҆ща</w> <w xml:id="w2056">с</w> <w xml:id="w2057">чады</w><w xml:id="w2058">:</w>
+                        <w xml:id="w2059">не</w> <w xml:id="w2060">бѡ</w> <w xml:id="w2061">ᲂу҆́мре</w> <w xml:id="w2062">слава</w> <w xml:id="w2063">праведнымъ</w><w xml:id="w2064">,</w> <quote><w xml:id="w2065">в</w> <w xml:id="w2066">памѧⷮ</w>
+                            <w xml:id="w2067">бо</w> <w xml:id="w2068">вѣчнᲂую</w> <w xml:id="w2069">бꙋдеⷮ</w> <w xml:id="w2070">праведникъ</w><ref decls="#biblical" cRef="CHU:Ps:111:6"/>
+                  </quote><w xml:id="w2071">.</w> <w xml:id="w2072">Зриꙵши</w> <w xml:id="w2073">ли</w> <w xml:id="w2074" norm="сїаю҆ща">сїаю҆ща</w> <w xml:id="w2075">ѡ҆бразомъ</w>
+                        <w xml:id="w2076">свои҆мъ</w><w xml:id="w2077">;</w> <w xml:id="w2078">ѡ҆́бразомъ</w> <w xml:id="w2079">не</w> <w xml:id="w2080">бездꙋшнымъ</w><w xml:id="w2081">,</w> <w xml:id="w2082">но</w>
+                        <w xml:id="w2083">ѡ҆́бразоⷨ</w> <w xml:id="w2084">живымь</w><w xml:id="w2085">.</w> <w xml:id="w2086">Сматрѧю̀</w> <w xml:id="w2087">преварившаѧ</w><w xml:id="w2088">,</w> <w xml:id="w2089">и҆</w>
+                        <w xml:id="w2090">ꙋ҆жасаю҆сѧ</w><w xml:id="w2091">:</w> <w xml:id="w2092">како</w> <w xml:id="w2093">всѧ</w> <w xml:id="w2094">расыпа</w>
+                        <w xml:id="w2095" norm="хꙋсѧ"><cb n="444c" break="no"/>
+                        хꙋсѧ</w> <w xml:id="w2096">ратнаѧ</w> <w xml:id="w2097">страшилища́</w><w xml:id="w2098">;</w> <w xml:id="w2099">Вѣрнаго</w> <w xml:id="w2100">великаго</w> <w xml:id="w2101">цр҃ѧ</w>
+                        <w xml:id="w2102">вѣра</w> <w xml:id="w2103">ѡ҆́ного</w> <w xml:id="w2104">ѡⷮц҃а</w> <w xml:id="w2105">о҆стѣнѧе҆тъ</w> <w xml:id="w2106">чада</w> <w xml:id="w2107" norm="црⷭ҇твїа">црⷭ҇твїа</w><w xml:id="w2108">.</w>
+                        <w xml:id="w2109">Бг҃ъ</w> <w xml:id="w2110">преⷣводѧи</w> <w xml:id="w2111">о҆ного</w> <w xml:id="w2112">цр҃ѧ</w><w xml:id="w2113">,</w> <w xml:id="w2114">преⷣводить</w> <w xml:id="w2115">и҆</w> <w xml:id="w2116">плⷣѡ</w>
+                        <w xml:id="w2117">ѡ҆́ного</w><w xml:id="w2118">,</w> <w xml:id="w2119">иⷤ</w> <w xml:id="w2120">ѡⷮ</w> <w xml:id="w2121">бл҃гоѡⷣнаго</w> <w xml:id="w2122">прозѧбшиⷯ</w> <w xml:id="w2123">корени</w><w xml:id="w2124">.</w>
+                        <w xml:id="w2125">Помолиⷨсѧ</w><w xml:id="w2126">,</w> <w xml:id="w2127" norm="братїе">братїе</w><w xml:id="w2128">,</w> <w xml:id="w2129">да</w> <w xml:id="w2130">съхранѧтсѧ</w> <w xml:id="w2131">свѣтилницы</w>
+                        <w xml:id="w2132" norm="хрⷭ҇тїаньскаго">хрⷭ҇тїаньскаго</w> <w xml:id="w2133">бл҃гочиниѧ̀</w><w xml:id="w2134">,</w> <w xml:id="w2135">вѣтви</w> <w xml:id="w2136">масанныа̀</w><w xml:id="w2137">,</w>
+                        <w xml:id="w2138">дваꙵ</w> <w xml:id="w2139">свѣтилника</w> <w xml:id="w2140">бл҃гочтⷭ҇іа</w><w xml:id="w2141">,</w> <w xml:id="w2142" norm="ѡ҆стѣненїа">ѡ҆стѣненїа</w>
+                        <w xml:id="w2143">цр҃квьнаѧ̀</w><w xml:id="w2144">.</w> <w xml:id="w2145">Но</w> <w xml:id="w2146">да</w> <w xml:id="w2147">не</w> <w xml:id="w2148">кто</w> <w xml:id="w2149">възмниⷮ</w> <w xml:id="w2150" norm="ласканїа">ласканїа</w>
+                        <w xml:id="w2151">быти</w> <w xml:id="w2152">словеса</w><w xml:id="w2153">,</w> <w xml:id="w2154">но</w> <w xml:id="w2155">и҆́стин҆н҆ыа</w> <w xml:id="w2156">вещи</w><w xml:id="w2157">.</w> <w xml:id="w2158">Е҆́и</w><w xml:id="w2159">,</w>
+                        <w xml:id="w2160">рече</w><w xml:id="w2161">,</w> <w xml:id="w2162">да</w> <w xml:id="w2163">чл҃къ</w> <w xml:id="w2164">ли</w> <w xml:id="w2165">о҆стѣнѧе҆тъ</w> <w xml:id="w2166">цр҃квь</w><w xml:id="w2167">;</w> <w xml:id="w2168">И҆</w>
+                        <w xml:id="w2169">ѕѣло҆</w><w xml:id="w2170">.</w> <w xml:id="w2171">И҆ли</w> <w xml:id="w2172">не</w> <w xml:id="w2173">вѣси</w><w xml:id="w2174">,</w> <w xml:id="w2175">ꙗ҆ко</w> <w xml:id="w2176">Бг҃ъ</w> <w xml:id="w2177">великаѧ</w> <w xml:id="w2178" norm="даѧѝ">даѧѝ</w>
+                        <w xml:id="w2179">чл҃комъ</w><w xml:id="w2180">,</w> <w xml:id="w2181">мала</w> <w xml:id="w2182">просить</w> <w xml:id="w2183">ѡⷮ</w> <w xml:id="w2184">наⷭ҇</w><w xml:id="w2185">:</w> <w xml:id="w2186">дасть</w> <w xml:id="w2187">ман҆н҆ᲂу</w>
+                        <w xml:id="w2188">в</w> <w xml:id="w2189">пᲂустыни</w><w xml:id="w2190">,</w> <w xml:id="w2191">і҆</w> <w xml:id="w2192">и́щеⷮ</w> <w xml:id="w2193">ѡⷮ</w> <w xml:id="w2194">сщ҃ен҆н҆икъ</w> <w xml:id="w2195">хлѣбы</w><w xml:id="w2196">,</w>
+                        <w xml:id="w2197">гл҃ѧ</w><w xml:id="w2198">:</w> <quote><w xml:id="w2199">положи</w> <w xml:id="w2200">на</w> <w xml:id="w2201">трапезѣ</w> <w xml:id="w2202">хлѣбы</w> <w xml:id="w2203">прдⷣⷪ</w>
+                                <w xml:id="w2204">Мною</w><ref decls="#biblical" cRef="CHU:Ex:25:30"/>
+                  </quote><w xml:id="w2205">.</w> <w xml:id="w2206">Дасть</w>
+                        <w xml:id="w2207">столпъ</w> <w xml:id="w2208">ѡ҆́гненыи</w><w xml:id="w2209">,</w> <w xml:id="w2210">и҆</w> <w xml:id="w2211">рече</w><w xml:id="w2212">:</w> <quote><w xml:id="w2213">положи</w>
+                            <w xml:id="w2214">свѣщниⷦ</w> <w xml:id="w2215">преⷣⷪ</w> <w xml:id="w2216">Мною</w><ref decls="#biblical" cRef="CHU:Ex:25:30"/>
+                  </quote><w xml:id="w2217">.</w> <w xml:id="w2218">Толикъ</w>
+                        <w xml:id="w2219">и҆сточникъ</w> <w xml:id="w2220">свѣта</w> <w xml:id="w2221">дарꙋеⷮ</w><w xml:id="w2222">,</w> <w xml:id="w2223">и҆</w> <w xml:id="w2224">свѣщникъ</w> <w xml:id="w2225">зае҆млеⷮ</w><w xml:id="w2226">,</w>
+                        <w xml:id="w2227">да</w> <w xml:id="w2228">и҆миже</w> <w xml:id="w2229">А҆́зъ</w> <w xml:id="w2230">дарꙋю</w> <w xml:id="w2231" norm="ѡ҆билїе">ѡ҆билїе</w><w xml:id="w2232">,</w> <w xml:id="w2233">покажᲂу</w><w xml:id="w2234">,</w> <w xml:id="w2235">а҆</w>
+                        <w xml:id="w2236">и҆миже</w> <w xml:id="w2237">Ми</w> <w xml:id="w2238">просите</w><w xml:id="w2239">,</w> <w xml:id="w2240" norm="бл҃годаренїе">бл҃годаренїе</w> <w xml:id="w2241">и҆сполните</w><w xml:id="w2242">.</w>
+                        <w xml:id="w2243">Ѡ҆блистае҆тъ</w> <w xml:id="w2244">же</w> <w xml:id="w2245">паки</w> <w xml:id="w2246">цр҃квь</w> <w xml:id="w2247">первое</w> <w xml:id="w2248">ст҃ыми</w>
+                        <w xml:id="w2249">ѡⷮцы</w><w xml:id="w2250">.</w> <w xml:id="w2251">Но</w> <w xml:id="w2252">подобаеⷮ</w> <w xml:id="w2253">мѣрꙋ</w> <w xml:id="w2254">видѣти</w> <w xml:id="w2255">словесе</w><w xml:id="w2256">:</w> <w xml:id="w2257">мѣра</w> <w xml:id="w2258">же</w>
+                        <w xml:id="w2259">слова</w> <w xml:id="w2260">не</w> <w xml:id="w2261" norm="гл҃ѧѝ">гл҃ѧѝ</w><w xml:id="w2262">,</w> <w xml:id="w2263">но</w> <w xml:id="w2264" norm="послꙋшааѝ">послꙋшааѝ</w><w xml:id="w2265">.</w> <w xml:id="w2266">Понеже</w>
+                        <w xml:id="w2267">и҆стаꙗ҆ша</w> <w xml:id="w2268">словеса</w> <w xml:id="w2269">ваша</w> <w xml:id="w2270">нетрⷣꙋнымиъ</w>
+                        <w xml:id="w2271" norm="ᲂу҆сердїемь">ᲂу҆сердїемь</w><w xml:id="w2272">,</w>
+                        <cb n="444d"/>
+                         <w xml:id="w2273">нꙋжно</w> <w xml:id="w2274">е҆сть</w> <w xml:id="w2275">мѣрити</w> <w xml:id="w2276">сло́во</w><w xml:id="w2277">,</w> <w xml:id="w2278">и҆</w> <w xml:id="w2279">зде</w> <w xml:id="w2280">съставити</w><w xml:id="w2281">,</w>
+                        <w xml:id="w2282">и҆</w> <w xml:id="w2283">о҆сщ҃атисѧ</w> <w xml:id="w2284">бжⷭ҇твеною</w> <w xml:id="w2285" norm="блⷣтїю">блⷣтїю</w><w xml:id="w2286">.</w> <w xml:id="w2287">Ѡ҆свѣщеваеⷮ</w>
+                        <w xml:id="w2288">же</w> <w xml:id="w2289">наⷭ҇</w> <w xml:id="w2290">Ст҃аѧ</w> <w xml:id="w2291">Трⷪ҇ца</w><w xml:id="w2292">,</w> <w xml:id="w2293" norm="ѡ҆ч҃ьскоѐ">ѡ҆ч҃ьскоѐ</w> <w xml:id="w2294" norm="преⷣсѣданїе">преⷣсѣданїе</w><w xml:id="w2295">,</w>
+                        <w xml:id="w2296">всеѧ</w> <w xml:id="w2297">цр҃кве</w> <w xml:id="w2298" norm="гобзованїе">гобзованїе</w><w xml:id="w2299">,</w> <w xml:id="w2300">и҆</w> <w xml:id="w2301">ꙗ҆кѡⷤ</w> <w xml:id="w2302">цвѣтнаѧ</w> <w xml:id="w2303">и҆</w>
+                        <w xml:id="w2304">бл҃гомастныѧ</w> <w xml:id="w2305" norm="цр҃кїа">цр҃кїа</w> <w xml:id="w2306">ѡ҆дежⷣа</w><w xml:id="w2307">,</w> <w xml:id="w2308">сл҃нчьнᲂую̀</w> <w xml:id="w2309">лꙋчю</w>
+                        <w xml:id="w2310" norm="прїелюща">прїелюща</w><w xml:id="w2311">,</w> <w xml:id="w2312">и҆</w> <w xml:id="w2313">стѣны</w><w xml:id="w2314">,</w> <w xml:id="w2315">и҆</w> <w xml:id="w2316">покровы</w> <w xml:id="w2317">и҆</w>
+                        <w xml:id="w2318">преⷣстоꙗ҆́щаѧ</w> <w xml:id="w2319">чл҃ки</w> <w xml:id="w2320">ѡ҆блистае҆тъ</w><w xml:id="w2321">.</w> <w xml:id="w2322">И҆</w> <w xml:id="w2323">ꙗ҆кова</w>
+                        <w xml:id="w2324">а҆́ще</w> <w xml:id="w2325">бꙋдеⷮ</w> <w xml:id="w2326">масти</w> <w xml:id="w2327">добро҆та</w><w xml:id="w2328">,</w> <w xml:id="w2329">тако</w> <w xml:id="w2330">воздꙋха</w>
+                        <w xml:id="w2331" norm="бл҃гомастїе">бл҃гомастїе</w> <w xml:id="w2332">съдѣловаеⷮ</w><w xml:id="w2333">,</w> <w xml:id="w2334">любо</w> <w xml:id="w2335">позлащена</w><w xml:id="w2336">,</w> <w xml:id="w2337">любо</w>
+                        <w xml:id="w2338">ѕе́лена</w><w xml:id="w2339">,</w> <w xml:id="w2340">любо</w> <w xml:id="w2341">багрѧновидна</w><w xml:id="w2342">,</w> <w xml:id="w2343">и҆ли</w> <w xml:id="w2344">к҆</w> <w xml:id="w2345">к҆аковомꙋ</w>
+                        <w xml:id="w2346">любо</w> <w xml:id="w2347">ꙋ҆крашена</w> <w xml:id="w2348">еⷭ҇</w> <w xml:id="w2349" norm="цвѣтомастїа">цвѣтомастїа</w> <w xml:id="w2350">хитрость</w><w xml:id="w2351">,</w> <w xml:id="w2352">сице</w>
+                        <w xml:id="w2353">и҆</w> <w xml:id="w2354">цр҃ко</w> <w xml:id="w2355">ѡ҆вогда</w> <w xml:id="w2356">ᲂу҆бо</w> <w xml:id="w2357" norm="прїемлеⷮ">прїемлеⷮ</w> <w xml:id="w2358">лꙋча</w>
+                        <w xml:id="w2359" norm="прⷪ҇рчьскїа">прⷪ҇рчьскїа</w><w xml:id="w2360">,</w> <w xml:id="w2361">ѡ҆вогдаⷤ</w> <w xml:id="w2362" norm="Е҆ѵⷢ҇льскїа">Е҆ѵⷢ҇льскїа</w> <w xml:id="w2363">блгⷣти</w>
+                        <w xml:id="w2364">дѣи҆ство</w><w xml:id="w2365">,</w> <w xml:id="w2366">ꙗ҆коⷤ</w> <w xml:id="w2367">тои҆жⷣе</w> <w xml:id="w2368" norm="статїи">статїи</w> <w xml:id="w2369">по</w>
+                        <w xml:id="w2370">прⷪ҇рчьскомᲂу</w> <w xml:id="w2371">гласꙋ</w><w xml:id="w2372">,</w> <w xml:id="w2373">пестрыми</w> <w xml:id="w2374">о҆дежⷣами</w>
+                        <w xml:id="w2375" norm="сїаю҆щи">сїаю҆щи</w><w xml:id="w2376">,</w> <w xml:id="w2377">по</w> <w xml:id="w2378">речен҆н҆омᲂу</w><w xml:id="w2379">:</w> <quote><w xml:id="w2380">преⷣста</w>
+                            <w xml:id="w2381">цр҃ца</w> <w xml:id="w2382">о҆деснꙋю</w> <w xml:id="w2383">Тебе</w><w xml:id="w2384">,</w> <w xml:id="w2385">в</w> <w xml:id="w2386">ризаⷯ</w>
+                            <w xml:id="w2387">позлащен҆н҆ахъ</w> <w xml:id="w2388">о҆дѣꙗ҆на</w> <w xml:id="w2389">и҆</w>
+                                <w xml:id="w2390">преи҆спещрена</w><ref decls="#biblical" cRef="CHU:Ps:44:10"/>
+                  </quote><w xml:id="w2391">.</w> <w xml:id="w2392">Почто</w>
+                        <w xml:id="w2393">е҆́же</w> <w xml:id="w2394">преⷣста̀</w><w xml:id="w2395">,</w> <w xml:id="w2396">да</w> <w xml:id="w2397">и҆́стинньствꙋе҆тъ</w> <w xml:id="w2398">Павелъ</w><w xml:id="w2399">,</w>
+                        <w xml:id="w2400">гл҃ѧ</w><w xml:id="w2401">:</w> <quote><w xml:id="w2402">преⷣстави</w> <w xml:id="w2403">себѣ</w> <w xml:id="w2404">славно</w> <w xml:id="w2405">цр҃квь</w><w xml:id="w2406">,</w> <w xml:id="w2407">не</w>
+                            <w xml:id="w2408">и҆мᲂущи</w> <w xml:id="w2409">скверны</w><w xml:id="w2410">,</w> <w xml:id="w2411">и҆ли</w> <w xml:id="w2412">враски</w><w xml:id="w2413">,</w> <w xml:id="w2414">и҆ли</w> <w xml:id="w2415">что</w>
+                                <w xml:id="w2416">си́цевыⷯ</w><ref decls="#biblical" cRef="CHU:Eph:5:27"/>
+                  </quote><w xml:id="w2417">.</w> <w xml:id="w2418">Бᲂу́ди</w>
+                        <w xml:id="w2419">же</w> <w xml:id="w2420">и҆</w> <w xml:id="w2421">наⷨ</w><w xml:id="w2422">,</w> <w xml:id="w2423" norm="братїе">братїе</w><w xml:id="w2424">,</w> <w xml:id="w2425">бжⷭ҇твеною̀</w> <w xml:id="w2426" norm="блгⷣтїю">блгⷣтїю</w>
+                        <w xml:id="w2427">всегда̀</w> <w xml:id="w2428">ѡ҆сщ҃ае҆мыⷨ</w><w xml:id="w2429">,</w> <w xml:id="w2430">всест҃омꙋ</w> <w xml:id="w2431">Бг҃ꙋ</w> <w xml:id="w2432">славᲂу</w>
+                        <w xml:id="w2433">всылаⷮ</w> <w xml:id="w2434">ꙵ</w><w xml:id="w2435">,</w>
+                        <pb n="445"/>
+                  <cb n="445a"/>
+                         <w xml:id="w2436">ꙗ҆ко</w> <w xml:id="w2437">Томᲂу</w> <w xml:id="w2438">подобаеⷮ</w> <w xml:id="w2439">всѧка</w> <w xml:id="w2440">слава</w><w xml:id="w2441">,</w> <w xml:id="w2442">чтⷭ҇ь</w><w xml:id="w2443">,</w>
+                        <w xml:id="w2444">держава</w><w xml:id="w2445">,</w> <w xml:id="w2446">величество</w><w xml:id="w2447">,</w> <w xml:id="w2448">въ</w> <w xml:id="w2449">вѣки</w> <w xml:id="w2450">вѣкомъ</w><w xml:id="w2451">.</w> <w xml:id="w2452">А҆минь</w><w xml:id="w2453">.</w>
+                    </p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
